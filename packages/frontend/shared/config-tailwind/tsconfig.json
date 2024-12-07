@@ -1,0 +1,5 @@
+{
+  "extends": "@com.synergy/frontend-shared-typescript-config/base.json",
+  "include": ["."],
+  "exclude": ["dist", "build", "node_modules"]
+}

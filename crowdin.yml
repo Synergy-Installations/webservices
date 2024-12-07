@@ -1,3 +1,3 @@
 files:
-  - source: /packages/frontend/shared/internationalization/messages/*.json
+  - source: /packages/frontend/shared/internationalization/messages/en-US.json
     translation: /packages/frontend/shared/internationalization/messages/%locale%.json

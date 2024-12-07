@@ -20,6 +20,9 @@ importers:
 
   apps/frontend:
     dependencies:
+      '@com.synergy/frontend-shared-internationalization':
+        specifier: workspace:*
+        version: link:../../packages/frontend/shared/internationalization
       '@com.synergy/frontend-ui':
         specifier: workspace:*
         version: link:../../packages/frontend/ui
@@ -89,6 +92,22 @@ importers:
         version: 3.4.1
 
   packages/frontend/shared/config-typescript: {}
+
+  packages/frontend/shared/internationalization:
+    dependencies:
+      next:
+        specifier: ^14.2.3
+        version: 14.2.3(react-dom@18.2.0)(react@18.2.0)
+      next-intl:
+        specifier: ^3.26.0
+        version: 3.26.0(next@14.2.3)(react@18.2.0)
+    devDependencies:
+      '@com.synergy/frontend-shared-typescript-config':
+        specifier: workspace:*
+        version: link:../config-typescript
+      typescript:
+        specifier: 5.5.4
+        version: 5.5.4
 
   packages/frontend/ui:
     dependencies:

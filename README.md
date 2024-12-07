@@ -34,7 +34,7 @@ This example is set up to produce compiled styles for `ui` components into the `
 
 Another option is to consume `packages/ui` directly from source without building. If using this option, you will need to update the `tailwind.config.js` in your apps to be aware of your package locations, so it can find all usages of the `tailwindcss` class names for CSS compilation.
 
-For example, in [tailwind.config.js](packages/tailwind-config/tailwind.config.js):
+For example, in [tailwind.config.js](packages/frontend-shared-tailwind-config/tailwind.config.js):
 
 ```js
   content: [

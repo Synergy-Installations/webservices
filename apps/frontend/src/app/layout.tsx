@@ -1,5 +1,5 @@
 import "./globals.css";
-import "@com.synergy/ui/styles.css";
+import "@com.synergy/frontend-ui/styles.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 

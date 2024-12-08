@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Additional styles */
+@import "landingPageStyles/utility-patterns.css";
+@import "landingPageStyles/theme.css";

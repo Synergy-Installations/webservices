@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@com.synergy/frontend-shared-internationalization/routing";
+import DefaultHeader from "@com.synergy/frontend-ui/DefaultHeader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,7 +36,8 @@ export default async function RootLayout({
         className={`${inter.className} bg-gray-50 font-inter tracking-tight text-gray-900 antialiased`}
       >
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
-          {children}
+          <DefaultHeader />
+          <main className="grow">{children}</main>
         </div>
       </div>
     </NextIntlClientProvider>

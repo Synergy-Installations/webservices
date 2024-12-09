@@ -1,5 +1,5 @@
 import "./globals.css";
-import "@com.synergy/frontend-ui/styles.css";
+import "@com.synergy/frontend-ui/frontendUiStyles.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

@@ -8,8 +8,11 @@
     "dist"
   ],
   "exports": {
-    "./styles.css": "./dist/index.css",
-    "./landingPageStyles.css": "./src/landingPageStyles/styles.css",
+    "./MobileMenu": "./src/landingPage/header/MobileMenu.tsx",
+    "./DefaultDropdown": "./src/shared/dropdown/DefaultDropdown.tsx",
+    "./DefaultHeader": "./src/landingPage/header/DefaultHeader.tsx",
+    "./frontendUiStyles.css": "./dist/index.css",
+    "./landingPageStyles.css": "./src/landingPage/styles/styles.css",
     "./card": "./src/card.tsx"
   },
   "license": "MIT",
@@ -24,6 +27,7 @@
   },
   "devDependencies": {
     "@com.synergy/frontend-shared-eslint-config": "workspace:*",
+    "@com.synergy/frontend-shared-internationalization": "workspace:*",
     "@com.synergy/frontend-shared-tailwind-config": "workspace:*",
     "@com.synergy/frontend-shared-typescript-config": "workspace:*",
     "@turbo/gen": "^2.3.3",
@@ -32,5 +36,8 @@
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
     "typescript": "5.5.4"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.2.0"
   }
 }

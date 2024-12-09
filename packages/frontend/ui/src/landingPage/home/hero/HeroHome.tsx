@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { HeroHomeIllustration } from "@com.synergy/frontend-ui/HeroHomeIllustration";
-import Avatar01 from "../../shared/images/avatar-01.jpg";
-import Avatar02 from "../../shared/images/avatar-02.jpg";
-import Avatar03 from "../../shared/images/avatar-03.jpg";
-import Avatar04 from "../../shared/images/avatar-04.jpg";
-import Avatar05 from "../../shared/images/avatar-05.jpg";
-import Avatar06 from "../../shared/images/avatar-06.jpg";
+import Avatar01 from "../../../shared/images/avatar-01.jpg";
+import Avatar02 from "../../../shared/images/avatar-02.jpg";
+import Avatar03 from "../../../shared/images/avatar-03.jpg";
+import Avatar04 from "../../../shared/images/avatar-04.jpg";
+import Avatar05 from "../../../shared/images/avatar-05.jpg";
+import Avatar06 from "../../../shared/images/avatar-06.jpg";
 
 /* eslint-disable-next-line */
 export interface HeroHomeProps {}

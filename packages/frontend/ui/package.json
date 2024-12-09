@@ -8,15 +8,18 @@
     "dist"
   ],
   "exports": {
-    "./DefaultLayout": "./src/landingPage/layout/DefaultLayout.tsx",
+    "./MarqueeTestimonials": "./src/landingPage/home/marqueeTestimonials/MarqueeTestimonials.tsx",
+    "./TestimonialCard": "./src/shared/marquee/TestimonialCard.tsx",
+    "./Marquee": "./src/shared/marquee/Marquee.tsx",
+    "./DefaultLayout": "./src/landingPage/shared/layout/DefaultLayout.tsx",
     "./Stripes.svg": "./src/shared/images/Stripes.svg",
     "./HeroHomeIllustration": "./src/shared/illustrations/HeroHomeIllustration.tsx",
-    "./HeroHome": "./src/landingPage/hero/HeroHome.tsx",
-    "./MobileMenu": "./src/landingPage/header/MobileMenu.tsx",
+    "./HeroHome": "./src/landingPage/home/hero/HeroHome.tsx",
+    "./MobileMenu": "./src/landingPage/shared/header/MobileMenu.tsx",
     "./DefaultDropdown": "./src/shared/dropdown/DefaultDropdown.tsx",
-    "./DefaultHeader": "./src/landingPage/header/DefaultHeader.tsx",
+    "./DefaultHeader": "./src/landingPage/shared/header/DefaultHeader.tsx",
     "./frontendUiStyles.css": "./dist/index.css",
-    "./landingPageStyles.css": "./src/landingPage/styles/styles.css",
+    "./landingPageStyles.css": "./src/landingPage/shared/styles/styles.css",
     "./card": "./src/card.tsx"
   },
   "license": "MIT",

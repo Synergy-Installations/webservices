@@ -28,6 +28,10 @@ const config: Omit<Config, "content"> = {
         "6xl": ["4rem", { lineHeight: "1", letterSpacing: "-0.037em" }],
         "7xl": ["4.5rem", { lineHeight: "1", letterSpacing: "-0.037em" }],
       },
+      animation: {
+        marquee: "marquee var(--duration) linear infinite",
+        "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
+      },
       keyframes: {
         "code-1": {
           "0%": { opacity: 0 },
@@ -82,6 +86,14 @@ const config: Omit<Config, "content"> = {
         "infinite-scroll": {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-100%)" },
+        },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(calc(-100% - var(--gap)))" },
+        },
+        "marquee-vertical": {
+          from: { transform: "translateY(0)" },
+          to: { transform: "translateY(calc(-100% - var(--gap)))" },
         },
       },
     },

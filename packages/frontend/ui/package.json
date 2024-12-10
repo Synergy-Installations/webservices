@@ -8,6 +8,17 @@
     "dist"
   ],
   "exports": {
+    "./ShineBorder": "./src/shared/border/ShineBorder.tsx",
+    "./BorderBeam": "./src/shared/border/BorderBeam.tsx",
+    "./DotPattern": "./src/shared/dotPatterns/DotPattern.tsx",
+    "./AnimatedListEnergyCommunity": "./src/landingPage/home/serviceCatalog/AnimatedListEnergyCommunity.tsx",
+    "./AnimatedList": "./src/shared/animatedList/AnimatedList.tsx",
+    "./AnimatedBeamMultipleOutputs": "./src/landingPage/home/serviceCatalog/AnimatedBeamMultipleOutputs.tsx",
+    "./AnimatedBeam": "./src/shared/animatedBeam/AnimatedBeam.tsx",
+    "./ServiceCatalog": "./src/landingPage/home/serviceCatalog/ServiceCatalog.tsx",
+    "./BentoButton": "./src/shared/bentoGrid/BentoButton.tsx",
+    "./BentoCard": "./src/shared/bentoGrid/BentoCard.tsx",
+    "./BentoGrid": "./src/shared/bentoGrid/BentoGrid.tsx",
     "./MarqueeTestimonials": "./src/landingPage/home/marqueeTestimonials/MarqueeTestimonials.tsx",
     "./TestimonialCard": "./src/shared/marquee/TestimonialCard.tsx",
     "./Marquee": "./src/shared/marquee/Marquee.tsx",
@@ -46,8 +57,11 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
+    "@radix-ui/react-icons": "^1.3.2",
     "@types/aos": "^3.0.7",
     "aos": "^2.3.4",
+    "framer-motion": "^11.13.3",
+    "lucide-react": "^0.468.0",
     "next": "^14.2.3"
   }
 }

@@ -132,6 +132,9 @@ importers:
       next:
         specifier: ^14.2.3
         version: 14.2.3(react-dom@18.2.0)(react@18.2.0)
+      next-intl:
+        specifier: ^3.26.0
+        version: 3.26.0(next@14.2.3)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0

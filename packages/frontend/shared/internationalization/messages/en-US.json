@@ -1,5 +1,20 @@
 {
-  "Index": {
-    "title": "Hello world! (US)"
+  "LandingPage": {
+    "Home": {
+      "hero": {
+        "header": "Pimp your house <breakpoint></breakpoint> you know it's time",
+        "body": "We have everything you need to make your house a palace. Starting with an inspection to the finished installation, we have got you covered - scroll down, you'll see.",
+        "buttons": {
+          "buttonLeft": {
+            "value": "Contact us <arrow>-></arrow>",
+            "href": "/contact-us"
+          },
+          "buttonRight": {
+            "value": "Product catalog",
+            "href": "#products"
+          }
+        }
+      }
+    }
   }
 }

@@ -152,7 +152,7 @@ const features = [
 
 export const ServiceCatalog = (props: ServiceCatalogProps) => {
   return (
-    <section className="relative">
+    <section className="relative" id="products">
       <div className="mx-auto px-4 sm:px-6">
         {/* Hero content */}
         <div className="pb-12 pt-0 md:pb-20 md:pt-0">

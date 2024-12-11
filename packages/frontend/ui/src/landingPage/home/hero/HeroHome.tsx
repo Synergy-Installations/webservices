@@ -7,11 +7,15 @@ import Avatar04 from "../../../shared/images/avatar-04.jpg";
 import Avatar05 from "../../../shared/images/avatar-05.jpg";
 import Avatar06 from "../../../shared/images/avatar-06.jpg";
 import { MarqueeTestimonials } from "../testimonials/MarqueeTestimonials";
+import { useTranslations } from "next-intl";
+import { Link } from "@com.synergy/frontend-shared-internationalization/routing";
 
 /* eslint-disable-next-line */
 export interface HeroHomeProps {}
 
 export const HeroHome = (props: HeroHomeProps) => {
+  const t = useTranslations("LandingPage.Home.hero");
+
   return (
     <section className="relative">
       <HeroHomeIllustration />
@@ -74,8 +78,9 @@ export const HeroHome = (props: HeroHomeProps) => {
               data-aos="zoom-y-out"
               data-aos-delay={150}
             >
-              Pimp your house <br className="max-lg:hidden" />
-              you know it's time
+              {t.rich("header", {
+                breakpoint: () => <br className="max-lg:hidden" />,
+              })}
             </h1>
             <div className="mx-auto max-w-3xl">
               <p
@@ -83,8 +88,7 @@ export const HeroHome = (props: HeroHomeProps) => {
                 data-aos="zoom-y-out"
                 data-aos-delay={300}
               >
-                Synergy is a modern powered by people that changes
-                how companies create user interfaces together.
+                {t("body")}
               </p>
               <div className="relative before:absolute before:inset-0 before:border-y before:[border-image:linear-gradient(to_right,transparent,theme(colors.slate.300/.8),transparent)1]">
                 <div
@@ -92,23 +96,26 @@ export const HeroHome = (props: HeroHomeProps) => {
                   data-aos="zoom-y-out"
                   data-aos-delay={450}
                 >
-                  <a
+                  <Link
                     className="btn group mb-4 w-full bg-gradient-to-t from-blue-600 to-blue-500 bg-[length:100%_100%] bg-[bottom] text-white shadow hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto"
-                    href="#0"
+                    href={t("buttons.buttonLeft.href")}
                   >
                     <span className="relative inline-flex items-center">
-                      Start Free Trial{" "}
-                      <span className="ml-1 tracking-normal text-blue-300 transition-transform group-hover:translate-x-0.5">
-                        -&gt;
-                      </span>
+                      {t.rich("buttons.buttonLeft.value", {
+                        arrow: (chunks) => (
+                          <span className="ml-1 tracking-normal text-blue-300 transition-transform group-hover:translate-x-0.5">
+                            {chunks}
+                          </span>
+                        ),
+                      })}
                     </span>
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     className="btn w-full bg-white text-gray-800 shadow hover:bg-gray-50 sm:ml-4 sm:w-auto"
-                    href="#0"
+                    href={t("buttons.buttonRight.href")}
                   >
-                    Learn More
-                  </a>
+                    {t("buttons.buttonRight.value")}
+                  </Link>
                 </div>
               </div>
             </div>

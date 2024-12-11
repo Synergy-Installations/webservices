@@ -156,6 +156,16 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
         {/* Hero content */}
         <div className="pb-12 pt-0 md:pb-20 md:pt-0">
           {/* Section header */}
+            <div className="relative max-w-3xl mx-auto text-center pb-12 md:pb-20">
+              <h2 className="font-inter-tight text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
+                Produkte die unerlässlich sind
+              </h2>
+              <p className="text-lg text-zinc-500">
+                Whenever you are ready, just hit publish to turn your site
+                sketches into an actual designs. No creating, no skills, no
+                reshaping.
+              </p>
+            </div>
           <div className="pb-12 mx-auto max-w-6xl text-center relative z-10 md:pb-16">
             <BentoGrid className="lg:grid-rows-3">
               {features.map((feature) => (
@@ -163,7 +173,7 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
               ))}
             </BentoGrid>
           </div>
-            <DotPattern className="[mask-image:linear-gradient(90deg,transparent_0%,white_10%,white_90%,transparent_100%)]" />
+          <DotPattern className="[mask-image:linear-gradient(0deg,transparent_0%,white_10%,white_90%,transparent_100%)] mt-20" />
         </div>
       </div>
     </section>

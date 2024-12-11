@@ -1,10 +1,11 @@
 "use client";
 
-import { DefaultHeader } from '@com.synergy/frontend-ui/DefaultHeader';
+import { DefaultHeader } from "@com.synergy/frontend-ui/DefaultHeader";
 import { Inter } from "next/font/google";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import DefaultFooter from "@com.synergy/frontend-ui/DefaultFooter";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,13 +26,14 @@ export const DefaultLayout = (props: DefaultLayoutProps) => {
 
   return (
     <div
-        className={`${inter.className} bg-gray-50 font-inter tracking-tight text-gray-900 antialiased`}
-      >
-        <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
-          <DefaultHeader />
-          <main className="grow">{props.children}</main>
-        </div>
+      className={`${inter.className} bg-gray-50 font-inter tracking-tight text-gray-900 antialiased`}
+    >
+      <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
+        <DefaultHeader />
+        <main className="grow">{props.children}</main>
+        <DefaultFooter border={true} />
       </div>
+    </div>
   );
 };
 

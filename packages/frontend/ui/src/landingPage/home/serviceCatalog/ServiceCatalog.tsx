@@ -7,6 +7,7 @@ import ElectricalInstallation from "../../../shared/images/electrical-installati
 import { AnimatedBeamMultipleOutputs } from "@com.synergy/frontend-ui/AnimatedBeamMultipleOutputs";
 import { AnimatedListEnergyCommunity } from "@com.synergy/frontend-ui/AnimatedListEnergyCommunity";
 import { DotPattern } from "@com.synergy/frontend-ui/DotPattern";
+import { LargeTestimonial } from "@com.synergy/frontend-ui/LargeTestimonial";
 
 import {
   CalendarIcon,
@@ -173,8 +174,9 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
               ))}
             </BentoGrid>
           </div>
-          <DotPattern className="[mask-image:linear-gradient(0deg,transparent_0%,white_10%,white_90%,transparent_100%)] mt-20" />
+          <DotPattern className="[mask-image:linear-gradient(0deg,transparent_0%,white_20%,white_90%,transparent_100%)] mt-20 fill-slate-400/60" />
         </div>
+        {/* <LargeTestimonial /> */}
       </div>
     </section>
   );

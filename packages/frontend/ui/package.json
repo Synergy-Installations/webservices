@@ -8,6 +8,14 @@
     "dist"
   ],
   "exports": {
+    "./SmallLogo": "./src/shared/logos/SmallLogo.tsx",
+    "./DefaultFooter": "./src/landingPage/shared/footer/DefaultFooter.tsx",
+    "./BaseTestimonial": "./src/landingPage/shared/testimonials/BaseTestimonial.tsx",
+    "./TestimonialsCarousel": "./src/landingPage/home/testimonials/TestimonialsCarousel.tsx",
+    "./CtaBars": "./src/landingPage/shared/cta/CtaBars.tsx",
+    "./LargeTestimonial": "./src/landingPage/home/testimonials/LargeTestimonial.tsx",
+    "./FeaturesGlobe": "./src/landingPage/home/features/FeaturesGlobe.tsx",
+    "./FeatureTabs": "./src/landingPage/home/features/FeatureTabs.tsx",
     "./ShineBorder": "./src/shared/border/ShineBorder.tsx",
     "./BorderBeam": "./src/shared/border/BorderBeam.tsx",
     "./DotPattern": "./src/shared/dotPatterns/DotPattern.tsx",
@@ -19,7 +27,7 @@
     "./BentoButton": "./src/shared/bentoGrid/BentoButton.tsx",
     "./BentoCard": "./src/shared/bentoGrid/BentoCard.tsx",
     "./BentoGrid": "./src/shared/bentoGrid/BentoGrid.tsx",
-    "./MarqueeTestimonials": "./src/landingPage/home/marqueeTestimonials/MarqueeTestimonials.tsx",
+    "./MarqueeTestimonials": "./src/landingPage/home/testimonials/MarqueeTestimonials.tsx",
     "./TestimonialCard": "./src/shared/marquee/TestimonialCard.tsx",
     "./Marquee": "./src/shared/marquee/Marquee.tsx",
     "./DefaultLayout": "./src/landingPage/shared/layout/DefaultLayout.tsx",

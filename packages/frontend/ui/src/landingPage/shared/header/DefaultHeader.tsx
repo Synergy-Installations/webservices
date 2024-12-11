@@ -13,7 +13,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
           {/* Site branding */}
           <div className="flex flex-1 items-center">
             {/* <Logo /> */}
-            <p className="font-semibold pl-5">Synergy</p>
+            <Link href="/" className="font-semibold pl-5">Synergy</Link>
           </div>
 
           {/* Desktop navigation */}
@@ -22,7 +22,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
             <ul className="flex grow flex-wrap items-center justify-center gap-4 text-sm lg:gap-8">
               <li className="px-3 py-1">
                 <Link
-                  href="/pricing"
+                  href="#"
                   className="flex items-center text-gray-700 transition hover:text-gray-900"
                 >
                   Pricing
@@ -30,7 +30,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
               </li>
               <li className="px-3 py-1">
                 <Link
-                  href="/customers"
+                  href="#"
                   className="flex items-center text-gray-700 transition hover:text-gray-900"
                 >
                   Customers
@@ -38,7 +38,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
               </li>
               <li className="px-3 py-1">
                 <Link
-                  href="/blog"
+                  href="#"
                   className="flex items-center text-gray-700 transition hover:text-gray-900"
                 >
                   Blog
@@ -46,7 +46,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
               </li>
               <li className="px-3 py-1">
                 <Link
-                  href="/documentation"
+                  href="#"
                   className="flex items-center text-gray-700 transition hover:text-gray-900"
                 >
                   Docs
@@ -57,7 +57,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
                 {/* 2nd level: hover */}
                 <li>
                   <Link
-                    href="/support"
+                    href="#"
                     className="flex rounded-lg px-2 py-1.5 text-sm text-gray-700 hover:bg-gray-100"
                   >
                     Support center
@@ -65,7 +65,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
                 </li>
                 <li>
                   <Link
-                    href="/apps"
+                    href="#"
                     className="flex rounded-lg px-2 py-1.5 text-sm text-gray-700 hover:bg-gray-100"
                   >
                     Apps
@@ -79,7 +79,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
           <ul className="flex flex-1 items-center justify-end gap-3">
             <li>
               <Link
-                href="/signin"
+                href="#"
                 className="btn-sm bg-white text-gray-800 shadow hover:bg-gray-50"
               >
                 Video tour
@@ -87,10 +87,10 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
             </li>
             <li>
               <Link
-                href="/signup"
+                href="/contact-us"
                 className="btn-sm bg-gray-800 text-gray-200 shadow hover:bg-gray-900"
               >
-                Contact
+                Contact us
               </Link>
             </li>
           </ul>

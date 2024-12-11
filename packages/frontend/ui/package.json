@@ -8,6 +8,8 @@
     "dist"
   ],
   "exports": {
+    "./ContactCommunity": "./src/landingPage/contact/community/ContactCommunity.tsx",
+    "./ContactBlocks": "./src/landingPage/contact/blocks/ContactBlocks.tsx",
     "./SmallLogo": "./src/shared/logos/SmallLogo.tsx",
     "./DefaultFooter": "./src/landingPage/shared/footer/DefaultFooter.tsx",
     "./BaseTestimonial": "./src/landingPage/shared/testimonials/BaseTestimonial.tsx",

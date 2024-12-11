@@ -24,7 +24,7 @@ export const TestimonialsCarousel = (props: TestimonialsCarouselProps) => {
       username: "@rodri_spn",
       date: "Apr 12, 2027",
       content:
-        "Simple has revolutionized the way I manage my work. Its intuitive interface and seamless functionality make staying organized effortless. I can't imagine my life without it.",
+        "Synergy has revolutionized the way I manage my work. Its intuitive interface and seamless functionality make staying organized effortless. I can't imagine my life without it.",
       channel: "Twitter",
     },
     {
@@ -42,7 +42,7 @@ export const TestimonialsCarousel = (props: TestimonialsCarouselProps) => {
       username: "@michjack",
       date: "Jan 15, 2027",
       content:
-        "Simple lives up to its name in every way. It's incredibly easy to use yet powerful enough to handle all my tasks effortlessly. It's become an essential part of my daily routine.",
+        "Synergy lives up to its name in every way. It's incredibly easy to use yet powerful enough to handle all my tasks effortlessly. It's become an essential part of my daily routine.",
       channel: "Twitter",
     },
   ];

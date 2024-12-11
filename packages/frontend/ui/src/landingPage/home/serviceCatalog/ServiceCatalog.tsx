@@ -104,7 +104,7 @@ const features = [
     cta: "Learn more",
     className: "col-span-2 lg:col-span-1 bg-slate-50",
     background: (
-      <AnimatedBeamMultipleOutputs className="absolute right-2 top-4 h-[280px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
+      <AnimatedBeamMultipleOutputs className="absolute right-2 top-4 h-[275px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
     ),
   },
   {

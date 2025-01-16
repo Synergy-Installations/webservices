@@ -1,5 +1,5 @@
 import { Marquee } from "@com.synergy/frontend-ui/Marquee";
-import { TestimonialCard } from "@com.synergy/frontend-ui/TestimonialCard"
+import { TestimonialCard } from "@com.synergy/frontend-ui/TestimonialCard";
 /* eslint-disable-next-line */
 export interface MarqueeTestimonialsProps {}
 
@@ -41,19 +41,19 @@ const reviews = [
     img: "https://avatar.vercel.sh/james",
   },
 ];
- 
+
 const firstRow = reviews.slice(0, reviews.length / 2);
 const secondRow = reviews.slice(reviews.length / 2);
 
 export const MarqueeTestimonials = (props: MarqueeTestimonialsProps) => {
   return (
     <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg">
-      <Marquee pauseOnHover className="[--duration:20s]">
+      <Marquee pauseOnHoverProp className="[--duration:20s]">
         {firstRow.map((review) => (
           <TestimonialCard key={review.username} {...review} />
         ))}
       </Marquee>
-      <Marquee reverse pauseOnHover className="[--duration:20s]">
+      <Marquee reverse pauseOnHoverProp className="[--duration:20s]">
         {secondRow.map((review) => (
           <TestimonialCard key={review.username} {...review} />
         ))}

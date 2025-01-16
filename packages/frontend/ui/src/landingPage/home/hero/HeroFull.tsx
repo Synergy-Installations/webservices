@@ -54,7 +54,7 @@ export const HeroFull = (props: HeroFullProps) => {
         </div>
       </div>
       <div className="z-10 w-[calc(105vw)] absolute bottom-[170px] xl:bottom-[195px] 2xl:bottom-[80px] -left-[10px] rotate-[-5deg] bg-orange-500">
-        <Marquee pauseOnHover={false} className="[--duration:20s] p-1">
+        <Marquee className="[--duration:20s] p-1">
           <div className="text-[#eeeae8] text-4xl font-bold uppercase">
             Einfach Geld Sparen * Endlich Unabhängig * Zuverlässig *&nbsp;
           </div>

@@ -275,7 +275,7 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
             <div className="relative z-10 before:absolute before:inset-0 before:w-32 before:z-10 before:pointer-events-none before:bg-gradient-to-r before:from-slate-50 after:absolute after:inset-0 after:left-auto after:w-32 after:z-10 after:pointer-events-none after:bg-gradient-to-l after:from-slate-50">
               <div className="!ease-linear select-none">
                 {/* Carousel items */}
-                <Marquee pauseOnHover className="[--duration:20s]">
+                <Marquee pauseOnHoverProp className="[--duration:20s]">
                   <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
                     <Image
                       className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
@@ -347,7 +347,7 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
                     />
                   </div>
                 </Marquee>
-                <Marquee pauseOnHover reverse className="[--duration:20s]">
+                <Marquee pauseOnHoverProp reverse className="[--duration:20s]">
                   <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
                     <Image
                       className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"

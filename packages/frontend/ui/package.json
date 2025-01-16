@@ -8,6 +8,8 @@
     "dist"
   ],
   "exports": {
+    "./ProductPreviewSmall": "./src/shared/ui/products/ProductPreviewSmall.tsx",
+    "./HeroFull": "./src/landingPage/home/hero/HeroFull.tsx",
     "./ContactCommunity": "./src/landingPage/contact/community/ContactCommunity.tsx",
     "./ContactBlocks": "./src/landingPage/contact/blocks/ContactBlocks.tsx",
     "./SmallLogo": "./src/shared/logos/SmallLogo.tsx",

@@ -9,14 +9,16 @@ import { FeaturesGlobe } from "@com.synergy/frontend-ui/FeaturesGlobe";
 import { LargeTestimonial } from "@com.synergy/frontend-ui/LargeTestimonial";
 import { CtaBars } from "@com.synergy/frontend-ui/CtaBars";
 import { TestimonialsCarousel } from "@com.synergy/frontend-ui/TestimonialsCarousel";
+import HeroFull from "@com.synergy/frontend-ui/HeroFull";
 
 export default function Page(): JSX.Element {
   const t = useTranslations("Index");
 
   return (
     <>
-      <HeroHome />
+      <HeroFull />
       <ServiceCatalog />
+      <HeroHome />
       <LargeTestimonial />
       <FeaturesGlobe />
       <TestimonialsCarousel />

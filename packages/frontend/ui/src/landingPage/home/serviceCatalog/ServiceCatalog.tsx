@@ -104,7 +104,7 @@ const features = [
     cta: "Learn more",
     className: "col-span-2 lg:col-span-1 bg-slate-50",
     background: (
-      <AnimatedBeamMultipleOutputs className="absolute right-2 top-4 h-[275px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
+      <AnimatedBeamMultipleOutputs className="absolute right-2 top-4 h-[280px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
     ),
   },
   {
@@ -153,7 +153,7 @@ const features = [
 export const ServiceCatalog = (props: ServiceCatalogProps) => {
   return (
     <section className="relative" id="products">
-      <div className="mx-auto px-4 sm:px-6">
+      <div className="mx-auto px-4 sm:px-6 pb-12 pt-32 md:pb-20 md:pt-40">
         {/* Hero content */}
         <div className="pb-12 pt-0 md:pb-20 md:pt-0">
           {/* Section header */}

@@ -1,4 +1,7 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
+import colors from "tailwindcss/colors";
+import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 
 // We want each package to be responsible for its own content.
 const config: Omit<Config, "content"> = {
@@ -6,6 +9,8 @@ const config: Omit<Config, "content"> = {
     extend: {
       colors: {
         "synergy-light-blue": "#0CC0DF",
+        "synergy-light-grey": "#EFEFEF",
+        "synergy-dark-grey": "#333333",
       },
       backgroundImage: {
         "glow-conic":
@@ -119,6 +124,19 @@ const config: Omit<Config, "content"> = {
       },
     },
   },
-  plugins: [],
+  plugins: [addVariablesForColors],
 };
+
+// This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
+function addVariablesForColors({ addBase, theme }: any) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}
+
 export default config;

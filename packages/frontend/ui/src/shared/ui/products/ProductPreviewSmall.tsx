@@ -2,11 +2,14 @@ import Image from "next/image";
 import HeatPumpOrange from "../../../shared/images/heat-pump-orange.jpg";
 
 /* eslint-disable-next-line */
-export interface ProductsPreviewSmallProps {}
+export interface ProductPreviewSmallProps {
+  name?: string;
+  className?: string;
+}
 
-export const ProductsPreviewSmall = (props: ProductsPreviewSmallProps) => {
+export const ProductPreviewSmall = (props: ProductPreviewSmallProps) => {
   return (
-    <div className="p-1 pr-6 flex items-center justify-center w-fit rounded-3xl gap-4 bg-synergy-light-blue/[42%] backdrop-blur-sm">
+    <div className={`p-1 pr-6 flex items-center justify-left w-fit rounded-3xl gap-4 bg-synergy-light-blue/[42%] backdrop-blur-md ${props.className}`}>
       <div className="w-[74px] h-[63px] relative">
         <Image
           src={HeatPumpOrange}
@@ -17,9 +20,9 @@ export const ProductsPreviewSmall = (props: ProductsPreviewSmallProps) => {
           alt="Heat Pump Orange"
         />
       </div>
-      <h2 className="text-2xl font-semibold text-white">Warmepumpe</h2>
+      <h2 className="text-2xl font-semibold text-white">{props.name}</h2>
     </div>
   );
 };
 
-export default ProductsPreviewSmall;
+export default ProductPreviewSmall;

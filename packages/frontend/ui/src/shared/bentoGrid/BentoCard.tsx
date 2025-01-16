@@ -58,20 +58,22 @@ export const BentoCard = (props: BentoCardProps) => {
       <Link
         href={href}
         key={name}
-        className={`group relative h-[298px] rounded-3xl overflow-hidden ${className}`}
+        className={`group relative h-[298px] rounded-2xl overflow-hidden ${className}`}
       >
         {background}
-        <div className="absolute w-full h-1/2 group-hover:h-full bottom-0 bg-gradient-to-t from-black/60 to-transparent to-50% transition-all"></div>
-        <p className="absolute bottom-0 text-white p-4 pl-6 group-hover:pb-20 font-semibold text-4xl transition-all">
-          {name}
-        </p>
-        <p className="absolute bottom-0 text-white p-4 pl-6 opacity-0 group-hover:opacity-100 group-hover:pb-14 text-md transition-all">
-          {description}
-        </p>
-        <button className="absolute flex items-center bottom-0 left-0 text-white group-hover:bg-slate-50/30 px-2 m-4 ml-6 rounded-md opacity-0 group-hover:opacity-100 group-hover:mb-6 text-sm transition-all">
-          <p className="">{cta}</p>
-          <ArrowRightIcon className="ml-2 h-4 w-4" />
-        </button>
+        <div className="absolute bottom-0 left-0 flex flex-col w-full">
+          <p className="relative z-10 bottom-0 text-white text-left pl-6 font-semibold text-4xl transition-all">
+            {name}
+          </p>
+          <p className="relative bottom-0 z-10 left-0 h-0 group-hover:h-auto text-white text-left -m-12 mt-8 group-hover:mt-0 mx-6 opacity-100 group-hover:opacity-100 group-hover:pb-12 text-md transition-transform">
+            {description}
+          </p>
+          <button className="relative z-10 flex items-center w-fit py-1.5 bottom-0 left-0 ml-6 group-hover:mt-3 px-3 text-white rounded-lg backdrop-blur-md bg-gradient-to-t from-synergy-light-blue via-synergy-light-blue/70 to-synergy-light-blue hover:from-synergy-light-blue hover:to-synergy-light-blue shadow-xl opacity-0 group-hover:opacity-100 group-hover:mb-6 text-sm transition-all">
+            <p className="">{cta}</p>
+            <ArrowRightIcon className="ml-2 h-4 w-4" />
+          </button>
+          <div className="absolute w-full h-[130%] bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent to-90% transition-all"></div>
+        </div>
         {borderAnimation === "beam" && (
           <BorderBeam size={250} duration={12} delay={9} />
         )}

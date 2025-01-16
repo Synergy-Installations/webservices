@@ -1,4 +1,6 @@
 import { Link } from "@com.synergy/frontend-shared-internationalization/routing";
+import Image from "next/image";
+import Logo from "../../../shared/images/synergy-logo-grid.svg";
 import { SmallLogo } from "@com.synergy/frontend-ui/SmallLogo";
 
 /* eslint-disable-next-line */
@@ -19,10 +21,12 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
           {/* 1st block */}
           <div className="space-y-2 sm:col-span-12 lg:col-span-4">
             <div>
-              <SmallLogo />
+            <Link href="/">
+                <Image src={Logo} width={180} height={undefined} alt="Logo" />
+              </Link>
             </div>
-            <div className="text-sm text-gray-600">
-              &copy; Cruip.com - All rights reserved.
+            <div className="text-sm text-synergy-dark-grey">
+              &copy; Synergiemontage.eco - All rights reserved.
             </div>
           </div>
 
@@ -32,7 +36,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-synergy-dark-grey transition hover:text-gray-900"
                   href="#0"
                 >
                   Features
@@ -40,7 +44,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
               </li>
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-synergy-dark-grey transition hover:text-gray-900"
                   href="#0"
                 >
                   Integrations
@@ -48,7 +52,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
               </li>
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-synergy-dark-grey transition hover:text-gray-900"
                   href="#0"
                 >
                   Pricing & Plans
@@ -56,7 +60,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
               </li>
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-synergy-dark-grey transition hover:text-gray-900"
                   href="#0"
                 >
                   Changelog
@@ -64,7 +68,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
               </li>
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-synergy-dark-grey transition hover:text-gray-900"
                   href="#0"
                 >
                   Our method
@@ -79,7 +83,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-synergy-dark-grey transition hover:text-gray-900"
                   href="#0"
                 >
                   About us
@@ -87,7 +91,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
               </li>
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-synergy-dark-grey transition hover:text-gray-900"
                   href="#0"
                 >
                   Diversity & Inclusion
@@ -95,7 +99,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
               </li>
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-synergy-dark-grey transition hover:text-gray-900"
                   href="#0"
                 >
                   Blog
@@ -103,7 +107,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
               </li>
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-synergy-dark-grey transition hover:text-gray-900"
                   href="#0"
                 >
                   Careers
@@ -111,7 +115,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
               </li>
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-synergy-dark-grey transition hover:text-gray-900"
                   href="#0"
                 >
                   Financial statements
@@ -126,7 +130,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-synergy-dark-grey transition hover:text-gray-900"
                   href="#0"
                 >
                   Community
@@ -134,7 +138,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
               </li>
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-synergy-dark-grey transition hover:text-gray-900"
                   href="#0"
                 >
                   Terms of service
@@ -142,7 +146,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
               </li>
               <li>
                 <Link
-                  className="text-gray-600 transition hover:text-gray-900"
+                  className="text-synergy-dark-grey transition hover:text-gray-900"
                   href="#0"
                 >
                   Report a vulnerability
@@ -157,7 +161,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
             <ul className="flex gap-1">
               <li>
                 <Link
-                  className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
+                  className="flex items-center justify-center text-synergy-light-blue transition hover:text-blue-600"
                   href="#0"
                   aria-label="Twitter"
                 >
@@ -172,7 +176,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
               </li>
               <li>
                 <Link
-                  className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
+                  className="flex items-center justify-center text-synergy-light-blue transition hover:text-blue-600"
                   href="#0"
                   aria-label="Medium"
                 >
@@ -187,7 +191,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
               </li>
               <li>
                 <Link
-                  className="flex items-center justify-center text-blue-500 transition hover:text-blue-600"
+                  className="flex items-center justify-center text-synergy-light-blue transition hover:text-blue-600"
                   href="#0"
                   aria-label="Github"
                 >
@@ -207,7 +211,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
 
       {/* Big text */}
       <div className="relative -mt-16 h-60 w-full z-0" aria-hidden="true">
-        <div className="pointer-events-none absolute left-1/2 -z-10 -translate-x-1/2 text-center text-[348px] font-bold leading-none before:bg-gradient-to-b before:from-gray-200 before:to-gray-100/30 before:to-80% before:bg-clip-text before:text-transparent before:content-['Synergy'] after:absolute after:inset-0 after:bg-gray-300/70 after:bg-clip-text after:text-transparent after:mix-blend-darken after:content-['Synergy'] after:[text-shadow:0_1px_0_white]"></div>
+        <div className="pointer-events-none absolute left-1/2 -z-10 -translate-x-1/2 text-center text-[348px] font-bold leading-none before:bg-gradient-to-b before:from-gray-200 before:to-gray-100/30 before:to-80% before:bg-clip-text before:text-transparent before:content-['Synergie'] after:absolute after:inset-0 after:bg-gray-300/70 after:bg-clip-text after:text-transparent after:mix-blend-darken after:content-['Synergie'] after:[text-shadow:0_1px_0_white]"></div>
         {/* Glow */}
         <div
           className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-2/3"

@@ -8,6 +8,9 @@
     "dist"
   ],
   "exports": {
+    "./ServiceCard": "./src/landingPage/shared/bentoGrid/serviceCard/ServiceCard.tsx",
+    "./RichText": "./src/shared/internationalization/text/RichText.tsx",
+    "./ProductPreviewSmallTransition": "./src/landingPage/shared/ui/productPreviewSmallTransition/ProductPreviewSmallTransition.tsx",
     "./TracingBeam": "./src/shared/animations/tracingBeam/TracingBeam.tsx",
     "./cn": "./src/shared/utils/cn/Cn.tsx",
     "./WordRotate": "./src/shared/animations/wordRotate/WordRotate.tsx",

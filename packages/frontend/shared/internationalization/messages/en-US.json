@@ -1,17 +1,120 @@
 {
   "LandingPage": {
     "Home": {
-      "hero": {
-        "header": "Pimp your house <breakpoint></breakpoint> you know it's time",
-        "body": "We have everything you need to make your house a palace. Starting with an inspection to the finished installation, we have got you covered - scroll down, you'll see.",
+      "Hero": {
+        "productPreviewSmall": {
+          "photovoltaic": {
+            "title": "Photovoltaic",
+            "image": {
+              "src": "https://via.placeholder.com/150",
+              "alt": "Photovoltaic"
+            }
+          },
+          "heatpump": {
+            "title": "Warmepumpe",
+            "image": {
+              "src": "https://via.placeholder.com/150",
+              "alt": "Photovoltaic"
+            }
+          }
+        },
+        "rotatingText": "Preisstabil, Handschlagqualität, Zuverlässig, Nachhaltig",
         "buttons": {
           "buttonLeft": {
-            "value": "Contact us <arrow>-></arrow>",
+            "text": "Jetzt Anfragen <arrow>-></arrow>",
             "href": "/contact-us"
           },
           "buttonRight": {
-            "value": "Product catalog",
+            "text": "Unsere Produkte",
             "href": "#products"
+          }
+        },
+        "banner": "* Einfach Geld Sparen * Endlich Unabhängig * Zuverlässig"
+      },
+      "ServiceCatalog": {
+        "title": "Ihr Haustechnik Partner für <br></br> moderne Lösungen",
+        "buttons": {
+          "buttonLeft": {
+            "text": "Jetzt Anfragen <arrow>-></arrow>",
+            "href": "/contact-us"
+          },
+          "buttonRight": {
+            "text": "Detaillierte Ansicht",
+            "href": "#products"
+          }
+        },
+        "servicesGrid": {
+          "photovoltaic": {
+            "title": "Photovoltaik",
+            "description": "Mit einer Photovoltaikanlage können Sie Ihren eigenen Strom produzieren und so Ihre Energiekosten senken.",
+            "image": {
+              "src": "https://via.placeholder.com/150",
+              "alt": "Photovoltaic"
+            },
+            "button": {
+              "text": "Mehr erfahren",
+              "href": "/products"
+            }
+          },
+          "heatpump": {
+            "title": "Warmepumpe",
+            "description": "Mit einer Warmepumpe können Sie Ihr eigenes heises Wasser produzieren und so Ihre Energiekosten senken.",
+            "image": {
+              "src": "https://via.placeholder.com/150",
+              "alt": "Photovoltaic"
+            },
+            "button": {
+              "text": "Mehr erfahren",
+              "href": "/products"
+            }
+          },
+          "heat-exchange": {
+            "title": "Klimaanlage",
+            "description": "Mit einer Photovoltaikanlage können Sie Ihren eigenen Strom produzieren und so Ihre Energiekosten senken.",
+            "image": {
+              "src": "https://via.placeholder.com/150",
+              "alt": "Photovoltaic"
+            },
+            "button": {
+              "text": "Mehr erfahren",
+              "href": "/products"
+            }
+          },
+          "smart-home": {
+            "title": "Smart Home",
+            "description": "Mit einer Photovoltaikanlage können Sie Ihren eigenen Strom produzieren und so Ihre Energiekosten senken.",
+            "image": {
+              "src": "https://via.placeholder.com/150",
+              "alt": "Photovoltaic"
+            },
+            "button": {
+              "text": "Mehr erfahren",
+              "href": "/products"
+            }
+          },
+          "battery": {
+            "title": "Batterie",
+            "description": "Mit einer Photovoltaikanlage können Sie Ihren eigenen Strom produzieren und so Ihre Energiekosten senken.",
+            "image": {
+              "src": "https://via.placeholder.com/150",
+              "alt": "Photovoltaic"
+            },
+            "button": {
+              "text": "Mehr erfahren",
+              "href": "/products"
+            }
+          },
+          "wallbox": {
+            "title": "Wallbox",
+            "description": "Mit einer Photovoltaikanlage können Sie Ihren eigenen Strom produzieren und so Ihre Energiekosten senken.",
+            "image": {
+              "src": "https://via.placeholder.com/150",
+              "alt": "Photovoltaic"
+            },
+            "button": {
+              "text": "Mehr erfahren",
+              "href": "/products"
+            }
           }
         }
       }

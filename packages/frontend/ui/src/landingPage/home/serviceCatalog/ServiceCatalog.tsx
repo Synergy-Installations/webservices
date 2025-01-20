@@ -22,6 +22,7 @@ import Client09 from "../../../shared/images/client-09.svg";
 import Client10 from "../../../shared/images/client-10.svg";
 import { Marquee } from "@com.synergy/frontend-ui/Marquee";
 import { TracingBeam } from "@com.synergy/frontend-ui/TracingBeam";
+import { RichText } from "@com.synergy/frontend-ui/RichText";
 
 import {
   CalendarIcon,
@@ -31,6 +32,8 @@ import {
 } from "@radix-ui/react-icons";
 import { Share2Icon, BellIcon } from "lucide-react";
 import Image from "next/image";
+import { useMessages, useTranslations } from "next-intl";
+import { ServiceCard } from "@com.synergy/frontend-ui/ServiceCard";
 
 /* eslint-disable-next-line */
 export interface ServiceCatalogProps {}
@@ -202,6 +205,13 @@ const features = [
 ];
 
 export const ServiceCatalog = (props: ServiceCatalogProps) => {
+  const t = useTranslations("LandingPage.Home.ServiceCatalog");
+
+  const messages = useMessages();
+  const serviceKeys = Object.keys(
+    messages.LandingPage.Home.ServiceCatalog.servicesGrid
+  );
+
   return (
     <section className="relative" id="products">
       <HeroHomeIllustration />
@@ -215,7 +225,7 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
               data-aos="zoom-y-out"
               data-aos-delay={150}
             >
-              Ihr Haustechnik Partner für <br /> moderne Lösungen
+              <RichText>{(tags) => t.rich("title", tags)}</RichText>
             </h1>
             <div className="mx-auto max-w-3xl">
               {/* <p
@@ -265,9 +275,12 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
           </div>
           <div className="pb-12 px-4 sm:px-6 mx-auto max-w-6xl text-center relative z-10 md:pb-16">
             <BentoGrid className="md:grid-rows-3">
-              {features.map((feature) => (
-                <BentoCard key={feature.name} {...feature} />
-              ))}
+              <ServiceCard
+                services={serviceKeys.map(
+                  (key) =>
+                    messages.LandingPage.Home.ServiceCatalog.servicesGrid[key]
+                )}
+              />
             </BentoGrid>
           </div>
           <div className="py-12 md:py-20">

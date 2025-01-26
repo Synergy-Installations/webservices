@@ -4,11 +4,26 @@ import Pricing01 from "../../../shared/images/heat-pump-orange.jpg";
 import Pricing02 from "../../../shared/images/heat-pump-orange.jpg";
 import Pricing03 from "../../../shared/images/heat-pump-orange.jpg";
 import Pricing04 from "../../../shared/images/heat-pump-orange.jpg";
+import { useMessages, useTranslations } from "next-intl";
+import { RichText } from "@com.synergy/frontend-ui/RichText";
+import ImageLoader from "@com.synergy/frontend-ui/ImageLoader";
 
 /* eslint-disable-next-line */
 export interface PackagesCardProps {}
 
 export const PackagesCard = (props: PackagesCardProps) => {
+  const t = useTranslations("LandingPage.Products.PackagesCard");
+
+  const messages = useMessages();
+  const pricingTablesKeys = Object.keys(
+    messages.LandingPage.Products.PackagesCard.pricingTables
+  );
+  const pricingTableFeaturesKeys = (pricingTableKey: string) =>
+    Object.keys(
+      messages.LandingPage.Products.PackagesCard.pricingTables[pricingTableKey]
+        .features.list
+    );
+
   return (
     <section>
       <div className="relative max-w-7xl mx-auto">
@@ -23,17 +38,19 @@ export const PackagesCard = (props: PackagesCardProps) => {
         />
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="py-12 md:py-20">
+          <div className="py-12 md:py-20 md:pt-12">
             {/* Section content */}
             <div className="relative max-w-xl mx-auto md:max-w-none text-center md:text-left">
               {/* Section header */}
               <div className="md:max-w-3xl mb-12 md:mb-20" data-aos="fade-up">
+                <h1 className="text-2xl font-medium text-synergy-light-blue pb-1">
+                  {t("cardIdentifier")}
+                </h1>
                 <h2 className="h2 text-4xl font-bold mb-4">
-                  Häufig kombinierte Produkte in <br /> Paketen
+                  <RichText>{(tags) => t.rich("title", tags)}</RichText>
                 </h2>
                 <p className="text-lg text-slate-500 mb-8">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  {t("description")}
                 </p>
               </div>
 
@@ -43,304 +60,97 @@ export const PackagesCard = (props: PackagesCardProps) => {
                 data-aos="fade-up"
                 data-aos-delay="100"
               >
-                {/* Pricing table 1 */}
-                <div className="relative flex flex-col h-full rounded-br-[100px] py-5 px-6">
-                  <div className="mb-4">
-                    <div className="text-lg font-bold text-center mb-3">
-                      Starter
-                    </div>
-                    <div className="relative h-[180px]">
-                      <Image
-                        className="w-full rounded-lg object-cover"
-                        src={Pricing01}
-                        width={undefined}
-                        height={undefined}
-                        fill={true}
-                        alt="Starter"
-                      />
-                    </div>
-                  </div>
-                  <div className="mb-5">
-                    <div className="text-2xl text-slate-800 font-bold text-center mb-4">
-                      $0/m
-                    </div>
-                    <Link
-                      className="btn !rounded-xl !py-3 !text-base text-white backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue shadow-xl w-full inline-flex items-center group"
-                      href="#0"
-                    >
-                      <span className="inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
-                          Jetzt Anfragen
-                          <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
-                            {"->"}
+                {/* Pricing tables */}
+                {pricingTablesKeys.map((pricingTableKey, index) => (
+                  <div
+                    className={`relative flex flex-col h-full ${t(`pricingTables.${pricingTableKey}.featured`) === "true" && "before:opacity-20 before:absolute before:inset-0 before:rounded-br-[100px] before:bg-gradient-to-tr before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl"}  py-5 px-6`}
+                    key={index}
+                  >
+                    {t(`pricingTables.${pricingTableKey}.label`) !== "" && (
+                      <div
+                        className={`absolute top-0 right-0 -translate-y-1/2 mr-6 inline-flex text-sm text-white bg-synergy-light-blue font-[550] rounded-full px-3 py-px`}
+                      >
+                        {t(`pricingTables.${pricingTableKey}.label`)}
+                      </div>
+                    )}
+                    <div className="relative z-10">
+                      <div className="mb-4">
+                        <div className="text-lg font-bold text-center mb-3">
+                          {t(`pricingTables.${pricingTableKey}.title`)}
+                        </div>
+                        <div className="relative h-[180px]">
+                          <Image
+                            loader={ImageLoader}
+                            className="w-full rounded-lg object-cover"
+                            src={t(
+                              `pricingTables.${pricingTableKey}.image.src`
+                            )}
+                            width={undefined}
+                            height={undefined}
+                            fill={true}
+                            alt={t(
+                              `pricingTables.${pricingTableKey}.image.alt`
+                            )}
+                          />
+                        </div>
+                      </div>
+                      <div className="mb-5">
+                        <div className="text-2xl text-slate-800 font-bold text-center mb-4">
+                          {t(`pricingTables.${pricingTableKey}.price`)}
+                        </div>
+                        <Link
+                          className="btn !rounded-xl !py-3 !text-base text-white backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue shadow-xl w-full inline-flex items-center group"
+                          href={t(
+                            `pricingTables.${pricingTableKey}.button.href`
+                          )}
+                        >
+                          <span className="inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
+                            {t(`pricingTables.${pricingTableKey}.button.text`)}
+                            <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
+                              {"->"}
+                            </span>
                           </span>
-                        </span>
-                    </Link>
-                  </div>
-                  <div className="text-slate-800 font-medium mb-4">
-                    Features include
-                  </div>
-                  <ul className="text-slate-500 text-left space-y-2">
-                    <li className="flex items-start">
-                      <svg
-                        className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0"
-                        viewBox="0 0 12 12"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Contactless payments</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg
-                        className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0"
-                        viewBox="0 0 12 12"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Mobile payments</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg
-                        className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0"
-                        viewBox="0 0 12 12"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Extra card (optional)</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg
-                        className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0"
-                        viewBox="0 0 12 12"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Free payments worldwide</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg
-                        className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0"
-                        viewBox="0 0 12 12"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Free domestic ATM withdrawals</span>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Pricing table 2 */}
-                <div className="relative flex flex-col h-full before:opacity-20 before:absolute before:inset-0 before:rounded-br-[100px] before:bg-gradient-to-tr before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl py-5 px-6">
-                  <div className="absolute top-0 right-0 -translate-y-1/2 mr-6 inline-flex text-sm text-white bg-synergy-light-blue font-[550] rounded-full px-3 py-px">
-                    Popular
-                  </div>
-                  <div className="relative z-10">
-                    <div className="mb-4">
-                      <div className="text-lg font-bold text-center mb-3">
-                        Smart
+                        </Link>
                       </div>
-                      <div className="relative h-[180px]">
-                        <Image
-                          className="w-full rounded-lg object-cover"
-                          src={Pricing02}
-                          width={undefined}
-                          height={undefined}
-                          fill={true}
-                          alt="Starter"
-                        />
+                      <div className="text-slate-800 font-medium mb-4">
+                        {t(`pricingTables.${pricingTableKey}.features.text`)}
                       </div>
+                      <ul className="text-slate-500 text-left space-y-2">
+                        {pricingTableFeaturesKeys(pricingTableKey).map(
+                          (featureKey, index) => (
+                            <li className="flex items-start" key={index}>
+                              <Image
+                                className="shrink-0 fill-synergy-light-blue mr-3 mt-1.5 opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
+                                loader={ImageLoader}
+                                width={Number(
+                                  t(
+                                    `pricingTables.${pricingTableKey}.features.list.${featureKey}.icon.width`
+                                  )
+                                )}
+                                height={Number(
+                                  t(
+                                    `pricingTables.${pricingTableKey}.features.list.${featureKey}.icon.height`
+                                  )
+                                )}
+                                src={t(
+                                  `pricingTables.${pricingTableKey}.features.list.${featureKey}.icon.src`
+                                )}
+                                alt={t(
+                                  `pricingTables.${pricingTableKey}.features.list.${featureKey}.icon.alt`
+                                )}
+                              />
+                              <span>
+                                {t(
+                                  `pricingTables.${pricingTableKey}.features.list.${featureKey}.text`
+                                )}
+                              </span>
+                            </li>
+                          )
+                        )}
+                      </ul>
                     </div>
-                    <div className="mb-5">
-                      <div className="text-2xl text-slate-800 font-bold text-center mb-4">
-                        $12/m
-                      </div>
-                      <Link
-                        className="btn !rounded-xl !py-3 !text-base text-white backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue shadow-xl w-full inline-flex items-center group"
-                        href="#0"
-                      >
-                        <span className="inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
-                          Jetzt Anfragen
-                          <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
-                            {"->"}
-                          </span>
-                        </span>
-                      </Link>
-                    </div>
-                    <div className="text-slate-800 font-medium mb-4">
-                      Everything in Starter, plus
-                    </div>
-                    <ul className="text-slate-500 text-left space-y-2">
-                      <li className="flex items-start">
-                        <svg
-                          className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0"
-                          viewBox="0 0 12 12"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                        </svg>
-                        <span>Cashback</span>
-                      </li>
-                      <li className="flex items-start">
-                        <svg
-                          className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0"
-                          viewBox="0 0 12 12"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                        </svg>
-                        <span>Travel insurance</span>
-                      </li>
-                      <li className="flex items-start">
-                        <svg
-                          className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0"
-                          viewBox="0 0 12 12"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                        </svg>
-                        <span>3 Extra cards (optional)</span>
-                      </li>
-                      <li className="flex items-start">
-                        <svg
-                          className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0"
-                          viewBox="0 0 12 12"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                        </svg>
-                        <span>Flight insurance</span>
-                      </li>
-                      <li className="flex items-start">
-                        <svg
-                          className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0"
-                          viewBox="0 0 12 12"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                        </svg>
-                        <span>Two-factor authentication</span>
-                      </li>
-                      <li className="flex items-start">
-                        <svg
-                          className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0"
-                          viewBox="0 0 12 12"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                        </svg>
-                        <span>Chatbot and in-app support</span>
-                      </li>
-                      <li className="flex items-start">
-                        <svg
-                          className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0"
-                          viewBox="0 0 12 12"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                        </svg>
-                        <span>Discounted domestic transfers</span>
-                      </li>
-                    </ul>
                   </div>
-                </div>
-
-                {/* Pricing table 3 */}
-                {/* <div className="relative flex flex-col h-full rounded-br-[100px] py-5 px-6">
-                  <div className="mb-4">
-                    <div className="text-lg font-bold text-center mb-3">You</div>
-                    <Image className="w-full rounded-lg" src={Pricing03} width={210} height={124} alt="You" />
-                  </div>
-                  <div className="mb-5">
-                    <div className="text-2xl text-slate-800 font-bold text-center mb-4">$24/m</div>
-                    <a className="btn-sm w-full inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 shadow-sm" href="#0">
-                      Get You
-                    </a>
-                  </div>
-                  <div className="text-slate-800 font-medium mb-4">Everything in Starter, plus</div>
-                  <ul className="text-slate-500 text-left space-y-2">
-                    <li className="flex items-start">
-                      <svg className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Split and settle bills</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Money management</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>5 Extra cards (optional)</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Finance tracking</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Free and international domestic ATM withdrawals</span>
-                    </li>
-                  </ul>
-                </div> */}
-
-                {/* Pricing table 4 */}
-                {/* <div className="relative flex flex-col h-full rounded-br-[100px] py-5 px-6">
-                  <div className="mb-4">
-                    <div className="text-lg font-bold text-center mb-3">Black</div>
-                    <Image className="w-full rounded-lg" src={Pricing04} width={210} height={124} alt="Black" />
-                  </div>
-                  <div className="mb-5">
-                    <div className="text-2xl text-slate-800 font-bold text-center mb-4">$49/m</div>
-                    <a className="btn-sm w-full inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 shadow-sm" href="#0">
-                      Get Black
-                    </a>
-                  </div>
-                  <div className="text-slate-800 font-medium mb-4">Everything in You, plus</div>
-                  <ul className="text-slate-500 text-left space-y-2">
-                    <li className="flex items-start">
-                      <svg className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Manage subscriptions</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Savings vaults</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Commission-free stock trade</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Crypto and commodities</span>
-                    </li>
-                    <li className="flex items-start">
-                      <svg className="w-3 h-3 fill-current text-teal-500 mr-3 mt-1.5 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Free foreign exchange</span>
-                    </li>
-                  </ul>
-                </div> */}
+                ))}
               </div>
             </div>
           </div>

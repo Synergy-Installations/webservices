@@ -5,15 +5,25 @@ import Icon02 from "../../../shared/images/icon-02.svg";
 import Icon03 from "../../../shared/images/icon-03.svg";
 import Icon04 from "../../../shared/images/icon-04.svg";
 import { Link } from "@com.synergy/frontend-shared-internationalization/routing";
+import { useMessages, useTranslations } from "next-intl";
+import ImageLoader from "@com.synergy/frontend-ui/ImageLoader";
 
 /* eslint-disable-next-line */
 export interface DefaultProductCardProps {
-  orientation?: "left" | "right";
+  productKey: string;
 }
 
 export const DefaultProductCard = (props: DefaultProductCardProps) => {
-  const { orientation = "right" } = props;
-  let orientationRight = orientation === "right";
+  const { productKey } = props;
+
+  const t = useTranslations("LandingPage.Products.ProductCards");
+
+  const messages = useMessages();
+
+  const getProductBoxKeys = (boxKey: string) =>
+    Object.keys(messages.LandingPage.Products.ProductCards[productKey][boxKey]);
+
+  let orientationRight = t(`${productKey}.orientation`) === "right";
 
   return (
     <section className="mt-12 md:mt-20 mb-12 md:mb-20" data-aos-id-3>
@@ -36,7 +46,7 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
               >
                 {/* Copy */}
                 <h1 className="text-2xl font-black text-synergy-light-blue pb-1">
-                  Photovoltaik
+                  {t(`${productKey}.productIdentifier`)}
                 </h1>
                 <h2
                   className="h2 mb-4 text-4xl lg:text-5xl font-bold"
@@ -44,7 +54,7 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
                   data-aos-anchor="[data-aos-id-3]"
                   data-aos-delay="100"
                 >
-                  Sparen und unabhängig von Strompreis
+                  {t(`${productKey}.title`)}
                 </h2>
                 <p
                   className="text-lg text-slate-500 mb-8"
@@ -52,9 +62,7 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
                   data-aos-anchor="[data-aos-id-3]"
                   data-aos-delay="200"
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua
-                  minim veniam, quis nostrud exercitation.
+                  {t(`${productKey}.description`)}
                 </p>
 
                 {/* Button */}
@@ -67,10 +75,10 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
                   <div>
                     <Link
                       className="btn !rounded-xl !py-3 !text-base text-white backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue shadow-xl group"
-                      href="apply.html"
+                      href={t(`${productKey}.button.href`)}
                     >
                       <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
-                        Jetzt Anfragen
+                        {t(`${productKey}.button.text`)}
                         <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                           {"->"}
                         </span>
@@ -94,46 +102,31 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
                 {/* Features blocks */}
                 <div className="max-w-6xl mx-auto">
                   <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-16">
-                    {/* Block #1 */}
-                    <div>
-                      <div className="flex items-center mb-1">
-                        <svg
-                          className="fill-synergy-light-blue mr-2"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                        >
-                          <path d="M15 9a1 1 0 0 1 0 2c-.441 0-1.243.92-1.89 1.716.319 1.005.529 1.284.89 1.284a1 1 0 0 1 0 2 2.524 2.524 0 0 1-2.339-1.545A3.841 3.841 0 0 1 9 16a1 1 0 0 1 0-2c.441 0 1.243-.92 1.89-1.716C10.57 11.279 10.361 11 10 11a1 1 0 0 1 0-2 2.524 2.524 0 0 1 2.339 1.545A3.841 3.841 0 0 1 15 9Zm-5-1H7.51l-.02.142C6.964 11.825 6.367 16 3 16a3 3 0 0 1-3-3 1 1 0 0 1 2 0 1 1 0 0 0 1 1c1.49 0 1.984-2.48 2.49-6H3a1 1 0 1 1 0-2h2.793c.52-3.1 1.4-6 4.207-6a3 3 0 0 1 3 3 1 1 0 0 1-2 0 1 1 0 0 0-1-1C8.808 2 8.257 3.579 7.825 6H10a1 1 0 0 1 0 2Z" />
-                        </svg>
-                        <h3 className="font-inter-tight font-semibold text-zinc-800">
-                          Discussions
-                        </h3>
+                    {/* Blocks */}
+                    {getProductBoxKeys("boxesTop").map((boxKey, index) => (
+                      <div key={index}>
+                        <div className="flex items-center mb-1">
+                          <Image
+                            className="shrink-0 fill-synergy-light-blue mr-2 opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
+                            loader={ImageLoader}
+                            width={Number(
+                              t(`${productKey}.boxesTop.${boxKey}.icon.width`)
+                            )}
+                            height={Number(
+                              t(`${productKey}.boxesTop.${boxKey}.icon.height`)
+                            )}
+                            src={t(`${productKey}.boxesTop.${boxKey}.icon.src`)}
+                            alt={t(`${productKey}.boxesTop.${boxKey}.icon.alt`)}
+                          />
+                          <h3 className="font-inter-tight font-semibold text-zinc-800">
+                            {t(`${productKey}.boxesTop.${boxKey}.title`)}
+                          </h3>
+                        </div>
+                        <p className="text-sm text-zinc-700">
+                          {t(`${productKey}.boxesTop.${boxKey}.description`)}
+                        </p>
                       </div>
-                      <p className="text-sm text-zinc-700">
-                        Keep workflows efficient with tools that give teams
-                        visibility throughout the process.
-                      </p>
-                    </div>
-                    {/* Block #2 */}
-                    <div>
-                      <div className="flex items-center mb-1">
-                        <svg
-                          className="fill-synergy-light-blue mr-2"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                        >
-                          <path d="M13 16c-.153 0-.306-.035-.447-.105l-3.851-1.926c-.231.02-.465.031-.702.031-4.411 0-8-3.14-8-7s3.589-7 8-7 8 3.14 8 7c0 1.723-.707 3.351-2 4.63V15a1.003 1.003 0 0 1-1 1Zm-4.108-4.054c.155 0 .308.036.447.105L12 13.382v-2.187c0-.288.125-.562.341-.752C13.411 9.506 14 8.284 14 7c0-2.757-2.691-5-6-5S2 4.243 2 7s2.691 5 6 5c.266 0 .526-.02.783-.048a1.01 1.01 0 0 1 .109-.006Z" />
-                        </svg>
-                        <h3 className="font-inter-tight font-semibold text-zinc-800">
-                          Team views
-                        </h3>
-                      </div>
-                      <p className="text-sm text-zinc-700">
-                        Keep workflows efficient with tools that give teams
-                        visibility throughout the process.
-                      </p>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -144,11 +137,12 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
               >
                 <div className="relative -mx-8 md:mx-0">
                   <Image
-                    src={Features}
+                    loader={ImageLoader}
+                    src={t(`${productKey}.image.src`)}
                     className={`ojbect-cover ${orientationRight ? "rounded-tr-[88px]" : "rounded-tl-[88px]"}`}
-                    width={undefined}
-                    height={undefined}
-                    alt="Features"
+                    width={Number(t(`${productKey}.image.width`))}
+                    height={Number(t(`${productKey}.image.height`))}
+                    alt={t(`${productKey}.image.alt`)}
                   />
                 </div>
               </div>
@@ -156,22 +150,35 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
             {/* Grid */}
             <div className="max-w-sm mx-auto md:px-16 grid mt-10 sm:grid-cols-2 sm:max-w-3xl lg:grid-cols-4 lg:max-w-none items-start">
               {/* #1 */}
-              <div
-                className="relative p-5 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out"
-                data-aos="fade-up"
-              >
-                <Image className="mb-3" src={Icon01} alt="Icon 01" />
-                <h3 className="font-cabinet-grotesk font-bold text-lg pb-1 text-slate-800">
-                  Reward Performers
-                </h3>
-                <div className="text-slate-800 text-opacity-80">
-                  No more endless task or wasted budget. With us, you and your
-                  team are taken care of.
+              {getProductBoxKeys("boxesBottom").map((boxKey, index) => (
+                <div
+                  className="relative p-5 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out"
+                  data-aos="fade-up"
+                >
+                  {/* <Image className="mb-3" src={Icon01} alt="Icon 01" /> */}
+                  <Image
+                    className="shrink-0 fill-synergy-light-blue mb-3 opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
+                    loader={ImageLoader}
+                    width={Number(
+                      t(`${productKey}.boxesBottom.${boxKey}.icon.width`)
+                    )}
+                    height={Number(
+                      t(`${productKey}.boxesBottom.${boxKey}.icon.height`)
+                    )}
+                    src={t(`${productKey}.boxesBottom.${boxKey}.icon.src`)}
+                    alt={t(`${productKey}.boxesBottom.${boxKey}.icon.alt`)}
+                  />
+                  <h3 className="font-cabinet-grotesk font-bold text-lg pb-1 text-slate-800">
+                    {t(`${productKey}.boxesBottom.${boxKey}.title`)}
+                  </h3>
+                  <div className="text-slate-800 text-opacity-80">
+                    {t(`${productKey}.boxesBottom.${boxKey}.description`)}
+                  </div>
                 </div>
-              </div>
+              ))}
 
               {/* #2 */}
-              <div
+              {/* <div
                 className="relative p-5 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out"
                 data-aos="fade-up"
                 data-aos-delay="100"
@@ -184,39 +191,7 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
                   No more endless task or wasted budget. With us, you and your
                   team are taken care of.
                 </div>
-              </div>
-
-              {/* #3 */}
-              <div
-                className="relative p-5 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
-                <Image className="mb-3" src={Icon03} alt="Icon 03" />
-                <h3 className="font-cabinet-grotesk font-bold text-lg pb-1 text-slate-800">
-                  Reward Performers
-                </h3>
-                <div className="text-slate-800 text-opacity-80">
-                  No more endless task or wasted budget. With us, you and your
-                  team are taken care of.
-                </div>
-              </div>
-
-              {/* #4 */}
-              <div
-                className="relative p-5 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out"
-                data-aos="fade-up"
-                data-aos-delay="300"
-              >
-                <Image className="mb-3" src={Icon04} alt="Icon 04" />
-                <h3 className="font-cabinet-grotesk font-bold text-lg pb-1 text-slate-800">
-                  Reward Performers
-                </h3>
-                <div className="text-slate-800 text-opacity-80">
-                  No more endless task or wasted budget. With us, you and your
-                  team are taken care of.
-                </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

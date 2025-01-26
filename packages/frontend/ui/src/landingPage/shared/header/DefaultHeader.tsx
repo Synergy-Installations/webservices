@@ -3,11 +3,25 @@ import { DefaultDropdown } from "@com.synergy/frontend-ui/DefaultDropdown";
 import { MobileMenu } from "@com.synergy/frontend-ui/MobileMenu";
 import Image from "next/image";
 import Logo from "../../../shared/images/synergy-logo-grid.svg";
+import { useMessages, useTranslations } from "next-intl";
+import ImageLoader from "@com.synergy/frontend-ui/ImageLoader";
 
 /* eslint-disable-next-line */
 export interface DefaultHeaderProps {}
 
 export const DefaultHeader = (props: DefaultHeaderProps) => {
+  const t = useTranslations("LandingPage.Shared.Header");
+
+  const messages = useMessages();
+  const NavKeys = Object.keys(messages.LandingPage.Shared.Header.nav);
+  const socialKeys = Object.keys(messages.LandingPage.Shared.Header);
+
+  const getNavChildrenKeys = (key: string): string[] => {
+    return (
+      Object.keys(messages.LandingPage.Shared.Header.nav[key].children) || []
+    );
+  };
+
   return (
     <header className="fixed top-2 z-30 w-full md:top-6">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -15,11 +29,12 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
           {/* Site branding */}
           <div className="flex flex-1 items-center">
             {/* <Logo /> */}
-            <Link href="/" className="font-semibold pl-5">
+            <Link href={t("logo.href")} className="font-semibold pl-5">
               <Image
-                src={Logo}
-                width={undefined}
-                height={undefined}
+                loader={ImageLoader}
+                src={t("logo.src")}
+                width={Number(t("logo.width"))}
+                height={Number(t("logo.height"))}
                 alt="Logo"
               />
             </Link>
@@ -29,58 +44,33 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
           <nav className="hidden md:flex md:grow">
             {/* Desktop menu links */}
             <ul className="flex grow flex-wrap items-center justify-center gap-4 text-sm lg:gap-8">
-              <li className="px-3 py-1">
-                <Link
-                  href="/products"
-                  className="flex items-center text-synergy-dark-grey transition hover:text-gray-900"
-                >
-                  Produkte
-                </Link>
-              </li>
-              <li className="px-3 py-1">
-                <Link
-                  href="#"
-                  className="flex items-center text-synergy-dark-grey transition hover:text-gray-900"
-                >
-                  B2B
-                </Link>
-              </li>
-              {/* 1st level: hover */}
-              <DefaultDropdown title="Photovoltaik">
-                {/* 2nd level: hover */}
-                <li>
-                  <Link
-                    href="#"
-                    className="flex rounded-lg px-2 py-1.5 text-sm text-synergy-dark-grey hover:bg-gray-100 w-max"
-                  >
-                    Erneuerbare Energieanlagen
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#"
-                    className="flex rounded-lg px-2 py-1.5 text-sm text-synergy-dark-grey hover:bg-gray-100"
-                  >
-                    Energiekostenberatung
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#"
-                    className="flex rounded-lg px-2 py-1.5 text-sm text-synergy-dark-grey hover:bg-gray-100"
-                  >
-                    Energiegemeinschaften
-                  </Link>
-                </li>
-              </DefaultDropdown>
-              <li className="px-3 py-1">
-                <Link
-                  href="#"
-                  className="flex items-center text-synergy-dark-grey transition hover:text-gray-900"
-                >
-                  Über uns
-                </Link>
-              </li>
+              {NavKeys.map((navKey, index) =>
+                t(`nav.${navKey}.children`) === "" ? (
+                  <li className="px-3 py-1">
+                    <Link
+                      href={t(`nav.${navKey}.href`)}
+                      className="flex items-center text-synergy-dark-grey transition hover:text-gray-900"
+                    >
+                      {t(`nav.${navKey}.text`)}
+                    </Link>
+                  </li>
+                ) : (
+                  /* 1st level: hover */
+                  <DefaultDropdown title={t(`nav.${navKey}.text`)}>
+                    {/* 2nd level: hover */}
+                    {getNavChildrenKeys(navKey).map((childKey, index) => (
+                      <li>
+                        <Link
+                          href={t(`nav.${navKey}.children.${childKey}.text`)}
+                          className="flex  rounded-lg px-2 py-1.5 text-sm text-synergy-dark-grey hover:bg-gray-100 w-full whitespace-nowrap"
+                        >
+                          {t(`nav.${navKey}.children.${childKey}.text`)}
+                        </Link>
+                      </li>
+                    ))}
+                  </DefaultDropdown>
+                )
+              )}
             </ul>
           </nav>
 
@@ -96,15 +86,15 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
             </li> */}
             <li>
               <Link
-                href="/contact-us"
+                href={t("button.href")}
                 className="btn !rounded-[10px] backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue text-white group"
               >
                 <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
-                Jetzt Anfragen
-                <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
-                  {"->"}
+                  {t("button.text")}
+                  <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
+                    {"->"}
+                  </span>
                 </span>
-              </span>
               </Link>
             </li>
           </ul>

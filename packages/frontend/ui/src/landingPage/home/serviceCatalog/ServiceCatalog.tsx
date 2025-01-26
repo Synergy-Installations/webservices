@@ -23,6 +23,8 @@ import Client10 from "../../../shared/images/client-10.svg";
 import { Marquee } from "@com.synergy/frontend-ui/Marquee";
 import { TracingBeam } from "@com.synergy/frontend-ui/TracingBeam";
 import { RichText } from "@com.synergy/frontend-ui/RichText";
+import { ImageLoader } from "@com.synergy/frontend-ui/ImageLoader";
+import { isTrueSet } from "@com.synergy/frontend-ui/Boolean";
 
 import {
   CalendarIcon,
@@ -204,6 +206,13 @@ const features = [
   // },
 ];
 
+interface PartnerCarouselItems {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
 export const ServiceCatalog = (props: ServiceCatalogProps) => {
   const t = useTranslations("LandingPage.Home.ServiceCatalog");
 
@@ -211,6 +220,18 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
   const serviceKeys = Object.keys(
     messages.LandingPage.Home.ServiceCatalog.servicesGrid
   );
+
+  const partnerCarouselKeys = Object.keys(
+    messages.LandingPage.Home.ServiceCatalog.partnerCarousel
+  );
+
+  const getPartnerCarouselItems = (key: string): string[] => {
+    return (
+      Object.keys(
+        messages.LandingPage.Home.ServiceCatalog.partnerCarousel[key].partners
+      ) || []
+    );
+  };
 
   return (
     <section className="relative" id="products">
@@ -243,7 +264,7 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
                 >
                   <Link
                     className="btn !rounded-xl !py-4 !text-base group mb-4 w-full backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue shadow-xl text-white sm:mb-0 sm:w-auto"
-                    href={"/"}
+                    href={t("buttons.buttonLeft.href")}
                   >
                     <span className="relative inline-flex items-center tracking-normal">
                       {/* {t.rich("buttons.buttonLeft.value", {
@@ -255,7 +276,7 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
                       })} */}
                       <span className="ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
                         <span className="inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
-                          Jetzt Anfragen
+                          {t("buttons.buttonLeft.text")}
                           <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                             {"->"}
                           </span>
@@ -265,9 +286,9 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
                   </Link>
                   <Link
                     className="btn !rounded-xl !text-base w-full bg-white text-synergy-dark-grey shadow-xl hover:bg-synergy-light-grey sm:ml-4 sm:w-auto"
-                    href={"/"}
+                    href={t("buttons.buttonRight.href")}
                   >
-                    Detaillierte Ansicht
+                    {t("buttons.buttonRight.text")}
                   </Link>
                 </div>
               </div>
@@ -288,150 +309,44 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
             <div className="relative z-10 before:absolute before:inset-0 before:w-32 before:z-10 before:pointer-events-none before:bg-gradient-to-r before:from-slate-50 after:absolute after:inset-0 after:left-auto after:w-32 after:z-10 after:pointer-events-none after:bg-gradient-to-l after:from-slate-50">
               <div className="!ease-linear select-none">
                 {/* Carousel items */}
-                <Marquee pauseOnHoverProp className="[--duration:20s]">
-                  <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
-                    <Image
-                      className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                      src={Client01}
-                      alt="Client 01"
-                    />
-                  </div>
-                  <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
-                    <Image
-                      className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                      src={Client02}
-                      alt="Client 02"
-                    />
-                  </div>
-                  <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
-                    <Image
-                      className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                      src={Client03}
-                      alt="Client 03"
-                    />
-                  </div>
-                  <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
-                    <Image
-                      className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                      src={Client04}
-                      alt="Client 04"
-                    />
-                  </div>
-                  <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
-                    <Image
-                      className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                      src={Client05}
-                      alt="Client 05"
-                    />
-                  </div>
-                  <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
-                    <Image
-                      className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                      src={Client06}
-                      alt="Client 06"
-                    />
-                  </div>
-                  <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
-                    <Image
-                      className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                      src={Client07}
-                      alt="Client 07"
-                    />
-                  </div>
-                  <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
-                    <Image
-                      className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                      src={Client08}
-                      alt="Client 08"
-                    />
-                  </div>
-                  <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
-                    <Image
-                      className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                      src={Client09}
-                      alt="Client 09"
-                    />
-                  </div>
-                  <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
-                    <Image
-                      className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                      src={Client10}
-                      alt="Client 10"
-                    />
-                  </div>
-                </Marquee>
-                <Marquee pauseOnHoverProp reverse className="[--duration:20s]">
-                  <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
-                    <Image
-                      className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                      src={Client01}
-                      alt="Client 01"
-                    />
-                  </div>
-                  <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
-                    <Image
-                      className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                      src={Client02}
-                      alt="Client 02"
-                    />
-                  </div>
-                  <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
-                    <Image
-                      className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                      src={Client03}
-                      alt="Client 03"
-                    />
-                  </div>
-                  <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
-                    <Image
-                      className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                      src={Client04}
-                      alt="Client 04"
-                    />
-                  </div>
-                  <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
-                    <Image
-                      className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                      src={Client05}
-                      alt="Client 05"
-                    />
-                  </div>
-                  <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
-                    <Image
-                      className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                      src={Client06}
-                      alt="Client 06"
-                    />
-                  </div>
-                  <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
-                    <Image
-                      className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                      src={Client07}
-                      alt="Client 07"
-                    />
-                  </div>
-                  <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
-                    <Image
-                      className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                      src={Client08}
-                      alt="Client 08"
-                    />
-                  </div>
-                  <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
-                    <Image
-                      className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                      src={Client09}
-                      alt="Client 09"
-                    />
-                  </div>
-                  <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
-                    <Image
-                      className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                      src={Client10}
-                      alt="Client 10"
-                    />
-                  </div>
-                </Marquee>
+                {partnerCarouselKeys.map((partnerCarouselKey) => (
+                  <Marquee
+                    pauseOnHoverProp={isTrueSet(
+                      t(`partnerCarousel.${partnerCarouselKey}.pauseOnHover`)
+                    )}
+                    reverse={isTrueSet(
+                      t(`partnerCarousel.${partnerCarouselKey}.reverse`)
+                    )}
+                    className="[--duration:20s]"
+                  >
+                    {getPartnerCarouselItems(partnerCarouselKey).map(
+                      (partnerKey, index) => (
+                        <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
+                          <Image
+                            className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
+                            loader={ImageLoader}
+                            width={Number(
+                              t(
+                                `partnerCarousel.${partnerCarouselKey}.partners.${partnerKey}.width`
+                              )
+                            )}
+                            height={Number(
+                              t(
+                                `partnerCarousel.${partnerCarouselKey}.partners.${partnerKey}.height`
+                              )
+                            )}
+                            src={t(
+                              `partnerCarousel.${partnerCarouselKey}.partners.${partnerKey}.src`
+                            )}
+                            alt={t(
+                              `partnerCarousel.${partnerCarouselKey}.partners.${partnerKey}.alt`
+                            )}
+                          />
+                        </div>
+                      )
+                    )}
+                  </Marquee>
+                ))}
               </div>
             </div>
           </div>

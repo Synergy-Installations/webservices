@@ -8,6 +8,9 @@
     "dist"
   ],
   "exports": {
+    "./ProductCards": "./src/landingPage/products/cards/ProductCards.tsx",
+    "./Boolean": "./src/shared/utils/math/Boolean.tsx",
+    "./ImageLoader": "./src/shared/utils/image/ImageLoader.tsx",
     "./ServiceCard": "./src/landingPage/shared/bentoGrid/serviceCard/ServiceCard.tsx",
     "./RichText": "./src/shared/internationalization/text/RichText.tsx",
     "./ProductPreviewSmallTransition": "./src/landingPage/shared/ui/productPreviewSmallTransition/ProductPreviewSmallTransition.tsx",

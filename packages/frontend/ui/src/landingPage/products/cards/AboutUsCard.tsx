@@ -4,11 +4,20 @@ import Icon02 from "../../../shared/images/icon-02.svg";
 import Icon03 from "../../../shared/images/icon-03.svg";
 import Icon04 from "../../../shared/images/icon-04.svg";
 import Family from "../../../shared/images/Family.jpeg";
+import { useMessages, useTranslations } from "next-intl";
+import ImageLoader from "@com.synergy/frontend-ui/ImageLoader";
 
 /* eslint-disable-next-line */
 export interface AboutUsCardProps {}
 
 export const AboutUsCard = (props: AboutUsCardProps) => {
+  const t = useTranslations("LandingPage.Products.AboutUsCard");
+
+  const messages = useMessages();
+  const boxCardKeys = Object.keys(
+    messages.LandingPage.Products.AboutUsCard.boxes
+  );
+
   return (
     <section>
       <div className="relative max-w-7xl mx-auto">
@@ -25,120 +34,53 @@ export const AboutUsCard = (props: AboutUsCardProps) => {
               {/* Section header */}
               <div className="md:max-w-3xl mb-12" data-aos="fade-up">
                 <h1 className="text-2xl font-medium text-synergy-light-blue pb-1">
-                  Energie endlich gunstig
+                  {t("cardIdentifier")}
                 </h1>
                 <h2 className="h2 text-4xl lg:text-5xl font-bold mb-4">
-                  Vom Handwerker mit Handschlagqualität
+                  {t("title")}
                 </h2>
-                <p className="text-lg text-slate-700">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
+                <p className="text-lg text-slate-700">{t("description")}</p>
               </div>
 
               {/* Items */}
               <div className="max-w-sm mx-auto grid sm:gap-4 lg:gap-0 sm:grid-cols-1 sm:max-w-4xl lg:grid-cols-3 lg:max-w-none items-start">
                 {/* #1 */}
-                <div
-                  className="relative sm:flex sm:gap-4 md:gap-8 items-center justify-between lg:block p-5 mt-16 sm:mt-0 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out"
-                  data-aos="fade-up"
-                >
-                  <div className="relative min-w-[250px] w-full h-[230px] mb-6 sm:mb-0 lg:mb-16">
-                    <Image
-                      className="object-cover rounded"
-                      width={undefined}
-                      height={undefined}
-                      fill={true}
-                      src={Family}
-                      alt="Family"
-                    />
-                  </div>
-                  <div className="px-3">
-                    <div className="mb-3 flex justify-center items-center w-full md:block">
+                {boxCardKeys.map((boxKey, index) => (
+                  <div
+                    className={`relative sm:flex ${index % 2 == 0 && "sm:flex-row-reverse"} sm:gap-4 md:gap-8 items-center justify-between lg:block p-5 mt-16 sm:mt-0 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out`}
+                    data-aos="fade-up"
+                  >
+                    <div className="relative min-w-[250px] w-full h-[230px] mb-6 sm:mb-0 lg:mb-16">
                       <Image
-                        width={40}
-                        height={40}
-                        src={Icon01}
-                        alt="Icon 01"
+                        loader={ImageLoader}
+                        className="object-cover rounded"
+                        width={undefined}
+                        height={undefined}
+                        fill={true}
+                        src={t(`boxes.${boxKey}.image.src`)}
+                        alt="Family"
                       />
                     </div>
-                    <h3 className="font-cabinet-grotesk font-bold text-lg pb-1 text-slate-800">
-                      Reward Performers
-                    </h3>
-                    <div className="text-slate-800 text-opacity-80">
-                      No more endless task or wasted budget. With us, you and
-                      your team are taken care of.
+                    <div className="px-3">
+                      <div className="mb-3 flex justify-center items-center w-full md:block">
+                        <Image
+                          className="shrink-0 fill-synergy-light-blue opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
+                          loader={ImageLoader}
+                          width={Number(t(`boxes.${boxKey}.icon.width`))}
+                          height={Number(t(`boxes.${boxKey}.icon.height`))}
+                          src={t(`boxes.${boxKey}.icon.src`)}
+                          alt={t(`boxes.${boxKey}.icon.alt`)}
+                        />
+                      </div>
+                      <h3 className="font-cabinet-grotesk font-bold text-lg pb-1 text-slate-800">
+                      {t(`boxes.${boxKey}.title`)}
+                      </h3>
+                      <div className="text-slate-800 text-opacity-80">
+                      {t(`boxes.${boxKey}.description`)}
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                {/* #2 */}
-                <div
-                  className="relative sm:flex sm:flex-row-reverse sm:gap-4 md:gap-8 items-center justify-between lg:block p-5 mt-16 sm:mt-0 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out"
-                  data-aos="fade-up"
-                >
-                  <div className="relative min-w-[250px] w-full h-[230px] mb-6 sm:mb-0 lg:mb-16">
-                    <Image
-                      className="object-cover rounded"
-                      width={undefined}
-                      height={undefined}
-                      fill={true}
-                      src={Family}
-                      alt="Family"
-                    />
-                  </div>
-                  <div className="px-3">
-                    <div className="mb-3 flex justify-center items-center w-full md:block">
-                      <Image
-                        width={40}
-                        height={40}
-                        src={Icon01}
-                        alt="Icon 01"
-                      />
-                    </div>
-                    <h3 className="font-cabinet-grotesk font-bold text-lg pb-1 text-slate-800">
-                      Reward Performers
-                    </h3>
-                    <div className="text-slate-800 text-opacity-80">
-                      No more endless task or wasted budget. With us, you and
-                      your team are taken care of.
-                    </div>
-                  </div>
-                </div>
-
-                {/* #3 */}
-                <div
-                  className="relative sm:flex sm:gap-4 md:gap-8 items-center justify-between lg:block p-5 mt-16 sm:mt-0 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out"
-                  data-aos="fade-up"
-                >
-                  <div className="relative min-w-[250px] w-full h-[230px] mb-6 sm:mb-0 lg:mb-16">
-                    <Image
-                      className="object-cover rounded"
-                      width={undefined}
-                      height={undefined}
-                      fill={true}
-                      src={Family}
-                      alt="Family"
-                    />
-                  </div>
-                  <div className="px-3">
-                    <div className="mb-3 flex justify-center items-center w-full md:block">
-                      <Image
-                        width={40}
-                        height={40}
-                        src={Icon01}
-                        alt="Icon 01"
-                      />
-                    </div>
-                    <h3 className="font-cabinet-grotesk font-bold text-lg pb-1 text-slate-800">
-                      Reward Performers
-                    </h3>
-                    <div className="text-slate-800 text-opacity-80">
-                      No more endless task or wasted budget. With us, you and
-                      your team are taken care of.
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

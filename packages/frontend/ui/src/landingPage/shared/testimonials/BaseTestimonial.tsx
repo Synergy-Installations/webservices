@@ -1,16 +1,22 @@
 import Image, { StaticImageData } from "next/image";
+import { ImageLoader } from "@com.synergy/frontend-ui/ImageLoader";
 
 /* eslint-disable-next-line */
 export interface BaseTestimonialProps {
   testimonial: {
-    img: StaticImageData;
+    img: string;
+    imageAlt: string;
     name: string;
     username?: string;
+    usernameUrl?: string;
     date: string;
     rating?: number;
     videoUrl?: string;
     videoThumb?: StaticImageData;
-    channel?: string;
+    channelIconSrc: string;
+    channelIconAlt: string;
+    channelIconWidth: number;
+    channelIconHeight: number;
   };
   cloned?: boolean;
   className?: string;
@@ -73,10 +79,11 @@ export const BaseTestimonial = (props: BaseTestimonialProps) => {
       <header className="mb-4 flex items-center gap-3">
         <Image
           className="shrink-0 rounded-full"
+          loader={ImageLoader}
           src={testimonial.img}
           width={44}
           height={44}
-          alt={testimonial.name}
+          alt={testimonial.alt}
         />
         <div>
           <div className="font-bold">{testimonial.name}</div>
@@ -84,7 +91,7 @@ export const BaseTestimonial = (props: BaseTestimonialProps) => {
             <div>
               <a
                 className="text-sm font-medium text-gray-500/80 transition hover:text-gray-500"
-                href="#0"
+                href={testimonial.usernameUrl}
                 tabIndex={cloned ? -1 : 0}
               >
                 {testimonial.username}
@@ -138,7 +145,14 @@ export const BaseTestimonial = (props: BaseTestimonialProps) => {
         <div className="grow text-sm text-gray-700">{children}</div>
       )}
       <footer className="mt-4 flex items-center gap-2.5 text-gray-700">
-        {testimonial.channel && channelIcon(testimonial.channel)}
+        <Image
+          className="shrink-0 fill-synergy-light-blue mr-3 opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
+          loader={ImageLoader}
+          width={testimonial.channelIconWidth}
+          height={testimonial.channelIconHeight}
+          src={testimonial.channelIconSrc}
+          alt={testimonial.channelIconAlt}
+        />
         <div className="text-xs">{testimonial.date}</div>
       </footer>
     </article>

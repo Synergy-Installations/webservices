@@ -1,10 +1,10 @@
 import Image from "next/image";
-import HeatPumpOrange from "../../../shared/images/heat-pump-orange.jpg";
+import { ImageLoader } from "@com.synergy/frontend-ui/ImageLoader";
 
 /* eslint-disable-next-line */
 export interface ProductPreviewSmallProps {
   name?: string;
-  image?: {
+  image: {
     src: string;
     alt: string;
   };
@@ -18,12 +18,13 @@ export const ProductPreviewSmall = (props: ProductPreviewSmallProps) => {
     >
       <div className="w-[74px] h-[63px] relative">
         <Image
-          src={HeatPumpOrange}
+          src={props.image.src}
+          loader={ImageLoader}
           width={undefined}
           height={undefined}
           className="object-cover rounded-l-[20px]"
           fill
-          alt="Heat Pump Orange"
+          alt={props.image.alt}
         />
       </div>
       <h2 className="text-2xl font-semibold text-white">{props.name}</h2>

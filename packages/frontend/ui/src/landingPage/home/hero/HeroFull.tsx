@@ -15,25 +15,26 @@ export const HeroFull = (props: HeroFullProps) => {
   const t = useTranslations("LandingPage.Home.Hero");
 
   const messages = useMessages();
-  const productPreviewKeys = Object.keys(messages.LandingPage.Home.Hero.productPreviewSmall);
+  const productPreviewKeys = Object.keys(
+    messages.LandingPage.Home.Hero.productPreviewSmall
+  );
 
   return (
     <div className="h-svh w-svw min-h-[993px] relative">
       <div className="z-10 relative h-full flex flex-col items-center justify-center lg:block lg:pt-[204px] lg:pl-[140px] xl:pl-[200px] 2xl:pl-[300px] min-[1700px]:pl-[350px] min-[1700px]:pt-[194px] w-auto">
-        <div className="relative flex flex-col">
-
-        <ProductPreviewSmallTransition
-          products={productPreviewKeys.map(
-            (key) => messages.LandingPage.Home.Hero.productPreviewSmall[key]
-          )}
-        />
+        <div className="relative flex flex-col w-[272px] rounded-2xl">
+          <ProductPreviewSmallTransition
+            products={productPreviewKeys.map(
+              (key) => messages.LandingPage.Home.Hero.productPreviewSmall[key]
+            )}
+          />
         </div>
         {/* <h1 className="mb-6 mt-5 py-2 border-y text-5xl font-bold w-fit text-white [border-image:linear-gradient(to_right,transparent,theme(colors.slate.300/.8),transparent)1] md:text-6xl">
           Preisstabil
         </h1> */}
         <div className="mb-6 mt-5 w-fit border-y [border-image:linear-gradient(to_right,transparent,theme(colors.slate.300/.8),transparent)1]">
           <WordRotate
-            className="text-5xl font-bold w-fit text-white md:text-6xl"
+            className="text-4xl sm:text-5xl font-bold w-fit text-white md:text-6xl"
             words={t("rotatingText").split(",")}
           />
         </div>
@@ -70,6 +71,7 @@ export const HeroFull = (props: HeroFullProps) => {
           </div>
         </Marquee>
       </div>
+
       <Image
         src={HeroFullImage}
         width={undefined}
@@ -78,6 +80,7 @@ export const HeroFull = (props: HeroFullProps) => {
         className="object-cover min-h-[993px] object-[60%_100%] sm:object-[70%_100%] md:object-[70%_100%] lg:object-[50%_100%] xl:object-[40%_50%] 2xl:object-[60%_50%]"
         alt=""
       />
+      <div className="absolute inset-0 bg-black/20 lg:bg-transparent"></div>
     </div>
   );
 };

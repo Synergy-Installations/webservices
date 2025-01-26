@@ -1,19 +1,20 @@
-'use client'
+"use client";
 
 import { useState, useRef } from "react";
 import type { StaticImageData } from "next/image";
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
-import Image from 'next/image'
+import Image from "next/image";
+import { ImageLoader } from "@com.synergy/frontend-ui/ImageLoader";
 
 /* eslint-disable-next-line */
 export interface ModalVideoProps {
-  thumb: StaticImageData;
+  thumb: string;
   thumbWidth: number;
   thumbHeight: number;
   thumbAlt: string;
-  video: string;
-  videoWidth: number;
-  videoHeight: number;
+  video?: string;
+  videoWidth?: number;
+  videoHeight?: number;
 }
 
 export const ModalVideo = (props: ModalVideoProps) => {
@@ -27,8 +28,8 @@ export const ModalVideo = (props: ModalVideoProps) => {
     videoHeight,
   } = props;
 
-  const [modalOpen, setModalOpen] = useState<boolean>(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
     <div>
@@ -36,6 +37,8 @@ export const ModalVideo = (props: ModalVideoProps) => {
       <div className="relative inline-flex justify-center items-center">
         <Image
           src={thumb}
+          className="rounded-2xl"
+          loader={ImageLoader}
           width={thumbWidth}
           height={thumbHeight}
           alt={thumbAlt}
@@ -53,59 +56,63 @@ export const ModalVideo = (props: ModalVideoProps) => {
           />
         </svg>
         {/* Play button */}
-        <div className="absolute">
-          <button
-            className="btn h-10 px-4 inline-flex items-center text-gray-900 bg-white hover:bg-blue-50"
-            onClick={() => {
-              setModalOpen(true);
-            }}
-            aria-label="Watch the video"
-          >
-            <span className="tracking-normal text-blue-500 mr-2">
-              <svg
-                className="fill-current"
-                width="9"
-                height="12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M.783.088A.5.5 0 0 0 0 .5v11a.5.5 0 0 0 .783.412l8-5.5a.5.5 0 0 0 0-.824l-8-5.5Z" />
-              </svg>
-            </span>
-            Quick Explainer
-          </button>
-        </div>
+        {video !== "" && (
+          <div className="absolute">
+            <button
+              className="btn h-10 px-4 inline-flex items-center text-gray-900 bg-white hover:bg-blue-50"
+              onClick={() => {
+                setModalOpen(true);
+              }}
+              aria-label="Watch the video"
+            >
+              <span className="tracking-normal text-blue-500 mr-2">
+                <svg
+                  className="fill-current"
+                  width="9"
+                  height="12"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M.783.088A.5.5 0 0 0 0 .5v11a.5.5 0 0 0 .783.412l8-5.5a.5.5 0 0 0 0-.824l-8-5.5Z" />
+                </svg>
+              </span>
+              Quick Explainer
+            </button>
+          </div>
+        )}
       </div>
       {/* End: Video thumbnail */}
 
-      <Dialog
-        initialFocus={videoRef}
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
-      >
-        <DialogBackdrop
-          transition
-          className="fixed inset-0 z-[99999] bg-black/70 transition-opacity duration-300 ease-out data-[closed]:opacity-0"
-        />
-        <div className="fixed inset-0 z-[99999] flex px-4 py-6 sm:px-6">
-          <div className="mx-auto flex h-full max-w-6xl items-center">
-            <DialogPanel
-              transition
-              className="aspect-video max-h-full w-full overflow-hidden bg-black shadow-2xl duration-300 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
-            >
-              <video
-                ref={videoRef}
-                width={videoWidth}
-                height={videoHeight}
-                loop
-                controls
+      {video !== "" && (
+        <Dialog
+          initialFocus={videoRef}
+          open={modalOpen}
+          onClose={() => setModalOpen(false)}
+        >
+          <DialogBackdrop
+            transition
+            className="fixed inset-0 z-[99999] bg-black/70 transition-opacity duration-300 ease-out data-[closed]:opacity-0"
+          />
+          <div className="fixed inset-0 z-[99999] flex px-4 py-6 sm:px-6">
+            <div className="mx-auto flex h-full max-w-6xl items-center">
+              <DialogPanel
+                transition
+                className="aspect-video max-h-full w-full overflow-hidden bg-black shadow-2xl duration-300 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
               >
-                <source src={video} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </DialogPanel>
+                <video
+                  ref={videoRef}
+                  width={videoWidth}
+                  height={videoHeight}
+                  loop
+                  controls
+                >
+                  <source src={video} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </DialogPanel>
+            </div>
           </div>
-        </div>
-      </Dialog>
+        </Dialog>
+      )}
     </div>
   );
 };

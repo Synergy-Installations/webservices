@@ -3,11 +3,26 @@ import TestimonialImg01 from "../../../shared/images/testimonial-01.jpg";
 import TestimonialImg02 from "../../../shared/images/testimonial-02.jpg";
 import TestimonialImg03 from "../../../shared/images/testimonial-03.jpg";
 import TestimonialImg04 from "../../../shared/images/testimonial-04.jpg";
+import { RichText } from "@com.synergy/frontend-ui/RichText";
+import { useMessages, useTranslations } from "next-intl";
+import Image from "next/image";
+import { ImageLoader } from "@com.synergy/frontend-ui/ImageLoader";
 
 /* eslint-disable-next-line */
 export interface TestimonialsCarouselProps {}
 
 export const TestimonialsCarousel = (props: TestimonialsCarouselProps) => {
+  const t = useTranslations("LandingPage.Home.TestimonialsCarousel");
+
+  const messages = useMessages();
+  const stepKeys = Object.keys(
+    messages.LandingPage.Home.TestimonialsCarousel.testimonials
+  );
+
+  const blockKeys = Object.keys(
+    messages.LandingPage.Home.TestimonialsCarousel.blocks
+  );
+
   const testimonials = [
     {
       img: TestimonialImg01,
@@ -48,17 +63,17 @@ export const TestimonialsCarousel = (props: TestimonialsCarouselProps) => {
   ];
 
   return (
-    <section className="relative before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:h-[120%] before:bg-gradient-to-b before:from-gray-100">
+    <section className="relative bg-synergy-light-grey before:pointer-events-none before:absolute before:inset-0 before:z-10 before:h-[120%] before:bg-gradient-to-b before:from-synergy-light-grey">
       <div className="pt-12 md:pt-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold md:text-4xl relative z-10">
-              We love stories, especially successful ones
+            <h2 className="text-4xl font-bold md:text-4xl relative z-10">
+              <RichText>{(tags) => t.rich("title", tags)}</RichText>
             </h2>
           </div>
         </div>
         <div className="relative mx-auto flex max-w-[94rem] justify-center">
-          <div
+          {/* <div
             className="absolute bottom-20 -translate-x-36"
             aria-hidden="true"
           >
@@ -69,18 +84,39 @@ export const TestimonialsCarousel = (props: TestimonialsCarouselProps) => {
           </div>
           <div className="absolute bottom-0" aria-hidden="true">
             <div className="h-56 w-56 rounded-full border-[20px] border-white blur-[20px] will-change-[filter]" />
-          </div>
+          </div> */}
           {/* Row */}
           <div className="group relative z-20 inline-flex w-full flex-nowrap py-12 [mask-image:_linear-gradient(to_right,transparent_0,_black_10%,_black_90%,transparent_100%)] md:py-20">
             <div className="flex animate-[infinite-scroll_60s_linear_infinite] items-start justify-center group-hover:[animation-play-state:paused] md:justify-start [&>*]:mx-3">
               {/* Items */}
-              {testimonials.map((testimonial, index) => (
+              {stepKeys.map((testimonial, index) => (
                 <BaseTestimonial
                   key={index}
-                  testimonial={testimonial}
+                  testimonial={{
+                    img: t(`testimonials.${testimonial}.profilePicture.src`),
+                    name: t(`testimonials.${testimonial}.name`),
+                    username: t(`testimonials.${testimonial}.username`),
+                    imageAlt: t(
+                      `testimonials.${testimonial}.profilePicture.src`
+                    ),
+                    usernameUrl: t(`testimonials.${testimonial}.usernameUrl`),
+                    date: t(`testimonials.${testimonial}.date`),
+                    channelIconSrc: t(
+                      `testimonials.${testimonial}.channelIcon.src`
+                    ),
+                    channelIconAlt: t(
+                      `testimonials.${testimonial}.channelIcon.alt`
+                    ),
+                    channelIconWidth: Number(
+                      t(`testimonials.${testimonial}.channelIcon.width`)
+                    ),
+                    channelIconHeight: Number(
+                      t(`testimonials.${testimonial}.channelIcon.height`)
+                    ),
+                  }}
                   className="w-[22rem] transition-transform duration-300 group-hover:rotate-0"
                 >
-                  {testimonial.content}
+                  {t(`testimonials.${testimonial}.content`)}
                 </BaseTestimonial>
               ))}
             </div>
@@ -90,17 +126,62 @@ export const TestimonialsCarousel = (props: TestimonialsCarouselProps) => {
               aria-hidden="true"
             >
               {/* Items */}
-              {testimonials.map((testimonial, index) => (
+              {stepKeys.map((testimonial, index) => (
                 <BaseTestimonial
                   key={index}
-                  testimonial={testimonial}
-                  cloned={true}
+                  testimonial={{
+                    img: t(`testimonials.${testimonial}.profilePicture.src`),
+                    name: t(`testimonials.${testimonial}.name`),
+                    username: t(`testimonials.${testimonial}.username`),
+                    imageAlt: t(
+                      `testimonials.${testimonial}.profilePicture.src`
+                    ),
+                    usernameUrl: t(`testimonials.${testimonial}.usernameUrl`),
+                    date: t(`testimonials.${testimonial}.date`),
+                    channelIconSrc: t(
+                      `testimonials.${testimonial}.channelIcon.src`
+                    ),
+                    channelIconAlt: t(
+                      `testimonials.${testimonial}.channelIcon.alt`
+                    ),
+                    channelIconWidth: Number(
+                      t(`testimonials.${testimonial}.channelIcon.width`)
+                    ),
+                    channelIconHeight: Number(
+                      t(`testimonials.${testimonial}.channelIcon.height`)
+                    ),
+                  }}
                   className="w-[22rem] transition-transform duration-300 group-hover:rotate-0"
                 >
-                  {testimonial.content}
+                  {t(`testimonials.${testimonial}.content`)}
                 </BaseTestimonial>
               ))}
             </div>
+          </div>
+        </div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-12 lg:pb-20 relative z-10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16">
+            {/* Blocks*/}
+            {blockKeys.map((key, index) => (
+              <div key={index}>
+                <div className="flex items-center mb-1">
+                  <Image
+                    className="shrink-0 fill-synergy-light-blue mr-2 opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
+                    loader={ImageLoader}
+                    width={Number(t(`blocks.${key}.icon.width`))}
+                    height={Number(t(`blocks.${key}.icon.height`))}
+                    src={t(`blocks.${key}.icon.src`)}
+                    alt={t(`blocks.${key}.icon.alt`)}
+                  />
+                  <h3 className="font-inter-tight font-semibold text-synergy-dark-grey">
+                    {t(`blocks.${key}.title`)}
+                  </h3>
+                </div>
+                <p className="text-sm text-synergy-dark-grey">
+                  {t(`blocks.${key}.description`)}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

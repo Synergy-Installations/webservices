@@ -1,5 +1,1061 @@
 {
-  "Index": {
-    "title": "Hallo world! (AT) von crowdin"
+  "LandingPage": {
+    "Home": {
+      "Hero": {
+        "productPreviewSmall": {
+          "photovoltaic": {
+            "title": "Photovoltaic",
+            "image": {
+              "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
+              "alt": "Photovoltaic"
+            }
+          },
+          "heatpump": {
+            "title": "Warmepumpe",
+            "image": {
+              "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
+              "alt": "Photovoltaic"
+            }
+          }
+        },
+        "rotatingText": "Preisstabil, Handschlagqualität, Zuverlässig, Nachhaltig",
+        "buttons": {
+          "buttonLeft": {
+            "text": "Jetzt Anfragen <arrow>-></arrow>",
+            "href": "/contact-us"
+          },
+          "buttonRight": {
+            "text": "Unsere Produkte",
+            "href": "#products"
+          }
+        },
+        "banner": "* Einfach Geld Sparen * Endlich Unabhängig * Zuverlässig"
+      },
+      "ServiceCatalog": {
+        "title": "Ihr Haustechnik Partner für <br></br> moderne Lösungen",
+        "buttons": {
+          "buttonLeft": {
+            "text": "Jetzt Anfragen",
+            "href": "/contact-us"
+          },
+          "buttonRight": {
+            "text": "Detaillierte Ansicht",
+            "href": "#products"
+          }
+        },
+        "servicesGrid": {
+          "photovoltaic": {
+            "title": "Photovoltaik",
+            "description": "Mit einer Photovoltaikanlage können Sie Ihren eigenen Strom produzieren und so Ihre Energiekosten senken.",
+            "image": {
+              "src": "/frontend/landingPage/products/heat-pump.jpg",
+              "alt": "Photovoltaic"
+            },
+            "button": {
+              "text": "Mehr erfahren",
+              "href": "/products"
+            }
+          },
+          "heatpump": {
+            "title": "Warmepumpe",
+            "description": "Mit einer Warmepumpe können Sie Ihr eigenes heises Wasser produzieren und so Ihre Energiekosten senken.",
+            "image": {
+              "src": "/frontend/landingPage/products/heat-pump.jpg",
+              "alt": "Photovoltaic"
+            },
+            "button": {
+              "text": "Mehr erfahren",
+              "href": "/products"
+            }
+          },
+          "heat-exchange": {
+            "title": "Klimaanlage",
+            "description": "Mit einer Photovoltaikanlage können Sie Ihren eigenen Strom produzieren und so Ihre Energiekosten senken.",
+            "image": {
+              "src": "/frontend/landingPage/products/heat-pump.jpg",
+              "alt": "Photovoltaic"
+            },
+            "button": {
+              "text": "Mehr erfahren",
+              "href": "/products"
+            }
+          },
+          "smart-home": {
+            "title": "Smart Home",
+            "description": "Mit einer Photovoltaikanlage können Sie Ihren eigenen Strom produzieren und so Ihre Energiekosten senken.",
+            "image": {
+              "src": "/frontend/landingPage/products/heat-pump.jpg",
+              "alt": "Photovoltaic"
+            },
+            "button": {
+              "text": "Mehr erfahren",
+              "href": "/products"
+            }
+          },
+          "battery": {
+            "title": "Batterie",
+            "description": "Mit einer Photovoltaikanlage können Sie Ihren eigenen Strom produzieren und so Ihre Energiekosten senken.",
+            "image": {
+              "src": "/frontend/landingPage/products/heat-pump.jpg",
+              "alt": "Photovoltaic"
+            },
+            "button": {
+              "text": "Mehr erfahren",
+              "href": "/products"
+            }
+          },
+          "wallbox": {
+            "title": "Wallbox",
+            "description": "Mit einer Photovoltaikanlage können Sie Ihren eigenen Strom produzieren und so Ihre Energiekosten senken.",
+            "image": {
+              "src": "/frontend/landingPage/products/heat-pump.jpg",
+              "alt": "Photovoltaic"
+            },
+            "button": {
+              "text": "Mehr erfahren",
+              "href": "/products"
+            }
+          }
+        },
+        "partnerCarousel": {
+          "partnerCarouselTop": {
+            "pauseOnHover": "true",
+            "reverse": "false",
+            "partners": {
+              "Partner01": {
+                "src": "/frontend/landingPage/clients/client-01.svg",
+                "alt": "Client 01",
+                "width": "74",
+                "height": "21"
+              },
+              "Partner02": {
+                "src": "/frontend/landingPage/clients/client-02.svg",
+                "alt": "Client 02",
+                "width": "62",
+                "height": "46"
+              },
+              "Partner03": {
+                "src": "/frontend/landingPage/clients/client-03.svg",
+                "alt": "Client 03",
+                "width": "40",
+                "height": "40"
+              },
+              "Partner04": {
+                "src": "/frontend/landingPage/clients/client-04.svg",
+                "alt": "Client 04",
+                "width": "86",
+                "height": "13"
+              },
+              "Partner05": {
+                "src": "/frontend/landingPage/clients/client-05.svg",
+                "alt": "Client 05",
+                "width": "86",
+                "height": "18"
+              },
+              "Partner06": {
+                "src": "/frontend/landingPage/clients/client-06.svg",
+                "alt": "Client 06",
+                "width": "40",
+                "height": "40"
+              },
+              "Partner07": {
+                "src": "/frontend/landingPage/clients/client-07.svg",
+                "alt": "Client 07",
+                "width": "40",
+                "height": "40"
+              },
+              "Partner08": {
+                "src": "/frontend/landingPage/clients/client-08.svg",
+                "alt": "Client 08",
+                "width": "80",
+                "height": "34"
+              },
+              "Partner09": {
+                "src": "/frontend/landingPage/clients/client-09.svg",
+                "alt": "Client 09",
+                "width": "33",
+                "height": "44"
+              },
+              "Partner10": {
+                "src": "/frontend/landingPage/clients/client-10.svg",
+                "alt": "Client 10",
+                "width": "40",
+                "height": "40"
+              }
+            }
+          },
+          "partnerCarouselBottom": {
+            "pauseOnHover": "true",
+            "reverse": "true",
+            "partners": {
+              "Partner01": {
+                "src": "/frontend/landingPage/clients/client-01.svg",
+                "alt": "Client 01",
+                "width": "74",
+                "height": "21"
+              },
+              "Partner02": {
+                "src": "/frontend/landingPage/clients/client-02.svg",
+                "alt": "Client 02",
+                "width": "62",
+                "height": "46"
+              },
+              "Partner03": {
+                "src": "/frontend/landingPage/clients/client-03.svg",
+                "alt": "Client 03",
+                "width": "40",
+                "height": "40"
+              },
+              "Partner04": {
+                "src": "/frontend/landingPage/clients/client-04.svg",
+                "alt": "Client 04",
+                "width": "86",
+                "height": "13"
+              },
+              "Partner05": {
+                "src": "/frontend/landingPage/clients/client-05.svg",
+                "alt": "Client 05",
+                "width": "86",
+                "height": "18"
+              },
+              "Partner06": {
+                "src": "/frontend/landingPage/clients/client-06.svg",
+                "alt": "Client 06",
+                "width": "40",
+                "height": "40"
+              },
+              "Partner07": {
+                "src": "/frontend/landingPage/clients/client-07.svg",
+                "alt": "Client 07",
+                "width": "40",
+                "height": "40"
+              },
+              "Partner08": {
+                "src": "/frontend/landingPage/clients/client-08.svg",
+                "alt": "Client 08",
+                "width": "80",
+                "height": "34"
+              },
+              "Partner09": {
+                "src": "/frontend/landingPage/clients/client-09.svg",
+                "alt": "Client 09",
+                "width": "33",
+                "height": "44"
+              },
+              "Partner10": {
+                "src": "/frontend/landingPage/clients/client-10.svg",
+                "alt": "Client 10",
+                "width": "40",
+                "height": "40"
+              }
+            }
+          }
+        }
+      },
+      "FeatureAdvantages": {
+        "pill": "Erste Klasse",
+        "title": "Design-powered workflows for teams of any size",
+        "description": "Synergy can understand what you are designing, learn from your feedback to take your creativity further, and turn it instantly into beautiful images.",
+        "buttons": {
+          "Button1": {
+            "text": "Make designs feel real",
+            "description": "Save time and keep things consistent with reusable images, and 3D assets in shared libraries.",
+            "buttonIcon": {
+              "src": "/frontend/landingPage/icons/double_arrows.svg",
+              "alt": "Double Arrows",
+              "width": "24",
+              "height": "24"
+            },
+            "image": {
+              "src": "/frontend/landingPage/FeatureAdvantages/Family.jpeg",
+              "alt": "Synergy family",
+              "width": "800",
+              "height": "620"
+            },
+            "imageIcon": {
+              "src": "/frontend/landingPage/icons/eco-charging.svg",
+              "alt": "Eco Charging",
+              "width": "24",
+              "height": "24"
+            }
+          },
+          "Button2": {
+            "text": "Make designs feel real",
+            "description": "Save time and keep things consistent with reusable images, and 3D assets in shared libraries.",
+            "buttonIcon": {
+              "src": "/frontend/landingPage/icons/double_arrows.svg",
+              "alt": "Double Arrows",
+              "width": "24",
+              "height": "24"
+            },
+            "image": {
+              "src": "/frontend/landingPage/FeatureAdvantages/Family.jpeg",
+              "alt": "Synergy family",
+              "width": "800",
+              "height": "620"
+            },
+            "imageIcon": {
+              "src": "/frontend/landingPage/icons/eco-charging.svg",
+              "alt": "Eco Charging",
+              "width": "24",
+              "height": "24"
+            }
+          },
+          "Button3": {
+            "text": "Make designs feel real",
+            "description": "Save time and keep things consistent with reusable images, and 3D assets in shared libraries.",
+            "buttonIcon": {
+              "src": "/frontend/landingPage/icons/double_arrows.svg",
+              "alt": "Double Arrows",
+              "width": "24",
+              "height": "24"
+            },
+            "image": {
+              "src": "/frontend/landingPage/FeatureAdvantages/Family.jpeg",
+              "alt": "Synergy family",
+              "width": "800",
+              "height": "620"
+            },
+            "imageIcon": {
+              "src": "/frontend/landingPage/icons/eco-charging.svg",
+              "alt": "Eco Charging",
+              "width": "24",
+              "height": "24"
+            }
+          }
+        },
+        "blocks": {
+          "Discussions": {
+            "title": "Discussions",
+            "description": "Keep workflows efficient with tools that give teams visibility throughout the process.",
+            "icon": {
+              "src": "/frontend/landingPage/icons/eco-charging.svg",
+              "alt": "Eco Charging",
+              "width": "16",
+              "height": "16"
+            }
+          },
+          "Team-views": {
+            "title": "Team views",
+            "description": "Keep workflows efficient with tools that give teams visibility throughout the process.",
+            "icon": {
+              "src": "/frontend/landingPage/icons/function.svg",
+              "alt": "Eco Charging",
+              "width": "16",
+              "height": "16"
+            }
+          },
+          "Powerful-search": {
+            "title": "Powerful search",
+            "description": "Keep workflows efficient with tools that give teams visibility throughout the process.",
+            "icon": {
+              "src": "/frontend/landingPage/icons/function.svg",
+              "alt": "Eco Charging",
+              "width": "16",
+              "height": "16"
+            }
+          }
+        }
+      },
+      "FeatureSteps": {
+        "title": " In 4 Schritten zu Ihrem Energie-<br></br>und Haustechnik System",
+        "video": {
+          "thumbnail": {
+            "src": "/frontend/landingPage/FeatureSteps/scenic-house.jpg",
+            "alt": "Feature Steps",
+            "width": "768",
+            "height": "432"
+          },
+          "src": "",
+          "alt": "Video",
+          "width": "1920",
+          "height": "1080"
+        },
+        "steps": {
+          "stepOne": {
+            "number": "1",
+            "title": "Personalised Outreach",
+            "description": "Work is is changing faster than at any other time in history."
+          },
+          "stepTwo": {
+            "number": "2",
+            "title": "Personalised Outreach",
+            "description": "Work is is changing faster than at any other time in history."
+          },
+          "stepThree": {
+            "number": "3",
+            "title": "Personalised Outreach",
+            "description": "Work is is changing faster than at any other time in history."
+          },
+          "stepFour": {
+            "number": "4",
+            "title": "Personalised Outreach",
+            "description": "Work is is changing faster than at any other time in history."
+          }
+        },
+        "button": {
+          "text": "Jetzt Anfragen",
+          "href": "/contact-us"
+        }
+      },
+      "TestimonialsCarousel": {
+        "title": "Unsere KundInnen sind<br></br>überzeugt",
+        "testimonials": {
+          "testimonialOne": {
+            "profilePicture": {
+              "src": "/frontend/landingPage/testimonialCarousel/testimonial-01.jpg",
+              "alt": "TestimonialImg01",
+              "width": "44",
+              "height": "44"
+            },
+            "name": "Peter Lowe",
+            "username": "@peterlowex",
+            "usernameUrl": "https://twitter.com/peterlowex",
+            "date": "May 19, 2027",
+            "content": "As a founder, having a visually appealing and user-friendly website is essential. This tool not only helped me achieve that but also improved my site's performance and SEO.",
+            "channelIcon": {
+              "src": "/frontend/landingPage/icons/twitter.svg",
+              "alt": "Twitter",
+              "width": "17",
+              "height": "15"
+            }
+          },
+          "testimonialTwo": {
+            "profilePicture": {
+              "src": "/frontend/landingPage/testimonialCarousel/testimonial-01.jpg",
+              "alt": "TestimonialImg01",
+              "width": "44",
+              "height": "44"
+            },
+            "name": "Rodri Alba",
+            "username": "@rodri_spn",
+            "usernameUrl": "https://twitter.com/peterlowex",
+            "date": "Apr 12, 2027",
+            "content": "Synergy has revolutionized the way I manage my work. Its intuitive interface and seamless functionality make staying organized effortless. I can't imagine my life without it.",
+            "channelIcon": {
+              "src": "/frontend/landingPage/icons/twitter.svg",
+              "alt": "Twitter",
+              "width": "17",
+              "height": "15"
+            }
+          },
+          "testimonialThree": {
+            "profilePicture": {
+              "src": "/frontend/landingPage/testimonialCarousel/testimonial-01.jpg",
+              "alt": "TestimonialImg01",
+              "width": "44",
+              "height": "44"
+            },
+            "name": "Michele Lex",
+            "username": "@MikyBrown",
+            "usernameUrl": "https://twitter.com/peterlowex",
+            "date": "Mar 04, 2027",
+            "content": "I've tried several website builders before, but none were as user-friendly and versatile as this one. From design to functionality, it exceeded my expectations!",
+            "channelIcon": {
+              "src": "/frontend/landingPage/icons/twitter.svg",
+              "alt": "Twitter",
+              "width": "17",
+              "height": "15"
+            }
+          },
+          "testimonialFour": {
+            "profilePicture": {
+              "src": "/frontend/landingPage/testimonialCarousel/testimonial-01.jpg",
+              "alt": "TestimonialImg01"
+            },
+            "name": "Michael Ross",
+            "username": "@michjack",
+            "usernameUrl": "https://twitter.com/peterlowex",
+            "date": "Jan 15, 2027",
+            "content": "Synergy lives up to its name in every way. It's incredibly easy to use yet powerful enough to handle all my tasks effortlessly. It's become an essential part of my daily routine.",
+            "channelIcon": {
+              "src": "/frontend/landingPage/icons/twitter.svg",
+              "alt": "Twitter",
+              "width": "17",
+              "height": "15"
+            }
+          }
+        },
+        "blocks": {
+          "Discussions": {
+            "title": "Discussions",
+            "description": "Keep workflows efficient with tools that give teams visibility throughout the process.",
+            "icon": {
+              "src": "/frontend/landingPage/icons/eco-charging.svg",
+              "alt": "Eco Charging",
+              "width": "16",
+              "height": "16"
+            }
+          },
+          "Team-views": {
+            "title": "Team views",
+            "description": "Keep workflows efficient with tools that give teams visibility throughout the process.",
+            "icon": {
+              "src": "/frontend/landingPage/icons/function.svg",
+              "alt": "Eco Charging",
+              "width": "16",
+              "height": "16"
+            }
+          },
+          "Powerful-search": {
+            "title": "Powerful search",
+            "description": "Keep workflows efficient with tools that give teams visibility throughout the process.",
+            "icon": {
+              "src": "/frontend/landingPage/icons/function.svg",
+              "alt": "Eco Charging",
+              "width": "16",
+              "height": "16"
+            }
+          }
+        }
+      },
+      "CtaLoose": {
+        "logo": {
+          "src": "/frontend/landingPage/icons/synergy-logo-grid.svg",
+          "alt": "Logo",
+          "width": "250",
+          "height": "200"
+        },
+        "title": "<underscore>Jetzt</underscore> Angebot anfragen",
+        "description": "Synergy removes creative distances by connecting beginners, pros, and every team in between. Are you ready to start your journey?",
+        "buttons": {
+          "buttonLeft": {
+            "text": "Jetzt Anfragen",
+            "href": "/contact-us"
+          },
+          "buttonRight": {
+            "text": "Unsere Produkte",
+            "href": "#products"
+          }
+        },
+        "partners": {
+          "Partner01": {
+            "src": "/frontend/landingPage/clients/client-01.svg",
+            "alt": "Client 01",
+            "width": "74",
+            "height": "21"
+          },
+          "Partner02": {
+            "src": "/frontend/landingPage/clients/client-02.svg",
+            "alt": "Client 02",
+            "width": "62",
+            "height": "46"
+          },
+          "Partner03": {
+            "src": "/frontend/landingPage/clients/client-03.svg",
+            "alt": "Client 03",
+            "width": "40",
+            "height": "40"
+          },
+          "Partner04": {
+            "src": "/frontend/landingPage/clients/client-04.svg",
+            "alt": "Client 04",
+            "width": "86",
+            "height": "13"
+          },
+          "Partner05": {
+            "src": "/frontend/landingPage/clients/client-05.svg",
+            "alt": "Client 05",
+            "width": "86",
+            "height": "18"
+          },
+          "Partner06": {
+            "src": "/frontend/landingPage/clients/client-06.svg",
+            "alt": "Client 06",
+            "width": "40",
+            "height": "40"
+          }
+        }
+      }
+    },
+    "Products": {
+      "HeroVideo": {
+        "title": "Unsere Produkte",
+        "button": {
+          "text": "Jetzt Anfragen",
+          "href": "/contact-us"
+        },
+        "productPreviewSmall": {
+          "photovoltaic": {
+            "title": "Photovoltaic",
+            "image": {
+              "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
+              "alt": "Photovoltaic"
+            }
+          },
+          "heatpump": {
+            "title": "Warmepumpe",
+            "image": {
+              "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
+              "alt": "Photovoltaic"
+            }
+          }
+        },
+        "video": {
+          "thumbnail": {
+            "src": "/frontend/landingPage/FeatureSteps/scenic-house.jpg",
+            "alt": "Synergy hero video",
+            "width": "768",
+            "height": "432"
+          },
+          "src": "",
+          "alt": "Video",
+          "width": "1920",
+          "height": "1080"
+        }
+      },
+      "ProductCards": {
+        "Photovoltaic": {
+          "orientation": "left",
+          "productIdentifier": "Photovoltaik",
+          "title": "Sparen und unabhängig von Strompreis",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+          "button": {
+            "text": "Jetzt Anfragen",
+            "href": "/contact-us"
+          },
+          "boxesTop": {
+            "boxOne": {
+              "title": "Einfach Geld Sparen",
+              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "16",
+                "height": "16"
+              }
+            },
+            "boxTwo": {
+              "title": "Endlich Unabhängig",
+              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "16",
+                "height": "16"
+              }
+            }
+          },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "Zuverlässig",
+              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "40",
+                "height": "40"
+              }
+            },
+            "boxTwo": {
+              "title": "Nachhaltig",
+              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "24",
+                "height": "24"
+              }
+            },
+            "boxThree": {
+              "title": "Zuverlässig",
+              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "24",
+                "height": "24"
+              }
+            },
+            "boxFour": {
+              "title": "Nachhaltig",
+              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "24",
+                "height": "24"
+              }
+            }
+          },
+          "image": {
+            "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
+            "alt": "Photovoltaic",
+            "width": "500",
+            "height": "500"
+          }
+        }
+      },
+      "AboutUsCard": {
+        "cardIdentifier": "Energie endlich gunstig",
+        "title": "Vom Handwerker mit Handschlagqualität",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "boxes": {
+          "boxOne": {
+            "title": "Einfach Geld Sparen",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+            "icon": {
+              "src": "/frontend/landingPage/icons/eco-charging.svg",
+              "alt": "Eco Charging",
+              "width": "40",
+              "height": "40"
+            },
+            "image": {
+              "src": "/frontend/landingPage/AboutUsCard/Familie.jpeg",
+              "alt": "Photovoltaic",
+              "width": "500",
+              "height": "500"
+            }
+          },
+          "boxTwo": {
+            "title": "Einfach Geld Sparen",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+            "icon": {
+              "src": "/frontend/landingPage/icons/eco-charging.svg",
+              "alt": "Eco Charging",
+              "width": "40",
+              "height": "40"
+            },
+            "image": {
+              "src": "/frontend/landingPage/AboutUsCard/Familie.jpeg",
+              "alt": "Photovoltaic",
+              "width": "500",
+              "height": "500"
+            }
+          },
+          "boxThree": {
+            "title": "Einfach Geld Sparen",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+            "icon": {
+              "src": "/frontend/landingPage/icons/eco-charging.svg",
+              "alt": "Eco Charging",
+              "width": "40",
+              "height": "40"
+            },
+            "image": {
+              "src": "/frontend/landingPage/AboutUsCard/Familie.jpeg",
+              "alt": "Photovoltaic",
+              "width": "500",
+              "height": "500"
+            }
+          }
+        }
+      },
+      "PackagesCard": {
+        "cardIdentifier": "Sparen",
+        "title": "Häufig kombinierte Produkte in <br></br> Paketen",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "pricingTables": {
+          "pricingTableOne": {
+            "featured": "false",
+            "label": "",
+            "title": "Smarter",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+            "image": {
+              "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
+              "alt": "Photovoltaic",
+              "width": "500",
+              "height": "500"
+            },
+            "button": {
+              "text": "Jetzt Anfragen",
+              "href": "/contact-us"
+            },
+            "price": "$12/m",
+            "features": {
+              "text": "Feature include",
+              "list": {
+                "featureOne": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Contactless payments"
+                },
+                "featureTwo": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Contactless payments"
+                },
+                "featureThree": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Contactless payments"
+                },
+                "featureFour": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Contactless payments"
+                },
+                "featureFive": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Contactless payments"
+                }
+              }
+            }
+          },
+          "pricingTableTwo": {
+            "featured": "true",
+            "label": "Popular",
+            "title": "Smart",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+            "image": {
+              "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
+              "alt": "Photovoltaic",
+              "width": "500",
+              "height": "500"
+            },
+            "button": {
+              "text": "Jetzt Anfragen",
+              "href": "/contact-us"
+            },
+            "price": "$12/m",
+            "features": {
+              "text": "Feature include",
+              "list": {
+                "featureOne": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Contactless payments"
+                },
+                "featureTwo": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Contactless payments"
+                },
+                "featureThree": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Contactless payments"
+                },
+                "featureFour": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Contactless payments"
+                },
+                "featureFive": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Contactless payments"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Shared": {
+      "Footer": {
+        "logo": {
+          "src": "/frontend/landingPage/icons/synergy-logo-grid.svg",
+          "alt": "Logo",
+          "width": "250",
+          "height": "200"
+        },
+        "disclamer": "© Synergiemontage.eco - All rights reserved.",
+        "boxes": {
+          "boxLeft": {
+            "title": "Produkt",
+            "links": {
+              "features": {
+                "text": "Features",
+                "href": "/features"
+              },
+              "integrations": {
+                "text": "Ingegrations",
+                "href": "/features"
+              },
+              "pricing": {
+                "text": "Pricing & Plans",
+                "href": "/features"
+              },
+              "changelog": {
+                "text": "Changelog",
+                "href": "/features"
+              },
+              "method": {
+                "text": "Our method",
+                "href": "/features"
+              }
+            }
+          },
+          "boxCenter": {
+            "title": "Firma",
+            "links": {
+              "features": {
+                "text": "Features",
+                "href": "/features"
+              },
+              "integrations": {
+                "text": "Ingegrations",
+                "href": "/features"
+              },
+              "pricing": {
+                "text": "Pricing & Plans",
+                "href": "/features"
+              },
+              "changelog": {
+                "text": "Changelog",
+                "href": "/features"
+              },
+              "method": {
+                "text": "Our method",
+                "href": "/features"
+              }
+            }
+          },
+          "boxRight": {
+            "title": "Resourcen",
+            "links": {
+              "features": {
+                "text": "Features",
+                "href": "/features"
+              },
+              "integrations": {
+                "text": "Ingegrations",
+                "href": "/features"
+              },
+              "pricing": {
+                "text": "Pricing & Plans",
+                "href": "/features"
+              },
+              "changelog": {
+                "text": "Changelog",
+                "href": "/features"
+              },
+              "method": {
+                "text": "Our method",
+                "href": "/features"
+              }
+            }
+          }
+        },
+        "socials": {
+          "facebook": {
+            "icon": {
+              "src": "/frontend/landingPage/icons/medium.svg",
+              "alt": "Medium",
+              "width": "32",
+              "height": "32"
+            },
+            "href": "https://www.facebook.com"
+          },
+          "twitter": {
+            "icon": {
+              "src": "/frontend/landingPage/icons/twitter.svg",
+              "alt": "Twitter",
+              "width": "20",
+              "height": "20"
+            },
+            "href": "https://www.twitter.com"
+          },
+          "instagram": {
+            "icon": {
+              "src": "/frontend/landingPage/icons/medium.svg",
+              "alt": "Medium",
+              "width": "32",
+              "height": "32"
+            },
+            "href": "https://www.facebook.com"
+          },
+          "medium": {
+            "icon": {
+              "src": "/frontend/landingPage/icons/twitter.svg",
+              "alt": "Twitter",
+              "width": "20",
+              "height": "20"
+            },
+            "href": "https://www.twitter.com"
+          }
+        }
+      },
+      "Header": {
+        "logo": {
+          "src": "/frontend/landingPage/icons/synergy-logo-grid.svg",
+          "alt": "Logo",
+          "width": "191",
+          "height": "77",
+          "href": "/"
+        },
+        "nav": {
+          "products": {
+            "text": "Produkte",
+            "href": "/products",
+            "children": ""
+          },
+          "B2B": {
+            "text": "B2B",
+            "href": "/b2b",
+            "children": ""
+          },
+          "features": {
+            "text": "Photovoltaik",
+            "href": "/pv",
+            "children": {
+              "featuresOne": {
+                "text": "Erneuerbare Energieanlagen",
+                "href": "/features"
+              },
+              "featuresTwo": {
+                "text": "Energiekostenberatung",
+                "href": "/features"
+              },
+              "featuresThree": {
+                "text": "Energiegemeinschaften",
+                "href": "/features"
+              }
+            }
+          },
+          "changelog": {
+            "text": "Über uns",
+            "href": "/about-us",
+            "children": ""
+          }
+        },
+        "button": {
+          "text": "Jetzt Anfragen",
+          "href": "/contact-us"
+        }
+      }
+    }
   }
 }

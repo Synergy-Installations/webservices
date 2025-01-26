@@ -8,6 +8,25 @@
     "dist"
   ],
   "exports": {
+    "./ProductCards": "./src/landingPage/products/cards/ProductCards.tsx",
+    "./Boolean": "./src/shared/utils/math/Boolean.tsx",
+    "./ImageLoader": "./src/shared/utils/image/ImageLoader.tsx",
+    "./ServiceCard": "./src/landingPage/shared/bentoGrid/serviceCard/ServiceCard.tsx",
+    "./RichText": "./src/shared/internationalization/text/RichText.tsx",
+    "./ProductPreviewSmallTransition": "./src/landingPage/shared/ui/productPreviewSmallTransition/ProductPreviewSmallTransition.tsx",
+    "./TracingBeam": "./src/shared/animations/tracingBeam/TracingBeam.tsx",
+    "./cn": "./src/shared/utils/cn/Cn.tsx",
+    "./WordRotate": "./src/shared/animations/wordRotate/WordRotate.tsx",
+    "./PackagesCard": "./src/landingPage/products/cards/PackagesCard.tsx",
+    "./AboutUsCard": "./src/landingPage/products/cards/AboutUsCard.tsx",
+    "./DefaultProductCard": "./src/landingPage/products/cards/DefaultProductCard.tsx",
+    "./HeroVideoFull": "./src/landingPage/products/hero/HeroVideoFull.tsx",
+    "./CtaLoose": "./src/landingPage/shared/cta/CtaLoose.tsx",
+    "./ModalVideo": "./src/landingPage/shared/modals/ModalVideo.tsx",
+    "./FeatureSteps": "./src/landingPage/home/features/FeatureSteps.tsx",
+    "./FeatureAdvantages": "./src/landingPage/home/features/FeatureAdvantages.tsx",
+    "./ProductPreviewSmall": "./src/shared/ui/products/ProductPreviewSmall.tsx",
+    "./HeroFull": "./src/landingPage/home/hero/HeroFull.tsx",
     "./ContactCommunity": "./src/landingPage/contact/community/ContactCommunity.tsx",
     "./ContactBlocks": "./src/landingPage/contact/blocks/ContactBlocks.tsx",
     "./SmallLogo": "./src/shared/logos/SmallLogo.tsx",
@@ -70,8 +89,12 @@
     "@radix-ui/react-icons": "^1.3.2",
     "@types/aos": "^3.0.7",
     "aos": "^2.3.4",
+    "clsx": "^2.1.1",
     "framer-motion": "^11.13.3",
     "lucide-react": "^0.468.0",
-    "next": "^14.2.3"
+    "motion": "^11.18.0",
+    "next": "^14.2.3",
+    "next-intl": "^3.26.0",
+    "tailwind-merge": "^2.6.0"
   }
 }

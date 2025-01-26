@@ -2,7 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import { Transition } from "@headlessui/react";
-import {Link} from "@com.synergy/frontend-shared-internationalization/routing";
+import { Link } from "@com.synergy/frontend-shared-internationalization/routing";
+import { useMessages, useTranslations } from "next-intl";
 
 /* eslint-disable-next-line */
 export interface MobileMenuProps {}
@@ -12,6 +13,17 @@ export const MobileMenu = (props: MobileMenuProps) => {
 
   const trigger = useRef<HTMLButtonElement>(null);
   const mobileNav = useRef<HTMLDivElement>(null);
+
+  const t = useTranslations("LandingPage.Shared.Header");
+
+  const messages = useMessages();
+  const NavKeys = Object.keys(messages.LandingPage.Shared.Header.nav);
+
+  const getNavChildrenKeys = (key: string): string[] => {
+    return (
+      Object.keys(messages.LandingPage.Shared.Header.nav[key].children) || []
+    );
+  };
 
   // close the mobile menu on click outside
   useEffect(() => {
@@ -97,60 +109,30 @@ export const MobileMenu = (props: MobileMenuProps) => {
           leaveTo="opacity-0"
         >
           <ul className="p-2 text-sm">
-            <li>
-              <Link
-                href="/pricing"
-                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={() => setMobileNavOpen(false)}
-              >
-                Pricing
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/customers"
-                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={() => setMobileNavOpen(false)}
-              >
-                Customers
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/blog"
-                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={() => setMobileNavOpen(false)}
-              >
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/documentation"
-                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={() => setMobileNavOpen(false)}
-              >
-                Docs
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/support"
-                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={() => setMobileNavOpen(false)}
-              >
-                Support center
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/apps"
-                className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                onClick={() => setMobileNavOpen(false)}
-              >
-                Apps
-              </Link>
-            </li>
+            {NavKeys.map((navKey, index) => (
+              <>
+                <li key={index}>
+                  <Link
+                    href={t(`nav.${navKey}.href`)}
+                    className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                    onClick={() => setMobileNavOpen(false)}
+                  >
+                    {t(`nav.${navKey}.text`)}
+                  </Link>
+                </li>
+                {getNavChildrenKeys(navKey).map((childKey, index) => (
+                  <li>
+                    <Link
+                      href={t(`nav.${navKey}.children.${childKey}.href`)}
+                      className="flex rounded-lg ml-2 px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                      onClick={() => setMobileNavOpen(false)}
+                    >
+                      {t(`nav.${navKey}.children.${childKey}.text`)}
+                    </Link>
+                  </li>
+                ))}
+              </>
+            ))}
           </ul>
         </Transition>
       </div>

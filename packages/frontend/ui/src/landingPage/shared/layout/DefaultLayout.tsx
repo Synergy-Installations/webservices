@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import DefaultFooter from "@com.synergy/frontend-ui/DefaultFooter";
+import { useMessages, useTranslations } from "next-intl";
 
 const inter = Inter({ subsets: ["latin"] });
 

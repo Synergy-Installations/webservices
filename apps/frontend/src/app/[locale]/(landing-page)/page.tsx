@@ -9,18 +9,25 @@ import { FeaturesGlobe } from "@com.synergy/frontend-ui/FeaturesGlobe";
 import { LargeTestimonial } from "@com.synergy/frontend-ui/LargeTestimonial";
 import { CtaBars } from "@com.synergy/frontend-ui/CtaBars";
 import { TestimonialsCarousel } from "@com.synergy/frontend-ui/TestimonialsCarousel";
+import HeroFull from "@com.synergy/frontend-ui/HeroFull";
+import { FeatureAdvantages } from "@com.synergy/frontend-ui/FeatureAdvantages";
+import FeatureSteps from "@com.synergy/frontend-ui/FeatureSteps";
+import CtaLoose from "@com.synergy/frontend-ui/CtaLoose";
+import { TracingBeam } from "@com.synergy/frontend-ui/TracingBeam";
 
 export default function Page(): JSX.Element {
   const t = useTranslations("Index");
 
   return (
     <>
-      <HeroHome />
-      <ServiceCatalog />
-      <LargeTestimonial />
-      <FeaturesGlobe />
-      <TestimonialsCarousel />
-      <CtaBars />
+      <TracingBeam>
+        <HeroFull />
+        <ServiceCatalog />
+        <FeatureAdvantages />
+        <FeatureSteps />
+        <TestimonialsCarousel />
+        <CtaLoose />
+      </TracingBeam>
     </>
   );
 }

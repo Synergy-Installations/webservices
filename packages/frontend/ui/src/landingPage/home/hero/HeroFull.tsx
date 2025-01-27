@@ -14,7 +14,7 @@ export interface HeroFullProps {}
 export const HeroFull = (props: HeroFullProps) => {
   const t = useTranslations("LandingPage.Home.Hero");
 
-  const messages = useMessages();
+  const messages: any = useMessages();
   const productPreviewKeys = Object.keys(
     messages.LandingPage.Home.Hero.productPreviewSmall
   );

@@ -83,7 +83,7 @@ export const BaseTestimonial = (props: BaseTestimonialProps) => {
           src={testimonial.img}
           width={44}
           height={44}
-          alt={testimonial.alt}
+          alt={testimonial.imageAlt}
         />
         <div>
           <div className="font-bold">{testimonial.name}</div>

@@ -216,7 +216,7 @@ interface PartnerCarouselItems {
 export const ServiceCatalog = (props: ServiceCatalogProps) => {
   const t = useTranslations("LandingPage.Home.ServiceCatalog");
 
-  const messages = useMessages();
+  const messages: any = useMessages();
   const serviceKeys = Object.keys(
     messages.LandingPage.Home.ServiceCatalog.servicesGrid
   );

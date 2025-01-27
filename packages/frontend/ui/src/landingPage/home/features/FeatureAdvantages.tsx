@@ -17,7 +17,7 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
 
   const t = useTranslations("LandingPage.Home.FeatureAdvantages");
 
-  const messages = useMessages();
+  const messages: any = useMessages();
   const buttonKeys = Object.keys(
     messages.LandingPage.Home.FeatureAdvantages.buttons
   );

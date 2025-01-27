@@ -1,5 +1,8 @@
 {
   "extends": "@com.synergy/frontend-shared-typescript-config/base.json",
   "include": ["."],
+  "compilerOptions": {
+    "lib": ["es2019"]
+  },
   "exclude": ["dist", "build", "node_modules"]
 }

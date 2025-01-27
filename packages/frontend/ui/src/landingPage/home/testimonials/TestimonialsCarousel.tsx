@@ -14,7 +14,7 @@ export interface TestimonialsCarouselProps {}
 export const TestimonialsCarousel = (props: TestimonialsCarouselProps) => {
   const t = useTranslations("LandingPage.Home.TestimonialsCarousel");
 
-  const messages = useMessages();
+  const messages: any = useMessages();
   const stepKeys = Object.keys(
     messages.LandingPage.Home.TestimonialsCarousel.testimonials
   );

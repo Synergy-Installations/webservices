@@ -15,7 +15,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
 
   const t = useTranslations("LandingPage.Shared.Footer");
 
-  const messages = useMessages();
+  const messages: any = useMessages();
   const parterKeys = Object.keys(messages.LandingPage.Shared.Footer.boxes);
   const socialKeys = Object.keys(messages.LandingPage.Shared.Footer.socials);
 

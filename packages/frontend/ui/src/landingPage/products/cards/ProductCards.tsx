@@ -7,7 +7,7 @@ export interface ProductCardsProps {}
 export const ProductCards = (props: ProductCardsProps) => {
   const t = useTranslations("LandingPage.Products.ProductCards");
 
-  const messages = useMessages();
+  const messages: any = useMessages();
   const productCardKeys = Object.keys(
     messages.LandingPage.Products.ProductCards
   );
@@ -20,10 +20,7 @@ export const ProductCards = (props: ProductCardsProps) => {
     <>
       {productCardKeys.map((productKey, index) => (
         <>
-          <DefaultProductCard
-            key={index}
-            productKey={productKey}
-          />
+          <DefaultProductCard key={index} productKey={productKey} />
         </>
       ))}
     </>

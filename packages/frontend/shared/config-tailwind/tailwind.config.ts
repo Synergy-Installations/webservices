@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
 import colors from "tailwindcss/colors";
+/**@ts-ignore */
 import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 
 // We want each package to be responsible for its own content.

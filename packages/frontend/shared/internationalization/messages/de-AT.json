@@ -18,7 +18,7 @@
             }
           }
         },
-        "rotatingText": "Preisstabil, Handschlagqualität, Zuverlässig, Nachhaltig",
+        "rotatingText": "Preisstabil, Unabhängig, Zuverlässig, Kompetent",
         "buttons": {
           "buttonLeft": {
             "text": "Jetzt Anfragen <arrow>-></arrow>",
@@ -29,10 +29,10 @@
             "href": "#products"
           }
         },
-        "banner": "* Einfach Geld Sparen * Endlich Unabhängig * Zuverlässig"
+        "banner": "* Einfach Geld Sparen * Endlich Unabhängig * Leistbar * transparent * Auf Augenhöhe"
       },
       "ServiceCatalog": {
-        "title": "Ihr Haustechnik Partner für <br></br> moderne Lösungen",
+        "title": "Moderne Haustechnik <br></br> zum Wohlfühlen",
         "buttons": {
           "buttonLeft": {
             "text": "Jetzt Anfragen",
@@ -46,7 +46,7 @@
         "servicesGrid": {
           "photovoltaic": {
             "title": "Photovoltaik",
-            "description": "Mit einer Photovoltaikanlage können Sie Ihren eigenen Strom produzieren und so Ihre Energiekosten senken.",
+            "description": "Mit unserem Sonnenkraftwerk werden Sie zum unabhängigen Klimahelden.",
             "image": {
               "src": "/frontend/landingPage/products/heat-pump.jpg",
               "alt": "Photovoltaic"
@@ -57,8 +57,8 @@
             }
           },
           "heatpump": {
-            "title": "Warmepumpe",
-            "description": "Mit einer Warmepumpe können Sie Ihr eigenes heises Wasser produzieren und so Ihre Energiekosten senken.",
+            "title": "Wärmetechnik",
+            "description": "Nutzen Sie unser Warmesystem und gonnen Sie sich ein warmes Zuhause aus eigener Produktion.",
             "image": {
               "src": "/frontend/landingPage/products/heat-pump.jpg",
               "alt": "Photovoltaic"
@@ -69,8 +69,8 @@
             }
           },
           "heat-exchange": {
-            "title": "Klimaanlage",
-            "description": "Mit einer Photovoltaikanlage können Sie Ihren eigenen Strom produzieren und so Ihre Energiekosten senken.",
+            "title": "Klimasysteme",
+            "description": "Erleben Sie das angenehme Raumklima, wohl temperiert und zugeschnitten auf Ihre Bedurfnisse.",
             "image": {
               "src": "/frontend/landingPage/products/heat-pump.jpg",
               "alt": "Photovoltaic"
@@ -82,7 +82,7 @@
           },
           "smart-home": {
             "title": "Smart Home",
-            "description": "Mit einer Photovoltaikanlage können Sie Ihren eigenen Strom produzieren und so Ihre Energiekosten senken.",
+            "description": "Lassen Sie sich verwohnen, einfach zu bedienen und voll automatisiert.",
             "image": {
               "src": "/frontend/landingPage/products/heat-pump.jpg",
               "alt": "Photovoltaic"
@@ -93,8 +93,8 @@
             }
           },
           "battery": {
-            "title": "Batterie",
-            "description": "Mit einer Photovoltaikanlage können Sie Ihren eigenen Strom produzieren und so Ihre Energiekosten senken.",
+            "title": "Energiemanagement",
+            "description": "Bringen Sie das Verhaltnis zwischen Produktion und Verbrauch in Einklang.",
             "image": {
               "src": "/frontend/landingPage/products/heat-pump.jpg",
               "alt": "Photovoltaic"
@@ -106,7 +106,7 @@
           },
           "wallbox": {
             "title": "Wallbox",
-            "description": "Mit einer Photovoltaikanlage können Sie Ihren eigenen Strom produzieren und so Ihre Energiekosten senken.",
+            "description": "Unabhangig in das nachste Level - mit uns werden Sie mobil.",
             "image": {
               "src": "/frontend/landingPage/products/heat-pump.jpg",
               "alt": "Photovoltaic"
@@ -254,12 +254,12 @@
       },
       "FeatureAdvantages": {
         "pill": "Erste Klasse",
-        "title": "Design-powered workflows for teams of any size",
-        "description": "Synergy can understand what you are designing, learn from your feedback to take your creativity further, and turn it instantly into beautiful images.",
+        "title": "Ihr Fachmann mit Handschlagqualität und Kundenfokus.",
+        "description": "Unsere Fachkräfte bieten Ihnen nicht nur Beratung, Installation und Wartung. Wir liefern Service und Entertainment mit Begeisterung und Leidenschaft für die Ewigkeit.",
         "buttons": {
           "Button1": {
-            "text": "Make designs feel real",
-            "description": "Save time and keep things consistent with reusable images, and 3D assets in shared libraries.",
+            "text": "Kundenbedürfnis",
+            "description": "Klarheit steht bei uns an erster Stelle. Wir wollen verstehen was dem Kunden wichtig ist, damit er langfristig zufrieden bleibt",
             "buttonIcon": {
               "src": "/frontend/landingPage/icons/double_arrows.svg",
               "alt": "Double Arrows",
@@ -280,8 +280,8 @@
             }
           },
           "Button2": {
-            "text": "Make designs feel real",
-            "description": "Save time and keep things consistent with reusable images, and 3D assets in shared libraries.",
+            "text": "Prozessorientiert",
+            "description": "Eine reibungsarme Abwicklung ist im Projektgeschäft keine Seltenheit. Genau diese Herausforderung treibt uns im Management voran",
             "buttonIcon": {
               "src": "/frontend/landingPage/icons/double_arrows.svg",
               "alt": "Double Arrows",
@@ -302,8 +302,8 @@
             }
           },
           "Button3": {
-            "text": "Make designs feel real",
-            "description": "Save time and keep things consistent with reusable images, and 3D assets in shared libraries.",
+            "text": "Hohe Standards",
+            "description": "Hohe Vorgaben erfordern Zeit und Gewissenhaftigkeit. Uns ist es wichtig allen dasselbe Maß an Qualität zu ermöglichen.",
             "buttonIcon": {
               "src": "/frontend/landingPage/icons/double_arrows.svg",
               "alt": "Double Arrows",
@@ -358,7 +358,7 @@
         }
       },
       "FeatureSteps": {
-        "title": " In 4 Schritten zu Ihrem Energie-<br></br>und Haustechnik System",
+        "title": "Die 4 Stufen zu Ihrem Energie-<br></br>und Haustechnik System",
         "video": {
           "thumbnail": {
             "src": "/frontend/landingPage/FeatureSteps/scenic-house.jpg",

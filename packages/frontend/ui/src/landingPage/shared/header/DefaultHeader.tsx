@@ -12,7 +12,7 @@ export interface DefaultHeaderProps {}
 export const DefaultHeader = (props: DefaultHeaderProps) => {
   const t = useTranslations("LandingPage.Shared.Header");
 
-  const messages = useMessages();
+  const messages: any = useMessages();
   const NavKeys = Object.keys(messages.LandingPage.Shared.Header.nav);
   const socialKeys = Object.keys(messages.LandingPage.Shared.Header);
 

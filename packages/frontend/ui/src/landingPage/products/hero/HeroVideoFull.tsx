@@ -8,7 +8,7 @@ export interface HeroVideoFullProps {}
 export const HeroVideoFull = (props: HeroVideoFullProps) => {
   const t = useTranslations("LandingPage.Products.HeroVideo");
 
-  const messages = useMessages();
+  const messages: any = useMessages();
   const productPreviewKeys = Object.keys(
     messages.LandingPage.Products.HeroVideo.productPreviewSmall
   );

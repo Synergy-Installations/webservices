@@ -10,7 +10,7 @@ export interface CtaLooseProps {}
 export const CtaLoose = (props: CtaLooseProps) => {
   const t = useTranslations("LandingPage.Home.CtaLoose");
 
-  const messages = useMessages();
+  const messages: any = useMessages();
   const parterKeys = Object.keys(messages.LandingPage.Home.CtaLoose.partners);
 
   return (

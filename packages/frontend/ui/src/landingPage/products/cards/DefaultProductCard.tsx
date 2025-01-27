@@ -18,7 +18,7 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
 
   const t = useTranslations("LandingPage.Products.ProductCards");
 
-  const messages = useMessages();
+  const messages: any = useMessages();
 
   const getProductBoxKeys = (boxKey: string) =>
     Object.keys(messages.LandingPage.Products.ProductCards[productKey][boxKey]);

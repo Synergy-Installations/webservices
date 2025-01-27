@@ -10,7 +10,7 @@ export interface FeatureStepsProps {}
 export const FeatureSteps = (props: FeatureStepsProps) => {
   const t = useTranslations("LandingPage.Home.FeatureSteps");
 
-  const messages = useMessages();
+  const messages: any = useMessages();
   const stepKeys = Object.keys(messages.LandingPage.Home.FeatureSteps.steps);
 
   return (

@@ -2,6 +2,9 @@
   "name": "@com.synergy/frontend-shared-eslint-config",
   "version": "0.0.0",
   "private": true,
+  "exports": {
+    "./next": "./next.js"
+  },
   "devDependencies": {
     "@vercel/style-guide": "^5.2.0",
     "eslint-config-next": "^15.1.6",

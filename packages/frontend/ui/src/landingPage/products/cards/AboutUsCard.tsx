@@ -13,7 +13,7 @@ export interface AboutUsCardProps {}
 export const AboutUsCard = (props: AboutUsCardProps) => {
   const t = useTranslations("LandingPage.Products.AboutUsCard");
 
-  const messages = useMessages();
+  const messages: any = useMessages();
   const boxCardKeys = Object.keys(
     messages.LandingPage.Products.AboutUsCard.boxes
   );
@@ -73,10 +73,10 @@ export const AboutUsCard = (props: AboutUsCardProps) => {
                         />
                       </div>
                       <h3 className="font-cabinet-grotesk font-bold text-lg pb-1 text-slate-800">
-                      {t(`boxes.${boxKey}.title`)}
+                        {t(`boxes.${boxKey}.title`)}
                       </h3>
                       <div className="text-slate-800 text-opacity-80">
-                      {t(`boxes.${boxKey}.description`)}
+                        {t(`boxes.${boxKey}.description`)}
                       </div>
                     </div>
                   </div>

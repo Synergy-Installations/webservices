@@ -14,7 +14,7 @@ export interface PackagesCardProps {}
 export const PackagesCard = (props: PackagesCardProps) => {
   const t = useTranslations("LandingPage.Products.PackagesCard");
 
-  const messages = useMessages();
+  const messages: any = useMessages();
   const pricingTablesKeys = Object.keys(
     messages.LandingPage.Products.PackagesCard.pricingTables
   );

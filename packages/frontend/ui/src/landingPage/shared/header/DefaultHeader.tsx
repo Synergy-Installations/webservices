@@ -46,7 +46,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
             <ul className="flex grow flex-wrap items-center justify-center gap-4 text-sm lg:gap-8">
               {NavKeys.map((navKey, index) =>
                 t(`nav.${navKey}.children`) === "" ? (
-                  <li className="px-3 py-1">
+                  <li className="px-3 py-1" key={index}>
                     <Link
                       href={t(`nav.${navKey}.href`)}
                       className="flex items-center text-synergy-dark-grey transition hover:text-gray-900"
@@ -56,10 +56,10 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
                   </li>
                 ) : (
                   /* 1st level: hover */
-                  <DefaultDropdown title={t(`nav.${navKey}.text`)}>
+                  <DefaultDropdown key={index} title={t(`nav.${navKey}.text`)}>
                     {/* 2nd level: hover */}
                     {getNavChildrenKeys(navKey).map((childKey, index) => (
-                      <li>
+                      <li key={index}>
                         <Link
                           href={t(`nav.${navKey}.children.${childKey}.text`)}
                           className="flex  rounded-lg px-2 py-1.5 text-sm text-synergy-dark-grey hover:bg-gray-100 w-full whitespace-nowrap"

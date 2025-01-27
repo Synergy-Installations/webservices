@@ -110,8 +110,8 @@ export const MobileMenu = (props: MobileMenuProps) => {
         >
           <ul className="p-2 text-sm">
             {NavKeys.map((navKey, index) => (
-              <>
-                <li key={index}>
+              <div key={index}>
+                <li>
                   <Link
                     href={t(`nav.${navKey}.href`)}
                     className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
@@ -121,7 +121,7 @@ export const MobileMenu = (props: MobileMenuProps) => {
                   </Link>
                 </li>
                 {getNavChildrenKeys(navKey).map((childKey, index) => (
-                  <li>
+                  <li key={index}>
                     <Link
                       href={t(`nav.${navKey}.children.${childKey}.href`)}
                       className="flex rounded-lg ml-2 px-2 py-1.5 text-gray-700 hover:bg-gray-100"
@@ -131,7 +131,7 @@ export const MobileMenu = (props: MobileMenuProps) => {
                     </Link>
                   </li>
                 ))}
-              </>
+              </div>
             ))}
           </ul>
         </Transition>

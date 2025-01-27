@@ -49,6 +49,7 @@ export const AboutUsCard = (props: AboutUsCardProps) => {
                   <div
                     className={`relative sm:flex ${index % 2 == 0 && "sm:flex-row-reverse"} sm:gap-4 md:gap-8 items-center justify-between lg:block p-5 mt-16 sm:mt-0 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out`}
                     data-aos="fade-up"
+                    key={index}
                   >
                     <div className="relative min-w-[250px] w-full h-[230px] mb-6 sm:mb-0 lg:mb-16">
                       <Image

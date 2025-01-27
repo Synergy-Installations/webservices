@@ -2,6 +2,10 @@
   "LandingPage": {
     "Home": {
       "Hero": {
+        "image": {
+          "src": "/frontend/landingPage/Hero/house-technical-illustration-3.jpg",
+          "alt": "Synergy Hero Image"
+        },
         "productPreviewSmall": {
           "photovoltaic": {
             "title": "Photovoltaic",
@@ -21,7 +25,7 @@
         "rotatingText": "Preisstabil, Unabhängig, Zuverlässig, Kompetent",
         "buttons": {
           "buttonLeft": {
-            "text": "Jetzt Anfragen <arrow>-></arrow>",
+            "text": "Jetzt Anfragen",
             "href": "/contact-us"
           },
           "buttonRight": {
@@ -29,7 +33,7 @@
             "href": "#products"
           }
         },
-        "banner": "* Einfach Geld Sparen * Endlich Unabhängig * Leistbar * transparent * Auf Augenhöhe"
+        "banner": " Einfach Geld Sparen * Endlich Unabhängig * Leistbar * Transparent * Auf Augenhöhe * "
       },
       "ServiceCatalog": {
         "title": "Moderne Haustechnik <br></br> zum Wohlfühlen",
@@ -598,7 +602,7 @@
             "width": "768",
             "height": "432"
           },
-          "src": "",
+          "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/Hero/Intro%20Video%20v3.mp4",
           "alt": "Video",
           "width": "1920",
           "height": "1080"

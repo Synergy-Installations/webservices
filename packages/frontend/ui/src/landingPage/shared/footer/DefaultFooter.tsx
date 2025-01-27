@@ -52,7 +52,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
 
           {/* 2nd block */}
           {parterKeys.map((partnerKey, index) => (
-            <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
+            <div key={index} className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
               <h3 className="text-sm font-medium">
                 {t(`boxes.${partnerKey}.title`)}
               </h3>
@@ -76,7 +76,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
             <h3 className="text-sm font-medium">Social</h3>
             <ul className="flex gap-1 items-center">
               {socialKeys.map((socialKey, index) => (
-                <li>
+                <li key={index}>
                   <Link
                     className="flex items-center justify-center text-synergy-light-blue transition hover:text-blue-600"
                     href={t(`socials.${socialKey}.href`)}

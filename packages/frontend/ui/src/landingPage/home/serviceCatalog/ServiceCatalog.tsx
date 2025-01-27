@@ -309,7 +309,7 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
             <div className="relative z-10 before:absolute before:inset-0 before:w-32 before:z-10 before:pointer-events-none before:bg-gradient-to-r before:from-slate-50 after:absolute after:inset-0 after:left-auto after:w-32 after:z-10 after:pointer-events-none after:bg-gradient-to-l after:from-slate-50">
               <div className="!ease-linear select-none">
                 {/* Carousel items */}
-                {partnerCarouselKeys.map((partnerCarouselKey) => (
+                {partnerCarouselKeys.map((partnerCarouselKey, index) => (
                   <Marquee
                     pauseOnHoverProp={isTrueSet(
                       t(`partnerCarousel.${partnerCarouselKey}.pauseOnHover`)
@@ -317,6 +317,7 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
                     reverse={isTrueSet(
                       t(`partnerCarousel.${partnerCarouselKey}.reverse`)
                     )}
+                    key={index}
                     className="[--duration:20s]"
                   >
                     {getPartnerCarouselItems(partnerCarouselKey).map(

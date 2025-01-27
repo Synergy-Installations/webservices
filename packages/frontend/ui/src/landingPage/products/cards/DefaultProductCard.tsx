@@ -154,6 +154,7 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
                 <div
                   className="relative p-5 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out"
                   data-aos="fade-up"
+                  key={index}
                 >
                   {/* <Image className="mb-3" src={Icon01} alt="Icon 01" /> */}
                   <Image

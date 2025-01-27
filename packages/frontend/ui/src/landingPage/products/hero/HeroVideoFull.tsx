@@ -48,6 +48,7 @@ export const HeroVideoFull = (props: HeroVideoFullProps) => {
                 alt: t(`productPreviewSmall.${productPreviewKey}.image.alt`),
               }}
               className="w-full"
+              key={index}
             />
           ))}
         </div>
@@ -59,8 +60,13 @@ export const HeroVideoFull = (props: HeroVideoFullProps) => {
         loop
         muted
         autoPlay
+        webkit-playsinline="true"
+        playsInline
       >
-        <source src="/videos/product-hero-video.mp4" type="video/mp4" />
+        <source
+          src={t("video.src")}
+          type="video/mp4"
+        />
         Your browser does not support the video tag.
       </video>
     </div>

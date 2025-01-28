@@ -23,6 +23,10 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
   const getProductBoxKeys = (boxKey: string) =>
     Object.keys(messages.LandingPage.Products.ProductCards[productKey][boxKey]);
 
+  const getProductBoxKeyLength = (boxKey: string) =>
+    Object.keys(messages.LandingPage.Products.ProductCards[productKey][boxKey])
+      .length;
+
   let orientationRight = t(`${productKey}.orientation`) === "right";
 
   return (
@@ -148,7 +152,9 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
               </div>
             </div>
             {/* Grid */}
-            <div className="max-w-sm mx-auto md:px-16 grid mt-10 sm:grid-cols-2 sm:max-w-3xl lg:grid-cols-4 lg:max-w-none items-start">
+            <div
+              className={`max-w-sm mx-auto md:px-16 grid mt-10 sm:grid-cols-2 sm:max-w-3xl ${getProductBoxKeyLength("boxesBottom") == 3 ? "lg:grid-cols-3" : "lg:grid-cols-4"} lg:max-w-none items-start`}
+            >
               {/* #1 */}
               {getProductBoxKeys("boxesBottom").map((boxKey, index) => (
                 <div

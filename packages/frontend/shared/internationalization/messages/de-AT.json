@@ -593,6 +593,34 @@
               "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
               "alt": "Photovoltaic"
             }
+          },
+          "photovoltaic2": {
+            "title": "Photovoltaic",
+            "image": {
+              "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
+              "alt": "Photovoltaic"
+            }
+          },
+          "heatpump2": {
+            "title": "Warmepumpe",
+            "image": {
+              "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
+              "alt": "Photovoltaic"
+            }
+          },
+          "photovoltaic3": {
+            "title": "Photovoltaic",
+            "image": {
+              "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
+              "alt": "Photovoltaic"
+            }
+          },
+          "heatpump4": {
+            "title": "Warmepumpe",
+            "image": {
+              "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
+              "alt": "Photovoltaic"
+            }
           }
         },
         "video": {
@@ -659,6 +687,76 @@
                 "alt": "Eco Charging",
                 "width": "24",
                 "height": "24"
+              }
+            },
+            "boxThree": {
+              "title": "Zuverlässig",
+              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "24",
+                "height": "24"
+              }
+            },
+            "boxFour": {
+              "title": "Nachhaltig",
+              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "24",
+                "height": "24"
+              }
+            }
+          },
+          "image": {
+            "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
+            "alt": "Photovoltaic",
+            "width": "500",
+            "height": "500"
+          }
+        },
+        "Photovoltaic2": {
+          "orientation": "right",
+          "productIdentifier": "Photovoltaik",
+          "title": "Sparen und unabhängig von Strompreis",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+          "button": {
+            "text": "Jetzt Anfragen",
+            "href": "/contact-us"
+          },
+          "boxesTop": {
+            "boxOne": {
+              "title": "Einfach Geld Sparen",
+              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "16",
+                "height": "16"
+              }
+            },
+            "boxTwo": {
+              "title": "Endlich Unabhängig",
+              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "16",
+                "height": "16"
+              }
+            }
+          },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "Zuverlässig",
+              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "40",
+                "height": "40"
               }
             },
             "boxThree": {

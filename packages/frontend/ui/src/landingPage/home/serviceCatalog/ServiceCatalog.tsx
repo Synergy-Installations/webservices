@@ -236,7 +236,7 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
   return (
     <section className="relative" id="products">
       <HeroHomeIllustration />
-      <div className="mx-auto pb-12 pt-32 md:pt-40">
+      <div className="mx-auto pb-12 pt-20 md:pt-40">
         {/* Hero content */}
         <div className="pb-12 pt-0 md:pb-20 md:pt-0">
           {/* Section header */}

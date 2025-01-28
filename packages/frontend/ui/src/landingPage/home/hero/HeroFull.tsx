@@ -22,7 +22,7 @@ export const HeroFull = (props: HeroFullProps) => {
 
   return (
     <div className="h-svh w-svw min-h-[993px] relative">
-      <div className="z-10 relative h-full flex flex-col items-center justify-center lg:block lg:pt-[204px] lg:pl-[140px] xl:pl-[200px] 2xl:pl-[300px] min-[1700px]:pl-[350px] min-[1700px]:pt-[194px] w-auto">
+      <div className="z-10 relative h-screen flex flex-col items-center justify-center lg:block lg:pt-[204px] lg:pl-[140px] xl:pl-[200px] 2xl:pl-[300px] min-[1700px]:pl-[350px] min-[1700px]:pt-[194px] w-auto">
         <div className="relative flex flex-col w-[272px] rounded-2xl">
           <ProductPreviewSmallTransition
             products={productPreviewKeys.map(
@@ -35,7 +35,7 @@ export const HeroFull = (props: HeroFullProps) => {
         </h1> */}
         <div className="mb-6 mt-5 w-fit border-y [border-image:linear-gradient(to_right,transparent,theme(colors.slate.300/.8),transparent)1]">
           <WordRotate
-            className="text-4xl sm:text-5xl font-bold w-fit text-white md:text-6xl"
+            className="text-5xl font-bold w-fit text-white md:text-6xl"
             words={t("rotatingText").split(",")}
           />
         </div>

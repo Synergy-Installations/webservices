@@ -7,6 +7,7 @@ export interface ProductPreviewSmallProps {
   image: {
     src: string;
     alt: string;
+    className?: string;
   };
   className?: string;
 }
@@ -14,20 +15,20 @@ export interface ProductPreviewSmallProps {
 export const ProductPreviewSmall = (props: ProductPreviewSmallProps) => {
   return (
     <div
-      className={`p-1 pr-6 flex items-center justify-left w-fit rounded-3xl gap-4 bg-synergy-light-blue/[42%] backdrop-blur-md ${props.className}`}
+      className={`p-1 pr-6 flex items-center text-2xl justify-left w-fit rounded-3xl gap-4 bg-synergy-light-blue/[42%] backdrop-blur-md ${props.className}`}
     >
-      <div className="w-[74px] h-[63px] relative">
+      <div className={`w-[74px] h-[63px] relative ${props.image.className}`}>
         <Image
           src={props.image.src}
           loader={ImageLoader}
           width={undefined}
           height={undefined}
-          className="object-cover rounded-l-[20px]"
+          className={`object-cover rounded-l-[20px]`}
           fill
           alt={props.image.alt}
         />
       </div>
-      <h2 className="text-2xl font-semibold text-white">{props.name}</h2>
+      <h2 className="font-semibold text-white">{props.name}</h2>
     </div>
   );
 };

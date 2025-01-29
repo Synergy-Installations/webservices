@@ -3,11 +3,9 @@
 import { useState } from "react";
 import { Transition } from "@headlessui/react";
 import Image from "next/image";
-import CarouselIllustration from "../../../shared/images/carousel-illustration-01.jpg";
-import CarouselFamily from "../../../shared/images/Family.jpeg";
-import FeatureIllustration from "../../../shared/images/eco-charging-icon.svg";
 import { useMessages, useTranslations } from "next-intl";
 import { ImageLoader } from "@com.synergy/frontend-ui/ImageLoader";
+import { Stats } from "@com.synergy/frontend-ui/Stats";
 
 /* eslint-disable-next-line */
 export interface FeatureAdvantagesProps {}
@@ -117,9 +115,10 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
 
         {/* Features blocks */}
         <div className="max-w-6xl mx-auto px-4 sm:px-6 mt-24 lg:mt-32">
+          <Stats />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16">
             {/* Blocks */}
-            {blockKeys.map((key, index) => (
+            {/* {blockKeys.map((key, index) => (
               <div key={index}>
                 <div className="flex items-center mb-1">
                   <Image
@@ -138,7 +137,7 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
                   {t(`blocks.${key}.description`)}
                 </p>
               </div>
-            ))}
+            ))} */}
           </div>
         </div>
       </div>

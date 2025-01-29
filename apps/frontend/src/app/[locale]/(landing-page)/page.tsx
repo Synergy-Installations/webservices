@@ -20,14 +20,14 @@ export default function Page(): JSX.Element {
 
   return (
     <>
-      <TracingBeam>
+      {/* <TracingBeam> */}
         <HeroFull />
         <ServiceCatalog />
         <FeatureAdvantages />
         <FeatureSteps />
         <TestimonialsCarousel />
         <CtaLoose />
-      </TracingBeam>
+      {/* </TracingBeam> */}
     </>
   );
 }

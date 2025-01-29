@@ -13,7 +13,7 @@ export default function Page(): JSX.Element {
 
   return (
     <>
-      <TracingBeam>
+      {/* <TracingBeam> */}
         <HeroVideoFull />
         <ProductCards />
         {/* <DefaultProductCard />
@@ -25,7 +25,7 @@ export default function Page(): JSX.Element {
         <AboutUsCard />
         <PackagesCard />
         <CtaLoose />
-      </TracingBeam>
+      {/* </TracingBeam> */}
     </>
   );
 }

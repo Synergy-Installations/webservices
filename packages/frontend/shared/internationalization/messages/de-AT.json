@@ -328,6 +328,28 @@
             }
           }
         },
+        "stats": {
+          "assets": {
+            "number": "476",
+            "suffix": "K",
+            "text": "Assets packed with power beyond your imagination."
+          },
+          "packages": {
+            "number": "1.44",
+            "suffix": "K",
+            "text": "Assets packed with power beyond your imagination."
+          },
+          "resolved": {
+            "number": "1.5",
+            "suffix": "M+",
+            "text": "Assets packed with power beyond your imagination."
+          },
+          "managerial": {
+            "number": "192",
+            "suffix": "K",
+            "text": "Assets packed with power beyond your imagination."
+          }
+        },
         "blocks": {
           "Discussions": {
             "title": "Discussions",
@@ -588,35 +610,35 @@
             }
           },
           "heatpump": {
-            "title": "Warmepumpe",
+            "title": "Wärmetechnik",
             "image": {
               "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
               "alt": "Photovoltaic"
             }
           },
           "photovoltaic2": {
-            "title": "Photovoltaic",
+            "title": "Klimasysteme",
             "image": {
               "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
               "alt": "Photovoltaic"
             }
           },
           "heatpump2": {
-            "title": "Warmepumpe",
+            "title": "Smart Home",
             "image": {
               "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
               "alt": "Photovoltaic"
             }
           },
           "photovoltaic3": {
-            "title": "Photovoltaic",
+            "title": "EMS",
             "image": {
               "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
               "alt": "Photovoltaic"
             }
           },
           "heatpump4": {
-            "title": "Warmepumpe",
+            "title": "Wallbox",
             "image": {
               "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
               "alt": "Photovoltaic"

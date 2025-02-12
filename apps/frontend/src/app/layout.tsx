@@ -16,7 +16,7 @@ export default async function RootLayout({
 }) {
   return (
     <html lang={locale} className="scroll-smooth">
-      <body>{children}</body>
+      <body className="relative">{children}</body>
     </html>
   );
 }

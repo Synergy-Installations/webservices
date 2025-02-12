@@ -21,7 +21,7 @@ export const MobileMenu = (props: MobileMenuProps) => {
 
   const getNavChildrenKeys = (key: string): string[] => {
     return (
-      Object.keys(messages.LandingPage.Shared.Header.nav[key].children) || []
+      Object.keys(messages.LandingPage.Shared.Header.nav[key]?.children) || []
     );
   };
 

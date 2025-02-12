@@ -52,7 +52,7 @@
             "title": "Photovoltaik",
             "description": "Mit unserem Sonnenkraftwerk werden Sie zum unabhängigen Klimahelden.",
             "image": {
-              "src": "/frontend/landingPage/products/heat-pump.jpg",
+              "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
               "alt": "Photovoltaic"
             },
             "button": {
@@ -64,7 +64,7 @@
             "title": "Wärmetechnik",
             "description": "Nutzen Sie unser Warmesystem und gonnen Sie sich ein warmes Zuhause aus eigener Produktion.",
             "image": {
-              "src": "/frontend/landingPage/products/heat-pump.jpg",
+              "src": "/frontend/landingPage/products/AA%20W%C3%A4rmepumpe%20AdobeStock_622637179.jpeg",
               "alt": "Photovoltaic"
             },
             "button": {
@@ -76,7 +76,7 @@
             "title": "Klimasysteme",
             "description": "Erleben Sie das angenehme Raumklima, wohl temperiert und zugeschnitten auf Ihre Bedurfnisse.",
             "image": {
-              "src": "/frontend/landingPage/products/heat-pump.jpg",
+              "src": "/frontend/landingPage/products/close-up-shot-of-air-conditioner-hanging-on-white-2024-11-19-02-00-43-utc.jpg",
               "alt": "Photovoltaic"
             },
             "button": {
@@ -88,7 +88,7 @@
             "title": "Smart Home",
             "description": "Lassen Sie sich verwohnen, einfach zu bedienen und voll automatisiert.",
             "image": {
-              "src": "/frontend/landingPage/products/heat-pump.jpg",
+              "src": "/frontend/landingPage/products/AA%20Smart%20Home.jpeg",
               "alt": "Photovoltaic"
             },
             "button": {
@@ -100,7 +100,7 @@
             "title": "Energiemanagement",
             "description": "Bringen Sie das Verhaltnis zwischen Produktion und Verbrauch in Einklang.",
             "image": {
-              "src": "/frontend/landingPage/products/heat-pump.jpg",
+              "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
               "alt": "Photovoltaic"
             },
             "button": {
@@ -112,7 +112,7 @@
             "title": "Wallbox",
             "description": "Unabhangig in das nachste Level - mit uns werden Sie mobil.",
             "image": {
-              "src": "/frontend/landingPage/products/heat-pump.jpg",
+              "src": "/frontend/landingPage/products/AA%20Wallbox%20AdobeStock_762399295.jpeg",
               "alt": "Photovoltaic"
             },
             "button": {
@@ -1134,7 +1134,7 @@
       },
       "Header": {
         "logo": {
-          "src": "/frontend/landingPage/icons/synergy-logo-grid.svg",
+          "src": "/frontend/landingPage/icons/Synergie-montagen-logo.svg",
           "alt": "Logo",
           "width": "191",
           "height": "77",

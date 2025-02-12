@@ -16,7 +16,7 @@ import CtaLoose from "@com.synergy/frontend-ui/CtaLoose";
 import { TracingBeam } from "@com.synergy/frontend-ui/TracingBeam";
 
 export default function Page(): JSX.Element {
-  const t = useTranslations("Index");
+  // const t = useTranslations("Index");
 
   return (
     <>

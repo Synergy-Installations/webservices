@@ -1,14 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 
 import { headers } from "next/headers";
+import { notFound } from "next/navigation";
 
-export default async function WebflowPage() {
+export default async function WebflowPage({
+  params,
+}: {
+  params: Promise<{ oldWebsiteId: string }>;
+}) {
   const host = headers().get("host");
   const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
-  const absoluteUrl = `${protocol}://${host}/api/webflow`;
+  const absoluteUrl = `${protocol}://${host}/api/webflow?page=${(await params).oldWebsiteId}`;
 
   const res = await fetch(absoluteUrl);
-  if (!res.ok) throw new Error("Failed to fetch Webflow content");
+  if (!res.ok) notFound();
+  // if (!res.ok) throw new Error("Failed to fetch Webflow content");
 
   const html = await res.text();
 

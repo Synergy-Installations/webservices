@@ -24,7 +24,7 @@ export const ProductPreviewSmallTransition = (
   useEffect(() => {
     // create a interval and get the id
     const myInterval = setInterval(() => {
-      setTab((tab) => (tab == 1 ? 2 : 1));
+      setTab((tab) => (tab == props.products.length ? 1 : tab + 1));
     }, 2500);
     // clear out the interval using the id when unmounting the component
     return () => clearInterval(myInterval);

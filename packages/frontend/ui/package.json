@@ -8,6 +8,7 @@
     "dist"
   ],
   "exports": {
+    "./Form": "./src/landingPage/contact/form/Form.tsx",
     "./Counter": "./src/shared/animations/counter/Counter.tsx",
     "./Stats": "./src/landingPage/home/features/Stats.tsx",
     "./ProductCards": "./src/landingPage/products/cards/ProductCards.tsx",

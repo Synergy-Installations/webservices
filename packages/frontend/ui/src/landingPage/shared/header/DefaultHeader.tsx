@@ -61,7 +61,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
                     {getNavChildrenKeys(navKey).map((childKey, index) => (
                       <li key={index}>
                         <Link
-                          href={t(`nav.${navKey}.children.${childKey}.text`)}
+                          href={t(`nav.${navKey}.children.${childKey}.href`)}
                           className="flex  rounded-lg px-2 py-1.5 text-sm text-synergy-dark-grey hover:bg-gray-100 w-full whitespace-nowrap"
                         >
                           {t(`nav.${navKey}.children.${childKey}.text`)}

@@ -318,11 +318,11 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
                       t(`partnerCarousel.${partnerCarouselKey}.reverse`)
                     )}
                     key={index}
-                    className="[--duration:20s]"
+                    className="[--duration:100s]"
                   >
                     {getPartnerCarouselItems(partnerCarouselKey).map(
                       (partnerKey, index) => (
-                        <div className="swiper-slide !h-32 !w-32 bg-gray-200 rounded-2xl flex items-center justify-center group">
+                        <div className="swiper-slide !h-32 !min-w-32 p-4 overflow-hidden bg-gray-200 rounded-2xl flex items-center justify-center group">
                           <Image
                             className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
                             loader={ImageLoader}

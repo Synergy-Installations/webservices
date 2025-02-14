@@ -3,6 +3,7 @@ import Image from "next/image";
 import Logo from "../../../shared/images/synergy-logo-grid.svg";
 import { ImageLoader } from "@com.synergy/frontend-ui/ImageLoader";
 import { useMessages, useTranslations } from "next-intl";
+import { RichText } from "@com.synergy/frontend-ui/RichText";
 
 /* eslint-disable-next-line */
 export interface CtaLooseProps {}
@@ -49,9 +50,9 @@ export const CtaLoose = (props: CtaLooseProps) => {
                 ),
               })}{" "}
             </h2>
-            <p className="text-lg text-synergy-dark-grey mb-8">
-              {t("description")}
-            </p>
+            <div className="text-lg text-synergy-dark-grey mb-8">
+              <RichText>{(tags) => t.rich("description", tags)}</RichText>
+            </div>
             <div className="max-w-xs mx-auto sm:max-w-none sm:inline-flex sm:justify-center space-y-4 sm:space-y-0 sm:space-x-4">
               <Link
                 className="btn !rounded-xl !py-4 !text-base backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue shadow-xl text-white w-full group"
@@ -66,9 +67,9 @@ export const CtaLoose = (props: CtaLooseProps) => {
               </Link>
               <Link
                 className="btn !rounded-xl !text-base text-synergy-dark-grey bg-white hover:text-zinc-900 w-full shadow-xl"
-                href={t("buttons.buttonLeft.href")}
+                href={t("buttons.buttonRight.href")}
               >
-                {t("buttons.buttonLeft.text")}
+                {t("buttons.buttonRight.text")}
               </Link>
             </div>
           </div>
@@ -76,7 +77,10 @@ export const CtaLoose = (props: CtaLooseProps) => {
           <div className="text-center">
             <ul className="inline-flex flex-wrap items-center justify-center -m-2 [mask-image:linear-gradient(to_right,transparent_8px,_theme(colors.white/.7)_64px,_theme(colors.white)_50%,_theme(colors.white/.7)_calc(100%-64px),_transparent_calc(100%-8px))]">
               {parterKeys.map((parterKey, index) => (
-                <li key={index} className="m-2 p-4 relative rounded-lg border border-transparent [background:linear-gradient(theme(colors.zinc.50),theme(colors.zinc.50))_padding-box,linear-gradient(120deg,theme(colors.zinc.300),theme(colors.zinc.100),theme(colors.zinc.300))_border-box]">
+                <li
+                  key={index}
+                  className="m-2 p-4 relative rounded-lg border border-transparent [background:linear-gradient(theme(colors.zinc.50),theme(colors.zinc.50))_padding-box,linear-gradient(120deg,theme(colors.zinc.300),theme(colors.zinc.100),theme(colors.zinc.300))_border-box]"
+                >
                   <Image
                     loader={ImageLoader}
                     src={t(`partners.${parterKey}.src`)}

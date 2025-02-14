@@ -42,7 +42,7 @@ export const PackagesCard = (props: PackagesCardProps) => {
             {/* Section content */}
             <div className="relative max-w-xl mx-auto md:max-w-none text-center md:text-left">
               {/* Section header */}
-              <div className="md:max-w-3xl mb-12 md:mb-20" data-aos="fade-up">
+              <div className="md:max-w-3xl mb-12 md:mb-20">
                 <h1 className="text-2xl font-medium text-synergy-light-blue pb-1">
                   {t("cardIdentifier")}
                 </h1>
@@ -57,8 +57,6 @@ export const PackagesCard = (props: PackagesCardProps) => {
               {/* Pricing tables */}
               <div
                 className="max-w-sm md:max-w-none 1xl:max-w-none mx-auto grid gap-8 md:grid-cols-3 1xl:grid-cols-4 xl:gap-6 items-start"
-                data-aos="fade-up"
-                data-aos-delay="100"
               >
                 {/* Pricing tables */}
                 {pricingTablesKeys.map((pricingTableKey, index) => (

@@ -19,7 +19,6 @@ export const ProductPreviewSmallTransition = (
   props: ProductPreviewSmallTransitionProps
 ) => {
   const [tab, setTab] = useState(1);
-  console.log(props.products);
 
   useEffect(() => {
     // create a interval and get the id

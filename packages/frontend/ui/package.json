@@ -8,6 +8,7 @@
     "dist"
   ],
   "exports": {
+    "./GoogleTag": "./src/landingPage/shared/layout/GoogleTag.tsx",
     "./Form": "./src/landingPage/contact/form/Form.tsx",
     "./Counter": "./src/shared/animations/counter/Counter.tsx",
     "./Stats": "./src/landingPage/home/features/Stats.tsx",
@@ -89,6 +90,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
+    "@next/third-parties": "^15.1.7",
     "@radix-ui/react-icons": "^1.3.2",
     "@types/aos": "^3.0.7",
     "aos": "^2.3.4",

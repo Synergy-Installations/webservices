@@ -8,17 +8,45 @@
         },
         "productPreviewSmall": {
           "photovoltaic": {
-            "title": "Photovoltaic",
+            "title": "Photovoltaik",
             "image": {
-              "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
-              "alt": "Photovoltaic"
+              "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+              "alt": "Photovoltaik"
             }
           },
           "heatpump": {
-            "title": "Warmepumpe",
+            "title": "Wärmesysteme",
             "image": {
               "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
-              "alt": "Photovoltaic"
+              "alt": "Wärmesysteme"
+            }
+          },
+          "klimasysteme": {
+            "title": "Klimasysteme",
+            "image": {
+              "src": "/frontend/landingPage/products/close-up-shot-of-air-conditioner-hanging-on-white-2024-11-19-02-00-43-utc.jpg",
+              "alt": "Photovoltaik"
+            }
+          },
+          "smart-Home": {
+            "title": "Smart Home",
+            "image": {
+              "src": "/frontend/landingPage/products/AA%20Smart%20Home.jpeg",
+              "alt": "Wärmesysteme"
+            }
+          },
+          "energiemanagement": {
+            "title": "Energiemanagement",
+            "image": {
+              "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
+              "alt": "Photovoltaik"
+            }
+          },
+          "wallbox": {
+            "title": "Wallbox",
+            "image": {
+              "src": "/frontend/landingPage/products/AA%20Wallbox%20AdobeStock_762399295.jpeg",
+              "alt": "Wärmesysteme"
             }
           }
         },
@@ -44,7 +72,7 @@
           },
           "buttonRight": {
             "text": "Detaillierte Ansicht",
-            "href": "#products"
+            "href": "/products"
           }
         },
         "servicesGrid": {
@@ -52,7 +80,7 @@
             "title": "Photovoltaik",
             "description": "Mit unserem Sonnenkraftwerk werden Sie zum unabhängigen Klimahelden.",
             "image": {
-              "src": "/frontend/landingPage/products/heat-pump.jpg",
+              "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
               "alt": "Photovoltaic"
             },
             "button": {
@@ -61,10 +89,10 @@
             }
           },
           "heatpump": {
-            "title": "Wärmetechnik",
+            "title": "Wärmesysteme",
             "description": "Nutzen Sie unser Warmesystem und gonnen Sie sich ein warmes Zuhause aus eigener Produktion.",
             "image": {
-              "src": "/frontend/landingPage/products/heat-pump.jpg",
+              "src": "/frontend/landingPage/products/AA%20W%C3%A4rmepumpe%20AdobeStock_622637179.jpeg",
               "alt": "Photovoltaic"
             },
             "button": {
@@ -76,7 +104,7 @@
             "title": "Klimasysteme",
             "description": "Erleben Sie das angenehme Raumklima, wohl temperiert und zugeschnitten auf Ihre Bedurfnisse.",
             "image": {
-              "src": "/frontend/landingPage/products/heat-pump.jpg",
+              "src": "/frontend/landingPage/products/close-up-shot-of-air-conditioner-hanging-on-white-2024-11-19-02-00-43-utc.jpg",
               "alt": "Photovoltaic"
             },
             "button": {
@@ -88,7 +116,7 @@
             "title": "Smart Home",
             "description": "Lassen Sie sich verwohnen, einfach zu bedienen und voll automatisiert.",
             "image": {
-              "src": "/frontend/landingPage/products/heat-pump.jpg",
+              "src": "/frontend/landingPage/products/AA%20Smart%20Home.jpeg",
               "alt": "Photovoltaic"
             },
             "button": {
@@ -100,7 +128,7 @@
             "title": "Energiemanagement",
             "description": "Bringen Sie das Verhaltnis zwischen Produktion und Verbrauch in Einklang.",
             "image": {
-              "src": "/frontend/landingPage/products/heat-pump.jpg",
+              "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
               "alt": "Photovoltaic"
             },
             "button": {
@@ -112,7 +140,7 @@
             "title": "Wallbox",
             "description": "Unabhangig in das nachste Level - mit uns werden Sie mobil.",
             "image": {
-              "src": "/frontend/landingPage/products/heat-pump.jpg",
+              "src": "/frontend/landingPage/products/AA%20Wallbox%20AdobeStock_762399295.jpeg",
               "alt": "Photovoltaic"
             },
             "button": {
@@ -126,64 +154,172 @@
             "pauseOnHover": "true",
             "reverse": "false",
             "partners": {
-              "Partner01": {
-                "src": "/frontend/landingPage/clients/client-01.svg",
+              "Aerocompact": {
+                "src": "/frontend/landingPage/clients/aerocompact%20logo.png",
                 "alt": "Client 01",
-                "width": "74",
-                "height": "21"
+                "width": "200",
+                "height": "50"
               },
-              "Partner02": {
-                "src": "/frontend/landingPage/clients/client-02.svg",
+              "Energy3000": {
+                "src": "/frontend/landingPage/clients/energy3000%20CMYK%20transparent.png",
                 "alt": "Client 02",
-                "width": "62",
-                "height": "46"
+                "width": "100",
+                "height": "50"
               },
-              "Partner03": {
-                "src": "/frontend/landingPage/clients/client-03.svg",
+              "Wuerth": {
+                "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
                 "alt": "Client 03",
-                "width": "40",
-                "height": "40"
+                "width": "200",
+                "height": "50"
               },
-              "Partner04": {
-                "src": "/frontend/landingPage/clients/client-04.svg",
+              "EandB": {
+                "src": "/frontend/landingPage/clients/logo_eb.png",
                 "alt": "Client 04",
-                "width": "86",
+                "width": "200",
                 "height": "13"
               },
-              "Partner05": {
-                "src": "/frontend/landingPage/clients/client-05.svg",
+              "Fronius": {
+                "src": "/frontend/landingPage/clients/LOGO_Fronius_RGB_high_300dpi.jpg",
                 "alt": "Client 05",
-                "width": "86",
+                "width": "200",
                 "height": "18"
               },
-              "Partner06": {
-                "src": "/frontend/landingPage/clients/client-06.svg",
+              "SHT": {
+                "src": "/frontend/landingPage/clients/SHT_logo_4C.png",
                 "alt": "Client 06",
-                "width": "40",
-                "height": "40"
+                "width": "100",
+                "height": "50"
               },
-              "Partner07": {
-                "src": "/frontend/landingPage/clients/client-07.svg",
+              "Sonepar": {
+                "src": "/frontend/landingPage/clients/Sonepar%20logo%20RGB_Tagline.svg",
                 "alt": "Client 07",
-                "width": "40",
-                "height": "40"
+                "width": "200",
+                "height": "50"
               },
               "Partner08": {
-                "src": "/frontend/landingPage/clients/client-08.svg",
+                "src": "/frontend/landingPage/clients/00-Sigenergy-Logo.png.webp",
                 "alt": "Client 08",
-                "width": "80",
+                "width": "200",
                 "height": "34"
               },
               "Partner09": {
-                "src": "/frontend/landingPage/clients/client-09.svg",
+                "src": "/frontend/landingPage/clients/0x0.png",
                 "alt": "Client 09",
-                "width": "33",
+                "width": "200",
                 "height": "44"
               },
-              "Partner10": {
-                "src": "/frontend/landingPage/clients/client-10.svg",
+              "Partner11": {
+                "src": "/frontend/landingPage/clients/989_Category.png",
                 "alt": "Client 10",
-                "width": "40",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner12": {
+                "src": "/frontend/landingPage/clients/Altamira_2_color_stacked_large.png",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner13": {
+                "src": "/frontend/landingPage/clients/Bosch-logo.svg",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner14": {
+                "src": "/frontend/landingPage/clients/Buderus-logo.svg",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner15": {
+                "src": "/frontend/landingPage/clients/BYD_Company%2C_Ltd._-_Logo.svg",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner16": {
+                "src": "/frontend/landingPage/clients/DAIKIN_Logo_rgb.png",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner17": {
+                "src": "/frontend/landingPage/clients/FE_S_Blau_Horiz_RGB-1.png",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner18": {
+                "src": "/frontend/landingPage/clients/hargassner-logo-neg-entzerrt-vereinfacht-ohne-claim3farbig-dunkelgrau.svg",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner19": {
+                "src": "/frontend/landingPage/clients/Hoval_Logo.svg",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner20": {
+                "src": "/frontend/landingPage/clients/Huawei_Standard_logo.svg",
+                "alt": "Client 10",
+                "width": "100",
+                "height": "40"
+              },
+              "Partner21": {
+                "src": "/frontend/landingPage/clients/logo_idm_waermepumpen-scaled-e1610953520283.jpg",
+                "alt": "Client 10",
+                "width": "100",
+                "height": "40"
+              },
+              "Partner22": {
+                "src": "/frontend/landingPage/clients/images.png",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner23": {
+                "src": "/frontend/landingPage/clients/K2_new_logo.svg",
+                "alt": "Client 10",
+                "width": "100",
+                "height": "40"
+              },
+              "Partner24": {
+                "src": "/frontend/landingPage/clients/KNX_logo.svg",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner25": {
+                "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner26": {
+                "src": "/frontend/landingPage/clients/logo_eb.png",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner27": {
+                "src": "/frontend/landingPage/clients/Logo_Fro%CC%88ling.JPG",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner28": {
+                "src": "/frontend/landingPage/clients/Logo_SMA.svg",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner29": {
+                "src": "/frontend/landingPage/clients/LOGO-LAMBDA-1.png",
+                "alt": "Client 10",
+                "width": "200",
                 "height": "40"
               }
             }
@@ -192,64 +328,154 @@
             "pauseOnHover": "true",
             "reverse": "true",
             "partners": {
-              "Partner01": {
-                "src": "/frontend/landingPage/clients/client-01.svg",
-                "alt": "Client 01",
-                "width": "74",
-                "height": "21"
-              },
-              "Partner02": {
-                "src": "/frontend/landingPage/clients/client-02.svg",
-                "alt": "Client 02",
-                "width": "62",
-                "height": "46"
-              },
-              "Partner03": {
-                "src": "/frontend/landingPage/clients/client-03.svg",
-                "alt": "Client 03",
-                "width": "40",
-                "height": "40"
-              },
-              "Partner04": {
-                "src": "/frontend/landingPage/clients/client-04.svg",
-                "alt": "Client 04",
-                "width": "86",
-                "height": "13"
-              },
-              "Partner05": {
-                "src": "/frontend/landingPage/clients/client-05.svg",
-                "alt": "Client 05",
-                "width": "86",
-                "height": "18"
-              },
-              "Partner06": {
-                "src": "/frontend/landingPage/clients/client-06.svg",
-                "alt": "Client 06",
-                "width": "40",
-                "height": "40"
-              },
-              "Partner07": {
-                "src": "/frontend/landingPage/clients/client-07.svg",
-                "alt": "Client 07",
-                "width": "40",
-                "height": "40"
-              },
-              "Partner08": {
-                "src": "/frontend/landingPage/clients/client-08.svg",
-                "alt": "Client 08",
-                "width": "80",
-                "height": "34"
-              },
-              "Partner09": {
-                "src": "/frontend/landingPage/clients/client-09.svg",
-                "alt": "Client 09",
-                "width": "33",
-                "height": "44"
-              },
-              "Partner10": {
-                "src": "/frontend/landingPage/clients/client-10.svg",
+              "Partner30": {
+                "src": "/frontend/landingPage/clients/logo-multitherm.png",
                 "alt": "Client 10",
-                "width": "40",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner31": {
+                "src": "/frontend/landingPage/clients/logo-text.svg",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner32": {
+                "src": "/frontend/landingPage/clients/logo_idm_waermepumpen-scaled-e1610953520283.jpg",
+                "alt": "Client 10",
+                "width": "100",
+                "height": "40"
+              },
+              "Partner33": {
+                "src": "/frontend/landingPage/clients/Loxone_Logo.png",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner34": {
+                "src": "/frontend/landingPage/clients/OekoFEN_Logo_2018_CMYK.jpg",
+                "alt": "Client 10",
+                "width": "100",
+                "height": "40"
+              },
+              "Partner35": {
+                "src": "/frontend/landingPage/clients/Panasonic_logo_%2528Blue%2529.svg",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner36": {
+                "src": "/frontend/landingPage/clients/Samsung_Logo.svg",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner37": {
+                "src": "/frontend/landingPage/clients/SCHLETTER_Logo_withoutClaim_CMYK_DARKTEAL_1200ppi.png",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner38": {
+                "src": "/frontend/landingPage/clients/sf_transparent_11-2012.png",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner39": {
+                "src": "/frontend/landingPage/clients/SFLEX_ENERGY_Logo_500px.png",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner40": {
+                "src": "/frontend/landingPage/clients/SHT_logo_4C.png",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner41": {
+                "src": "/frontend/landingPage/clients/SolarEdge_logo_header_new_0.svg",
+                "alt": "Client 10",
+                "width": "100",
+                "height": "40"
+              },
+              "Partner43": {
+                "src": "/frontend/landingPage/clients/Sonnen_logo_Ausschnitt.jpg",
+                "alt": "Client 10",
+                "width": "100",
+                "height": "40"
+              },
+              "Partner44": {
+                "src": "/frontend/landingPage/clients/Toshiba_logo.svg",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner45": {
+                "src": "/frontend/landingPage/clients/unnamed.png",
+                "alt": "Client 10",
+                "width": "100",
+                "height": "40"
+              },
+              "Partner46": {
+                "src": "/frontend/landingPage/clients/Vaillant-logo.svg",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner47": {
+                "src": "/frontend/landingPage/clients/Viessmann-logo.svg",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner48": {
+                "src": "/frontend/landingPage/clients/Walter_Bo%CC%88sch_KG_Logo.svg.png",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner49": {
+                "src": "/frontend/landingPage/clients/Weitzer_Parkett_Logo.svg",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner50": {
+                "src": "/frontend/landingPage/clients/windhager_logo_4c_de.jpg",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner51": {
+                "src": "/frontend/landingPage/clients/Evcc_Logo.svg.png",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner52": {
+                "src": "/frontend/landingPage/clients/image002-1.png",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner54": {
+                "src": "/frontend/landingPage/clients/Home_Assistant_Logo.svg.png",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner55": {
+                "src": "/frontend/landingPage/clients/image004.jpg",
+                "alt": "Client 10",
+                "width": "200",
+                "height": "40"
+              },
+              "Partner56": {
+                "src": "/frontend/landingPage/clients/image006.png",
+                "alt": "Client 10",
+                "width": "200",
                 "height": "40"
               }
             }
@@ -330,8 +556,8 @@
         },
         "stats": {
           "assets": {
-            "number": "476",
-            "suffix": "K",
+            "number": "3750",
+            "suffix": " kWh",
             "text": "Assets packed with power beyond your imagination."
           },
           "packages": {
@@ -341,7 +567,7 @@
           },
           "resolved": {
             "number": "1.5",
-            "suffix": "M+",
+            "suffix": "Jahre",
             "text": "Assets packed with power beyond your imagination."
           },
           "managerial": {
@@ -384,7 +610,7 @@
         }
       },
       "FeatureSteps": {
-        "title": "Die 4 Stufen zu Ihrem Energie-<br></br>und Haustechnik System",
+        "title": "Die 4 Stufen zu Ihrem <br></br> optimalen System",
         "video": {
           "thumbnail": {
             "src": "/frontend/landingPage/FeatureSteps/scenic-house.jpg",
@@ -400,23 +626,23 @@
         "steps": {
           "stepOne": {
             "number": "1",
-            "title": "Personalised Outreach",
-            "description": "Work is is changing faster than at any other time in history."
+            "title": "Örtliche Gegebenheit",
+            "description": ""
           },
           "stepTwo": {
             "number": "2",
-            "title": "Personalised Outreach",
-            "description": "Work is is changing faster than at any other time in history."
+            "title": "Kundenbedürfnisse",
+            "description": ""
           },
           "stepThree": {
             "number": "3",
-            "title": "Personalised Outreach",
-            "description": "Work is is changing faster than at any other time in history."
+            "title": "Derzeitige Gebäudetechnik",
+            "description": ""
           },
           "stepFour": {
             "number": "4",
-            "title": "Personalised Outreach",
-            "description": "Work is is changing faster than at any other time in history."
+            "title": "Anlagenkomposition",
+            "description": ""
           }
         },
         "button": {
@@ -434,78 +660,114 @@
               "width": "44",
               "height": "44"
             },
-            "name": "Peter Lowe",
-            "username": "@peterlowex",
+            "name": "Richard Flammer",
+            "username": "@rflammer",
             "usernameUrl": "https://twitter.com/peterlowex",
-            "date": "May 19, 2027",
-            "content": "As a founder, having a visually appealing and user-friendly website is essential. This tool not only helped me achieve that but also improved my site's performance and SEO.",
+            "date": "Feb 5, 2024",
+            "content": "Kompetente Beratung, rasche und professionelle Ausführung und viel Verständnis und gute Erklärungen für laienhafte Fragen, die aber alle geklärt werden wollen",
             "channelIcon": {
-              "src": "/frontend/landingPage/icons/twitter.svg",
-              "alt": "Twitter",
-              "width": "17",
+              "src": "/frontend/landingPage/icons/Google_%2522G%2522_logo.svg",
+              "alt": "Google Review",
+              "width": "20",
               "height": "15"
             }
           },
           "testimonialTwo": {
             "profilePicture": {
-              "src": "/frontend/landingPage/testimonialCarousel/testimonial-01.jpg",
+              "src": "/frontend/landingPage/testimonialCarousel/testimonial-02.jpg",
               "alt": "TestimonialImg01",
               "width": "44",
               "height": "44"
             },
-            "name": "Rodri Alba",
-            "username": "@rodri_spn",
+            "name": "Thomas Fried",
+            "username": "@tfried",
             "usernameUrl": "https://twitter.com/peterlowex",
-            "date": "Apr 12, 2027",
-            "content": "Synergy has revolutionized the way I manage my work. Its intuitive interface and seamless functionality make staying organized effortless. I can't imagine my life without it.",
+            "date": "Feb 7, 2024",
+            "content": "ich habe mir von der firma riegler im märz 24 eine 15kw pv anlage mit 15kw batterie , der marke growat , liefern und montieren lassen. die läuft jetzt seit nahezu einem jahr klaglos. zu beratung und ausführung kann ich nur eines sagen: die termine bestens eingehalten, auch der bereitgestellte elektriker kompetent und sehr hilfsbereit, das ganze hatte handschlagqualität..... jederzeit wieder mit freundlichen grüssen t frid",
             "channelIcon": {
-              "src": "/frontend/landingPage/icons/twitter.svg",
-              "alt": "Twitter",
-              "width": "17",
+              "src": "/frontend/landingPage/icons/Google_%2522G%2522_logo.svg",
+              "alt": "Google Review",
+              "width": "20",
               "height": "15"
             }
           },
           "testimonialThree": {
             "profilePicture": {
-              "src": "/frontend/landingPage/testimonialCarousel/testimonial-01.jpg",
+              "src": "/frontend/landingPage/testimonialCarousel/testimonial-03.jpg",
               "alt": "TestimonialImg01",
               "width": "44",
               "height": "44"
             },
-            "name": "Michele Lex",
-            "username": "@MikyBrown",
+            "name": "Martin Amon",
+            "username": "@mamon",
             "usernameUrl": "https://twitter.com/peterlowex",
-            "date": "Mar 04, 2027",
-            "content": "I've tried several website builders before, but none were as user-friendly and versatile as this one. From design to functionality, it exceeded my expectations!",
+            "date": "Feb 12, 2024",
+            "content": "Die Firma hat über 400 PV Anlagen installiert und der Geschäftsführer kümmert sich persönlich um die Zufriedenheit der Kunden. Ein Österreicher der ständig im Einsatz ist und 100 mal telefoniert täglich. Super Handwerker mit echter Handschlagqualität",
             "channelIcon": {
-              "src": "/frontend/landingPage/icons/twitter.svg",
-              "alt": "Twitter",
-              "width": "17",
+              "src": "/frontend/landingPage/icons/Google_%2522G%2522_logo.svg",
+              "alt": "Google Review",
+              "width": "20",
               "height": "15"
             }
           },
-          "testimonialFour": {
+          "testimonialFive": {
             "profilePicture": {
-              "src": "/frontend/landingPage/testimonialCarousel/testimonial-01.jpg",
+              "src": "/frontend/landingPage/testimonialCarousel/testimonial-04.jpg",
               "alt": "TestimonialImg01"
             },
-            "name": "Michael Ross",
-            "username": "@michjack",
+            "name": "Andreas Goisser",
+            "username": "@agoisser",
             "usernameUrl": "https://twitter.com/peterlowex",
-            "date": "Jan 15, 2027",
-            "content": "Synergy lives up to its name in every way. It's incredibly easy to use yet powerful enough to handle all my tasks effortlessly. It's become an essential part of my daily routine.",
+            "date": "Jan 20, 2024",
+            "content": "Super Firma, sehr kompetent und sehr zu empfehlen. Tolle Beratung und Planung, zeitnahe Umsetzung - hat alles super funktioniert - bin rundum sehr zufrieden. Sehr gutes Preis- / Leistungsverhältnis - einfach top!",
             "channelIcon": {
-              "src": "/frontend/landingPage/icons/twitter.svg",
-              "alt": "Twitter",
-              "width": "17",
+              "src": "/frontend/landingPage/icons/Google_%2522G%2522_logo.svg",
+              "alt": "Google Review",
+              "width": "20",
+              "height": "15"
+            }
+          },
+          "testimonialSix": {
+            "profilePicture": {
+              "src": "/frontend/landingPage/testimonialCarousel/testimonial-06.jpg",
+              "alt": "TestimonialImg01",
+              "width": "44",
+              "height": "44"
+            },
+            "name": "Otto eichwalder",
+            "username": "@oeichwalder",
+            "usernameUrl": "https://twitter.com/peterlowex",
+            "date": "Feb 2, 2024",
+            "content": "Ich bin persönlich rund um zufrieden! Zuverlässigkeit, Entgegenkommen, persönliche und vertrauensvolle Firma. Im Endeffekt treffen die Punkte zu mit denen geworben wird - Handschlagqualität. Ich lass mir auch von der selben Firma die PV-Anlage erweitern.",
+            "channelIcon": {
+              "src": "/frontend/landingPage/icons/Google_%2522G%2522_logo.svg",
+              "alt": "Google Review",
+              "width": "20",
+              "height": "15"
+            }
+          },
+          "testimonialSeven": {
+            "profilePicture": {
+              "src": "/frontend/landingPage/testimonialCarousel/testimonial-07.jpg",
+              "alt": "TestimonialImg01"
+            },
+            "name": "Manfred Hein",
+            "username": "@mhein",
+            "usernameUrl": "https://twitter.com/peterlowex",
+            "date": "Jan 15, 2024",
+            "content": "Die Firma besteht aus einem jungen-dynamischen Team. Es gibt noch eine persönliche Beratung. Der Projektbericht wurde ausführlich und rasch übermittelt. Die Arbeiten wurden sauber und termingerecht ausgeführt. Herr Riegler ist sehr um seine Kunden bemüht. Diese Firma ist wirklich empfehlenswert!",
+            "channelIcon": {
+              "src": "/frontend/landingPage/icons/Google_%2522G%2522_logo.svg",
+              "alt": "Google Review",
+              "width": "20",
               "height": "15"
             }
           }
         },
         "blocks": {
           "Discussions": {
-            "title": "Discussions",
-            "description": "Keep workflows efficient with tools that give teams visibility throughout the process.",
+            "title": "Persönlichkeit",
+            "description": "Einige Kunden sind bereit ihre Anlagen Ihnen zu präsentieren.",
             "icon": {
               "src": "/frontend/landingPage/icons/eco-charging.svg",
               "alt": "Eco Charging",
@@ -514,8 +776,8 @@
             }
           },
           "Team-views": {
-            "title": "Team views",
-            "description": "Keep workflows efficient with tools that give teams visibility throughout the process.",
+            "title": "Kundennähe",
+            "description": "Auch nach der Installation sind wir stets für Sie im Einsatz.",
             "icon": {
               "src": "/frontend/landingPage/icons/function.svg",
               "alt": "Eco Charging",
@@ -524,8 +786,8 @@
             }
           },
           "Powerful-search": {
-            "title": "Powerful search",
-            "description": "Keep workflows efficient with tools that give teams visibility throughout the process.",
+            "title": "Netzwerk",
+            "description": "Werden Sie teil der Synergie Community.",
             "icon": {
               "src": "/frontend/landingPage/icons/function.svg",
               "alt": "Eco Charging",
@@ -543,7 +805,7 @@
           "height": "200"
         },
         "title": "<underscore>Jetzt</underscore> Angebot anfragen",
-        "description": "Synergy removes creative distances by connecting beginners, pros, and every team in between. Are you ready to start your journey?",
+        "description": "Bleiben Sie nicht kleben, wir bewegen! <br></br>Mit uns sind Sie auf der Überholspur und trozdem gemütlich unterwegs.",
         "buttons": {
           "buttonLeft": {
             "text": "Jetzt Anfragen",
@@ -556,39 +818,39 @@
         },
         "partners": {
           "Partner01": {
-            "src": "/frontend/landingPage/clients/client-01.svg",
+            "src": "/frontend/landingPage/clients/Loxone_Logo.png",
             "alt": "Client 01",
-            "width": "74",
+            "width": "150",
             "height": "21"
           },
           "Partner02": {
-            "src": "/frontend/landingPage/clients/client-02.svg",
+            "src": "/frontend/landingPage/clients/KNX_logo.svg",
             "alt": "Client 02",
             "width": "62",
             "height": "46"
           },
           "Partner03": {
-            "src": "/frontend/landingPage/clients/client-03.svg",
+            "src": "/frontend/landingPage/clients/LOGO_Fronius_RGB_high_300dpi.jpg",
             "alt": "Client 03",
-            "width": "40",
-            "height": "40"
+            "width": "90",
+            "height": "90"
           },
           "Partner04": {
-            "src": "/frontend/landingPage/clients/client-04.svg",
+            "src": "/frontend/landingPage/clients/Bosch-logo.svg",
             "alt": "Client 04",
             "width": "86",
             "height": "13"
           },
           "Partner05": {
-            "src": "/frontend/landingPage/clients/client-05.svg",
+            "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
             "alt": "Client 05",
             "width": "86",
             "height": "18"
           },
           "Partner06": {
-            "src": "/frontend/landingPage/clients/client-06.svg",
+            "src": "/frontend/landingPage/clients/DAIKIN_Logo_rgb.png",
             "alt": "Client 06",
-            "width": "40",
+            "width": "100",
             "height": "40"
           }
         }
@@ -603,14 +865,14 @@
         },
         "productPreviewSmall": {
           "photovoltaic": {
-            "title": "Photovoltaic",
+            "title": "Photovoltaik",
             "image": {
-              "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
+              "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
               "alt": "Photovoltaic"
             }
           },
           "heatpump": {
-            "title": "Wärmetechnik",
+            "title": "Wärmesysteme",
             "image": {
               "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
               "alt": "Photovoltaic"
@@ -619,28 +881,28 @@
           "photovoltaic2": {
             "title": "Klimasysteme",
             "image": {
-              "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
+              "src": "/frontend/landingPage/products/close-up-shot-of-air-conditioner-hanging-on-white-2024-11-19-02-00-43-utc.jpg",
               "alt": "Photovoltaic"
             }
           },
           "heatpump2": {
             "title": "Smart Home",
             "image": {
-              "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
+              "src": "/frontend/landingPage/products/AA%20Smart%20Home.jpeg",
               "alt": "Photovoltaic"
             }
           },
           "photovoltaic3": {
-            "title": "EMS",
+            "title": "Energiemanagement",
             "image": {
-              "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
+              "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
               "alt": "Photovoltaic"
             }
           },
           "heatpump4": {
             "title": "Wallbox",
             "image": {
-              "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
+              "src": "/frontend/landingPage/products/AA%20Wallbox%20AdobeStock_762399295.jpeg",
               "alt": "Photovoltaic"
             }
           }
@@ -662,16 +924,16 @@
         "Photovoltaic": {
           "orientation": "left",
           "productIdentifier": "Photovoltaik",
-          "title": "Sparen und unabhängig von Strompreis",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+          "title": "Sparen und unabhängig vom Strompreis sein",
+          "description": "Mit PV-Anlage & Stromspeicher<br></br>Attraktive Marktentwicklungen befördern die zweckmäßige<br></br>Anschaffung<br></br>Solarmodule Preise sind seit Ende 2022 um bis zu 40 Prozent gesunken.<br></br>Auch Stromspeicher sind in 2 Jahren von ca. 1000 Euro pro kWh auf 500 bis 700 € pro kWh gefallen.",
           "button": {
             "text": "Jetzt Anfragen",
             "href": "/contact-us"
           },
           "boxesTop": {
             "boxOne": {
-              "title": "Einfach Geld Sparen",
-              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "title": "Geld sparen",
+              "description": "Amortisierung in bis zu 7 Jahren",
               "icon": {
                 "src": "/frontend/landingPage/icons/eco-charging.svg",
                 "alt": "Eco Charging",
@@ -680,8 +942,8 @@
               }
             },
             "boxTwo": {
-              "title": "Endlich Unabhängig",
-              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "title": "Autarkie",
+              "description": "Mit hohem Eigenverbrauch Netzunabhängigkeit erhöhen",
               "icon": {
                 "src": "/frontend/landingPage/icons/eco-charging.svg",
                 "alt": "Eco Charging",
@@ -692,8 +954,8 @@
           },
           "boxesBottom": {
             "boxOne": {
-              "title": "Zuverlässig",
-              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "title": "Hochleistungsmodule",
+              "description": "Leistungsstarke Qualitätsmodule inklusive Verschattungsmanagement",
               "icon": {
                 "src": "/frontend/landingPage/icons/eco-charging.svg",
                 "alt": "Eco Charging",
@@ -702,8 +964,8 @@
               }
             },
             "boxTwo": {
-              "title": "Nachhaltig",
-              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "title": "Maßgeschneiderte PV-Anlage",
+              "description": "für alle Arten von Dächern",
               "icon": {
                 "src": "/frontend/landingPage/icons/eco-charging.svg",
                 "alt": "Eco Charging",
@@ -712,8 +974,8 @@
               }
             },
             "boxThree": {
-              "title": "Zuverlässig",
-              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "title": "Ansprechende Optik",
+              "description": "Full-Black Module für ästhetisches, schwarzes Design",
               "icon": {
                 "src": "/frontend/landingPage/icons/eco-charging.svg",
                 "alt": "Eco Charging",
@@ -722,8 +984,78 @@
               }
             },
             "boxFour": {
-              "title": "Nachhaltig",
-              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "title": "In 6 Wochen installiert",
+              "description": "Im Schnitt sind wir so flink von Anfrage bis zur Installation",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "24",
+                "height": "24"
+              }
+            }
+          },
+          "image": {
+            "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+            "alt": "Photovoltaic",
+            "width": "1500",
+            "height": "1500"
+          }
+        },
+        "Warmepumpe": {
+          "orientation": "right",
+          "productIdentifier": "Wärmepumpe",
+          "title": "Intelligent und smart heizen mit Wärmepumpen",
+          "description": "Die Online Wettersteuerung ermöglicht, die Heizleistung für die nächsten Stunden und Tage vorausschauend anzupassen. Steht ein sonniger Tag bevor, wird der Heizbetrieb rechtzeitig gesenkt. Und in Erwartung einer klirrenden Frostnacht wird die Heizleistung früh genug erhöht.",
+          "button": {
+            "text": "Jetzt Anfragen",
+            "href": "/contact-us"
+          },
+          "boxesTop": {
+            "boxOne": {
+              "title": "Rasche Umsetzung Österreichweit",
+              "description": "verfügbar",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "16",
+                "height": "16"
+              }
+            },
+            "boxTwo": {
+              "title": "Förderung bequem abwickeln",
+              "description": "Von 70% bis 100% Förderung erhalten",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "16",
+                "height": "16"
+              }
+            }
+          },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "Wirkungsgrad",
+              "description": "4x effizienter als Öl & Gas",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "40",
+                "height": "40"
+              }
+            },
+            "boxThree": {
+              "title": "Geringere Heizkosten",
+              "description": "Sparen Sie bis zu 40% der jährlichen Heizkosten.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "24",
+                "height": "24"
+              }
+            },
+            "boxFour": {
+              "title": "Unabhängig von Öl & Gas",
+              "description": "Machen Sie sich unabhängig von importierten Rohstoffen.",
               "icon": {
                 "src": "/frontend/landingPage/icons/eco-charging.svg",
                 "alt": "Eco Charging",
@@ -739,19 +1071,19 @@
             "height": "500"
           }
         },
-        "Photovoltaic2": {
-          "orientation": "right",
-          "productIdentifier": "Photovoltaik",
-          "title": "Sparen und unabhängig von Strompreis",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+        "Klimaanlage": {
+          "orientation": "left",
+          "productIdentifier": "Klimaanlage",
+          "title": "Komfortables Wohnen bei zunehmenden Hitzetagen",
+          "description": "Vielfach erleben wir eine klare Tendenz zu heißeren Sommern und häufigeren Hitzewellen.<br></br>Um die Auswirkungen von Hitze auf das tägliche Leben und die Gesundheit zu optimieren, ist eine Klimaanlage sinnvoll.",
           "button": {
             "text": "Jetzt Anfragen",
             "href": "/contact-us"
           },
           "boxesTop": {
             "boxOne": {
-              "title": "Einfach Geld Sparen",
-              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "title": "Höheres Komfortniveau",
+              "description": "Kühlen, entfeuchten und Luft reinigen für besseres Wohlbefinden",
               "icon": {
                 "src": "/frontend/landingPage/icons/eco-charging.svg",
                 "alt": "Eco Charging",
@@ -760,8 +1092,8 @@
               }
             },
             "boxTwo": {
-              "title": "Endlich Unabhängig",
-              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "title": "Sehr leiser Betrieb",
+              "description": "Im leisen Modus ca. 20-40 dB(A) so laut wie sehr leises Flüstern",
               "icon": {
                 "src": "/frontend/landingPage/icons/eco-charging.svg",
                 "alt": "Eco Charging",
@@ -772,8 +1104,8 @@
           },
           "boxesBottom": {
             "boxOne": {
-              "title": "Zuverlässig",
-              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "title": "Verbesserte Luftfilterung",
+              "description": "Fortschrittliche Filtersysteme können Allergene, Feinstaub und sogar Viren effektiver aus der Luft entfernen",
               "icon": {
                 "src": "/frontend/landingPage/icons/eco-charging.svg",
                 "alt": "Eco Charging",
@@ -781,9 +1113,19 @@
                 "height": "40"
               }
             },
+            "boxTwo": {
+              "title": "Bessere Schlafqualität",
+              "description": "Eine angenehme Raumtemperatur ist wichtig für einen erholsamen Schlaf.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "24",
+                "height": "24"
+              }
+            },
             "boxThree": {
-              "title": "Zuverlässig",
-              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "title": "Bessere Raumluftfeuchtigkeit",
+              "description": "Klimaanlagen können nicht nur die Temperatur, sondern auch die Luftfeuchtigkeit regulieren",
               "icon": {
                 "src": "/frontend/landingPage/icons/eco-charging.svg",
                 "alt": "Eco Charging",
@@ -792,8 +1134,8 @@
               }
             },
             "boxFour": {
-              "title": "Nachhaltig",
-              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+              "title": "Moderne Klimaanlagen",
+              "description": "sind deutlich energieeffizienter geworden",
               "icon": {
                 "src": "/frontend/landingPage/icons/eco-charging.svg",
                 "alt": "Eco Charging",
@@ -803,10 +1145,240 @@
             }
           },
           "image": {
-            "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
+            "src": "/frontend/landingPage/products/close-up-shot-of-air-conditioner-hanging-on-white-2024-11-19-02-00-43-utc.jpg",
             "alt": "Photovoltaic",
-            "width": "500",
-            "height": "500"
+            "width": "1500",
+            "height": "1500"
+          }
+        },
+        "Smart-Home": {
+          "orientation": "right",
+          "productIdentifier": "Smart Home",
+          "title": "Lösungen für Komfort, Licht und Energiemanagement",
+          "description": "(Lorem Ipsum) Die Online Wettersteuerung ermöglicht, die Heizleistung für die nächsten Stunden und Tage vorausschauend anzupassen. Steht ein sonniger Tag bevor, wird der Heizbetrieb rechtzeitig gesenkt. Und in Erwartung einer klirrenden Frostnacht wird die Heizleistung früh genug erhöht.",
+          "button": {
+            "text": "Jetzt Anfragen",
+            "href": "/contact-us"
+          },
+          "boxesTop": {
+            "boxOne": {
+              "title": "(Empty)",
+              "description": "Steuern und automatisieren Sie Licht, das Öffnen und Schließen von Rollläden, die Steuerung der Heizung oder die Bewässerung des Gartens, um Energie zu sparen und smarter zu wohnen.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "16",
+                "height": "16"
+              }
+            },
+            "boxTwo": {
+              "title": "(Empty)",
+              "description": "Energieverschwender im Haushalt identifizieren und damit Einsparpotenziale aufdecken",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "16",
+                "height": "16"
+              }
+            }
+          },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "Automatisierung von Alltagsabläufen",
+              "description": "Sparen Sie Zeit und beeindrucken Sie Ihre Gäste mit coolen Smart Home Features",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "40",
+                "height": "40"
+              }
+            },
+            "boxThree": {
+              "title": "Fernsteuerung von Geräten",
+              "description": "Über eine App auf dem Smartphone oder Tablet lassen sich Geräte im Haus auch von unterwegs steuern",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "24",
+                "height": "24"
+              }
+            },
+            "boxFour": {
+              "title": "Flexibilität und Erweiterbarkeit",
+              "description": "Starten Sie günstig und bei Bedarf erweitern wir Ihr System easy und flexibel",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "24",
+                "height": "24"
+              }
+            }
+          },
+          "image": {
+            "src": "/frontend/landingPage/products/AA%20Smart%20Home.jpeg",
+            "alt": "Photovoltaic",
+            "width": "1500",
+            "height": "1500"
+          }
+        },
+        "EMSandStromspeicher": {
+          "orientation": "left",
+          "productIdentifier": "Energiemanagement & Stromspeicher",
+          "title": "Energiefluss jederzeit im Griff",
+          "description": "bei dynamischen Tarifen und maximalem Eigenverbrauch",
+          "button": {
+            "text": "Jetzt Anfragen",
+            "href": "/contact-us"
+          },
+          "boxesTop": {
+            "boxOne": {
+              "title": "Optimale Verteilung und Nutzung",
+              "description": "der selbst erzeugten Energie im Haushalt",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "16",
+                "height": "16"
+              }
+            },
+            "boxTwo": {
+              "title": "Erhöht Ihren Energie Eigenverbrauch",
+              "description": "von ca. 30 % auf bis zu 98%.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "16",
+                "height": "16"
+              }
+            }
+          },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "Intelligenz & KI",
+              "description": "Wetterdaten und dynamische Stromtarife kombinieren",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "40",
+                "height": "40"
+              }
+            },
+            "boxTwo": {
+              "title": "Größere Unabhängigkeit",
+              "description": "vom öffentlichen Stromnetz und schwankenden Strompreisen",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "24",
+                "height": "24"
+              }
+            },
+            "boxThree": {
+              "title": "Herstellerunabhängige Steuerung",
+              "description": "Kompatibilität mit verschiedenen Verbrauchern wie Elektroheizstäben, Wärmepumpen und Wallboxen",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "24",
+                "height": "24"
+              }
+            },
+            "boxFour": {
+              "title": "Klimafreundlichkeit",
+              "description": "Optimierung der PV-Anlage zur Unterstützung der Umwelt",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "24",
+                "height": "24"
+              }
+            }
+          },
+          "image": {
+            "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
+            "alt": "Photovoltaic",
+            "width": "1500",
+            "height": "1500"
+          }
+        },
+        "Wallboxen": {
+          "orientation": "right",
+          "productIdentifier": "Wallboxen",
+          "title": "Nie wieder tanken",
+          "description": "Dank der eignen Wallbox",
+          "button": {
+            "text": "Jetzt Anfragen",
+            "href": "/contact-us"
+          },
+          "boxesTop": {
+            "boxOne": {
+              "title": "Elektroautos mit PV Strom laden",
+              "description": "Bei 30.000 km pro Jahr sparen Sie etwa 3.600 € pro Jahr - eine Kostenreduktion von rund 85%",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "16",
+                "height": "16"
+              }
+            },
+            "boxTwo": {
+              "title": "4x günstiger als Benzin",
+              "description": "(Empty)",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "16",
+                "height": "16"
+              }
+            }
+          },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "Schnelleres Laden",
+              "description": "Wallboxen ermöglichen deutlich kürzere Ladezeiten im Vergleich zu herkömmlichen Steckdosen",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "40",
+                "height": "40"
+              }
+            },
+            "boxThree": {
+              "title": "Kompatibilität mit erneuerbaren Energien",
+              "description": "Wallboxen lassen sich mit Photovoltaikanlagen und Stromspeichern kombinieren, was die Nutzung von selbst erzeugtem Solarstrom ermöglicht",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "24",
+                "height": "24"
+              }
+            },
+            "boxFour": {
+              "title": "Komfort und Bequemlichkeit",
+              "description": "Eine eigene Ladestation ermöglicht das bequeme Aufladen in der Garage oder unter einem Carport,",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "24",
+                "height": "24"
+              }
+            },
+            "boxFive": {
+              "title": "Maximale Unabhängigkeit",
+              "description": "mit E-Auto & PV nahezu komplett autark von Ölindustrie",
+              "icon": {
+                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "alt": "Eco Charging",
+                "width": "24",
+                "height": "24"
+              }
+            }
+          },
+          "image": {
+            "src": "/frontend/landingPage/products/AA%20Wallbox%20AdobeStock_762399295.jpeg",
+            "alt": "Photovoltaic",
+            "width": "1500",
+            "height": "1500"
           }
         }
       },
@@ -873,8 +1445,8 @@
           "pricingTableOne": {
             "featured": "false",
             "label": "",
-            "title": "Smarter",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+            "title": "Daikin Wärmepumpe",
+            "description": "DAIKIN Altherma 3 LT mit 8 kW Heizleistung und Warmwasserspeicher *",
             "image": {
               "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
               "alt": "Photovoltaic",
@@ -885,9 +1457,9 @@
               "text": "Jetzt Anfragen",
               "href": "/contact-us"
             },
-            "price": "$12/m",
+            "price": "€15.990",
             "features": {
-              "text": "Feature include",
+              "text": "Angebot besteht aus",
               "list": {
                 "featureOne": {
                   "icon": {
@@ -896,7 +1468,7 @@
                     "width": "12",
                     "height": "12"
                   },
-                  "text": "Contactless payments"
+                  "text": "DAIKIN Altherma Außengerät 8"
                 },
                 "featureTwo": {
                   "icon": {
@@ -905,7 +1477,7 @@
                     "width": "12",
                     "height": "12"
                   },
-                  "text": "Contactless payments"
+                  "text": "Daikin Innengerät mit integrierten WarmWasserspeicher 190 L"
                 },
                 "featureThree": {
                   "icon": {
@@ -914,7 +1486,7 @@
                     "width": "12",
                     "height": "12"
                   },
-                  "text": "Contactless payments"
+                  "text": "Wand/Bodenhalterung für Aussengerät"
                 },
                 "featureFour": {
                   "icon": {
@@ -923,7 +1495,7 @@
                     "width": "12",
                     "height": "12"
                   },
-                  "text": "Contactless payments"
+                  "text": "10 Meter Kupferleitungen isoliert "
                 },
                 "featureFive": {
                   "icon": {
@@ -932,7 +1504,34 @@
                     "width": "12",
                     "height": "12"
                   },
-                  "text": "Contactless payments"
+                  "text": "Hydraulikanschluss mit Kupferrohr 1 Zoll"
+                },
+                "featureSix": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Lieferung Montage und Inbetriebnahme"
+                },
+                "featureSeven": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Sorgfältige Einschulung"
+                },
+                "featureEight": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "36 Monate Gewährleistung"
                 }
               }
             }
@@ -940,10 +1539,10 @@
           "pricingTableTwo": {
             "featured": "true",
             "label": "Popular",
-            "title": "Smart",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+            "title": "Fronius Photovoltaik",
+            "description": "Fronius GEN24 Plus 10kW mit BYD Speicher und AIKO Paneele *",
             "image": {
-              "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
+              "src": "/frontend/landingPage/products/AdobeStock_838065823.jpg",
               "alt": "Photovoltaic",
               "width": "500",
               "height": "500"
@@ -952,9 +1551,9 @@
               "text": "Jetzt Anfragen",
               "href": "/contact-us"
             },
-            "price": "$12/m",
+            "price": "€15.990",
             "features": {
-              "text": "Feature include",
+              "text": "Angebot besteht aus",
               "list": {
                 "featureOne": {
                   "icon": {
@@ -963,7 +1562,7 @@
                     "width": "12",
                     "height": "12"
                   },
-                  "text": "Contactless payments"
+                  "text": "Fronius GEN24 10.0 Plus inkl. Monitoring"
                 },
                 "featureTwo": {
                   "icon": {
@@ -972,7 +1571,7 @@
                     "width": "12",
                     "height": "12"
                   },
-                  "text": "Contactless payments"
+                  "text": "BYD Battery-Box Premium 11kWH HVM"
                 },
                 "featureThree": {
                   "icon": {
@@ -981,7 +1580,7 @@
                     "width": "12",
                     "height": "12"
                   },
-                  "text": "Contactless payments"
+                  "text": "22 Stk AIko neostar 2s A455MAH54mb"
                 },
                 "featureFour": {
                   "icon": {
@@ -990,7 +1589,7 @@
                     "width": "12",
                     "height": "12"
                   },
-                  "text": "Contactless payments"
+                  "text": "Unterkonstruktion inkl. Metallersatzplatten"
                 },
                 "featureFive": {
                   "icon": {
@@ -999,9 +1598,371 @@
                     "width": "12",
                     "height": "12"
                   },
-                  "text": "Contactless payments"
+                  "text": "Kabelweg und potenzialausgleich UV und Metall"
+                },
+                "featureSix": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Komplette Abwicklung von A bis Z"
+                },
+                "featureSeven": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Sorgfältige Einschulung"
+                },
+                "featureEight": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "36 Monate Gewährleistung"
                 }
               }
+            }
+          },
+          "pricingTableThree": {
+            "featured": "false",
+            "label": "",
+            "title": "Schnäppchen Photovoltaik",
+            "description": "Huawei, Solax oder Growatt 10kW mit Ja-solar Paneele *",
+            "image": {
+              "src": "/frontend/landingPage/products/AdobeStock_838066134.jpeg",
+              "alt": "Photovoltaic",
+              "width": "500",
+              "height": "500"
+            },
+            "button": {
+              "text": "Jetzt Anfragen",
+              "href": "/contact-us"
+            },
+            "price": "€13.990",
+            "features": {
+              "text": "Angebot besteht aus",
+              "list": {
+                "featureOne": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "1x Daikin "
+                },
+                "featureTwo": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Premium Speicher 10kWh"
+                },
+                "featureThree": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "JA Solar JAM54D40 450/LB Glas-Glas, bifazial"
+                },
+                "featureFour": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Unterkonstruktion inkl. Metallersatzplatten"
+                },
+                "featureFive": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Kabelweg und potenzialausgleich"
+                },
+                "featureSix": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Komplette Abwicklung von A bis Z"
+                },
+                "featureSeven": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Sorgfältige Einschulung"
+                },
+                "featureEight": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "36 Monate Gewährleistung"
+                }
+              }
+            }
+          },
+          "pricingTableFour": {
+            "featured": "false",
+            "label": "",
+            "title": "Klimaanlage",
+            "description": "Splitklimaanlage DAIKIN Inverter Sensira 2,5 kW *",
+            "image": {
+              "src": "/frontend/landingPage/products/close-up-shot-of-air-conditioner-hanging-on-white-2024-11-19-02-00-43-utc.jpg",
+              "alt": "Photovoltaic",
+              "width": "500",
+              "height": "500"
+            },
+            "button": {
+              "text": "Jetzt Anfragen",
+              "href": "/contact-us"
+            },
+            "price": "€1.890",
+            "features": {
+              "text": "Angebot besteht aus",
+              "list": {
+                "featureOne": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "1x Daikin Außengerät RXF25E Inverter, kühlen und heizen 2,5 kW"
+                },
+                "featureTwo": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "1x Daikin Wandgerät Modell FTXF2E 2,5 kW"
+                },
+                "featureThree": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "1x Wandhalterung/Bodenhalterung für Außengerät"
+                },
+                "featureFour": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Aufputz Montage der isolierten Kupferleitungen, im Kabelkanal verlegt bis max. 5 Meter"
+                },
+                "featureFive": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Elektrische Verbindungsverkabelung."
+                },
+                "featureSix": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Lieferung, Montage, Inbetriebnahme und Einschulung durch Kälteanlagentechniker"
+                },
+                "featureSeven": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Mauerdurchbruch bis 25 cm"
+                },
+                "featureEight": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Keine Anfahrtskosten"
+                },
+                "featureNine": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "36 Montage Gewährleistung (bei jährlicher Wartung)"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "ContactUs": {
+      "Header": {
+        "title": "Starte ein neues Kapitel mit Synergie",
+        "description": "Sprechen Sie mit einem Experten über Ihre Anforderungen, Bedürfnisse und Zeitpläne. Füllen Sie das Formular aus und wir werden uns bei Ihnen melden."
+      },
+      "Form": {
+        "elements": {
+          "name": {
+            "type": "text",
+            "label": "Name *",
+            "placeholder": "Patrick Rossi",
+            "required": "false"
+          },
+          "email": {
+            "label": "Email *",
+            "type": "text",
+            "placeholder": "patrick.rossi@icloud.com",
+            "required": "true"
+          },
+          "phone": {
+            "type": "text",
+            "label": "Telefon",
+            "placeholder": "Geben Sie Ihre Telefonnummer ein",
+            "required": "false"
+          },
+          "funnel": {
+            "type": "selection",
+            "label": "Wie sind Sie auf uns aufmerksam geworden?",
+            "options": {
+              "optionGoogle": {
+                "text": "Google"
+              },
+              "optionTwitter": {
+                "text": "Twitter"
+              },
+              "optionMouthToMouth": {
+                "text": "Mund zu Mund"
+              },
+              "optionConv": {
+                "text": "Messe"
+              }
+            },
+            "required": "false"
+          },
+          "message": {
+            "type": "textarea",
+            "label": "Projektdetails *",
+            "placeholder": "Teilen Sie Ihre Anforderungen",
+            "required": "true"
+          }
+        },
+        "button": {
+          "text": "Abschicken"
+        },
+        "legal": {
+          "text": "By submitting this form, you agree with our Terms."
+        }
+      },
+      "ContactBlocks": {
+        "Discussions": {
+          "title": "Eine E-Mail, tausende Möglichkeiten",
+          "description": "office@synergiemontagen.at",
+          "icon": {
+            "src": "/frontend/landingPage/icons/eco-charging.svg",
+            "alt": "Eco Charging",
+            "width": "16",
+            "height": "16"
+          }
+        },
+        "Team-views": {
+          "title": "Telefon - Wenn es ganz schnell gehen muss",
+          "description": "+43 664 2448742",
+          "icon": {
+            "src": "/frontend/landingPage/icons/function.svg",
+            "alt": "Eco Charging",
+            "width": "16",
+            "height": "16"
+          }
+        },
+        "Powerful-search": {
+          "title": "Oder kommen Sie vorbei und lassen Sie sich beraten",
+          "description": "Wagenseilgasse 14, Stock 5<br></br>c/o andys coworking company<br></br>‍1120 Wien",
+          "icon": {
+            "src": "/frontend/landingPage/icons/function.svg",
+            "alt": "Eco Charging",
+            "width": "16",
+            "height": "16"
+          }
+        }
+      },
+      "CommunityBlocks": {
+        "title": "Join the Community",
+        "blocks": {
+          "Discussions": {
+            "title": "Personal",
+            "description": "We can help you choose the right plan for your team.",
+            "icon": {
+              "src": "/frontend/landingPage/icons/instagram-alt.svg",
+              "alt": "Synergiemontagen on Instagram",
+              "width": "22",
+              "height": "16"
+            },
+            "link": {
+              "text": "Talk to us",
+              "href": "https://www.instagram.com/synergiemontagen/"
+            }
+          },
+          "Team-views": {
+            "title": "Personal",
+            "description": "We can help you choose the right plan for your team.",
+            "icon": {
+              "src": "/frontend/landingPage/icons/facebook.svg",
+              "alt": "Synergiemontagen on Facebook",
+              "width": "22",
+              "height": "16"
+            },
+            "link": {
+              "text": "Talk to us",
+              "href": "https://www.facebook.com/synergiemontagen"
+            }
+          },
+          "Powerful-search": {
+            "title": "Personal",
+            "description": "We can help you choose the right plan for your team.",
+            "icon": {
+              "src": "/frontend/landingPage/icons/linkedin.svg",
+              "alt": "Synergiemontagen on LinkedIn",
+              "width": "22",
+              "height": "16"
+            },
+            "link": {
+              "text": "Talk to us",
+              "href": "https://at.linkedin.com/company/synergie-montagen-riegler-gmbh"
             }
           }
         }
@@ -1015,30 +1976,26 @@
           "width": "250",
           "height": "200"
         },
-        "disclamer": "© Synergiemontage.eco - All rights reserved.",
+        "disclamer": "© Synergiemontagen.eco - Alle rechte Vorbehalten.",
         "boxes": {
           "boxLeft": {
-            "title": "Produkt",
+            "title": "Leistungen",
             "links": {
               "features": {
-                "text": "Features",
-                "href": "/features"
+                "text": "Produkte",
+                "href": "/products"
+              },
+              "b2b": {
+                "text": "B2B",
+                "href": "/b2b"
               },
               "integrations": {
-                "text": "Ingegrations",
-                "href": "/features"
+                "text": "Energiekostenberatung",
+                "href": "/energiekostenberatung"
               },
               "pricing": {
-                "text": "Pricing & Plans",
-                "href": "/features"
-              },
-              "changelog": {
-                "text": "Changelog",
-                "href": "/features"
-              },
-              "method": {
-                "text": "Our method",
-                "href": "/features"
+                "text": "Energiegemeinschaften",
+                "href": "/energiegemeinschaft"
               }
             }
           },
@@ -1046,24 +2003,12 @@
             "title": "Firma",
             "links": {
               "features": {
-                "text": "Features",
-                "href": "/features"
+                "text": "Über uns",
+                "href": "/ueber-uns"
               },
               "integrations": {
-                "text": "Ingegrations",
-                "href": "/features"
-              },
-              "pricing": {
-                "text": "Pricing & Plans",
-                "href": "/features"
-              },
-              "changelog": {
-                "text": "Changelog",
-                "href": "/features"
-              },
-              "method": {
-                "text": "Our method",
-                "href": "/features"
+                "text": "Kontakt",
+                "href": "/contact-us"
               }
             }
           },
@@ -1071,70 +2016,49 @@
             "title": "Resourcen",
             "links": {
               "features": {
-                "text": "Features",
-                "href": "/features"
+                "text": "Impressum",
+                "href": "/impressum"
               },
               "integrations": {
-                "text": "Ingegrations",
-                "href": "/features"
-              },
-              "pricing": {
-                "text": "Pricing & Plans",
-                "href": "/features"
-              },
-              "changelog": {
-                "text": "Changelog",
-                "href": "/features"
-              },
-              "method": {
-                "text": "Our method",
-                "href": "/features"
+                "text": "Datenschutz",
+                "href": "/datenschutz"
               }
             }
           }
         },
         "socials": {
-          "facebook": {
-            "icon": {
-              "src": "/frontend/landingPage/icons/medium.svg",
-              "alt": "Medium",
-              "width": "32",
-              "height": "32"
-            },
-            "href": "https://www.facebook.com"
-          },
-          "twitter": {
-            "icon": {
-              "src": "/frontend/landingPage/icons/twitter.svg",
-              "alt": "Twitter",
-              "width": "20",
-              "height": "20"
-            },
-            "href": "https://www.twitter.com"
-          },
           "instagram": {
             "icon": {
-              "src": "/frontend/landingPage/icons/medium.svg",
-              "alt": "Medium",
+              "src": "/frontend/landingPage/icons/instagram-alt.svg",
+              "alt": "Synergiemontagen on Instagram",
               "width": "32",
               "height": "32"
             },
-            "href": "https://www.facebook.com"
+            "href": "https://www.instagram.com/synergiemontagen/"
           },
-          "medium": {
+          "facebook": {
             "icon": {
-              "src": "/frontend/landingPage/icons/twitter.svg",
-              "alt": "Twitter",
-              "width": "20",
-              "height": "20"
+              "src": "/frontend/landingPage/icons/facebook.svg",
+              "alt": "Synergiemontagen on Facebook",
+              "width": "32",
+              "height": "32"
             },
-            "href": "https://www.twitter.com"
+            "href": "https://www.facebook.com/synergiemontagen"
+          },
+          "linkedin": {
+            "icon": {
+              "src": "/frontend/landingPage/icons/linkedin.svg",
+              "alt": "Synergiemontagen on LinkedIn",
+              "width": "32",
+              "height": "32"
+            },
+            "href": "https://at.linkedin.com/company/synergie-montagen-riegler-gmbh"
           }
         }
       },
       "Header": {
         "logo": {
-          "src": "/frontend/landingPage/icons/synergy-logo-grid.svg",
+          "src": "/frontend/landingPage/icons/Synergie-montagen-logo.svg",
           "alt": "Logo",
           "width": "191",
           "height": "77",
@@ -1152,26 +2076,22 @@
             "children": ""
           },
           "features": {
-            "text": "Photovoltaik",
-            "href": "/pv",
+            "text": "Leistungen",
+            "href": "",
             "children": {
-              "featuresOne": {
-                "text": "Erneuerbare Energieanlagen",
-                "href": "/features"
-              },
               "featuresTwo": {
                 "text": "Energiekostenberatung",
-                "href": "/features"
+                "href": "/energiekostenberatung"
               },
               "featuresThree": {
                 "text": "Energiegemeinschaften",
-                "href": "/features"
+                "href": "/energiegemeinschaft"
               }
             }
           },
           "changelog": {
             "text": "Über uns",
-            "href": "/about-us",
+            "href": "/ueber-uns",
             "children": ""
           }
         },

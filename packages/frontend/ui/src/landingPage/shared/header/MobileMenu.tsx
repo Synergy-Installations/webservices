@@ -72,8 +72,8 @@ export const MobileMenu = (props: MobileMenuProps) => {
           <rect
             className="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] -translate-y-[5px] translate-x-[7px] group-[[aria-expanded=true]]:rotate-[315deg] group-[[aria-expanded=true]]:translate-y-0 group-[[aria-expanded=true]]:translate-x-0"
             y="7"
-            x="7"
-            width="9"
+            x={mobileNavOpen ? "-0" : "-7"}
+            width="16"
             height="2"
             rx="1"
           ></rect>
@@ -112,13 +112,19 @@ export const MobileMenu = (props: MobileMenuProps) => {
             {NavKeys.map((navKey, index) => (
               <div key={index}>
                 <li>
-                  <Link
-                    href={t(`nav.${navKey}.href`)}
-                    className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
-                    onClick={() => setMobileNavOpen(false)}
-                  >
-                    {t(`nav.${navKey}.text`)}
-                  </Link>
+                  {t(`nav.${navKey}.href`) === "" ? (
+                    <div className="flex rounded-lg px-2 py-1.5 text-gray-700 font-semibold">
+                      {t(`nav.${navKey}.text`)}
+                    </div>
+                  ) : (
+                    <Link
+                      href={t(`nav.${navKey}.href`)}
+                      className="flex rounded-lg px-2 py-1.5 text-gray-700 hover:bg-gray-100"
+                      onClick={() => setMobileNavOpen(false)}
+                    >
+                      {t(`nav.${navKey}.text`)}
+                    </Link>
+                  )}
                 </li>
                 {getNavChildrenKeys(navKey).map((childKey, index) => (
                   <li key={index}>

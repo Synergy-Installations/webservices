@@ -2,7 +2,7 @@ import { Link } from "@com.synergy/frontend-shared-internationalization/routing"
 import { DefaultDropdown } from "@com.synergy/frontend-ui/DefaultDropdown";
 import { MobileMenu } from "@com.synergy/frontend-ui/MobileMenu";
 import Image from "next/image";
-import Logo from "../../../shared/images/synergy-logo-grid.svg";
+// import Logo from "../../../shared/images/synergy-logo-grid.svg";
 import { useMessages, useTranslations } from "next-intl";
 import ImageLoader from "@com.synergy/frontend-ui/ImageLoader";
 
@@ -23,13 +23,13 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
   };
 
   return (
-    <header className="fixed top-2 z-30 w-full md:top-6">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <header className="fixed top-2 z-50 w-full md:top-6">
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <div className="relative flex h-14 items-center justify-between gap-3 rounded-2xl bg-white/90 pl-3 pr-[6px] shadow-lg shadow-black/[0.03] backdrop-blur-sm before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(theme(colors.gray.100),theme(colors.gray.200))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]">
           {/* Site branding */}
           <div className="flex flex-1 items-center">
             {/* <Logo /> */}
-            <Link href={t("logo.href")} className="font-semibold pl-5">
+            <Link href={t("logo.href")} className="font-semibold pl-5 cursor-pointer">
               <Image
                 loader={ImageLoader}
                 src={t("logo.src")}
@@ -41,7 +41,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
           </div>
 
           {/* Desktop navigation */}
-          <nav className="hidden md:flex md:grow">
+          <nav className="hidden md:flex md:grow !mb-0">
             {/* Desktop menu links */}
             <ul className="flex grow flex-wrap items-center justify-center gap-4 text-sm lg:gap-8">
               {NavKeys.map((navKey, index) =>
@@ -61,7 +61,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
                     {getNavChildrenKeys(navKey).map((childKey, index) => (
                       <li key={index}>
                         <Link
-                          href={t(`nav.${navKey}.children.${childKey}.text`)}
+                          href={t(`nav.${navKey}.children.${childKey}.href`)}
                           className="flex  rounded-lg px-2 py-1.5 text-sm text-synergy-dark-grey hover:bg-gray-100 w-full whitespace-nowrap"
                         >
                           {t(`nav.${navKey}.children.${childKey}.text`)}

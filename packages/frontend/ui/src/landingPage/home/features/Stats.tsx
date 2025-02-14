@@ -18,7 +18,7 @@ export const Stats = (props: StatsProps) => {
         {statsKeys.map((stat, index) => (
           <div key={index} className="relative text-center md:px-5">
             <h4 className="font-inter-tight text-2xl md:text-3xl font-bold tabular-nums mb-2">
-              <Counter number={Number(t(`${stat}.number`))} />
+              <Counter number={Number(t(`${stat}.number`))} />{" "}
               {t(`${stat}.suffix`)}
             </h4>
             <p className="text-sm text-synergy-dark-grey">

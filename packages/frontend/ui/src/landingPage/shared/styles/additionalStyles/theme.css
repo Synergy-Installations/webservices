@@ -118,3 +118,8 @@
 [data-rehype-pretty-code-title] + pre {
   @apply mt-0 rounded-t-none border-t-0;
 }
+
+ul {
+  margin-bottom: 0px !important;
+  padding-left: 0px !important;
+}

@@ -1,12 +1,13 @@
-import Features from "../../../shared/images/heat-pump-orange.jpg";
+// import Features from "../../../shared/images/heat-pump-orange.jpg";
 import Image from "next/image";
-import Icon01 from "../../../shared/images/icon-01.svg";
-import Icon02 from "../../../shared/images/icon-02.svg";
-import Icon03 from "../../../shared/images/icon-03.svg";
-import Icon04 from "../../../shared/images/icon-04.svg";
+// import Icon01 from "../../../shared/images/icon-01.svg";
+// import Icon02 from "../../../shared/images/icon-02.svg";
+// import Icon03 from "../../../shared/images/icon-03.svg";
+// import Icon04 from "../../../shared/images/icon-04.svg";
 import { Link } from "@com.synergy/frontend-shared-internationalization/routing";
 import { useMessages, useTranslations } from "next-intl";
 import ImageLoader from "@com.synergy/frontend-ui/ImageLoader";
+import { RichText } from "@com.synergy/frontend-ui/RichText";
 
 /* eslint-disable-next-line */
 export interface DefaultProductCardProps {
@@ -60,14 +61,16 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
                 >
                   {t(`${productKey}.title`)}
                 </h2>
-                <p
+                <div
                   className="text-lg text-slate-500 mb-8"
                   data-aos="fade-up"
                   data-aos-anchor="[data-aos-id-3]"
                   data-aos-delay="200"
                 >
-                  {t(`${productKey}.description`)}
-                </p>
+                  <RichText>
+                    {(tags) => t.rich(`${productKey}.description`, tags)}
+                  </RichText>
+                </div>
 
                 {/* Button */}
                 <div
@@ -126,9 +129,17 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
                             {t(`${productKey}.boxesTop.${boxKey}.title`)}
                           </h3>
                         </div>
-                        <p className="text-sm text-zinc-700">
-                          {t(`${productKey}.boxesTop.${boxKey}.description`)}
-                        </p>
+                        <div className="text-sm text-zinc-700">
+                          <RichText>
+                            {(tags) =>
+                              t.rich(
+                                `${productKey}.boxesTop.${boxKey}.description`,
+                                tags
+                              )
+                            }
+                          </RichText>
+                          {/* {t(`${productKey}.boxesTop.${boxKey}.description`)} */}
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -179,7 +190,15 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
                     {t(`${productKey}.boxesBottom.${boxKey}.title`)}
                   </h3>
                   <div className="text-slate-800 text-opacity-80">
-                    {t(`${productKey}.boxesBottom.${boxKey}.description`)}
+                    <RichText>
+                      {(tags) =>
+                        t.rich(
+                          `${productKey}.boxesBottom.${boxKey}.description`,
+                          tags
+                        )
+                      }
+                    </RichText>
+                    {/* {t(`${productKey}.boxesBottom.${boxKey}.description`)} */}
                   </div>
                 </div>
               ))}

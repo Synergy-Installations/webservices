@@ -9,7 +9,7 @@ import { useTranslations } from "next-intl";
 import CtaLoose from "@com.synergy/frontend-ui/CtaLoose";
 
 export default function Page(): JSX.Element {
-  const t = useTranslations("Index");
+  // const t = useTranslations("Index");
 
   return (
     <>

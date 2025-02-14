@@ -56,7 +56,7 @@ export const PackagesCard = (props: PackagesCardProps) => {
 
               {/* Pricing tables */}
               <div
-                className="max-w-sm md:max-w-2xl 1xl:max-w-none mx-auto grid gap-8 md:grid-cols-2 1xl:grid-cols-4 xl:gap-6 items-start"
+                className="max-w-sm md:max-w-none 1xl:max-w-none mx-auto grid gap-8 md:grid-cols-3 1xl:grid-cols-4 xl:gap-6 items-start"
                 data-aos="fade-up"
                 data-aos-delay="100"
               >
@@ -77,6 +77,9 @@ export const PackagesCard = (props: PackagesCardProps) => {
                       <div className="mb-4">
                         <div className="text-lg font-bold text-center mb-3">
                           {t(`pricingTables.${pricingTableKey}.title`)}
+                        </div>
+                        <div className="text-center mb-3">
+                          {t(`pricingTables.${pricingTableKey}.description`)}
                         </div>
                         <div className="relative h-[180px]">
                           <Image
@@ -151,6 +154,18 @@ export const PackagesCard = (props: PackagesCardProps) => {
                     </div>
                   </div>
                 ))}
+              </div>
+              <div className="mt-12 text-synergy-dark-grey">
+                * Das Angebot versteht sich inkl. Abwicklung durch zertifizierten
+                Projektmanager und Elektrotechniker, benötigtem Montagematerial
+                von bis zu 20 Metern. Anfahrtskosten sind bis 50 km außerhalb
+                Wiens inkludiert. 36 Monate Gewährleistung bei Abschluss eines
+                Wartungsvertrages. Elektrische Anschlüsse bauseits durch
+                Elektriker oder von uns nach näherer Begutachtung. Zusätzliche
+                Arbeiten, werden nach Aufwand verrechnet. Diese Arbeiten werden
+                im Vorhinein detailiert mit ihnen besprochen. Alle Preise
+                verstehen sich exkl. Mehrwertsteuer. Angebot gültig solange der
+                Vorrat reicht
               </div>
             </div>
           </div>

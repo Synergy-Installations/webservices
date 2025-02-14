@@ -52,7 +52,10 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
 
           {/* 2nd block */}
           {parterKeys.map((partnerKey, index) => (
-            <div key={index} className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
+            <div
+              key={index}
+              className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2"
+            >
               <h3 className="text-sm font-medium">
                 {t(`boxes.${partnerKey}.title`)}
               </h3>
@@ -80,7 +83,8 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
                   <Link
                     className="flex items-center justify-center text-synergy-light-blue transition hover:text-blue-600"
                     href={t(`socials.${socialKey}.href`)}
-                    aria-label="Twitter"
+                    aria-label={t(`socials.${socialKey}.icon.alt`)}
+                    target="_blank"
                   >
                     <Image
                       className="shrink-0 fill-synergy-light-blue opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"

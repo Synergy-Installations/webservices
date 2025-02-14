@@ -1,25 +1,25 @@
 import { BentoCard } from "@com.synergy/frontend-ui/BentoCard";
 import { BentoGrid } from "@com.synergy/frontend-ui/BentoGrid";
-import Photovoltaic from "../../../shared/images/photovoltaic-real.jpeg";
-import HeatPump from "../../../shared/images/heat-pump.jpg";
-import AirConditioner from "../../../shared/images/air-conditioner.jpg";
-import ElectricalInstallation from "../../../shared/images/electrical-installation.jpg";
+// import Photovoltaic from "../../../shared/images/photovoltaic-real.jpeg";
+// import HeatPump from "../../../shared/images/heat-pump.jpg";
+// import AirConditioner from "../../../shared/images/air-conditioner.jpg";
+// import ElectricalInstallation from "../../../shared/images/electrical-installation.jpg";
 import { AnimatedBeamMultipleOutputs } from "@com.synergy/frontend-ui/AnimatedBeamMultipleOutputs";
 import { AnimatedListEnergyCommunity } from "@com.synergy/frontend-ui/AnimatedListEnergyCommunity";
 import { DotPattern } from "@com.synergy/frontend-ui/DotPattern";
 import { LargeTestimonial } from "@com.synergy/frontend-ui/LargeTestimonial";
 import { HeroHomeIllustration } from "@com.synergy/frontend-ui/HeroHomeIllustration";
 import { Link } from "@com.synergy/frontend-shared-internationalization/routing";
-import Client01 from "../../../shared/images/client-01.svg";
-import Client02 from "../../../shared/images/client-02.svg";
-import Client03 from "../../../shared/images/client-03.svg";
-import Client04 from "../../../shared/images/client-04.svg";
-import Client05 from "../../../shared/images/client-05.svg";
-import Client06 from "../../../shared/images/client-06.svg";
-import Client07 from "../../../shared/images/client-07.svg";
-import Client08 from "../../../shared/images/client-08.svg";
-import Client09 from "../../../shared/images/client-09.svg";
-import Client10 from "../../../shared/images/client-10.svg";
+// import Client01 from "../../../shared/images/client-01.svg";
+// import Client02 from "../../../shared/images/client-02.svg";
+// import Client03 from "../../../shared/images/client-03.svg";
+// import Client04 from "../../../shared/images/client-04.svg";
+// import Client05 from "../../../shared/images/client-05.svg";
+// import Client06 from "../../../shared/images/client-06.svg";
+// import Client07 from "../../../shared/images/client-07.svg";
+// import Client08 from "../../../shared/images/client-08.svg";
+// import Client09 from "../../../shared/images/client-09.svg";
+// import Client10 from "../../../shared/images/client-10.svg";
 import { Marquee } from "@com.synergy/frontend-ui/Marquee";
 import { TracingBeam } from "@com.synergy/frontend-ui/TracingBeam";
 import { RichText } from "@com.synergy/frontend-ui/RichText";
@@ -39,172 +39,6 @@ import { ServiceCard } from "@com.synergy/frontend-ui/ServiceCard";
 
 /* eslint-disable-next-line */
 export interface ServiceCatalogProps {}
-
-const features = [
-  {
-    type: "simple",
-    Icon: FileTextIcon,
-    name: "Photovoltaik",
-    description:
-      "We automatically save your files as you type. and nthiesrt ir stiersnt",
-    href: "/",
-    cta: "Learn more",
-    background: (
-      <Image
-        src={Photovoltaic}
-        width={0}
-        height={0}
-        alt="Avatar 01"
-        className="object-cover w-full h-full"
-      />
-    ),
-    className: "col-span-2 md:col-span-1",
-  },
-  {
-    type: "simple",
-    Icon: InputIcon,
-    name: "Warmepumpe",
-    description: "Search through all your files in one place.",
-    href: "/",
-    cta: "Learn more",
-    background: (
-      <Image
-        src={HeatPump}
-        width={1350}
-        height={675}
-        alt="Avatar 01"
-        className="object-cover w-full h-full"
-      />
-    ),
-    className: "col-span-2 md:col-span-1",
-  },
-  {
-    type: "simple",
-    Icon: InputIcon,
-    name: "Klimaanlage",
-    description: "Search through all your files in one place.",
-    href: "/",
-    cta: "Learn more",
-    background: (
-      <Image
-        src={AirConditioner}
-        width={1350}
-        height={675}
-        alt="Avatar 01"
-        className="object-cover w-full h-full"
-      />
-    ),
-    className: "col-span-2 md:col-span-1",
-  },
-  {
-    type: "simple",
-    Icon: FileTextIcon,
-    name: "Smart Home",
-    description: "We automatically save your files as you type.",
-    href: "/",
-    cta: "Learn more",
-    background: (
-      <Image
-        src={ElectricalInstallation}
-        width={0}
-        height={0}
-        alt="Avatar 01"
-        className="object-cover w-full h-full"
-      />
-    ),
-    className: "col-span-2 md:col-span-1",
-  },
-  {
-    type: "simple",
-    Icon: FileTextIcon,
-    name: "Batterie",
-    description: "We automatically save your files as you type.",
-    href: "/",
-    cta: "Learn more",
-    background: (
-      <Image
-        src={ElectricalInstallation}
-        width={0}
-        height={0}
-        alt="Avatar 01"
-        className="object-cover w-full h-full"
-      />
-    ),
-    className: "col-span-2 md:col-span-1",
-  },
-  {
-    type: "simple",
-    Icon: FileTextIcon,
-    name: "Wallbox",
-    description: "We automatically save your files as you type.",
-    href: "/",
-    cta: "Learn more",
-    background: (
-      <Image
-        src={ElectricalInstallation}
-        width={0}
-        height={0}
-        alt="Avatar 01"
-        className="object-cover w-full h-full"
-      />
-    ),
-    className: "col-span-2 md:col-span-1",
-  },
-  // {
-  //   type: "simple",
-  //   borderAnimation: "shine",
-  //   Icon: Share2Icon,
-  //   name: "Energy Management System",
-  //   description: "Supports 100+ integrations and counting.",
-  //   href: "#",
-  //   cta: "Learn more",
-  //   className: "col-span-2 lg:col-span-1 bg-slate-50",
-  //   background: (
-  //     <AnimatedBeamMultipleOutputs className="absolute right-2 top-4 h-[280px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
-  //   ),
-  // },
-  // {
-  //   type: "simple",
-  //   borderAnimation: "beam",
-  //   Icon: BellIcon,
-  //   name: "Energy Community",
-  //   description: "Get notified when something happens.",
-  //   href: "#",
-  //   cta: "Learn more",
-  //   className: "col-span-3 lg:col-span-1 bg-slate-50",
-  //   background: (
-  //     <AnimatedListEnergyCommunity className="absolute right-2 top-4 h-[300px] w-full border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
-  //   ),
-  // },
-  // {
-  //   Icon: GlobeIcon,
-  //   name: "Multilingual",
-  //   description: "Supports 100+ languages and counting.",
-  //   href: "/",
-  //   cta: "Learn more",
-  //   background: <img className="absolute -right-20 -top-20 opacity-60" />,
-  //   className: "lg:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-3",
-  // },
-  // {
-  //   Icon: CalendarIcon,
-  //   name: "Calendar",
-  //   description: "Use the calendar to filter your files by date.",
-  //   href: "/",
-  //   cta: "Learn more",
-  //   background: <img className="absolute -right-20 -top-20 opacity-60" />,
-  //   className: "lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3",
-  // },
-  // {
-  //   Icon: BellIcon,
-  //   name: "Notifications",
-  //   description:
-  //     "Get notified when someone shares a file or mentions you in a comment.",
-  //   href: "/",
-  //   cta: "Learn more",
-  //   background: <img className="absolute -right-20 -top-20 opacity-60" />,
-  //   className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4",
-  // },
-];
 
 interface PartnerCarouselItems {
   src: string;
@@ -318,7 +152,7 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
                       t(`partnerCarousel.${partnerCarouselKey}.reverse`)
                     )}
                     key={index}
-                    className="[--duration:100s]"
+                    className="[--duration:250s]"
                   >
                     {getPartnerCarouselItems(partnerCarouselKey).map(
                       (partnerKey, index) => (

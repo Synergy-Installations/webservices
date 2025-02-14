@@ -55,17 +55,17 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
                 </h1>
                 <h2
                   className="h2 mb-4 text-4xl lg:text-5xl font-bold"
-                  data-aos="fade-up"
-                  data-aos-anchor="[data-aos-id-3]"
-                  data-aos-delay="100"
+                  // data-aos="fade-up"
+                  // data-aos-anchor="[data-aos-id-3]"
+                  // data-aos-delay="100"
                 >
                   {t(`${productKey}.title`)}
                 </h2>
                 <div
                   className="text-lg text-slate-500 mb-8"
-                  data-aos="fade-up"
-                  data-aos-anchor="[data-aos-id-3]"
-                  data-aos-delay="200"
+                  // data-aos="fade-up"
+                  // data-aos-anchor="[data-aos-id-3]"
+                  // data-aos-delay="200"
                 >
                   <RichText>
                     {(tags) => t.rich(`${productKey}.description`, tags)}
@@ -75,9 +75,9 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
                 {/* Button */}
                 <div
                   className="max-w-xs mx-auto sm:max-w-none mb-8"
-                  data-aos="fade-up"
-                  data-aos-anchor="[data-aos-id-3]"
-                  data-aos-delay="300"
+                  // data-aos="fade-up"
+                  // data-aos-anchor="[data-aos-id-3]"
+                  // data-aos-delay="300"
                 >
                   <div>
                     <Link
@@ -170,8 +170,8 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
               {getProductBoxKeys("boxesBottom").map((boxKey, index) => (
                 <div
                   className="relative p-5 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out"
-                  data-aos="fade-up"
-                  key={index}
+                  // data-aos="fade-up"
+                  // key={index}
                 >
                   {/* <Image className="mb-3" src={Icon01} alt="Icon 01" /> */}
                   <Image

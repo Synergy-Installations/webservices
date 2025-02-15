@@ -152,7 +152,7 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
                       t(`partnerCarousel.${partnerCarouselKey}.reverse`)
                     )}
                     key={index}
-                    className="[--duration:250s]"
+                    className="![--duration:150s]"
                   >
                     {getPartnerCarouselItems(partnerCarouselKey).map(
                       (partnerKey, index) => (

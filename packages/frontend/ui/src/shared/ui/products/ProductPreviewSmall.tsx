@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ImageLoader } from "@com.synergy/frontend-ui/ImageLoader";
+import { Link } from "@com.synergy/frontend-shared-internationalization/routing";
 
 /* eslint-disable-next-line */
 export interface ProductPreviewSmallProps {
@@ -9,12 +10,14 @@ export interface ProductPreviewSmallProps {
     alt: string;
     className?: string;
   };
+  href: string;
   className?: string;
 }
 
 export const ProductPreviewSmall = (props: ProductPreviewSmallProps) => {
   return (
-    <div
+    <Link
+      href={props.href}
       className={`p-1 pr-6 flex items-center text-2xl justify-left w-fit rounded-3xl gap-4 bg-synergy-light-blue/[42%] backdrop-blur-md ${props.className}`}
     >
       <div className={`w-[74px] h-[63px] relative ${props.image.className}`}>
@@ -29,7 +32,7 @@ export const ProductPreviewSmall = (props: ProductPreviewSmallProps) => {
         />
       </div>
       <h2 className="font-semibold text-white">{props.name}</h2>
-    </div>
+    </Link>
   );
 };
 

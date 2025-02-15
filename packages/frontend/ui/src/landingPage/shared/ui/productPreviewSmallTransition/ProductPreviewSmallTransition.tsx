@@ -8,6 +8,7 @@ import { Marquee } from "@com.synergy/frontend-ui/Marquee";
 export interface ProductPreviewSmallTransitionProps {
   products: {
     title: string;
+    href: string;
     image: {
       src: string;
       alt: string;
@@ -38,6 +39,7 @@ export const ProductPreviewSmallTransition = (
           <div className="transition ease-in-out data-[closed]:opacity-0 data-[enter]:duration-700 data-[enter]:data-[closed]:translate-x-8 data-[closed]:absolute data-[leave]:duration-300 data-[leave]:data-[closed]:-translate-x-8">
             <ProductPreviewSmall
               image={{ src: product.image.src, alt: product.image.alt }}
+              href={product.href}
               name={product.title}
             />
           </div>

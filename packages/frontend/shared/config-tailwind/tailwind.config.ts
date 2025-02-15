@@ -13,6 +13,9 @@ const config: Omit<Config, "content"> = {
         "synergy-light-grey": "#EFEFEF",
         "synergy-dark-grey": "#333333",
       },
+      screens: {
+        xs: "520px",
+      },
       backgroundImage: {
         "glow-conic":
           "conic-gradient(from 180deg at 50% 50%, #2a8af6 0deg, #a853ba 180deg, #e92a67 360deg)",

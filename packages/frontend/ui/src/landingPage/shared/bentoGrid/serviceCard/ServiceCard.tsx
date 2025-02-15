@@ -40,7 +40,7 @@ export const ServiceCard = (props: ServiceCardProps) => {
             className="object-cover w-full h-full"
           />
           <div className="absolute bottom-0 left-0 flex flex-col w-full">
-            <p className="relative z-10 bottom-0 text-white text-left pl-6 font-semibold text-4xl transition-all">
+            <p className="relative min-w-[288px] z-10 bottom-0 text-white text-left pl-6 font-semibold text-4xl transition-all truncate">
               {service.title}
             </p>
             <p className="relative bottom-0 z-10 left-0 h-0 group-hover:h-auto text-white text-left -m-12 mt-8 group-hover:mt-0 mx-6 opacity-100 group-hover:opacity-100 group-hover:pb-12 text-md transition-transform">

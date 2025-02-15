@@ -9,6 +9,7 @@
         "productPreviewSmall": {
           "photovoltaic": {
             "title": "Photovoltaik",
+            "href": "/products#photovoltaic",
             "image": {
               "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
               "alt": "Photovoltaik"
@@ -16,6 +17,7 @@
           },
           "heatpump": {
             "title": "Wärmesysteme",
+            "href": "/products#heatpump",
             "image": {
               "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
               "alt": "Wärmesysteme"
@@ -23,6 +25,7 @@
           },
           "klimasysteme": {
             "title": "Klimasysteme",
+            "href": "/products#air-conditioning",
             "image": {
               "src": "/frontend/landingPage/products/close-up-shot-of-air-conditioner-hanging-on-white-2024-11-19-02-00-43-utc.jpeg",
               "alt": "Photovoltaik"
@@ -30,6 +33,7 @@
           },
           "smart-Home": {
             "title": "Smart Home",
+            "href": "/products#smart-home",
             "image": {
               "src": "/frontend/landingPage/products/AA%2520Smart%2520Home.jpeg",
               "alt": "Wärmesysteme"
@@ -37,6 +41,7 @@
           },
           "energiemanagement": {
             "title": "Energiemanagement",
+            "href": "/products#energy-management",
             "image": {
               "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
               "alt": "Photovoltaik"
@@ -44,6 +49,7 @@
           },
           "wallbox": {
             "title": "Wallbox",
+            "href": "/products#wallbox",
             "image": {
               "src": "/frontend/landingPage/products/AA%2520Wallbox%2520AdobeStock_762399295.jpeg",
               "alt": "Wärmesysteme"
@@ -85,7 +91,7 @@
             },
             "button": {
               "text": "Mehr erfahren",
-              "href": "/products"
+              "href": "/products#photovoltaic"
             }
           },
           "heatpump": {
@@ -97,7 +103,7 @@
             },
             "button": {
               "text": "Mehr erfahren",
-              "href": "/products"
+              "href": "/products#heatpump"
             }
           },
           "heat-exchange": {
@@ -109,7 +115,7 @@
             },
             "button": {
               "text": "Mehr erfahren",
-              "href": "/products"
+              "href": "/products#air-conditioning"
             }
           },
           "smart-home": {
@@ -121,7 +127,7 @@
             },
             "button": {
               "text": "Mehr erfahren",
-              "href": "/products"
+              "href": "/products#smart-home"
             }
           },
           "battery": {
@@ -133,7 +139,7 @@
             },
             "button": {
               "text": "Mehr erfahren",
-              "href": "/products"
+              "href": "/products#energy-management"
             }
           },
           "wallbox": {
@@ -145,7 +151,7 @@
             },
             "button": {
               "text": "Mehr erfahren",
-              "href": "/products"
+              "href": "/products#wallbox"
             }
           }
         },
@@ -866,6 +872,7 @@
         "productPreviewSmall": {
           "photovoltaic": {
             "title": "Photovoltaik",
+            "href": "#photovoltaic",
             "image": {
               "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
               "alt": "Photovoltaic"
@@ -873,6 +880,7 @@
           },
           "heatpump": {
             "title": "Wärmesysteme",
+            "href": "#heatpump",
             "image": {
               "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
               "alt": "Photovoltaic"
@@ -880,6 +888,7 @@
           },
           "photovoltaic2": {
             "title": "Klimasysteme",
+            "href": "#air-conditioning",
             "image": {
               "src": "/frontend/landingPage/products/close-up-shot-of-air-conditioner-hanging-on-white-2024-11-19-02-00-43-utc.jpeg",
               "alt": "Photovoltaic"
@@ -887,6 +896,7 @@
           },
           "heatpump2": {
             "title": "Smart Home",
+            "href": "#smart-home",
             "image": {
               "src": "/frontend/landingPage/products/AA%2520Smart%2520Home.jpeg",
               "alt": "Photovoltaic"
@@ -894,6 +904,7 @@
           },
           "photovoltaic3": {
             "title": "Energiemanagement",
+            "href": "#energy-management",
             "image": {
               "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
               "alt": "Photovoltaic"
@@ -901,6 +912,7 @@
           },
           "heatpump4": {
             "title": "Wallbox",
+            "href": "#wallbox",
             "image": {
               "src": "/frontend/landingPage/products/AA%2520Wallbox%2520AdobeStock_762399295.jpeg",
               "alt": "Photovoltaic"

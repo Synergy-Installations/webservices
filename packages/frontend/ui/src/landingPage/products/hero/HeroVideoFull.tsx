@@ -25,6 +25,7 @@ export const HeroVideoFull = (props: HeroVideoFullProps) => {
             {productPreviewKeys.map((productPreviewKey, index) => (
               <ProductPreviewSmall
                 name={t(`productPreviewSmall.${productPreviewKey}.title`)}
+                href={t(`productPreviewSmall.${productPreviewKey}.href`)}
                 image={{
                   src: t(`productPreviewSmall.${productPreviewKey}.image.src`),
                   alt: t(`productPreviewSmall.${productPreviewKey}.image.alt`),

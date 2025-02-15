@@ -9,6 +9,7 @@
         "productPreviewSmall": {
           "photovoltaic": {
             "title": "Photovoltaik",
+            "href": "/products#photovoltaic",
             "image": {
               "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
               "alt": "Photovoltaik"
@@ -16,6 +17,7 @@
           },
           "heatpump": {
             "title": "Wärmesysteme",
+            "href": "/products#heat-pump",
             "image": {
               "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
               "alt": "Wärmesysteme"
@@ -23,6 +25,7 @@
           },
           "klimasysteme": {
             "title": "Klimasysteme",
+            "href": "/products#air-conditioning",
             "image": {
               "src": "/frontend/landingPage/products/close-up-shot-of-air-conditioner-hanging-on-white-2024-11-19-02-00-43-utc.jpeg",
               "alt": "Photovoltaik"
@@ -30,6 +33,7 @@
           },
           "smart-Home": {
             "title": "Smart Home",
+            "href": "/products#smart-home",
             "image": {
               "src": "/frontend/landingPage/products/AA%2520Smart%2520Home.jpeg",
               "alt": "Wärmesysteme"
@@ -37,6 +41,7 @@
           },
           "energiemanagement": {
             "title": "Energiemanagement",
+            "href": "/products#energy-management",
             "image": {
               "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
               "alt": "Photovoltaik"
@@ -44,6 +49,7 @@
           },
           "wallbox": {
             "title": "Wallbox",
+            "href": "/products#wallbox",
             "image": {
               "src": "/frontend/landingPage/products/AA%2520Wallbox%2520AdobeStock_762399295.jpeg",
               "alt": "Wärmesysteme"
@@ -85,7 +91,7 @@
             },
             "button": {
               "text": "Mehr erfahren",
-              "href": "/products"
+              "href": "/products#photovoltaic"
             }
           },
           "heatpump": {
@@ -97,7 +103,7 @@
             },
             "button": {
               "text": "Mehr erfahren",
-              "href": "/products"
+              "href": "/products#heat-pump"
             }
           },
           "heat-exchange": {
@@ -109,7 +115,7 @@
             },
             "button": {
               "text": "Mehr erfahren",
-              "href": "/products"
+              "href": "/products#air-conditioning"
             }
           },
           "smart-home": {
@@ -121,7 +127,7 @@
             },
             "button": {
               "text": "Mehr erfahren",
-              "href": "/products"
+              "href": "/products#smart-home"
             }
           },
           "battery": {
@@ -133,7 +139,7 @@
             },
             "button": {
               "text": "Mehr erfahren",
-              "href": "/products"
+              "href": "/products#energy-management"
             }
           },
           "wallbox": {
@@ -145,7 +151,7 @@
             },
             "button": {
               "text": "Mehr erfahren",
-              "href": "/products"
+              "href": "/products#wallbox"
             }
           }
         },
@@ -556,24 +562,24 @@
         },
         "stats": {
           "assets": {
-            "number": "3750",
-            "suffix": " kWh",
-            "text": "Assets packed with power beyond your imagination."
+            "number": "487",
+            "suffix": "",
+            "text": "Sonnenkraftprojekte realisiert"
           },
           "packages": {
-            "number": "1.44",
-            "suffix": "K",
-            "text": "Assets packed with power beyond your imagination."
+            "number": "3750",
+            "suffix": "kWh",
+            "text": "kWh gesamt installierte Leistung"
           },
           "resolved": {
-            "number": "1.5",
+            "number": "4.5",
             "suffix": "Jahre",
-            "text": "Assets packed with power beyond your imagination."
+            "text": "Jahre in der Branche"
           },
           "managerial": {
-            "number": "192",
-            "suffix": "K",
-            "text": "Assets packed with power beyond your imagination."
+            "number": "759",
+            "suffix": "",
+            "text": "Wohlfühlanlagen installiert"
           }
         },
         "blocks": {
@@ -655,7 +661,7 @@
         "testimonials": {
           "testimonialOne": {
             "profilePicture": {
-              "src": "/frontend/landingPage/testimonialCarousel/testimonial-01.jpg",
+              "src": "/frontend/landingPage/testimonialCarousel/unnamed-2.png",
               "alt": "TestimonialImg01",
               "width": "44",
               "height": "44"
@@ -674,7 +680,7 @@
           },
           "testimonialTwo": {
             "profilePicture": {
-              "src": "/frontend/landingPage/testimonialCarousel/testimonial-02.jpg",
+              "src": "/frontend/landingPage/testimonialCarousel/unnamed-3.png",
               "alt": "TestimonialImg01",
               "width": "44",
               "height": "44"
@@ -693,7 +699,7 @@
           },
           "testimonialThree": {
             "profilePicture": {
-              "src": "/frontend/landingPage/testimonialCarousel/testimonial-03.jpg",
+              "src": "/frontend/landingPage/testimonialCarousel/unnamed-4.png",
               "alt": "TestimonialImg01",
               "width": "44",
               "height": "44"
@@ -712,7 +718,7 @@
           },
           "testimonialFive": {
             "profilePicture": {
-              "src": "/frontend/landingPage/testimonialCarousel/testimonial-04.jpg",
+              "src": "/frontend/landingPage/testimonialCarousel/unnamed-5.png",
               "alt": "TestimonialImg01"
             },
             "name": "Andreas Goisser",
@@ -729,7 +735,7 @@
           },
           "testimonialSix": {
             "profilePicture": {
-              "src": "/frontend/landingPage/testimonialCarousel/testimonial-06.jpg",
+              "src": "/frontend/landingPage/testimonialCarousel/unnamed-6.png",
               "alt": "TestimonialImg01",
               "width": "44",
               "height": "44"
@@ -748,7 +754,7 @@
           },
           "testimonialSeven": {
             "profilePicture": {
-              "src": "/frontend/landingPage/testimonialCarousel/testimonial-07.jpg",
+              "src": "/frontend/landingPage/testimonialCarousel/unnamed-7.png",
               "alt": "TestimonialImg01"
             },
             "name": "Manfred Hein",
@@ -866,6 +872,7 @@
         "productPreviewSmall": {
           "photovoltaic": {
             "title": "Photovoltaik",
+            "href": "#photovoltaic",
             "image": {
               "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
               "alt": "Photovoltaic"
@@ -873,6 +880,7 @@
           },
           "heatpump": {
             "title": "Wärmesysteme",
+            "href": "#heat-pump",
             "image": {
               "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
               "alt": "Photovoltaic"
@@ -880,6 +888,7 @@
           },
           "photovoltaic2": {
             "title": "Klimasysteme",
+            "href": "#air-conditioning",
             "image": {
               "src": "/frontend/landingPage/products/close-up-shot-of-air-conditioner-hanging-on-white-2024-11-19-02-00-43-utc.jpeg",
               "alt": "Photovoltaic"
@@ -887,6 +896,7 @@
           },
           "heatpump2": {
             "title": "Smart Home",
+            "href": "#smart-home",
             "image": {
               "src": "/frontend/landingPage/products/AA%2520Smart%2520Home.jpeg",
               "alt": "Photovoltaic"
@@ -894,6 +904,7 @@
           },
           "photovoltaic3": {
             "title": "Energiemanagement",
+            "href": "#energy-management",
             "image": {
               "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
               "alt": "Photovoltaic"
@@ -901,6 +912,7 @@
           },
           "heatpump4": {
             "title": "Wallbox",
+            "href": "#wallbox",
             "image": {
               "src": "/frontend/landingPage/products/AA%2520Wallbox%2520AdobeStock_762399295.jpeg",
               "alt": "Photovoltaic"
@@ -923,6 +935,7 @@
       "ProductCards": {
         "Photovoltaic": {
           "orientation": "left",
+          "sectionIdentifier": "photovoltaic",
           "productIdentifier": "Photovoltaik",
           "title": "Sparen und unabhängig vom Strompreis sein",
           "description": "Mit PV-Anlage & Stromspeicher<br></br>Attraktive Marktentwicklungen befördern die zweckmäßige<br></br>Anschaffung<br></br>Solarmodule Preise sind seit Ende 2022 um bis zu 40 Prozent gesunken.<br></br>Auch Stromspeicher sind in 2 Jahren von ca. 1000 Euro pro kWh auf 500 bis 700 € pro kWh gefallen.",
@@ -1003,6 +1016,7 @@
         },
         "Warmepumpe": {
           "orientation": "right",
+          "sectionIdentifier": "heat-pump",
           "productIdentifier": "Wärmepumpe",
           "title": "Intelligent und smart heizen mit Wärmepumpen",
           "description": "Die Online Wettersteuerung ermöglicht, die Heizleistung für die nächsten Stunden und Tage vorausschauend anzupassen. Steht ein sonniger Tag bevor, wird der Heizbetrieb rechtzeitig gesenkt. Und in Erwartung einer klirrenden Frostnacht wird die Heizleistung früh genug erhöht.",
@@ -1073,6 +1087,7 @@
         },
         "Klimaanlage": {
           "orientation": "left",
+          "sectionIdentifier": "air-conditioning",
           "productIdentifier": "Klimaanlage",
           "title": "Komfortables Wohnen bei zunehmenden Hitzetagen",
           "description": "Vielfach erleben wir eine klare Tendenz zu heißeren Sommern und häufigeren Hitzewellen.<br></br>Um die Auswirkungen von Hitze auf das tägliche Leben und die Gesundheit zu optimieren, ist eine Klimaanlage sinnvoll.",
@@ -1153,6 +1168,7 @@
         },
         "Smart-Home": {
           "orientation": "right",
+          "sectionIdentifier": "smart-home",
           "productIdentifier": "Smart Home",
           "title": "Lösungen für Komfort, Licht und Energiemanagement",
           "description": "(Lorem Ipsum) Die Online Wettersteuerung ermöglicht, die Heizleistung für die nächsten Stunden und Tage vorausschauend anzupassen. Steht ein sonniger Tag bevor, wird der Heizbetrieb rechtzeitig gesenkt. Und in Erwartung einer klirrenden Frostnacht wird die Heizleistung früh genug erhöht.",
@@ -1223,6 +1239,7 @@
         },
         "EMSandStromspeicher": {
           "orientation": "left",
+          "sectionIdentifier": "energy-management",
           "productIdentifier": "Energiemanagement & Stromspeicher",
           "title": "Energiefluss jederzeit im Griff",
           "description": "bei dynamischen Tarifen und maximalem Eigenverbrauch",
@@ -1303,6 +1320,7 @@
         },
         "Wallboxen": {
           "orientation": "right",
+          "sectionIdentifier": "wallbox",
           "productIdentifier": "Wallboxen",
           "title": "Nie wieder tanken",
           "description": "Dank der eignen Wallbox",
@@ -1536,197 +1554,9 @@
               }
             }
           },
-          "pricingTableTwo": {
-            "featured": "true",
-            "label": "Popular",
-            "title": "Fronius Photovoltaik",
-            "description": "Fronius GEN24 Plus 10kW mit BYD Speicher und AIKO Paneele *",
-            "image": {
-              "src": "/frontend/landingPage/products/AdobeStock_838065823.jpg",
-              "alt": "Photovoltaic",
-              "width": "500",
-              "height": "500"
-            },
-            "button": {
-              "text": "Jetzt Anfragen",
-              "href": "/contact-us"
-            },
-            "price": "€15.990",
-            "features": {
-              "text": "Angebot besteht aus",
-              "list": {
-                "featureOne": {
-                  "icon": {
-                    "src": "/frontend/landingPage/icons/tick.svg",
-                    "alt": "Eco Charging",
-                    "width": "12",
-                    "height": "12"
-                  },
-                  "text": "Fronius GEN24 10.0 Plus inkl. Monitoring"
-                },
-                "featureTwo": {
-                  "icon": {
-                    "src": "/frontend/landingPage/icons/tick.svg",
-                    "alt": "Eco Charging",
-                    "width": "12",
-                    "height": "12"
-                  },
-                  "text": "BYD Battery-Box Premium 11kWH HVM"
-                },
-                "featureThree": {
-                  "icon": {
-                    "src": "/frontend/landingPage/icons/tick.svg",
-                    "alt": "Eco Charging",
-                    "width": "12",
-                    "height": "12"
-                  },
-                  "text": "22 Stk AIko neostar 2s A455MAH54mb"
-                },
-                "featureFour": {
-                  "icon": {
-                    "src": "/frontend/landingPage/icons/tick.svg",
-                    "alt": "Eco Charging",
-                    "width": "12",
-                    "height": "12"
-                  },
-                  "text": "Unterkonstruktion inkl. Metallersatzplatten"
-                },
-                "featureFive": {
-                  "icon": {
-                    "src": "/frontend/landingPage/icons/tick.svg",
-                    "alt": "Eco Charging",
-                    "width": "12",
-                    "height": "12"
-                  },
-                  "text": "Kabelweg und potenzialausgleich UV und Metall"
-                },
-                "featureSix": {
-                  "icon": {
-                    "src": "/frontend/landingPage/icons/tick.svg",
-                    "alt": "Eco Charging",
-                    "width": "12",
-                    "height": "12"
-                  },
-                  "text": "Komplette Abwicklung von A bis Z"
-                },
-                "featureSeven": {
-                  "icon": {
-                    "src": "/frontend/landingPage/icons/tick.svg",
-                    "alt": "Eco Charging",
-                    "width": "12",
-                    "height": "12"
-                  },
-                  "text": "Sorgfältige Einschulung"
-                },
-                "featureEight": {
-                  "icon": {
-                    "src": "/frontend/landingPage/icons/tick.svg",
-                    "alt": "Eco Charging",
-                    "width": "12",
-                    "height": "12"
-                  },
-                  "text": "36 Monate Gewährleistung"
-                }
-              }
-            }
-          },
-          "pricingTableThree": {
-            "featured": "false",
-            "label": "",
-            "title": "Schnäppchen Photovoltaik",
-            "description": "Huawei, Solax oder Growatt 10kW mit Ja-solar Paneele *",
-            "image": {
-              "src": "/frontend/landingPage/products/AdobeStock_838066134.jpeg",
-              "alt": "Photovoltaic",
-              "width": "500",
-              "height": "500"
-            },
-            "button": {
-              "text": "Jetzt Anfragen",
-              "href": "/contact-us"
-            },
-            "price": "€13.990",
-            "features": {
-              "text": "Angebot besteht aus",
-              "list": {
-                "featureOne": {
-                  "icon": {
-                    "src": "/frontend/landingPage/icons/tick.svg",
-                    "alt": "Eco Charging",
-                    "width": "12",
-                    "height": "12"
-                  },
-                  "text": "1x Daikin "
-                },
-                "featureTwo": {
-                  "icon": {
-                    "src": "/frontend/landingPage/icons/tick.svg",
-                    "alt": "Eco Charging",
-                    "width": "12",
-                    "height": "12"
-                  },
-                  "text": "Premium Speicher 10kWh"
-                },
-                "featureThree": {
-                  "icon": {
-                    "src": "/frontend/landingPage/icons/tick.svg",
-                    "alt": "Eco Charging",
-                    "width": "12",
-                    "height": "12"
-                  },
-                  "text": "JA Solar JAM54D40 450/LB Glas-Glas, bifazial"
-                },
-                "featureFour": {
-                  "icon": {
-                    "src": "/frontend/landingPage/icons/tick.svg",
-                    "alt": "Eco Charging",
-                    "width": "12",
-                    "height": "12"
-                  },
-                  "text": "Unterkonstruktion inkl. Metallersatzplatten"
-                },
-                "featureFive": {
-                  "icon": {
-                    "src": "/frontend/landingPage/icons/tick.svg",
-                    "alt": "Eco Charging",
-                    "width": "12",
-                    "height": "12"
-                  },
-                  "text": "Kabelweg und potenzialausgleich"
-                },
-                "featureSix": {
-                  "icon": {
-                    "src": "/frontend/landingPage/icons/tick.svg",
-                    "alt": "Eco Charging",
-                    "width": "12",
-                    "height": "12"
-                  },
-                  "text": "Komplette Abwicklung von A bis Z"
-                },
-                "featureSeven": {
-                  "icon": {
-                    "src": "/frontend/landingPage/icons/tick.svg",
-                    "alt": "Eco Charging",
-                    "width": "12",
-                    "height": "12"
-                  },
-                  "text": "Sorgfältige Einschulung"
-                },
-                "featureEight": {
-                  "icon": {
-                    "src": "/frontend/landingPage/icons/tick.svg",
-                    "alt": "Eco Charging",
-                    "width": "12",
-                    "height": "12"
-                  },
-                  "text": "36 Monate Gewährleistung"
-                }
-              }
-            }
-          },
           "pricingTableFour": {
-            "featured": "false",
-            "label": "",
+            "featured": "true",
+            "label": "Beliebt",
             "title": "Klimaanlage",
             "description": "Splitklimaanlage DAIKIN Inverter Sensira 2,5 kW *",
             "image": {
@@ -1823,6 +1653,195 @@
                     "height": "12"
                   },
                   "text": "36 Montage Gewährleistung (bei jährlicher Wartung)"
+                }
+              }
+            }
+          },
+          "pricingTableTwo": {
+            "featured": "false",
+            "label": "",
+            "title": "Fronius Photovoltaik",
+            "description": "Fronius GEN24 Plus 10kW mit BYD Speicher und AIKO Paneele *",
+            "image": {
+              "src": "/frontend/landingPage/products/AdobeStock_838065823.jpg",
+              "alt": "Photovoltaic",
+              "width": "500",
+              "height": "500"
+            },
+            "button": {
+              "text": "Jetzt Anfragen",
+              "href": "/contact-us"
+            },
+            "price": "€15.990",
+            "features": {
+              "text": "Angebot besteht aus",
+              "list": {
+                "featureOne": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Fronius GEN24 10.0 Plus inkl. Monitoring"
+                },
+                "featureTwo": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "BYD Battery-Box Premium 11kWH HVM"
+                },
+                "featureThree": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "22 Stk AIko neostar 2s A455MAH54mb"
+                },
+                "featureFour": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Unterkonstruktion inkl. Metallersatzplatten"
+                },
+                "featureFive": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Kabelweg und potenzialausgleich UV und Metall"
+                },
+                "featureSix": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Komplette Abwicklung von A bis Z"
+                },
+                "featureSeven": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Sorgfältige Einschulung"
+                },
+                "featureEight": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "36 Monate Gewährleistung"
+                }
+              }
+            }
+          },
+
+          "pricingTableThree": {
+            "featured": "false",
+            "label": "",
+            "title": "Schnäppchen Photovoltaik",
+            "description": "Huawei, Solax oder Growatt 10kW mit Ja-solar Paneele *",
+            "image": {
+              "src": "/frontend/landingPage/products/AdobeStock_838066134.jpeg",
+              "alt": "Photovoltaic",
+              "width": "500",
+              "height": "500"
+            },
+            "button": {
+              "text": "Jetzt Anfragen",
+              "href": "/contact-us"
+            },
+            "price": "€13.990",
+            "features": {
+              "text": "Angebot besteht aus",
+              "list": {
+                "featureOne": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Asia Hybrid Wechselrichter"
+                },
+                "featureTwo": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Premium Speicher 10kWh"
+                },
+                "featureThree": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "JA Solar JAM54D40 450/LB Glas-Glas, bifazial"
+                },
+                "featureFour": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Unterkonstruktion inkl. Metallersatzplatten"
+                },
+                "featureFive": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Kabelweg und potenzialausgleich"
+                },
+                "featureSix": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Komplette Abwicklung von A bis Z"
+                },
+                "featureSeven": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "Sorgfältige Einschulung"
+                },
+                "featureEight": {
+                  "icon": {
+                    "src": "/frontend/landingPage/icons/tick.svg",
+                    "alt": "Eco Charging",
+                    "width": "12",
+                    "height": "12"
+                  },
+                  "text": "36 Monate Gewährleistung"
                 }
               }
             }

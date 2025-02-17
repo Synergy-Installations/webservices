@@ -19,7 +19,7 @@ export const DefaultLayout = (props: DefaultLayoutProps) => {
   useEffect(() => {
     AOS.init({
       once: true,
-      disable: false,
+      disable: "mobile",
       duration: 700,
       easing: "ease-out-cubic",
     });

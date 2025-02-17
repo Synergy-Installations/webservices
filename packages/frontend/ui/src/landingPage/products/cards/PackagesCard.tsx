@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { Link } from "@com.synergy/frontend-shared-internationalization/routing";
-import Pricing01 from "../../../shared/images/heat-pump-orange.jpg";
-import Pricing02 from "../../../shared/images/heat-pump-orange.jpg";
-import Pricing03 from "../../../shared/images/heat-pump-orange.jpg";
-import Pricing04 from "../../../shared/images/heat-pump-orange.jpg";
+// import Pricing01 from "../../../shared/images/heat-pump-orange.jpg";
+// import Pricing02 from "../../../shared/images/heat-pump-orange.jpg";
+// import Pricing03 from "../../../shared/images/heat-pump-orange.jpg";
+// import Pricing04 from "../../../shared/images/heat-pump-orange.jpg";
 import { useMessages, useTranslations } from "next-intl";
 import { RichText } from "@com.synergy/frontend-ui/RichText";
 import ImageLoader from "@com.synergy/frontend-ui/ImageLoader";
@@ -55,9 +55,7 @@ export const PackagesCard = (props: PackagesCardProps) => {
               </div>
 
               {/* Pricing tables */}
-              <div
-                className="max-w-sm md:max-w-none 1xl:max-w-none mx-auto grid gap-8 md:grid-cols-3 1xl:grid-cols-4 xl:gap-6 items-start"
-              >
+              <div className="max-w-sm md:max-w-none 1xl:max-w-none mx-auto grid gap-8 md:grid-cols-3 1xl:grid-cols-4 xl:gap-6 items-start">
                 {/* Pricing tables */}
                 {pricingTablesKeys.map((pricingTableKey, index) => (
                   <div
@@ -154,16 +152,7 @@ export const PackagesCard = (props: PackagesCardProps) => {
                 ))}
               </div>
               <div className="mt-12 text-synergy-dark-grey">
-                * Das Angebot versteht sich inkl. Abwicklung durch zertifizierten
-                Projektmanager und Elektrotechniker, benötigtem Montagematerial
-                von bis zu 20 Metern. Anfahrtskosten sind bis 50 km außerhalb
-                Wiens inkludiert. 36 Monate Gewährleistung bei Abschluss eines
-                Wartungsvertrages. Elektrische Anschlüsse bauseits durch
-                Elektriker oder von uns nach näherer Begutachtung. Zusätzliche
-                Arbeiten, werden nach Aufwand verrechnet. Diese Arbeiten werden
-                im Vorhinein detailiert mit ihnen besprochen. Alle Preise
-                verstehen sich exkl. Mehrwertsteuer. Angebot gültig solange der
-                Vorrat reicht
+                <RichText>{(tags) => t.rich(`disclamer`, tags)}</RichText>
               </div>
             </div>
           </div>

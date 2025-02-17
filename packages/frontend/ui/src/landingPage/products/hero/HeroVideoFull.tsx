@@ -13,6 +13,10 @@ export const HeroVideoFull = (props: HeroVideoFullProps) => {
     messages.LandingPage.Products.HeroVideo.productPreviewSmall
   );
 
+  const heroVideoCodecKeys = Object.keys(
+    messages.LandingPage.Products.HeroVideo.video
+  );
+
   return (
     <div className="relative w-svw min-h-[100svh]">
       <div className="relative z-20 h-full min-h-[893px] flex flex-col items-center justify-center py-12 lg:block lg:pt-[280px] lg:pl-[140px] w-auto">
@@ -62,8 +66,17 @@ export const HeroVideoFull = (props: HeroVideoFullProps) => {
         autoPlay
         webkit-playsinline="true"
         playsInline
+        preload="metadata"
       >
-        <source src={t("video.src")} type="video/mp4" />
+        {heroVideoCodecKeys.map((heroVideoCodecKey, index) => (
+          <source
+            src={t(`video.${heroVideoCodecKey}.src`)}
+            type={`${t(`video.${heroVideoCodecKey}.codec`)}`}
+          />
+        ))}
+        {/* <source src="h265.mp4" type='video/mp4; codecs="hev1"' />
+        <source src="h264.mp4" type='video/mp4; codecs="avc1.42E01E"' />
+        <source src={t("video.src")} type="video/mp4" /> */}
         Your browser does not support the video tag.
       </video>
     </div>

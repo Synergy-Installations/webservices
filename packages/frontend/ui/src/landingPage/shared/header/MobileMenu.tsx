@@ -113,7 +113,7 @@ export const MobileMenu = (props: MobileMenuProps) => {
               <div key={index}>
                 <li>
                   {t(`nav.${navKey}.href`) === "" ? (
-                    <div className="flex rounded-lg px-2 py-1.5 text-gray-700 font-semibold">
+                    <div className="flex rounded-lg px-2 py-1.5 text-gray-700 font-medium">
                       {t(`nav.${navKey}.text`)}
                     </div>
                   ) : (

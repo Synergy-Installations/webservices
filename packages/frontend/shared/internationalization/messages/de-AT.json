@@ -24,7 +24,7 @@
             }
           },
           "klimasysteme": {
-            "title": "Klimasysteme",
+            "title": "Klimatechnik",
             "href": "/products#air-conditioning",
             "image": {
               "src": "/frontend/landingPage/products/close-up-shot-of-air-conditioner-hanging-on-white-2024-11-19-02-00-43-utc.jpeg",
@@ -67,7 +67,7 @@
             "href": "#products"
           }
         },
-        "banner": " Einfach Geld Sparen * Endlich Unabhängig * Leistbar * Transparent * Auf Augenhöhe * "
+        "banner": "Einfach Geld Sparen * Endlich Unabhängig * Leistbar * Transparent * Auf Augenhöhe *"
       },
       "ServiceCatalog": {
         "title": "Moderne Haustechnik <br></br> zum Wohlfühlen",
@@ -96,7 +96,7 @@
           },
           "heatpump": {
             "title": "Wärmesysteme",
-            "description": "Nutzen Sie unser Warmesystem und gonnen Sie sich ein warmes Zuhause aus eigener Produktion.",
+            "description": "Nutzen Sie unser Wärmesystem und gönnen Sie sich ein warmes Zuhause aus eigener Produktion.",
             "image": {
               "src": "/frontend/landingPage/products/AA%2520W%25C3%25A4rmepumpe%2520AdobeStock_622637179.jpeg",
               "alt": "Photovoltaic"
@@ -108,7 +108,7 @@
           },
           "heat-exchange": {
             "title": "Klimasysteme",
-            "description": "Erleben Sie das angenehme Raumklima, wohl temperiert und zugeschnitten auf Ihre Bedurfnisse.",
+            "description": "Erleben Sie das angenehme Raumklima, wohl temperiert und zugeschnitten auf Ihre Bedürfnisse.",
             "image": {
               "src": "/frontend/landingPage/products/close-up-shot-of-air-conditioner-hanging-on-white-2024-11-19-02-00-43-utc.jpeg",
               "alt": "Photovoltaic"
@@ -120,7 +120,7 @@
           },
           "smart-home": {
             "title": "Smart Home",
-            "description": "Lassen Sie sich verwohnen, einfach zu bedienen und voll automatisiert.",
+            "description": "Lassen Sie sich verwöhnen, einfach zu bedienen und voll automatisiert.",
             "image": {
               "src": "/frontend/landingPage/products/AA%2520Smart%2520Home.jpeg",
               "alt": "Photovoltaic"
@@ -132,7 +132,7 @@
           },
           "battery": {
             "title": "Energiemanagement",
-            "description": "Bringen Sie das Verhaltnis zwischen Produktion und Verbrauch in Einklang.",
+            "description": "Bringen Sie das Verhältnis zwischen Produktion und Verbrauch in Einklang.",
             "image": {
               "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
               "alt": "Photovoltaic"
@@ -144,7 +144,7 @@
           },
           "wallbox": {
             "title": "Wallbox",
-            "description": "Unabhangig in das nachste Level - mit uns werden Sie mobil.",
+            "description": "Unäbhangig in das nachste Level - mit uns werden Sie mobil.",
             "image": {
               "src": "/frontend/landingPage/products/AA%2520Wallbox%2520AdobeStock_762399295.jpeg",
               "alt": "Photovoltaic"
@@ -164,169 +164,197 @@
                 "src": "/frontend/landingPage/clients/aerocompact%20logo.png",
                 "alt": "Client 01",
                 "width": "200",
-                "height": "50"
+                "height": "50",
+                "href": "https://www.aerocompact.com"
               },
               "Energy3000": {
                 "src": "/frontend/landingPage/clients/energy3000%20CMYK%20transparent.png",
                 "alt": "Client 02",
                 "width": "100",
-                "height": "50"
+                "height": "50",
+                "href": "https://energy3000.com"
               },
               "Wuerth": {
                 "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
                 "alt": "Client 03",
                 "width": "200",
-                "height": "50"
+                "height": "50",
+                "href": "https://www.wuerth.at"
               },
               "EandB": {
                 "src": "/frontend/landingPage/clients/logo_eb.png",
                 "alt": "Client 04",
                 "width": "200",
-                "height": "13"
+                "height": "13",
+                "href": "https://www.eb-haustechnik.at"
               },
               "Fronius": {
                 "src": "/frontend/landingPage/clients/LOGO_Fronius_RGB_high_300dpi.jpg",
                 "alt": "Client 05",
                 "width": "200",
-                "height": "18"
+                "height": "18",
+                "href": "https://www.fronius.at"
               },
               "SHT": {
                 "src": "/frontend/landingPage/clients/SHT_logo_4C.png",
                 "alt": "Client 06",
                 "width": "100",
-                "height": "50"
+                "height": "50",
+                "href": "https://www.sht-gruppe.at"
               },
               "Sonepar": {
                 "src": "/frontend/landingPage/clients/Sonepar%20logo%20RGB_Tagline.svg",
                 "alt": "Client 07",
                 "width": "200",
-                "height": "50"
+                "height": "50",
+                "href": "https://www.sonepar.at"
               },
               "Partner08": {
                 "src": "/frontend/landingPage/clients/00-Sigenergy-Logo.png.webp",
                 "alt": "Client 08",
                 "width": "200",
-                "height": "34"
+                "height": "34",
+                "href": "https://www.sigenergy.com"
               },
               "Partner09": {
                 "src": "/frontend/landingPage/clients/0x0.png",
                 "alt": "Client 09",
                 "width": "200",
-                "height": "44"
+                "height": "44",
+                "href": "https://de.growatt.com"
               },
               "Partner11": {
                 "src": "/frontend/landingPage/clients/989_Category.png",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.solaxpower.com"
               },
               "Partner12": {
                 "src": "/frontend/landingPage/clients/Altamira_2_color_stacked_large.png",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://e-altamira.at"
               },
               "Partner13": {
                 "src": "/frontend/landingPage/clients/Bosch-logo.svg",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.bosch.at"
               },
               "Partner14": {
                 "src": "/frontend/landingPage/clients/Buderus-logo.svg",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.buderus.at"
               },
               "Partner15": {
                 "src": "/frontend/landingPage/clients/BYD_Company%2C_Ltd._-_Logo.svg",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.bydauto.at"
               },
               "Partner16": {
                 "src": "/frontend/landingPage/clients/DAIKIN_Logo_rgb.png",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.daikin.at"
               },
               "Partner17": {
                 "src": "/frontend/landingPage/clients/FE_S_Blau_Horiz_RGB-1.png",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://fenecon.de"
               },
               "Partner18": {
                 "src": "/frontend/landingPage/clients/hargassner-logo-neg-entzerrt-vereinfacht-ohne-claim3farbig-dunkelgrau.svg",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.hargassner.com"
               },
               "Partner19": {
                 "src": "/frontend/landingPage/clients/Hoval_Logo.svg",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.hoval.at"
               },
               "Partner20": {
                 "src": "/frontend/landingPage/clients/Huawei_Standard_logo.svg",
                 "alt": "Client 10",
                 "width": "100",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.huawei.com"
               },
               "Partner21": {
                 "src": "/frontend/landingPage/clients/logo_idm_waermepumpen-scaled-e1610953520283.jpg",
                 "alt": "Client 10",
                 "width": "100",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.idm-energie.at"
               },
               "Partner22": {
                 "src": "/frontend/landingPage/clients/images.png",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.ochsner.com"
               },
               "Partner23": {
-                "src": "/frontend/landingPage/clients/K2_new_logo.svg",
+                "src": "/frontend/landingPage/clients/logo-2.svg",
                 "alt": "Client 10",
                 "width": "100",
-                "height": "40"
+                "height": "40",
+                "href": "https://k2-systems.com"
               },
               "Partner24": {
                 "src": "/frontend/landingPage/clients/KNX_logo.svg",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.knxaustria.at"
               },
               "Partner25": {
                 "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.wuerth.at"
               },
               "Partner26": {
                 "src": "/frontend/landingPage/clients/logo_eb.png",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.eb-kantteile.at"
               },
               "Partner27": {
                 "src": "/frontend/landingPage/clients/Logo_Fro%CC%88ling.JPG",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.froeling.com"
               },
               "Partner28": {
                 "src": "/frontend/landingPage/clients/Logo_SMA.svg",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.sma.de"
               },
               "Partner29": {
                 "src": "/frontend/landingPage/clients/LOGO-LAMBDA-1.png",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://lambda-wp.at"
               }
             }
           },
@@ -338,151 +366,169 @@
                 "src": "/frontend/landingPage/clients/logo-multitherm.png",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.multitherm.at"
               },
               "Partner31": {
                 "src": "/frontend/landingPage/clients/logo-text.svg",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.aerocompact.com"
               },
               "Partner32": {
                 "src": "/frontend/landingPage/clients/logo_idm_waermepumpen-scaled-e1610953520283.jpg",
                 "alt": "Client 10",
                 "width": "100",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.idm-energie.at"
               },
               "Partner33": {
                 "src": "/frontend/landingPage/clients/Loxone_Logo.png",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.loxone.com"
               },
               "Partner34": {
                 "src": "/frontend/landingPage/clients/OekoFEN_Logo_2018_CMYK.jpg",
                 "alt": "Client 10",
                 "width": "100",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.oekofen.com"
               },
               "Partner35": {
                 "src": "/frontend/landingPage/clients/Panasonic_logo_%2528Blue%2529.svg",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.panasonic.com"
               },
               "Partner36": {
                 "src": "/frontend/landingPage/clients/Samsung_Logo.svg",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.samsung.com"
               },
               "Partner37": {
                 "src": "/frontend/landingPage/clients/SCHLETTER_Logo_withoutClaim_CMYK_DARKTEAL_1200ppi.png",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.schletter-group.com"
               },
               "Partner38": {
                 "src": "/frontend/landingPage/clients/sf_transparent_11-2012.png",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.solarfocus.com"
               },
               "Partner39": {
                 "src": "/frontend/landingPage/clients/SFLEX_ENERGY_Logo_500px.png",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.sflex-energy.de"
               },
               "Partner40": {
                 "src": "/frontend/landingPage/clients/SHT_logo_4C.png",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.sht-gruppe.at"
               },
               "Partner41": {
                 "src": "/frontend/landingPage/clients/SolarEdge_logo_header_new_0.svg",
                 "alt": "Client 10",
                 "width": "100",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.solaredge.com"
               },
               "Partner43": {
                 "src": "/frontend/landingPage/clients/Sonnen_logo_Ausschnitt.jpg",
                 "alt": "Client 10",
                 "width": "100",
-                "height": "40"
+                "height": "40",
+                "href": "https://sonnen.at"
               },
               "Partner44": {
                 "src": "/frontend/landingPage/clients/Toshiba_logo.svg",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.toshiba.com"
               },
               "Partner45": {
                 "src": "/frontend/landingPage/clients/unnamed.png",
                 "alt": "Client 10",
                 "width": "100",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.alumerogroup.eu"
               },
               "Partner46": {
                 "src": "/frontend/landingPage/clients/Vaillant-logo.svg",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.vaillant.at"
               },
               "Partner47": {
                 "src": "/frontend/landingPage/clients/Viessmann-logo.svg",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.viessmann.at"
               },
               "Partner48": {
                 "src": "/frontend/landingPage/clients/Walter_Bo%CC%88sch_KG_Logo.svg.png",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.boesch.at"
               },
               "Partner49": {
                 "src": "/frontend/landingPage/clients/Weitzer_Parkett_Logo.svg",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.weitzer-parkett.com"
               },
               "Partner50": {
                 "src": "/frontend/landingPage/clients/windhager_logo_4c_de.jpg",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.windhager.com"
               },
               "Partner51": {
                 "src": "/frontend/landingPage/clients/Evcc_Logo.svg.png",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://evcc.io"
               },
               "Partner52": {
                 "src": "/frontend/landingPage/clients/image002-1.png",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
-              },
-              "Partner54": {
-                "src": "/frontend/landingPage/clients/Home_Assistant_Logo.svg.png",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.solarmanager.ch"
               },
               "Partner55": {
                 "src": "/frontend/landingPage/clients/image004.jpg",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.shelly.com"
               },
               "Partner56": {
                 "src": "/frontend/landingPage/clients/image006.png",
                 "alt": "Client 10",
                 "width": "200",
-                "height": "40"
+                "height": "40",
+                "href": "https://www.knxaustria.at"
               }
             }
           }
@@ -562,23 +608,23 @@
         },
         "stats": {
           "assets": {
-            "number": "487",
-            "suffix": "",
+            "number": "500",
+            "suffix": "+",
             "text": "Sonnenkraftprojekte realisiert"
           },
           "packages": {
-            "number": "3750",
-            "suffix": "kWh",
+            "number": "10000",
+            "suffix": "+ kW",
             "text": "kWh gesamt installierte Leistung"
           },
           "resolved": {
-            "number": "4.5",
-            "suffix": "Jahre",
+            "number": "11",
+            "suffix": "+ Jahre",
             "text": "Jahre in der Branche"
           },
           "managerial": {
-            "number": "759",
-            "suffix": "",
+            "number": "660",
+            "suffix": "+",
             "text": "Wohlfühlanlagen installiert"
           }
         },
@@ -637,12 +683,12 @@
           },
           "stepTwo": {
             "number": "2",
-            "title": "Kundenbedürfnisse",
+            "title": "Derzeitige Gebäudetechnik",
             "description": ""
           },
           "stepThree": {
             "number": "3",
-            "title": "Derzeitige Gebäudetechnik",
+            "title": "Kundenbedürfnisse",
             "description": ""
           },
           "stepFour": {
@@ -920,16 +966,32 @@
           }
         },
         "video": {
-          "thumbnail": {
-            "src": "/frontend/landingPage/FeatureSteps/scenic-house.jpeg",
-            "alt": "Synergy hero video",
-            "width": "768",
-            "height": "432"
+          "h264": {
+            "thumbnail": {
+              "src": "/frontend/landingPage/FeatureSteps/scenic-house.jpeg",
+              "alt": "Synergy hero video",
+              "width": "768",
+              "height": "432"
+            },
+            "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/Hero/Intro-Video-v3.mp4",
+            "alt": "Video",
+            "width": "1920",
+            "height": "1080",
+            "codec": "video/mp4; codecs=\"avc1.42E01E\""
           },
-          "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/Hero/Intro-Video-v3.mp4",
-          "alt": "Video",
-          "width": "1920",
-          "height": "1080"
+          "h265": {
+            "thumbnail": {
+              "src": "/frontend/landingPage/FeatureSteps/scenic-house.jpeg",
+              "alt": "Synergy hero video",
+              "width": "768",
+              "height": "432"
+            },
+            "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/Hero/Intro%20Video%20v3.mp4",
+            "alt": "Video",
+            "width": "1920",
+            "height": "1080",
+            "codec": "video/mp4; codecs=\"hev1\""
+          }
         }
       },
       "ProductCards": {
@@ -1751,7 +1813,6 @@
               }
             }
           },
-
           "pricingTableThree": {
             "featured": "false",
             "label": "",
@@ -1846,7 +1907,8 @@
               }
             }
           }
-        }
+        },
+        "disclamer": "* Das Angebot versteht sich inkl. Abwicklung durch zertifizierten Projektmanager und Elektrotechniker bzw. Kältetechniker und Fachkräfte für Gebäudehülle, benötigtem Montagematerial von bis zu 20 Metern. Anfahrtskosten sind bis 50 km außerhalb Wiens inkludiert. 36 Monate Gewährleistung bei Abschluss eines Wartungsvertrages. Elektrische Anschlüsse bauseits durch Elektriker oder von uns nach näherer Begutachtung. Zusätzliche Arbeiten, werden nach Aufwand verrechnet. Diese Arbeiten werden im Vorhinein detailiert mit ihnen besprochen. Alle Preise verstehen sich exkl. Mehrwertsteuer. Angebot gültig solange der Vorrat reicht."
       }
     },
     "ContactUs": {

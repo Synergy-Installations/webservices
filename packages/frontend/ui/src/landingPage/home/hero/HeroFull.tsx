@@ -67,7 +67,7 @@ export const HeroFull = (props: HeroFullProps) => {
       </div>
       <div className="z-10 w-[calc(105vw)] absolute bottom-[170px] xl:bottom-[195px] 2xl:bottom-[80px] -left-[10px] rotate-[-5deg] bg-orange-500">
         <Marquee className="[--duration:20s] p-1">
-          <div className="text-[#eeeae8] text-4xl font-bold uppercase">
+          <div className="text-[#eeeae8] text-4xl font-bold uppercase pr-2">
             {t("banner")}&nbsp;
           </div>
         </Marquee>

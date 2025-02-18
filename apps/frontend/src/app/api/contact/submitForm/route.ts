@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
   const { to, message, ...restBody }: EmailFormData = await req.json();
 
   sgMail.setApiKey(process.env.SENDGRID_API_KEY as string);
-  console.log("process.env.SENDGRID_API_KEY", process.env.SENDGRID_API_KEY);
+  // console.log("process.env.SENDGRID_API_KEY", process.env.SENDGRID_API_KEY);
 
   const msg = {
     to: [to, "office@synergiemontagen.eco"], // Change to your recipient
@@ -27,7 +27,9 @@ export async function POST(req: NextRequest) {
   let errorBoolean = false;
 
   try {
-    sgMail.send(msg);
+    sgMail.send(msg).then((value) => {
+      console.log(value);
+    });
   } catch (error) {
     errorBoolean = true;
     console.error("error", error);

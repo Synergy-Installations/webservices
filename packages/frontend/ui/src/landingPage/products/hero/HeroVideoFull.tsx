@@ -68,12 +68,20 @@ export const HeroVideoFull = (props: HeroVideoFullProps) => {
         playsInline
         preload="metadata"
       >
-        {heroVideoCodecKeys.map((heroVideoCodecKey, index) => (
-          <source
-            src={t(`video.${heroVideoCodecKey}.src`)}
-            type={`${t(`video.${heroVideoCodecKey}.codec`)}`}
-          />
-        ))}
+        <source
+          src={t(`video.h265.src`)}
+          type='video/mp4; codecs="avc1.42E01E"'
+        />
+        <source src={t(`video.h264.src`)} type='video/mp4; codecs="hev1"' />
+        {/* {heroVideoCodecKeys.map((heroVideoCodecKey, index) => (
+          <>
+            <source
+              key={index}
+              src={t(`video.${heroVideoCodecKey}.src`)}
+              type={`${t(`video.${heroVideoCodecKey}.codec`)}`}
+            />
+          </>
+        ))} */}
         {/* <source src="h265.mp4" type='video/mp4; codecs="hev1"' />
         <source src="h264.mp4" type='video/mp4; codecs="avc1.42E01E"' />
         <source src={t("video.src")} type="video/mp4" /> */}

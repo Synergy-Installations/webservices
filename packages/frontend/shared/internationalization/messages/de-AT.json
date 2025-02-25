@@ -67,7 +67,7 @@
             "href": "#products"
           }
         },
-        "banner": "Einfach Geld Sparen * Endlich Unabhängig * Leistbar * Transparent * Auf Augenhöhe *"
+        "banner": "Einfach Geld Sparen * Endlich Unabhängig * Leistbar * Transparent * Auf Augenhöhe * Einfach Geld Sparen * Endlich Unabhängig * Leistbar * Transparent * Auf Augenhöhe * Einfach Geld Sparen * Endlich Unabhängig * Leistbar * Transparent * Auf Augenhöhe * Einfach Geld Sparen * Endlich Unabhängig * Leistbar * Transparent * Auf Augenhöhe * Einfach Geld Sparen * Endlich Unabhängig * Leistbar * Transparent * Auf Augenhöhe *"
       },
       "ServiceCatalog": {
         "title": "Moderne Haustechnik <br></br> zum Wohlfühlen",
@@ -541,7 +541,7 @@
         "buttons": {
           "Button1": {
             "text": "Kundenbedürfnis",
-            "description": "Klarheit steht bei uns an erster Stelle. Wir wollen verstehen was dem Kunden wichtig ist, damit er langfristig zufrieden bleibt",
+            "description": "Klarheit steht bei uns an erster Stelle. Wir wollen verstehen was Kunden wichtig ist, damit sie langfristig zufrieden bleibt",
             "buttonIcon": {
               "src": "/frontend/landingPage/icons/double_arrows.svg",
               "alt": "Double Arrows",
@@ -973,7 +973,7 @@
               "width": "768",
               "height": "432"
             },
-            "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/Hero/Intro-Video-v3.mp4",
+            "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/Hero/Intro-Video-v3-high-compatibility.mp4",
             "alt": "Video",
             "width": "1920",
             "height": "1080",
@@ -986,7 +986,7 @@
               "width": "768",
               "height": "432"
             },
-            "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/Hero/Intro%20Video%20v3.mp4",
+            "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/Hero/Intro-Video-v3.mp4",
             "alt": "Video",
             "width": "1920",
             "height": "1080",

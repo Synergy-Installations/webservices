@@ -22,7 +22,7 @@ export const HeroHomeIllustration = (props: HeroHomeIllustrationProps) => {
         />
       </div>
       {/* Circles */}
-      <div
+      {/* <div
         className="pointer-events-none absolute -top-32 left-1/2 ml-[580px] -translate-x-1/2 z-10"
         aria-hidden="true"
       >
@@ -39,7 +39,7 @@ export const HeroHomeIllustration = (props: HeroHomeIllustrationProps) => {
         aria-hidden="true"
       >
         <div className="h-80 w-80 rounded-full bg-gradient-to-tr from-blue-500 to-gray-900 opacity-50 blur-[160px] will-change-[filter]" />
-      </div>
+      </div> */}
     </>
   );
 };

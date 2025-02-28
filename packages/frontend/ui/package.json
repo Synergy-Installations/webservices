@@ -8,6 +8,8 @@
     "dist"
   ],
   "exports": {
+    "./Funnel": "./src/landingPage/contact/funnel/Funnel.tsx",
+    "./FunnelLayout": "./src/landingPage/contact/funnel/FunnelLayout.tsx",
     "./GoogleTag": "./src/landingPage/shared/layout/GoogleTag.tsx",
     "./Form": "./src/landingPage/contact/form/Form.tsx",
     "./Counter": "./src/shared/animations/counter/Counter.tsx",

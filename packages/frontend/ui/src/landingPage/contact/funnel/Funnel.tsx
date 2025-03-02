@@ -41,17 +41,22 @@ export const Funnel = (props: FunnelProps) => {
       title: element.title,
       description: element.description,
       from: from || [],
+      uid: questionKey,
       form: Object.keys(element.form).reduce(
         (formAcc: any, formKey: string) => {
-          formAcc[`${formKey}-${Math.random().toString(36).substring(2, 7)}`] =
-            {
+          if (element.form[formKey].defaultVisible === "true") {
+            formAcc[
+              `${formKey}-${Math.random().toString(36).substring(2, 7)}`
+            ] = {
               order: Number(element.form[formKey].order),
-              uid: `${element.form[formKey].uid}-${Math.random().toString(36).substring(2, 7)}`,
+              uid: formKey,
               type: element.form[formKey].type,
               multiple: element.form[formKey].multiple,
               required: element.required === "true",
+              defaultVisible: element.form[formKey].defaultVisible === "true",
               title: element.form[formKey].title,
               description: element.form[formKey].description,
+              from: from || [],
               options: Object.keys(element.form[formKey].options).reduce(
                 (optionsAcc: any, optionKey: string) => {
                   optionsAcc[
@@ -59,12 +64,13 @@ export const Funnel = (props: FunnelProps) => {
                   ] = {
                     text: element.form[formKey].options[optionKey].title,
                     type: element.form[formKey].options[optionKey].type,
-                    uid: `${element.form[formKey].options[optionKey].uid}-${Math.random().toString(36).substring(2, 7)}`,
+                    uid: optionKey,
                     title: element.form[formKey].options[optionKey].title,
                     description:
                       element.form[formKey].options[optionKey].description,
                     addQuestion:
                       element.form[formKey].options[optionKey].addQuestion,
+                    addForm: element.form[formKey].options[optionKey].addForm,
                     icon: {
                       src: element.form[formKey].options[optionKey].icon.src,
                       alt: element.form[formKey].options[optionKey].icon.alt,
@@ -76,10 +82,63 @@ export const Funnel = (props: FunnelProps) => {
               ),
               selected: [],
             };
+          }
           return formAcc;
         },
         {}
       ),
+    };
+  };
+
+  const createFormElement = (
+    questionKey: string,
+    formKey: string,
+    from?: Array<string> | null
+  ) => {
+    // console.log(
+    //   "createFormElement",
+    //   questionKey,
+    //   formKey,
+    //   from,
+    //   messages.LandingPage.ContactUs.Funnel.questions[questionKey].form
+    // );
+    const element =
+      messages.LandingPage.ContactUs.Funnel.questions[questionKey].form[
+        formKey
+      ];
+
+    return {
+      order: Number(element.order),
+      uid: formKey,
+      type: element.type,
+      multiple: element.multiple,
+      required: element.required === "true",
+      defaultVisible: element.defaultVisible === "true",
+      title: element.title,
+      description: element.description,
+      from: from || [],
+      options: Object.keys(element.options).reduce(
+        (optionsAcc: any, optionKey: string) => {
+          optionsAcc[
+            `${optionKey}-${Math.random().toString(36).substring(2, 7)}`
+          ] = {
+            text: element.options[optionKey].title,
+            type: element.options[optionKey].type,
+            uid: optionKey,
+            title: element.options[optionKey].title,
+            description: element.options[optionKey].description,
+            addQuestion: element.options[optionKey].addQuestion,
+            addForm: element.options[optionKey].addForm,
+            icon: {
+              src: element.options[optionKey].icon.src,
+              alt: element.options[optionKey].icon.alt,
+            },
+          };
+          return optionsAcc;
+        },
+        {}
+      ),
+      selected: [],
     };
   };
 
@@ -117,13 +176,18 @@ export const Funnel = (props: FunnelProps) => {
   };
 
   const addQuestionElement = (
-    from: { fromQuestionKey: string; fromOptionKey: string },
+    from: {
+      fromQuestionKey: string;
+      fromFormKey: string;
+      fromOptionKey: string;
+    },
     questionKey: string
   ) => {
     /** Get the old "from" sources to aid deletion in case of reselection */
-    const fromArray = [...(questionElements[from.fromQuestionKey].from || [])];
-    console.log("pressed");
-    // return;
+    const fromArray = [
+      ...(questionElements[from.fromQuestionKey].form[from.fromFormKey].from ||
+        []),
+    ];
     fromArray.push(from.fromOptionKey);
     const questionKeyUid = `${questionKey}-${Math.random().toString(36).substring(2, 7)}`;
     console.log(
@@ -138,12 +202,70 @@ export const Funnel = (props: FunnelProps) => {
     }));
   };
 
+  const addFormElement = (
+    from: {
+      fromQuestionKey: string;
+      fromFormKey: string;
+      fromOptionKey: string;
+    },
+    formKey: string
+  ) => {
+    console.log("addFormElement", from, formKey);
+    /** Get the old "from" sources to aid deletion in case of reselection */
+    const fromArray = [
+      ...(questionElements[from.fromQuestionKey].form[from.fromFormKey].from ||
+        []),
+    ];
+    fromArray.push(from.fromOptionKey);
+    const formKeyUid = `${formKey}-${Math.random().toString(36).substring(2, 7)}`;
+    console.log(
+      "addFormElement",
+      fromArray,
+      createFormElement(
+        questionElements[from.fromQuestionKey].uid,
+        formKey,
+        fromArray
+      ),
+      formKeyUid
+    );
+    setQuestionElements((prev) => {
+      const updatedElements = { ...prev };
+      updatedElements[from.fromQuestionKey].form[formKeyUid] =
+        createFormElement(
+          questionElements[from.fromQuestionKey].uid,
+          formKey,
+          fromArray
+        );
+      return updatedElements;
+    });
+  };
+
   const removeQuestionElement = (fromOptionKey: string) => {
     setQuestionElements((prev) => {
       const updatedElements = { ...prev };
       Object.keys(updatedElements).forEach((key) => {
         if (updatedElements[key].from.includes(fromOptionKey)) {
           delete updatedElements[key];
+        }
+      });
+      return updatedElements;
+    });
+  };
+
+  const removeFormElement = (
+    fromQuestionKey: string,
+    fromOptionKey: string
+  ) => {
+    console.log("initiate removeFormElement", fromQuestionKey, fromOptionKey);
+    setQuestionElements((prev) => {
+      const updatedElements = { ...prev };
+      Object.keys(updatedElements[fromQuestionKey].form).forEach((key) => {
+        if (
+          updatedElements[fromQuestionKey].form[key].from.includes(
+            fromOptionKey
+          )
+        ) {
+          delete updatedElements[fromQuestionKey].form[key];
         }
       });
       return updatedElements;
@@ -193,30 +315,24 @@ export const Funnel = (props: FunnelProps) => {
                         <li>
                           <input
                             type="checkbox"
-                            id={
-                              questionElements[questionKey].form[formKey]
-                                .options[optionKey].uid
-                            }
+                            id={optionKey}
                             value=""
                             onChange={(e) => {
                               const { checked, id } = e.target;
                               setQuestionElements((prev) => {
+                                /** Gets called twice in dev - do not fall off your chair - prod only updates the elements once */
                                 const updatedElements = { ...prev };
                                 const form =
                                   updatedElements[questionKey].form[formKey];
                                 if (checked) {
                                   const existingSelection = form.selected.find(
                                     (selection: { formUid: string }) => {
-                                      return (
-                                        selection.formUid ===
-                                        questionElements[questionKey].form[
-                                          formKey
-                                        ].uid
-                                      );
+                                      return selection.formUid === formKey;
                                     }
                                   );
                                   console.log(
                                     "existingSelection",
+                                    checked,
                                     existingSelection
                                   );
                                   if (existingSelection) {
@@ -227,10 +343,7 @@ export const Funnel = (props: FunnelProps) => {
                                     );
                                   } else {
                                     form.selected.push({
-                                      formUid:
-                                        questionElements[questionKey].form[
-                                          formKey
-                                        ].uid,
+                                      formUid: formKey,
                                       questionTitle:
                                         questionElements[questionKey].form[
                                           formKey
@@ -246,12 +359,7 @@ export const Funnel = (props: FunnelProps) => {
                                   const selectedOptionIndex =
                                     form.selected.findIndex(
                                       (selection: { formUid: string }) => {
-                                        return (
-                                          selection.formUid ===
-                                          questionElements[questionKey].form[
-                                            formKey
-                                          ].uid
-                                        );
+                                        return selection.formUid === formKey;
                                       }
                                     );
                                   if (selectedOptionIndex !== -1) {
@@ -280,6 +388,30 @@ export const Funnel = (props: FunnelProps) => {
                                 return updatedElements;
                               });
                               if (checked) {
+                                console.log(
+                                  "request add Form",
+                                  questionKey,
+                                  formKey,
+                                  optionKey,
+                                  questionElements[questionKey].form[formKey]
+                                    .options[optionKey].uid,
+                                  questionElements[questionKey].form[formKey]
+                                    .options[optionKey].addForm
+                                );
+                                if (
+                                  questionElements[questionKey].form[formKey]
+                                    .options[optionKey].addForm !== ""
+                                ) {
+                                  addFormElement(
+                                    {
+                                      fromQuestionKey: questionKey,
+                                      fromFormKey: formKey,
+                                      fromOptionKey: optionKey,
+                                    },
+                                    questionElements[questionKey].form[formKey]
+                                      .options[optionKey].addForm
+                                  );
+                                }
                                 if (
                                   questionElements[questionKey].form[formKey]
                                     .options[optionKey].addQuestion !== ""
@@ -288,30 +420,23 @@ export const Funnel = (props: FunnelProps) => {
                                   addQuestionElement(
                                     {
                                       fromQuestionKey: questionKey,
-                                      fromOptionKey:
-                                        questionElements[questionKey].form[
-                                          formKey
-                                        ].options[optionKey].uid,
+                                      fromFormKey: formKey,
+                                      fromOptionKey: optionKey,
                                     },
                                     questionElements[questionKey].form[formKey]
                                       .options[optionKey].addQuestion
                                   );
                                 }
                               } else {
-                                removeQuestionElement(
-                                  questionElements[questionKey].form[formKey]
-                                    .options[optionKey].uid
-                                );
+                                removeFormElement(questionKey, optionKey);
+                                removeQuestionElement(optionKey);
                               }
                             }}
                             className="hidden peer"
                             required={true}
                           />
                           <label
-                            htmlFor={
-                              questionElements[questionKey].form[formKey]
-                                .options[optionKey].uid
-                            }
+                            htmlFor={optionKey}
                             className="inline-flex items-center justify-between w-full p-5 text-synergy-dark-grey bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 dark:peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
                           >
                             <div className="block">

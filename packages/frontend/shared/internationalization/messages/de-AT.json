@@ -2056,41 +2056,41 @@
             "form": {
               "interested-products": {
                 "order": "1",
-                "uid": "interested-products",
                 "type": "checkbox",
                 "multiple": "true",
                 "required": "true",
+                "defaultVisible": "true",
                 "title": "Wofür interessieren Sie sich?",
                 "description": "Wählen Sie alle Produkte aus, die Sie interessieren",
                 "options": {
                   "photovoltaic": {
                     "type": "checkbox",
-                    "uid": "interested-products-photovoltaic",
                     "title": "Photovoltaik",
                     "description": "Erzeugen Sie Ihren eigenen Strom und sparen Sie bis zu 98% Ihrer Stromkosten",
                     "addQuestion": "main-photovoltaic",
+                    "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
                     }
                   },
-                  "wärmepumpe": {
+                  "heat-pump": {
                     "type": "checkbox",
-                    "uid": "interested-products-heat-pump",
                     "title": "Wärmepumpe",
                     "description": "Heizen und Kühlen Sie Ihr Zuhause mit erneuerbarer Energie",
                     "addQuestion": "",
+                    "addForm": "interested-products-two",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
                     }
                   },
-                  "klimasysteme": {
+                  "air-conditioning": {
                     "type": "checkbox",
-                    "uid": "interested-products-air-conditioning",
                     "title": "Klimasysteme",
                     "description": "Kühlen Sie Ihr Zuhause mit erneuerbarer Energie",
                     "addQuestion": "",
+                    "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
@@ -2098,21 +2098,21 @@
                   },
                   "smart-home": {
                     "type": "checkbox",
-                    "uid": "interested-products-smart-home",
                     "title": "Smart Home",
                     "description": "Automatisieren Sie Ihr Zuhause und sparen Sie Energie",
                     "addQuestion": "",
+                    "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
                     }
                   },
-                  "Energiemanagement": {
+                  "energy-management": {
                     "type": "checkbox",
-                    "uid": "interested-products-energy-management",
                     "title": "Energiemanagement",
                     "description": "Optimieren Sie Ihren Energieverbrauch und sparen Sie bis zu 30% Ihrer Energiekosten",
                     "addQuestion": "",
+                    "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
@@ -2120,10 +2120,87 @@
                   },
                   "wallbox": {
                     "type": "checkbox",
-                    "uid": "interested-products-wallbox",
                     "title": "Wallbox",
                     "description": "Laden Sie Ihr Elektroauto mit erneuerbarer Energie",
                     "addQuestion": "",
+                    "addForm": "",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  }
+                }
+              },
+              "interested-products-two": {
+                "order": "1",
+                "type": "checkbox",
+                "multiple": "true",
+                "required": "true",
+                "defaultVisible": "false",
+                "title": "Wofür interessieren Sie sich? Part 2",
+                "description": "Wählen Sie alle Produkte aus, die Sie interessieren",
+                "options": {
+                  "photovoltaic": {
+                    "type": "checkbox",
+                    "title": "Photovoltaik",
+                    "description": "Erzeugen Sie Ihren eigenen Strom und sparen Sie bis zu 98% Ihrer Stromkosten",
+                    "addQuestion": "main-photovoltaic",
+                    "addForm": "",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "wärmepumpe": {
+                    "type": "checkbox",
+                    "title": "Wärmepumpe",
+                    "description": "Heizen und Kühlen Sie Ihr Zuhause mit erneuerbarer Energie",
+                    "addQuestion": "",
+                    "addForm": "",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "klimasysteme": {
+                    "type": "checkbox",
+                    "title": "Klimasysteme",
+                    "description": "Kühlen Sie Ihr Zuhause mit erneuerbarer Energie",
+                    "addQuestion": "",
+                    "addForm": "",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "smart-home": {
+                    "type": "checkbox",
+                    "title": "Smart Home",
+                    "description": "Automatisieren Sie Ihr Zuhause und sparen Sie Energie",
+                    "addQuestion": "",
+                    "addForm": "",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "Energiemanagement": {
+                    "type": "checkbox",
+                    "title": "Energiemanagement",
+                    "description": "Optimieren Sie Ihren Energieverbrauch und sparen Sie bis zu 30% Ihrer Energiekosten",
+                    "addQuestion": "",
+                    "addForm": "",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "wallbox": {
+                    "type": "checkbox",
+                    "title": "Wallbox",
+                    "description": "Laden Sie Ihr Elektroauto mit erneuerbarer Energie",
+                    "addQuestion": "",
+                    "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
@@ -2139,19 +2216,19 @@
             "form": {
               "interested-products": {
                 "order": "1",
-                "uid": "main-photovoltaic-question-one",
                 "type": "checkbox",
                 "multiple": "true",
                 "required": "true",
+                "defaultVisible": "true",
                 "title": "Wie ist der Status des Vorhabens? *",
                 "description": "",
                 "options": {
                   "photovoltaic": {
                     "type": "checkbox",
-                    "uid": "interested-products-photovoltaic",
                     "title": "Photovoltaik",
                     "description": "Erzeugen Sie Ihren eigenen Strom und sparen Sie bis zu 98% Ihrer Stromkosten",
                     "addQuestion": "interested-products",
+                    "addForm": "interested-products-two",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
@@ -2159,10 +2236,10 @@
                   },
                   "wärmepumpe": {
                     "type": "checkbox",
-                    "uid": "interested-products-heat-pump",
                     "title": "Wärmepumpe",
                     "description": "Heizen und Kühlen Sie Ihr Zuhause mit erneuerbarer Energie",
                     "addQuestion": "",
+                    "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
@@ -2170,10 +2247,10 @@
                   },
                   "klimasysteme": {
                     "type": "checkbox",
-                    "uid": "interested-products-air-conditioning",
                     "title": "Klimasysteme",
                     "description": "Kühlen Sie Ihr Zuhause mit erneuerbarer Energie",
                     "addQuestion": "",
+                    "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
@@ -2181,10 +2258,10 @@
                   },
                   "smart-home": {
                     "type": "checkbox",
-                    "uid": "interested-products-smart-home",
                     "title": "Smart Home",
                     "description": "Automatisieren Sie Ihr Zuhause und sparen Sie Energie",
                     "addQuestion": "",
+                    "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
@@ -2192,10 +2269,10 @@
                   },
                   "Energiemanagement": {
                     "type": "checkbox",
-                    "uid": "interested-products-energy-management",
                     "title": "Energiemanagement",
                     "description": "Optimieren Sie Ihren Energieverbrauch und sparen Sie bis zu 30% Ihrer Energiekosten",
                     "addQuestion": "",
+                    "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
@@ -2203,10 +2280,10 @@
                   },
                   "wallbox": {
                     "type": "checkbox",
-                    "uid": "interested-products-wallbox",
                     "title": "Wallbox",
                     "description": "Laden Sie Ihr Elektroauto mit erneuerbarer Energie",
                     "addQuestion": "",
+                    "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
@@ -2216,19 +2293,19 @@
               },
               "interested-products-two": {
                 "order": "1",
-                "uid": "main-photovoltaic-question-two",
                 "type": "checkbox",
                 "multiple": "true",
                 "required": "true",
+                "defaultVisible": "false",
                 "title": "Wie ist der Status des Vorhabens? *",
                 "description": "",
                 "options": {
                   "photovoltaic": {
                     "type": "checkbox",
-                    "uid": "interested-products-photovoltaic",
                     "title": "Photovoltaik",
                     "description": "Erzeugen Sie Ihren eigenen Strom und sparen Sie bis zu 98% Ihrer Stromkosten",
                     "addQuestion": "main-photovoltaic",
+                    "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
@@ -2236,10 +2313,10 @@
                   },
                   "wärmepumpe": {
                     "type": "checkbox",
-                    "uid": "interested-products-heat-pump",
                     "title": "Wärmepumpe",
                     "description": "Heizen und Kühlen Sie Ihr Zuhause mit erneuerbarer Energie",
                     "addQuestion": "",
+                    "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
@@ -2247,10 +2324,10 @@
                   },
                   "klimasysteme": {
                     "type": "checkbox",
-                    "uid": "interested-products-air-conditioning",
                     "title": "Klimasysteme",
                     "description": "Kühlen Sie Ihr Zuhause mit erneuerbarer Energie",
                     "addQuestion": "",
+                    "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
@@ -2258,10 +2335,10 @@
                   },
                   "smart-home": {
                     "type": "checkbox",
-                    "uid": "interested-products-smart-home",
                     "title": "Smart Home",
                     "description": "Automatisieren Sie Ihr Zuhause und sparen Sie Energie",
                     "addQuestion": "",
+                    "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
@@ -2269,10 +2346,10 @@
                   },
                   "Energiemanagement": {
                     "type": "checkbox",
-                    "uid": "interested-products-energy-management",
                     "title": "Energiemanagement",
                     "description": "Optimieren Sie Ihren Energieverbrauch und sparen Sie bis zu 30% Ihrer Energiekosten",
                     "addQuestion": "",
+                    "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
@@ -2280,10 +2357,10 @@
                   },
                   "wallbox": {
                     "type": "checkbox",
-                    "uid": "interested-products-wallbox",
                     "title": "Wallbox",
                     "description": "Laden Sie Ihr Elektroauto mit erneuerbarer Energie",
                     "addQuestion": "",
+                    "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"

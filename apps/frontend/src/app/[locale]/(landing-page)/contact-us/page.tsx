@@ -19,9 +19,7 @@ export default function Page(): JSX.Element {
                 {t("title")}
               </h1>
               <div className="text-lg text-slate-500">
-                <RichText>
-                  {(tags) => t.rich("description", tags)}
-                </RichText>
+                <RichText>{(tags) => t.rich("description", tags)}</RichText>
               </div>
             </div>
 

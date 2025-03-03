@@ -3,6 +3,7 @@ import { useMessages, useTranslations } from "next-intl";
 import { useState } from "react";
 import { RichText } from "@com.synergy/frontend-ui/RichText";
 import Link from "next/link";
+import { p } from "framer-motion/client";
 
 /* eslint-disable-next-line */
 export interface FunnelProps {}
@@ -45,43 +46,107 @@ export const Funnel = (props: FunnelProps) => {
       form: Object.keys(element.form).reduce(
         (formAcc: any, formKey: string) => {
           if (element.form[formKey].defaultVisible === "true") {
-            formAcc[
-              `${formKey}-${Math.random().toString(36).substring(2, 7)}`
-            ] = {
-              order: Number(element.form[formKey].order),
-              uid: formKey,
-              type: element.form[formKey].type,
-              multiple: element.form[formKey].multiple,
-              required: element.required === "true",
-              defaultVisible: element.form[formKey].defaultVisible === "true",
-              title: element.form[formKey].title,
-              description: element.form[formKey].description,
-              from: from || [],
-              options: Object.keys(element.form[formKey].options).reduce(
-                (optionsAcc: any, optionKey: string) => {
-                  optionsAcc[
-                    `${optionKey}-${Math.random().toString(36).substring(2, 7)}`
-                  ] = {
-                    text: element.form[formKey].options[optionKey].title,
-                    type: element.form[formKey].options[optionKey].type,
-                    uid: optionKey,
-                    title: element.form[formKey].options[optionKey].title,
-                    description:
-                      element.form[formKey].options[optionKey].description,
-                    addQuestion:
-                      element.form[formKey].options[optionKey].addQuestion,
-                    addForm: element.form[formKey].options[optionKey].addForm,
-                    icon: {
-                      src: element.form[formKey].options[optionKey].icon.src,
-                      alt: element.form[formKey].options[optionKey].icon.alt,
-                    },
-                  };
-                  return optionsAcc;
+            if (
+              element.form[formKey].type === "checkbox" ||
+              element.form[formKey].type === "radio"
+            ) {
+              formAcc[
+                `${formKey}-${Math.random().toString(36).substring(2, 7)}`
+              ] = {
+                order: Number(element.form[formKey].order),
+                uid: formKey,
+                type: element.form[formKey].type,
+                multiple: element.form[formKey].multiple,
+                required: element.required === "true",
+                defaultVisible: element.form[formKey].defaultVisible === "true",
+                title: element.form[formKey].title,
+                description: element.form[formKey].description,
+                from: from || [],
+                options: Object.keys(element.form[formKey].options).reduce(
+                  (optionsAcc: any, optionKey: string) => {
+                    optionsAcc[
+                      `${optionKey}-${Math.random().toString(36).substring(2, 7)}`
+                    ] = {
+                      text: element.form[formKey].options[optionKey].title,
+                      type: element.form[formKey].options[optionKey].type,
+                      uid: optionKey,
+                      title: element.form[formKey].options[optionKey].title,
+                      description:
+                        element.form[formKey].options[optionKey].description,
+                      addQuestion:
+                        element.form[formKey].options[optionKey].addQuestion,
+                      addForm: element.form[formKey].options[optionKey].addForm,
+                      icon: {
+                        src: element.form[formKey].options[optionKey].icon.src,
+                        alt: element.form[formKey].options[optionKey].icon.alt,
+                      },
+                    };
+                    return optionsAcc;
+                  },
+                  {}
+                ),
+                selected: {
+                  questionTitle: element.form[formKey].title,
+                  selectedOptions: [],
+                  selectedOptionsUid: [],
                 },
-                {}
-              ),
-              selected: [],
-            };
+              };
+            } else if (element.form[formKey].type === "range") {
+              formAcc[
+                `${formKey}-${Math.random().toString(36).substring(2, 7)}`
+              ] = {
+                order: Number(element.form[formKey].order),
+                uid: formKey,
+                type: element.form[formKey].type,
+                required: element.required === "true",
+                defaultVisible: element.form[formKey].defaultVisible === "true",
+                title: element.form[formKey].title,
+                description: element.form[formKey].description,
+                from: from || [],
+                options: {
+                  range: {
+                    defaultValue: Number(
+                      element.form[formKey].options.range.defaultValue
+                    ),
+                    min: Number(element.form[formKey].options.range.min),
+                    max: Number(element.form[formKey].options.range.max),
+                    step: Number(element.form[formKey].options.range.step),
+                  },
+                  unit: {
+                    value: element.form[formKey].options.unit.value,
+                    spaceBetween:
+                      element.form[formKey].options.unit.spaceBetween ===
+                      "true",
+                    position: element.form[formKey].options.unit.position,
+                  },
+                  labels: Object.keys(
+                    element.form[formKey].options.labels
+                  ).reduce((lablesAcc: any, labelKey: string) => {
+                    lablesAcc[
+                      `${labelKey}-${Math.random().toString(36).substring(2, 7)}`
+                    ] = {
+                      text: element.form[formKey].options.labels[labelKey].text,
+                      value: Number(
+                        element.form[formKey].options.labels[labelKey].value
+                      ),
+                      align:
+                        element.form[formKey].options.labels[labelKey].align,
+                      offsetX:
+                        element.form[formKey].options.labels[labelKey].offsetX,
+                      correctX:
+                        element.form[formKey].options.labels[labelKey].correctX,
+                    };
+                    return lablesAcc;
+                  }, {}),
+                },
+                selected: {
+                  questionTitle: element.form[formKey].title,
+                  selectedValue: Number(
+                    element.form[formKey].options.range.defaultValue
+                  ),
+                },
+              };
+            }
           }
           return formAcc;
         },
@@ -107,39 +172,88 @@ export const Funnel = (props: FunnelProps) => {
         formKey
       ];
 
-    return {
-      order: Number(element.order),
-      uid: formKey,
-      type: element.type,
-      multiple: element.multiple,
-      required: element.required === "true",
-      defaultVisible: element.defaultVisible === "true",
-      title: element.title,
-      description: element.description,
-      from: from || [],
-      options: Object.keys(element.options).reduce(
-        (optionsAcc: any, optionKey: string) => {
-          optionsAcc[
-            `${optionKey}-${Math.random().toString(36).substring(2, 7)}`
-          ] = {
-            text: element.options[optionKey].title,
-            type: element.options[optionKey].type,
-            uid: optionKey,
-            title: element.options[optionKey].title,
-            description: element.options[optionKey].description,
-            addQuestion: element.options[optionKey].addQuestion,
-            addForm: element.options[optionKey].addForm,
-            icon: {
-              src: element.options[optionKey].icon.src,
-              alt: element.options[optionKey].icon.alt,
-            },
-          };
-          return optionsAcc;
+    if (element.type === "checkbox" || element.type === "radio") {
+      return {
+        order: Number(element.order),
+        uid: formKey,
+        type: element.type,
+        multiple: element.multiple,
+        required: element.required === "true",
+        defaultVisible: element.defaultVisible === "true",
+        title: element.title,
+        description: element.description,
+        from: from || [],
+        options: Object.keys(element.options).reduce(
+          (optionsAcc: any, optionKey: string) => {
+            optionsAcc[
+              `${optionKey}-${Math.random().toString(36).substring(2, 7)}`
+            ] = {
+              text: element.options[optionKey].title,
+              type: element.options[optionKey].type,
+              uid: optionKey,
+              title: element.options[optionKey].title,
+              description: element.options[optionKey].description,
+              addQuestion: element.options[optionKey].addQuestion,
+              addForm: element.options[optionKey].addForm,
+              icon: {
+                src: element.options[optionKey].icon.src,
+                alt: element.options[optionKey].icon.alt,
+              },
+            };
+            return optionsAcc;
+          },
+          {}
+        ),
+        selected: {
+          questionTitle: element.title,
+          selectedOptions: [],
+          selectedOptionsUid: [],
         },
-        {}
-      ),
-      selected: [],
-    };
+      };
+    } else if (element.type === "range") {
+      return {
+        order: Number(element.order),
+        uid: formKey,
+        type: element.type,
+        required: element.required === "true",
+        defaultVisible: element.defaultVisible === "true",
+        title: element.title,
+        description: element.description,
+        from: from || [],
+        options: {
+          range: {
+            defaultValue: Number(element.options.range.defaultValue),
+            min: Number(element.options.range.min),
+            max: Number(element.options.range.max),
+            step: Number(element.options.range.step),
+          },
+          unit: {
+            value: element.options.unit.value,
+            spaceBetween: element.options.unit.spaceBetween === "true",
+            position: element.options.unit.position,
+          },
+          labels: Object.keys(element.options.labels).reduce(
+            (lablesAcc: any, labelKey: string) => {
+              lablesAcc[
+                `${labelKey}-${Math.random().toString(36).substring(2, 7)}`
+              ] = {
+                text: element.options.labels[labelKey].text,
+                value: Number(element.options.labels[labelKey].value),
+                align: element.options.labels[labelKey].align,
+                offsetX: element.options.labels[labelKey].offsetX,
+                correctX: element.options.labels[labelKey].correctX,
+              };
+              return lablesAcc;
+            },
+            {}
+          ),
+        },
+        selected: {
+          questionTitle: element.title,
+          selectedValue: Number(element.options.range.defaultValue),
+        },
+      };
+    }
   };
 
   const [questionElements, setQuestionElements] = useState<Record<string, any>>(
@@ -296,7 +410,11 @@ export const Funnel = (props: FunnelProps) => {
           <div className="">
             {Object.keys(questionElements[questionKey].form).map(
               (formKey: any, index: any) => (
-                <section id={formKey} className="w-full scroll-mt-20">
+                <section
+                  key={formKey}
+                  id={formKey}
+                  className="w-full scroll-mt-20"
+                >
                   {/** Title and description of form */}
                   <div className="text-center mt-5 mb-5">
                     <div className="text-lg font-medium text-gray-900 dark:text-white">
@@ -307,97 +425,45 @@ export const Funnel = (props: FunnelProps) => {
                     </div>
                   </div>
                   {questionElements[questionKey].form[formKey].type ===
-                    "checkbox" && (
+                    "checkbox" ||
+                  questionElements[questionKey].form[formKey].type ===
+                    "radio" ? (
                     <ul className="grid w-full gap-6 md:grid-cols-3">
                       {Object.keys(
                         questionElements[questionKey].form[formKey].options
                       ).map((optionKey: any, index: any) => (
-                        <li>
+                        <li key={optionKey}>
                           <input
-                            type="checkbox"
+                            type={
+                              questionElements[questionKey].form[formKey]
+                                .type === "checkbox"
+                                ? "checkbox"
+                                : "radio"
+                            }
+                            name={formKey}
                             id={optionKey}
                             value=""
                             onChange={(e) => {
                               const { checked, id } = e.target;
-                              setQuestionElements((prev) => {
-                                /** Gets called twice in dev - do not fall off your chair - prod only updates the elements once */
-                                const updatedElements = { ...prev };
-                                const form =
-                                  updatedElements[questionKey].form[formKey];
-                                if (checked) {
-                                  const existingSelection = form.selected.find(
-                                    (selection: { formUid: string }) => {
-                                      return selection.formUid === formKey;
-                                    }
-                                  );
-                                  console.log(
-                                    "existingSelection",
-                                    checked,
-                                    existingSelection
-                                  );
-                                  if (existingSelection) {
-                                    existingSelection.selectedOptions.push(
-                                      questionElements[questionKey].form[
-                                        formKey
-                                      ].options[optionKey].title
-                                    );
-                                  } else {
-                                    form.selected.push({
-                                      formUid: formKey,
-                                      questionTitle:
-                                        questionElements[questionKey].form[
-                                          formKey
-                                        ].title,
-                                      selectedOptions: [
-                                        questionElements[questionKey].form[
-                                          formKey
-                                        ].options[optionKey].title,
-                                      ],
-                                    });
-                                  }
-                                } else {
-                                  const selectedOptionIndex =
-                                    form.selected.findIndex(
-                                      (selection: { formUid: string }) => {
-                                        return selection.formUid === formKey;
-                                      }
-                                    );
-                                  if (selectedOptionIndex !== -1) {
-                                    form.selected[
-                                      selectedOptionIndex
-                                    ].selectedOptions = form.selected[
-                                      selectedOptionIndex
-                                    ].selectedOptions.filter(
-                                      (option: string) =>
-                                        option !==
-                                        questionElements[questionKey].form[
-                                          formKey
-                                        ].options[optionKey].title
-                                    );
-                                    if (
-                                      form.selected[selectedOptionIndex]
-                                        .selectedOptions.length === 0
-                                    ) {
-                                      form.selected.splice(
-                                        selectedOptionIndex,
-                                        1
-                                      );
-                                    }
-                                  }
-                                }
-                                return updatedElements;
-                              });
+                              console.log("onchange", checked, id);
                               if (checked) {
-                                console.log(
-                                  "request add Form",
-                                  questionKey,
-                                  formKey,
-                                  optionKey,
+                                /** Clean deselection for radio */
+                                if (
                                   questionElements[questionKey].form[formKey]
-                                    .options[optionKey].uid,
+                                    .selected.selectedOptionsUid.length > 0 &&
                                   questionElements[questionKey].form[formKey]
-                                    .options[optionKey].addForm
-                                );
+                                    .type === "radio"
+                                ) {
+                                  questionElements[questionKey].form[
+                                    formKey
+                                  ].selected.selectedOptionsUid.map(
+                                    (optionUid: string) => {
+                                      removeFormElement(questionKey, optionUid);
+                                      removeQuestionElement(optionUid);
+                                    }
+                                  );
+                                }
+
                                 if (
                                   questionElements[questionKey].form[formKey]
                                     .options[optionKey].addForm !== ""
@@ -428,9 +494,69 @@ export const Funnel = (props: FunnelProps) => {
                                   );
                                 }
                               } else {
+                                /** Gets used for checkbox only, use "Clean deselection for radio above for radio type" */
                                 removeFormElement(questionKey, optionKey);
                                 removeQuestionElement(optionKey);
                               }
+
+                              setQuestionElements((prev) => {
+                                /** Gets called twice in dev - do not fall off your chair - prod only updates the elements once */
+                                const updatedElements = { ...prev };
+                                const form =
+                                  updatedElements[questionKey].form[formKey];
+                                if (checked) {
+                                  if (
+                                    questionElements[questionKey].form[formKey]
+                                      .type === "checkbox"
+                                  ) {
+                                    form.selected.selectedOptions.push(
+                                      questionElements[questionKey].form[
+                                        formKey
+                                      ].options[optionKey].title
+                                    );
+                                    form.selected.selectedOptionsUid.push(
+                                      optionKey
+                                    );
+                                  } else if (
+                                    questionElements[questionKey].form[formKey]
+                                      .type === "radio"
+                                  ) {
+                                    /** Radio - only one option can be selected */
+                                    form.selected.selectedOptions = [
+                                      questionElements[questionKey].form[
+                                        formKey
+                                      ].options[optionKey].title,
+                                    ];
+                                    form.selected.selectedOptionsUid = [
+                                      optionKey,
+                                    ];
+                                  }
+                                } else {
+                                  /** Remove selectedOptions which only works for checkbox (radio cannot detect deselection) */
+                                  form.selected.selectedOptions =
+                                    form.selected.selectedOptions.filter(
+                                      (option: string) =>
+                                        option !==
+                                        questionElements[questionKey].form[
+                                          formKey
+                                        ].options[optionKey].title
+                                    );
+                                  form.selected.selectedOptionsUid =
+                                    form.selected.selectedOptionsUid.filter(
+                                      (option: string) => option !== optionKey
+                                    );
+                                  // if (
+                                  //   form.selected[selectedOptionIndex]
+                                  //     .selectedOptions.length === 0
+                                  // ) {
+                                  //   form.selected.splice(
+                                  //     selectedOptionIndex,
+                                  //     1
+                                  //   );
+                                  // }
+                                }
+                                return updatedElements;
+                              });
                             }}
                             className="hidden peer"
                             required={true}
@@ -466,6 +592,111 @@ export const Funnel = (props: FunnelProps) => {
                         </li>
                       ))}
                     </ul>
+                  ) : (
+                    questionElements[questionKey].form[formKey].type ===
+                      "range" && (
+                      <div className="relative mb-6">
+                        <div
+                          className={`flex justify-end ${questionElements[questionKey].form[formKey].options.unit.spaceBetween && "gap-1"}`}
+                        >
+                          <span className="text-base font-semibold text-synergy-dark-grey dark:text-gray-400">
+                            {
+                              questionElements[questionKey].form[formKey]
+                                .selected.selectedValue
+                            }
+                          </span>
+                          <span
+                            className={`text-base font-semibold text-synergy-dark-grey dark:text-gray-400 flex justify-end ${questionElements[questionKey].form[formKey].options.unit.position === "before" && "order-first"}`}
+                          >
+                            {
+                              questionElements[questionKey].form[formKey]
+                                .options.unit.value
+                            }
+                          </span>
+                        </div>
+                        <label htmlFor="labels-range-input" className="sr-only">
+                          Labels range
+                        </label>
+                        <input
+                          id="labels-range-input"
+                          type="range"
+                          value={
+                            questionElements[questionKey].form[formKey].selected
+                              .selectedValue
+                          }
+                          defaultValue={
+                            questionElements[questionKey].form[formKey].options
+                              .range.defaultValue
+                          }
+                          min={
+                            questionElements[questionKey].form[formKey].options
+                              .range.min
+                          }
+                          max={
+                            questionElements[questionKey].form[formKey].options
+                              .range.max
+                          }
+                          step={
+                            questionElements[questionKey].form[formKey].options
+                              .range.step
+                          }
+                          className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                          onChange={(e) => {
+                            const { value } = e.target;
+                            setQuestionElements((prev) => {
+                              const updatedElements = { ...prev };
+                              updatedElements[questionKey].form[
+                                formKey
+                              ].selected.selectedValue = Number(value);
+                              return updatedElements;
+                            });
+                          }}
+                        />
+                        {Object.keys(
+                          questionElements[questionKey].form[formKey].options
+                            .labels
+                        ).map((labelKey: any, index: any) => (
+                          <button
+                            key={labelKey}
+                            className={`absolute ${
+                              questionElements[questionKey].form[formKey]
+                                .options.labels[labelKey].align === "start"
+                                ? `start-${questionElements[questionKey].form[formKey].options.labels[labelKey].offsetX}`
+                                : `end-${questionElements[questionKey].form[formKey].options.labels[labelKey].offsetX}`
+                            } -translate-x-[${questionElements[questionKey].form[formKey].options.labels[labelKey].correctX}] -bottom-6 text-sm text-gray-500 dark:text-gray-400`}
+                            onClick={() => {
+                              setQuestionElements((prev) => {
+                                const updatedElements = { ...prev };
+                                updatedElements[questionKey].form[
+                                  formKey
+                                ].selected.selectedValue =
+                                  questionElements[questionKey].form[
+                                    formKey
+                                  ].options.labels[labelKey].value;
+                                return updatedElements;
+                              });
+                            }}
+                          >
+                            {
+                              questionElements[questionKey].form[formKey]
+                                .options.labels[labelKey].text
+                            }
+                          </button>
+                        ))}
+                        {/* <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">
+                          Min ($100)
+                        </span>
+                        <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-1/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">
+                          $500
+                        </span>
+                        <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-2/3 -translate-x-[105%] rtl:translate-x-1/2 -bottom-6">
+                          $1000
+                        </span>
+                        <span className="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">
+                          Max ($1500)
+                        </span> */}
+                      </div>
+                    )
                   )}
                   <div className="flex justify-end mt-2">
                     <Link

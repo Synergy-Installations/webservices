@@ -2060,32 +2060,32 @@
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "true",
-                "title": "Wofür interessieren Sie sich?",
-                "description": "Wählen Sie alle Produkte aus, die Sie interessieren",
+                "title": "Wie ist der Status des Vorhabens? *",
+                "description": "",
                 "options": {
                   "photovoltaic": {
                     "type": "checkbox",
                     "title": "Photovoltaik",
                     "description": "Erzeugen Sie Ihren eigenen Strom und sparen Sie bis zu 98% Ihrer Stromkosten",
-                    "addQuestion": "main-photovoltaic",
+                    "addQuestion": "interested-products",
+                    "addForm": "interested-products-range",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "wärmepumpe": {
+                    "type": "checkbox",
+                    "title": "Wärmepumpe",
+                    "description": "Heizen und Kühlen Sie Ihr Zuhause mit erneuerbarer Energie",
+                    "addQuestion": "",
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
                     }
                   },
-                  "heat-pump": {
-                    "type": "checkbox",
-                    "title": "Wärmepumpe",
-                    "description": "Heizen und Kühlen Sie Ihr Zuhause mit erneuerbarer Energie",
-                    "addQuestion": "",
-                    "addForm": "interested-products-two",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
-                    }
-                  },
-                  "air-conditioning": {
+                  "klimasysteme": {
                     "type": "checkbox",
                     "title": "Klimasysteme",
                     "description": "Kühlen Sie Ihr Zuhause mit erneuerbarer Energie",
@@ -2107,7 +2107,7 @@
                       "alt": "Photovoltaik"
                     }
                   },
-                  "energy-management": {
+                  "Energiemanagement": {
                     "type": "checkbox",
                     "title": "Energiemanagement",
                     "description": "Optimieren Sie Ihren Energieverbrauch und sparen Sie bis zu 30% Ihrer Energiekosten",
@@ -2131,9 +2131,60 @@
                   }
                 }
               },
+              "interested-products-range": {
+                "order": "1",
+                "type": "range",
+                "required": "true",
+                "defaultVisible": "hidden",
+                "title": "Wie viel Zahlen Sie derzeit für Strom?",
+                "description": "Wählen Sie den Betrag, den Sie derzeit für Strom zahlen",
+                "options": {
+                  "range": {
+                    "defaultValue": "500",
+                    "min": "100",
+                    "max": "1500",
+                    "step": "10"
+                  },
+                  "unit": {
+                    "value": "$",
+                    "spaceBetween": "false",
+                    "position": "before"
+                  },
+                  "labels": {
+                    "min": {
+                      "text": "Min ($100)",
+                      "value": 100,
+                      "align": "start",
+                      "offsetX": "0",
+                      "correctX": "0%"
+                    },
+                    "q1": {
+                      "text": "$500",
+                      "value": 500,
+                      "align": "start",
+                      "offsetX": "1/3",
+                      "correctX": "145%"
+                    },
+                    "q2": {
+                      "text": "$1000",
+                      "value": 1000,
+                      "align": "start",
+                      "offsetX": "2/3",
+                      "correctX": "105%"
+                    },
+                    "max": {
+                      "text": "Max ($1500)",
+                      "value": 1500,
+                      "align": "end",
+                      "offsetX": "0",
+                      "correctX": "0%"
+                    }
+                  }
+                }
+              },
               "interested-products-two": {
                 "order": "1",
-                "type": "checkbox",
+                "type": "radio",
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "false",

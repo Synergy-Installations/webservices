@@ -1,9 +1,9 @@
 "use client";
 import { useMessages, useTranslations } from "next-intl";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { RichText } from "@com.synergy/frontend-ui/RichText";
 import Link from "next/link";
-import { p } from "framer-motion/client";
+import { label, p } from "framer-motion/client";
 
 /* eslint-disable-next-line */
 export interface FunnelProps {}
@@ -57,7 +57,7 @@ export const Funnel = (props: FunnelProps) => {
                 uid: formKey,
                 type: element.form[formKey].type,
                 multiple: element.form[formKey].multiple,
-                required: element.required === "true",
+                required: element.form[formKey].required === "true",
                 defaultVisible: element.form[formKey].defaultVisible === "true",
                 title: element.form[formKey].title,
                 description: element.form[formKey].description,
@@ -98,7 +98,7 @@ export const Funnel = (props: FunnelProps) => {
                 order: Number(element.form[formKey].order),
                 uid: formKey,
                 type: element.form[formKey].type,
-                required: element.required === "true",
+                required: element.form[formKey].required === "true",
                 defaultVisible: element.form[formKey].defaultVisible === "true",
                 title: element.form[formKey].title,
                 description: element.form[formKey].description,
@@ -144,6 +144,27 @@ export const Funnel = (props: FunnelProps) => {
                   selectedValue: Number(
                     element.form[formKey].options.range.defaultValue
                   ),
+                },
+              };
+            } else if (element.form[formKey].type === "text") {
+              formAcc[
+                `${formKey}-${Math.random().toString(36).substring(2, 7)}`
+              ] = {
+                order: Number(element.form[formKey].order),
+                uid: formKey,
+                type: element.form[formKey].type,
+                required: element.form[formKey].required === "true",
+                defaultVisible: element.form[formKey].defaultVisible === "true",
+                title: element.form[formKey].title,
+                description: element.form[formKey].description,
+                from: from || [],
+                options: {
+                  label: element.form[formKey].options.label,
+                  placeholder: element.form[formKey].options.placeholder,
+                },
+                selected: {
+                  questionTitle: element.form[formKey].title,
+                  inputValue: "",
                 },
               };
             }
@@ -251,6 +272,25 @@ export const Funnel = (props: FunnelProps) => {
         selected: {
           questionTitle: element.title,
           selectedValue: Number(element.options.range.defaultValue),
+        },
+      };
+    } else if (element.form[formKey].type === "text") {
+      return {
+        order: Number(element.order),
+        uid: formKey,
+        type: element.type,
+        required: element.required === "true",
+        defaultVisible: element.defaultVisible === "true",
+        title: element.title,
+        description: element.description,
+        from: from || [],
+        options: {
+          label: element.options.label,
+          placeholder: element.options.placeholder,
+        },
+        selected: {
+          questionTitle: element.title,
+          inputValue: "",
         },
       };
     }
@@ -394,6 +434,23 @@ export const Funnel = (props: FunnelProps) => {
 
   const funnelElementKeys = (element: string) =>
     Object.keys(messages.LandingPage.ContactUs.Funnel[element]);
+
+  /** Flush server state - This is dirty and should be handled better
+   * Rerender the component to use the client's section ids for continue button
+   * This is due to the server rendering the compontent using the useState and then the client
+   * recreates the state using different keys as they are created on initializing the state.
+   */
+  useEffect(() => {
+    setQuestionElements((prev) => ({}));
+    setQuestionElements(() => {
+      const firstQuestionKey = "interested-products";
+
+      return {
+        [`interested-products-${Math.random().toString(36).substring(2, 7)}`]:
+          createQuestionElement(firstQuestionKey, ["initialLoad"]),
+      };
+    });
+  }, []);
 
   return (
     <div className="flex flex-col justify-center max-w-3xl mx-auto">
@@ -592,98 +649,97 @@ export const Funnel = (props: FunnelProps) => {
                         </li>
                       ))}
                     </ul>
-                  ) : (
-                    questionElements[questionKey].form[formKey].type ===
-                      "range" && (
-                      <div className="relative mb-6">
-                        <div
-                          className={`flex justify-end ${questionElements[questionKey].form[formKey].options.unit.spaceBetween && "gap-1"}`}
-                        >
-                          <span className="text-base font-semibold text-synergy-dark-grey dark:text-gray-400">
-                            {
-                              questionElements[questionKey].form[formKey]
-                                .selected.selectedValue
-                            }
-                          </span>
-                          <span
-                            className={`text-base font-semibold text-synergy-dark-grey dark:text-gray-400 flex justify-end ${questionElements[questionKey].form[formKey].options.unit.position === "before" && "order-first"}`}
-                          >
-                            {
-                              questionElements[questionKey].form[formKey]
-                                .options.unit.value
-                            }
-                          </span>
-                        </div>
-                        <label htmlFor="labels-range-input" className="sr-only">
-                          Labels range
-                        </label>
-                        <input
-                          id="labels-range-input"
-                          type="range"
-                          value={
+                  ) : questionElements[questionKey].form[formKey].type ===
+                    "range" ? (
+                    <div className="relative mb-6">
+                      <div
+                        className={`flex justify-end ${questionElements[questionKey].form[formKey].options.unit.spaceBetween && "gap-1"}`}
+                      >
+                        <span className="text-base font-semibold text-synergy-dark-grey dark:text-gray-400">
+                          {
                             questionElements[questionKey].form[formKey].selected
                               .selectedValue
                           }
-                          defaultValue={
+                        </span>
+                        <span
+                          className={`text-base font-semibold text-synergy-dark-grey dark:text-gray-400 flex justify-end ${questionElements[questionKey].form[formKey].options.unit.position === "before" && "order-first"}`}
+                        >
+                          {
                             questionElements[questionKey].form[formKey].options
-                              .range.defaultValue
+                              .unit.value
                           }
-                          min={
+                        </span>
+                      </div>
+                      <label htmlFor="labels-range-input" className="sr-only">
+                        Labels range
+                      </label>
+                      <input
+                        id="labels-range-input"
+                        type="range"
+                        value={
+                          questionElements[questionKey].form[formKey].selected
+                            .selectedValue
+                        }
+                        defaultValue={
+                          questionElements[questionKey].form[formKey].options
+                            .range.defaultValue
+                        }
+                        min={
+                          questionElements[questionKey].form[formKey].options
+                            .range.min
+                        }
+                        max={
+                          questionElements[questionKey].form[formKey].options
+                            .range.max
+                        }
+                        step={
+                          questionElements[questionKey].form[formKey].options
+                            .range.step
+                        }
+                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                        onChange={(e) => {
+                          const { value } = e.target;
+                          setQuestionElements((prev) => {
+                            const updatedElements = { ...prev };
+                            updatedElements[questionKey].form[
+                              formKey
+                            ].selected.selectedValue = Number(value);
+                            return updatedElements;
+                          });
+                        }}
+                      />
+                      {Object.keys(
+                        questionElements[questionKey].form[formKey].options
+                          .labels
+                      ).map((labelKey: any, index: any) => (
+                        <button
+                          key={labelKey}
+                          className={`absolute ${
                             questionElements[questionKey].form[formKey].options
-                              .range.min
-                          }
-                          max={
-                            questionElements[questionKey].form[formKey].options
-                              .range.max
-                          }
-                          step={
-                            questionElements[questionKey].form[formKey].options
-                              .range.step
-                          }
-                          className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-                          onChange={(e) => {
-                            const { value } = e.target;
+                              .labels[labelKey].align === "start"
+                              ? `start-${questionElements[questionKey].form[formKey].options.labels[labelKey].offsetX}`
+                              : `end-${questionElements[questionKey].form[formKey].options.labels[labelKey].offsetX}`
+                          } -translate-x-[${questionElements[questionKey].form[formKey].options.labels[labelKey].correctX}] -bottom-6 text-sm text-gray-500 dark:text-gray-400`}
+                          onClick={() => {
                             setQuestionElements((prev) => {
                               const updatedElements = { ...prev };
                               updatedElements[questionKey].form[
                                 formKey
-                              ].selected.selectedValue = Number(value);
+                              ].selected.selectedValue =
+                                questionElements[questionKey].form[
+                                  formKey
+                                ].options.labels[labelKey].value;
                               return updatedElements;
                             });
                           }}
-                        />
-                        {Object.keys(
-                          questionElements[questionKey].form[formKey].options
-                            .labels
-                        ).map((labelKey: any, index: any) => (
-                          <button
-                            key={labelKey}
-                            className={`absolute ${
-                              questionElements[questionKey].form[formKey]
-                                .options.labels[labelKey].align === "start"
-                                ? `start-${questionElements[questionKey].form[formKey].options.labels[labelKey].offsetX}`
-                                : `end-${questionElements[questionKey].form[formKey].options.labels[labelKey].offsetX}`
-                            } -translate-x-[${questionElements[questionKey].form[formKey].options.labels[labelKey].correctX}] -bottom-6 text-sm text-gray-500 dark:text-gray-400`}
-                            onClick={() => {
-                              setQuestionElements((prev) => {
-                                const updatedElements = { ...prev };
-                                updatedElements[questionKey].form[
-                                  formKey
-                                ].selected.selectedValue =
-                                  questionElements[questionKey].form[
-                                    formKey
-                                  ].options.labels[labelKey].value;
-                                return updatedElements;
-                              });
-                            }}
-                          >
-                            {
-                              questionElements[questionKey].form[formKey]
-                                .options.labels[labelKey].text
-                            }
-                          </button>
-                        ))}
-                        {/* <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">
+                        >
+                          {
+                            questionElements[questionKey].form[formKey].options
+                              .labels[labelKey].text
+                          }
+                        </button>
+                      ))}
+                      {/* <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">
                           Min ($100)
                         </span>
                         <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-1/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">
@@ -695,6 +751,45 @@ export const Funnel = (props: FunnelProps) => {
                         <span className="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">
                           Max ($1500)
                         </span> */}
+                    </div>
+                  ) : (
+                    questionElements[questionKey].form[formKey].type ===
+                      "text" && (
+                      <div className="grid gap-6 mb-6 md:grid-cols-2">
+                        <div>
+                          <label
+                            htmlFor={formKey}
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          >
+                            {
+                              questionElements[questionKey].form[formKey]
+                                .options.label
+                            }
+                          </label>
+                          <input
+                            type="text"
+                            id={formKey}
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder={
+                              questionElements[questionKey].form[formKey]
+                                .options.placeholder
+                            }
+                            required={
+                              questionElements[questionKey].form[formKey]
+                                .required
+                            }
+                            onChange={(e) => {
+                              const { value } = e.target;
+                              setQuestionElements((prev) => {
+                                const updatedElements = { ...prev };
+                                updatedElements[questionKey].form[
+                                  formKey
+                                ].selected.inputValue = value;
+                                return updatedElements;
+                              });
+                            }}
+                          />
+                        </div>
                       </div>
                     )
                   )}

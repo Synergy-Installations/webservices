@@ -2054,6 +2054,30 @@
             "title": "Starten Sie in die Energieunabhängikeit!",
             "description": "Sie erhalten danach unseren Ratgeber mit Tipps und Tricks zu Anschaffung, Förderung und Betrieb Ihrer PV-Anlage!",
             "form": {
+              "interested-products-text": {
+                "order": "1",
+                "type": "text",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "Wie viel Zahlen Sie derzeit für Strom?",
+                "description": "Geben Sie den Betrag ein, den Sie derzeit für Strom zahlen",
+                "options": {
+                  "label": "Enter your Name",
+                  "placeholder": "Bernd Johnson"
+                }
+              },
+              "interested-products-text-2": {
+                "order": "1",
+                "type": "text",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "",
+                "description": "",
+                "options": {
+                  "label": "Enter your Name",
+                  "placeholder": "Bernd Johnsen"
+                }
+              },
               "interested-products": {
                 "order": "1",
                 "type": "checkbox",

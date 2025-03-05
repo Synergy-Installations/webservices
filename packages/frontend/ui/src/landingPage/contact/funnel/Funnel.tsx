@@ -4,12 +4,15 @@ import { useState, useEffect } from "react";
 import { RichText } from "@com.synergy/frontend-ui/RichText";
 import Link from "next/link";
 import { label, p } from "framer-motion/client";
+import { useRouter } from "next/navigation";
 
 /* eslint-disable-next-line */
 export interface FunnelProps {}
 
 export const Funnel = (props: FunnelProps) => {
   const t = useTranslations("LandingPage.ContactUs.Funnel");
+
+  const router = useRouter();
 
   const [buttonStatusText, setButtonStatusText] = useState<{
     fatal: boolean;
@@ -62,6 +65,13 @@ export const Funnel = (props: FunnelProps) => {
                 title: element.form[formKey].title,
                 description: element.form[formKey].description,
                 from: from || [],
+                message: {
+                  text: element.form[formKey].message.text,
+                  type: element.form[formKey].message.type,
+                  requiredMessage:
+                    element.form[formKey].message.requiredMessage,
+                  successMessage: element.form[formKey].message.successMessage,
+                },
                 options: Object.keys(element.form[formKey].options).reduce(
                   (optionsAcc: any, optionKey: string) => {
                     optionsAcc[
@@ -103,6 +113,13 @@ export const Funnel = (props: FunnelProps) => {
                 title: element.form[formKey].title,
                 description: element.form[formKey].description,
                 from: from || [],
+                message: {
+                  text: element.form[formKey].message.text,
+                  type: element.form[formKey].message.type,
+                  requiredMessage:
+                    element.form[formKey].message.requiredMessage,
+                  successMessage: element.form[formKey].message.successMessage,
+                },
                 options: {
                   range: {
                     defaultValue: Number(
@@ -158,6 +175,13 @@ export const Funnel = (props: FunnelProps) => {
                 title: element.form[formKey].title,
                 description: element.form[formKey].description,
                 from: from || [],
+                message: {
+                  text: element.form[formKey].message.text,
+                  type: element.form[formKey].message.type,
+                  requiredMessage:
+                    element.form[formKey].message.requiredMessage,
+                  successMessage: element.form[formKey].message.successMessage,
+                },
                 options: {
                   label: element.form[formKey].options.label,
                   placeholder: element.form[formKey].options.placeholder,
@@ -204,6 +228,12 @@ export const Funnel = (props: FunnelProps) => {
         title: element.title,
         description: element.description,
         from: from || [],
+        message: {
+          text: element.message.text,
+          type: element.message.type,
+          requiredMessage: element.message.requiredMessage,
+          successMessage: element.message.successMessage,
+        },
         options: Object.keys(element.options).reduce(
           (optionsAcc: any, optionKey: string) => {
             optionsAcc[
@@ -241,6 +271,12 @@ export const Funnel = (props: FunnelProps) => {
         title: element.title,
         description: element.description,
         from: from || [],
+        message: {
+          text: element.message.text,
+          type: element.message.type,
+          requiredMessage: element.message.requiredMessage,
+          successMessage: element.message.successMessage,
+        },
         options: {
           range: {
             defaultValue: Number(element.options.range.defaultValue),
@@ -284,6 +320,12 @@ export const Funnel = (props: FunnelProps) => {
         title: element.title,
         description: element.description,
         from: from || [],
+        message: {
+          text: element.message.text,
+          type: element.message.type,
+          requiredMessage: element.message.requiredMessage,
+          successMessage: element.message.successMessage,
+        },
         options: {
           label: element.options.label,
           placeholder: element.options.placeholder,
@@ -311,22 +353,129 @@ export const Funnel = (props: FunnelProps) => {
   const getNextQuestionKey = (
     currentQuestionKey: string,
     formKey: string
-  ): string | null => {
+  ): void => {
     const questionKeys = Object.keys(questionElements);
     const currentQuestion = questionElements[currentQuestionKey];
+    const currentQuestionIndex = questionKeys.indexOf(currentQuestionKey);
     const formKeys = Object.keys(currentQuestion.form);
     const currentFormIndex = formKeys.indexOf(formKey);
 
+    let error = false;
+    questionKeys.forEach((questionKey: string, index: number) => {
+      if (index <= currentQuestionIndex) {
+        formKeys.forEach((formKey: string, index: number) => {
+          if (
+            index <= currentFormIndex &&
+            (((questionElements[questionKey].form[formKey].type ===
+              "checkbox" ||
+              questionElements[currentQuestionKey].form[formKey].type ===
+                "radio") &&
+              questionElements[currentQuestionKey].form[formKey].selected
+                .selectedOptions.length == 0) ||
+              (questionElements[currentQuestionKey].form[formKey].type ===
+                "range" &&
+                questionElements[currentQuestionKey].form[formKey].selected
+                  .selectedValue == 0) ||
+              (questionElements[currentQuestionKey].form[formKey].type ===
+                "text" &&
+                questionElements[currentQuestionKey].form[formKey].selected
+                  .inputValue == ""))
+          ) {
+            /** Wrong input */
+            /** Continue with: Function does not stop */
+            console.log("user want to continue with incorrect input");
+            setQuestionElements((prev) => {
+              const updatedElements = { ...prev };
+              updatedElements[currentQuestionKey].form[formKey].message.text =
+                questionElements[currentQuestionKey].form[
+                  formKey
+                ].message.requiredMessage;
+              updatedElements[currentQuestionKey].form[formKey].message.type =
+                "error";
+              return updatedElements;
+            });
+            error = true;
+          }
+        });
+      }
+    });
+    if (error) return;
+
+    // if (
+    //   ((questionElements[currentQuestionKey].form[formKey].type ===
+    //     "checkbox" ||
+    //     questionElements[currentQuestionKey].form[formKey].type === "radio") &&
+    //     questionElements[currentQuestionKey].form[formKey].selected
+    //       .selectedOptions.length == 0) ||
+    //   (questionElements[currentQuestionKey].form[formKey].type === "range" &&
+    //     questionElements[currentQuestionKey].form[formKey].selected
+    //       .selectedValue == 0) ||
+    //   (questionElements[currentQuestionKey].form[formKey].type === "text" &&
+    //     questionElements[currentQuestionKey].form[formKey].selected
+    //       .inputValue == "")
+    // ) {
+    //   console.log("user want to continue with incorrect input");
+    // }
+    // console.log(
+    //   "correct input",
+    //   currentQuestion,
+    //   formKey,
+    //   currentFormIndex,
+    //   formKeys.length - 1,
+    //   questionKeys,
+    //   questionKeys[currentFormIndex + 1]
+    // );
+
+    /** Route to next form in question */
     if (currentFormIndex !== -1 && currentFormIndex < formKeys.length - 1) {
-      return formKeys[currentFormIndex + 1];
+      setQuestionElements((prev) => {
+        const updatedElements = { ...prev };
+        updatedElements[currentQuestionKey].form[formKey].message.text =
+          questionElements[currentQuestionKey].form[
+            formKey
+          ].message.successMessage;
+        updatedElements[currentQuestionKey].form[formKey].message.type =
+          "success";
+        return updatedElements;
+      });
+
+      router.push(`#${formKeys[currentFormIndex + 1]}`);
+      return;
     }
 
+    /** Route to same form as a "coping" mechanism to focus on the last form, implementation
+     * to send form is missing and this needs to be rewritten when done.
+     */
     const currentIndex = questionKeys.indexOf(currentQuestionKey);
     if (currentIndex === -1 || currentIndex === questionKeys.length - 1) {
-      return formKey;
+      setQuestionElements((prev) => {
+        const updatedElements = { ...prev };
+        updatedElements[currentQuestionKey].form[formKey].message.text =
+          questionElements[currentQuestionKey].form[
+            formKey
+          ].message.successMessage;
+        updatedElements[currentQuestionKey].form[formKey].message.type =
+          "success";
+        return updatedElements;
+      });
+
+      router.push(`#${formKey}`);
+      return;
     }
 
-    return questionKeys[currentIndex + 1];
+    /** Route to the next question in line */
+    setQuestionElements((prev) => {
+      const updatedElements = { ...prev };
+      updatedElements[currentQuestionKey].form[formKey].message.text =
+        questionElements[currentQuestionKey].form[
+          formKey
+        ].message.successMessage;
+      updatedElements[currentQuestionKey].form[formKey].message.type =
+        "success";
+      return updatedElements;
+    });
+    router.push(`#${questionKeys[currentIndex + 1]}`);
+    return;
   };
 
   const addQuestionElement = (
@@ -651,95 +800,96 @@ export const Funnel = (props: FunnelProps) => {
                     </ul>
                   ) : questionElements[questionKey].form[formKey].type ===
                     "range" ? (
-                    <div className="relative mb-6">
-                      <div
-                        className={`flex justify-end ${questionElements[questionKey].form[formKey].options.unit.spaceBetween && "gap-1"}`}
-                      >
-                        <span className="text-base font-semibold text-synergy-dark-grey dark:text-gray-400">
-                          {
+                    <>
+                      <div className="relative mb-6">
+                        <div
+                          className={`flex justify-end ${questionElements[questionKey].form[formKey].options.unit.spaceBetween && "gap-1"}`}
+                        >
+                          <span className="text-base font-semibold text-synergy-dark-grey dark:text-gray-400">
+                            {
+                              questionElements[questionKey].form[formKey]
+                                .selected.selectedValue
+                            }
+                          </span>
+                          <span
+                            className={`text-base font-semibold text-synergy-dark-grey dark:text-gray-400 flex justify-end ${questionElements[questionKey].form[formKey].options.unit.position === "before" && "order-first"}`}
+                          >
+                            {
+                              questionElements[questionKey].form[formKey]
+                                .options.unit.value
+                            }
+                          </span>
+                        </div>
+                        <label htmlFor="labels-range-input" className="sr-only">
+                          Labels range
+                        </label>
+                        <input
+                          id="labels-range-input"
+                          type="range"
+                          value={
                             questionElements[questionKey].form[formKey].selected
                               .selectedValue
                           }
-                        </span>
-                        <span
-                          className={`text-base font-semibold text-synergy-dark-grey dark:text-gray-400 flex justify-end ${questionElements[questionKey].form[formKey].options.unit.position === "before" && "order-first"}`}
-                        >
-                          {
+                          defaultValue={
                             questionElements[questionKey].form[formKey].options
-                              .unit.value
+                              .range.defaultValue
                           }
-                        </span>
-                      </div>
-                      <label htmlFor="labels-range-input" className="sr-only">
-                        Labels range
-                      </label>
-                      <input
-                        id="labels-range-input"
-                        type="range"
-                        value={
-                          questionElements[questionKey].form[formKey].selected
-                            .selectedValue
-                        }
-                        defaultValue={
-                          questionElements[questionKey].form[formKey].options
-                            .range.defaultValue
-                        }
-                        min={
-                          questionElements[questionKey].form[formKey].options
-                            .range.min
-                        }
-                        max={
-                          questionElements[questionKey].form[formKey].options
-                            .range.max
-                        }
-                        step={
-                          questionElements[questionKey].form[formKey].options
-                            .range.step
-                        }
-                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-                        onChange={(e) => {
-                          const { value } = e.target;
-                          setQuestionElements((prev) => {
-                            const updatedElements = { ...prev };
-                            updatedElements[questionKey].form[
-                              formKey
-                            ].selected.selectedValue = Number(value);
-                            return updatedElements;
-                          });
-                        }}
-                      />
-                      {Object.keys(
-                        questionElements[questionKey].form[formKey].options
-                          .labels
-                      ).map((labelKey: any, index: any) => (
-                        <button
-                          key={labelKey}
-                          className={`absolute ${
+                          min={
                             questionElements[questionKey].form[formKey].options
-                              .labels[labelKey].align === "start"
-                              ? `start-${questionElements[questionKey].form[formKey].options.labels[labelKey].offsetX}`
-                              : `end-${questionElements[questionKey].form[formKey].options.labels[labelKey].offsetX}`
-                          } -translate-x-[${questionElements[questionKey].form[formKey].options.labels[labelKey].correctX}] -bottom-6 text-sm text-gray-500 dark:text-gray-400`}
-                          onClick={() => {
+                              .range.min
+                          }
+                          max={
+                            questionElements[questionKey].form[formKey].options
+                              .range.max
+                          }
+                          step={
+                            questionElements[questionKey].form[formKey].options
+                              .range.step
+                          }
+                          className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                          onChange={(e) => {
+                            const { value } = e.target;
                             setQuestionElements((prev) => {
                               const updatedElements = { ...prev };
                               updatedElements[questionKey].form[
                                 formKey
-                              ].selected.selectedValue =
-                                questionElements[questionKey].form[
-                                  formKey
-                                ].options.labels[labelKey].value;
+                              ].selected.selectedValue = Number(value);
                               return updatedElements;
                             });
                           }}
-                        >
-                          {
-                            questionElements[questionKey].form[formKey].options
-                              .labels[labelKey].text
-                          }
-                        </button>
-                      ))}
-                      {/* <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">
+                        />
+                        {Object.keys(
+                          questionElements[questionKey].form[formKey].options
+                            .labels
+                        ).map((labelKey: any, index: any) => (
+                          <button
+                            key={labelKey}
+                            className={`absolute ${
+                              questionElements[questionKey].form[formKey]
+                                .options.labels[labelKey].align === "start"
+                                ? `start-${questionElements[questionKey].form[formKey].options.labels[labelKey].offsetX}`
+                                : `end-${questionElements[questionKey].form[formKey].options.labels[labelKey].offsetX}`
+                            } -translate-x-[${questionElements[questionKey].form[formKey].options.labels[labelKey].correctX}] -bottom-6 text-sm text-gray-500 dark:text-gray-400`}
+                            onClick={() => {
+                              setQuestionElements((prev) => {
+                                const updatedElements = { ...prev };
+                                updatedElements[questionKey].form[
+                                  formKey
+                                ].selected.selectedValue =
+                                  questionElements[questionKey].form[
+                                    formKey
+                                  ].options.labels[labelKey].value;
+                                return updatedElements;
+                              });
+                            }}
+                          >
+                            {
+                              questionElements[questionKey].form[formKey]
+                                .options.labels[labelKey].text
+                            }
+                          </button>
+                        ))}
+                        {/* <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">
                           Min ($100)
                         </span>
                         <span className="text-sm text-gray-500 dark:text-gray-400 absolute start-1/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">
@@ -751,11 +901,20 @@ export const Funnel = (props: FunnelProps) => {
                         <span className="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">
                           Max ($1500)
                         </span> */}
-                    </div>
+                      </div>
+                      <p
+                        className={`text-sm mt-2 min-h-[1.57rem] ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : "text-green-600 dark:text-green-500"} `}
+                      >
+                        {
+                          questionElements[questionKey].form[formKey].message
+                            .text
+                        }
+                      </p>
+                    </>
                   ) : (
                     questionElements[questionKey].form[formKey].type ===
                       "text" && (
-                      <div className="grid gap-6 mb-6 md:grid-cols-2">
+                      <div className="grid gap-6 md:grid-cols-2">
                         <div>
                           <label
                             htmlFor={formKey}
@@ -769,7 +928,7 @@ export const Funnel = (props: FunnelProps) => {
                           <input
                             type="text"
                             id={formKey}
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className={`bg-gray-50 block w-full p-2.5 text-sm rounded-lg border ${questionElements[questionKey].form[formKey].message.type === "success" ? "border-green-500 text-green-900 dark:text-green-400 placeholder-green-700 dark:placeholder-green-500 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-green-500" : "border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"} `}
                             placeholder={
                               questionElements[questionKey].form[formKey]
                                 .options.placeholder
@@ -789,17 +948,25 @@ export const Funnel = (props: FunnelProps) => {
                               });
                             }}
                           />
+                          <p
+                            className={`text-sm mt-2 min-h-[1.57rem] ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : "text-green-600 dark:text-green-500"} `}
+                          >
+                            {
+                              questionElements[questionKey].form[formKey]
+                                .message.text
+                            }
+                          </p>
                         </div>
                       </div>
                     )
                   )}
-                  <div className="flex justify-end mt-2">
-                    <Link
-                      href={`#${getNextQuestionKey(questionKey, formKey)}`}
+                  <div className="flex justify-end">
+                    <button
+                      onClick={() => getNextQuestionKey(questionKey, formKey)}
                       className="px-3 py-1 rounded-md bg-synergy-light-blue text-white "
                     >
                       Weiter
-                    </Link>
+                    </button>
                   </div>
                 </section>
               )

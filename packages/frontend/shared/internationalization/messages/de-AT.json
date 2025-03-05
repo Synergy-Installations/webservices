@@ -2061,6 +2061,12 @@
                 "defaultVisible": "true",
                 "title": "Wie viel Zahlen Sie derzeit für Strom?",
                 "description": "Geben Sie den Betrag ein, den Sie derzeit für Strom zahlen",
+                "message": {
+                  "text": "Only valid Names are allowed",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required"
+                },
                 "options": {
                   "label": "Enter your Name",
                   "placeholder": "Bernd Johnson"
@@ -2073,6 +2079,12 @@
                 "defaultVisible": "true",
                 "title": "",
                 "description": "",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required"
+                },
                 "options": {
                   "label": "Enter your Name",
                   "placeholder": "Bernd Johnsen"
@@ -2086,6 +2098,12 @@
                 "defaultVisible": "true",
                 "title": "Wie ist der Status des Vorhabens? *",
                 "description": "",
+                "message": {
+                  "text": "Only valid Names are allowed",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required"
+                },
                 "options": {
                   "photovoltaic": {
                     "type": "checkbox",
@@ -2162,9 +2180,15 @@
                 "defaultVisible": "hidden",
                 "title": "Wie viel Zahlen Sie derzeit für Strom?",
                 "description": "Wählen Sie den Betrag, den Sie derzeit für Strom zahlen",
+                "message": {
+                  "text": "Only valid Names are allowed",
+                  "type": "info",
+                  "requiredMessage": "This field is required",
+                  "successMessage": "Thank you for your input"
+                },
                 "options": {
                   "range": {
-                    "defaultValue": "500",
+                    "defaultValue": "0",
                     "min": "100",
                     "max": "1500",
                     "step": "10"
@@ -2214,6 +2238,12 @@
                 "defaultVisible": "false",
                 "title": "Wofür interessieren Sie sich? Part 2",
                 "description": "Wählen Sie alle Produkte aus, die Sie interessieren",
+                "message": {
+                  "text": "Only valid Names are allowed",
+                  "type": "info",
+                  "requiredMessage": "This field is required",
+                  "successMessage": "Thank you for your input"
+                },
                 "options": {
                   "photovoltaic": {
                     "type": "checkbox",
@@ -2297,6 +2327,12 @@
                 "defaultVisible": "true",
                 "title": "Wie ist der Status des Vorhabens? *",
                 "description": "",
+                "message": {
+                  "text": "Only valid Names are allowed",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required"
+                },
                 "options": {
                   "photovoltaic": {
                     "type": "checkbox",
@@ -2374,6 +2410,12 @@
                 "defaultVisible": "false",
                 "title": "Wie ist der Status des Vorhabens? *",
                 "description": "",
+                "message": {
+                  "text": "Only valid Names are allowed",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required"
+                },
                 "options": {
                   "photovoltaic": {
                     "type": "checkbox",

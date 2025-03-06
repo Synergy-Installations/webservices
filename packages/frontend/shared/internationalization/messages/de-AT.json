@@ -2065,7 +2065,8 @@
                   "text": "Only valid Names are allowed",
                   "type": "info",
                   "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required"
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
                 },
                 "options": {
                   "label": "Enter your Name",
@@ -2083,7 +2084,8 @@
                   "text": "",
                   "type": "info",
                   "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required"
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
                 },
                 "options": {
                   "label": "Enter your Name",
@@ -2102,7 +2104,8 @@
                   "text": "Only valid Names are allowed",
                   "type": "info",
                   "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required"
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
                 },
                 "options": {
                   "photovoltaic": {
@@ -2184,7 +2187,8 @@
                   "text": "Only valid Names are allowed",
                   "type": "info",
                   "requiredMessage": "This field is required",
-                  "successMessage": "Thank you for your input"
+                  "successMessage": "Thank you for your input",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
                 },
                 "options": {
                   "range": {
@@ -2242,7 +2246,8 @@
                   "text": "Only valid Names are allowed",
                   "type": "info",
                   "requiredMessage": "This field is required",
-                  "successMessage": "Thank you for your input"
+                  "successMessage": "Thank you for your input",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
                 },
                 "options": {
                   "photovoltaic": {
@@ -2331,7 +2336,8 @@
                   "text": "Only valid Names are allowed",
                   "type": "info",
                   "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required"
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
                 },
                 "options": {
                   "photovoltaic": {
@@ -2414,7 +2420,8 @@
                   "text": "Only valid Names are allowed",
                   "type": "info",
                   "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required"
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
                 },
                 "options": {
                   "photovoltaic": {

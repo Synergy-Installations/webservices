@@ -17,7 +17,7 @@ export const FunnelLayout = (props: FunnelLayoutProps) => {
         <div className="pt-32 pb-12 md:pt-40 md:pb-20">
           <div className="px-4 sm:px-6">
             {/* Page header */}
-            <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
+            <div className="max-w-3xl mx-auto text-center">
               <h1 className="font-inter-tight text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-500 via-slate-900 to-slate-900 pb-4">
                 {t("title")}
               </h1>

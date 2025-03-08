@@ -2049,6 +2049,13 @@
         }
       },
       "Funnel": {
+        "progress": {
+          "labels": {
+            "topLeft": "Synergie Progress",
+            "topRightDeliminator": "von",
+            "topRightPostfix": "Fragen"
+          }
+        },
         "questions": {
           "interested-products": {
             "title": "Starten Sie in die Energieunabhängikeit!",

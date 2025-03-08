@@ -8,6 +8,7 @@
     "dist"
   ],
   "exports": {
+    "./Debounce": "./src/shared/utils/debounce/Debounce.ts",
     "./Funnel": "./src/landingPage/contact/funnel/Funnel.tsx",
     "./FunnelLayout": "./src/landingPage/contact/funnel/FunnelLayout.tsx",
     "./GoogleTag": "./src/landingPage/shared/layout/GoogleTag.tsx",

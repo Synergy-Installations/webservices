@@ -5,6 +5,7 @@ import { RichText } from "@com.synergy/frontend-ui/RichText";
 import Link from "next/link";
 import { label, p } from "framer-motion/client";
 import { useRouter } from "next/navigation";
+import { debounce } from "@com.synergy/frontend-ui/Debounce";
 
 /* eslint-disable-next-line */
 export interface FunnelProps {}
@@ -351,6 +352,7 @@ export const Funnel = (props: FunnelProps) => {
     () => {
       /** "Hardcode" interested-products as this will be the first question */
       const firstQuestionKey = "interested-products";
+      console.log("recreate state");
 
       return {
         [`interested-products-${Math.random().toString(36).substring(2, 7)}`]:
@@ -358,6 +360,38 @@ export const Funnel = (props: FunnelProps) => {
       };
     }
   );
+
+  const countForms = (): { totalForms: number; successForms: number } => {
+    let totalForms = 0;
+    let successForms = 0;
+
+    Object.keys(questionElements).forEach((questionKey) => {
+      const forms = questionElements[questionKey].form;
+      totalForms += Object.keys(forms).length;
+      successForms += Object.keys(forms).filter(
+        (formKey) => forms[formKey].message.type === "success"
+      ).length;
+    });
+    return { totalForms, successForms };
+  };
+
+  const [formCounts, setFormCounts] = useState(() => countForms());
+
+  const countFormsAndSet = () => {
+    setFormCounts(countForms());
+  };
+
+  const debouncedCountFormsAndSet = debounce(countFormsAndSet, 100);
+
+  /** Initial useEffect */
+  useEffect(() => {
+    countForms();
+  }, []);
+
+  // useEffect(() => {
+  //   console.log("useEffect of count forms");
+  //   debouncedCountFormsAndSet();
+  // }, [questionElements]);
 
   const getNextQuestionKey = (
     currentQuestionKey: string,
@@ -371,97 +405,110 @@ export const Funnel = (props: FunnelProps) => {
 
     let error = false;
     questionKeys.forEach((questionKey: string, questionIndex: number) => {
-      formKeys.forEach((formKey: string, formIndex: number) => {
-        console.log(questionKey, formKey);
-        if (
-          /** Continue if the current question and form index is less or equal than the question
-           * and form index that the button got pressed on or the form was got a success message
-           */
-          questionIndex < currentQuestionIndex ||
-          (questionIndex == currentQuestionIndex &&
-            formIndex <= currentFormIndex) ||
-          questionElements[questionKey].form[formKey].message.type ===
-            "success" ||
-          questionElements[questionKey].form[formKey].message.type ===
-            "error" ||
-          questionElements[questionKey].form[formKey].message.type === "warning"
-        ) {
+      Object.keys(questionElements[questionKey].form).forEach(
+        (formKey: string, formIndex: number) => {
+          console.log(questionKey, formKey);
+          console.log(
+            "check",
+            questionKey,
+            formKey
+            // questionElements[questionKey].form[formKey].message
+          );
           if (
-            /** Test the form for incorrect input */
-            ((questionElements[questionKey].form[formKey].type === "checkbox" ||
-              questionElements[questionKey].form[formKey].type === "radio") &&
-              questionElements[questionKey].form[formKey].selected
-                .selectedOptions.length == 0) ||
-            (questionElements[questionKey].form[formKey].type === "range" &&
-              questionElements[questionKey].form[formKey].selected
-                .selectedValue == 0) ||
-            (questionElements[questionKey].form[formKey].type === "text" &&
-              questionElements[questionKey].form[formKey].selected.inputValue ==
-                "")
+            /** Continue if the current question and form index is less or equal than the question
+             * and form index that the button got pressed on or the form was got a success message
+             */
+            questionIndex < currentQuestionIndex ||
+            (questionIndex == currentQuestionIndex &&
+              formIndex <= currentFormIndex) ||
+            questionElements[questionKey].form[formKey].message.type ===
+              "success" ||
+            questionElements[questionKey].form[formKey].message.type ===
+              "error" ||
+            questionElements[questionKey].form[formKey].message.type ===
+              "warning"
           ) {
-            /** Wrong input
-             * We do not care about incorrect inputs on previous forms as long as the current form shows errors
-             */
-            console.log("user want to continue with incorrect input");
-            setQuestionElements((prev) => {
-              const updatedElements = { ...prev };
-              updatedElements[questionKey].form[formKey].message.text =
-                questionElements[questionKey].form[
-                  formKey
-                ].message.requiredMessage;
-              updatedElements[questionKey].form[formKey].message.type = "error";
-              return updatedElements;
-            });
-            /** Continue with form even though the subsequent forms may be invalid, we only want the user
-             * to correct the current form or any before it but not after it.
-             */
             if (
-              questionIndex < currentQuestionIndex ||
-              (questionIndex == currentQuestionIndex &&
-                formIndex <= currentFormIndex)
-            )
-              error = true;
+              /** Test the form for incorrect input */
+              ((questionElements[questionKey].form[formKey].type ===
+                "checkbox" ||
+                questionElements[questionKey].form[formKey].type === "radio") &&
+                questionElements[questionKey].form[formKey].selected
+                  .selectedOptions.length == 0) ||
+              (questionElements[questionKey].form[formKey].type === "range" &&
+                questionElements[questionKey].form[formKey].selected
+                  .selectedValue == 0) ||
+              (questionElements[questionKey].form[formKey].type === "text" &&
+                questionElements[questionKey].form[formKey].selected
+                  .inputValue == "")
+            ) {
+              /** Wrong input
+               * We do not care about incorrect inputs on previous forms as long as the current form shows errors
+               */
+              console.log("user want to continue with incorrect input");
+              setQuestionElements((prev) => {
+                const updatedElements = { ...prev };
+                updatedElements[questionKey].form[formKey].message.text =
+                  questionElements[questionKey].form[
+                    formKey
+                  ].message.requiredMessage;
+                updatedElements[questionKey].form[formKey].message.type =
+                  "error";
+                return updatedElements;
+              });
+              /** Continue with form even though the subsequent forms may be invalid, we only want the user
+               * to correct the current form or any before it but not after it.
+               */
+              if (
+                questionIndex < currentQuestionIndex ||
+                (questionIndex == currentQuestionIndex &&
+                  formIndex <= currentFormIndex)
+              )
+                error = true;
 
-            console.log("Do we errror?", error);
-          } else if (
-            /** Success for form that the button got pressed on */
-            error == true &&
-            questionIndex == currentQuestionIndex &&
-            formIndex == currentFormIndex
-          ) {
-            /** Correct input at current form, however, previous forms are not correct */
-            console.log(
-              "correct input at form button got pressed, however, previous forms are not correct"
-            );
-            setQuestionElements((prev) => {
-              const updatedElements = { ...prev };
-              updatedElements[questionKey].form[formKey].message.text =
-                questionElements[questionKey].form[
-                  formKey
-                ].message.checkPreviousFormsMessage;
-              updatedElements[questionKey].form[formKey].message.type =
-                "warning";
-              return updatedElements;
-            });
-          } else {
-            /** Continue with checking that elements that had previously shown an
-             * error and not clicked button to continue but rather on a different form
-             */
-            setQuestionElements((prev) => {
-              const updatedElements = { ...prev };
-              updatedElements[currentQuestionKey].form[formKey].message.text =
-                questionElements[currentQuestionKey].form[
-                  formKey
-                ].message.successMessage;
-              updatedElements[currentQuestionKey].form[formKey].message.type =
-                "success";
-              return updatedElements;
-            });
+              console.log("Do we errror?", error);
+            } else if (
+              /** Success for form that the button got pressed on */
+              error == true &&
+              questionIndex == currentQuestionIndex &&
+              formIndex == currentFormIndex
+            ) {
+              /** Correct input at current form, however, previous forms are not correct */
+              console.log(
+                "correct input at form button got pressed, however, previous forms are not correct"
+              );
+              setQuestionElements((prev) => {
+                const updatedElements = { ...prev };
+                updatedElements[questionKey].form[formKey].message.text =
+                  questionElements[questionKey].form[
+                    formKey
+                  ].message.checkPreviousFormsMessage;
+                updatedElements[questionKey].form[formKey].message.type =
+                  "warning";
+                return updatedElements;
+              });
+            } else {
+              /** Continue with checking that elements that had previously shown an
+               * error and not clicked button to continue but rather on a different form
+               */
+              setQuestionElements((prev) => {
+                const updatedElements = { ...prev };
+                updatedElements[questionKey].form[formKey].message.text =
+                  questionElements[questionKey].form[
+                    formKey
+                  ].message.successMessage;
+                updatedElements[questionKey].form[formKey].message.type =
+                  "success";
+                return updatedElements;
+              });
+            }
           }
         }
-      });
+      );
     });
     if (error) return;
+
+    debouncedCountFormsAndSet();
 
     // if (
     //   ((questionElements[currentQuestionKey].form[formKey].type ===
@@ -663,8 +710,37 @@ export const Funnel = (props: FunnelProps) => {
     });
   }, []);
 
+  console.log(
+    `Total forms: ${formCounts.totalForms}, Success forms: ${formCounts.successForms}`
+  );
+
   return (
-    <div className="flex flex-col justify-center max-w-3xl mx-auto">
+    <div className="relative flex flex-col justify-center max-w-3xl mx-auto">
+      <div className="sticky top-0 pt-[100px] bg-slate-50">
+        <div className="flex justify-between mb-1">
+          <span className="text-base font-medium text-synergy-light-blue dark:text-white">
+            {t("progress.labels.topLeft")}
+          </span>
+          <span className="text-sm font-medium text-synergy-light-blue dark:text-white">
+            {formCounts.successForms} {t(`progress.labels.topRightDeliminator`)}{" "}
+            {formCounts.totalForms} {t(`progress.labels.topRightPostfix`)}{" "}
+            {formCounts.totalForms === 0
+              ? 0
+              : Math.round(
+                  (formCounts.successForms / formCounts.totalForms) * 100
+                )}
+            %
+          </span>
+        </div>
+        <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+          <div
+            className="bg-synergy-light-blue h-2.5 rounded-full"
+            style={{
+              width: `${formCounts.totalForms === 0 ? 0 : (formCounts.successForms / formCounts.totalForms) * 100}%`,
+            }}
+          ></div>
+        </div>
+      </div>
       {Object.keys(questionElements).map((questionKey: any, index: any) => (
         <section id={questionKey} key={index} className="mt-10 scroll-mt-20">
           {/** Title and description of question */}
@@ -833,6 +909,9 @@ export const Funnel = (props: FunnelProps) => {
                                   }
                                   return updatedElements;
                                 });
+
+                                /** Update Progress count */
+                                debouncedCountFormsAndSet();
                               }}
                               className="hidden peer"
                               required={true}
@@ -1037,7 +1116,9 @@ export const Funnel = (props: FunnelProps) => {
                   )}
                   <div className="flex justify-end">
                     <button
-                      onClick={() => getNextQuestionKey(questionKey, formKey)}
+                      onClick={() => {
+                        getNextQuestionKey(questionKey, formKey);
+                      }}
                       className="px-3 py-1 rounded-md bg-synergy-light-blue text-white "
                     >
                       Weiter

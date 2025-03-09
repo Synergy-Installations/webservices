@@ -367,6 +367,7 @@ export const Funnel = (props: FunnelProps) => {
 
     Object.keys(questionElements).forEach((questionKey) => {
       const forms = questionElements[questionKey].form;
+      console.log("add", Object.keys(forms).length);
       totalForms += Object.keys(forms).length;
       successForms += Object.keys(forms).filter(
         (formKey) => forms[formKey].message.type === "success"
@@ -383,15 +384,13 @@ export const Funnel = (props: FunnelProps) => {
 
   const debouncedCountFormsAndSet = debounce(countFormsAndSet, 100);
 
-  /** Initial useEffect */
+  /** Used for initial client render and is needed as countForms
+   * does not recognize a newly created question when evoked
+   * from the button click or on new question creation
+   */
   useEffect(() => {
-    countForms();
-  }, []);
-
-  // useEffect(() => {
-  //   console.log("useEffect of count forms");
-  //   debouncedCountFormsAndSet();
-  // }, [questionElements]);
+    debouncedCountFormsAndSet();
+  }, [Object.keys(questionElements).length]);
 
   const getNextQuestionKey = (
     currentQuestionKey: string,
@@ -506,9 +505,9 @@ export const Funnel = (props: FunnelProps) => {
         }
       );
     });
-    if (error) return;
 
     debouncedCountFormsAndSet();
+    if (error) return;
 
     // if (
     //   ((questionElements[currentQuestionKey].form[formKey].type ===

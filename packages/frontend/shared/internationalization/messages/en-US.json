@@ -2049,11 +2049,56 @@
         }
       },
       "Funnel": {
+        "progress": {
+          "labels": {
+            "topLeft": "Synergie Progress",
+            "topRightDeliminator": "von",
+            "topRightPostfix": "Fragen"
+          }
+        },
         "questions": {
           "interested-products": {
             "title": "Starten Sie in die Energieunabhängikeit!",
             "description": "Sie erhalten danach unseren Ratgeber mit Tipps und Tricks zu Anschaffung, Förderung und Betrieb Ihrer PV-Anlage!",
             "form": {
+              "interested-products-text": {
+                "order": "1",
+                "type": "text",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "Wie viel Zahlen Sie derzeit für Strom?",
+                "description": "Geben Sie den Betrag ein, den Sie derzeit für Strom zahlen",
+                "message": {
+                  "text": "Only valid Names are allowed",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "label": "Enter your Name",
+                  "placeholder": "Bernd Johnson"
+                }
+              },
+              "interested-products-text-2": {
+                "order": "1",
+                "type": "text",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "",
+                "description": "",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "label": "Enter your Name",
+                  "placeholder": "Bernd Johnsen"
+                }
+              },
               "interested-products": {
                 "order": "1",
                 "type": "checkbox",
@@ -2062,6 +2107,13 @@
                 "defaultVisible": "true",
                 "title": "Wie ist der Status des Vorhabens? *",
                 "description": "",
+                "message": {
+                  "text": "Only valid Names are allowed",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
                 "options": {
                   "photovoltaic": {
                     "type": "checkbox",
@@ -2138,9 +2190,16 @@
                 "defaultVisible": "hidden",
                 "title": "Wie viel Zahlen Sie derzeit für Strom?",
                 "description": "Wählen Sie den Betrag, den Sie derzeit für Strom zahlen",
+                "message": {
+                  "text": "Only valid Names are allowed",
+                  "type": "info",
+                  "requiredMessage": "This field is required",
+                  "successMessage": "Thank you for your input",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
                 "options": {
                   "range": {
-                    "defaultValue": "500",
+                    "defaultValue": "0",
                     "min": "100",
                     "max": "1500",
                     "step": "10"
@@ -2190,6 +2249,13 @@
                 "defaultVisible": "false",
                 "title": "Wofür interessieren Sie sich? Part 2",
                 "description": "Wählen Sie alle Produkte aus, die Sie interessieren",
+                "message": {
+                  "text": "Only valid Names are allowed",
+                  "type": "info",
+                  "requiredMessage": "This field is required",
+                  "successMessage": "Thank you for your input",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
                 "options": {
                   "photovoltaic": {
                     "type": "checkbox",
@@ -2273,6 +2339,13 @@
                 "defaultVisible": "true",
                 "title": "Wie ist der Status des Vorhabens? *",
                 "description": "",
+                "message": {
+                  "text": "Only valid Names are allowed",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
                 "options": {
                   "photovoltaic": {
                     "type": "checkbox",
@@ -2350,6 +2423,13 @@
                 "defaultVisible": "false",
                 "title": "Wie ist der Status des Vorhabens? *",
                 "description": "",
+                "message": {
+                  "text": "Only valid Names are allowed",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
                 "options": {
                   "photovoltaic": {
                     "type": "checkbox",
@@ -2416,6 +2496,288 @@
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
                     }
+                  }
+                }
+              }
+            }
+          },
+          "submit": {
+            "title": "Bitte geben Sie Ihre Kontaktdaten ein",
+            "description": "Wir melden uns in Kürze bei Ihnen",
+            "form": {
+              "submit-form-name": {
+                "order": "1",
+                "type": "text",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "",
+                "description": "",
+                "message": {
+                  "text": "Only valid Names are allowed",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "label": "Enter your Name",
+                  "placeholder": "Bernd Johnson"
+                }
+              },
+              "submit-form-email": {
+                "order": "1",
+                "type": "email",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "",
+                "description": "",
+                "message": {
+                  "text": "Please enter your e-mail",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "label": "Enter your E-Mail",
+                  "placeholder": "Bernd Johnson"
+                }
+              },
+              "submit-form-telephone": {
+                "order": "1",
+                "type": "tel",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "",
+                "description": "",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "label": "Enter your Telephone number",
+                  "placeholder": "00 123-456-78-90"
+                }
+              },
+              "submit-form-textarea": {
+                "order": "1",
+                "type": "textarea",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "",
+                "description": "",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "label": "Provide your project details",
+                  "placeholder": "Write your thoughts here...",
+                  "rows": "4"
+                }
+              },
+              "submit-form-select-single": {
+                "order": "1",
+                "type": "select",
+                "multiple": "false",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "",
+                "description": "",
+                "defaultValue": "please-select",
+                "label": "How did you hear about us?",
+                "message": {
+                  "text": "If none apply, select \"Other\"",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "please-select": {
+                    "type": "select",
+                    "title": "Please select",
+                    "value": "please-select",
+                    "addQuestion": "",
+                    "addForm": ""
+                  },
+                  "Search-Engine": {
+                    "type": "select",
+                    "title": "Search Engine (Google, Bing, etc.)",
+                    "value": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-search-engine"
+                  },
+                  "Social-media": {
+                    "type": "select",
+                    "title": "Social Media",
+                    "value": "social-media",
+                    "addQuestion": "",
+                    "addForm": ""
+                  },
+                  "Television": {
+                    "type": "select",
+                    "title": "Television",
+                    "value": "television",
+                    "addQuestion": "",
+                    "addForm": ""
+                  },
+                  "Billboard": {
+                    "type": "select",
+                    "title": "Billboard",
+                    "value": "billboard",
+                    "addQuestion": "",
+                    "addForm": ""
+                  },
+                  "Convention": {
+                    "type": "select",
+                    "title": "Convention",
+                    "value": "convention",
+                    "addQuestion": "",
+                    "addForm": ""
+                  },
+                  "Word-of-Mouth": {
+                    "type": "select",
+                    "title": "Word of Mouth",
+                    "value": "word-of-mouth",
+                    "addQuestion": "",
+                    "addForm": ""
+                  },
+                  "Referral": {
+                    "type": "select",
+                    "title": "Referral",
+                    "value": "referral",
+                    "addQuestion": "",
+                    "addForm": ""
+                  },
+                  "Other": {
+                    "type": "select",
+                    "title": "Other",
+                    "value": "other",
+                    "addQuestion": "",
+                    "addForm": ""
+                  }
+                }
+              },
+              "submit-form-select-multiple": {
+                "order": "1",
+                "type": "select",
+                "multiple": "true",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "",
+                "description": "",
+                "defaultValue": [""],
+                "label": "How did you hear about us? (Multiple)",
+                "message": {
+                  "text": "If none apply, select \"Other\"",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "Search-Engine": {
+                    "type": "select",
+                    "title": "Search Engine (Google, Bing, etc.)",
+                    "value": "search-engine",
+                    "addQuestion": "",
+                    "addForm": "submit-form-search-engine"
+                  },
+                  "Social Media": {
+                    "type": "select",
+                    "title": "Social Media",
+                    "value": "social-media",
+                    "addQuestion": "",
+                    "addForm": ""
+                  },
+                  "Television": {
+                    "type": "select",
+                    "title": "Television",
+                    "value": "television",
+                    "addQuestion": "",
+                    "addForm": ""
+                  },
+                  "Billboard": {
+                    "type": "select",
+                    "title": "Billboard",
+                    "value": "billboard",
+                    "addQuestion": "",
+                    "addForm": ""
+                  },
+                  "Convention": {
+                    "type": "select",
+                    "title": "Convention",
+                    "value": "convention",
+                    "addQuestion": "",
+                    "addForm": ""
+                  },
+                  "Word-of-Mouth": {
+                    "type": "select",
+                    "title": "Word of Mouth",
+                    "value": "word-of-mouth",
+                    "addQuestion": "",
+                    "addForm": ""
+                  },
+                  "Referral": {
+                    "type": "select",
+                    "title": "Referral",
+                    "value": "referral",
+                    "addQuestion": "",
+                    "addForm": ""
+                  },
+                  "Other": {
+                    "type": "select",
+                    "title": "Other",
+                    "value": "other",
+                    "addQuestion": "",
+                    "addForm": "submit-form-search-engine"
+                  }
+                }
+              },
+              "submit-form-search-engine": {
+                "order": "1",
+                "type": "text",
+                "required": "true",
+                "defaultVisible": "false",
+                "title": "",
+                "description": "",
+                "message": {
+                  "text": "Only valid Search Engines are allowed",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "label": "Enter the Search Engine",
+                  "placeholder": "Google, Bing, etc."
+                }
+              },
+              "submit-form-button": {
+                "order": "1",
+                "type": "submit-button",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "Jetzt Abschicken",
+                "description": "Bitte überprüfen Sie nach absenden Ihre Inbox. Falls die Nachricht nicht angekommen ist, benutzen Sie bitte die unten angegebene E-Mail.",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "requiredMessage": "This field is required",
+                  "successMessage": "Thank you for your submit",
+                  "loadingMessage": "Please wait while we process your request",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "button": {
+                    "text": "Jetzt Anfragen"
                   }
                 }
               }

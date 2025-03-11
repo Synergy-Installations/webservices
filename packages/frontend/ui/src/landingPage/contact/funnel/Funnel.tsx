@@ -1051,7 +1051,7 @@ export const Funnel = (props: FunnelProps) => {
 
   return (
     <div className="relative flex flex-col justify-center max-w-3xl mx-auto">
-      <div className="sticky top-0 pt-[100px] bg-slate-50">
+      <div className="sticky z-10 top-0 pt-[100px] bg-slate-50">
         <div className="flex justify-between mb-1">
           <span className="text-base font-medium text-synergy-light-blue dark:text-white">
             {t("progress.labels.topLeft")}

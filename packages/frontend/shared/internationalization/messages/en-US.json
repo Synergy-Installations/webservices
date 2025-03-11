@@ -1913,8 +1913,8 @@
     },
     "ContactUs": {
       "Header": {
-        "title": "Starten Sie in die Energieunabhängikeit!",
-        "description": "Sie erhalten danach unseren Ratgeber mit Tipps und Tricks zu Anschaffung, Förderung und Betrieb Ihrer PV-Anlage!"
+        "title": "Starten Sie hier Ihre Montageabwicklung",
+        "description": "Und gestalten Sie ihre Prozesse mit Leichtigkeit. Wir liefern Projektmanagement seit mehr als zwei Jahren mit Kundenfokus und Handschlagqualität - jetzt auch digital."
       },
       "Form": {
         "elements": {
@@ -2051,21 +2051,492 @@
       "Funnel": {
         "progress": {
           "labels": {
-            "topLeft": "Synergie Progress",
+            "topLeft": "Synergie Montage Progress",
             "topRightDeliminator": "von",
             "topRightPostfix": "Fragen"
           }
         },
         "questions": {
           "interested-products": {
-            "title": "Starten Sie in die Energieunabhängikeit!",
-            "description": "Sie erhalten danach unseren Ratgeber mit Tipps und Tricks zu Anschaffung, Förderung und Betrieb Ihrer PV-Anlage!",
+            "title": "Projektdetails",
+            "description": "",
             "form": {
+              "interested-products-range-2": {
+                "order": "1",
+                "type": "range",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "Wie viel kWp? *",
+                "description": "Wählen Sie den Betrag, den Sie benötigen",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "requiredMessage": "This field is required",
+                  "successMessage": "Thank you for your input",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "range": {
+                    "defaultValue": "0",
+                    "min": "1",
+                    "max": "10000",
+                    "step": "0.01"
+                  },
+                  "unit": {
+                    "value": "kWp",
+                    "spaceBetween": "true",
+                    "position": "after"
+                  },
+                  "labels": {
+                    "min": {
+                      "text": "Min (1 kWp)",
+                      "value": 1,
+                      "align": "start",
+                      "offsetX": "0",
+                      "correctX": "0%"
+                    },
+                    "q1": {
+                      "text": "500 kWp",
+                      "value": 500,
+                      "align": "start",
+                      "offsetX": "1/3",
+                      "correctX": "145%"
+                    },
+                    "q2": {
+                      "text": "1000 kWp",
+                      "value": 1000,
+                      "align": "start",
+                      "offsetX": "2/3",
+                      "correctX": "105%"
+                    },
+                    "max": {
+                      "text": "Max (∞ kWp)",
+                      "value": 10000,
+                      "align": "end",
+                      "offsetX": "0",
+                      "correctX": "0%"
+                    }
+                  }
+                }
+              },
+              "interested-products-dachtyp": {
+                "order": "1",
+                "type": "radio",
+                "multiple": "true",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "Wähle den Untergrund? *",
+                "description": "",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "photovoltaic": {
+                    "type": "checkbox",
+                    "title": "Trapez/Falz",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "flachdach": {
+                    "type": "checkbox",
+                    "title": "Flachdach",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "wärmepumpe": {
+                    "type": "checkbox",
+                    "title": "Ziegel",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "klimasysteme": {
+                    "type": "checkbox",
+                    "title": "Eternit/Bramac",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "fassade": {
+                    "type": "checkbox",
+                    "title": "Fassade",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "carport": {
+                    "type": "checkbox",
+                    "title": "Carport, etc.",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "zaun": {
+                    "type": "checkbox",
+                    "title": "Zaun",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "freilache": {
+                    "type": "checkbox",
+                    "title": "Freifläche",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "klimasysteme-1": {
+                    "type": "checkbox",
+                    "title": "Andere/Spezial",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  }
+                }
+              },
+              "submit-form-dachtyp-anderes-textarea": {
+                "order": "1",
+                "type": "textarea",
+                "required": "true",
+                "defaultVisible": "false",
+                "title": "",
+                "description": "",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "label": "Kurze Beschreibung",
+                  "placeholder": "Write your thoughts here...",
+                  "rows": "4"
+                }
+              },
+              "interested-products-schnittstelle": {
+                "order": "1",
+                "type": "checkbox",
+                "multiple": "true",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "Schnittstelle? *",
+                "description": "Wählen Sie alle aus, die zutreffen",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "photovoltaic": {
+                    "type": "checkbox",
+                    "title": "Dachmontage",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "kabelweg": {
+                    "type": "checkbox",
+                    "title": "Kabelweg",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "wärmepumpe": {
+                    "type": "checkbox",
+                    "title": "Wechselrichter",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "speicher": {
+                    "type": "checkbox",
+                    "title": "Speicher",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "ac-installation": {
+                    "type": "checkbox",
+                    "title": "AC Installation",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  }
+                }
+              },
+              "submit-form-schnittstelle-anderes-textarea": {
+                "order": "1",
+                "type": "textarea",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "",
+                "description": "",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "label": "Kurze Beschreibung",
+                  "placeholder": "Write your thoughts here...",
+                  "rows": "4"
+                }
+              },
+              "interested-products-range-height": {
+                "order": "1",
+                "type": "range",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "Wie hoch ist der Montageort?",
+                "description": "(Haus, Berg, Fassade)",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "requiredMessage": "This field is required",
+                  "successMessage": "Thank you for your input",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "range": {
+                    "defaultValue": "0",
+                    "min": "10",
+                    "max": "3000",
+                    "step": "0.5"
+                  },
+                  "unit": {
+                    "value": "m",
+                    "spaceBetween": "true",
+                    "position": "after"
+                  },
+                  "labels": {
+                    "min": {
+                      "text": "Min (0 m)",
+                      "value": 0,
+                      "align": "start",
+                      "offsetX": "0",
+                      "correctX": "0%"
+                    },
+                    "q1": {
+                      "text": "1000 m",
+                      "value": 1000,
+                      "align": "start",
+                      "offsetX": "1/3",
+                      "correctX": "145%"
+                    },
+                    "q2": {
+                      "text": "2000 m",
+                      "value": 2000,
+                      "align": "start",
+                      "offsetX": "2/3",
+                      "correctX": "105%"
+                    },
+                    "max": {
+                      "text": "Max (3000 m)",
+                      "value": 3000,
+                      "align": "end",
+                      "offsetX": "0",
+                      "correctX": "0%"
+                    }
+                  }
+                }
+              },
+              "interested-products-range-dachneigung": {
+                "order": "1",
+                "type": "range",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "Neigung Montageuntergund",
+                "description": "(Dach, Hang)",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "requiredMessage": "This field is required",
+                  "successMessage": "Thank you for your input",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "range": {
+                    "defaultValue": "0",
+                    "min": "0",
+                    "max": "90",
+                    "step": "1"
+                  },
+                  "unit": {
+                    "value": "°",
+                    "spaceBetween": "false",
+                    "position": "after"
+                  },
+                  "labels": {
+                    "min": {
+                      "text": "Min (0°)",
+                      "value": 0,
+                      "align": "start",
+                      "offsetX": "0",
+                      "correctX": "0%"
+                    },
+                    "q1": {
+                      "text": "30°",
+                      "value": 30,
+                      "align": "start",
+                      "offsetX": "1/3",
+                      "correctX": "145%"
+                    },
+                    "q2": {
+                      "text": "60°",
+                      "value": 60,
+                      "align": "start",
+                      "offsetX": "2/3",
+                      "correctX": "105%"
+                    },
+                    "max": {
+                      "text": "Max (90°)",
+                      "value": 90,
+                      "align": "end",
+                      "offsetX": "0",
+                      "correctX": "0%"
+                    }
+                  }
+                }
+              },
+              "submit-form-textarea-address": {
+                "order": "1",
+                "type": "textarea",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "Projektort",
+                "description": "",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "label": "Adresse Endkunde",
+                  "placeholder": "Write your thoughts here...",
+                  "rows": "4"
+                }
+              },
+              "interested-products-wir-empfehlen": {
+                "order": "1",
+                "type": "checkbox",
+                "multiple": "true",
+                "required": "false",
+                "defaultVisible": "true",
+                "title": "Wir empfehlen",
+                "description": "Material für Konstruktion, Dachabdichtung und Kabelweg von uns zu nehmen",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "photovoltaic": {
+                    "type": "checkbox",
+                    "title": "Ja bitte",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  }
+                }
+              },
+              "interested-products-soon": {
+                "order": "1",
+                "type": "checkbox",
+                "multiple": "true",
+                "required": "false",
+                "defaultVisible": "true",
+                "title": "Hier kommt in Kürze ihre Preisberechnung (Durchschnittlicher Montagepreis 200€/kWp)",
+                "description": "",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {}
+              },
+
               "interested-products-text": {
                 "order": "1",
                 "type": "text",
                 "required": "true",
-                "defaultVisible": "true",
+                "defaultVisible": "false",
                 "title": "Wie viel Zahlen Sie derzeit für Strom?",
                 "description": "Geben Sie den Betrag ein, den Sie derzeit für Strom zahlen",
                 "message": {
@@ -2084,7 +2555,7 @@
                 "order": "1",
                 "type": "text",
                 "required": "true",
-                "defaultVisible": "true",
+                "defaultVisible": "false",
                 "title": "",
                 "description": "",
                 "message": {
@@ -2104,7 +2575,7 @@
                 "type": "checkbox",
                 "multiple": "true",
                 "required": "true",
-                "defaultVisible": "true",
+                "defaultVisible": "false",
                 "title": "Wie ist der Status des Vorhabens? *",
                 "description": "",
                 "message": {
@@ -2181,6 +2652,25 @@
                       "alt": "Photovoltaik"
                     }
                   }
+                }
+              },
+              "interested-products-text-3": {
+                "order": "1",
+                "type": "text",
+                "required": "true",
+                "defaultVisible": "false",
+                "title": "",
+                "description": "",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "label": "Enter your Name",
+                  "placeholder": "Bernd Johnsen"
                 }
               },
               "interested-products-range": {
@@ -2502,8 +2992,8 @@
             }
           },
           "submit": {
-            "title": "Bitte geben Sie Ihre Kontaktdaten ein",
-            "description": "Wir melden uns in Kürze bei Ihnen",
+            "title": "Geben Sie Ihre Kontaktdaten ein",
+            "description": "Und reservieren Sie sich Ihren Montagetermin",
             "form": {
               "submit-form-name": {
                 "order": "1",
@@ -2513,15 +3003,15 @@
                 "title": "",
                 "description": "",
                 "message": {
-                  "text": "Only valid Names are allowed",
+                  "text": "",
                   "type": "info",
                   "successMessage": "Thank you for your input",
                   "requiredMessage": "This field is required",
                   "checkPreviousFormsMessage": "Please resolve all error from previous forms"
                 },
                 "options": {
-                  "label": "Enter your Name",
-                  "placeholder": "Bernd Johnson"
+                  "label": "Firmenname",
+                  "placeholder": "Synergie"
                 }
               },
               "submit-form-email": {
@@ -2532,15 +3022,15 @@
                 "title": "",
                 "description": "",
                 "message": {
-                  "text": "Please enter your e-mail",
+                  "text": "",
                   "type": "info",
                   "successMessage": "Thank you for your input",
                   "requiredMessage": "This field is required",
                   "checkPreviousFormsMessage": "Please resolve all error from previous forms"
                 },
                 "options": {
-                  "label": "Enter your E-Mail",
-                  "placeholder": "Bernd Johnson"
+                  "label": "E-Mail",
+                  "placeholder": "office@synergiemontagen.eco"
                 }
               },
               "submit-form-telephone": {
@@ -2558,7 +3048,7 @@
                   "checkPreviousFormsMessage": "Please resolve all error from previous forms"
                 },
                 "options": {
-                  "label": "Enter your Telephone number",
+                  "label": "Telefonnummer",
                   "placeholder": "00 123-456-78-90"
                 }
               },
@@ -2670,7 +3160,7 @@
                 "type": "select",
                 "multiple": "true",
                 "required": "true",
-                "defaultVisible": "true",
+                "defaultVisible": "false",
                 "title": "",
                 "description": "",
                 "defaultValue": [""],
@@ -2770,7 +3260,7 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "requiredMessage": "This field is required",
+                  "errorMessage": "This field is required",
                   "successMessage": "Thank you for your submit",
                   "loadingMessage": "Please wait while we process your request",
                   "checkPreviousFormsMessage": "Please resolve all error from previous forms"

@@ -2061,11 +2061,297 @@
             "title": "Starten Sie in die Energieunabhängikeit!",
             "description": "Sie erhalten danach unseren Ratgeber mit Tipps und Tricks zu Anschaffung, Förderung und Betrieb Ihrer PV-Anlage!",
             "form": {
+              "interested-products-range-2": {
+                "order": "1",
+                "type": "range",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "Wie viel kWp?",
+                "description": "Wählen Sie den Betrag, den Sie benötigen",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "requiredMessage": "This field is required",
+                  "successMessage": "Thank you for your input",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "range": {
+                    "defaultValue": "0",
+                    "min": "10",
+                    "max": "1500",
+                    "step": "10"
+                  },
+                  "unit": {
+                    "value": "kWp",
+                    "spaceBetween": "true",
+                    "position": "after"
+                  },
+                  "labels": {
+                    "min": {
+                      "text": "Min (10 kWp)",
+                      "value": 100,
+                      "align": "start",
+                      "offsetX": "0",
+                      "correctX": "0%"
+                    },
+                    "q1": {
+                      "text": "500 kWp",
+                      "value": 500,
+                      "align": "start",
+                      "offsetX": "1/3",
+                      "correctX": "145%"
+                    },
+                    "q2": {
+                      "text": "1000 kWp",
+                      "value": 1000,
+                      "align": "start",
+                      "offsetX": "2/3",
+                      "correctX": "105%"
+                    },
+                    "max": {
+                      "text": "Max (1500 kWp)",
+                      "value": 1500,
+                      "align": "end",
+                      "offsetX": "0",
+                      "correctX": "0%"
+                    }
+                  }
+                }
+              },
+              "interested-products-dachtyp": {
+                "order": "1",
+                "type": "radio",
+                "multiple": "true",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "Wie schaut der Dachtyp aus? *",
+                "description": "",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "photovoltaic": {
+                    "type": "checkbox",
+                    "title": "Trapez/Falz",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "wärmepumpe": {
+                    "type": "checkbox",
+                    "title": "Ziegel",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "klimasysteme": {
+                    "type": "checkbox",
+                    "title": "Eternit/Bramac",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  }
+                }
+              },
+              "interested-products-schnittstelle": {
+                "order": "1",
+                "type": "checkbox",
+                "multiple": "true",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "Schnittstelle? *",
+                "description": "Wählen Sie alle aus, die zutreffen",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "photovoltaic": {
+                    "type": "checkbox",
+                    "title": "Dachmontage + Kabel hinunter",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  },
+                  "wärmepumpe": {
+                    "type": "checkbox",
+                    "title": "bis Wechselrichter",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  }
+                }
+              },
+
+              "submit-form-textarea-address": {
+                "order": "1",
+                "type": "textarea",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "",
+                "description": "",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "label": "Adresse Privatkunde",
+                  "placeholder": "Write your thoughts here...",
+                  "rows": "4"
+                }
+              },
+              "interested-products-range-height": {
+                "order": "1",
+                "type": "range",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "Wie hoch ist das Gebäude?",
+                "description": "Wählen Sie die Höhe des Gebäudes in Meter",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "requiredMessage": "This field is required",
+                  "successMessage": "Thank you for your input",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "range": {
+                    "defaultValue": "0",
+                    "min": "10",
+                    "max": "1500",
+                    "step": "10"
+                  },
+                  "unit": {
+                    "value": "m",
+                    "spaceBetween": "true",
+                    "position": "after"
+                  },
+                  "labels": {
+                    "min": {
+                      "text": "Min (10 m)",
+                      "value": 100,
+                      "align": "start",
+                      "offsetX": "0",
+                      "correctX": "0%"
+                    },
+                    "q1": {
+                      "text": "500 m",
+                      "value": 500,
+                      "align": "start",
+                      "offsetX": "1/3",
+                      "correctX": "145%"
+                    },
+                    "q2": {
+                      "text": "1000 m",
+                      "value": 1000,
+                      "align": "start",
+                      "offsetX": "2/3",
+                      "correctX": "105%"
+                    },
+                    "max": {
+                      "text": "Max (1500 m)",
+                      "value": 1500,
+                      "align": "end",
+                      "offsetX": "0",
+                      "correctX": "0%"
+                    }
+                  }
+                }
+              },
+              "interested-products-range-dachneigung": {
+                "order": "1",
+                "type": "range",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "Wie ist die Dachneigung?",
+                "description": "Wählen Sie die Dachneigung in Grad",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "requiredMessage": "This field is required",
+                  "successMessage": "Thank you for your input",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "range": {
+                    "defaultValue": "0",
+                    "min": "0",
+                    "max": "90",
+                    "step": "1"
+                  },
+                  "unit": {
+                    "value": "°",
+                    "spaceBetween": "false",
+                    "position": "after"
+                  },
+                  "labels": {
+                    "min": {
+                      "text": "Min (0°)",
+                      "value": 0,
+                      "align": "start",
+                      "offsetX": "0",
+                      "correctX": "0%"
+                    },
+                    "q1": {
+                      "text": "30°",
+                      "value": 30,
+                      "align": "start",
+                      "offsetX": "1/3",
+                      "correctX": "145%"
+                    },
+                    "q2": {
+                      "text": "60°",
+                      "value": 60,
+                      "align": "start",
+                      "offsetX": "2/3",
+                      "correctX": "105%"
+                    },
+                    "max": {
+                      "text": "Max (90°)",
+                      "value": 90,
+                      "align": "end",
+                      "offsetX": "0",
+                      "correctX": "0%"
+                    }
+                  }
+                }
+              },
               "interested-products-text": {
                 "order": "1",
                 "type": "text",
                 "required": "true",
-                "defaultVisible": "true",
+                "defaultVisible": "false",
                 "title": "Wie viel Zahlen Sie derzeit für Strom?",
                 "description": "Geben Sie den Betrag ein, den Sie derzeit für Strom zahlen",
                 "message": {
@@ -2084,7 +2370,7 @@
                 "order": "1",
                 "type": "text",
                 "required": "true",
-                "defaultVisible": "true",
+                "defaultVisible": "false",
                 "title": "",
                 "description": "",
                 "message": {
@@ -2104,7 +2390,7 @@
                 "type": "checkbox",
                 "multiple": "true",
                 "required": "true",
-                "defaultVisible": "true",
+                "defaultVisible": "false",
                 "title": "Wie ist der Status des Vorhabens? *",
                 "description": "",
                 "message": {
@@ -2181,6 +2467,25 @@
                       "alt": "Photovoltaik"
                     }
                   }
+                }
+              },
+              "interested-products-text-3": {
+                "order": "1",
+                "type": "text",
+                "required": "true",
+                "defaultVisible": "false",
+                "title": "",
+                "description": "",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "label": "Enter your Name",
+                  "placeholder": "Bernd Johnsen"
                 }
               },
               "interested-products-range": {
@@ -2770,7 +3075,7 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "requiredMessage": "This field is required",
+                  "errorMessage": "This field is required",
                   "successMessage": "Thank you for your submit",
                   "loadingMessage": "Please wait while we process your request",
                   "checkPreviousFormsMessage": "Please resolve all error from previous forms"

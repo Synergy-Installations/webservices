@@ -146,7 +146,7 @@ export const Funnel = (props: FunnelProps) => {
                   {}
                 ),
                 selected: {
-                  questionTitle: element.form[formKey].title,
+                  questionTitle: element.form[formKey].label,
                   selectedOptions: [],
                   selectedOptionsUid: [],
                 },
@@ -250,7 +250,7 @@ export const Funnel = (props: FunnelProps) => {
                       : 1,
                 },
                 selected: {
-                  questionTitle: element.form[formKey].title,
+                  questionTitle: element.form[formKey].options.label,
                   inputValue: "",
                 },
               };
@@ -269,8 +269,7 @@ export const Funnel = (props: FunnelProps) => {
                 message: {
                   text: element.form[formKey].message.text,
                   type: element.form[formKey].message.type,
-                  requiredMessage:
-                    element.form[formKey].message.requiredMessage,
+                  errorMessage: element.form[formKey].message.errorMessage,
                   successMessage: element.form[formKey].message.successMessage,
                   loadingMessage: element.form[formKey].message.loadingMessage,
                   checkPreviousFormsMessage:
@@ -281,6 +280,9 @@ export const Funnel = (props: FunnelProps) => {
                     text: element.form[formKey].options.button.text,
                   },
                 },
+                /** There is no need for selected as the button does not hold any
+                 * values from the user.
+                 */
               };
             }
           }
@@ -390,7 +392,7 @@ export const Funnel = (props: FunnelProps) => {
           {}
         ),
         selected: {
-          questionTitle: element.title,
+          questionTitle: element.label,
           selectedOptions: [],
           selectedOptionsUid: [],
         },
@@ -473,7 +475,7 @@ export const Funnel = (props: FunnelProps) => {
           rows: element.type === "textarea" ? Number(element.options.rows) : 1,
         },
         selected: {
-          questionTitle: element.title,
+          questionTitle: element.options.label,
           inputValue: "",
         },
       };
@@ -490,7 +492,7 @@ export const Funnel = (props: FunnelProps) => {
         message: {
           text: element.message.text,
           type: element.message.type,
-          requiredMessage: element.message.requiredMessage,
+          errorMessage: element.message.errorMessage,
           successMessage: element.message.successMessage,
           loadingMessage: element.message.loadingMessage,
           checkPreviousFormsMessage: element.message.checkPreviousFormsMessage,
@@ -500,6 +502,9 @@ export const Funnel = (props: FunnelProps) => {
             text: element.options.button.text,
           },
         },
+        /** There is no need for selected as the button does not hold any
+         * values from the user.
+         */
       };
     }
   };
@@ -524,14 +529,20 @@ export const Funnel = (props: FunnelProps) => {
     Object.keys(questionElements).forEach((questionKey) => {
       const forms = questionElements[questionKey].form;
       console.log("add", Object.keys(forms).length);
-      totalForms += Object.keys(forms).length;
+      /** Remove the submit button form as it is not user input
+       */
+      totalForms += Object.keys(forms).filter(
+        (formKey) => forms[formKey].type !== "submit-button"
+      ).length;
       successForms += Object.keys(forms).filter(
         (formKey) =>
-          forms[formKey].message.type === "success" ||
-          /** Forms with a warning are correct, however, something else (like the form above) is
-           * incorrect and errors
-           */
-          forms[formKey].message.type === "warning"
+          /** Make sure not to count the submit button as it is not user input */
+          forms[formKey].type !== "submit-button" &&
+          (forms[formKey].message.type === "success" ||
+            /** Forms with a warning are correct, however, something else (like the form above) is
+             * incorrect which gives an error message but not the form itself.
+             */
+            forms[formKey].message.type === "warning")
       ).length;
     });
     return { totalForms, successForms };
@@ -793,10 +804,18 @@ export const Funnel = (props: FunnelProps) => {
       createQuestionElement(questionKey, fromArray),
       questionKeyUid
     );
-    setQuestionElements((prev) => ({
-      ...prev,
-      [questionKeyUid]: createQuestionElement(questionKey, fromArray),
-    }));
+    setQuestionElements((prev) => {
+      const updatedElements = { ...prev };
+      const fromQuestionIndex = Object.keys(updatedElements).indexOf(
+        from.fromQuestionKey
+      );
+      const newQuestionElements = Object.entries(updatedElements);
+      newQuestionElements.splice(fromQuestionIndex + 1, 0, [
+        questionKeyUid,
+        createQuestionElement(questionKey, fromArray),
+      ]);
+      return Object.fromEntries(newQuestionElements);
+    });
   };
 
   const addFormElement = (
@@ -827,12 +846,22 @@ export const Funnel = (props: FunnelProps) => {
     );
     setQuestionElements((prev) => {
       const updatedElements = { ...prev };
-      updatedElements[from.fromQuestionKey].form[formKeyUid] =
+      const fromFormIndex = Object.keys(
+        updatedElements[from.fromQuestionKey].form
+      ).indexOf(from.fromFormKey);
+      const newFormElements = Object.entries(
+        updatedElements[from.fromQuestionKey].form
+      );
+      newFormElements.splice(fromFormIndex + 1, 0, [
+        formKeyUid,
         createFormElement(
           questionElements[from.fromQuestionKey].uid,
           formKey,
           fromArray
-        );
+        ),
+      ]);
+      updatedElements[from.fromQuestionKey].form =
+        Object.fromEntries(newFormElements);
       return updatedElements;
     });
   };
@@ -943,19 +972,21 @@ export const Funnel = (props: FunnelProps) => {
             forms: Object.keys(question.form).map((formKey) => {
               const form = question.form[formKey];
               return {
-                formTitle: form.title,
+                formTitle: form.selected?.questionTitle || form.title,
                 formType: form.type,
                 selected:
-                  form.type === "checkbox" || form.type === "radio"
+                  form.type === "checkbox" ||
+                  form.type === "radio" ||
+                  form.type === "select"
                     ? form.selected.selectedOptions
                     : form.type === "range"
-                      ? form.selected.selectedValue
+                      ? `${form.selected.selectedValue} ${form.options.unit.value}`
                       : form.type === "text" ||
                           form.type === "email" ||
                           form.type === "tel" ||
                           form.type === "textarea"
                         ? form.selected.inputValue
-                        : null,
+                        : "N/A",
               };
             }),
           };
@@ -969,6 +1000,29 @@ export const Funnel = (props: FunnelProps) => {
       })
         .then((res) => {
           console.log("Successfully sent EMail", res);
+
+          if (res.status == 200) {
+            setQuestionElements((prev) => {
+              const updatedElements = { ...prev };
+              updatedElements[questionKey].form[formKey].message.text =
+                questionElements[questionKey].form[
+                  formKey
+                ].message.successMessage;
+              updatedElements[questionKey].form[formKey].message.type =
+                "success";
+              return updatedElements;
+            });
+          } else {
+            setQuestionElements((prev) => {
+              const updatedElements = { ...prev };
+              updatedElements[questionKey].form[formKey].message.text =
+                questionElements[questionKey].form[
+                  formKey
+                ].message.errorMessage;
+              updatedElements[questionKey].form[formKey].message.type = "error";
+              return updatedElements;
+            });
+          }
           // setButtonStatusText({
           //   fatal: false,
           //   disabled: true,
@@ -1023,7 +1077,7 @@ export const Funnel = (props: FunnelProps) => {
         </div>
       </div>
       {Object.keys(questionElements).map((questionKey: any, index: any) => (
-        <section id={questionKey} key={index} className="mt-10 scroll-mt-20">
+        <section id={questionKey} key={index} className="mt-10 scroll-mt-40">
           {/** Title and description of question */}
           <div className="text-center">
             <div className="text-2xl font-bold">
@@ -1038,7 +1092,7 @@ export const Funnel = (props: FunnelProps) => {
                 <section
                   key={formKey}
                   id={formKey}
-                  className="w-full scroll-mt-20"
+                  className="w-full scroll-mt-40"
                 >
                   {/** Title and description of form */}
                   <div className="text-center mt-5 mb-5">
@@ -1575,7 +1629,7 @@ export const Funnel = (props: FunnelProps) => {
                           onClick={() => {
                             submitFunnel(questionKey, formKey);
                           }}
-                          className="px-3 py-1 rounded-md bg-synergy-light-blue text-white "
+                          className="px-3 py-1 rounded-md bg-synergy-light-blue text-white"
                         >
                           {
                             questionElements[questionKey].form[formKey].options

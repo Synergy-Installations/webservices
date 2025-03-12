@@ -2076,8 +2076,12 @@
                   "checkPreviousFormsMessage": "Please resolve all error from previous forms"
                 },
                 "options": {
+                  "buttons": {
+                    "incrementBy": "10",
+                    "decrementBy": "10"
+                  },
                   "range": {
-                    "defaultValue": "0",
+                    "defaultValue": "1",
                     "min": "1",
                     "max": "10000",
                     "step": "0.01"
@@ -2096,15 +2100,15 @@
                       "correctX": "0%"
                     },
                     "q1": {
-                      "text": "500 kWp",
-                      "value": 500,
+                      "text": "3000 kWp",
+                      "value": 3000,
                       "align": "start",
                       "offsetX": "1/3",
                       "correctX": "145%"
                     },
                     "q2": {
-                      "text": "1000 kWp",
-                      "value": 1000,
+                      "text": "6000 kWp",
+                      "value": 6000,
                       "align": "start",
                       "offsetX": "2/3",
                       "correctX": "105%"
@@ -2364,6 +2368,10 @@
                   "checkPreviousFormsMessage": "Please resolve all error from previous forms"
                 },
                 "options": {
+                  "buttons": {
+                    "incrementBy": "10",
+                    "decrementBy": "10"
+                  },
                   "range": {
                     "defaultValue": "0",
                     "min": "10",
@@ -2422,6 +2430,10 @@
                   "checkPreviousFormsMessage": "Please resolve all error from previous forms"
                 },
                 "options": {
+                  "buttons": {
+                    "incrementBy": "10",
+                    "decrementBy": "10"
+                  },
                   "range": {
                     "defaultValue": "0",
                     "min": "0",
@@ -2688,6 +2700,10 @@
                   "checkPreviousFormsMessage": "Please resolve all error from previous forms"
                 },
                 "options": {
+                  "buttons": {
+                    "incrementBy": "10",
+                    "decrementBy": "10"
+                  },
                   "range": {
                     "defaultValue": "0",
                     "min": "100",

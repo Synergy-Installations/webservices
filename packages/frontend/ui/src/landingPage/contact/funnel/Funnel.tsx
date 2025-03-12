@@ -173,6 +173,14 @@ export const Funnel = (props: FunnelProps) => {
                     element.form[formKey].message.checkPreviousFormsMessage,
                 },
                 options: {
+                  buttons: {
+                    incrementBy: Number(
+                      element.form[formKey].options.buttons.incrementBy
+                    ),
+                    decrementBy: Number(
+                      element.form[formKey].options.buttons.decrementBy
+                    ),
+                  },
                   range: {
                     defaultValue: Number(
                       element.form[formKey].options.range.defaultValue
@@ -210,9 +218,8 @@ export const Funnel = (props: FunnelProps) => {
                 },
                 selected: {
                   questionTitle: element.form[formKey].title,
-                  selectedValue: Number(
-                    element.form[formKey].options.range.defaultValue
-                  ),
+                  selectedValue:
+                    element.form[formKey].options.range.defaultValue,
                 },
               };
             } else if (
@@ -415,6 +422,10 @@ export const Funnel = (props: FunnelProps) => {
           checkPreviousFormsMessage: element.message.checkPreviousFormsMessage,
         },
         options: {
+          buttons: {
+            incrementBy: Number(element.options.buttons.incrementBy),
+            decrementBy: Number(element.options.buttons.decrementBy),
+          },
           range: {
             defaultValue: Number(element.options.range.defaultValue),
             min: Number(element.options.range.min),
@@ -444,7 +455,7 @@ export const Funnel = (props: FunnelProps) => {
         },
         selected: {
           questionTitle: element.title,
-          selectedValue: Number(element.options.range.defaultValue),
+          selectedValue: element.options.range.defaultValue,
         },
       };
     } else if (
@@ -1424,7 +1435,151 @@ export const Funnel = (props: FunnelProps) => {
                     "range" ? (
                     <>
                       <div className="relative mb-6">
-                        <div
+                        <div className="relative flex items-center mx-auto max-w-[11rem]">
+                          <button
+                            type="button"
+                            id="decrement-button"
+                            data-input-counter-decrement="bedrooms-input"
+                            className="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
+                            onClick={() => {
+                              /** Runs twice in dev - not to panic - only evokes change once in prod */
+                              setQuestionElements((prev) => {
+                                const updatedElements = { ...prev };
+                                updatedElements[questionKey].form[
+                                  formKey
+                                ].selected.selectedValue = Math.max(
+                                  questionElements[questionKey].form[formKey]
+                                    .options.range.min,
+                                  Number(
+                                    questionElements[questionKey].form[formKey]
+                                      .selected.selectedValue
+                                  ) -
+                                    questionElements[questionKey].form[formKey]
+                                      .options.buttons.decrementBy
+                                ).toString();
+                                return updatedElements;
+                              });
+                            }}
+                          >
+                            <svg
+                              className="w-3 h-3 text-gray-900 dark:text-white"
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 18 2"
+                            >
+                              <path
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M1 1h16"
+                              />
+                            </svg>
+                          </button>
+                          <input
+                            type="text"
+                            // title="Rate"
+                            // min="0.00"
+                            // step="0.001"
+                            // max="1.00"
+                            id={`${formKey}-input`}
+                            // data-input-counter
+                            // data-input-counter-min="1"
+                            // data-input-counter-max="5"
+                            // aria-describedby="helper-text-explanation"
+                            className="bg-gray-50 border-x-0 border-gray-300 h-11 font-medium text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pb-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder=""
+                            value={
+                              questionElements[questionKey].form[formKey]
+                                .selected.selectedValue
+                            }
+                            onChange={(e) => {
+                              const { value } = e.target;
+                              // var regex = new RegExp(/^-?\d*\.?\d*$/);
+
+                              // if (regex.test(e.target.value)) {
+                              //   // this.setState({ val: e.target.value });
+                              // } else {
+                              //   alert("Sorry, only numbers are allowed.");
+                              // }
+                              setQuestionElements((prev) => {
+                                const updatedElements = { ...prev };
+                                updatedElements[questionKey].form[
+                                  formKey
+                                ].selected.selectedValue = value;
+                                return updatedElements;
+                              });
+                            }}
+                            required
+                          />
+                          <label
+                            htmlFor={`${formKey}-input`}
+                            className="absolute bottom-1 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 flex items-center text-xs text-synergy-dark-grey space-x-1 rtl:space-x-reverse"
+                          >
+                            {/* <svg
+                              className="w-2.5 h-2.5 text-gray-400"
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M3 8v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V8M1 10l9-9 9 9"
+                              />
+                            </svg> */}
+                            <span>
+                              {
+                                questionElements[questionKey].form[formKey]
+                                  .options.unit.value
+                              }
+                            </span>
+                          </label>
+                          <button
+                            type="button"
+                            id="increment-button"
+                            data-input-counter-increment="bedrooms-input"
+                            className="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
+                            onClick={() => {
+                              /** Runs twice in dev - not to panic - only evokes change once in prod */
+                              setQuestionElements((prev) => {
+                                const updatedElements = { ...prev };
+                                updatedElements[questionKey].form[
+                                  formKey
+                                ].selected.selectedValue = (
+                                  Number(
+                                    questionElements[questionKey].form[formKey]
+                                      .selected.selectedValue
+                                  ) +
+                                  questionElements[questionKey].form[formKey]
+                                    .options.buttons.incrementBy
+                                ).toString();
+                                return updatedElements;
+                              });
+                            }}
+                          >
+                            <svg
+                              className="w-3 h-3 text-gray-900 dark:text-white"
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 18 18"
+                            >
+                              <path
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 1v16M1 9h16"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                        {/* <div
                           className={`flex justify-end ${questionElements[questionKey].form[formKey].options.unit.spaceBetween && "gap-1"}`}
                         >
                           <span className="text-base font-semibold text-synergy-dark-grey dark:text-gray-400">
@@ -1441,17 +1596,17 @@ export const Funnel = (props: FunnelProps) => {
                                 .options.unit.value
                             }
                           </span>
-                        </div>
+                        </div> */}
                         <label htmlFor="labels-range-input" className="sr-only">
                           Labels range
                         </label>
                         <input
                           id="labels-range-input"
                           type="range"
-                          value={
+                          value={Number(
                             questionElements[questionKey].form[formKey].selected
                               .selectedValue
-                          }
+                          )}
                           min={
                             questionElements[questionKey].form[formKey].options
                               .range.min
@@ -1471,7 +1626,7 @@ export const Funnel = (props: FunnelProps) => {
                               const updatedElements = { ...prev };
                               updatedElements[questionKey].form[
                                 formKey
-                              ].selected.selectedValue = Number(value);
+                              ].selected.selectedValue = value;
                               return updatedElements;
                             });
                           }}

@@ -291,6 +291,52 @@ export const Funnel = (props: FunnelProps) => {
                  * values from the user.
                  */
               };
+            } else if (element.form[formKey].type === "calculation") {
+              formAcc[
+                `${formKey}-${Math.random().toString(36).substring(2, 7)}`
+              ] = {
+                order: Number(element.form[formKey].order),
+                uid: formKey,
+                type: element.form[formKey].type,
+                required: element.form[formKey].required === "true",
+                defaultVisible: element.form[formKey].defaultVisible === "true",
+                title: element.form[formKey].title,
+                description: element.form[formKey].description,
+                from: from || [],
+                message: {
+                  text: element.form[formKey].message.text,
+                  type: element.form[formKey].message.type,
+                  errorMessage: element.form[formKey].message.errorMessage,
+                  successMessage: element.form[formKey].message.successMessage,
+                  loadingMessage: element.form[formKey].message.loadingMessage,
+                  checkPreviousFormsMessage:
+                    element.form[formKey].message.checkPreviousFormsMessage,
+                },
+                options: {
+                  inputForm: {
+                    questionKey:
+                      element.form[formKey].options.inputForm.questionKey,
+                    formKey: element.form[formKey].options.inputForm.formKey,
+                  },
+                  maths: {
+                    type: element.form[formKey].options.maths.type,
+                    formula: element.form[formKey].options.maths.formula,
+                    unit: element.form[formKey].options.maths.unit,
+                    spaceBetween:
+                      element.form[formKey].options.maths.spaceBetween ===
+                      "true",
+                    position: element.form[formKey].options.maths.position,
+                  },
+                  afterMaths: {
+                    before: element.form[formKey].options.afterMaths.before,
+                    after: element.form[formKey].options.afterMaths.after,
+                  },
+                },
+                selected: {
+                  questionTitle: element.form[formKey].title,
+                  inputValue: "0",
+                },
+              };
             }
           }
           return formAcc;
@@ -516,6 +562,46 @@ export const Funnel = (props: FunnelProps) => {
         /** There is no need for selected as the button does not hold any
          * values from the user.
          */
+      };
+    } else if (element.type === "calculation") {
+      return {
+        order: Number(element.order),
+        uid: formKey,
+        type: element.type,
+        required: element.required === "true",
+        defaultVisible: element.defaultVisible === "true",
+        title: element.title,
+        description: element.description,
+        from: from || [],
+        message: {
+          text: element.message.text,
+          type: element.message.type,
+          errorMessage: element.message.errorMessage,
+          successMessage: element.message.successMessage,
+          loadingMessage: element.message.loadingMessage,
+          checkPreviousFormsMessage: element.message.checkPreviousFormsMessage,
+        },
+        options: {
+          inputForm: {
+            questionKey: element.options.inputForm.questionKey,
+            formKey: element.options.inputForm.formKey,
+          },
+          maths: {
+            type: element.options.maths.type,
+            formula: element.options.maths.formula,
+            unit: element.options.maths.unit,
+            spaceBetween: element.options.maths.spaceBetween === "true",
+            position: element.options.maths.position,
+          },
+          afterMaths: {
+            before: element.options.afterMaths.before,
+            after: element.options.afterMaths.after,
+          },
+        },
+        selected: {
+          questionTitle: element.title,
+          inputValue: "0",
+        },
       };
     }
   };
@@ -1071,6 +1157,84 @@ export const Funnel = (props: FunnelProps) => {
     }
   };
 
+  const calculateForms = (questionKey: string, formKey: string) => {
+    Object.keys(questionElements).forEach((questionKeyLoop: string) => {
+      const question = questionElements[questionKeyLoop];
+      Object.keys(question.form).forEach((formKeyLoop: string) => {
+        const form = question.form[formKeyLoop];
+        console.log(
+          "calculateFormsBeforeSelection",
+          questionKey,
+          formKey,
+          questionKeyLoop,
+          formKeyLoop,
+          form.type
+        );
+        if (
+          /** Only calculate if the calling form is the one linked to the calculating form */
+          form.type === "calculation" &&
+          form.options.inputForm.questionKey ===
+            questionElements[questionKey].uid &&
+          form.options.inputForm.formKey ===
+            questionElements[questionKey].form[formKey].uid
+        ) {
+          console.log("calculateForms", questionKeyLoop, formKeyLoop);
+          /** The input form is the one that calls the function and only the correct
+           * calculation form is calculated using the if statement above
+           */
+          const inputForm = questionElements[questionKey].form[formKey];
+          const maths = form.options.maths;
+          const inputValue = Number(inputForm.selected.selectedValue);
+          console.log("inputValue", inputValue);
+          const formula = maths.formula.replace("x", inputValue.toString());
+          console.log("formula", formula);
+          const result = eval(formula);
+          const unit = maths.unit;
+          const spaceBetween = maths.spaceBetween;
+          const position = maths.position;
+
+          setQuestionElements((prev) => {
+            const updatedElements = { ...prev };
+            updatedElements[questionKeyLoop].form[
+              formKeyLoop
+            ].selected.inputValue = `${result}`;
+            return updatedElements;
+          });
+        }
+      });
+    });
+  };
+
+  const debouncedCalculateForms = debounce(calculateForms, 100);
+
+  const renderAfterMathsCalculation = (
+    questionUid: string,
+    formUid: string
+  ): JSX.Element => {
+    const question = Object.values(questionElements).find(
+      ({ uid }: { uid: string }) => questionUid === uid
+    );
+    const form: any = Object.values(question.form).find(
+      (form: any) => form.uid === formUid
+    );
+
+    console.log("renderAfterMathsCalculation", form);
+    return (
+      <div
+        className={`flex justify-end ${form.options.unit.spaceBetween && "gap-1"}`}
+      >
+        <span className="text-synergy-dark-grey dark:text-gray-400">
+          {form.selected.selectedValue}
+        </span>
+        <span
+          className={`text-synergy-dark-grey dark:text-gray-400 flex justify-end ${form.options.unit.position === "before" && "order-first"}`}
+        >
+          {form.options.unit.value}
+        </span>
+      </div>
+    );
+  };
+
   return (
     <div className="relative flex flex-col justify-center max-w-3xl mx-auto">
       <div className="sticky z-10 top-0 pt-[100px] bg-slate-50">
@@ -1485,6 +1649,7 @@ export const Funnel = (props: FunnelProps) => {
                                * Need to be debounced as it may happen that state is not updated right away
                                */
                               debouncedGetNextQuestionKey(questionKey, formKey);
+                              debouncedCalculateForms(questionKey, formKey);
                             }}
                           >
                             <svg
@@ -1542,6 +1707,7 @@ export const Funnel = (props: FunnelProps) => {
                                * Need to be debounced as it may happen that state is not updated right away
                                */
                               debouncedGetNextQuestionKey(questionKey, formKey);
+                              debouncedCalculateForms(questionKey, formKey);
                             }}
                           />
                           <label
@@ -1596,6 +1762,7 @@ export const Funnel = (props: FunnelProps) => {
                                * Need to be debounced as it may happen that state is not updated right away
                                */
                               debouncedGetNextQuestionKey(questionKey, formKey);
+                              debouncedCalculateForms(questionKey, formKey);
                             }}
                           >
                             <svg
@@ -1671,6 +1838,7 @@ export const Funnel = (props: FunnelProps) => {
                              * Need to be debounced as it may happen that state is not updated right away
                              */
                             debouncedGetNextQuestionKey(questionKey, formKey);
+                            debouncedCalculateForms(questionKey, formKey);
                           }}
                         />
                         {Object.keys(
@@ -1822,30 +1990,86 @@ export const Funnel = (props: FunnelProps) => {
                         </p>
                       </div>
                     </div>
+                  ) : questionElements[questionKey].form[formKey].type ===
+                    "submit-button" ? (
+                    <div className="flex justify-between">
+                      <p
+                        className={`text-sm mt-2 min-h-[1.57rem] ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : questionElements[questionKey].form[formKey].message.type === "warning" ? "text-orange-600 dark:text-orange-500" : "text-green-600 dark:text-green-500"} `}
+                      >
+                        {
+                          questionElements[questionKey].form[formKey].message
+                            .text
+                        }
+                      </p>
+                      <button
+                        onClick={() => {
+                          submitFunnel(questionKey, formKey);
+                        }}
+                        className="px-3 py-1 rounded-md bg-synergy-light-blue text-white"
+                      >
+                        {
+                          questionElements[questionKey].form[formKey].options
+                            .button.before
+                        }
+                      </button>
+                    </div>
                   ) : (
                     questionElements[questionKey].form[formKey].type ===
-                      "submit-button" && (
-                      <div className="flex justify-between">
-                        <p
-                          className={`text-sm mt-2 min-h-[1.57rem] ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : questionElements[questionKey].form[formKey].message.type === "warning" ? "text-orange-600 dark:text-orange-500" : "text-green-600 dark:text-green-500"} `}
-                        >
-                          {
-                            questionElements[questionKey].form[formKey].message
-                              .text
-                          }
-                        </p>
-                        <button
-                          onClick={() => {
-                            submitFunnel(questionKey, formKey);
-                          }}
-                          className="px-3 py-1 rounded-md bg-synergy-light-blue text-white"
-                        >
-                          {
-                            questionElements[questionKey].form[formKey].options
-                              .button.text
-                          }
-                        </button>
-                      </div>
+                      "calculation" && (
+                      <>
+                        <div className="flex justify-center items-center gap-1 text-lg">
+                          <div
+                            className={`flex font-semibold justify-center ${questionElements[questionKey].form[formKey].options.maths.spaceBetween && "gap-1"}`}
+                          >
+                            <span className="text-synergy-dark-grey dark:text-gray-400">
+                              {Number(
+                                questionElements[questionKey].form[formKey]
+                                  .selected.inputValue
+                              ).toLocaleString()}
+                            </span>
+                            <span
+                              className={`text-synergy-dark-grey dark:text-gray-400 flex justify-end ${questionElements[questionKey].form[formKey].options.maths.position === "before" && "order-first"}`}
+                            >
+                              {
+                                questionElements[questionKey].form[formKey]
+                                  .options.maths.unit
+                              }
+                            </span>
+                          </div>
+                          <div className="flex gap-1 items-center">
+                            <span className="">
+                              {
+                                questionElements[questionKey].form[formKey]
+                                  .options.afterMaths.before
+                              }
+                            </span>
+                            <div className="font-semibold">
+                              {renderAfterMathsCalculation(
+                                questionElements[questionKey].form[formKey]
+                                  .options.inputForm.questionKey,
+                                questionElements[questionKey].form[formKey]
+                                  .options.inputForm.formKey
+                              )}
+                            </div>
+                            <span className="">
+                              {
+                                questionElements[questionKey].form[formKey]
+                                  .options.afterMaths.after
+                              }
+                            </span>
+                          </div>
+                        </div>
+                        <div className="flex justify-between">
+                          <p
+                            className={`text-sm mt-2 min-h-[1.57rem] ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : questionElements[questionKey].form[formKey].message.type === "warning" ? "text-orange-600 dark:text-orange-500" : "text-green-600 dark:text-green-500"} `}
+                          >
+                            {
+                              questionElements[questionKey].form[formKey]
+                                .message.text
+                            }
+                          </p>
+                        </div>
+                      </>
                     )
                   )}
                   {questionElements[questionKey].form[formKey].type !==

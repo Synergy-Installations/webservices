@@ -2081,7 +2081,7 @@
                     "decrementBy": "10"
                   },
                   "range": {
-                    "defaultValue": "1",
+                    "defaultValue": "0",
                     "min": "1",
                     "max": "10000",
                     "step": "0.01"
@@ -2526,9 +2526,9 @@
                   }
                 }
               },
-              "interested-products-soon": {
+              "interested-products-calculation": {
                 "order": "1",
-                "type": "checkbox",
+                "type": "calculation",
                 "multiple": "true",
                 "required": "false",
                 "defaultVisible": "true",
@@ -2541,7 +2541,23 @@
                   "requiredMessage": "This field is required",
                   "checkPreviousFormsMessage": "Please resolve all error from previous forms"
                 },
-                "options": {}
+                "options": {
+                  "inputForm": {
+                    "questionKey": "interested-products",
+                    "formKey": "interested-products-range-2"
+                  },
+                  "maths": {
+                    "type": "multiplication",
+                    "formula": "x * 200",
+                    "unit": "€",
+                    "spaceBetween": "false",
+                    "position": "after"
+                  },
+                  "afterMaths": {
+                    "before": "für eine",
+                    "after": "Anlage"
+                  }
+                }
               },
 
               "interested-products-text": {

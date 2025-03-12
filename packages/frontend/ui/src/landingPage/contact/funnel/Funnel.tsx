@@ -1795,18 +1795,22 @@ export const Funnel = (props: FunnelProps) => {
                     )
                   )}
                   {questionElements[questionKey].form[formKey].type !==
-                    "submit-button" && (
-                    <div className="flex justify-end">
-                      <button
-                        onClick={() => {
-                          getNextQuestionKey(questionKey, formKey);
-                        }}
-                        className="px-3 py-1 rounded-md bg-synergy-light-blue text-white "
-                      >
-                        Weiter
-                      </button>
-                    </div>
-                  )}
+                    "submit-button" &&
+                    index ==
+                      Object.entries(questionElements[questionKey].form)
+                        .length -
+                        1 && (
+                      <div className="flex justify-end">
+                        <button
+                          onClick={() => {
+                            getNextQuestionKey(questionKey, formKey);
+                          }}
+                          className="px-3 py-1 rounded-md bg-synergy-light-blue text-white "
+                        >
+                          Weiter
+                        </button>
+                      </div>
+                    )}
                 </section>
               )
             )}

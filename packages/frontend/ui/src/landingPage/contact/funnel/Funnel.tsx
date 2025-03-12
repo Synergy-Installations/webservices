@@ -577,7 +577,8 @@ export const Funnel = (props: FunnelProps) => {
 
   const getNextQuestionKey = (
     currentQuestionKey: string,
-    formKey: string
+    formKey: string,
+    redirect: boolean = false
   ): { status: string } => {
     const questionKeys = Object.keys(questionElements);
     const currentQuestion = questionElements[currentQuestionKey];
@@ -611,24 +612,32 @@ export const Funnel = (props: FunnelProps) => {
               "warning"
           ) {
             if (
-              /** Test the form for incorrect input */
-              ((questionElements[questionKey].form[formKey].type ===
+              /** Test the form for incorrect input only if the form is a required
+               * input, otherwise we have no business validating it.
+               */
+              questionElements[questionKey].form[formKey].required &&
+              (((questionElements[questionKey].form[formKey].type ===
                 "checkbox" ||
                 questionElements[questionKey].form[formKey].type === "radio" ||
                 questionElements[questionKey].form[formKey].type ===
                   "select") &&
                 questionElements[questionKey].form[formKey].selected
                   .selectedOptions.length == 0) ||
-              (questionElements[questionKey].form[formKey].type === "range" &&
-                questionElements[questionKey].form[formKey].selected
-                  .selectedValue == 0) ||
-              ((questionElements[questionKey].form[formKey].type === "text" ||
-                questionElements[questionKey].form[formKey].type === "email" ||
-                questionElements[questionKey].form[formKey].type === "tel" ||
-                questionElements[questionKey].form[formKey].type ===
-                  "textarea") &&
-                questionElements[questionKey].form[formKey].selected
-                  .inputValue == "")
+                (questionElements[questionKey].form[formKey].type === "range" &&
+                  Number(
+                    questionElements[questionKey].form[formKey].selected
+                      .selectedValue
+                  ) <
+                    questionElements[questionKey].form[formKey].options.range
+                      .min) ||
+                ((questionElements[questionKey].form[formKey].type === "text" ||
+                  questionElements[questionKey].form[formKey].type ===
+                    "email" ||
+                  questionElements[questionKey].form[formKey].type === "tel" ||
+                  questionElements[questionKey].form[formKey].type ===
+                    "textarea") &&
+                  questionElements[questionKey].form[formKey].selected
+                    .inputValue == ""))
             ) {
               /** Wrong input
                * We do not care about incorrect inputs on previous forms as long as the current form shows errors
@@ -742,7 +751,7 @@ export const Funnel = (props: FunnelProps) => {
         return updatedElements;
       });
 
-      router.push(`#${formKeys[currentFormIndex + 1]}`);
+      if (redirect) router.push(`#${formKeys[currentFormIndex + 1]}`);
       return { status: "success" };
     }
 
@@ -773,7 +782,7 @@ export const Funnel = (props: FunnelProps) => {
           return updatedElements;
         });
 
-        router.push(`#${formKey}`);
+        if (redirect) router.push(`#${formKey}`);
       }
 
       return { status: "success" };
@@ -790,9 +799,11 @@ export const Funnel = (props: FunnelProps) => {
         "success";
       return updatedElements;
     });
-    router.push(`#${questionKeys[currentIndex + 1]}`);
+    if (redirect) router.push(`#${questionKeys[currentIndex + 1]}`);
     return { status: "success" };
   };
+
+  const debouncedGetNextQuestionKey = debounce(getNextQuestionKey, 100);
 
   const addQuestionElement = (
     from: {
@@ -1248,6 +1259,11 @@ export const Funnel = (props: FunnelProps) => {
                                 return updatedElements;
                               });
 
+                              /** Validate input (especially useful if user forgot input at form above)
+                               * Need to be debounced as it may happen that state is not updated right away
+                               */
+                              debouncedGetNextQuestionKey(questionKey, formKey);
+
                               /** Update Progress count */
                               debouncedCountFormsAndSet();
                             }}
@@ -1406,6 +1422,11 @@ export const Funnel = (props: FunnelProps) => {
                               return updatedElements;
                             });
 
+                            /** Validate input (especially useful if user forgot input at form above)
+                             * Need to be debounced as it may happen that state is not updated right away
+                             */
+                            debouncedGetNextQuestionKey(questionKey, formKey);
+
                             /** Update Progress count */
                             debouncedCountFormsAndSet();
                           }}
@@ -1459,6 +1480,11 @@ export const Funnel = (props: FunnelProps) => {
                                 ).toString();
                                 return updatedElements;
                               });
+
+                              /** Validate input (especially useful if user forgot input at form above)
+                               * Need to be debounced as it may happen that state is not updated right away
+                               */
+                              debouncedGetNextQuestionKey(questionKey, formKey);
                             }}
                           >
                             <svg
@@ -1511,7 +1537,12 @@ export const Funnel = (props: FunnelProps) => {
                                 return updatedElements;
                               });
                             }}
-                            required
+                            onBlur={() => {
+                              /** Validate input (especially useful if user forgot input at form above)
+                               * Need to be debounced as it may happen that state is not updated right away
+                               */
+                              debouncedGetNextQuestionKey(questionKey, formKey);
+                            }}
                           />
                           <label
                             htmlFor={`${formKey}-input`}
@@ -1560,6 +1591,11 @@ export const Funnel = (props: FunnelProps) => {
                                 ).toString();
                                 return updatedElements;
                               });
+
+                              /** Validate input (especially useful if user forgot input at form above)
+                               * Need to be debounced as it may happen that state is not updated right away
+                               */
+                              debouncedGetNextQuestionKey(questionKey, formKey);
                             }}
                           >
                             <svg
@@ -1629,6 +1665,12 @@ export const Funnel = (props: FunnelProps) => {
                               ].selected.selectedValue = value;
                               return updatedElements;
                             });
+                          }}
+                          onMouseUp={() => {
+                            /** Validate input (especially useful if user forgot input at form above)
+                             * Need to be debounced as it may happen that state is not updated right away
+                             */
+                            debouncedGetNextQuestionKey(questionKey, formKey);
                           }}
                         />
                         {Object.keys(
@@ -1730,6 +1772,12 @@ export const Funnel = (props: FunnelProps) => {
                                 return updatedElements;
                               });
                             }}
+                            onBlur={() => {
+                              /** Validate input (especially useful if user forgot input at form above)
+                               * Need to be debounced as it may happen that state is not updated right away
+                               */
+                              debouncedGetNextQuestionKey(questionKey, formKey);
+                            }}
                           ></textarea>
                         ) : (
                           <input
@@ -1755,6 +1803,12 @@ export const Funnel = (props: FunnelProps) => {
                                 ].selected.inputValue = value;
                                 return updatedElements;
                               });
+                            }}
+                            onBlur={() => {
+                              /** Validate input (especially useful if user forgot input at form above)
+                               * Need to be debounced as it may happen that state is not updated right away
+                               */
+                              debouncedGetNextQuestionKey(questionKey, formKey);
                             }}
                           />
                         )}
@@ -1803,7 +1857,7 @@ export const Funnel = (props: FunnelProps) => {
                       <div className="flex justify-end">
                         <button
                           onClick={() => {
-                            getNextQuestionKey(questionKey, formKey);
+                            getNextQuestionKey(questionKey, formKey, true);
                           }}
                           className="px-3 py-1 rounded-md bg-synergy-light-blue text-white "
                         >

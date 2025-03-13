@@ -2076,6 +2076,10 @@
                   "checkPreviousFormsMessage": "Please resolve all error from previous forms"
                 },
                 "options": {
+                  "buttons": {
+                    "incrementBy": "10",
+                    "decrementBy": "10"
+                  },
                   "range": {
                     "defaultValue": "0",
                     "min": "1",
@@ -2096,15 +2100,15 @@
                       "correctX": "0%"
                     },
                     "q1": {
-                      "text": "500 kWp",
-                      "value": 500,
+                      "text": "3000 kWp",
+                      "value": 3000,
                       "align": "start",
                       "offsetX": "1/3",
                       "correctX": "145%"
                     },
                     "q2": {
-                      "text": "1000 kWp",
-                      "value": 1000,
+                      "text": "6000 kWp",
+                      "value": 6000,
                       "align": "start",
                       "offsetX": "2/3",
                       "correctX": "105%"
@@ -2239,7 +2243,7 @@
               "submit-form-dachtyp-anderes-textarea": {
                 "order": "1",
                 "type": "textarea",
-                "required": "true",
+                "required": "false",
                 "defaultVisible": "false",
                 "title": "",
                 "description": "",
@@ -2332,7 +2336,7 @@
               "submit-form-schnittstelle-anderes-textarea": {
                 "order": "1",
                 "type": "textarea",
-                "required": "true",
+                "required": "false",
                 "defaultVisible": "true",
                 "title": "",
                 "description": "",
@@ -2364,6 +2368,10 @@
                   "checkPreviousFormsMessage": "Please resolve all error from previous forms"
                 },
                 "options": {
+                  "buttons": {
+                    "incrementBy": "10",
+                    "decrementBy": "10"
+                  },
                   "range": {
                     "defaultValue": "0",
                     "min": "10",
@@ -2422,6 +2430,10 @@
                   "checkPreviousFormsMessage": "Please resolve all error from previous forms"
                 },
                 "options": {
+                  "buttons": {
+                    "incrementBy": "10",
+                    "decrementBy": "10"
+                  },
                   "range": {
                     "defaultValue": "0",
                     "min": "0",
@@ -2485,6 +2497,36 @@
                   "rows": "4"
                 }
               },
+              "submit-form-file-upload": {
+                "order": "1",
+                "type": "file-upload",
+                "required": "false",
+                "defaultVisible": "true",
+                "title": "Upload your files",
+                "description": "",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Thank your for your input. Please resolve all error from previous forms"
+                },
+                "options": {
+                  "upload": {
+                    "hostname": "storage.bunnycdn.com",
+                    "storageZoneName": "synergy-webservices-assets",
+                    "region": "",
+                    "filesAccepted": "",
+                    "multipleFiles": "true",
+                    "uploadingText": "Uploading...",
+                    "uploadError": "Upload failed, we are currently working on fixing it, please try again later",
+                    "uploadSuccess": "Upload successful, thank you!"
+                  },
+                  "download": {
+                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                  }
+                }
+              },
               "interested-products-wir-empfehlen": {
                 "order": "1",
                 "type": "checkbox",
@@ -2514,9 +2556,9 @@
                   }
                 }
               },
-              "interested-products-soon": {
+              "interested-products-calculation": {
                 "order": "1",
-                "type": "checkbox",
+                "type": "calculation",
                 "multiple": "true",
                 "required": "false",
                 "defaultVisible": "true",
@@ -2529,7 +2571,23 @@
                   "requiredMessage": "This field is required",
                   "checkPreviousFormsMessage": "Please resolve all error from previous forms"
                 },
-                "options": {}
+                "options": {
+                  "inputForm": {
+                    "questionKey": "interested-products",
+                    "formKey": "interested-products-range-2"
+                  },
+                  "maths": {
+                    "type": "multiplication",
+                    "formula": "x * 200",
+                    "unit": "€",
+                    "spaceBetween": "false",
+                    "position": "after"
+                  },
+                  "afterMaths": {
+                    "before": "für eine",
+                    "after": "Anlage"
+                  }
+                }
               },
 
               "interested-products-text": {
@@ -2688,6 +2746,10 @@
                   "checkPreviousFormsMessage": "Please resolve all error from previous forms"
                 },
                 "options": {
+                  "buttons": {
+                    "incrementBy": "10",
+                    "decrementBy": "10"
+                  },
                   "range": {
                     "defaultValue": "0",
                     "min": "100",

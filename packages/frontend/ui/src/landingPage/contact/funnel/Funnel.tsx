@@ -1,16 +1,21 @@
 "use client";
 import { useMessages, useTranslations } from "next-intl";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { RichText } from "@com.synergy/frontend-ui/RichText";
 import Link from "next/link";
 import { label, p } from "framer-motion/client";
 import { useRouter } from "next/navigation";
 import { debounce } from "@com.synergy/frontend-ui/Debounce";
+import { useDropzone } from "react-dropzone";
+import FileUpload from "./upload/FileUpload";
 
 /* eslint-disable-next-line */
-export interface FunnelProps {}
+export interface FunnelProps {
+  STORAGE_ZONE_ACCESS_KEY: string | undefined;
+}
 
 export const Funnel = (props: FunnelProps) => {
+  const { STORAGE_ZONE_ACCESS_KEY } = props;
   const t = useTranslations("LandingPage.ContactUs.Funnel");
 
   const router = useRouter();
@@ -337,6 +342,54 @@ export const Funnel = (props: FunnelProps) => {
                   inputValue: "0",
                 },
               };
+            } else if (element.form[formKey].type === "file-upload") {
+              formAcc[
+                `${formKey}-${Math.random().toString(36).substring(2, 7)}`
+              ] = {
+                order: Number(element.form[formKey].order),
+                uid: formKey,
+                type: element.form[formKey].type,
+                required: element.form[formKey].required === "true",
+                defaultVisible: element.form[formKey].defaultVisible === "true",
+                title: element.form[formKey].title,
+                description: element.form[formKey].description,
+                from: from || [],
+                message: {
+                  text: element.form[formKey].message.text,
+                  type: element.form[formKey].message.type,
+                  errorMessage: element.form[formKey].message.errorMessage,
+                  successMessage: element.form[formKey].message.successMessage,
+                  loadingMessage: element.form[formKey].message.loadingMessage,
+                  checkPreviousFormsMessage:
+                    element.form[formKey].message.checkPreviousFormsMessage,
+                },
+                options: {
+                  upload: {
+                    hostname: element.form[formKey].options.upload.hostname,
+                    storageZoneName:
+                      element.form[formKey].options.upload.storageZoneName,
+                    region: element.form[formKey].options.upload.region,
+                    filesAccepted:
+                      element.form[formKey].options.upload.filesAccepted,
+                    multipleFiles:
+                      element.form[formKey].options.upload.multipleFiles,
+                    uploadingText:
+                      element.form[formKey].options.upload.uploadingText,
+                    uploadError:
+                      element.form[formKey].options.upload.uploadError,
+                    uploadSuccess:
+                      element.form[formKey].options.upload.uploadSuccess,
+                  },
+                  download: {
+                    pullHostName:
+                      element.form[formKey].options.download.pullHostName,
+                  },
+                },
+                selected: {
+                  questionTitle: element.form[formKey].title,
+                  selectedFiles: [],
+                },
+              };
             }
           }
           return formAcc;
@@ -601,6 +654,44 @@ export const Funnel = (props: FunnelProps) => {
         selected: {
           questionTitle: element.title,
           inputValue: "0",
+        },
+      };
+    } else if (element.type === "file-upload") {
+      return {
+        order: Number(element.order),
+        uid: formKey,
+        type: element.type,
+        required: element.required === "true",
+        defaultVisible: element.defaultVisible === "true",
+        title: element.title,
+        description: element.description,
+        from: from || [],
+        message: {
+          text: element.message.text,
+          type: element.message.type,
+          errorMessage: element.message.errorMessage,
+          successMessage: element.message.successMessage,
+          loadingMessage: element.message.loadingMessage,
+          checkPreviousFormsMessage: element.message.checkPreviousFormsMessage,
+        },
+        options: {
+          upload: {
+            hostname: element.options.upload.hostname,
+            storageZoneName: element.options.upload.storageZoneName,
+            region: element.options.upload.region,
+            filesAccepted: element.options.upload.filesAccepted,
+            multipleFiles: element.options.upload.multipleFiles,
+            uploadingText: element.options.upload.uploadingText,
+            uploadError: element.options.upload.uploadError,
+            uploadSuccess: element.options.upload.uploadSuccess,
+          },
+          download: {
+            pullHostName: element.options.download.pullHostName,
+          },
+        },
+        selected: {
+          questionTitle: element.title,
+          selectedFiles: [],
         },
       };
     }
@@ -1094,7 +1185,12 @@ export const Funnel = (props: FunnelProps) => {
                           form.type === "tel" ||
                           form.type === "textarea"
                         ? form.selected.inputValue
-                        : "N/A",
+                        : form.type === "file-upload"
+                          ? form.selected.selectedFiles.map(
+                              (file: { downloadUrl: string }) =>
+                                file.downloadUrl
+                            )
+                          : "N/A",
               };
             }),
           };
@@ -2009,67 +2105,76 @@ export const Funnel = (props: FunnelProps) => {
                       >
                         {
                           questionElements[questionKey].form[formKey].options
-                            .button.before
+                            .button.text
                         }
                       </button>
                     </div>
-                  ) : (
-                    questionElements[questionKey].form[formKey].type ===
-                      "calculation" && (
-                      <>
-                        <div className="flex justify-center items-center gap-1 text-lg">
-                          <div
-                            className={`flex font-semibold justify-center ${questionElements[questionKey].form[formKey].options.maths.spaceBetween && "gap-1"}`}
-                          >
-                            <span className="text-synergy-dark-grey dark:text-gray-400">
-                              {Number(
-                                questionElements[questionKey].form[formKey]
-                                  .selected.inputValue
-                              ).toLocaleString()}
-                            </span>
-                            <span
-                              className={`text-synergy-dark-grey dark:text-gray-400 flex justify-end ${questionElements[questionKey].form[formKey].options.maths.position === "before" && "order-first"}`}
-                            >
-                              {
-                                questionElements[questionKey].form[formKey]
-                                  .options.maths.unit
-                              }
-                            </span>
-                          </div>
-                          <div className="flex gap-1 items-center">
-                            <span className="">
-                              {
-                                questionElements[questionKey].form[formKey]
-                                  .options.afterMaths.before
-                              }
-                            </span>
-                            <div className="font-semibold">
-                              {renderAfterMathsCalculation(
-                                questionElements[questionKey].form[formKey]
-                                  .options.inputForm.questionKey,
-                                questionElements[questionKey].form[formKey]
-                                  .options.inputForm.formKey
-                              )}
-                            </div>
-                            <span className="">
-                              {
-                                questionElements[questionKey].form[formKey]
-                                  .options.afterMaths.after
-                              }
-                            </span>
-                          </div>
-                        </div>
-                        <div className="flex justify-between">
-                          <p
-                            className={`text-sm mt-2 min-h-[1.57rem] ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : questionElements[questionKey].form[formKey].message.type === "warning" ? "text-orange-600 dark:text-orange-500" : "text-green-600 dark:text-green-500"} `}
+                  ) : questionElements[questionKey].form[formKey].type ===
+                    "calculation" ? (
+                    <>
+                      <div className="flex justify-center items-center gap-1 text-lg">
+                        <div
+                          className={`flex font-semibold justify-center ${questionElements[questionKey].form[formKey].options.maths.spaceBetween && "gap-1"}`}
+                        >
+                          <span className="text-synergy-dark-grey dark:text-gray-400">
+                            {Number(
+                              questionElements[questionKey].form[formKey]
+                                .selected.inputValue
+                            ).toLocaleString()}
+                          </span>
+                          <span
+                            className={`text-synergy-dark-grey dark:text-gray-400 flex justify-end ${questionElements[questionKey].form[formKey].options.maths.position === "before" && "order-first"}`}
                           >
                             {
                               questionElements[questionKey].form[formKey]
-                                .message.text
+                                .options.maths.unit
                             }
-                          </p>
+                          </span>
                         </div>
-                      </>
+                        <div className="flex gap-1 items-center">
+                          <span className="">
+                            {
+                              questionElements[questionKey].form[formKey]
+                                .options.afterMaths.before
+                            }
+                          </span>
+                          <div className="font-semibold">
+                            {renderAfterMathsCalculation(
+                              questionElements[questionKey].form[formKey]
+                                .options.inputForm.questionKey,
+                              questionElements[questionKey].form[formKey]
+                                .options.inputForm.formKey
+                            )}
+                          </div>
+                          <span className="">
+                            {
+                              questionElements[questionKey].form[formKey]
+                                .options.afterMaths.after
+                            }
+                          </span>
+                        </div>
+                      </div>
+                      <div className="flex justify-between">
+                        <p
+                          className={`text-sm mt-2 min-h-[1.57rem] ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : questionElements[questionKey].form[formKey].message.type === "warning" ? "text-orange-600 dark:text-orange-500" : "text-green-600 dark:text-green-500"} `}
+                        >
+                          {
+                            questionElements[questionKey].form[formKey].message
+                              .text
+                          }
+                        </p>
+                      </div>
+                    </>
+                  ) : (
+                    questionElements[questionKey].form[formKey].type ===
+                      "file-upload" && (
+                      <FileUpload
+                        questionKey={questionKey}
+                        formKey={formKey}
+                        questionElements={questionElements}
+                        setQuestionElements={setQuestionElements}
+                        STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
+                      />
                     )
                   )}
                   {questionElements[questionKey].form[formKey].type !==

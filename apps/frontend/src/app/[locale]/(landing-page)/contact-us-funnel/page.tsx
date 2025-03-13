@@ -11,7 +11,7 @@ export default function Page(): JSX.Element {
 
   return (
     <FunnelLayout>
-      <Funnel />
+      <Funnel STORAGE_ZONE_ACCESS_KEY={process.env.STORAGE_ZONE_ACCESS_KEY} />
     </FunnelLayout>
   );
 }

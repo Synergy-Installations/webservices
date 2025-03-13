@@ -2497,6 +2497,36 @@
                   "rows": "4"
                 }
               },
+              "submit-form-file-upload": {
+                "order": "1",
+                "type": "file-upload",
+                "required": "false",
+                "defaultVisible": "true",
+                "title": "Upload your files",
+                "description": "",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Thank your for your input. Please resolve all error from previous forms"
+                },
+                "options": {
+                  "upload": {
+                    "hostname": "storage.bunnycdn.com",
+                    "storageZoneName": "synergy-webservices-assets",
+                    "region": "",
+                    "filesAccepted": "",
+                    "multipleFiles": "true",
+                    "uploadingText": "Uploading...",
+                    "uploadError": "Upload failed, we are currently working on fixing it, please try again later",
+                    "uploadSuccess": "Upload successful, thank you!"
+                  },
+                  "download": {
+                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                  }
+                }
+              },
               "interested-products-wir-empfehlen": {
                 "order": "1",
                 "type": "checkbox",

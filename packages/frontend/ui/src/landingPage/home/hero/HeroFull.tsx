@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Link } from "@com.synergy/frontend-shared-internationalization/routing";
-import HeroFullImage from "../../../shared/images/house-technical-illustration-3.jpg";
+// import HeroFullImage from "../../../shared/images/house-technical-illustration-3.jpg";
 import ProductPreviewSmall from "@com.synergy/frontend-ui/ProductPreviewSmall";
 import { Transition } from "@headlessui/react";
 import { Marquee } from "@com.synergy/frontend-ui/Marquee";

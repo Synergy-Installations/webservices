@@ -8,6 +8,11 @@
     "dist"
   ],
   "exports": {
+    "./Calendly": "./src/landingPage/contact/funnel/calendly/Calendly.tsx",
+    "./FileUpload": "./src/landingPage/contact/funnel/upload/FileUpload.tsx",
+    "./Debounce": "./src/shared/utils/debounce/Debounce.ts",
+    "./Funnel": "./src/landingPage/contact/funnel/Funnel.tsx",
+    "./FunnelLayout": "./src/landingPage/contact/funnel/FunnelLayout.tsx",
     "./GoogleTag": "./src/landingPage/shared/layout/GoogleTag.tsx",
     "./Form": "./src/landingPage/contact/form/Form.tsx",
     "./Counter": "./src/shared/animations/counter/Counter.tsx",
@@ -100,6 +105,9 @@
     "motion": "^11.18.0",
     "next": "^14.2.3",
     "next-intl": "^3.26.0",
+    "react-calendly": "^4.3.1",
+    "react-dom-confetti": "^0.2.0",
+    "react-dropzone": "^14.3.8",
     "tailwind-merge": "^2.6.0"
   }
 }

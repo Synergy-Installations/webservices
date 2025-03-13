@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/** Remove input number increase/decrease buttons */
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
 /* Additional styles */
 @import "landingPageStyles/utility-patterns.css";
 @import "landingPageStyles/theme.css";

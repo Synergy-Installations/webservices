@@ -32,7 +32,7 @@ export default async function RootLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
-     <DefaultLayout>{children}</DefaultLayout>
+      <DefaultLayout>{children}</DefaultLayout>
     </NextIntlClientProvider>
   );
 }

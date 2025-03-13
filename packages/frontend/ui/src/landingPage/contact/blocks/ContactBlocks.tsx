@@ -16,7 +16,7 @@ export const ContactBlocks = (props: ContactBlocksProps) => {
   );
 
   return (
-    <section>
+    <section id="end">
       <div className="pb-12 md:pb-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-3 gap-8 md:gap-6 lg:gap-16 text-center">

@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
 import colors from "tailwindcss/colors";
+import flowbite from "flowbite-react/tailwind";
 /**@ts-ignore */
 import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 
@@ -128,7 +129,8 @@ const config: Omit<Config, "content"> = {
       },
     },
   },
-  plugins: [addVariablesForColors],
+  content: [flowbite.content()],
+  plugins: [addVariablesForColors, flowbite.plugin()],
 };
 
 // This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).

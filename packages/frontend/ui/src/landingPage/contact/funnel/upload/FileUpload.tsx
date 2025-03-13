@@ -21,7 +21,6 @@ export const FileUpload = (props: FileUploadProps) => {
     setQuestionElements,
     STORAGE_ZONE_ACCESS_KEY,
   } = props;
-  console.log(STORAGE_ZONE_ACCESS_KEY);
 
   const REGION =
     questionElements[questionKey].form[formKey].options.upload.region; // If German region, set this to an empty string: ''

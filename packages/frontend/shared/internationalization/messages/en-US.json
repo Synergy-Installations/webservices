@@ -911,9 +911,13 @@
     "Products": {
       "HeroVideo": {
         "title": "Unsere Produkte",
-        "button": {
+        "buttonLeft": {
           "text": "Jetzt Anfragen",
           "href": "/contact-us"
+        },
+        "buttonRight": {
+          "text": "Buchen Sie Ihre PV-Anlage",
+          "href": "/contact-us-funnel"
         },
         "productPreviewSmall": {
           "photovoltaic": {

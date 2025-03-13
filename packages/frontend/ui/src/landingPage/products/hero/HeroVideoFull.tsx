@@ -25,7 +25,7 @@ export const HeroVideoFull = (props: HeroVideoFullProps) => {
     const video = videoRef.current;
     if (video) {
       video.play().catch((error) => {
-        alert("Error playing video:" + error);
+        console.error("Error playing video:" + error);
       });
     }
   };
@@ -80,14 +80,27 @@ export const HeroVideoFull = (props: HeroVideoFullProps) => {
               />
             ))}
           </div>
-          <div className="relative mx-auto lg:mx-0 sm:w-fit mt-12 sm:mt-0 before:absolute before:inset-0 before:border-y before:[border-image:linear-gradient(to_right,transparent,theme(colors.slate.300/.8),transparent)1]">
+          <div className="relative mx-auto flex gap-4 lg:mx-0 sm:w-fit mt-12 sm:mt-0 before:hidden before:absolute before:inset-0 before:border-y before:[border-image:linear-gradient(to_right,transparent,theme(colors.slate.300/.8),transparent)1]">
             <div className="relative mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center">
               <Link
                 className="btn group mb-0 !py-4 !px-5 !text-lg w-full before:opacity-100 before:absolute before:inset-0 before:rounded-xl before:backdrop-blur-md before:bg-gradient-to-t before:from-synergy-light-blue/70 before:via-synergy-light-blue before:to-synergy-light-blue/70 hover:before:from-synergy-light-blue hover:before:to-synergy-light-blue before:shadow-xl text-white shadow sm:w-auto"
-                href={t("button.href")}
+                href={t("buttonLeft.href")}
               >
                 <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
-                  {t("button.text")}
+                  {t("buttonLeft.text")}
+                  <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
+                    {"->"}
+                  </span>
+                </span>
+              </Link>
+            </div>
+            <div className="relative mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center">
+              <Link
+                className="btn group mb-0 !py-4 !px-5 !text-lg w-full before:opacity-100 before:absolute before:inset-0 before:rounded-xl before:backdrop-blur-md before:bg-gradient-to-t before:from-synergy-light-blue/70 before:via-synergy-light-blue before:to-synergy-light-blue/70 hover:before:from-synergy-light-blue hover:before:to-synergy-light-blue before:shadow-xl text-white shadow sm:w-auto"
+                href={t("buttonRight.href")}
+              >
+                <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
+                  {t("buttonRight.text")}
                   <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                     {"->"}
                   </span>

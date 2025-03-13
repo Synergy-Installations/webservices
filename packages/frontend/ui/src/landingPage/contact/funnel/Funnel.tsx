@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { debounce } from "@com.synergy/frontend-ui/Debounce";
 import { useDropzone } from "react-dropzone";
 import FileUpload from "./upload/FileUpload";
+import Confetti from "react-dom-confetti";
 
 /* eslint-disable-next-line */
 export interface FunnelProps {
@@ -31,6 +32,20 @@ export const Funnel = (props: FunnelProps) => {
   });
 
   const messages: any = useMessages();
+
+  const confettiConfig = {
+    angle: 90,
+    spread: 69,
+    startVelocity: 40,
+    elementCount: 80,
+    dragFriction: 0.06,
+    duration: 5000,
+    stagger: 8,
+    width: "20px",
+    height: "10px",
+    perspective: "500px",
+    colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
+  };
 
   const createOptions = (element: any) => {
     return Object.keys(element).reduce((optionsAcc: any, optionKey: string) => {
@@ -2102,11 +2117,26 @@ export const Funnel = (props: FunnelProps) => {
                           submitFunnel(questionKey, formKey);
                         }}
                         className="px-3 py-1 rounded-md bg-synergy-light-blue text-white"
-                      >
-                        {
-                          questionElements[questionKey].form[formKey].options
-                            .button.text
+                        disabled={
+                          questionElements[questionKey].form[formKey].message
+                            .type !== "info"
                         }
+                      >
+                        <>
+                          <Confetti
+                            active={
+                              questionElements[questionKey].form[formKey]
+                                .message.type === "loading" ||
+                              questionElements[questionKey].form[formKey]
+                                .message.type === "success"
+                            }
+                            config={confettiConfig}
+                          />
+                          {
+                            questionElements[questionKey].form[formKey].options
+                              .button.text
+                          }
+                        </>
                       </button>
                     </div>
                   ) : questionElements[questionKey].form[formKey].type ===

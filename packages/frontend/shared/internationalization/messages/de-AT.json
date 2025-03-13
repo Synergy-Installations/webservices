@@ -615,7 +615,7 @@
           "packages": {
             "number": "10000",
             "suffix": "+ kW",
-            "text": "kWh gesamt installierte Leistung"
+            "text": "kW gesamt installierte Leistung"
           },
           "resolved": {
             "number": "11",

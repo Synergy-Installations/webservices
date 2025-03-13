@@ -8,5 +8,8 @@
   "devDependencies": {
     "@com.synergy/frontend-shared-typescript-config": "workspace:*",
     "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "flowbite-react": "^0.10.2"
   }
 }

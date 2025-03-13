@@ -9,6 +9,7 @@ import { debounce } from "@com.synergy/frontend-ui/Debounce";
 import { useDropzone } from "react-dropzone";
 import FileUpload from "./upload/FileUpload";
 import Confetti from "react-dom-confetti";
+import Calendly from "./calendly/Calendly";
 
 /* eslint-disable-next-line */
 export interface FunnelProps {
@@ -405,6 +406,51 @@ export const Funnel = (props: FunnelProps) => {
                   selectedFiles: [],
                 },
               };
+            } else if (element.form[formKey].type === "calendly") {
+              formAcc[
+                `${formKey}-${Math.random().toString(36).substring(2, 7)}`
+              ] = {
+                order: Number(element.form[formKey].order),
+                uid: formKey,
+                type: element.form[formKey].type,
+                required: element.form[formKey].required === "true",
+                defaultVisible: element.form[formKey].defaultVisible === "true",
+                title: element.form[formKey].title,
+                description: element.form[formKey].description,
+                from: from || [],
+                message: {
+                  text: element.form[formKey].message.text,
+                  type: element.form[formKey].message.type,
+                  requiredMessage:
+                    element.form[formKey].message.requiredMessage,
+                  successMessage: element.form[formKey].message.successMessage,
+                  checkPreviousFormsMessage:
+                    element.form[formKey].message.checkPreviousFormsMessage,
+                },
+                options: {
+                  embed: {
+                    url: element.form[formKey].options.embed.url,
+                  },
+                  prefill: {
+                    email: {
+                      formKey:
+                        element.form[formKey].options.prefill.email.formKey,
+                    },
+                    name: {
+                      formKey:
+                        element.form[formKey].options.prefill.name.formKey,
+                    },
+                    phone: {
+                      formKey:
+                        element.form[formKey].options.prefill.phone.formKey,
+                    },
+                  },
+                },
+                selected: {
+                  questionTitle: element.form[formKey].title,
+                  scheduledEvent: { event: { uri: "" }, invitee: { uri: "" } },
+                },
+              };
             }
           }
           return formAcc;
@@ -707,6 +753,44 @@ export const Funnel = (props: FunnelProps) => {
         selected: {
           questionTitle: element.title,
           selectedFiles: [],
+        },
+      };
+    } else if (element.type === "calendly") {
+      return {
+        order: Number(element.order),
+        uid: formKey,
+        type: element.type,
+        required: element.required === "true",
+        defaultVisible: element.defaultVisible === "true",
+        title: element.title,
+        description: element.description,
+        from: from || [],
+        message: {
+          text: element.message.text,
+          type: element.message.type,
+          requiredMessage: element.message.requiredMessage,
+          successMessage: element.message.successMessage,
+          checkPreviousFormsMessage: element.message.checkPreviousFormsMessage,
+        },
+        options: {
+          embed: {
+            url: element.options.embed.url,
+          },
+          prefill: {
+            email: {
+              formKey: element.form[formKey].options.prefill.email.formKey,
+            },
+            name: {
+              formKey: element.form[formKey].options.prefill.name.formKey,
+            },
+            phone: {
+              formKey: element.form[formKey].options.prefill.phone.formKey,
+            },
+          },
+        },
+        selected: {
+          questionTitle: element.title,
+          scheduledEvent: { event: { uri: "" }, invitee: { uri: "" } },
         },
       };
     }
@@ -1205,7 +1289,9 @@ export const Funnel = (props: FunnelProps) => {
                               (file: { downloadUrl: string }) =>
                                 file.downloadUrl
                             )
-                          : "N/A",
+                          : form.type === "calendly"
+                            ? `event: ${form.selected.scheduledEvent.event.uri}, invitee: ${form.selected.scheduledEvent.invitee.uri}`
+                            : "N/A",
               };
             }),
           };
@@ -2195,15 +2281,24 @@ export const Funnel = (props: FunnelProps) => {
                         </p>
                       </div>
                     </>
+                  ) : questionElements[questionKey].form[formKey].type ===
+                    "file-upload" ? (
+                    <FileUpload
+                      questionKey={questionKey}
+                      formKey={formKey}
+                      questionElements={questionElements}
+                      setQuestionElements={setQuestionElements}
+                      STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
+                    />
                   ) : (
                     questionElements[questionKey].form[formKey].type ===
-                      "file-upload" && (
-                      <FileUpload
+                      "calendly" && (
+                      <Calendly
                         questionKey={questionKey}
                         formKey={formKey}
                         questionElements={questionElements}
                         setQuestionElements={setQuestionElements}
-                        STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
+                        debouncedCountFormsAndSet={debouncedCountFormsAndSet}
                       />
                     )
                   )}

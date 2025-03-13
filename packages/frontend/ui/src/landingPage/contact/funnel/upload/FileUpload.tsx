@@ -129,7 +129,7 @@ export const FileUpload = (props: FileUploadProps) => {
           // }
           return updatedElements;
         });
-        console.log(questionElements);
+        // console.log(questionElements);
 
         const response = await fetch(
           `https://${HOSTNAME}/${STORAGE_ZONE_NAME}/${fileName}`,

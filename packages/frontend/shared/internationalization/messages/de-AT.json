@@ -3316,6 +3316,37 @@
                   "placeholder": "Google, Bing, etc."
                 }
               },
+              "submit-form-calendly": {
+                "order": "1",
+                "type": "calendly",
+                "required": "false",
+                "defaultVisible": "true",
+                "title": "Buchen Sie Ihre PV-Montage",
+                "description": "",
+                "message": {
+                  "text": "Only book an appointment if you already know the date and time",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "embed": {
+                    "url": "https://calendly.com/office-synergiemontagen/pv-montage"
+                  },
+                  "prefill": {
+                    "email": {
+                      "formKey": "submit-form-email"
+                    },
+                    "name": {
+                      "formKey": "submit-form-name"
+                    },
+                    "phone": {
+                      "formKey": "submit-form-telephone"
+                    }
+                  }
+                }
+              },
               "submit-form-button": {
                 "order": "1",
                 "type": "submit-button",

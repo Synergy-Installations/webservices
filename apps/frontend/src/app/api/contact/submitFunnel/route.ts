@@ -21,13 +21,19 @@ export async function POST(req: NextRequest) {
   const { to, message, ...restBody }: EmailFormData = await req.json();
 
   sgMail.setApiKey(process.env.SENDGRID_API_KEY as string);
-  // console.log("process.env.SENDGRID_API_KEY", process.env.SENDGRID_API_KEY);
+  // console.log(
+  //   "process.env.SENDGRID_API_KEY",
+  //   process.env.SENDGRID_API_KEY,
+  //   to,
+  //   message,
+  //   restBody
+  // );
 
   const msg = {
     to: [to, "office@synergiemontagen.eco"], // Change to your recipient
     from: "office@synergiemontagen.eco", // Change to your verified sender
     subject: "Ihre Anfrage von Synergiemontagen",
-    text: message,
+    text: "Ihre Anfrage wurde erfolgreich versendet",
     html: `<html>
 <style>
 table, th, td {
@@ -66,10 +72,10 @@ table, th, td {
   };
 
   let errorBoolean = false;
-
+  // console.log("msg", msg);
   try {
     sgMail.send(msg).then((value) => {
-      console.log(value);
+      console.log(value[0].body);
     });
   } catch (error) {
     errorBoolean = true;

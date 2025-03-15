@@ -2373,12 +2373,12 @@
                 },
                 "options": {
                   "buttons": {
-                    "incrementBy": "10",
-                    "decrementBy": "10"
+                    "incrementBy": "5",
+                    "decrementBy": "5"
                   },
                   "range": {
                     "defaultValue": "0",
-                    "min": "10",
+                    "min": "0",
                     "max": "3000",
                     "step": "0.5"
                   },
@@ -3122,7 +3122,7 @@
                 "order": "1",
                 "type": "textarea",
                 "required": "true",
-                "defaultVisible": "true",
+                "defaultVisible": "false",
                 "title": "",
                 "description": "",
                 "message": {

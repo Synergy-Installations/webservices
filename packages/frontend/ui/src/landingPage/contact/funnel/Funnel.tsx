@@ -1238,7 +1238,7 @@ export const Funnel = (props: FunnelProps) => {
   );
 
   const submitFunnel = async (questionKey: string, formKey: string) => {
-    console.log("submitFunnel", questionKey);
+    console.log("submitFunnel", questionKey, questionElements);
 
     const { status: formStatus } = getNextQuestionKey(questionKey, formKey);
 

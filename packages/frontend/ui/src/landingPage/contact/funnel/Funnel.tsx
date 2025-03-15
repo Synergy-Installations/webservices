@@ -1258,11 +1258,12 @@ export const Funnel = (props: FunnelProps) => {
             (form: any) => form.uid === "submit-form-email"
           ) as any
         ).selected.inputValue,
-        message: (
-          Object.values(questionElements[questionKey].form).find(
-            (form: any) => form.uid === "submit-form-textarea"
-          ) as any
-        ).selected.inputValue,
+        message:
+          (
+            Object.values(questionElements[questionKey].form).find(
+              (form: any) => form.uid === "submit-form-textarea"
+            ) as any
+          )?.selected.inputValue || "",
         formData: Object.keys(questionElements).map((questionKey) => {
           const question = questionElements[questionKey];
           return {

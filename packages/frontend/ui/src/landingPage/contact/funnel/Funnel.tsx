@@ -170,11 +170,12 @@ export const Funnel = (props: FunnelProps) => {
                 ),
                 selected: {
                   questionTitle: element.form[formKey].label,
-                  selectedOptions: window
-                    ? window.localStorage
-                        .getItem(`${questionKey}-${formKey}`)
-                        ?.split(",") || []
-                    : [],
+                  selectedOptions:
+                    typeof window !== "undefined"
+                      ? localStorage
+                          .getItem(`${questionKey}-${formKey}`)
+                          ?.split(",")
+                      : [],
                   selectedOptionsUid: [],
                 },
               };
@@ -287,9 +288,10 @@ export const Funnel = (props: FunnelProps) => {
                 },
                 selected: {
                   questionTitle: element.form[formKey].options.label,
-                  inputValue: window
-                    ? window.localStorage.getItem(`${questionKey}-${formKey}`)
-                    : "",
+                  inputValue:
+                    typeof window !== "undefined"
+                      ? localStorage.getItem(`${questionKey}-${formKey}`)
+                      : "",
                 },
               };
             } else if (element.form[formKey].type === "submit-button") {
@@ -576,7 +578,10 @@ export const Funnel = (props: FunnelProps) => {
         ),
         selected: {
           questionTitle: element.label,
-          selectedOptions: [],
+          selectedOptions:
+            typeof window !== "undefined"
+              ? localStorage.getItem(`${questionKey}-${formKey}`)?.split(",")
+              : [],
           selectedOptionsUid: [],
         },
       };
@@ -665,9 +670,10 @@ export const Funnel = (props: FunnelProps) => {
         },
         selected: {
           questionTitle: element.options.label,
-          inputValue: window
-            ? window.localStorage.getItem(`${questionKey}-${formKey}`)
-            : "",
+          inputValue:
+            typeof window !== "undefined"
+              ? localStorage.getItem(`${questionKey}-${formKey}`)
+              : "",
         },
       };
     } else if (element.type === "submit-button") {

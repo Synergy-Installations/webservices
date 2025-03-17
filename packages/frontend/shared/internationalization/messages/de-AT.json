@@ -2072,6 +2072,7 @@
                 "defaultVisible": "true",
                 "title": "Wie viel kWp? *",
                 "description": "Wählen Sie den Betrag, den Sie benötigen",
+                "localStorage": "false",
                 "message": {
                   "text": "",
                   "type": "info",
@@ -2135,6 +2136,7 @@
                 "defaultVisible": "true",
                 "title": "Wähle den Untergrund? *",
                 "description": "",
+                "localStorage": "false",
                 "message": {
                   "text": "",
                   "type": "info",
@@ -2251,6 +2253,7 @@
                 "defaultVisible": "false",
                 "title": "",
                 "description": "",
+                "localStorage": "false",
                 "message": {
                   "text": "",
                   "type": "info",
@@ -2272,6 +2275,7 @@
                 "defaultVisible": "true",
                 "title": "Schnittstelle? *",
                 "description": "Wählen Sie alle aus, die zutreffen",
+                "localStorage": "false",
                 "message": {
                   "text": "",
                   "type": "info",
@@ -2344,6 +2348,7 @@
                 "defaultVisible": "true",
                 "title": "",
                 "description": "",
+                "localStorage": "false",
                 "message": {
                   "text": "",
                   "type": "info",
@@ -2364,6 +2369,7 @@
                 "defaultVisible": "true",
                 "title": "Wie hoch ist der Montageort?",
                 "description": "(Haus, Berg, Fassade)",
+                "localStorage": "false",
                 "message": {
                   "text": "",
                   "type": "info",
@@ -2426,6 +2432,7 @@
                 "defaultVisible": "true",
                 "title": "Neigung Montageuntergund",
                 "description": "(Dach, Hang)",
+                "localStorage": "false",
                 "message": {
                   "text": "",
                   "type": "info",
@@ -2488,6 +2495,7 @@
                 "defaultVisible": "true",
                 "title": "Projektort",
                 "description": "",
+                "localStorage": "false",
                 "message": {
                   "text": "",
                   "type": "info",
@@ -2508,6 +2516,7 @@
                 "defaultVisible": "true",
                 "title": "Upload your files",
                 "description": "",
+                "localStorage": "false",
                 "message": {
                   "text": "",
                   "type": "info",
@@ -2539,6 +2548,7 @@
                 "defaultVisible": "true",
                 "title": "Wir empfehlen",
                 "description": "Material für Konstruktion, Dachabdichtung und Kabelweg von uns zu nehmen",
+                "localStorage": "false",
                 "message": {
                   "text": "",
                   "type": "info",
@@ -2568,6 +2578,7 @@
                 "defaultVisible": "true",
                 "title": "Hier kommt in Kürze ihre Preisberechnung (Durchschnittlicher Montagepreis 200€/kWp)",
                 "description": "",
+                "localStorage": "false",
                 "message": {
                   "text": "",
                   "type": "info",
@@ -2601,6 +2612,7 @@
                 "defaultVisible": "false",
                 "title": "Wie viel Zahlen Sie derzeit für Strom?",
                 "description": "Geben Sie den Betrag ein, den Sie derzeit für Strom zahlen",
+                "localStorage": "false",
                 "message": {
                   "text": "Only valid Names are allowed",
                   "type": "info",
@@ -2620,6 +2632,7 @@
                 "defaultVisible": "false",
                 "title": "",
                 "description": "",
+                "localStorage": "false",
                 "message": {
                   "text": "",
                   "type": "info",
@@ -2640,6 +2653,7 @@
                 "defaultVisible": "false",
                 "title": "Wie ist der Status des Vorhabens? *",
                 "description": "",
+                "localStorage": "false",
                 "message": {
                   "text": "Only valid Names are allowed",
                   "type": "info",
@@ -2723,6 +2737,7 @@
                 "defaultVisible": "false",
                 "title": "",
                 "description": "",
+                "localStorage": "false",
                 "message": {
                   "text": "",
                   "type": "info",
@@ -2742,6 +2757,7 @@
                 "defaultVisible": "hidden",
                 "title": "Wie viel Zahlen Sie derzeit für Strom?",
                 "description": "Wählen Sie den Betrag, den Sie derzeit für Strom zahlen",
+                "localStorage": "false",
                 "message": {
                   "text": "Only valid Names are allowed",
                   "type": "info",
@@ -2805,6 +2821,7 @@
                 "defaultVisible": "false",
                 "title": "Wofür interessieren Sie sich? Part 2",
                 "description": "Wählen Sie alle Produkte aus, die Sie interessieren",
+                "localStorage": "false",
                 "message": {
                   "text": "Only valid Names are allowed",
                   "type": "info",
@@ -3068,6 +3085,7 @@
                 "defaultVisible": "true",
                 "title": "",
                 "description": "",
+                "localStorage": "true",
                 "message": {
                   "text": "",
                   "type": "info",
@@ -3087,6 +3105,7 @@
                 "defaultVisible": "true",
                 "title": "",
                 "description": "",
+                "localStorage": "true",
                 "message": {
                   "text": "",
                   "type": "info",
@@ -3106,6 +3125,7 @@
                 "defaultVisible": "true",
                 "title": "",
                 "description": "",
+                "localStorage": "true",
                 "message": {
                   "text": "",
                   "type": "info",
@@ -3125,6 +3145,7 @@
                 "defaultVisible": "false",
                 "title": "",
                 "description": "",
+                "localStorage": "true",
                 "message": {
                   "text": "",
                   "type": "info",
@@ -3148,6 +3169,7 @@
                 "description": "",
                 "defaultValue": "please-select",
                 "label": "How did you hear about us?",
+                "localStorage": "true",
                 "message": {
                   "text": "If none apply, select \"Other\"",
                   "type": "info",
@@ -3226,11 +3248,12 @@
                 "type": "select",
                 "multiple": "true",
                 "required": "true",
-                "defaultVisible": "false",
+                "defaultVisible": "true",
                 "title": "",
                 "description": "",
                 "defaultValue": [""],
                 "label": "How did you hear about us? (Multiple)",
+                "localStorage": "true",
                 "message": {
                   "text": "If none apply, select \"Other\"",
                   "type": "info",
@@ -3304,6 +3327,7 @@
                 "defaultVisible": "false",
                 "title": "",
                 "description": "",
+                "localStorage": "true",
                 "message": {
                   "text": "Only valid Search Engines are allowed",
                   "type": "info",

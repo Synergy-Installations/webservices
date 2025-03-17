@@ -174,8 +174,8 @@ export const Funnel = (props: FunnelProps) => {
                     typeof window !== "undefined"
                       ? localStorage
                           .getItem(`${questionKey}-${formKey}`)
-                          ?.split(",")
-                      : [],
+                          ?.split(",") || []
+                      : element.form[formKey].defaultValue,
                   selectedOptionsUid: [],
                 },
               };
@@ -290,7 +290,7 @@ export const Funnel = (props: FunnelProps) => {
                   questionTitle: element.form[formKey].options.label,
                   inputValue:
                     typeof window !== "undefined"
-                      ? localStorage.getItem(`${questionKey}-${formKey}`)
+                      ? localStorage.getItem(`${questionKey}-${formKey}`) || ""
                       : "",
                 },
               };
@@ -580,7 +580,8 @@ export const Funnel = (props: FunnelProps) => {
           questionTitle: element.label,
           selectedOptions:
             typeof window !== "undefined"
-              ? localStorage.getItem(`${questionKey}-${formKey}`)?.split(",")
+              ? localStorage.getItem(`${questionKey}-${formKey}`)?.split(",") ||
+                []
               : [],
           selectedOptionsUid: [],
         },
@@ -672,7 +673,7 @@ export const Funnel = (props: FunnelProps) => {
           questionTitle: element.options.label,
           inputValue:
             typeof window !== "undefined"
-              ? localStorage.getItem(`${questionKey}-${formKey}`)
+              ? localStorage.getItem(`${questionKey}-${formKey}`) || ""
               : "",
         },
       };
@@ -1713,13 +1714,16 @@ export const Funnel = (props: FunnelProps) => {
                         </label>
                         <select
                           id={formKey}
-                          defaultValue={
-                            questionElements[questionKey].form[formKey]
-                              .defaultValue
-                          }
+                          // defaultValue={
+                          //   questionElements[questionKey].form[formKey]
+                          //     .defaultValue
+                          // }
                           value={
-                            questionElements[questionKey].form[formKey].selected
-                              .selectedOptions
+                            questionElements[questionKey].form[formKey].multiple
+                              ? questionElements[questionKey].form[formKey]
+                                  .selected.selectedOptions
+                              : questionElements[questionKey].form[formKey]
+                                  .selected.selectedOptions[0]
                           }
                           multiple={
                             questionElements[questionKey].form[formKey].multiple

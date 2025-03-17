@@ -3167,7 +3167,7 @@
                 "defaultVisible": "true",
                 "title": "",
                 "description": "",
-                "defaultValue": "please-select",
+                "defaultValue": ["Please select"],
                 "label": "How did you hear about us?",
                 "localStorage": "true",
                 "message": {
@@ -3248,7 +3248,7 @@
                 "type": "select",
                 "multiple": "true",
                 "required": "true",
-                "defaultVisible": "false",
+                "defaultVisible": "true",
                 "title": "",
                 "description": "",
                 "defaultValue": [""],

@@ -3167,7 +3167,7 @@
                 "defaultVisible": "true",
                 "title": "",
                 "description": "",
-                "defaultValue": "please-select",
+                "defaultValue": ["Please select"],
                 "label": "How did you hear about us?",
                 "localStorage": "true",
                 "message": {
@@ -3381,10 +3381,10 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "errorMessage": "This field is required",
+                  "errorMessage": "Die E-Mail konnte nicht abgesendet werden. Wir arbeiten derzeit daran, das Problem zu beheben. Bitte benutzten Sie die unten angegebene E-Mail.",
                   "successMessage": "Thank you for your submit",
                   "loadingMessage": "Please wait while we process your request",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "checkPreviousFormsMessage": "Please resolve all errors from previous forms"
                 },
                 "options": {
                   "button": {

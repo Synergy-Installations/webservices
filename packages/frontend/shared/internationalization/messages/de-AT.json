@@ -3248,7 +3248,7 @@
                 "type": "select",
                 "multiple": "true",
                 "required": "true",
-                "defaultVisible": "true",
+                "defaultVisible": "false",
                 "title": "",
                 "description": "",
                 "defaultValue": [""],

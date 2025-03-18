@@ -73,20 +73,70 @@ table, th, td {
 
   let errorBoolean = false;
   // console.log("msg", msg);
-  try {
-    sgMail.send(msg).then((value) => {
-      console.log(value[0].body);
+  // try {
+  await sgMail
+    .send(msg)
+    .then((value) => {
+      // console.log("Mail sent successfully");
+      // console.log("then", value[0].body);
+      // Does not get invoked
+      // return new Response("Email sent successfully (then)", {
+      //   status: 200,
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      // });
+    })
+    .catch((error) => {
+      errorBoolean = true;
+      console.error("Mail sent unseccussfully", error, error.code);
+      if (error.response) {
+        console.error(error.response.body);
+      }
+      // Does not get invoked
+      // if (error.code != 200)
+      //   return new Response("Email did not send (catch)", {
+      //     status: 500,
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //   });
+      // else
+      //   // return NextResponse.json({
+      //   //   status: error.code,
+      //   //   message: "Email did not send",
+      //   // });
+      //   return new Response("Email sent successfully (catch)", {
+      //     status: 200,
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //   });
     });
-  } catch (error) {
-    errorBoolean = true;
-    console.error("error", error);
-    return NextResponse.json({
-      status: 500,
-      message: "Email did not send catch",
-    });
-  }
+  // return NextResponse.json({
+  //   message: "Email sent successfully (catch)",
+  // });
+  // } catch (error) {
+  //   errorBoolean = true;
+  //   console.error("error", error);
+  //   return NextResponse.json({
+  //     status: 500,
+  //     message: "Email did not send catch",
+  //   });
+  // }
 
+  // console.log("errorBoolean", errorBoolean);
   return errorBoolean
-    ? NextResponse.json({ status: 500, message: "Email did not send final" })
-    : NextResponse.json({ message: "Email sent successfully final" });
+    ? new Response(`Email did not send (final) ${errorBoolean}`, {
+        status: 500,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+    : new Response(`Email sent successfully (final) ${errorBoolean}`, {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 }

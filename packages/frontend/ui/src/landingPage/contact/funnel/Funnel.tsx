@@ -3,7 +3,7 @@ import { useMessages, useTranslations } from "next-intl";
 import { useState, useEffect, useCallback } from "react";
 import { RichText } from "@com.synergy/frontend-ui/RichText";
 import Link from "next/link";
-import { label, p } from "framer-motion/client";
+import { label, p, q } from "framer-motion/client";
 import { useRouter } from "next/navigation";
 import { debounce } from "@com.synergy/frontend-ui/Debounce";
 import { useDropzone } from "react-dropzone";
@@ -87,6 +87,7 @@ export const Funnel = (props: FunnelProps) => {
                 title: element.form[formKey].title,
                 description: element.form[formKey].description,
                 from: from || [],
+                localStorage: element.form[formKey].localStorage === "true",
                 message: {
                   text: element.form[formKey].message.text,
                   type: element.form[formKey].message.type,
@@ -137,6 +138,7 @@ export const Funnel = (props: FunnelProps) => {
                 defaultVisible: element.form[formKey].defaultVisible === "true",
                 title: element.form[formKey].title,
                 description: element.form[formKey].description,
+                localStorage: element.form[formKey].localStorage === "true",
                 defaultValue: element.form[formKey].defaultValue,
                 label: element.form[formKey].label,
                 from: from || [],
@@ -168,7 +170,12 @@ export const Funnel = (props: FunnelProps) => {
                 ),
                 selected: {
                   questionTitle: element.form[formKey].label,
-                  selectedOptions: [],
+                  selectedOptions:
+                    typeof window !== "undefined"
+                      ? localStorage
+                          .getItem(`${questionKey}-${formKey}`)
+                          ?.split(",") || []
+                      : element.form[formKey].defaultValue,
                   selectedOptionsUid: [],
                 },
               };
@@ -183,6 +190,7 @@ export const Funnel = (props: FunnelProps) => {
                 defaultVisible: element.form[formKey].defaultVisible === "true",
                 title: element.form[formKey].title,
                 description: element.form[formKey].description,
+                localStorage: element.form[formKey].localStorage === "true",
                 from: from || [],
                 message: {
                   text: element.form[formKey].message.text,
@@ -259,6 +267,7 @@ export const Funnel = (props: FunnelProps) => {
                 defaultVisible: element.form[formKey].defaultVisible === "true",
                 title: element.form[formKey].title,
                 description: element.form[formKey].description,
+                localStorage: element.form[formKey].localStorage === "true",
                 from: from || [],
                 message: {
                   text: element.form[formKey].message.text,
@@ -279,7 +288,10 @@ export const Funnel = (props: FunnelProps) => {
                 },
                 selected: {
                   questionTitle: element.form[formKey].options.label,
-                  inputValue: "",
+                  inputValue:
+                    typeof window !== "undefined"
+                      ? localStorage.getItem(`${questionKey}-${formKey}`) || ""
+                      : "",
                 },
               };
             } else if (element.form[formKey].type === "submit-button") {
@@ -293,6 +305,7 @@ export const Funnel = (props: FunnelProps) => {
                 defaultVisible: element.form[formKey].defaultVisible === "true",
                 title: element.form[formKey].title,
                 description: element.form[formKey].description,
+                localStorage: element.form[formKey].localStorage === "true",
                 from: from || [],
                 message: {
                   text: element.form[formKey].message.text,
@@ -323,6 +336,7 @@ export const Funnel = (props: FunnelProps) => {
                 defaultVisible: element.form[formKey].defaultVisible === "true",
                 title: element.form[formKey].title,
                 description: element.form[formKey].description,
+                localStorage: element.form[formKey].localStorage === "true",
                 from: from || [],
                 message: {
                   text: element.form[formKey].message.text,
@@ -369,6 +383,7 @@ export const Funnel = (props: FunnelProps) => {
                 defaultVisible: element.form[formKey].defaultVisible === "true",
                 title: element.form[formKey].title,
                 description: element.form[formKey].description,
+                localStorage: element.form[formKey].localStorage === "true",
                 from: from || [],
                 message: {
                   text: element.form[formKey].message.text,
@@ -417,6 +432,7 @@ export const Funnel = (props: FunnelProps) => {
                 defaultVisible: element.form[formKey].defaultVisible === "true",
                 title: element.form[formKey].title,
                 description: element.form[formKey].description,
+                localStorage: element.form[formKey].localStorage === "true",
                 from: from || [],
                 message: {
                   text: element.form[formKey].message.text,
@@ -487,6 +503,7 @@ export const Funnel = (props: FunnelProps) => {
         defaultVisible: element.defaultVisible === "true",
         title: element.title,
         description: element.description,
+        localStorage: element.localStorage === "true",
         from: from || [],
         message: {
           text: element.message.text,
@@ -532,6 +549,7 @@ export const Funnel = (props: FunnelProps) => {
         defaultVisible: element.defaultVisible === "true",
         title: element.title,
         description: element.description,
+        localStorage: element.localStorage === "true",
         defaultValue: element.defaultValue,
         label: element.label,
         from: from || [],
@@ -560,7 +578,11 @@ export const Funnel = (props: FunnelProps) => {
         ),
         selected: {
           questionTitle: element.label,
-          selectedOptions: [],
+          selectedOptions:
+            typeof window !== "undefined"
+              ? localStorage.getItem(`${questionKey}-${formKey}`)?.split(",") ||
+                []
+              : [],
           selectedOptionsUid: [],
         },
       };
@@ -573,6 +595,7 @@ export const Funnel = (props: FunnelProps) => {
         defaultVisible: element.defaultVisible === "true",
         title: element.title,
         description: element.description,
+        localStorage: element.localStorage === "true",
         from: from || [],
         message: {
           text: element.message.text,
@@ -632,6 +655,7 @@ export const Funnel = (props: FunnelProps) => {
         defaultVisible: element.defaultVisible === "true",
         title: element.title,
         description: element.description,
+        localStorage: element.localStorage === "true",
         from: from || [],
         message: {
           text: element.message.text,
@@ -647,7 +671,10 @@ export const Funnel = (props: FunnelProps) => {
         },
         selected: {
           questionTitle: element.options.label,
-          inputValue: "",
+          inputValue:
+            typeof window !== "undefined"
+              ? localStorage.getItem(`${questionKey}-${formKey}`) || ""
+              : "",
         },
       };
     } else if (element.type === "submit-button") {
@@ -659,6 +686,7 @@ export const Funnel = (props: FunnelProps) => {
         defaultVisible: element.defaultVisible === "true",
         title: element.title,
         description: element.description,
+        localStorage: element.localStorage === "true",
         from: from || [],
         message: {
           text: element.message.text,
@@ -686,6 +714,7 @@ export const Funnel = (props: FunnelProps) => {
         defaultVisible: element.defaultVisible === "true",
         title: element.title,
         description: element.description,
+        localStorage: element.localStorage === "true",
         from: from || [],
         message: {
           text: element.message.text,
@@ -726,6 +755,7 @@ export const Funnel = (props: FunnelProps) => {
         defaultVisible: element.defaultVisible === "true",
         title: element.title,
         description: element.description,
+        localStorage: element.localStorage === "true",
         from: from || [],
         message: {
           text: element.message.text,
@@ -764,6 +794,7 @@ export const Funnel = (props: FunnelProps) => {
         defaultVisible: element.defaultVisible === "true",
         title: element.title,
         description: element.description,
+        localStorage: element.localStorage === "true",
         from: from || [],
         message: {
           text: element.message.text,
@@ -1683,9 +1714,16 @@ export const Funnel = (props: FunnelProps) => {
                         </label>
                         <select
                           id={formKey}
-                          defaultValue={
-                            questionElements[questionKey].form[formKey]
-                              .defaultValue
+                          // defaultValue={
+                          //   questionElements[questionKey].form[formKey]
+                          //     .defaultValue
+                          // }
+                          value={
+                            questionElements[questionKey].form[formKey].multiple
+                              ? questionElements[questionKey].form[formKey]
+                                  .selected.selectedOptions
+                              : questionElements[questionKey].form[formKey]
+                                  .selected.selectedOptions[0]
                           }
                           multiple={
                             questionElements[questionKey].form[formKey].multiple
@@ -1698,6 +1736,26 @@ export const Funnel = (props: FunnelProps) => {
                             ).map((option) => option.value);
                             console.log("onchange select", selectedOptions);
 
+                            const selectedOptionKeys = selectedOptionValues.map(
+                              (value) => {
+                                return (
+                                  Object.keys(
+                                    questionElements[questionKey].form[formKey]
+                                      .options
+                                  ).find(
+                                    (key) =>
+                                      questionElements[questionKey].form[
+                                        formKey
+                                      ].options[key].title === value
+                                  ) || ""
+                                );
+                              }
+                            );
+                            console.log(
+                              "selectegOptionKeys",
+                              selectedOptionKeys
+                            );
+
                             /** Clean deselection for deselected elements */
                             if (
                               questionElements[questionKey].form[formKey]
@@ -1709,9 +1767,7 @@ export const Funnel = (props: FunnelProps) => {
                                 (optionUid: string) => {
                                   console.log("about to clean ", optionUid);
                                   /** Only remove form or question if the option is not selected any more */
-                                  if (
-                                    !selectedOptionValues.includes(optionUid)
-                                  ) {
+                                  if (!selectedOptionKeys.includes(optionUid)) {
                                     console.log(
                                       "in cleaning stage ",
                                       optionUid,
@@ -1724,65 +1780,72 @@ export const Funnel = (props: FunnelProps) => {
                               );
                             }
 
-                            selectedOptionValues.forEach(
-                              (optionKey: string) => {
+                            selectedOptionKeys.forEach((optionKey: string) => {
+                              if (
+                                !questionElements[questionKey].form[
+                                  formKey
+                                ].selected.selectedOptionsUid.includes(
+                                  optionKey
+                                )
+                              ) {
                                 if (
-                                  !questionElements[questionKey].form[
-                                    formKey
-                                  ].selected.selectedOptionsUid.includes(
-                                    optionKey
-                                  )
+                                  questionElements[questionKey].form[formKey]
+                                    .options[optionKey].addForm !== ""
                                 ) {
-                                  if (
+                                  addFormElement(
+                                    {
+                                      fromQuestionKey: questionKey,
+                                      fromFormKey: formKey,
+                                      fromOptionKey: optionKey,
+                                    },
                                     questionElements[questionKey].form[formKey]
-                                      .options[optionKey].addForm !== ""
-                                  ) {
-                                    addFormElement(
-                                      {
-                                        fromQuestionKey: questionKey,
-                                        fromFormKey: formKey,
-                                        fromOptionKey: optionKey,
-                                      },
-                                      questionElements[questionKey].form[
-                                        formKey
-                                      ].options[optionKey].addForm
-                                    );
-                                  }
-                                  if (
+                                      .options[optionKey].addForm
+                                  );
+                                }
+                                if (
+                                  questionElements[questionKey].form[formKey]
+                                    .options[optionKey].addQuestion !== ""
+                                ) {
+                                  console.log("request add Question");
+                                  addQuestionElement(
+                                    {
+                                      fromQuestionKey: questionKey,
+                                      fromFormKey: formKey,
+                                      fromOptionKey: optionKey,
+                                    },
                                     questionElements[questionKey].form[formKey]
-                                      .options[optionKey].addQuestion !== ""
-                                  ) {
-                                    console.log("request add Question");
-                                    addQuestionElement(
-                                      {
-                                        fromQuestionKey: questionKey,
-                                        fromFormKey: formKey,
-                                        fromOptionKey: optionKey,
-                                      },
-                                      questionElements[questionKey].form[
-                                        formKey
-                                      ].options[optionKey].addQuestion
-                                    );
-                                  }
+                                      .options[optionKey].addQuestion
+                                  );
                                 }
                               }
-                            );
+                            });
 
                             setQuestionElements((prev) => {
                               const updatedElements = { ...prev };
                               const form =
                                 updatedElements[questionKey].form[formKey];
                               form.selected.selectedOptions =
-                                selectedOptionValues.map(
+                                selectedOptionKeys.map(
                                   (optionKey: any) =>
                                     updatedElements[questionKey].form[formKey]
                                       .options[optionKey].title
                                 );
                               form.selected.selectedOptionsUid =
-                                selectedOptionValues;
+                                selectedOptionKeys;
 
                               return updatedElements;
                             });
+
+                            localStorage.setItem(
+                              `${questionElements[questionKey].uid}-${questionElements[questionKey].form[formKey].uid}`,
+                              selectedOptionKeys
+                                .map(
+                                  (optionKey: any) =>
+                                    questionElements[questionKey].form[formKey]
+                                      .options[optionKey].title
+                                )
+                                .toString()
+                            );
 
                             /** Validate input (especially useful if user forgot input at form above)
                              * Need to be debounced as it may happen that state is not updated right away
@@ -1796,7 +1859,13 @@ export const Funnel = (props: FunnelProps) => {
                           {Object.keys(
                             questionElements[questionKey].form[formKey].options
                           ).map((optionKey: any, index: any) => (
-                            <option key={optionKey} value={optionKey}>
+                            <option
+                              key={optionKey}
+                              value={
+                                questionElements[questionKey].form[formKey]
+                                  .options[optionKey].title
+                              }
+                            >
                               {
                                 questionElements[questionKey].form[formKey]
                                   .options[optionKey].title
@@ -2128,6 +2197,10 @@ export const Funnel = (props: FunnelProps) => {
                               questionElements[questionKey].form[formKey]
                                 .required
                             }
+                            value={
+                              questionElements[questionKey].form[formKey]
+                                .selected.inputValue
+                            }
                             onChange={(e) => {
                               const { value } = e.target;
                               setQuestionElements((prev) => {
@@ -2137,6 +2210,14 @@ export const Funnel = (props: FunnelProps) => {
                                 ].selected.inputValue = value;
                                 return updatedElements;
                               });
+
+                              /** Save input in localStorage if dared */
+                              questionElements[questionKey].form[formKey]
+                                .localStorage &&
+                                localStorage.setItem(
+                                  `${questionElements[questionKey].uid}-${questionElements[questionKey].form[formKey].uid}`,
+                                  value
+                                );
                             }}
                             onBlur={() => {
                               /** Validate input (especially useful if user forgot input at form above)
@@ -2156,6 +2237,10 @@ export const Funnel = (props: FunnelProps) => {
                               questionElements[questionKey].form[formKey]
                                 .options.placeholder
                             }
+                            value={
+                              questionElements[questionKey].form[formKey]
+                                .selected.inputValue
+                            }
                             required={
                               questionElements[questionKey].form[formKey]
                                 .required
@@ -2169,6 +2254,14 @@ export const Funnel = (props: FunnelProps) => {
                                 ].selected.inputValue = value;
                                 return updatedElements;
                               });
+
+                              /** Save input in localStorage if dared */
+                              questionElements[questionKey].form[formKey]
+                                .localStorage &&
+                                localStorage.setItem(
+                                  `${questionElements[questionKey].uid}-${questionElements[questionKey].form[formKey].uid}`,
+                                  value
+                                );
                             }}
                             onBlur={() => {
                               /** Validate input (especially useful if user forgot input at form above)
@@ -2192,7 +2285,7 @@ export const Funnel = (props: FunnelProps) => {
                     "submit-button" ? (
                     <div className="flex justify-between">
                       <p
-                        className={`text-sm mt-2 min-h-[1.57rem] ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : questionElements[questionKey].form[formKey].message.type === "warning" ? "text-orange-600 dark:text-orange-500" : "text-green-600 dark:text-green-500"} `}
+                        className={`text-sm mt-2 min-h-[1.57rem] ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : questionElements[questionKey].form[formKey].message.type === "warning" ? "text-orange-600 dark:text-orange-500" : questionElements[questionKey].form[formKey].message.type === "loading" ? "text-blue-600 dark:text-blue-500" : "text-green-600 dark:text-green-500"} `}
                       >
                         {
                           questionElements[questionKey].form[formKey].message
@@ -2203,22 +2296,42 @@ export const Funnel = (props: FunnelProps) => {
                         onClick={() => {
                           submitFunnel(questionKey, formKey);
                         }}
-                        className="px-3 py-1 rounded-md bg-synergy-light-blue text-white"
+                        className="px-3 py-1 inline-flex items-center rounded-md bg-synergy-light-blue text-white"
                         disabled={
                           questionElements[questionKey].form[formKey].message
-                            .type !== "info"
+                            .type !== "info" &&
+                          questionElements[questionKey].form[formKey].message
+                            .type !== "warning"
                         }
                       >
                         <>
                           <Confetti
                             active={
                               questionElements[questionKey].form[formKey]
-                                .message.type === "loading" ||
-                              questionElements[questionKey].form[formKey]
                                 .message.type === "success"
                             }
                             config={confettiConfig}
                           />
+                          {questionElements[questionKey].form[formKey].message
+                            .type === "loading" && (
+                            <svg
+                              aria-hidden="true"
+                              role="status"
+                              className="inline w-4 h-4 me-3 text-white animate-spin"
+                              viewBox="0 0 100 101"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                                fill="#E5E7EB"
+                              />
+                              <path
+                                d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                                fill="currentColor"
+                              />
+                            </svg>
+                          )}
                           {
                             questionElements[questionKey].form[formKey].options
                               .button.text

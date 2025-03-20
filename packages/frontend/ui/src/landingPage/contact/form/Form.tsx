@@ -39,7 +39,7 @@ export const Form = (props: FormProps) => {
               {}
             ),
             value: element.options[Object.keys(element.options)[0]].text,
-            required: element.optional === "true",
+            required: element.required === "true",
           };
         } else {
           acc[key] = {
@@ -47,7 +47,7 @@ export const Form = (props: FormProps) => {
             label: element.label,
             placeholder: element.placeholder,
             value: "",
-            required: element.optional === "true",
+            required: element.required === "true",
           };
         }
         return acc;
@@ -87,6 +87,21 @@ export const Form = (props: FormProps) => {
   const sendEmail = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
+    // Validate required fields
+    const missingFields = formElementKeys.filter(
+      (key) => formElements[key].required && formElements[key].value === ""
+    );
+    // console.log("missingFields", missingFields);
+
+    if (missingFields.length > 0) {
+      setButtonStatusText({
+        fatal: true,
+        disabled: false,
+        text: "Bitte füllen Sie alle erforderlichen Felder aus.",
+      });
+      return;
+    }
+
     setButtonStatusText((elements) => ({ ...elements, disabled: true }));
     console.log("formElements", formElements);
 
@@ -98,6 +113,7 @@ export const Form = (props: FormProps) => {
         if (key !== "") {
           acc[key] = formElements[key].value;
         }
+
         return acc;
       }, {}),
     };

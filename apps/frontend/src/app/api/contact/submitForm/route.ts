@@ -16,7 +16,8 @@ export async function POST(req: NextRequest) {
   // console.log("process.env.SENDGRID_API_KEY", process.env.SENDGRID_API_KEY);
 
   const msg = {
-    to: [to, "office@synergiemontagen.eco"], // Change to your recipient
+    // to: [to, "office@synergiemontagen.eco"], // Change to your recipient
+    to: [to],
     from: "office@synergiemontagen.eco", // Change to your verified sender
     subject: "Ihre Anfrage von Synergiemontagen",
     text: message,

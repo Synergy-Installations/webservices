@@ -88,6 +88,7 @@ export const Form = (props: FormProps) => {
     e.preventDefault();
 
     setButtonStatusText((elements) => ({ ...elements, disabled: true }));
+    console.log("formElements", formElements);
 
     const body = {
       to: formElements.email.value,
@@ -100,18 +101,31 @@ export const Form = (props: FormProps) => {
         return acc;
       }, {}),
     };
-
+    console.log("body", body);
 
     const res = await fetch("/api/contact/submitForm", {
       method: "POST",
       body: JSON.stringify(body),
     })
       .then((res) => {
-        setButtonStatusText({
-          fatal: false,
-          disabled: true,
-          text: "Danke für Ihre Anfrage. Bitte überprüfen Sie Ihre Inbox. Falls die Nachricht nicht angekommen ist, benutzen Sie bitte die unten angegebene E-Mail.",
-        });
+        if (res.status == 200) {
+          setButtonStatusText({
+            fatal: false,
+            disabled: true,
+            text: "Danke für Ihre Anfrage. Bitte überprüfen Sie Ihre Inbox. Falls die Nachricht nicht angekommen ist, benutzen Sie bitte die unten angegebene E-Mail.",
+          });
+        } else {
+          setButtonStatusText({
+            fatal: true,
+            disabled: true,
+            text: "Es konnte nicht abgeschickt werden, bitte benutzen Sie die E-Mail unten.",
+          });
+        }
+        // setButtonStatusText({
+        //   fatal: false,
+        //   disabled: true,
+        //   text: "Danke für Ihre Anfrage. Bitte überprüfen Sie Ihre Inbox. Falls die Nachricht nicht angekommen ist, benutzen Sie bitte die unten angegebene E-Mail.",
+        // });
         setFormElements((prevFormElements) =>
           Object.keys(prevFormElements).reduce(
             (acc: Record<string, any>, key: string) => {
@@ -123,11 +137,12 @@ export const Form = (props: FormProps) => {
         );
       })
       .catch((error) => {
-        setButtonStatusText({
-          fatal: true,
-          disabled: true,
-          text: "Es konnte nicht abgeschickt werden, bitte benutzen Sie die E-Mail unten.",
-        });
+        console.error("Error sending email", error);
+        // setButtonStatusText({
+        //   fatal: true,
+        //   disabled: true,
+        //   text: "Es konnte nicht abgeschickt werden, bitte benutzen Sie die E-Mail unten.",
+        // });
       });
     // You can handle res as you want
   };

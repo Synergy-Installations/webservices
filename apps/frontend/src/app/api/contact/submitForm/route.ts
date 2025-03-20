@@ -17,7 +17,6 @@ export async function POST(req: NextRequest) {
 
   const msg = {
     to: [to, "office@synergiemontagen.eco"], // Change to your recipient
-    // to: to,
     from: "office@synergiemontagen.eco", // Change to your verified sender
     subject: "Ihre Anfrage von Synergiemontagen",
     text: message,
@@ -26,20 +25,27 @@ export async function POST(req: NextRequest) {
 
   let errorBoolean = false;
 
-  try {
-    sgMail.send(msg).then((value) => {
-      console.log(value);
+  await sgMail
+    .send(msg)
+    .then((value) => {})
+    .catch((error) => {
+      errorBoolean = true;
+      console.error("Mail sent unseccussfully", error, error.code);
+      if (error.response) {
+        console.error(error.response.body);
+      }
     });
-  } catch (error) {
-    errorBoolean = true;
-    console.error("error", error);
-    return NextResponse.json({
-      status: 500,
-      message: "Email did not send catch",
-    });
-  }
-
   return errorBoolean
-    ? NextResponse.json({ status: 500, message: "Email did not send final" })
-    : NextResponse.json({ message: "Email sent successfully final" });
+    ? new Response(`Email did not send (final) ${errorBoolean}`, {
+        status: 500,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+    : new Response(`Email sent successfully (final) ${errorBoolean}`, {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 }

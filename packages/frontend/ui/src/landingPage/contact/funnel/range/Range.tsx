@@ -87,8 +87,11 @@ export const Range = (props: RangeProps) => {
                   convertToRange(
                     Math.max(
                       // Min input is 0.01 or we get infinity in exponential scale
-                      Math.max(0.01, questionElements[questionKey].form[formKey].options.range
-                        .min),
+                      Math.max(
+                        0.01,
+                        questionElements[questionKey].form[formKey].options
+                          .range.min
+                      ),
                       formatLocaleNumberToUniNumber(
                         questionElements[questionKey].form[formKey].selected
                           .selectedValue,
@@ -158,9 +161,13 @@ export const Range = (props: RangeProps) => {
 
                 // Convert the value to the range slider value
                 updatedElements[questionKey].form[formKey].selected.rangeValue =
-                  isFinite(convertToRange(formatLocaleNumberToUniNumber(value, locale)))
-                  ? convertToRange(formatLocaleNumberToUniNumber(value, locale))
-                  : 0.01;
+                  isFinite(
+                    convertToRange(formatLocaleNumberToUniNumber(value, locale))
+                  )
+                    ? convertToRange(
+                        formatLocaleNumberToUniNumber(value, locale)
+                      )
+                    : 0.01;
                 return updatedElements;
               });
             }}
@@ -336,15 +343,23 @@ export const Range = (props: RangeProps) => {
                 // Convert the value to the range slider value
                 updatedElements[questionKey].form[formKey].selected.rangeValue =
                   convertToRange(
-                    formatLocaleNumberToUniNumber(
-                      questionElements[questionKey].form[
-                        formKey
-                      ].options.labels[labelKey].value.toString(),
-                      locale
+                    Math.max(
+                      0.01,
+                      formatLocaleNumberToUniNumber(
+                        questionElements[questionKey].form[
+                          formKey
+                        ].options.labels[labelKey].value.toString(),
+                        locale
+                      )
                     )
                   );
                 return updatedElements;
               });
+              /** Validate input (especially useful if user forgot input at form above)
+               * Need to be debounced as it may happen that state is not updated right away
+               */
+              debouncedGetNextQuestionKey(questionKey, formKey);
+              debouncedCalculateForms(questionKey, formKey);
             }}
           >
             {

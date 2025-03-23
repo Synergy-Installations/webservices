@@ -302,6 +302,11 @@ export const FileUpload = (props: FileUploadProps) => {
           )
         )}
       </div>
+      <p
+        className={`text-sm mt-2 min-h-[1.57rem] ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : questionElements[questionKey].form[formKey].message.type === "warning" ? "text-orange-600 dark:text-orange-500" : questionElements[questionKey].form[formKey].message.type === "loading" ? "text-blue-600 dark:text-blue-500" : "text-green-600 dark:text-green-500"} `}
+      >
+        {questionElements[questionKey].form[formKey].message.text}
+      </p>
     </>
   );
 };

@@ -2485,22 +2485,22 @@
                   },
                   "labels": {
                     "min": {
-                      "text": "Min (1 m)",
-                      "value": "1",
+                      "text": "Min (0 m)",
+                      "value": "0",
                       "align": "start",
                       "offsetX": "0",
                       "correctX": "0%"
                     },
                     "q1": {
-                      "text": "1000 m",
-                      "value": "1000",
+                      "text": "1 m",
+                      "value": "1",
                       "align": "start",
                       "offsetX": "1/3",
                       "correctX": "145%"
                     },
                     "q2": {
-                      "text": "2000 m",
-                      "value": "2000",
+                      "text": "30 m",
+                      "value": "30",
                       "align": "start",
                       "offsetX": "2/3",
                       "correctX": "105%"
@@ -3542,6 +3542,28 @@
                 "options": {
                   "label": "Datum der Montage (Montageplan folgt in Kürze)",
                   "placeholder": ""
+                }
+              },
+              "submit-form-improvements": {
+                "order": "1",
+                "type": "textarea",
+                "required": "false",
+                "defaultVisible": "true",
+                "title": "Haben Sie Verbesserungsvorschläge?",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "label": "",
+                  "placeholder": "",
+                  "rows": "2"
                 }
               },
               "submit-form-calendly": {

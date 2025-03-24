@@ -3544,6 +3544,28 @@
                   "placeholder": ""
                 }
               },
+              "submit-form-improvements": {
+                "order": "1",
+                "type": "textarea",
+                "required": "false",
+                "defaultVisible": "true",
+                "title": "Haben Sie Verbesserungsvorschläge?",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "label": "",
+                  "placeholder": "",
+                  "rows": "2"
+                }
+              },
               "submit-form-calendly": {
                 "order": "1",
                 "type": "calendly",

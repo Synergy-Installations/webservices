@@ -50,6 +50,20 @@ export const Funnel = (props: FunnelProps) => {
     colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
   };
 
+  const confettiConfigLow = {
+    angle: 90,
+    spread: 360,
+    startVelocity: 25,
+    elementCount: 120,
+    dragFriction: 0.11,
+    duration: 3000,
+    stagger: 3,
+    width: "10px",
+    height: "10px",
+    perspective: "500px",
+    colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"]
+  };
+
   const createOptions = (element: any) => {
     return Object.keys(element).reduce((optionsAcc: any, optionKey: string) => {
       optionsAcc[optionKey] = {
@@ -303,7 +317,10 @@ export const Funnel = (props: FunnelProps) => {
                       : 1,
                 },
                 selected: {
-                  questionTitle: element.form[formKey].options.label,
+                  questionTitle:
+                    element.form[formKey].title === ""
+                      ? element.form[formKey].options.label
+                      : element.form[formKey].title,
                   inputValue:
                     typeof window !== "undefined"
                       ? localStorage.getItem(`${questionKey}-${formKey}`) || ""
@@ -699,7 +716,8 @@ export const Funnel = (props: FunnelProps) => {
           rows: element.type === "textarea" ? Number(element.options.rows) : 1,
         },
         selected: {
-          questionTitle: element.options.label,
+          questionTitle:
+            element.title === "" ? element.options.label : element.title,
           inputValue:
             typeof window !== "undefined"
               ? localStorage.getItem(`${questionKey}-${formKey}`) || ""
@@ -1509,6 +1527,10 @@ export const Funnel = (props: FunnelProps) => {
             {t("progress.labels.topLeft")}
           </span>
           <span className="text-sm font-medium text-synergy-light-blue dark:text-white">
+            <Confetti
+              active={formCounts.successForms === formCounts.totalForms}
+              config={confettiConfigLow}
+            />
             {formCounts.successForms} {t(`progress.labels.topRightDeliminator`)}{" "}
             {formCounts.totalForms} {t(`progress.labels.topRightPostfix`)}{" "}
             {formCounts.totalForms === 0

@@ -28,6 +28,7 @@ export async function POST(req: NextRequest) {
   //   message,
   //   restBody
   // );
+  console.log("restBody", restBody);
 
   const msg = {
     to: [to, "office@synergiemontagen.eco"], // Change to your recipient

@@ -1,11 +1,23 @@
-import createMiddleware from 'next-intl/middleware';
-import {routing} from '@com.synergy/frontend-shared-internationalization/routing';
- 
-export default createMiddleware(routing);
- 
+import createMiddleware from "next-intl/middleware";
+import { routing } from "@com.synergy/frontend-shared-internationalization/routing";
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+
+const intlMiddleware = createMiddleware(routing);
+
+const isProtectedRoute = createRouteMatcher(['/:locale([a-z]{2}-[A-Z]{2})/dashboard(.*)']);
+
+export default clerkMiddleware(async (auth, req) => {
+  console.log(isProtectedRoute(req));
+  if (isProtectedRoute(req)) await auth.protect();
+
+  return intlMiddleware(req);
+}, {debug: true});
+
 export const config = {
-  // Match all pathnames except for
-  // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
-  // - … the ones containing a dot (e.g. `favicon.ico`)
-  matcher: '/((?!api|trpc|_next|_vercel|.*\\..*).*)'
+  matcher: [
+    // Skip Next.js internals and all static files, unless found in search params
+    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
+    // Always run for API routes
+    "/(api|trpc)(.*)",
+  ],
 };

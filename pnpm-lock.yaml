@@ -44,6 +44,9 @@ importers:
       jsdom:
         specifier: ^26.0.0
         version: 26.0.0
+      mongoose:
+        specifier: ^8.13.0
+        version: 8.13.0
       next:
         specifier: ^14.2.3
         version: 14.2.3(react-dom@18.2.0)(react@18.2.0)

@@ -88,9 +88,10 @@ export const FileUpload = (props: FileUploadProps) => {
             type: file.type,
             localUrl: URL.createObjectURL(file),
             status: "uploading",
-            downloadUrl:
+            downloadUrl: encodeURI(
               questionElements[questionKey].form[formKey].options.download
-                .pullHostName + fileName,
+                .pullHostName + fileName
+            ),
           });
           /** Used for when mulptiple = false */
           //  else if (

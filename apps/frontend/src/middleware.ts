@@ -11,7 +11,7 @@ export default clerkMiddleware(async (auth, req) => {
   if (isProtectedRoute(req)) await auth.protect();
 
   return intlMiddleware(req);
-}, {debug: true});
+}, {debug: false});
 
 export const config = {
   matcher: [

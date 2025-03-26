@@ -2,7 +2,12 @@
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
     "build": {
-      "env": ["SENDGRID_API_KEY", "STORAGE_ZONE_ACCESS_KEY", "CLERK_SECRET_KEY"],
+      "env": [
+        "SENDGRID_API_KEY",
+        "STORAGE_ZONE_ACCESS_KEY",
+        "CLERK_SECRET_KEY",
+        "MONGODB_URI"
+      ],
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"]

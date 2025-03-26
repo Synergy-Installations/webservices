@@ -7,7 +7,10 @@ const withNextIntl = createNextIntlPlugin(
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: ["@com.synergy/frontend-ui"],
+  transpilePackages: [
+    "@com.synergy/frontend-ui",
+    "@com.synergy/frontend-backend-dashboard",
+  ],
 };
 
 export default withNextIntl(nextConfig);

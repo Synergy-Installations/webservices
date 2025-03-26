@@ -1,0 +1,21 @@
+{
+  "name": "@com.synergy/frontend-backend-dashboard",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "exports": {
+    "./item": "./src/db/models/item.ts",
+    "./mongodb": "./src/db/utils/mongodb.ts"
+  },
+  "devDependencies": {
+    "@com.synergy/frontend-shared-typescript-config": "workspace:*",
+    "@turbo/gen": "^2.3.3",
+    "@types/node": "^20.11.24",
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "mongoose": "^8.13.0"
+  }
+}

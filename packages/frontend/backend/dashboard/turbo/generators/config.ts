@@ -28,10 +28,8 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
         type: "append",
         path: "package.json",
         pattern: /"exports": {(?<insertion>)/g,
-        template: `    "./{{camelCase fileName}}": {
-      "types": "./src/{{folderName}}/{{camelCase fileName}}.ts",
-      "default": "./dist/{{folderName}}/{{camelCase fileName}}.js"
-    },`,
+        template:
+          '    "./{{pascalCase fileName}}": "./src/{{folderName}}/{{pascalCase fileName}}.tsx",',
       },
     ],
     //   '    "./{{pascalCase fileName}}": "./src/{{folderName}}/{{pascalCase fileName}}.tsx",',

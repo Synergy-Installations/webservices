@@ -1,5 +1,12 @@
 {
+  "compilerOptions": {
+    "jsx": "react"
+  },
   "extends": "@com.synergy/frontend-shared-typescript-config/base.json",
+  "compilerConfigs": {
+    "declaration": false,
+    "declarationMap": false
+  },
   "include": ["src"],
   "exclude": ["dist", "build", "node_modules"]
 }

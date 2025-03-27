@@ -1,12 +1,32 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "@com.synergy/frontend-backend-dashboard/hooks";
+import {
+  decrement,
+  increment,
+  incrementAsync,
+  incrementByAmount,
+  incrementIfOdd,
+  selectCount,
+  selectStatus,
+} from "@com.synergy/frontend-backend-dashboard/counterSlice";
 
 export default function Page(): JSX.Element {
   const [items, setItems] = useState<
     { _id: string; name: string; description: string }[]
   >([]);
   const [form, setForm] = useState({ name: "", description: "" });
+
+  const dispatch = useAppDispatch();
+  const count = useAppSelector(selectCount);
+  const status = useAppSelector(selectStatus);
+  const [incrementAmount, setIncrementAmount] = useState("2");
+
+  const incrementValue = Number(incrementAmount) || 0;
 
   useEffect(() => {
     fetchItems();
@@ -65,6 +85,30 @@ export default function Page(): JSX.Element {
           </li>
         ))}
       </ul>
+      <div>
+        <div>
+          <button
+            aria-label="Decrement value"
+            onClick={() => {
+              dispatch(decrement());
+            }}
+          >
+            -
+          </button>
+          <span aria-label="Count">
+            {count}
+          </span>
+          <button
+            aria-label="Increment value"
+            onClick={() => {
+              dispatch(increment());
+            }}
+          >
+            +
+          </button>
+          {/* omit additional rendering output here */}
+        </div>
+      </div>
     </div>
   );
 }

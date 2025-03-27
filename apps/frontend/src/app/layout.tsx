@@ -19,8 +19,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} className="scroll-smooth">
       <ClerkProvider>
-
-      <body className="relative">{children}</body>
+        <body className="relative">{children}</body>
       </ClerkProvider>
       <GoogleTag />
     </html>

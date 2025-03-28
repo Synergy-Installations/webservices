@@ -6,7 +6,9 @@
     "build": "tsc"
   },
   "exports": {
-    "./StoreProvider": "./src/store/StoreProvider.tsx",
+    "./items": "./src/store/slices/api/items.ts",
+    "./api": "./src/store/slices/api/api.ts",
+    "./StoreProvider": "./src/store/SstoreProvider.tsx",
     "./hooks": "./src/store/hooks.ts",
     "./counterSlice": "./src/store/slices/counter/counterSlice.ts",
     "./store": "./src/store/store.ts",

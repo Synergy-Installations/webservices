@@ -1,6 +1,11 @@
-import type { Action, ThunkAction } from "@reduxjs/toolkit";
+import type {
+  Action,
+  ThunkAction,
+  ConfigureStoreOptions,
+} from "@reduxjs/toolkit";
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./slices/counter/counterSlice";
+import { api } from "./slices/api/api";
 
 export const store = configureStore({
   reducer: {
@@ -8,11 +13,17 @@ export const store = configureStore({
   },
 });
 
-export const makeStore = () => {
+export const makeStore = (
+  options?: ConfigureStoreOptions["preloadedState"] | undefined
+) => {
   return configureStore({
     reducer: {
+      [api.reducerPath]: api.reducer,
       counter: counterReducer,
     },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(api.middleware),
+    ...options,
   });
 };
 

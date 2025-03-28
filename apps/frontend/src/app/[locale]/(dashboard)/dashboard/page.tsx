@@ -14,6 +14,7 @@ import {
   selectCount,
   selectStatus,
 } from "@com.synergy/frontend-backend-dashboard/counterSlice";
+import { useGetItemsQuery } from "@com.synergy/frontend-backend-dashboard/items";
 
 export default function Page(): JSX.Element {
   const [items, setItems] = useState<
@@ -27,6 +28,8 @@ export default function Page(): JSX.Element {
   const [incrementAmount, setIncrementAmount] = useState("2");
 
   const incrementValue = Number(incrementAmount) || 0;
+
+  const { data: posts, isLoading } = useGetItemsQuery();
 
   useEffect(() => {
     fetchItems();
@@ -95,9 +98,7 @@ export default function Page(): JSX.Element {
           >
             -
           </button>
-          <span aria-label="Count">
-            {count}
-          </span>
+          <span aria-label="Count">{count}</span>
           <button
             aria-label="Increment value"
             onClick={() => {

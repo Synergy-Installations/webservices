@@ -29,7 +29,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
         path: "package.json",
         pattern: /"exports": {(?<insertion>)/g,
         template:
-          '    "./{{pascalCase fileName}}": "./src/{{folderName}}/{{pascalCase fileName}}.tsx",',
+          '    "./{{camelCase fileName}}": "./src/{{folderName}}/{{camelCase fileName}}.ts",',
       },
     ],
     //   '    "./{{pascalCase fileName}}": "./src/{{folderName}}/{{pascalCase fileName}}.tsx",',

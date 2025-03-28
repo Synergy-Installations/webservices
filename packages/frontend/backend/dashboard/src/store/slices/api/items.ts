@@ -2,13 +2,13 @@ import { retry } from "@reduxjs/toolkit/query/react";
 import { api } from "./api";
 
 export interface Item {
-  id: number;
+  _id: number;
   name: string;
   description: string;
   fetched_at: string;
 }
 
-type PostsResponse = Item[];
+type PostsResponse = { success: boolean; data: Item[] };
 
 // export interface User {
 //   first_name: string;
@@ -34,8 +34,8 @@ export const postsApi = api.injectEndpoints({
     // }),
     getItems: build.query<PostsResponse, void>({
       query: () => ({ url: "dashboard/items" }),
-      providesTags: (result = []) => [
-        ...result.map(({ id }) => ({ type: "Items", id }) as const),
+      providesTags: (result = { success: false, data: [] }) => [
+        ...result.data.map(({ _id }) => ({ type: "Items", _id }) as const),
         { type: "Items" as const, id: "LIST" },
       ],
     }),
@@ -53,14 +53,14 @@ export const postsApi = api.injectEndpoints({
     }),
     updateItem: build.mutation<Item, Partial<Item>>({
       query(data) {
-        const { id, ...body } = data;
+        const { _id, ...body } = data;
         return {
-          url: `dashboard/items/${id}`,
+          url: `dashboard/items/${_id}`,
           method: "PUT",
           body,
         };
       },
-      invalidatesTags: (post) => [{ type: "Items", id: post?.id }],
+      invalidatesTags: (post) => [{ type: "Items", id: post?._id }],
     }),
     deleteItem: build.mutation<{ success: boolean; id: number }, number>({
       query(id) {

@@ -14,12 +14,15 @@ import {
   selectCount,
   selectStatus,
 } from "@com.synergy/frontend-backend-dashboard/counterSlice";
-import { useGetItemsQuery } from "@com.synergy/frontend-backend-dashboard/items";
+import {
+  useGetItemsQuery,
+  useAddItemMutation,
+} from "@com.synergy/frontend-backend-dashboard/items";
 
 export default function Page(): JSX.Element {
-  const [items, setItems] = useState<
-    { _id: string; name: string; description: string }[]
-  >([]);
+  // const [items, setItems] = useState<
+  //   { _id: string; name: string; description: string }[]
+  // >([]);
   const [form, setForm] = useState({ name: "", description: "" });
 
   const dispatch = useAppDispatch();
@@ -29,17 +32,20 @@ export default function Page(): JSX.Element {
 
   const incrementValue = Number(incrementAmount) || 0;
 
-  const { data: posts, isLoading } = useGetItemsQuery();
+  const { data: items = { success: false, data: [] }, isLoading } =
+    useGetItemsQuery();
 
-  useEffect(() => {
-    fetchItems();
-  }, []);
+  const [addItem, { isLoading: isAddItemLoading }] = useAddItemMutation();
 
-  const fetchItems = async () => {
-    const res = await fetch("/api/dashboard/items");
-    const data = await res.json();
-    setItems(data.data);
-  };
+  // useEffect(() => {
+  //   fetchItems();
+  // }, []);
+
+  // const fetchItems = async () => {
+  //   const res = await fetch("/api/dashboard/items");
+  //   const data = await res.json();
+  //   setItems(data.data);
+  // };
 
   const handleChange = (e: any) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -47,19 +53,20 @@ export default function Page(): JSX.Element {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    try {
-      await fetch("/api/dashboard/items", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(form),
-      });
-      fetchItems();
-      setForm({ name: "", description: "" });
-    } catch (error) {
-      console.log(error);
-    }
+    addItem(form);
+    // try {
+    //   await fetch("/api/dashboard/items", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(form),
+    //   });
+    //   // fetchItems();
+    //   setForm({ name: "", description: "" });
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   return (
@@ -78,11 +85,13 @@ export default function Page(): JSX.Element {
           value={form.description}
           onChange={handleChange}
         />
-        <button type="submit">Add Item</button>
+        <button type="submit">
+          Add Item {isAddItemLoading && "Loading..."}
+        </button>
       </form>
 
       <ul>
-        {items.map((item) => (
+        {items.data.map((item) => (
           <li key={item._id}>
             {item.name} - {item.description}
           </li>

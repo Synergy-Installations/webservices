@@ -8,7 +8,7 @@
   "exports": {
     "./items": "./src/store/slices/api/items.ts",
     "./api": "./src/store/slices/api/api.ts",
-    "./StoreProvider": "./src/store/SstoreProvider.tsx",
+    "./StoreProvider": "./src/store/StoreProvider.tsx",
     "./hooks": "./src/store/hooks.ts",
     "./counterSlice": "./src/store/slices/counter/counterSlice.ts",
     "./store": "./src/store/store.ts",

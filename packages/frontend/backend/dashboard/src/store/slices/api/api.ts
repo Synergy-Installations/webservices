@@ -3,7 +3,7 @@ import { RootState } from "@com.synergy/frontend-backend-dashboard/store";
 
 // Create our baseQuery instance
 const baseQuery = fetchBaseQuery({
-  baseUrl: "/",
+  baseUrl: "/api",
   prepareHeaders: (headers, { getState }) => {
     // By default, if we have a token in the store, let's use that for authenticated requests
     // const token = (getState() as RootState).auth.token;

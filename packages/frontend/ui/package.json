@@ -88,6 +88,7 @@
     "@com.synergy/frontend-shared-internationalization": "workspace:*",
     "@com.synergy/frontend-shared-tailwind-config": "workspace:*",
     "@com.synergy/frontend-shared-typescript-config": "workspace:*",
+    "@com.synergy/frontend-backend-dashboard": "workspace:*",
     "@turbo/gen": "^2.3.3",
     "@types/react": "^18.2.61",
     "autoprefixer": "^10.4.18",

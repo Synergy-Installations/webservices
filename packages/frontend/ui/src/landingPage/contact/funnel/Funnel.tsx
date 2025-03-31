@@ -61,7 +61,7 @@ export const Funnel = (props: FunnelProps) => {
     width: "10px",
     height: "10px",
     perspective: "500px",
-    colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"]
+    colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
   };
 
   const createOptions = (element: any) => {
@@ -84,6 +84,7 @@ export const Funnel = (props: FunnelProps) => {
       description: element.description,
       from: from || [],
       uid: questionKey,
+      version: element.version,
       form: Object.keys(element.form).reduce(
         (formAcc: any, formKey: string) => {
           if (element.form[formKey].defaultVisible === "true") {
@@ -1382,58 +1383,65 @@ export const Funnel = (props: FunnelProps) => {
       };
       console.log(body);
 
-      const res = await fetch("/api/contact/submitFunnel", {
+      const res = await fetch("/api/dashboard/submits", {
         method: "POST",
-        body: JSON.stringify(body),
-      })
-        .then((res) => {
-          console.log("Successfully sent EMail", res);
+        body: JSON.stringify({ data: questionElements }),
+      }).then((res) => {
+        console.log("Successfully sent submit to db", res);
+      });
 
-          if (res.status == 200) {
-            setQuestionElements((prev) => {
-              const updatedElements = { ...prev };
-              updatedElements[questionKey].form[formKey].message.text =
-                questionElements[questionKey].form[
-                  formKey
-                ].message.successMessage;
-              updatedElements[questionKey].form[formKey].message.type =
-                "success";
-              return updatedElements;
-            });
-          } else {
-            setQuestionElements((prev) => {
-              const updatedElements = { ...prev };
-              updatedElements[questionKey].form[formKey].message.text =
-                questionElements[questionKey].form[
-                  formKey
-                ].message.errorMessage;
-              updatedElements[questionKey].form[formKey].message.type = "error";
-              return updatedElements;
-            });
-          }
-          // setButtonStatusText({
-          //   fatal: false,
-          //   disabled: true,
-          //   text: "Danke für Ihre Anfrage. Bitte überprüfen Sie Ihre Inbox. Falls die Nachricht nicht angekommen ist, benutzen Sie bitte die unten angegebene E-Mail.",
-          // });
-          // setFormElements((prevFormElements) =>
-          //   Object.keys(prevFormElements).reduce(
-          //     (acc: Record<string, any>, key: string) => {
-          //       acc[key] = { ...prevFormElements[key], value: "" };
-          //       return acc;
-          //     },
-          //     {}
-          //   )
-          // );
-        })
-        .catch((error) => {
-          console.error("Error sending the E-Mail", error);
-          // setButtonStatusText({
-          //   fatal: true,
-          //   disabled: true,
-          //   text: "Es konnte nicht abgeschickt werden, bitte benutzen Sie die E-Mail unten.",
-          // });
-        });
+      // const res = await fetch("/api/contact/submitFunnel", {
+      //   method: "POST",
+      //   body: JSON.stringify(body),
+      // })
+      //   .then((res) => {
+      //     console.log("Successfully sent EMail", res);
+
+      //     if (res.status == 200) {
+      //       setQuestionElements((prev) => {
+      //         const updatedElements = { ...prev };
+      //         updatedElements[questionKey].form[formKey].message.text =
+      //           questionElements[questionKey].form[
+      //             formKey
+      //           ].message.successMessage;
+      //         updatedElements[questionKey].form[formKey].message.type =
+      //           "success";
+      //         return updatedElements;
+      //       });
+      //     } else {
+      //       setQuestionElements((prev) => {
+      //         const updatedElements = { ...prev };
+      //         updatedElements[questionKey].form[formKey].message.text =
+      //           questionElements[questionKey].form[
+      //             formKey
+      //           ].message.errorMessage;
+      //         updatedElements[questionKey].form[formKey].message.type = "error";
+      //         return updatedElements;
+      //       });
+      //     }
+      //     // setButtonStatusText({
+      //     //   fatal: false,
+      //     //   disabled: true,
+      //     //   text: "Danke für Ihre Anfrage. Bitte überprüfen Sie Ihre Inbox. Falls die Nachricht nicht angekommen ist, benutzen Sie bitte die unten angegebene E-Mail.",
+      //     // });
+      //     // setFormElements((prevFormElements) =>
+      //     //   Object.keys(prevFormElements).reduce(
+      //     //     (acc: Record<string, any>, key: string) => {
+      //     //       acc[key] = { ...prevFormElements[key], value: "" };
+      //     //       return acc;
+      //     //     },
+      //     //     {}
+      //     //   )
+      //     // );
+      //   })
+      //   .catch((error) => {
+      //     console.error("Error sending the E-Mail", error);
+      //     // setButtonStatusText({
+      //     //   fatal: true,
+      //     //   disabled: true,
+      //     //   text: "Es konnte nicht abgeschickt werden, bitte benutzen Sie die E-Mail unten.",
+      //     // });
+      //   });
     }
   };
 

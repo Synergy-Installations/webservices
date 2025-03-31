@@ -6,6 +6,8 @@
     "build": "tsc"
   },
   "exports": {
+    "./submitApi": "./src/store/slices/api/submit.ts",
+    "./submit": "./src/db/models/submit.ts",
     "./items": "./src/store/slices/api/items.ts",
     "./api": "./src/store/slices/api/api.ts",
     "./StoreProvider": "./src/store/StoreProvider.tsx",

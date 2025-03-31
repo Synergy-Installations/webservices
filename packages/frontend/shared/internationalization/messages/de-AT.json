@@ -2064,6 +2064,7 @@
           "interested-products": {
             "title": "Projektdetails",
             "description": "",
+            "version": "0.1.0",
             "form": {
               "interested-products-range-2": {
                 "order": "1",
@@ -3253,6 +3254,7 @@
           "submit": {
             "title": "Geben Sie Ihre Kontaktdaten ein",
             "description": "Und reservieren Sie sich Ihren Montagetermin",
+            "version": "0.1.0",
             "form": {
               "submit-form-name": {
                 "order": "1",

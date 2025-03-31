@@ -237,6 +237,9 @@ importers:
         specifier: ^2.6.0
         version: 2.6.0
     devDependencies:
+      '@com.synergy/frontend-backend-dashboard':
+        specifier: workspace:*
+        version: link:../backend/dashboard
       '@com.synergy/frontend-shared-eslint-config':
         specifier: workspace:*
         version: link:../shared/config-eslint

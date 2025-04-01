@@ -1,3 +1,4 @@
+"use client";
 import { ContactBlocks } from "@com.synergy/frontend-ui/ContactBlocks";
 import { ContactCommunity } from "@com.synergy/frontend-ui/ContactCommunity";
 import { Form } from "@com.synergy/frontend-ui/Form";

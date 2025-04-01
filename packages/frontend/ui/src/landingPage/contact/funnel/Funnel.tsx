@@ -1,6 +1,7 @@
 "use client";
+
 import { useMessages, useTranslations } from "next-intl";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { RichText } from "@com.synergy/frontend-ui/RichText";
 import Link from "next/link";
 import { label, p, q } from "framer-motion/client";
@@ -12,6 +13,14 @@ import Confetti from "react-dom-confetti";
 import Calendly from "./calendly/Calendly";
 import Range from "./range/Range";
 import { formatLocaleNumberToUniNumber } from "../../../shared/utils/numbers/LocaleNumber";
+import {
+  Description,
+  Dialog,
+  DialogBackdrop,
+  DialogPanel,
+  DialogTitle,
+} from "@headlessui/react";
+import { useSignUp, useUser } from "@clerk/nextjs";
 
 /* eslint-disable-next-line */
 export interface FunnelProps {
@@ -22,7 +31,13 @@ export const Funnel = (props: FunnelProps) => {
   const { STORAGE_ZONE_ACCESS_KEY } = props;
   const t = useTranslations("LandingPage.ContactUs.Funnel");
 
+  const { isLoaded: isSignUpLoaded, signUp, setActive } = useSignUp();
+  const { isSignedIn, user, isLoaded: isUserLoaded } = useUser();
+  const [verifying, setVerifying] = useState(false);
+  const [phone, setPhone] = useState("");
+  const [code, setCode] = useState("");
   const router = useRouter();
+  const codeInputsRef = useRef<(HTMLInputElement | null)[]>([]);
 
   const [buttonStatusText, setButtonStatusText] = useState<{
     fatal: boolean;
@@ -1320,6 +1335,93 @@ export const Funnel = (props: FunnelProps) => {
     `Total forms: ${formCounts.totalForms}, Success forms: ${formCounts.successForms}`
   );
 
+  async function signUserUp(emailAddress: string) {
+    if (isSignedIn) return router.push("/dashboard");
+
+    if (!isSignUpLoaded && !signUp) return null;
+
+    console.log("signUserUp", emailAddress);
+
+    try {
+      // Start the sign-up process using the phone number method
+      const signedUpUser = await signUp.create({
+        emailAddress: emailAddress,
+      });
+      console.log("signedUpUser", signedUpUser);
+
+      // Start the verification - a SMS message will be sent to the
+      // number with a one-time code
+      await signUp.prepareEmailAddressVerification();
+
+      // Set verifying to true to display second form and capture the OTP code
+      setVerifying(true);
+    } catch (err) {
+      // See https://clerk.com/docs/custom-flows/error-handling
+      // for more info on error handling
+      console.error("Error:", JSON.stringify(err, null, 2));
+    }
+  }
+
+  async function handleVerification(code: string) {
+    if (!isSignUpLoaded && !signUp) return null;
+
+    try {
+      // Use the code provided by the user and attempt verification
+      const signUpAttempt = await signUp.attemptEmailAddressVerification({
+        code,
+      });
+
+      console.log("signUpAttempt", signUpAttempt);
+
+      // If verification was completed, set the session to active
+      // and redirect the user
+      if (signUpAttempt.status === "complete") {
+        await setActive({ session: signUpAttempt.createdSessionId });
+
+        router.push("/dashboard");
+      } else {
+        // If the status is not complete, check why. User may need to
+        // complete further steps.
+        console.error(signUpAttempt);
+      }
+    } catch (err) {
+      // See https://clerk.com/docs/custom-flows/error-handling
+      // for more info on error handling
+      console.error("Error:", JSON.stringify(err, null, 2));
+    }
+  }
+
+  const handleKeyUpCode = (
+    index: number,
+    event: React.KeyboardEvent<HTMLInputElement>
+  ) => {
+    const { value } = event.currentTarget;
+    if (value.length === 0 && index > 0) {
+      codeInputsRef.current[index - 1]?.focus();
+    } else if (value.length === 1 && index < codeInputsRef.current.length - 1) {
+      codeInputsRef.current[index + 1]?.focus();
+    }
+  };
+
+  const handlePasteCode = (event: React.ClipboardEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    const pasteData = event.clipboardData.getData("text");
+    const digits = pasteData.replace(/\D/g, "").split("");
+
+    digits.forEach((digit, index) => {
+      if (codeInputsRef.current[index]) {
+        codeInputsRef.current[index]!.value = digit;
+        if (index < codeInputsRef.current.length - 1) {
+          codeInputsRef.current[index + 1]?.focus();
+        }
+      }
+    });
+  };
+
+  const getVerificationCode = (): string => {
+    return codeInputsRef.current.map((input) => input?.value || "").join("");
+  };
+
   const submitFunnel = async (questionKey: string, formKey: string) => {
     console.log("submitFunnel", questionKey, questionElements);
 
@@ -1383,12 +1485,14 @@ export const Funnel = (props: FunnelProps) => {
       };
       console.log(body);
 
-      const res = await fetch("/api/dashboard/submits", {
-        method: "POST",
-        body: JSON.stringify({ data: questionElements }),
-      }).then((res) => {
-        console.log("Successfully sent submit to db", res);
-      });
+      // const res = await fetch("/api/dashboard/submits", {
+      //   method: "POST",
+      //   body: JSON.stringify({ data: questionElements }),
+      // }).then((res) => {
+      //   console.log("Successfully sent submit to db", res);
+      // });
+
+      signUserUp(body.to);
 
       // const res = await fetch("/api/contact/submitFunnel", {
       //   method: "POST",
@@ -2260,6 +2364,71 @@ export const Funnel = (props: FunnelProps) => {
           </div>
         </section>
       ))}
+
+      <Dialog
+        open={verifying}
+        onClose={() => setVerifying(false)}
+        className="relative z-50"
+      >
+        {/* The backdrop, rendered as a fixed sibling to the panel container */}
+        <DialogBackdrop className="fixed inset-0 bg-black/30" />
+
+        {/* Full-screen container to center the panel */}
+        <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
+          {/* The actual dialog panel  */}
+          <DialogPanel className="max-w-lg space-y-4 bg-white p-12 rounded-2xl border border-synergy-dark-grey shadow-lg">
+            <DialogTitle className="font-bold">E-Mail verifikation</DialogTitle>
+            <Description>
+              Geben Sie den Code ein, den Sie per E-Mail erhalten haben, um zum
+              Dashboard zu gelangen.
+            </Description>
+            <p>
+              Mit dem Dashboard können Sie weitere Projekte eintragen, Ihre
+              Formulare verwalten und Ihre Einstellungen anpassen.
+            </p>
+            <form className="max-w-sm mx-auto">
+              <div className="flex mb-2 space-x-2 rtl:space-x-reverse">
+                {[...Array(6)].map((_, index) => (
+                  <div key={index}>
+                    <label htmlFor={`code-${index + 1}`} className="sr-only">
+                      Code {index + 1}
+                    </label>
+                    <input
+                      ref={(el) => {
+                        codeInputsRef.current[index] = el;
+                      }}
+                      type="text"
+                      maxLength={1}
+                      id={`code-${index + 1}`}
+                      className="block w-9 h-9 py-3 text-sm font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      required
+                      onKeyUp={(e) => handleKeyUpCode(index, e)}
+                      onPaste={handlePasteCode}
+                    />
+                  </div>
+                ))}
+              </div>
+              <p
+                id="helper-text-explanation"
+                className="mt-2 text-sm text-gray-500 dark:text-gray-400"
+              >
+                Please introduce the 6-digit code we sent via email.
+              </p>
+              <button
+                type="button"
+                onClick={() => handleVerification(getVerificationCode())}
+                className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg"
+              >
+                Verify
+              </button>
+            </form>
+            {/* <div className="flex gap-4">
+              <button onClick={() => setVerifying(false)}>Cancel</button>
+              <button onClick={() => setVerifying(false)}>Deactivate</button>
+            </div> */}
+          </DialogPanel>
+        </div>
+      </Dialog>
     </div>
   );
 };

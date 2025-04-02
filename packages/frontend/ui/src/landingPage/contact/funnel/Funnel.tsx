@@ -1335,7 +1335,11 @@ export const Funnel = (props: FunnelProps) => {
     `Total forms: ${formCounts.totalForms}, Success forms: ${formCounts.successForms}`
   );
 
-  async function signUserUp(emailAddress: string) {
+  async function signUserUp(
+    emailAddress: string,
+    firstName: string,
+    phoneNumber: string
+  ) {
     if (isSignedIn) return router.push("/dashboard");
 
     if (!isSignUpLoaded && !signUp) return null;
@@ -1355,6 +1359,18 @@ export const Funnel = (props: FunnelProps) => {
 
       // Set verifying to true to display second form and capture the OTP code
       setVerifying(true);
+
+      const res = await fetch("/api/dashboard/users", {
+        method: "POST",
+        body: JSON.stringify({
+          status: signedUpUser.status,
+          emailAddress: emailAddress,
+          firstName: firstName,
+          phoneNumber: phoneNumber,
+        }),
+      }).then((res) => {
+        console.log("Successfully sent user to db", res);
+      });
     } catch (err) {
       // See https://clerk.com/docs/custom-flows/error-handling
       // for more info on error handling
@@ -1370,6 +1386,8 @@ export const Funnel = (props: FunnelProps) => {
       const signUpAttempt = await signUp.attemptEmailAddressVerification({
         code,
       });
+
+      // Use signUpAttempt.createdUserId to push the user id into db
 
       console.log("signUpAttempt", signUpAttempt);
 
@@ -1492,7 +1510,17 @@ export const Funnel = (props: FunnelProps) => {
       //   console.log("Successfully sent submit to db", res);
       // });
 
-      signUserUp(body.to);
+      const firstName = (
+        Object.values(questionElements[questionKey].form).find(
+          (form: any) => form.uid === "submit-form-name"
+        ) as any
+      ).selected.inputValue;
+      const phoneNumber = (
+        Object.values(questionElements[questionKey].form).find(
+          (form: any) => form.uid === "submit-form-telephone"
+        ) as any
+      ).selected.inputValue;
+      signUserUp(body.to, firstName, phoneNumber);
 
       // const res = await fetch("/api/contact/submitFunnel", {
       //   method: "POST",

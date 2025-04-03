@@ -4,7 +4,7 @@ import { useMessages, useTranslations } from "next-intl";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { RichText } from "@com.synergy/frontend-ui/RichText";
 import Link from "next/link";
-import { label, p, q } from "framer-motion/client";
+import { aside, label, p, q } from "framer-motion/client";
 import { useRouter } from "next/navigation";
 import { debounce } from "@com.synergy/frontend-ui/Debounce";
 import { useDropzone } from "react-dropzone";
@@ -20,7 +20,12 @@ import {
   DialogPanel,
   DialogTitle,
 } from "@headlessui/react";
-import { useSignUp, useUser } from "@clerk/nextjs";
+import { useSignUp, useUser, useSignIn, useClerk } from "@clerk/nextjs";
+import {
+  PhoneCodeFactor,
+  EmailCodeFactor,
+  SignInFirstFactor,
+} from "@clerk/types";
 
 /* eslint-disable-next-line */
 export interface FunnelProps {
@@ -31,13 +36,23 @@ export const Funnel = (props: FunnelProps) => {
   const { STORAGE_ZONE_ACCESS_KEY } = props;
   const t = useTranslations("LandingPage.ContactUs.Funnel");
 
-  const { isLoaded: isSignUpLoaded, signUp, setActive } = useSignUp();
+  const {
+    isLoaded: isSignUpLoaded,
+    signUp,
+    setActive: setActiveSignUp,
+  } = useSignUp();
+  const { signOut, session } = useClerk();
   const { isSignedIn, user, isLoaded: isUserLoaded } = useUser();
   const [verifying, setVerifying] = useState(false);
-  const [phone, setPhone] = useState("");
-  const [code, setCode] = useState("");
+  const {
+    isLoaded: isSignInLoaded,
+    signIn,
+    setActive: setActiveSignIn,
+  } = useSignIn();
   const router = useRouter();
   const codeInputsRef = useRef<(HTMLInputElement | null)[]>([]);
+  const [isSignIn, setIsSignIn] = useState(false);
+  const [signUpUserId, setSignUpUserId] = useState<string | null>(null);
 
   const [buttonStatusText, setButtonStatusText] = useState<{
     fatal: boolean;
@@ -1335,13 +1350,70 @@ export const Funnel = (props: FunnelProps) => {
     `Total forms: ${formCounts.totalForms}, Success forms: ${formCounts.successForms}`
   );
 
-  async function signUserUp(
+  async function userAuthHandler(
     emailAddress: string,
     firstName: string,
     phoneNumber: string
   ) {
-    if (isSignedIn) return router.push("/dashboard");
+    console.log(
+      "checkparameters",
+      isSignedIn,
+      user,
+      user?.emailAddresses?.some((email) => email.emailAddress === emailAddress)
+    );
+    /* User is signed-in and the email address matches the entered one, no need to sign in or up again
+     * and redirect to dashboard, if the email address does not match, sign out the user out
+     * because multiple sessions is not enabled.
+     */
+    if (isSignedIn) {
+      // E-Mail address matches with the current session
+      if (
+        user.emailAddresses?.some(
+          (email) => email.emailAddress === emailAddress
+        )
+      ) {
+        return router.push("/dashboard");
+      }
+      // E-Mail address does not match with the current session
+      else {
+        session?.end();
+      }
+    }
 
+    let userEmailAddressVerified = false;
+    const res = await fetch(
+      `/api/dashboard/users/${emailAddress}/userEmailAddressVerified?query=emailAddress`,
+      {
+        method: "GET",
+      }
+    ).then(async (res) => {
+      const responseBody: {
+        success: boolean;
+        userId: string | null;
+        userEmailAddressVerified: boolean;
+      } = await res.json();
+
+      userEmailAddressVerified = responseBody.userEmailAddressVerified;
+
+      // If the userId exists, a user has been created previously, based on
+      // the verified status, we will sign up or in
+      if (responseBody.userId !== null) setSignUpUserId(responseBody.userId);
+
+      if (responseBody.userEmailAddressVerified) {
+        setIsSignIn(true);
+        signUserIn(emailAddress, firstName, phoneNumber);
+      } else
+        signUserUp(emailAddress, firstName, phoneNumber, responseBody.userId);
+    });
+  }
+
+  async function signUserUp(
+    emailAddress: string,
+    firstName: string,
+    phoneNumber: string,
+    // userId is needed because useState might not update quickly enough
+    userId: string | null
+  ) {
     if (!isSignUpLoaded && !signUp) return null;
 
     console.log("signUserUp", emailAddress);
@@ -1360,17 +1432,21 @@ export const Funnel = (props: FunnelProps) => {
       // Set verifying to true to display second form and capture the OTP code
       setVerifying(true);
 
-      const res = await fetch("/api/dashboard/users", {
-        method: "POST",
-        body: JSON.stringify({
-          status: signedUpUser.status,
-          emailAddress: emailAddress,
-          firstName: firstName,
-          phoneNumber: phoneNumber,
-        }),
-      }).then((res) => {
-        console.log("Successfully sent user to db", res);
-      });
+      if (userId == null) {
+        const res = await fetch("/api/dashboard/users", {
+          method: "POST",
+          body: JSON.stringify({
+            status: signedUpUser.status,
+            emailAddress: emailAddress,
+            firstName: firstName,
+            phoneNumber: phoneNumber,
+          }),
+        }).then(async (res) => {
+          const responseBody = await res.json();
+          setSignUpUserId(responseBody.data._id);
+          console.log("Successfully sent user to db", res);
+        });
+      }
     } catch (err) {
       // See https://clerk.com/docs/custom-flows/error-handling
       // for more info on error handling
@@ -1378,7 +1454,56 @@ export const Funnel = (props: FunnelProps) => {
     }
   }
 
-  async function handleVerification(code: string) {
+  console.log("createdUserId", signUpUserId);
+
+  async function signUserIn(
+    emailAddress: string,
+    firstName: string,
+    phoneNumber: string
+  ) {
+    if (!isSignInLoaded && !signIn) return null;
+
+    try {
+      // Start the sign-in process using the email address method
+      const { supportedFirstFactors } = await signIn.create({
+        identifier: emailAddress,
+      });
+
+      // Filter the returned array to find the 'email_code' entry
+      const isEmailCodeFactor = (
+        factor: SignInFirstFactor
+      ): factor is EmailCodeFactor => {
+        return factor.strategy === "email_code";
+      };
+      const emailCodeFactor = supportedFirstFactors?.find(isEmailCodeFactor);
+
+      if (emailCodeFactor) {
+        // Grab the emailAddressId
+        const { emailAddressId } = emailCodeFactor;
+
+        // Send the OTP code to the user
+        await signIn.prepareFirstFactor({
+          strategy: "email_code",
+          emailAddressId,
+        });
+
+        // Set verifying to true to display second form
+        // and capture the OTP code
+        setVerifying(true);
+      }
+    } catch (err) {
+      // See https://clerk.com/docs/custom-flows/error-handling
+      // for more info on error handling
+      console.error("Error:", JSON.stringify(err, null, 2));
+    }
+  }
+
+  function handleVerification(code: string) {
+    if (isSignIn) handleSignInVerification(code);
+    else handleSignUpVerification(code);
+  }
+
+  async function handleSignUpVerification(code: string) {
     if (!isSignUpLoaded && !signUp) return null;
 
     try {
@@ -1394,13 +1519,54 @@ export const Funnel = (props: FunnelProps) => {
       // If verification was completed, set the session to active
       // and redirect the user
       if (signUpAttempt.status === "complete") {
-        await setActive({ session: signUpAttempt.createdSessionId });
+        await setActiveSignUp({ session: signUpAttempt.createdSessionId });
+
+        const res = await fetch(`/api/dashboard/users/${signUpUserId}`, {
+          method: "PUT",
+          body: JSON.stringify({
+            status: "complete",
+            verifications: {
+              emailAddress: true,
+            },
+            createdUserAuthId: signUpAttempt.createdUserId,
+          }),
+        }).then((res) => {
+          console.log("Successfully sent user to db", res);
+        });
 
         router.push("/dashboard");
       } else {
         // If the status is not complete, check why. User may need to
         // complete further steps.
         console.error(signUpAttempt);
+      }
+    } catch (err) {
+      // See https://clerk.com/docs/custom-flows/error-handling
+      // for more info on error handling
+      console.error("Error:", JSON.stringify(err, null, 2));
+    }
+  }
+
+  async function handleSignInVerification(code: string) {
+    if (!isSignInLoaded && !signIn) return null;
+
+    try {
+      // Use the code provided by the user and attempt verification
+      const signInAttempt = await signIn.attemptFirstFactor({
+        strategy: "email_code",
+        code,
+      });
+
+      // If verification was completed, set the session to active
+      // and redirect the user
+      if (signInAttempt.status === "complete") {
+        await setActiveSignIn({ session: signInAttempt.createdSessionId });
+
+        router.push("/dashboard");
+      } else {
+        // If the status is not complete, check why. User may need to
+        // complete further steps.
+        console.error(signInAttempt);
       }
     } catch (err) {
       // See https://clerk.com/docs/custom-flows/error-handling
@@ -1510,17 +1676,19 @@ export const Funnel = (props: FunnelProps) => {
       //   console.log("Successfully sent submit to db", res);
       // });
 
-      const firstName = (
-        Object.values(questionElements[questionKey].form).find(
-          (form: any) => form.uid === "submit-form-name"
-        ) as any
-      ).selected.inputValue;
-      const phoneNumber = (
-        Object.values(questionElements[questionKey].form).find(
-          (form: any) => form.uid === "submit-form-telephone"
-        ) as any
-      ).selected.inputValue;
-      signUserUp(body.to, firstName, phoneNumber);
+      setTimeout(() => {
+        const firstName = (
+          Object.values(questionElements[questionKey].form).find(
+            (form: any) => form.uid === "submit-form-name"
+          ) as any
+        ).selected.inputValue;
+        const phoneNumber = (
+          Object.values(questionElements[questionKey].form).find(
+            (form: any) => form.uid === "submit-form-telephone"
+          ) as any
+        ).selected.inputValue;
+        userAuthHandler(body.to, firstName, phoneNumber);
+      }, 1500);
 
       // const res = await fetch("/api/contact/submitFunnel", {
       //   method: "POST",

@@ -116,7 +116,7 @@ export const Funnel = (props: FunnelProps) => {
       uid: questionKey,
       version: element.version,
       form: Object.keys(element.form).reduce(
-        (formAcc: any, formKey: string) => {
+        (formAcc: Record<string, any>, formKey: string) => {
           if (element.form[formKey].defaultVisible === "true") {
             if (
               element.form[formKey].type === "checkbox" ||
@@ -289,6 +289,7 @@ export const Funnel = (props: FunnelProps) => {
                       `${labelKey}-${Math.random().toString(36).substring(2, 7)}`
                     ] = {
                       text: element.form[formKey].options.labels[labelKey].text,
+                      uid: labelKey,
                       value: Number(
                         element.form[formKey].options.labels[labelKey].value
                       ),
@@ -701,6 +702,7 @@ export const Funnel = (props: FunnelProps) => {
                 `${labelKey}-${Math.random().toString(36).substring(2, 7)}`
               ] = {
                 text: element.options.labels[labelKey].text,
+                uid: labelKey,
                 value: Number(element.options.labels[labelKey].value),
                 align: element.options.labels[labelKey].align,
                 offsetX: element.options.labels[labelKey].offsetX,
@@ -1669,26 +1671,104 @@ export const Funnel = (props: FunnelProps) => {
       };
       console.log(body);
 
-      // const res = await fetch("/api/dashboard/submits", {
-      //   method: "POST",
-      //   body: JSON.stringify({ data: questionElements }),
-      // }).then((res) => {
-      //   console.log("Successfully sent submit to db", res);
-      // });
+      const updatedQuestionElements = Object.keys(questionElements).reduce(
+        (acc, questionKey) => {
+          const question = questionElements[questionKey];
 
-      setTimeout(() => {
-        const firstName = (
-          Object.values(questionElements[questionKey].form).find(
-            (form: any) => form.uid === "submit-form-name"
-          ) as any
-        ).selected.inputValue;
-        const phoneNumber = (
-          Object.values(questionElements[questionKey].form).find(
-            (form: any) => form.uid === "submit-form-telephone"
-          ) as any
-        ).selected.inputValue;
-        userAuthHandler(body.to, firstName, phoneNumber);
-      }, 1500);
+          const updatedForms = Object.keys(question.form).reduce(
+            (formAcc, formKey) => {
+              const form = question.form[formKey];
+
+              // Handle swapping keys and uids for specific types
+              if (form.type === "checkbox" || form.type === "radio") {
+                const updatedOptions = Object.keys(form.options).reduce(
+                  (optionsAcc: Record<string, any>, optionKey) => {
+                    const option = form.options[optionKey];
+                    optionsAcc[option.uid] = { ...option, uid: optionKey };
+                    return optionsAcc;
+                  },
+                  {} as Record<string, any>
+                );
+                (formAcc as Record<string, any>)[form.uid] = {
+                  ...form,
+                  uid: formKey,
+                  options: updatedOptions,
+                };
+              } else if (form.type === "select") {
+                const updatedOptions = Object.keys(form.options).reduce(
+                  (optionsAcc, optionKey) => {
+                    const option = form.options[optionKey];
+                    optionsAcc[option.uid] = { ...option, uid: optionKey };
+                    return optionsAcc;
+                  },
+                  {} as Record<string, any>
+                );
+                (formAcc as Record<string, any>)[form.uid] = {
+                  ...form,
+                  uid: formKey,
+                  options: updatedOptions,
+                };
+              } else if (form.type === "range") {
+                const updatedLabels = Object.keys(form.options.labels).reduce(
+                  (labelsAcc, labelKey) => {
+                    const label = form.options.labels[labelKey];
+                    labelsAcc[label.uid] = { ...label, uid: labelKey };
+                    return labelsAcc;
+                  },
+                  {} as Record<string, any>
+                );
+                (formAcc as Record<string, any>)[form.uid] = {
+                  ...form,
+                  uid: formKey,
+                  options: { ...form.options, labels: updatedLabels },
+                };
+              } else {
+                (formAcc as Record<string, any>)[form.uid] = {
+                  ...form,
+                  uid: formKey,
+                };
+              }
+
+              return formAcc;
+            },
+            {}
+          );
+
+          (acc as Record<string, any>)[question.uid] = {
+            ...question,
+            uid: questionKey,
+            form: updatedForms,
+          };
+          return acc;
+        },
+        {}
+      );
+
+      console.log("Updated Question Elements:", updatedQuestionElements);
+
+      const res = await fetch("/api/dashboard/submits", {
+        method: "POST",
+        body: JSON.stringify({
+          data: updatedQuestionElements,
+          emailAddress: body.to,
+        }),
+      }).then((res) => {
+        console.log("Successfully sent submit to db", res);
+      });
+
+      // setTimeout(() => {
+      //   const firstName = (
+      //     Object.values(questionElements[questionKey].form).find(
+      //       (form: any) => form.uid === "submit-form-name"
+      //     ) as any
+      //   ).selected.inputValue;
+      //   const phoneNumber = (
+      //     Object.values(questionElements[questionKey].form).find(
+      //       (form: any) => form.uid === "submit-form-telephone"
+      //     ) as any
+      //   ).selected.inputValue;
+      //   userAuthHandler(body.to, firstName, phoneNumber);
+      // }, 1500);
 
       // const res = await fetch("/api/contact/submitFunnel", {
       //   method: "POST",

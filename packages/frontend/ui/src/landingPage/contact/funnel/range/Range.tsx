@@ -120,9 +120,9 @@ export const Range = (props: RangeProps) => {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M1 1h16"
               />
             </svg>
@@ -192,9 +192,9 @@ export const Range = (props: RangeProps) => {
                             >
                               <path
                                 stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
                                 d="M3 8v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V8M1 10l9-9 9 9"
                               />
                             </svg> */}
@@ -253,9 +253,9 @@ export const Range = (props: RangeProps) => {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M9 1v16M1 9h16"
               />
             </svg>

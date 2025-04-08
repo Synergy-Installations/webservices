@@ -2,6 +2,31 @@ import { NextResponse } from "next/server";
 import dbConnect from "@com.synergy/frontend-backend-dashboard/mongodb";
 import Item from "@com.synergy/frontend-backend-dashboard/item";
 
+export async function GET(
+  req: Request,
+  { params }: { params: { id: string } }
+) {
+  const { id } = params;
+  await dbConnect();
+
+  try {
+    const items = await Item.find({ _id: id });
+    return new Response(JSON.stringify({ success: true, data: items }), {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (error) {
+    return new Response(JSON.stringify({ success: false }), {
+      status: 400,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+}
+
 export async function PUT(
   req: Request,
   { params }: { params: { id: string } }

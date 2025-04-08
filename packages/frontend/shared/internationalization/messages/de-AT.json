@@ -2065,6 +2065,7 @@
             "title": "Projektdetails",
             "description": "",
             "version": "0.1.0",
+            "defaultVisible": "true",
             "form": {
               "interested-products-range-2": {
                 "order": "1",
@@ -3054,6 +3055,8 @@
           "main-photovoltaic": {
             "title": "Sie interessieren sich für eine PV-Anlage?",
             "description": "",
+            "defaultVisible": "false",
+            "version": "0.1.0",
             "form": {
               "interested-products": {
                 "order": "1",
@@ -3255,6 +3258,7 @@
             "title": "Geben Sie Ihre Kontaktdaten ein",
             "description": "Und reservieren Sie sich Ihren Montagetermin",
             "version": "0.1.0",
+            "defaultVisible": "true",
             "form": {
               "submit-form-name": {
                 "order": "1",

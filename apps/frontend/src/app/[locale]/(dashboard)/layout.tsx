@@ -5,7 +5,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { Provider } from "react-redux";
 import { store } from "@com.synergy/frontend-backend-dashboard/store";
-import {StoreProvider} from "@com.synergy/frontend-backend-dashboard/StoreProvider";
+import { StoreProvider } from "@com.synergy/frontend-backend-dashboard/StoreProvider";
+import { DefaultLayout } from "@com.synergy/frontend-ui/DashboardDefaultLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +28,9 @@ export default async function RootLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <StoreProvider>{children}</StoreProvider>
+      <StoreProvider>
+        <DefaultLayout>{children}</DefaultLayout>
+      </StoreProvider>
     </NextIntlClientProvider>
   );
 }

@@ -67,6 +67,7 @@ export interface QuestionElement {
 export interface Submit extends Document<string> {
   data: Record<string, QuestionElement>;
   emailAddress: string;
+  createdAt: Date;
 }
 const OptionSchema = new Schema<Option>({
   text: { type: String, required: true },
@@ -137,6 +138,7 @@ const anySchema = new Schema<any>({});
 const SubmitSchema = new Schema<Submit>({
   data: { type: Map, of: Schema.Types.Mixed, required: true },
   emailAddress: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now, required: true },
 });
 
 export default mongoose.model<any>("Submit", SubmitSchema);

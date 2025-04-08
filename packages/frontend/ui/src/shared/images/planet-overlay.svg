@@ -27,13 +27,13 @@
     <circle cx="396" cy="321" r="1" fill="#3B82F6" fill-opacity=".64"/>
   </g>
   <g filter="url(#k)">
-    <path stroke="url(#l)" stroke-width="2" d="M443.167 335.622s167-60.356 89-105.137"/>
+    <path stroke="url(#l)" strokeWidth="2" d="M443.167 335.622s167-60.356 89-105.137"/>
   </g>
   <g filter="url(#m)">
-    <path stroke="url(#n)" stroke-width="2" d="M342 130s100 6.814 114 83.72"/>
+    <path stroke="url(#n)" strokeWidth="2" d="M342 130s100 6.814 114 83.72"/>
   </g>
   <g filter="url(#o)">
-    <path stroke="url(#p)" stroke-width="2" d="M355 281s-69.44-23.844-33-93"/>
+    <path stroke="url(#p)" strokeWidth="2" d="M355 281s-69.44-23.844-33-93"/>
   </g>
   <defs>
     <filter id="a" width="789" height="755" x="0" y="0" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">

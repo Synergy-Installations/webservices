@@ -8,6 +8,9 @@
     "dist"
   ],
   "exports": {
+    "./CreateElements": "./src/shared/funnel/utils/CreateElements.tsx",
+    "./DefaultFunnel": "./src/shared/funnel/DefaultFunnel.tsx",
+    "./DashboardDefaultLayout": "./src/dashboard/shared/layout/DefaultLayout.tsx",
     "./LocaleNumber": "./src/shared/utils/numbers/LocaleNumber.tsx",
     "./Range": "./src/landingPage/contact/funnel/range/Range.tsx",
     "./Calendly": "./src/landingPage/contact/funnel/calendly/Calendly.tsx",

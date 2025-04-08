@@ -1,8 +1,8 @@
 import { retry } from "@reduxjs/toolkit/query/react";
 import { api } from "./api";
-import { Submit } from "@com.synergy/frontend-backend-dashboard/submit";
+import { SubmitInterface } from "@com.synergy/frontend-backend-dashboard/submit";
 
-type SubmitResponse = { success: boolean; data: Submit };
+type SubmitResponse = { success: boolean; data: SubmitInterface };
 
 // export interface User {
 //   first_name: string;
@@ -26,13 +26,15 @@ export const submitApi = api.injectEndpoints({
     //     },
     //   },
     // }),
-    // getItems: build.query<PostsResponse, void>({
-    //   query: () => ({ url: "dashboard/items" }),
-    //   providesTags: (result = { success: false, data: [] }) => [
-    //     ...result.data.map(({ _id }) => ({ type: "Items", _id }) as const),
-    //     { type: "Items" as const, id: "LIST" },
-    //   ],
-    // }),
+    getSubmits: build.query<any, void>({
+      query: () => ({ url: "dashboard/submits" }),
+      providesTags: (result = { success: false, data: [] }) => [
+        ...result.data.map(
+          ({ _id }: { _id: string }) => ({ type: "Items", _id }) as const
+        ),
+        { type: "Items" as const, id: "LIST" },
+      ],
+    }),
     addSubmit: build.mutation<any, Partial<any>>({
       query: (body) => ({
         url: `dashboard/submit`,
@@ -73,6 +75,7 @@ export const submitApi = api.injectEndpoints({
 
 export const {
   useAddSubmitMutation,
+  useGetSubmitsQuery,
   //   useDeleteItemMutation,
   //   useGetItemQuery,
   //   useGetItemsQuery,

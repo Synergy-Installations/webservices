@@ -8,6 +8,7 @@
     "dist"
   ],
   "exports": {
+    "./SubmitList": "./src/dashboard/submits/SubmitList.tsx",
     "./CreateElements": "./src/shared/funnel/utils/CreateElements.tsx",
     "./DefaultFunnel": "./src/shared/funnel/DefaultFunnel.tsx",
     "./DashboardDefaultLayout": "./src/dashboard/shared/layout/DefaultLayout.tsx",

@@ -64,7 +64,7 @@ export interface QuestionElement {
   form: Record<string, Form>;
 }
 
-export interface Submit extends Document<string> {
+export interface SubmitInterface extends Document<string> {
   data: Record<string, QuestionElement>;
   emailAddress: string;
   createdAt: Date;
@@ -135,10 +135,10 @@ const QuestionElementSchema = new Schema<QuestionElement>({
 
 const anySchema = new Schema<any>({});
 
-const SubmitSchema = new Schema<Submit>({
+const SubmitSchema = new Schema<SubmitInterface>({
   data: { type: Map, of: Schema.Types.Mixed, required: true },
   emailAddress: { type: String, required: true },
   createdAt: { type: Date, default: Date.now, required: true },
 });
 
-export default mongoose.model<any>("Submit", SubmitSchema);
+export default mongoose.models.Submit || mongoose.model("Submit", SubmitSchema);

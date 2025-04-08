@@ -18,6 +18,7 @@ import {
   useGetItemsQuery,
   useAddItemMutation,
 } from "@com.synergy/frontend-backend-dashboard/items";
+import SubmitList from "@com.synergy/frontend-ui/SubmitList";
 
 export default function Page(): JSX.Element {
   // const [items, setItems] = useState<
@@ -69,56 +70,5 @@ export default function Page(): JSX.Element {
     // }
   };
 
-  return (
-    <div>
-      <h1>Items</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          name="name"
-          placeholder="Item name"
-          value={form.name}
-          onChange={handleChange}
-        />
-        <input
-          name="description"
-          placeholder="Item description"
-          value={form.description}
-          onChange={handleChange}
-        />
-        <button type="submit">
-          Add Item {isAddItemLoading && "Loading..."}
-        </button>
-      </form>
-
-      <ul>
-        {items.data.map((item) => (
-          <li key={item._id}>
-            {item.name} - {item.description}
-          </li>
-        ))}
-      </ul>
-      <div>
-        <div>
-          <button
-            aria-label="Decrement value"
-            onClick={() => {
-              dispatch(decrement());
-            }}
-          >
-            -
-          </button>
-          <span aria-label="Count">{count}</span>
-          <button
-            aria-label="Increment value"
-            onClick={() => {
-              dispatch(increment());
-            }}
-          >
-            +
-          </button>
-          {/* omit additional rendering output here */}
-        </div>
-      </div>
-    </div>
-  );
+  return <SubmitList />;
 }

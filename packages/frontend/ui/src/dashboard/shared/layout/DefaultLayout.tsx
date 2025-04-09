@@ -1,4 +1,9 @@
+"use client";
 import { Link } from "@com.synergy/frontend-shared-internationalization/routing";
+import Image from "next/image";
+import { ImageLoader } from "@com.synergy/frontend-ui/ImageLoader";
+import { useEffect, useRef, useState } from "react";
+import { set } from "mongoose";
 
 /* eslint-disable-next-line */
 export interface DefaultLayoutProps {
@@ -6,13 +11,58 @@ export interface DefaultLayoutProps {
 }
 
 export const DefaultLayout = (props: DefaultLayoutProps) => {
+  const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
+  const [userNavOpen, setUserNavOpen] = useState<boolean>(false);
+
+  const mobileNavTrigger = useRef<HTMLButtonElement>(null);
+  const mobileNav = useRef<HTMLDivElement>(null);
+
+  const userNavTrigger = useRef<HTMLButtonElement>(null);
+  const userNav = useRef<HTMLDivElement>(null);
+
+  // close the mobile menu on click outside
+  useEffect(() => {
+    const clickHandler = ({ target }: { target: EventTarget | null }): void => {
+      if (
+        !mobileNav.current ||
+        !mobileNavTrigger.current ||
+        !userNav.current ||
+        !userNavTrigger.current
+      )
+        return;
+      if (
+        (!mobileNavOpen && !userNavOpen) ||
+        mobileNav.current.contains(target as Node) ||
+        mobileNavTrigger.current.contains(target as Node) ||
+        userNav.current.contains(target as Node) ||
+        userNavTrigger.current.contains(target as Node)
+      )
+        return;
+      setMobileNavOpen(false);
+      setUserNavOpen(false);
+    };
+
+    document.addEventListener("click", clickHandler);
+    return () => document.removeEventListener("click", clickHandler);
+  });
+
+  // close the mobile menu if the esc key is pressed
+  useEffect(() => {
+    const keyHandler = ({ keyCode }: { keyCode: number }): void => {
+      if ((!mobileNavOpen && !userNavOpen) || keyCode !== 27) return;
+      setMobileNavOpen(false);
+    };
+    document.addEventListener("keydown", keyHandler);
+    return () => document.removeEventListener("keydown", keyHandler);
+  });
+
   return (
     <div className="w-full h-full">
       <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-start rtl:justify-end">
-              <button
+              {/* <button
                 data-drawer-target="logo-sidebar"
                 data-drawer-toggle="logo-sidebar"
                 aria-controls="logo-sidebar"
@@ -20,39 +70,72 @@ export const DefaultLayout = (props: DefaultLayoutProps) => {
                 className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
               >
                 <span className="sr-only">Open sidebar</span>
+              </button> */}
+              <button
+                ref={mobileNavTrigger}
+                className={`group inline-flex h-8 w-8 items-center justify-center sm:hidden bg-transparent text-center text-gray-800 transition ${mobileNavOpen && "active"}`}
+                aria-controls="mobile-nav"
+                aria-expanded={mobileNavOpen}
+                onClick={() => setMobileNavOpen(!mobileNavOpen)}
+              >
+                <span className="sr-only">Menu</span>
                 <svg
-                  className="w-6 h-6"
-                  aria-hidden="true"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+                  className="pointer-events-none fill-current"
+                  width={16}
+                  height={16}
+                  viewBox="0 0 16 16"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    clipRule="evenodd"
-                    fillRule="evenodd"
-                    d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
-                  ></path>
+                  <rect
+                    className="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] -translate-y-[5px] translate-x-[7px] group-[[aria-expanded=true]]:rotate-[315deg] group-[[aria-expanded=true]]:translate-y-0 group-[[aria-expanded=true]]:translate-x-0"
+                    y="7"
+                    x={mobileNavOpen ? "-0" : "-7"}
+                    width="16"
+                    height="2"
+                    rx="1"
+                  ></rect>
+                  <rect
+                    className="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.8)] group-[[aria-expanded=true]]:rotate-45"
+                    y="7"
+                    width="16"
+                    height="2"
+                    rx="1"
+                  ></rect>
+                  <rect
+                    className="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] translate-y-[5px] group-[[aria-expanded=true]]:rotate-[135deg] group-[[aria-expanded=true]]:translate-y-0"
+                    y="7"
+                    width="9"
+                    height="2"
+                    rx="1"
+                  ></rect>
                 </svg>
               </button>
-              <a href="https://flowbite.com" className="flex ms-2 md:me-24">
-                <img
-                  src="https://flowbite.com/docs/images/logo.svg"
-                  className="h-8 me-3"
-                  alt="FlowBite Logo"
+              <Link
+                href={"/dashboard"}
+                className="flex gap-1 font-semibold cursor-pointer w-max"
+              >
+                <Image
+                  loader={ImageLoader}
+                  src="/frontend/landingPage/icons/Synergie-montagen-icon.svg"
+                  width={42}
+                  height={25}
+                  alt="Logo"
                 />
                 <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
                   Synergie Webservices
                 </span>
-              </a>
+              </Link>
             </div>
             <div className="flex items-center">
               <div className="flex items-center ms-3">
                 <div>
                   <button
+                    ref={userNavTrigger}
                     type="button"
                     className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                     aria-expanded="false"
                     data-dropdown-toggle="dropdown-user"
+                    onClick={() => setUserNavOpen(!userNavOpen)}
                   >
                     <span className="sr-only">Open user menu</span>
                     <img
@@ -63,7 +146,8 @@ export const DefaultLayout = (props: DefaultLayoutProps) => {
                   </button>
                 </div>
                 <div
-                  className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-sm shadow-sm dark:bg-gray-700 dark:divide-gray-600"
+                  ref={userNav}
+                  className={`z-50 absolute right-4 top-10 ${userNavOpen ? "block" : "hidden"} my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-xl border border-gray-200 shadow-sm dark:bg-gray-700 dark:divide-gray-600`}
                   id="dropdown-user"
                 >
                   <div className="px-4 py-3" role="none">
@@ -127,7 +211,8 @@ export const DefaultLayout = (props: DefaultLayoutProps) => {
 
       <aside
         id="logo-sidebar"
-        className="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+        ref={mobileNav}
+        className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform ${mobileNavOpen ? "sm:translate-x-0" : "-translate-x-full"} bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700`}
         aria-label="Sidebar"
       >
         <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">

@@ -30,9 +30,9 @@ export const submitApi = api.injectEndpoints({
       query: () => ({ url: "dashboard/submits" }),
       providesTags: (result = { success: false, data: [] }) => [
         ...result.data.map(
-          ({ _id }: { _id: string }) => ({ type: "Items", _id }) as const
+          ({ _id }: { _id: string }) => ({ type: "Submits", _id }) as const
         ),
-        { type: "Items" as const, id: "LIST" },
+        { type: "Submits" as const, id: "LIST" },
       ],
     }),
     addSubmit: build.mutation<any, Partial<any>>({
@@ -41,12 +41,12 @@ export const submitApi = api.injectEndpoints({
         method: "POST",
         body,
       }),
-      invalidatesTags: [{ type: "Submit", id: "LIST" }],
+      invalidatesTags: [{ type: "Submits", id: "LIST" }],
     }),
-    //     getItem: build.query<Item, number>({
-    //       query: (id) => `dashboard/items/${id}`,
-    //       providesTags: (_post, _err, id) => [{ type: "Items", id }],
-    //     }),
+    getSubmit: build.query<any, string>({
+      query: (id) => `dashboard/submits/${id}`,
+      providesTags: (_post, _err, id) => [{ type: "Submits", id }],
+    }),
     //     updateItem: build.mutation<Item, Partial<Item>>({
     //       query(data) {
     //         const { _id, ...body } = data;
@@ -76,6 +76,7 @@ export const submitApi = api.injectEndpoints({
 export const {
   useAddSubmitMutation,
   useGetSubmitsQuery,
+  useGetSubmitQuery,
   //   useDeleteItemMutation,
   //   useGetItemQuery,
   //   useGetItemsQuery,

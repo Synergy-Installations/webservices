@@ -2637,93 +2637,6 @@
                   }
                 }
               },
-              "interested-products-wir-empfehlen": {
-                "order": "1",
-                "type": "checkbox",
-                "multiple": "true",
-                "required": "false",
-                "defaultVisible": "true",
-                "title": "Wir empfehlen",
-                "description": "Material für Konstruktion, Abdichtung und Kabelweg von uns zu nehmen",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
-                },
-                "options": {
-                  "photovoltaic": {
-                    "type": "checkbox",
-                    "title": "Ja bitte",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
-                    }
-                  }
-                }
-              },
-              "interested-products-calculation-enquiry": {
-                "order": "1",
-                "type": "checkbox",
-                "multiple": "true",
-                "required": "false",
-                "defaultVisible": "true",
-                "title": "Hier kommt in Kürze ihre Preisberechnung (Durchschnittlicher Montagepreis 200€/kWp)",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
-                },
-                "options": {}
-              },
-              "interested-products-calculation": {
-                "order": "1",
-                "type": "calculation",
-                "multiple": "true",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Hier kommt in Kürze ihre Preisberechnung (Durchschnittlicher Montagepreis 200€/kWp)",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
-                },
-                "options": {
-                  "inputForm": {
-                    "questionKey": "interested-products",
-                    "formKey": "interested-products-range-2"
-                  },
-                  "maths": {
-                    "type": "multiplication",
-                    "formula": "x * 200",
-                    "unit": "€",
-                    "spaceBetween": "false",
-                    "position": "after"
-                  },
-                  "afterMaths": {
-                    "before": "für eine",
-                    "after": "Anlage"
-                  }
-                }
-              },
 
               "interested-products-text": {
                 "order": "1",
@@ -3041,6 +2954,107 @@
                     "disabled": "false",
                     "span": "3",
                     "description": "Laden Sie Ihr Elektroauto mit erneuerbarer Energie",
+                    "addQuestion": "",
+                    "addForm": "",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  }
+                }
+              },
+              "interested-products-calculation": {
+                "order": "1",
+                "type": "calculation",
+                "multiple": "true",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Hier kommt in Kürze ihre Preisberechnung (Durchschnittlicher Montagepreis 200€/kWp)",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "inputForm": {
+                    "questionKey": "interested-products",
+                    "formKey": "interested-products-range-2"
+                  },
+                  "maths": {
+                    "type": "multiplication",
+                    "formula": "x * 200",
+                    "unit": "€",
+                    "spaceBetween": "false",
+                    "position": "after"
+                  },
+                  "afterMaths": {
+                    "before": "für eine",
+                    "after": "Anlage"
+                  }
+                }
+              },
+              "interested-products-wir-empfehlen": {
+                "order": "1",
+                "type": "checkbox",
+                "multiple": "true",
+                "required": "false",
+                "defaultVisible": "true",
+                "title": "Wir empfehlen",
+                "description": "Material für Konstruktion, Abdichtung und Kabelweg von uns zu nehmen",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "photovoltaic": {
+                    "type": "checkbox",
+                    "title": "Ja bitte",
+                    "disabled": "false",
+                    "span": "3",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  }
+                }
+              },
+              "interested-products-calculation-enquiry": {
+                "order": "1",
+                "type": "checkbox",
+                "multiple": "true",
+                "required": "false",
+                "defaultVisible": "true",
+                "title": "Hier kommt in Kürze ihre Preisberechnung (Durchschnittlicher Montagepreis 200€/kWp)",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "photovoltaic": {
+                    "type": "checkbox",
+                    "title": "Ja bitte",
+                    "disabled": "false",
+                    "span": "3",
+                    "description": "",
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {

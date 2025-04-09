@@ -459,58 +459,58 @@ export const Funnel = (props: FunnelProps) => {
         userAuthHandler(body.to, firstName, phoneNumber);
       }, 1500);
 
-      const resTwo = await fetch("/api/contact/submitFunnel", {
-        method: "POST",
-        body: JSON.stringify(body),
-      })
-        .then((res) => {
-          console.log("Successfully sent EMail", res);
+      // const resTwo = await fetch("/api/contact/submitFunnel", {
+      //   method: "POST",
+      //   body: JSON.stringify(body),
+      // })
+      //   .then((res) => {
+      //     console.log("Successfully sent EMail", res);
 
-          if (res.status == 200) {
-            setQuestionElements((prev) => {
-              const updatedElements = { ...prev };
-              updatedElements[questionKey].form[formKey].message.text =
-                questionElements[questionKey].form[
-                  formKey
-                ].message.successMessage;
-              updatedElements[questionKey].form[formKey].message.type =
-                "success";
-              return updatedElements;
-            });
-          } else {
-            setQuestionElements((prev) => {
-              const updatedElements = { ...prev };
-              updatedElements[questionKey].form[formKey].message.text =
-                questionElements[questionKey].form[
-                  formKey
-                ].message.errorMessage;
-              updatedElements[questionKey].form[formKey].message.type = "error";
-              return updatedElements;
-            });
-          }
-          // setButtonStatusText({
-          //   fatal: false,
-          //   disabled: true,
-          //   text: "Danke für Ihre Anfrage. Bitte überprüfen Sie Ihre Inbox. Falls die Nachricht nicht angekommen ist, benutzen Sie bitte die unten angegebene E-Mail.",
-          // });
-          // setFormElements((prevFormElements) =>
-          //   Object.keys(prevFormElements).reduce(
-          //     (acc: Record<string, any>, key: string) => {
-          //       acc[key] = { ...prevFormElements[key], value: "" };
-          //       return acc;
-          //     },
-          //     {}
-          //   )
-          // );
-        })
-        .catch((error) => {
-          console.error("Error sending the E-Mail", error);
-          // setButtonStatusText({
-          //   fatal: true,
-          //   disabled: true,
-          //   text: "Es konnte nicht abgeschickt werden, bitte benutzen Sie die E-Mail unten.",
-          // });
-        });
+      //     if (res.status == 200) {
+      //       setQuestionElements((prev) => {
+      //         const updatedElements = { ...prev };
+      //         updatedElements[questionKey].form[formKey].message.text =
+      //           questionElements[questionKey].form[
+      //             formKey
+      //           ].message.successMessage;
+      //         updatedElements[questionKey].form[formKey].message.type =
+      //           "success";
+      //         return updatedElements;
+      //       });
+      //     } else {
+      //       setQuestionElements((prev) => {
+      //         const updatedElements = { ...prev };
+      //         updatedElements[questionKey].form[formKey].message.text =
+      //           questionElements[questionKey].form[
+      //             formKey
+      //           ].message.errorMessage;
+      //         updatedElements[questionKey].form[formKey].message.type = "error";
+      //         return updatedElements;
+      //       });
+      //     }
+      //     // setButtonStatusText({
+      //     //   fatal: false,
+      //     //   disabled: true,
+      //     //   text: "Danke für Ihre Anfrage. Bitte überprüfen Sie Ihre Inbox. Falls die Nachricht nicht angekommen ist, benutzen Sie bitte die unten angegebene E-Mail.",
+      //     // });
+      //     // setFormElements((prevFormElements) =>
+      //     //   Object.keys(prevFormElements).reduce(
+      //     //     (acc: Record<string, any>, key: string) => {
+      //     //       acc[key] = { ...prevFormElements[key], value: "" };
+      //     //       return acc;
+      //     //     },
+      //     //     {}
+      //     //   )
+      //     // );
+      //   })
+      //   .catch((error) => {
+      //     console.error("Error sending the E-Mail", error);
+      //     // setButtonStatusText({
+      //     //   fatal: true,
+      //     //   disabled: true,
+      //     //   text: "Es konnte nicht abgeschickt werden, bitte benutzen Sie die E-Mail unten.",
+      //     // });
+      //   });
     }
   };
 
@@ -524,6 +524,11 @@ export const Funnel = (props: FunnelProps) => {
           verifying: verifying,
           setVerifying: setVerifying,
           handleVerification: handleVerification,
+        },
+        format: {
+          useUid: false,
+          useStrings: true,
+          useSelected: false,
         },
       }}
     />

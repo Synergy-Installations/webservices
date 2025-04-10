@@ -1,8 +1,8 @@
 export const createQuestionElement = (
   questionKeyRef: string,
   question: any,
-  // useUid decides whether a new unique key should be created or the existing one (from uid) should be used
-  useUid: boolean,
+  // useKey decides whether a new unique key should be generated or the existing one should be used
+  useKey: boolean,
   // useStrings is used to determine whether input will be a string or the standard type
   useStrings: boolean,
   // useSelected is used to determine whether the selected value should be used or the default (fallback) value
@@ -12,9 +12,7 @@ export const createQuestionElement = (
   convertVisiblityToTrue?: boolean
 ) => {
   const element = question;
-  const questionKey: string =
-    Object.keys(question).find((key) => key === questionKeyRef) ||
-    questionKeyRef;
+  const questionKey: string = questionKeyRef;
 
   // Convert visibility to true by default
   convertVisiblityToTrue =
@@ -24,7 +22,7 @@ export const createQuestionElement = (
     title: element.title,
     description: element.description,
     from: from || [],
-    uid: questionKey,
+    uid: useKey ? element.uid : questionKey,
     version: element.version,
     defaultVisible:
       (useStrings
@@ -42,14 +40,14 @@ export const createQuestionElement = (
         ) {
           console.log(formKey);
           formAcc[
-            useUid
-              ? element.form[formKey].uid
+            useKey
+              ? formKey
               : `${formKey}-${Math.random().toString(36).substring(2, 7)}`
           ] = {
             order: useStrings
               ? Number(element.form[formKey].order)
               : element.form[formKey].order,
-            uid: formKey,
+            uid: useKey ? element.form[formKey].uid : formKey,
             type: element.form[formKey].type,
             multiple: useStrings
               ? element.form[formKey].multiple === "true"
@@ -78,13 +76,15 @@ export const createQuestionElement = (
             options: Object.keys(element.form[formKey]?.options).reduce(
               (optionsAcc: any, optionKey: string) => {
                 optionsAcc[
-                  useUid
-                    ? element.form[formKey].options[optionKey].uid
+                  useKey
+                    ? optionKey
                     : `${optionKey}-${Math.random().toString(36).substring(2, 7)}`
                 ] = {
                   text: element.form[formKey].options[optionKey].title,
                   type: element.form[formKey].options[optionKey].type,
-                  uid: optionKey,
+                  uid: useKey
+                    ? element.form[formKey].options[optionKey].uid
+                    : optionKey,
                   title: element.form[formKey].options[optionKey].title,
                   disabled: useStrings
                     ? element.form[formKey].options[optionKey].disabled ===
@@ -119,14 +119,14 @@ export const createQuestionElement = (
           };
         } else if (element.form[formKey].type === "select") {
           formAcc[
-            useUid
-              ? element.form[formKey].uid
+            useKey
+              ? formKey
               : `${formKey}-${Math.random().toString(36).substring(2, 7)}`
           ] = {
             order: useStrings
               ? Number(element.form[formKey].order)
               : element.form[formKey].order,
-            uid: formKey,
+            uid: useKey ? element.form[formKey].uid : formKey,
             type: element.form[formKey].type,
             multiple: useStrings
               ? element.form[formKey].multiple === "true"
@@ -157,14 +157,16 @@ export const createQuestionElement = (
             options: Object.keys(element.form[formKey].options).reduce(
               (optionsAcc: any, optionKey: string) => {
                 optionsAcc[
-                  useUid
-                    ? element.form[formKey].options[optionKey].uid
+                  useKey
+                    ? optionKey
                     : `${optionKey}-${Math.random().toString(36).substring(2, 7)}`
                 ] = {
                   type: element.form[formKey].options[optionKey].type,
                   title: element.form[formKey].options[optionKey].title,
                   value: element.form[formKey].options[optionKey].value,
-                  uid: optionKey,
+                  uid: useKey
+                    ? element.form[formKey].options[optionKey].uid
+                    : optionKey,
                   addQuestion:
                     element.form[formKey].options[optionKey].addQuestion,
                   addForm: element.form[formKey].options[optionKey].addForm,
@@ -191,14 +193,14 @@ export const createQuestionElement = (
           };
         } else if (element.form[formKey].type === "range") {
           formAcc[
-            useUid
-              ? element.form[formKey].uid
+            useKey
+              ? formKey
               : `${formKey}-${Math.random().toString(36).substring(2, 7)}`
           ] = {
             order: useStrings
               ? Number(element.form[formKey].order)
               : element.form[formKey].order,
-            uid: formKey,
+            uid: useKey ? element.form[formKey].uid : formKey,
             type: element.form[formKey].type,
             required: useStrings
               ? element.form[formKey].required === "true"
@@ -256,12 +258,14 @@ export const createQuestionElement = (
               labels: Object.keys(element.form[formKey].options.labels).reduce(
                 (lablesAcc: any, labelKey: string) => {
                   lablesAcc[
-                    useUid
-                      ? element.form[formKey].options.labels[labelKey].uid
+                    useKey
+                      ? labelKey
                       : `${labelKey}-${Math.random().toString(36).substring(2, 7)}`
                   ] = {
                     text: element.form[formKey].options.labels[labelKey].text,
-                    uid: labelKey,
+                    uid: useKey
+                      ? element.form[formKey].options.labels[labelKey].uid
+                      : labelKey,
                     value: useStrings
                       ? Number(
                           element.form[formKey].options.labels[labelKey].value
@@ -299,12 +303,12 @@ export const createQuestionElement = (
           element.form[formKey].type === "textarea"
         ) {
           formAcc[
-            useUid
-              ? element.form[formKey].uid
+            useKey
+              ? formKey
               : `${formKey}-${Math.random().toString(36).substring(2, 7)}`
           ] = {
             order: Number(element.form[formKey].order),
-            uid: formKey,
+            uid: useKey ? element.form[formKey].uid : formKey,
             type: element.form[formKey].type,
             required: useStrings
               ? element.form[formKey].required === "true"
@@ -352,14 +356,14 @@ export const createQuestionElement = (
           };
         } else if (element.form[formKey].type === "submit-button") {
           formAcc[
-            useUid
-              ? element.form[formKey].uid
+            useKey
+              ? formKey
               : `${formKey}-${Math.random().toString(36).substring(2, 7)}`
           ] = {
             order: useStrings
               ? Number(element.form[formKey].order)
               : element.form[formKey].order,
-            uid: formKey,
+            uid: useKey ? element.form[formKey].uid : formKey,
             type: element.form[formKey].type,
             required: useStrings
               ? element.form[formKey].required === "true"
@@ -394,14 +398,14 @@ export const createQuestionElement = (
           };
         } else if (element.form[formKey].type === "calculation") {
           formAcc[
-            useUid
-              ? element.form[formKey].uid
+            useKey
+              ? formKey
               : `${formKey}-${Math.random().toString(36).substring(2, 7)}`
           ] = {
             order: useStrings
               ? Number(element.form[formKey].order)
               : element.form[formKey].order,
-            uid: formKey,
+            uid: useKey ? element.form[formKey].uid : formKey,
             type: element.form[formKey].type,
             required: useStrings
               ? element.form[formKey].required === "true"
@@ -456,14 +460,14 @@ export const createQuestionElement = (
           };
         } else if (element.form[formKey].type === "file-upload") {
           formAcc[
-            useUid
-              ? element.form[formKey].uid
+            useKey
+              ? formKey
               : `${formKey}-${Math.random().toString(36).substring(2, 7)}`
           ] = {
             order: useStrings
               ? Number(element.form[formKey].order)
               : element.form[formKey].order,
-            uid: formKey,
+            uid: useKey ? element.form[formKey].uid : formKey,
             type: element.form[formKey].type,
             required: useStrings
               ? element.form[formKey].required === "true"
@@ -519,14 +523,14 @@ export const createQuestionElement = (
           };
         } else if (element.form[formKey].type === "calendly") {
           formAcc[
-            useUid
-              ? element.form[formKey].uid
+            useKey
+              ? formKey
               : `${formKey}-${Math.random().toString(36).substring(2, 7)}`
           ] = {
             order: useStrings
               ? Number(element.form[formKey].order)
               : element.form[formKey].order,
-            uid: formKey,
+            uid: useKey ? element.form[formKey].uid : formKey,
             type: element.form[formKey].type,
             required: useStrings
               ? element.form[formKey].required === "true"
@@ -586,8 +590,8 @@ export const createFormElement = (
   questionKey: string,
   formKeyRef: string,
   form: any,
-  // useUid decides whether a new unique key should be created or the existing one (from uid) should be used
-  useUid: boolean,
+  // useKey decides whether a new unique key should be generated or the existing one should be used
+  useKey: boolean,
   // useStrings is used to determine whether input will be a string or the standard type
   useStrings: boolean,
   // useSelected is used to determine whether the selected value should be used or the default (fallback) value
@@ -616,7 +620,7 @@ export const createFormElement = (
   if (element.type === "checkbox" || element.type === "radio") {
     return {
       order: useStrings ? Number(element.order) : element.order,
-      uid: formKey,
+      uid: useKey ? element.uid : formKey,
       type: element.type,
       multiple: element.multiple,
       required: useStrings ? element.required === "true" : element.required,
@@ -645,13 +649,13 @@ export const createFormElement = (
       options: Object.keys(element.options).reduce(
         (optionsAcc: any, optionKey: string) => {
           optionsAcc[
-            useUid
-              ? element.options[optionKey].uid
+            useKey
+              ? optionKey
               : `${optionKey}-${Math.random().toString(36).substring(2, 7)}`
           ] = {
             text: element.options[optionKey].title,
             type: element.options[optionKey].type,
-            uid: optionKey,
+            uid: useKey ? element.options[optionKey].uid : optionKey,
             title: element.options[optionKey].title,
             disabled: useStrings
               ? element.options[optionKey].disabled === "true"
@@ -682,7 +686,7 @@ export const createFormElement = (
   } else if (element.type === "select") {
     return {
       order: useStrings ? Number(element.order) : element.order,
-      uid: formKey,
+      uid: useKey ? element.uid : formKey,
       type: element.type,
       multiple: useStrings ? element.multiple === "true" : element.multiple,
       required: useStrings ? element.required === "true" : element.required,
@@ -713,14 +717,14 @@ export const createFormElement = (
       options: Object.keys(element.options).reduce(
         (optionsAcc: any, optionKey: string) => {
           optionsAcc[
-            useUid
-              ? element.options[optionKey].uid
+            useKey
+              ? optionKey
               : `${optionKey}-${Math.random().toString(36).substring(2, 7)}`
           ] = {
             type: element.options[optionKey].type,
             title: element.options[optionKey].title,
             value: element.options[optionKey].value,
-            uid: optionKey,
+            uid: useKey ? element.options[optionKey].uid : optionKey,
             addQuestion: element.options[optionKey].addQuestion,
             addForm: element.options[optionKey].addForm,
           };
@@ -746,7 +750,7 @@ export const createFormElement = (
   } else if (element.type === "range") {
     return {
       order: useStrings ? Number(element.order) : element.order,
-      uid: formKey,
+      uid: useKey ? element.uid : formKey,
       type: element.type,
       required: useStrings ? element.required === "true" : element.required,
       defaultVisible:
@@ -806,12 +810,12 @@ export const createFormElement = (
         labels: Object.keys(element.options.labels).reduce(
           (lablesAcc: any, labelKey: string) => {
             lablesAcc[
-              useUid
-                ? element.options.labels[labelKey].uid
+              useKey
+                ? labelKey
                 : `${labelKey}-${Math.random().toString(36).substring(2, 7)}`
             ] = {
               text: element.options.labels[labelKey].text,
-              uid: labelKey,
+              uid: useKey ? element.options.labels[labelKey].uid : labelKey,
               value: Number(element.options.labels[labelKey].value),
               align: element.options.labels[labelKey].align,
               offsetX: element.options.labels[labelKey].offsetX,
@@ -844,7 +848,7 @@ export const createFormElement = (
   ) {
     return {
       order: useStrings ? Number(element.order) : element.order,
-      uid: formKey,
+      uid: useKey ? element.uid : formKey,
       type: element.type,
       required: element.required === "true",
       defaultVisible:
@@ -895,7 +899,7 @@ export const createFormElement = (
   } else if (element.type === "submit-button") {
     return {
       order: useStrings ? Number(element.order) : element.order,
-      uid: formKey,
+      uid: useKey ? element.uid : formKey,
       type: element.type,
       required: useStrings ? element.required === "true" : element.required,
       defaultVisible:
@@ -933,7 +937,7 @@ export const createFormElement = (
   } else if (element.type === "calculation") {
     return {
       order: Number(element.order),
-      uid: formKey,
+      uid: useKey ? element.uid : formKey,
       type: element.type,
       required: useStrings ? element.required === "true" : element.required,
       defaultVisible:
@@ -988,7 +992,7 @@ export const createFormElement = (
   } else if (element.type === "file-upload") {
     return {
       order: useStrings ? Number(element.order) : element.order,
-      uid: formKey,
+      uid: useKey ? element.uid : formKey,
       type: element.type,
       required: element.required === "true",
       defaultVisible:
@@ -1039,7 +1043,7 @@ export const createFormElement = (
   } else if (element.type === "calendly") {
     return {
       order: Number(element.order),
-      uid: formKey,
+      uid: useKey ? element.uid : formKey,
       type: element.type,
       required: useStrings ? element.required === "true" : element.required,
       defaultVisible:

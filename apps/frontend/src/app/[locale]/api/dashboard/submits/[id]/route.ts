@@ -1,6 +1,7 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@com.synergy/frontend-backend-dashboard/mongodb";
 import Submit from "@com.synergy/frontend-backend-dashboard/submit";
+import { clerkClient, getAuth } from "@clerk/nextjs/server";
 
 export async function GET(
   req: Request,
@@ -27,29 +28,70 @@ export async function GET(
   }
 }
 
-// export async function PUT(
-//   req: Request,
-//   { params }: { params: { id: string } }
-// ) {
-//   const { id } = params;
+export async function PUT(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  const { id } = params;
 
-//   await dbConnect();
+  const { userId } = getAuth(req); // Get the authenticated user's ID from the session
 
-//   try {
-//     const body = await req.json();
-//     const item = await Submit.findByIdAndUpdate(id, body, {
-//       runValidators: true,
-//     });
+  if (!userId) {
+    return new Response(
+      JSON.stringify({ success: false, error: "Unauthorized" }),
+      {
+        status: 401,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+  }
 
-//     if (!item) {
-//       return NextResponse.json({ success: false }, { status: 400 });
-//     }
+  const client = await clerkClient();
+  const user = await client.users.getUser(userId);
 
-//     return NextResponse.json({ success: true, data: item }, { status: 200 });
-//   } catch (error) {
-//     return NextResponse.json({ success: false }, { status: 400 });
-//   }
-// }
+  await dbConnect();
+
+  try {
+    const body = await req.json();
+    if (user.privateMetadata?.accessRights === "all*") {
+      const submit = await Submit.findByIdAndUpdate(
+        id,
+        { data: body },
+        {
+          runValidators: true,
+        }
+      );
+
+      if (!submit) {
+        return NextResponse.json({ success: false }, { status: 400 });
+      }
+      return NextResponse.json(
+        { success: true, data: submit },
+        { status: 200 }
+      );
+    } else {
+      const submit = await Submit.findOneAndUpdate(
+        { _id: id, emailAddress: user.emailAddresses[0].emailAddress },
+        { data: body },
+        {
+          runValidators: true,
+        }
+      );
+
+      if (!submit) {
+        return NextResponse.json({ success: false }, { status: 400 });
+      }
+      return NextResponse.json(
+        { success: true, data: submit },
+        { status: 200 }
+      );
+    }
+  } catch (error) {
+    return NextResponse.json({ success: false }, { status: 400 });
+  }
+}
 
 // export async function DELETE(
 //   req: Request,

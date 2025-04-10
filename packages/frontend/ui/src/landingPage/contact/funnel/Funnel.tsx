@@ -360,85 +360,85 @@ export const Funnel = (props: FunnelProps) => {
       };
       console.log(body);
 
-      const updatedQuestionElements = Object.keys(questionElements).reduce(
-        (acc, questionKey) => {
-          const question = questionElements[questionKey];
+      // const updatedQuestionElements = Object.keys(questionElements).reduce(
+      //   (acc, questionKey) => {
+      //     const question = questionElements[questionKey];
 
-          const updatedForms = Object.keys(question.form).reduce(
-            (formAcc, formKey) => {
-              const form = question.form[formKey];
+      //     const updatedForms = Object.keys(question.form).reduce(
+      //       (formAcc, formKey) => {
+      //         const form = question.form[formKey];
 
-              // Handle swapping keys and uids for specific types
-              if (form.type === "checkbox" || form.type === "radio") {
-                const updatedOptions = Object.keys(form.options).reduce(
-                  (optionsAcc: Record<string, any>, optionKey) => {
-                    const option = form.options[optionKey];
-                    optionsAcc[option.uid] = { ...option, uid: optionKey };
-                    return optionsAcc;
-                  },
-                  {} as Record<string, any>
-                );
-                (formAcc as Record<string, any>)[form.uid] = {
-                  ...form,
-                  uid: formKey,
-                  options: updatedOptions,
-                };
-              } else if (form.type === "select") {
-                const updatedOptions = Object.keys(form.options).reduce(
-                  (optionsAcc, optionKey) => {
-                    const option = form.options[optionKey];
-                    optionsAcc[option.uid] = { ...option, uid: optionKey };
-                    return optionsAcc;
-                  },
-                  {} as Record<string, any>
-                );
-                (formAcc as Record<string, any>)[form.uid] = {
-                  ...form,
-                  uid: formKey,
-                  options: updatedOptions,
-                };
-              } else if (form.type === "range") {
-                const updatedLabels = Object.keys(form.options.labels).reduce(
-                  (labelsAcc, labelKey) => {
-                    const label = form.options.labels[labelKey];
-                    labelsAcc[label.uid] = { ...label, uid: labelKey };
-                    return labelsAcc;
-                  },
-                  {} as Record<string, any>
-                );
-                (formAcc as Record<string, any>)[form.uid] = {
-                  ...form,
-                  uid: formKey,
-                  options: { ...form.options, labels: updatedLabels },
-                };
-              } else {
-                (formAcc as Record<string, any>)[form.uid] = {
-                  ...form,
-                  uid: formKey,
-                };
-              }
+      //         // Handle swapping keys and uids for specific types
+      //         if (form.type === "checkbox" || form.type === "radio") {
+      //           const updatedOptions = Object.keys(form.options).reduce(
+      //             (optionsAcc: Record<string, any>, optionKey) => {
+      //               const option = form.options[optionKey];
+      //               optionsAcc[option.uid] = { ...option, uid: optionKey };
+      //               return optionsAcc;
+      //             },
+      //             {} as Record<string, any>
+      //           );
+      //           (formAcc as Record<string, any>)[form.uid] = {
+      //             ...form,
+      //             uid: formKey,
+      //             options: updatedOptions,
+      //           };
+      //         } else if (form.type === "select") {
+      //           const updatedOptions = Object.keys(form.options).reduce(
+      //             (optionsAcc, optionKey) => {
+      //               const option = form.options[optionKey];
+      //               optionsAcc[option.uid] = { ...option, uid: optionKey };
+      //               return optionsAcc;
+      //             },
+      //             {} as Record<string, any>
+      //           );
+      //           (formAcc as Record<string, any>)[form.uid] = {
+      //             ...form,
+      //             uid: formKey,
+      //             options: updatedOptions,
+      //           };
+      //         } else if (form.type === "range") {
+      //           const updatedLabels = Object.keys(form.options.labels).reduce(
+      //             (labelsAcc, labelKey) => {
+      //               const label = form.options.labels[labelKey];
+      //               labelsAcc[label.uid] = { ...label, uid: labelKey };
+      //               return labelsAcc;
+      //             },
+      //             {} as Record<string, any>
+      //           );
+      //           (formAcc as Record<string, any>)[form.uid] = {
+      //             ...form,
+      //             uid: formKey,
+      //             options: { ...form.options, labels: updatedLabels },
+      //           };
+      //         } else {
+      //           (formAcc as Record<string, any>)[form.uid] = {
+      //             ...form,
+      //             uid: formKey,
+      //           };
+      //         }
 
-              return formAcc;
-            },
-            {}
-          );
+      //         return formAcc;
+      //       },
+      //       {}
+      //     );
 
-          (acc as Record<string, any>)[question.uid] = {
-            ...question,
-            uid: questionKey,
-            form: updatedForms,
-          };
-          return acc;
-        },
-        {}
-      );
+      //     (acc as Record<string, any>)[question.uid] = {
+      //       ...question,
+      //       uid: questionKey,
+      //       form: updatedForms,
+      //     };
+      //     return acc;
+      //   },
+      //   {}
+      // );
 
-      console.log("Updated Question Elements:", updatedQuestionElements);
+      // console.log("Updated Question Elements:", updatedQuestionElements);
 
       const res = await fetch("/api/dashboard/submits", {
         method: "POST",
         body: JSON.stringify({
-          data: updatedQuestionElements,
+          data: questionElements,
           emailAddress: body.to,
         }),
       }).then((res) => {
@@ -526,11 +526,12 @@ export const Funnel = (props: FunnelProps) => {
           handleVerification: handleVerification,
         },
         format: {
-          useUid: false,
+          useKey: false,
           useStrings: true,
           useSelected: false,
         },
       }}
+      ui={{ progressContainerClassNames: "sticky bg-slate-50 pt-[100px] top-0" }}
     />
   );
 };

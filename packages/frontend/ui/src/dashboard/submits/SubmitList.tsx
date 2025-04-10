@@ -24,13 +24,45 @@ export const SubmitList = (props: SubmitListProps) => {
           <p className="text-lg font-bold group-hover:underline">
             Projekt {index + 1}:
           </p>
-          <p className="">
-            {
-              data.data["interested-products"].form[
-                "interested-products-range-2"
-              ].selected.selectedValue
-            }{" "}
-            {
+          <div className="flex gap-1">
+            <p className="font-medium">Adresse: </p>
+            <p className="">
+              {Object.values(
+                (data.data ?? {}) as Record<
+                  string,
+                  {
+                    uid: string;
+                    form?: Record<
+                      string,
+                      {
+                        uid: string;
+                        selected?: { inputValue: string };
+                      }
+                    >;
+                  }
+                >
+              ).find(({ uid }) => uid === "interested-products")?.form &&
+                Object.values(
+                  Object.values(
+                    (data.data ?? {}) as Record<
+                      string,
+                      {
+                        uid: string;
+                        form?: Record<
+                          string,
+                          {
+                            uid: string;
+                            selected?: { inputValue: string };
+                          }
+                        >;
+                      }
+                    >
+                  ).find(({ uid }) => uid === "interested-products")?.form ?? {}
+                ).find(
+                  ({ uid }: { uid: string }) =>
+                    uid === "submit-form-textarea-address"
+                )?.selected?.inputValue}{" "}
+              {/* {
               data.data["interested-products"].form[
                 "interested-products-range-2"
               ].options.unit.value
@@ -46,8 +78,9 @@ export const SubmitList = (props: SubmitListProps) => {
               data.data["interested-products"].form[
                 "interested-products-schnittstelle"
               ].selected.selectedOptions[0]
-            }
-          </p>
+            } */}
+            </p>
+          </div>
           {/* {Object.values(submits.data[0].data[questionKey].form).map(
             (form: any) => {
               return (

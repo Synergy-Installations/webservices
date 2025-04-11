@@ -11,7 +11,7 @@ export const SubmitList = (props: SubmitListProps) => {
 
   console.log("submits", submits);
 
-  if (isLoading) return null;
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <div className="flex flex-col gap-2">

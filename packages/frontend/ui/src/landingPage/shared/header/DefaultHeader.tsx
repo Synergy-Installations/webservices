@@ -29,7 +29,10 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
           {/* Site branding */}
           <div className="flex flex-1 items-center flex-grow">
             {/* <Logo /> */}
-            <Link href={t("logo.href")} className="font-semibold pl-5 cursor-pointer w-max">
+            <Link
+              href={t("logo.href")}
+              className="font-semibold pl-5 cursor-pointer w-max"
+            >
               <Image
                 loader={ImageLoader}
                 src={t("logo.src")}
@@ -43,7 +46,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
           {/* Desktop navigation */}
           <nav className="hidden md:flex md:grow !mb-0">
             {/* Desktop menu links */}
-            <ul className="flex grow flex-wrap items-center justify-center gap-4 text-sm lg:gap-8">
+            <ul className="flex grow flex-wrap items-center justify-center gap-2 text-sm lg:gap-8">
               {NavKeys.map((navKey, index) =>
                 t(`nav.${navKey}.children`) === "" ? (
                   <li className="px-3 py-1" key={index}>
@@ -84,6 +87,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
                 Video tour
               </Link>
             </li> */}
+
             <li className="hidden sm:block">
               <Link
                 href={t("button.href")}
@@ -93,6 +97,19 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
                   {t("button.text")}
                   <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                     {"->"}
+                  </span>
+                </span>
+              </Link>
+            </li>
+            <li className="hidden sm:block md:hidden lg:block">
+              <Link
+                href={"/dashboard"}
+                className="btn !rounded-[10px] backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue text-white group"
+              >
+                <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
+                  Member Login
+                  <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
+                    {/* {"->"} */}
                   </span>
                 </span>
               </Link>

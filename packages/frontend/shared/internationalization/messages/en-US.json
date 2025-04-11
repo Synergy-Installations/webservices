@@ -3063,6 +3063,39 @@
                     }
                   }
                 }
+              },
+              "interested-products-again": {
+                "order": "1",
+                "type": "checkbox",
+                "multiple": "true",
+                "required": "false",
+                "defaultVisible": "true",
+                "title": "Wollen Sie noch ein Projekt hinzufügen?",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                },
+                "options": {
+                  "photovoltaic": {
+                    "type": "checkbox",
+                    "title": "Ja bitte",
+                    "disabled": "false",
+                    "span": "3",
+                    "description": "",
+                    "addQuestion": "interested-products",
+                    "addForm": "",
+                    "icon": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Photovoltaik"
+                    }
+                  }
+                }
               }
             }
           },

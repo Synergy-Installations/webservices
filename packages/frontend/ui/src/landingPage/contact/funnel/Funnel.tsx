@@ -537,6 +537,7 @@ export const Funnel = (props: FunnelProps) => {
           useKey: false,
           useStrings: true,
           useSelected: false,
+          useUidAsKey: false,
         },
       }}
       ui={{

@@ -60,6 +60,7 @@ export interface DefaultFunnelProps {
       // useSelected is used to determine whether the selected value should be used or the default (fallback) value
       // this is used when we have selected value present and we want to use it
       useSelected: boolean;
+      useUidAsKey: boolean;
     };
   };
   ui?: {
@@ -74,7 +75,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
   const {
     submitFunnel,
     auth,
-    format: { useKey, useStrings, useSelected },
+    format: { useKey, useStrings, useSelected, useUidAsKey },
   } = props.config;
   const {
     topBar,
@@ -537,7 +538,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
         false,
         fromArray,
         true,
-        true
+        useUidAsKey
       ),
       questionKeyUid
     );
@@ -559,7 +560,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
           false,
           fromArray,
           true,
-          true
+          useUidAsKey
         ),
       ]);
       return Object.fromEntries(newQuestionElements);

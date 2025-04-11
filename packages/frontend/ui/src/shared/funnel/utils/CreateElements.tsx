@@ -11,7 +11,7 @@ export const createQuestionElement = (
   useSelected: boolean,
   from?: Array<string> | null,
   convertVisiblityToTrue?: boolean,
-  // useUidAsKey decides whether the uid should be used for the uid and the randomly generated key should
+  // useUidAsKey decides whether the element uid should be used for the uid and the randomly generated key should
   // use the uid to create a unique key; the use case is creating a new question element with the same uid and original key
   useUidAsKey?: boolean
 ) => {

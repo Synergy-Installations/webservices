@@ -73,7 +73,12 @@ export const SubmitSingle = (props: SubmitSingleProps) => {
         questionElementsRaw={submit.data[0].data}
         STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
         config={{
-          format: { useKey: true, useStrings: false, useSelected: true },
+          format: {
+            useKey: true,
+            useStrings: false,
+            useSelected: true,
+            useUidAsKey: true,
+          },
         }}
         ui={{
           topBar: (questionElements) =>

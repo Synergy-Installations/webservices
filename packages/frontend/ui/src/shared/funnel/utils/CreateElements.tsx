@@ -2,6 +2,7 @@ export const createQuestionElement = (
   questionKeyRef: string,
   question: any,
   // useKey decides whether a new unique key should be generated or the existing one should be used
+  // use case is recreating question elements from db
   useKey: boolean,
   // useStrings is used to determine whether input will be a string or the standard type
   useStrings: boolean,
@@ -9,7 +10,10 @@ export const createQuestionElement = (
   // this is used when we have selected value present and we want to use it
   useSelected: boolean,
   from?: Array<string> | null,
-  convertVisiblityToTrue?: boolean
+  convertVisiblityToTrue?: boolean,
+  // useUidAsKey decides whether the uid should be used for the uid and the randomly generated key should
+  // use the uid to create a unique key; the use case is creating a new question element with the same uid and original key
+  useUidAsKey?: boolean
 ) => {
   const element = question;
   const questionKey: string = questionKeyRef;
@@ -18,11 +22,14 @@ export const createQuestionElement = (
   convertVisiblityToTrue =
     convertVisiblityToTrue === undefined ? true : convertVisiblityToTrue;
 
+  // useUidAsKey to false by default
+  useUidAsKey = useUidAsKey === undefined ? false : useUidAsKey;
+
   return {
     title: element.title,
     description: element.description,
-    from: from || [],
-    uid: useKey ? element.uid : questionKey,
+    from: useKey ? element.from : from || [],
+    uid: useKey || useUidAsKey ? element.uid : questionKey,
     version: element.version,
     defaultVisible:
       (useStrings
@@ -42,12 +49,12 @@ export const createQuestionElement = (
           formAcc[
             useKey
               ? formKey
-              : `${formKey}-${Math.random().toString(36).substring(2, 7)}`
+              : `${useUidAsKey ? element.form[formKey].uid : formKey}-${Math.random().toString(36).substring(2, 7)}`
           ] = {
             order: useStrings
               ? Number(element.form[formKey].order)
               : element.form[formKey].order,
-            uid: useKey ? element.form[formKey].uid : formKey,
+            uid: useKey || useUidAsKey ? element.form[formKey].uid : formKey,
             type: element.form[formKey].type,
             multiple: useStrings
               ? element.form[formKey].multiple === "true"
@@ -60,7 +67,7 @@ export const createQuestionElement = (
               : element.form[formKey].defaultVisible,
             title: element.form[formKey].title,
             description: element.form[formKey].description,
-            from: from || [],
+            from: useKey ? element.form[formKey].from : from || [],
             localStorage: useStrings
               ? element.form[formKey].localStorage === "true"
               : element.form[formKey].localStorage,
@@ -78,13 +85,14 @@ export const createQuestionElement = (
                 optionsAcc[
                   useKey
                     ? optionKey
-                    : `${optionKey}-${Math.random().toString(36).substring(2, 7)}`
+                    : `${useUidAsKey ? element.form[formKey].options[optionKey].uid : optionKey}-${Math.random().toString(36).substring(2, 7)}`
                 ] = {
                   text: element.form[formKey].options[optionKey].title,
                   type: element.form[formKey].options[optionKey].type,
-                  uid: useKey
-                    ? element.form[formKey].options[optionKey].uid
-                    : optionKey,
+                  uid:
+                    useKey || useUidAsKey
+                      ? element.form[formKey].options[optionKey].uid
+                      : optionKey,
                   title: element.form[formKey].options[optionKey].title,
                   disabled: useStrings
                     ? element.form[formKey].options[optionKey].disabled ===
@@ -121,12 +129,12 @@ export const createQuestionElement = (
           formAcc[
             useKey
               ? formKey
-              : `${formKey}-${Math.random().toString(36).substring(2, 7)}`
+              : `${useUidAsKey ? element.form[formKey].uid : formKey}-${Math.random().toString(36).substring(2, 7)}`
           ] = {
             order: useStrings
               ? Number(element.form[formKey].order)
               : element.form[formKey].order,
-            uid: useKey ? element.form[formKey].uid : formKey,
+            uid: useKey || useUidAsKey ? element.form[formKey].uid : formKey,
             type: element.form[formKey].type,
             multiple: useStrings
               ? element.form[formKey].multiple === "true"
@@ -145,7 +153,7 @@ export const createQuestionElement = (
             span: element.form[formKey].span,
             defaultValue: element.form[formKey].defaultValue,
             label: element.form[formKey].label,
-            from: from || [],
+            from: useKey ? element.form[formKey].from : from || [],
             message: {
               text: element.form[formKey].message.text,
               type: element.form[formKey].message.type,
@@ -159,14 +167,15 @@ export const createQuestionElement = (
                 optionsAcc[
                   useKey
                     ? optionKey
-                    : `${optionKey}-${Math.random().toString(36).substring(2, 7)}`
+                    : `${useUidAsKey ? element.form[formKey].options[optionKey].uid : optionKey}-${Math.random().toString(36).substring(2, 7)}`
                 ] = {
                   type: element.form[formKey].options[optionKey].type,
                   title: element.form[formKey].options[optionKey].title,
                   value: element.form[formKey].options[optionKey].value,
-                  uid: useKey
-                    ? element.form[formKey].options[optionKey].uid
-                    : optionKey,
+                  uid:
+                    useKey || useUidAsKey
+                      ? element.form[formKey].options[optionKey].uid
+                      : optionKey,
                   addQuestion:
                     element.form[formKey].options[optionKey].addQuestion,
                   addForm: element.form[formKey].options[optionKey].addForm,
@@ -195,12 +204,12 @@ export const createQuestionElement = (
           formAcc[
             useKey
               ? formKey
-              : `${formKey}-${Math.random().toString(36).substring(2, 7)}`
+              : `${useUidAsKey ? element.form[formKey].uid : formKey}-${Math.random().toString(36).substring(2, 7)}`
           ] = {
             order: useStrings
               ? Number(element.form[formKey].order)
               : element.form[formKey].order,
-            uid: useKey ? element.form[formKey].uid : formKey,
+            uid: useKey || useUidAsKey ? element.form[formKey].uid : formKey,
             type: element.form[formKey].type,
             required: useStrings
               ? element.form[formKey].required === "true"
@@ -214,7 +223,7 @@ export const createQuestionElement = (
               ? element.form[formKey].localStorage === "true"
               : element.form[formKey].localStorage,
             span: element.form[formKey].span,
-            from: from || [],
+            from: useKey ? element.form[formKey].from : from || [],
             message: {
               text: element.form[formKey].message.text,
               type: element.form[formKey].message.type,
@@ -260,12 +269,13 @@ export const createQuestionElement = (
                   lablesAcc[
                     useKey
                       ? labelKey
-                      : `${labelKey}-${Math.random().toString(36).substring(2, 7)}`
+                      : `${useUidAsKey ? element.form[formKey].options.labels[labelKey].uid : labelKey}-${Math.random().toString(36).substring(2, 7)}`
                   ] = {
                     text: element.form[formKey].options.labels[labelKey].text,
-                    uid: useKey
-                      ? element.form[formKey].options.labels[labelKey].uid
-                      : labelKey,
+                    uid:
+                      useKey || useUidAsKey
+                        ? element.form[formKey].options.labels[labelKey].uid
+                        : labelKey,
                     value: useStrings
                       ? Number(
                           element.form[formKey].options.labels[labelKey].value
@@ -305,10 +315,10 @@ export const createQuestionElement = (
           formAcc[
             useKey
               ? formKey
-              : `${formKey}-${Math.random().toString(36).substring(2, 7)}`
+              : `${useUidAsKey ? element.form[formKey].uid : formKey}-${Math.random().toString(36).substring(2, 7)}`
           ] = {
             order: Number(element.form[formKey].order),
-            uid: useKey ? element.form[formKey].uid : formKey,
+            uid: useKey || useUidAsKey ? element.form[formKey].uid : formKey,
             type: element.form[formKey].type,
             required: useStrings
               ? element.form[formKey].required === "true"
@@ -322,7 +332,7 @@ export const createQuestionElement = (
               ? element.form[formKey].localStorage === "true"
               : element.form[formKey].localStorage,
             span: element.form[formKey].span,
-            from: from || [],
+            from: useKey ? element.form[formKey].from : from || [],
             message: {
               text: element.form[formKey].message.text,
               type: element.form[formKey].message.type,
@@ -358,12 +368,12 @@ export const createQuestionElement = (
           formAcc[
             useKey
               ? formKey
-              : `${formKey}-${Math.random().toString(36).substring(2, 7)}`
+              : `${useUidAsKey ? element.form[formKey].uid : formKey}-${Math.random().toString(36).substring(2, 7)}`
           ] = {
             order: useStrings
               ? Number(element.form[formKey].order)
               : element.form[formKey].order,
-            uid: useKey ? element.form[formKey].uid : formKey,
+            uid: useKey || useUidAsKey ? element.form[formKey].uid : formKey,
             type: element.form[formKey].type,
             required: useStrings
               ? element.form[formKey].required === "true"
@@ -377,7 +387,7 @@ export const createQuestionElement = (
               ? element.form[formKey].localStorage === "true"
               : element.form[formKey].localStorage,
             span: element.form[formKey].span,
-            from: from || [],
+            from: useKey ? element.form[formKey].from : from || [],
             message: {
               text: element.form[formKey].message.text,
               type: element.form[formKey].message.type,
@@ -400,12 +410,12 @@ export const createQuestionElement = (
           formAcc[
             useKey
               ? formKey
-              : `${formKey}-${Math.random().toString(36).substring(2, 7)}`
+              : `${useUidAsKey ? element.form[formKey].uid : formKey}-${Math.random().toString(36).substring(2, 7)}`
           ] = {
             order: useStrings
               ? Number(element.form[formKey].order)
               : element.form[formKey].order,
-            uid: useKey ? element.form[formKey].uid : formKey,
+            uid: useKey || useUidAsKey ? element.form[formKey].uid : formKey,
             type: element.form[formKey].type,
             required: useStrings
               ? element.form[formKey].required === "true"
@@ -419,7 +429,7 @@ export const createQuestionElement = (
               ? element.form[formKey].localStorage === "true"
               : element.form[formKey].localStorage,
             span: element.form[formKey].span,
-            from: from || [],
+            from: useKey ? element.form[formKey].from : from || [],
             message: {
               text: element.form[formKey].message.text,
               type: element.form[formKey].message.type,
@@ -462,12 +472,12 @@ export const createQuestionElement = (
           formAcc[
             useKey
               ? formKey
-              : `${formKey}-${Math.random().toString(36).substring(2, 7)}`
+              : `${useUidAsKey ? element.form[formKey].uid : formKey}-${Math.random().toString(36).substring(2, 7)}`
           ] = {
             order: useStrings
               ? Number(element.form[formKey].order)
               : element.form[formKey].order,
-            uid: useKey ? element.form[formKey].uid : formKey,
+            uid: useKey || useUidAsKey ? element.form[formKey].uid : formKey,
             type: element.form[formKey].type,
             required: useStrings
               ? element.form[formKey].required === "true"
@@ -481,7 +491,7 @@ export const createQuestionElement = (
               ? element.form[formKey].localStorage === "true"
               : element.form[formKey].localStorage,
             span: element.form[formKey].span,
-            from: from || [],
+            from: useKey ? element.form[formKey].from : from || [],
             message: {
               text: element.form[formKey].message.text,
               type: element.form[formKey].message.type,
@@ -525,12 +535,12 @@ export const createQuestionElement = (
           formAcc[
             useKey
               ? formKey
-              : `${formKey}-${Math.random().toString(36).substring(2, 7)}`
+              : `${useUidAsKey ? element.form[formKey].uid : formKey}-${Math.random().toString(36).substring(2, 7)}`
           ] = {
             order: useStrings
               ? Number(element.form[formKey].order)
               : element.form[formKey].order,
-            uid: useKey ? element.form[formKey].uid : formKey,
+            uid: useKey || useUidAsKey ? element.form[formKey].uid : formKey,
             type: element.form[formKey].type,
             required: useStrings
               ? element.form[formKey].required === "true"
@@ -544,7 +554,7 @@ export const createQuestionElement = (
               ? element.form[formKey].localStorage === "true"
               : element.form[formKey].localStorage,
             span: element.form[formKey].span,
-            from: from || [],
+            from: useKey ? element.form[formKey].from : from || [],
             message: {
               text: element.form[formKey].message.text,
               type: element.form[formKey].message.type,
@@ -610,8 +620,7 @@ export const createFormElement = (
   const element = form;
 
   // TODO: Impement formKey verification and error if formKeyRef deviates from (to be created) formKey
-  const formKey: string =
-    Object.keys(form).find((key) => key === formKeyRef) || formKeyRef;
+  const formKey: string = formKeyRef;
 
   // Convert visibility to true by default
   convertVisiblityToTrue =

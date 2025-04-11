@@ -324,39 +324,47 @@ export const Funnel = (props: FunnelProps) => {
               (form: any) => form.uid === "submit-form-textarea"
             ) as any
           )?.selected.inputValue || "",
-        formData: Object.keys(questionElements).map((questionKey) => {
-          const question = questionElements[questionKey];
-          return {
-            questionTitle: question.title,
-            forms: Object.keys(question.form).map((formKey) => {
-              const form = question.form[formKey];
-              return {
-                formTitle: form.selected?.questionTitle || form.title,
-                formType: form.type,
-                selected:
-                  form.type === "checkbox" ||
-                  form.type === "radio" ||
-                  form.type === "select"
-                    ? form.selected.selectedOptions
-                    : form.type === "range"
-                      ? `${form.selected.selectedValue} ${form.options.unit.value}`
-                      : form.type === "text" ||
-                          form.type === "email" ||
-                          form.type === "tel" ||
-                          form.type === "textarea"
-                        ? form.selected.inputValue
-                        : form.type === "file-upload"
-                          ? form.selected.selectedFiles.map(
-                              (file: { downloadUrl: string }) =>
-                                file.downloadUrl
-                            )
-                          : form.type === "calendly"
-                            ? `event: ${form.selected.scheduledEvent.event.uri}, invitee: ${form.selected.scheduledEvent.invitee.uri}`
-                            : "N/A",
-              };
-            }),
-          };
-        }),
+        formData: Object.keys(questionElements)
+          .filter((key) => questionElements[key].defaultVisible == true)
+          .map((questionKey) => {
+            const question = questionElements[questionKey];
+            return {
+              questionTitle: question.title,
+              forms: Object.keys(question.form)
+                .filter(
+                  (key) =>
+                    questionElements[questionKey].form[key].defaultVisible ==
+                    true
+                )
+                .map((formKey) => {
+                  const form = question.form[formKey];
+                  return {
+                    formTitle: form.selected?.questionTitle || form.title,
+                    formType: form.type,
+                    selected:
+                      form.type === "checkbox" ||
+                      form.type === "radio" ||
+                      form.type === "select"
+                        ? form.selected.selectedOptions
+                        : form.type === "range"
+                          ? `${form.selected.selectedValue} ${form.options.unit.value}`
+                          : form.type === "text" ||
+                              form.type === "email" ||
+                              form.type === "tel" ||
+                              form.type === "textarea"
+                            ? form.selected.inputValue
+                            : form.type === "file-upload"
+                              ? form.selected.selectedFiles.map(
+                                  (file: { downloadUrl: string }) =>
+                                    file.downloadUrl
+                                )
+                              : form.type === "calendly"
+                                ? `event: ${form.selected.scheduledEvent.event.uri}, invitee: ${form.selected.scheduledEvent.invitee.uri}`
+                                : "N/A",
+                  };
+                }),
+            };
+          }),
       };
       console.log(body);
 
@@ -445,6 +453,59 @@ export const Funnel = (props: FunnelProps) => {
         console.log("Successfully sent submit to db", res);
       });
 
+      const resTwo = await fetch("/api/contact/submitFunnel", {
+        method: "POST",
+        body: JSON.stringify(body),
+      })
+        .then((res) => {
+          console.log("Successfully sent EMail", res);
+
+          if (res.status == 200) {
+            setQuestionElements((prev) => {
+              const updatedElements = { ...prev };
+              updatedElements[questionKey].form[formKey].message.text =
+                questionElements[questionKey].form[
+                  formKey
+                ].message.successMessage;
+              updatedElements[questionKey].form[formKey].message.type =
+                "success";
+              return updatedElements;
+            });
+          } else {
+            setQuestionElements((prev) => {
+              const updatedElements = { ...prev };
+              updatedElements[questionKey].form[formKey].message.text =
+                questionElements[questionKey].form[
+                  formKey
+                ].message.errorMessage;
+              updatedElements[questionKey].form[formKey].message.type = "error";
+              return updatedElements;
+            });
+          }
+          // setButtonStatusText({
+          //   fatal: false,
+          //   disabled: true,
+          //   text: "Danke für Ihre Anfrage. Bitte überprüfen Sie Ihre Inbox. Falls die Nachricht nicht angekommen ist, benutzen Sie bitte die unten angegebene E-Mail.",
+          // });
+          // setFormElements((prevFormElements) =>
+          //   Object.keys(prevFormElements).reduce(
+          //     (acc: Record<string, any>, key: string) => {
+          //       acc[key] = { ...prevFormElements[key], value: "" };
+          //       return acc;
+          //     },
+          //     {}
+          //   )
+          // );
+        })
+        .catch((error) => {
+          console.error("Error sending the E-Mail", error);
+          // setButtonStatusText({
+          //   fatal: true,
+          //   disabled: true,
+          //   text: "Es konnte nicht abgeschickt werden, bitte benutzen Sie die E-Mail unten.",
+          // });
+        });
+
       setTimeout(() => {
         const firstName = (
           Object.values(questionElements[questionKey].form).find(
@@ -458,59 +519,6 @@ export const Funnel = (props: FunnelProps) => {
         ).selected.inputValue;
         userAuthHandler(body.to, firstName, phoneNumber);
       }, 1500);
-
-      // const resTwo = await fetch("/api/contact/submitFunnel", {
-      //   method: "POST",
-      //   body: JSON.stringify(body),
-      // })
-      //   .then((res) => {
-      //     console.log("Successfully sent EMail", res);
-
-      //     if (res.status == 200) {
-      //       setQuestionElements((prev) => {
-      //         const updatedElements = { ...prev };
-      //         updatedElements[questionKey].form[formKey].message.text =
-      //           questionElements[questionKey].form[
-      //             formKey
-      //           ].message.successMessage;
-      //         updatedElements[questionKey].form[formKey].message.type =
-      //           "success";
-      //         return updatedElements;
-      //       });
-      //     } else {
-      //       setQuestionElements((prev) => {
-      //         const updatedElements = { ...prev };
-      //         updatedElements[questionKey].form[formKey].message.text =
-      //           questionElements[questionKey].form[
-      //             formKey
-      //           ].message.errorMessage;
-      //         updatedElements[questionKey].form[formKey].message.type = "error";
-      //         return updatedElements;
-      //       });
-      //     }
-      //     // setButtonStatusText({
-      //     //   fatal: false,
-      //     //   disabled: true,
-      //     //   text: "Danke für Ihre Anfrage. Bitte überprüfen Sie Ihre Inbox. Falls die Nachricht nicht angekommen ist, benutzen Sie bitte die unten angegebene E-Mail.",
-      //     // });
-      //     // setFormElements((prevFormElements) =>
-      //     //   Object.keys(prevFormElements).reduce(
-      //     //     (acc: Record<string, any>, key: string) => {
-      //     //       acc[key] = { ...prevFormElements[key], value: "" };
-      //     //       return acc;
-      //     //     },
-      //     //     {}
-      //     //   )
-      //     // );
-      //   })
-      //   .catch((error) => {
-      //     console.error("Error sending the E-Mail", error);
-      //     // setButtonStatusText({
-      //     //   fatal: true,
-      //     //   disabled: true,
-      //     //   text: "Es konnte nicht abgeschickt werden, bitte benutzen Sie die E-Mail unten.",
-      //     // });
-      //   });
     }
   };
 
@@ -531,7 +539,9 @@ export const Funnel = (props: FunnelProps) => {
           useSelected: false,
         },
       }}
-      ui={{ progressContainerClassNames: "sticky bg-slate-50 pt-[100px] top-0" }}
+      ui={{
+        progressContainerClassNames: "sticky bg-slate-50 pt-[100px] top-0",
+      }}
     />
   );
 };

@@ -20,9 +20,9 @@ const topBarSubmitSingle = (id: string, questionElements: any) => {
     });
   };
   console.log("topBarSubmitSingleStatus", status);
-  
+
   return (
-    <div className="flex justify-end mb-2">
+    <div className="flex justify-end mb-2 px-4">
       <button
         onClick={() => handleSave()}
         className="px-2 py-1 bg-synergy-light-blue rounded-lg text-white flex gap-1 items-center"
@@ -79,7 +79,8 @@ export const SubmitSingle = (props: SubmitSingleProps) => {
           topBar: (questionElements) =>
             topBarSubmitSingle(props.params.id, questionElements),
           progressContainerClassNames:
-            "fixed bg-white pt-20 top-0 max-w-3xl w-full",
+            "sticky bg-white pt-0 pr-32 top-20 lg:w-full",
+          progressContainerBackground: true,
         }}
       />
     </div>

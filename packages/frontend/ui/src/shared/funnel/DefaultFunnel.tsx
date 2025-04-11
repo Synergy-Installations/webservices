@@ -65,6 +65,7 @@ export interface DefaultFunnelProps {
   ui?: {
     topBar?(questionElements: any): JSX.Element;
     progressContainerClassNames?: string;
+    progressContainerBackground?: boolean;
   };
 }
 
@@ -75,7 +76,11 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     auth,
     format: { useKey, useStrings, useSelected },
   } = props.config;
-  const { topBar, progressContainerClassNames = "" } = props.ui ?? {};
+  const {
+    topBar,
+    progressContainerClassNames = "",
+    progressContainerBackground = false,
+  } = props.ui ?? {};
   const { verifying = false, setVerifying, handleVerification } = auth ?? {};
 
   const t = useTranslations("LandingPage.ContactUs.Funnel");
@@ -172,15 +177,23 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     let successForms = 0;
 
     Object.keys(questionElements ?? {}).forEach((questionKey) => {
+      if (questionElements[questionKey].defaultVisible == false) {
+        return;
+      }
+      console.log("addToCount", questionKey);
       const forms = questionElements[questionKey].form;
       console.log("add", Object.keys(forms).length);
       /** Remove the submit button form as it is not user input
        */
       totalForms += Object.keys(forms).filter(
-        (formKey) => forms[formKey].type !== "submit-button"
+        (formKey) =>
+          forms[formKey].defaultVisible == true &&
+          forms[formKey].type !== "submit-button"
       ).length;
       successForms += Object.keys(forms).filter(
         (formKey) =>
+          /** Make sure that the form is visible to the user */
+          forms[formKey].defaultVisible == true &&
           /** Make sure not to count the submit button as it is not user input */
           forms[formKey].type !== "submit-button" &&
           (forms[formKey].message.type === "success" ||
@@ -219,6 +232,15 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     const currentQuestionIndex = questionKeys.indexOf(currentQuestionKey);
     const formKeys = Object.keys(currentQuestion.form);
     const currentFormIndex = formKeys.indexOf(formKey);
+    const visibleQuestionKeys = questionKeys.filter((key) => {
+      return questionElements[key].defaultVisible === true;
+    });
+    const currentVisibleQuestionIndex =
+      visibleQuestionKeys.indexOf(currentQuestionKey);
+    const visibleFormKeys = formKeys.filter((key) => {
+      return currentQuestion.form[key].defaultVisible === true;
+    });
+    const currentVisibleFormIndex = visibleFormKeys.indexOf(formKey);
 
     let error = false;
     questionKeys.forEach((questionKey: string, questionIndex: number) => {
@@ -248,9 +270,9 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
             questionElements[questionKey].defaultVisible === true &&
             questionElements[questionKey].form[formKey].defaultVisible ===
               true &&
-            (questionIndex < currentQuestionIndex ||
-              (questionIndex == currentQuestionIndex &&
-                formIndex <= currentFormIndex) ||
+            (questionIndex < currentVisibleQuestionIndex ||
+              (questionIndex == currentVisibleQuestionIndex &&
+                formIndex <= currentVisibleFormIndex) ||
               questionElements[questionKey].form[formKey].message.type ===
                 "success" ||
               questionElements[questionKey].form[formKey].message.type ===
@@ -292,6 +314,14 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
               console.log("user wants to continue with incorrect input");
               setQuestionElements((prev) => {
                 const updatedElements = { ...prev };
+                // Check if the question and form still exist, the questionElement could have been removed
+                // and we go through the old state, updatedElements is the new state
+                if (
+                  !updatedElements[questionKey] ||
+                  !updatedElements[questionKey].form[formKey]
+                ) {
+                  return updatedElements;
+                }
                 updatedElements[questionKey].form[formKey].message.text =
                   questionElements[questionKey].form[
                     formKey
@@ -343,6 +373,12 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                */
               setQuestionElements((prev) => {
                 const updatedElements = { ...prev };
+                if (
+                  !updatedElements[questionKey] ||
+                  !updatedElements[questionKey].form[formKey]
+                ) {
+                  return updatedElements;
+                }
                 updatedElements[questionKey].form[formKey].message.text =
                   questionElements[questionKey].form[
                     formKey
@@ -386,7 +422,10 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     // );
 
     /** Route to next form in question */
-    if (currentFormIndex !== -1 && currentFormIndex < formKeys.length - 1) {
+    if (
+      currentVisibleFormIndex !== -1 &&
+      currentVisibleFormIndex < visibleFormKeys.length - 1
+    ) {
       setQuestionElements((prev) => {
         const updatedElements = { ...prev };
         updatedElements[currentQuestionKey].form[formKey].message.text =
@@ -398,7 +437,8 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
         return updatedElements;
       });
 
-      if (redirect) router.push(`#${formKeys[currentFormIndex + 1]}`);
+      if (redirect)
+        router.push(`#${visibleFormKeys[currentVisibleFormIndex + 1]}`);
       return { status: "success" };
     }
 
@@ -406,7 +446,10 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
      * to send form is missing and this needs to be rewritten when done.
      */
     const currentIndex = questionKeys.indexOf(currentQuestionKey);
-    if (currentIndex === -1 || currentIndex === questionKeys.length - 1) {
+    if (
+      currentVisibleQuestionIndex === -1 ||
+      currentVisibleQuestionIndex === visibleQuestionKeys.length - 1
+    ) {
       console.log("when is this called?", currentQuestionKey, formKey);
       if (
         questionElements[currentQuestionKey].form[formKey].type !==
@@ -446,7 +489,8 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
         "success";
       return updatedElements;
     });
-    if (redirect) router.push(`#${questionKeys[currentIndex + 1]}`);
+    if (redirect)
+      router.push(`#${visibleQuestionKeys[currentVisibleQuestionIndex + 1]}`);
     return { status: "success" };
   };
 
@@ -480,6 +524,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
         // We are creating a new question element so we do not have previously selected value
         false,
         fromArray,
+        true,
         true
       ),
       questionKeyUid
@@ -501,6 +546,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
           // We are creating a new question element so we do not have previously selected value
           false,
           fromArray,
+          true,
           true
         ),
       ]);
@@ -734,12 +780,15 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
 
   return (
     <>
-      <div className="sticky top-20">{topBar && topBar(questionElements)}</div>
+      <div className="fixed left-0 w-full z-20 top-20">
+        {topBar && topBar(questionElements)}
+      </div>
       <div className="relative flex flex-col justify-center max-w-3xl mx-auto">
-        <div
-          className={`z-10 ${progressContainerClassNames}`}
-        >
-          <div className="flex justify-between mb-1">
+        <div className={`${progressContainerClassNames}`}>
+          {progressContainerBackground && (
+            <div className="absolute inset-0 bg-white -top-9"></div>
+          )}
+          <div className="relative flex justify-between mb-1">
             <span className="text-base font-medium text-synergy-light-blue dark:text-white">
               {t("progress.labels.topLeft")}
             </span>
@@ -759,7 +808,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
               %
             </span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+          <div className="relative w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
             <div
               className="bg-synergy-light-blue h-2.5 rounded-full"
               style={{
@@ -900,13 +949,28 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                           questionElements[questionKey].form[
                                             formKey
                                           ].options[optionKey].addForm,
-                                          questionElementsRaw[
-                                            questionElements[questionKey].uid
-                                          ].form[
-                                            questionElements[questionKey].form[
-                                              formKey
-                                            ].options[optionKey].addForm
-                                          ]
+                                          // On dashboard where we get the uid in the key in questionElementsRaw, we need to find the element
+                                          useKey
+                                            ? Object.values(
+                                                questionElements[questionKey]
+                                                  .form
+                                              ).find(
+                                                (form: any) =>
+                                                  form.uid ===
+                                                  questionElements[questionKey]
+                                                    .form[formKey].options[
+                                                    optionKey
+                                                  ].addForm
+                                              )
+                                            : questionElementsRaw[
+                                                questionElements[questionKey]
+                                                  .uid
+                                              ].form[
+                                                questionElements[questionKey]
+                                                  .form[formKey].options[
+                                                  optionKey
+                                                ].addForm
+                                              ]
                                         );
                                       }
                                       if (
@@ -924,11 +988,23 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                           questionElements[questionKey].form[
                                             formKey
                                           ].options[optionKey].addQuestion,
-                                          questionElementsRaw[
-                                            questionElements[questionKey].form[
-                                              formKey
-                                            ].options[optionKey].addQuestion
-                                          ]
+                                          useKey
+                                            ? Object.values(
+                                                questionElements
+                                              ).find(
+                                                (questionElement: any) =>
+                                                  questionElement.uid ===
+                                                  questionElements[questionKey]
+                                                    .form[formKey].options[
+                                                    optionKey
+                                                  ].addQuestion
+                                              )
+                                            : questionElementsRaw[
+                                                questionElements[questionKey]
+                                                  .form[formKey].options[
+                                                  optionKey
+                                                ].addQuestion
+                                              ]
                                         );
                                       }
                                     } else {
@@ -1174,14 +1250,46 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                           questionElements[questionKey].form[
                                             formKey
                                           ].options[optionKey].addForm,
-                                          questionElementsRaw[
-                                            questionElements[questionKey].uid
-                                          ].form[
-                                            questionElements[questionKey].form[
-                                              formKey
-                                            ].options[optionKey].addForm
-                                          ]
+                                          // On dashboard where we get the uid in the key in questionElementsRaw, we need to find the element
+                                          useKey
+                                            ? Object.values(
+                                                questionElements[questionKey]
+                                                  .form
+                                              ).find(
+                                                (form: any) =>
+                                                  form.uid ===
+                                                  questionElements[questionKey]
+                                                    .form[formKey].options[
+                                                    optionKey
+                                                  ].addForm
+                                              )
+                                            : questionElementsRaw[
+                                                questionElements[questionKey]
+                                                  .uid
+                                              ].form[
+                                                questionElements[questionKey]
+                                                  .form[formKey].options[
+                                                  optionKey
+                                                ].addForm
+                                              ]
                                         );
+                                        // addFormElement(
+                                        //   {
+                                        //     fromQuestionKey: questionKey,
+                                        //     fromFormKey: formKey,
+                                        //     fromOptionKey: optionKey,
+                                        //   },
+                                        //   questionElements[questionKey].form[
+                                        //     formKey
+                                        //   ].options[optionKey].addForm,
+                                        //   questionElementsRaw[
+                                        //     questionElements[questionKey].uid
+                                        //   ].form[
+                                        //     questionElements[questionKey].form[
+                                        //       formKey
+                                        //     ].options[optionKey].addForm
+                                        //   ]
+                                        // );
                                       }
                                       if (
                                         questionElements[questionKey].form[
@@ -1562,7 +1670,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                         )
                       )}
                       {questionElements[questionKey].form[formKey].type !==
-                        "submit-button" &&
+                        "submit-button" && (
                         index ==
                           Object.entries(
                             questionElements[questionKey].form
@@ -1571,18 +1679,18 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                               (form as { defaultVisible: boolean })
                                 .defaultVisible === true
                           ).length -
-                            1 && (
-                          <div className="flex justify-end">
-                            <button
-                              onClick={() => {
-                                getNextQuestionKey(questionKey, formKey, true);
-                              }}
-                              className="px-3 py-1 rounded-md bg-synergy-light-blue text-white "
-                            >
-                              Weiter
-                            </button>
-                          </div>
-                        )}
+                            1 &&
+                        <div className="flex justify-end">
+                          <button
+                            onClick={() => {
+                              getNextQuestionKey(questionKey, formKey, true);
+                            }}
+                            className="px-3 py-1 rounded-md bg-synergy-light-blue text-white "
+                          >
+                            Weiter
+                          </button>
+                        </div>
+                      )}
                     </section>
                   ))}
               </div>

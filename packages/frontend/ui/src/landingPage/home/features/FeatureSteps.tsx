@@ -1,6 +1,5 @@
 import { Link } from "@com.synergy/frontend-shared-internationalization/routing";
 import ModalVideo from "@com.synergy/frontend-ui/ModalVideo";
-import VideoThumb from "../../../shared/images/scenic-house.jpg";
 import { useMessages, useTranslations } from "next-intl";
 import { RichText } from "@com.synergy/frontend-ui/RichText";
 

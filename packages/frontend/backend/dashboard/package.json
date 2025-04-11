@@ -1,0 +1,37 @@
+{
+  "name": "@com.synergy/frontend-backend-dashboard",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "exports": {
+    "./user": "./src/db/models/user.ts",
+    "./submitApi": "./src/store/slices/api/submit.ts",
+    "./submit": "./src/db/models/submit.ts",
+    "./items": "./src/store/slices/api/items.ts",
+    "./api": "./src/store/slices/api/api.ts",
+    "./StoreProvider": "./src/store/StoreProvider.tsx",
+    "./hooks": "./src/store/hooks.ts",
+    "./counterSlice": "./src/store/slices/counter/counterSlice.ts",
+    "./store": "./src/store/store.ts",
+    "./item": "./src/db/models/item.ts",
+    "./mongodb": "./src/db/utils/mongodb.ts"
+  },
+  "devDependencies": {
+    "@com.synergy/frontend-shared-typescript-config": "workspace:*",
+    "@turbo/gen": "^2.3.3",
+    "@types/node": "^20.11.24",
+    "typescript": "latest"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.6.1",
+    "@types/react": "^18.2.61",
+    "immer": "^10.0.3",
+    "mongoose": "^8.13.0",
+    "react-redux": "^9.2.0"
+  }
+}

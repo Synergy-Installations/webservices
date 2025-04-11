@@ -21,12 +21,12 @@ export default function Page(): JSX.Element {
   return (
     <>
       {/* <TracingBeam> */}
-        <HeroFull />
-        <ServiceCatalog />
-        <FeatureAdvantages />
-        <FeatureSteps />
-        <TestimonialsCarousel />
-        <CtaLoose />
+      <HeroFull />
+      <ServiceCatalog />
+      <FeatureAdvantages />
+      <FeatureSteps />
+      <TestimonialsCarousel />
+      <CtaLoose />
       {/* </TracingBeam> */}
     </>
   );

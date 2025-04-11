@@ -17,12 +17,11 @@ export default async function RootLayout({
   params: { locale: string };
 }) {
   return (
-    <html lang={locale} className="scroll-smooth">
-      <ClerkProvider>
-
-      <body className="relative">{children}</body>
-      </ClerkProvider>
-      <GoogleTag />
-    </html>
+    <ClerkProvider>
+      <html lang={locale} className="scroll-smooth">
+        <body className="relative">{children}</body>
+        <GoogleTag />
+      </html>
+    </ClerkProvider>
   );
 }

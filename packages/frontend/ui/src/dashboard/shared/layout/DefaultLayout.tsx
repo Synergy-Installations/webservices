@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ImageLoader } from "@com.synergy/frontend-ui/ImageLoader";
 import { useEffect, useRef, useState } from "react";
 import { set } from "mongoose";
+import { SignOutButton } from "@clerk/nextjs";
 
 /* eslint-disable-next-line */
 export interface DefaultLayoutProps {
@@ -155,51 +156,52 @@ export const DefaultLayout = (props: DefaultLayoutProps) => {
                       className="text-sm text-gray-900 dark:text-white"
                       role="none"
                     >
-                      Neil Sims
+                      Welcome back!
                     </p>
                     <p
                       className="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
                       role="none"
                     >
-                      neil.sims@flowbite.com
+                      {/* email address */}
                     </p>
                   </div>
                   <ul className="py-1" role="none">
                     <li>
-                      <a
-                        href="#"
+                      <Link
+                        href="/dashboard"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                         role="menuitem"
                       >
                         Dashboard
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="#"
+                      <Link
+                        href="/dashboard"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                         role="menuitem"
                       >
-                        Settings
-                      </a>
+                        Alle Anfragen
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="#"
+                      <Link
+                        href="/contact-us-funnel"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                         role="menuitem"
                       >
-                        Earnings
-                      </a>
+                        Neue Anfrage
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                        role="menuitem"
-                      >
-                        Sign out
-                      </a>
+                      <SignOutButton>
+                        <button
+                          className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                          role="menuitem"
+                        >
+                          Sign out
+                        </button>
+                      </SignOutButton>
                     </li>
                   </ul>
                 </div>

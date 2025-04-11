@@ -540,7 +540,7 @@ export const Funnel = (props: FunnelProps) => {
         },
       }}
       ui={{
-        progressContainerClassNames: "sticky bg-slate-50 pt-[100px] top-0",
+        progressContainerClassNames: "sticky bg-slate-50 pt-[100px] top-0 z-4q0",
       }}
     />
   );

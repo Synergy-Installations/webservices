@@ -49,11 +49,11 @@ export const submitApi = api.injectEndpoints({
     }),
     updateSubmit: build.mutation<any, Partial<any>>({
       query(data) {
-        const { _id, questionElements } = data;
+        const { _id, ...body } = data;
         return {
           url: `dashboard/submits/${_id}`,
           method: "PUT",
-          body: questionElements,
+          body: body,
         };
       },
       invalidatesTags: (post) => [{ type: "Submits", id: post?._id }],

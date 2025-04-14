@@ -64,11 +64,19 @@ export interface QuestionElement {
   form: Record<string, Form>;
 }
 
+export interface SubmitStatusInterface {
+  code: string;
+  message: string;
+  color: string;
+}
+
 export interface SubmitInterface extends Document<string> {
   data: Record<string, QuestionElement>;
   emailAddress: string;
   createdAt: Date;
+  status: SubmitStatusInterface;
 }
+
 const OptionSchema = new Schema<Option>({
   text: { type: String, required: true },
   type: { type: String, required: true },
@@ -135,9 +143,16 @@ const QuestionElementSchema = new Schema<QuestionElement>({
 
 const anySchema = new Schema<any>({});
 
+const SubmitStatusSchema = new Schema<SubmitStatusInterface>({
+  code: { type: String, required: true },
+  message: { type: String, required: true },
+  color: { type: String, required: true },
+});
+
 const SubmitSchema = new Schema<SubmitInterface>({
   data: { type: Map, of: Schema.Types.Mixed, required: true },
   emailAddress: { type: String, required: true },
+  status: { type: SubmitStatusSchema, required: true },
   createdAt: { type: Date, default: Date.now, required: true },
 });
 

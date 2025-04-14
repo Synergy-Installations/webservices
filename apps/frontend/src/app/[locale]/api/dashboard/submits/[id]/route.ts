@@ -55,10 +55,15 @@ export async function PUT(
 
   try {
     const body = await req.json();
-    if (user.privateMetadata?.accessRights === "all*") {
+    const accessRights = user.privateMetadata?.accessRights as
+      | string[]
+      | undefined;
+
+    // User has all access rights
+    if (accessRights?.includes("all*")) {
       const submit = await Submit.findByIdAndUpdate(
         id,
-        { data: body },
+        { ...body },
         {
           runValidators: true,
         }
@@ -71,17 +76,22 @@ export async function PUT(
         { success: true, data: submit },
         { status: 200 }
       );
-    } else {
+    }
+    // Otherwise, check if the user requesting the update is the same as the one who created the submit
+    else {
       const submit = await Submit.findOneAndUpdate(
         { _id: id, emailAddress: user.emailAddresses[0].emailAddress },
-        { data: body },
+        { ...body },
         {
           runValidators: true,
         }
       );
 
       if (!submit) {
-        return NextResponse.json({ success: false }, { status: 400 });
+        return NextResponse.json(
+          { success: false, data: submit },
+          { status: 400 }
+        );
       }
       return NextResponse.json(
         { success: true, data: submit },

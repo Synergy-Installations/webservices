@@ -81,6 +81,17 @@ export const SubmitList = (props: SubmitListProps) => {
             } */}
             </p>
           </div>
+            {data?.status && (
+            <div className="flex items-center gap-2 mt-2">
+              <div
+                className="w-4 h-4 rounded-full"
+                style={{ backgroundColor: data.status?.color }}
+              ></div>
+              <p className="text-sm font-medium">
+                Status: {data?.status?.message}
+              </p>
+            </div>
+          )}
           {/* {Object.values(submits.data[0].data[questionKey].form).map(
             (form: any) => {
               return (

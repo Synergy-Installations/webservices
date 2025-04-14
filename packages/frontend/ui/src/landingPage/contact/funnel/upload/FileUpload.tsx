@@ -81,18 +81,21 @@ export const FileUpload = (props: FileUploadProps) => {
           const updatedElements = { ...prev };
           const form = updatedElements[questionKey].form[formKey];
 
-          form.selected.selectedFiles.push({
-            uid: fileName,
-            name: file.name,
-            size: file.size,
-            type: file.type,
-            localUrl: URL.createObjectURL(file),
-            status: "uploading",
-            downloadUrl: encodeURI(
-              questionElements[questionKey].form[formKey].options.download
-                .pullHostName + fileName
-            ),
-          });
+          form.selected.selectedFiles = [
+            ...form.selected.selectedFiles,
+            {
+              uid: fileName,
+              name: file.name,
+              size: file.size,
+              type: file.type,
+              localUrl: URL.createObjectURL(file),
+              status: "uploading",
+              downloadUrl: encodeURI(
+                questionElements[questionKey].form[formKey].options.download
+                  .pullHostName + fileName
+              ),
+            },
+          ];
           /** Used for when mulptiple = false */
           //  else if (
           //   questionElements[questionKey].form[formKey].type === "radio"
@@ -238,7 +241,15 @@ export const FileUpload = (props: FileUploadProps) => {
               <div className="grid sm:flex items-center sm:space-x-2">
                 <div className="flex items-center space-x-2">
                   {file.type.startsWith("image/") ? (
-                    <img src={file.localUrl} alt="" className="h-10" />
+                    <img
+                      src={
+                        file.status === "uploaded"
+                          ? file.downloadUrl
+                          : file.localUrl
+                      }
+                      alt=""
+                      className="h-10"
+                    />
                   ) : (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

@@ -448,6 +448,11 @@ export const Funnel = (props: FunnelProps) => {
         body: JSON.stringify({
           data: questionElements,
           emailAddress: body.to,
+          status: {
+            code: "waiting-for-approval",
+            message: "Anfrage eingegangen, warten auf Genehmigung",
+            color: "LimeGreen",
+          },
         }),
       }).then((res) => {
         console.log("Successfully sent submit to db", res);
@@ -541,7 +546,9 @@ export const Funnel = (props: FunnelProps) => {
         },
       }}
       ui={{
-        progressContainerClassNames: "sticky bg-slate-50 pt-[100px] top-0 z-4q0",
+        progressContainerClassNames:
+          "sticky bg-slate-50 pt-[100px] top-0 z-4q0",
+        sectionContainerClassNames: "mt-10",
       }}
     />
   );

@@ -26,7 +26,8 @@ export async function GET(req: NextRequest) {
   await dbConnect();
 
   try {
-    if (user.privateMetadata?.accessRights === "all*") {
+    const accessRights = user.privateMetadata?.accessRights as string[] | undefined;
+    if (accessRights?.includes("all*")) {
       const items = await Submit.find({});
       return new Response(JSON.stringify({ success: true, data: items }), {
         status: 200,

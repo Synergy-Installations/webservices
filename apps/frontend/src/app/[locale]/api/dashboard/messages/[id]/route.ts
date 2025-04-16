@@ -2,31 +2,84 @@ import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@com.synergy/frontend-backend-dashboard/mongodb";
 import Submit from "@com.synergy/frontend-backend-dashboard/submit";
 import { clerkClient, getAuth } from "@clerk/nextjs/server";
+import { MessageInterface } from "@com.synergy/frontend-backend-dashboard/message";
+import User from "@com.synergy/frontend-backend-dashboard/user";
+import Message from "@com.synergy/frontend-backend-dashboard/message";
 
-// export async function GET(
-//   req: Request,
-//   { params }: { params: { id: string } }
-// ) {
-//   const { id } = params;
-//   await dbConnect();
+export async function GET(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  const { id } = params;
+  const { userId } = getAuth(req);
 
-//   try {
-//     const items = await Submit.find({ _id: id });
-//     return new Response(JSON.stringify({ success: true, data: items }), {
-//       status: 200,
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//     });
-//   } catch (error) {
-//     return new Response(JSON.stringify({ success: false }), {
-//       status: 400,
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//     });
-//   }
-// }
+  if (!userId) {
+    return NextResponse.json(
+      { success: false, error: "Unauthorized" },
+      { status: 401 }
+    );
+  }
+
+  const client = await clerkClient();
+  const user = await client.users.getUser(userId);
+
+  await dbConnect();
+
+  try {
+    const accessRights = user.privateMetadata?.accessRights as
+      | string[]
+      | undefined;
+
+    const dbSubmit = await Submit.findById(id, "emailAddress").exec();
+
+    if (
+      accessRights?.includes("all:*") ||
+      accessRights?.includes("all:messages")
+    ) {
+      const messages = await Message.find({ submitId: id })
+        .populate("sentByUserId", "firstName lastName emailAddress")
+        .sort({ createdAt: 1 })
+        .exec();
+
+      return NextResponse.json(
+        {
+          success: true,
+          data: { submit: { emailAddress: dbSubmit.emailAddress }, messages },
+        },
+        { status: 200 }
+      );
+    }
+
+    if (
+      user.emailAddresses.some(
+        (e) => e.emailAddress === dbSubmit.emailAddress
+      )
+    ) {
+      const messages = await Message.find({ submitId: id })
+        .populate("sentByUserId", "firstName lastName emailAddress")
+        .sort({ createdAt: 1 })
+        .exec();
+
+      return NextResponse.json(
+        {
+          success: true,
+          data: { submit: { emailAddress: dbSubmit.emailAddress }, messages },
+        },
+        { status: 200 }
+      );
+    }
+
+    return NextResponse.json(
+      { success: false, error: "Unauthorized or not enough rights" },
+      { status: 401 }
+    );
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ success: false, error: error }, {
+      status: 400,
+    });
+  }
+}
 
 // export async function PUT(
 //   req: NextRequest,
@@ -60,7 +113,7 @@ import { clerkClient, getAuth } from "@clerk/nextjs/server";
 //       | undefined;
 
 //     // User has all access rights
-//     if (accessRights?.includes("all*")) {
+//     if (accessRights?.includes("all:*")) {
 //       const submit = await Submit.findByIdAndUpdate(
 //         id,
 //         { ...body },

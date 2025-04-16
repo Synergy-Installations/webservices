@@ -1,8 +1,15 @@
 "use client";
-import { useState } from "react";
-import { MessageInterface } from "@com.synergy/frontend-backend-dashboard/message";
-import { useAddMessageMutation } from "@com.synergy/frontend-backend-dashboard/messageApi";
+import { useEffect, useRef, useState } from "react";
+import {
+  MessageInterface,
+  GetMessagesInterface,
+} from "@com.synergy/frontend-backend-dashboard/message";
+import {
+  useAddMessageMutation,
+  useGetMessagesQuery,
+} from "@com.synergy/frontend-backend-dashboard/messageApi";
 import { Types } from "mongoose";
+import { useUser } from "@clerk/nextjs";
 
 /* eslint-disable-next-line */
 export interface MessageSubmitProps {
@@ -12,6 +19,19 @@ export interface MessageSubmitProps {
 export const MessageSubmit = (props: MessageSubmitProps) => {
   const { id: submitId } = props.params;
   const [addMessage, { isLoading }] = useAddMessageMutation();
+  const { data: messages, isLoading: isGetMessagesLoading } =
+    useGetMessagesQuery(submitId);
+
+  const user = useUser();
+
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (scrollContainerRef.current && messages) {
+      scrollContainerRef.current.scrollTop =
+        scrollContainerRef.current.scrollHeight;
+    }
+  }, [messages]);
 
   const [newMessage, setNewMessage] = useState<Partial<MessageInterface>>({
     submitId: new Types.ObjectId(submitId),
@@ -27,100 +47,123 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
   };
 
   return (
-    <div className="h-screen relative sm:ml-64 md:mr-96 pt-32">
-      <div className="flex h-full flex-col justify-between p-4">
-        <div className="flex items-start gap-2.5">
-          <img
-            className="w-8 h-8 rounded-full"
-            src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-            alt="Jese image"
-          />
-          <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
-            <div className="flex items-center space-x-2 rtl:space-x-reverse">
-              <span className="text-sm font-semibold text-gray-900 dark:text-white">
-                Bonnie Green
-              </span>
-              <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                11:46
-              </span>
-            </div>
-            <p className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
-              That's awesome. I think our users will really appreciate the
-              improvements.
-            </p>
-            <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
-              Delivered
-            </span>
-          </div>
-          <button
-            id="dropdownMenuIconButton"
-            data-dropdown-toggle="dropdownDots"
-            data-dropdown-placement="bottom-start"
-            className="inline-flex self-center items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-800 dark:focus:ring-gray-600"
-            type="button"
-          >
-            <svg
-              className="w-4 h-4 text-gray-500 dark:text-gray-400"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 4 15"
-            >
-              <path d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
-            </svg>
-          </button>
+    <>
+      <div
+        className={`flex sm:ml-64 md:mr-96 flex-col gap-2 pb-0 p-4 overflow-y-scroll`}
+        ref={scrollContainerRef}
+      >
+        {messages?.data?.messages.map((message) => (
           <div
-            id="dropdownDots"
-            className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-40 dark:bg-gray-700 dark:divide-gray-600"
+            className={`flex items-start gap-2.5 ${
+              user.user?.emailAddresses.some(
+                (e) => e.emailAddress === message.sentByUserId.emailAddress
+              )
+                ? "self-end"
+                : "self-start"
+            }`}
+            key={message._id}
           >
-            <ul
-              className="py-2 text-sm text-gray-700 dark:text-gray-200"
-              aria-labelledby="dropdownMenuIconButton"
+            <img
+              className="w-8 h-8 rounded-full"
+              src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+              alt="Jese image"
+            />
+            <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
+              <div className="flex items-center space-x-2 rtl:space-x-reverse">
+                <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                  {message.sentByUserId.firstName}{" "}
+                  {message.sentByUserId?.lastName}
+                </span>
+                <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
+                  {new Date(message.createdAt).toLocaleDateString("de-AT", {
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                </span>
+              </div>
+              <p className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">
+                {message.message}
+              </p>
+              {/* <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
+                Sent
+              </span> */}
+            </div>
+            <button
+              id="dropdownMenuIconButton"
+              data-dropdown-toggle="dropdownDots"
+              data-dropdown-placement="bottom-start"
+              className="hidden lg:inline-flex self-center items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-800 dark:focus:ring-gray-600"
+              type="button"
             >
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Reply
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Forward
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Copy
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Report
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Delete
-                </a>
-              </li>
-            </ul>
+              <svg
+                className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 4 15"
+              >
+                <path d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+              </svg>
+            </button>
+            <div
+              id="dropdownDots"
+              className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-40 dark:bg-gray-700 dark:divide-gray-600"
+            >
+              <ul
+                className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                aria-labelledby="dropdownMenuIconButton"
+              >
+                <li>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    Reply
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    Forward
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    Copy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    Report
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    Delete
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <form className="flex items-center w-full max-w-xl mx-auto">
+        ))}
+      </div>
+
+      <form className="flex justify-center p-4 pt-2 sm:ml-64 md:mr-96">
+        <div className="flex items-center justify-center max-w-xl w-full">
           <label htmlFor="voice-search" className="sr-only">
             Message input
           </label>
@@ -145,7 +188,7 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
             <input
               type="text"
               id="voice-search"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 pe-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Communicate directly to our team..."
               required
               value={newMessage.message}
@@ -242,9 +285,9 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
               Send
             </span>
           </button>
-        </form>
-      </div>
-    </div>
+        </div>
+      </form>
+    </>
   );
 };
 

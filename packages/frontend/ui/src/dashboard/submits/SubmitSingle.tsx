@@ -49,7 +49,7 @@ export const TopBarSubmitSingle = ({
   console.log("topBarSubmitSingleStatus", status, submit);
 
   return (
-    <div className="fixed left-0 w-full z-20 top-[58px] py-2 border-b border-synergy-light-grey bg-white">
+    <div className="mt-14 w-full z-50 top-[58px] py-2 border-b border-synergy-light-grey bg-white">
       <div className="flex justify-between items-center gap-2 px-4 sm:ml-64">
         <div className="">
           <div className="">Anfrage #{submit._id}</div>
@@ -108,11 +108,11 @@ export const TopBarSubmitSingle = ({
                   ((
                     (user?.publicMetadata as { accessRights?: string[] })
                       ?.accessRights ?? []
-                  ).includes("status") ||
+                  ).includes("all:status") ||
                     (
                       (user?.publicMetadata as { accessRights?: string[] })
                         ?.accessRights ?? []
-                    ).includes("all*")) && (
+                    ).includes("all:*")) && (
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => setEditingStatus(true)}
@@ -189,7 +189,7 @@ export const SubmitSingle = (props: SubmitSingleProps) => {
   console.log("submit", submit.data[0].data, questionElements);
 
   return (
-    <>
+    <div>
       <div className="">
         <TopBarSubmitSingle
           id={props.params.id}
@@ -200,7 +200,7 @@ export const SubmitSingle = (props: SubmitSingleProps) => {
       <aside
         id="logo-sidebar"
         ref={mobileNav}
-        className={`fixed top-0 right-0 z-10 w-96 h-screen transition-transform ${mobileNavOpen ? "md:translate-x-0" : "translate-x-full"} bg-white border-l border-gray-200 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700`}
+        className={`fixed right-0 z-10 w-96 h-screen transition-transform ${mobileNavOpen ? "md:translate-x-0" : "translate-x-full"} bg-white border-l border-gray-200 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700`}
         aria-label="Sidebar"
       >
         <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
@@ -218,9 +218,9 @@ export const SubmitSingle = (props: SubmitSingleProps) => {
               }}
               ui={{
                 progressContainerClassNames:
-                  "sticky bg-white pt-0 pr-0 top-36 w-full z-50",
+                  "sticky bg-white pt-0 pr-0 top-6 w-full z-50",
                 progressContainerBackground: true,
-                sectionContainerClassNames: "mt-24",
+                sectionContainerClassNames: "mt-10 last:pb-32",
               }}
             >
               {(questionElements) => setQuestionElements(questionElements)}
@@ -228,7 +228,7 @@ export const SubmitSingle = (props: SubmitSingleProps) => {
           </div>
         </div>
       </aside>
-    </>
+    </div>
   );
 };
 

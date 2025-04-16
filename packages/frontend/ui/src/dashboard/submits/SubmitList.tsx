@@ -14,7 +14,7 @@ export const SubmitList = (props: SubmitListProps) => {
   if (isLoading) return <div>Loading...</div>;
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 p-4 sm:pl-[272px] mt-14">
       {submits.data.map((data: any, index: number) => (
         <Link
           href={`/dashboard/submits/${data._id}`}
@@ -81,7 +81,7 @@ export const SubmitList = (props: SubmitListProps) => {
             } */}
             </p>
           </div>
-            {data?.status && (
+          {data?.status && (
             <div className="flex items-center gap-2 mt-2">
               <div
                 className="w-4 h-4 rounded-full"

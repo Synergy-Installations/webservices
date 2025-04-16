@@ -31,7 +31,7 @@ import { Types } from "mongoose";
 
 //   try {
 //     const accessRights = user.privateMetadata?.accessRights as string[] | undefined;
-//     if (accessRights?.includes("all*")) {
+//     if (accessRights?.includes("all:*")) {
 //       const items = await Submit.find({});
 //       return new Response(JSON.stringify({ success: true, data: items }), {
 //         status: 200,
@@ -94,7 +94,7 @@ export async function POST(req: NextRequest) {
 
     // User has all access or message rights
     if (
-      accessRights?.includes("all*") ||
+      accessRights?.includes("all:*") ||
       accessRights?.includes("all:messages")
     ) {
       const message = await Message.create({

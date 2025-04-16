@@ -60,7 +60,7 @@ export async function PUT(
       | undefined;
 
     // User has all access rights
-    if (accessRights?.includes("all*")) {
+    if (accessRights?.includes("all:*")) {
       const submit = await Submit.findByIdAndUpdate(
         id,
         { ...body },

@@ -26,12 +26,12 @@ export default async function Page({
   params: Promise<{ id: string }>;
 }): Promise<JSX.Element> {
   return (
-    <>
+    <div className="flex flex-col justify-between overflow-hidden h-screen">
       <SubmitSingle
         params={await params}
         STORAGE_ZONE_ACCESS_KEY={process.env.STORAGE_ZONE_ACCESS_KEY}
       />
       <MessageSubmit params={await params} />
-    </>
+    </div>
   );
 }

@@ -1,6 +1,9 @@
 import { retry } from "@reduxjs/toolkit/query/react";
 import { api } from "./api";
-import { MessageInterface } from "@com.synergy/frontend-backend-dashboard/message";
+import {
+  GetMessagesInterface,
+  MessageInterface,
+} from "@com.synergy/frontend-backend-dashboard/message";
 
 type MessageResponse = { success: boolean; data: MessageInterface[] };
 // On modifications, we only send the modified message back as an object
@@ -28,15 +31,20 @@ export const submitApi = api.injectEndpoints({
     //     },
     //   },
     // }),
-    // getSubmits: build.query<any, void>({
-    //   query: () => ({ url: "dashboard/submits" }),
-    //   providesTags: (result = { success: false, data: [] }) => [
-    //     ...result.data.map(
-    //       ({ _id }: { _id: string }) => ({ type: "Submits", _id }) as const
-    //     ),
-    //     { type: "Submits" as const, id: "LIST" },
-    //   ],
-    // }),
+    getMessages: build.query<GetMessagesInterface, string>({
+      query: (id) => ({ url: `dashboard/messages/${id}` }),
+      providesTags: (
+        result = {
+          success: false,
+          data: { submit: { emailAddress: "" }, messages: [] },
+        }
+      ) => [
+        ...result.data.messages.map(
+          ({ _id }: { _id: string }) => ({ type: "Messages", _id }) as const
+        ),
+        { type: "Messages" as const, id: "LIST" },
+      ],
+    }),
     addMessage: build.mutation<MessageInterface, Partial<MessageInterface>>({
       query: (body) => ({
         url: `dashboard/messages`,
@@ -77,6 +85,7 @@ export const submitApi = api.injectEndpoints({
 
 export const {
   useAddMessageMutation,
+  useGetMessagesQuery,
   // useGetSubmitsQuery,
   // useGetSubmitQuery,
   // useUpdateSubmitMutation,

@@ -32,6 +32,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
     "@types/react": "^18.2.61",
+    "aws4": "^1.13.2",
     "immer": "^10.0.3",
     "mongoose": "^8.13.0",
     "react-redux": "^9.2.0"

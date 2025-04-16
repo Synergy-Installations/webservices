@@ -69,10 +69,11 @@ export interface DefaultFunnelProps {
     progressContainerBackground?: boolean;
     sectionContainerClassNames?: string;
   };
+  children?(questionElements: any): void;
 }
 
 export const DefaultFunnel = (props: DefaultFunnelProps) => {
-  const { questionElementsRaw, STORAGE_ZONE_ACCESS_KEY } = props;
+  const { questionElementsRaw, STORAGE_ZONE_ACCESS_KEY, children } = props;
   const {
     submitFunnel,
     auth,
@@ -118,6 +119,8 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
       return questionElementsRawReduce;
     }
   );
+
+  children && children(questionElements);
 
   const confettiConfig = {
     angle: 90,
@@ -836,11 +839,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                 questionElements[questionKey]?.defaultVisible === true
             )
             .map((questionKey: any, index: any) => (
-              <section
-                id={questionKey}
-                key={index}
-                className="scroll-mt-40"
-              >
+              <section id={questionKey} key={index} className="scroll-mt-40">
                 {/** Title and description of question */}
                 <div className="text-center">
                   <div className="text-2xl font-bold">

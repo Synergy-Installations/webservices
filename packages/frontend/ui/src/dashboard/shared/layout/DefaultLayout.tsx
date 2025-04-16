@@ -360,7 +360,9 @@ export const DefaultLayout = (props: DefaultLayoutProps) => {
         </div>
       </aside>
 
-      <div className="p-4 sm:pl-[272px] mt-14">{props.children}</div>
+      {/* <div className="p-4 sm:pl-[272px] mt-14"> */}
+        {props.children}
+        {/* </div> */}
     </div>
   );
 };

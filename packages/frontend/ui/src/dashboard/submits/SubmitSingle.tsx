@@ -4,7 +4,7 @@ import { useGetSubmitQuery } from "@com.synergy/frontend-backend-dashboard/submi
 import { DefaultFunnel } from "@com.synergy/frontend-ui/DefaultFunnel";
 import { useUpdateSubmitMutation } from "@com.synergy/frontend-backend-dashboard/submitApi";
 import { div } from "framer-motion/client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 
 /* eslint-disable-next-line */
@@ -13,7 +13,15 @@ export interface SubmitSingleProps {
   STORAGE_ZONE_ACCESS_KEY: string | undefined;
 }
 
-const topBarSubmitSingle = (id: string, submit: any, questionElements: any) => {
+export const TopBarSubmitSingle = ({
+  id,
+  submit,
+  questionElements,
+}: {
+  id: string;
+  submit: any;
+  questionElements: any;
+}) => {
   const [updateSubmit, { status }] = useUpdateSubmitMutation();
 
   const { user } = useUser();
@@ -41,7 +49,7 @@ const topBarSubmitSingle = (id: string, submit: any, questionElements: any) => {
   console.log("topBarSubmitSingleStatus", status, submit);
 
   return (
-    <div className="fixed left-0 w-full z-20 top-[58px] py-2 border-b border-synergy-light-grey bg-white">
+    <div className="mt-14 w-full z-50 top-[58px] py-2 border-b border-synergy-light-grey bg-white">
       <div className="flex justify-between items-center gap-2 px-4 sm:ml-64">
         <div className="">
           <div className="">Anfrage #{submit._id}</div>
@@ -100,11 +108,11 @@ const topBarSubmitSingle = (id: string, submit: any, questionElements: any) => {
                   ((
                     (user?.publicMetadata as { accessRights?: string[] })
                       ?.accessRights ?? []
-                  ).includes("status") ||
+                  ).includes("all:status") ||
                     (
                       (user?.publicMetadata as { accessRights?: string[] })
                         ?.accessRights ?? []
-                    ).includes("all*")) && (
+                    ).includes("all:*")) && (
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => setEditingStatus(true)}
@@ -164,6 +172,10 @@ const topBarSubmitSingle = (id: string, submit: any, questionElements: any) => {
 export const SubmitSingle = (props: SubmitSingleProps) => {
   const { STORAGE_ZONE_ACCESS_KEY } = props;
 
+  const mobileNav = useRef<HTMLDivElement>(null);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [questionElements, setQuestionElements] = useState<any>({});
+
   console.log("SubmitSingle", props.params.id);
 
   const { data: submit, isLoading } = useGetSubmitQuery(props.params.id, {
@@ -174,34 +186,48 @@ export const SubmitSingle = (props: SubmitSingleProps) => {
     return <div>Loading...</div>;
   }
 
-  console.log("submit", submit.data[0].data);
+  console.log("submit", submit.data[0].data, questionElements);
 
   return (
     <div>
-      <DefaultFunnel
-        questionElementsRaw={submit.data[0].data}
-        STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
-        config={{
-          format: {
-            useKey: true,
-            useStrings: false,
-            useSelected: true,
-            useUidAsKey: true,
-          },
-        }}
-        ui={{
-          topBar: (questionElements) =>
-            topBarSubmitSingle(
-              props.params.id,
-              submit.data[0],
-              questionElements
-            ),
-          progressContainerClassNames:
-            "sticky bg-white pt-0 pr-0 top-36 w-full",
-          progressContainerBackground: true,
-          sectionContainerClassNames: "mt-24",
-        }}
-      />
+      <div className="">
+        <TopBarSubmitSingle
+          id={props.params.id}
+          submit={submit.data[0]}
+          questionElements={questionElements}
+        />
+      </div>
+      <aside
+        id="logo-sidebar"
+        ref={mobileNav}
+        className={`fixed right-0 z-10 w-96 h-screen transition-transform ${mobileNavOpen ? "md:translate-x-0" : "translate-x-full"} bg-white border-l border-gray-200 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700`}
+        aria-label="Sidebar"
+      >
+        <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+          <div className="">
+            <DefaultFunnel
+              questionElementsRaw={submit.data[0].data}
+              STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
+              config={{
+                format: {
+                  useKey: true,
+                  useStrings: false,
+                  useSelected: true,
+                  useUidAsKey: true,
+                },
+              }}
+              ui={{
+                progressContainerClassNames:
+                  "sticky bg-white pt-0 pr-0 top-6 w-full z-50",
+                progressContainerBackground: true,
+                sectionContainerClassNames: "mt-10 last:pb-32",
+              }}
+            >
+              {(questionElements) => setQuestionElements(questionElements)}
+            </DefaultFunnel>
+          </div>
+        </div>
+      </aside>
     </div>
   );
 };

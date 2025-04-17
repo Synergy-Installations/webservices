@@ -57,7 +57,7 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
             <div
               className={`flex items-start gap-2.5 ${
                 user.user?.emailAddresses.some(
-                  (e) => e.emailAddress === message.sentByUserId.emailAddress
+                  (e) => e.emailAddress === message.sentByUserId?.emailAddress
                 )
                   ? "self-end md:pr-96"
                   : "self-start sm:ml-64"
@@ -72,7 +72,7 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
               <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
                 <div className="flex items-center space-x-2 rtl:space-x-reverse">
                   <span className="text-sm font-semibold text-gray-900 dark:text-white">
-                    {message.sentByUserId.firstName}{" "}
+                    {message.sentByUserId?.firstName || "Unbekannter User"}{" "}
                     {message.sentByUserId?.lastName}
                   </span>
                   <span className="text-sm font-normal text-gray-500 dark:text-gray-400">

@@ -62,12 +62,6 @@ export async function POST(req: Request) {
     if (eventType === "user.created") {
       // Handle user created event
       let user = await User.findOne({ createdUserAuthId: evt.data.id });
-      console.log(
-        "User created event:",
-        user,
-        user?.lastName,
-        user?.lastName ? true : false
-      );
 
       if (user) {
         console.log("User already exists, updating user...");
@@ -83,10 +77,8 @@ export async function POST(req: Request) {
                   ? "complete"
                   : "incomplete",
             // Empty strings are false and will use the evt.data values
-            firstName: user.firstName
-              ? user.firstName
-              : evt.data.first_name || "",
-            lastName: user.lastName ? user.lastName : evt.data.last_name || "",
+            firstName: user.firstName ? user.firstName : evt.data.first_name,
+            lastName: user.lastName ? user.lastName : evt.data.last_name,
             emailAddress: user.emailAddress
               ? user.emailAddress
               : evt.data.email_addresses[0]?.email_address,
@@ -109,8 +101,8 @@ export async function POST(req: Request) {
             evt.data.email_addresses[0].verification?.status === "verified"
               ? "complete"
               : "incomplete",
-          firstName: evt.data.first_name || "",
-          lastName: evt.data.last_name || "",
+          firstName: evt.data.first_name,
+          lastName: evt.data.last_name,
           emailAddress: evt.data.email_addresses[0]?.email_address,
           phoneNumber: evt.data.phone_numbers[0]?.phone_number,
           verifications: {
@@ -134,8 +126,8 @@ export async function POST(req: Request) {
             evt.data.email_addresses[0].verification?.status === "verified"
               ? "complete"
               : "incomplete",
-          firstName: evt.data.first_name || "",
-          lastName: evt.data.last_name || "",
+          firstName: evt.data.first_name,
+          lastName: evt.data.last_name,
           emailAddress: evt.data.email_addresses[0]?.email_address,
           phoneNumber: evt.data.phone_numbers[0]?.phone_number,
           verifications: {

@@ -18,9 +18,13 @@ export interface MessageSubmitProps {
 
 export const MessageSubmit = (props: MessageSubmitProps) => {
   const { id: submitId } = props.params;
-  const [addMessage, { isLoading }] = useAddMessageMutation();
-  const { data: messages, isLoading: isGetMessagesLoading } =
-    useGetMessagesQuery(submitId);
+  const [addMessage, { isLoading, error: addMessageError }] =
+    useAddMessageMutation();
+  const {
+    data: messages,
+    isLoading: isGetMessagesLoading,
+    error: isGetMessagesError,
+  } = useGetMessagesQuery(submitId);
 
   const user = useUser();
 
@@ -53,119 +57,153 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
         ref={scrollContainerRef}
       >
         <div className="flex flex-col w-full gap-2 ">
-          {messages?.data?.messages.map((message) => (
-            <div
-              className={`flex items-start gap-2.5 ${
-                user.user?.emailAddresses.some(
-                  (e) => e.emailAddress === message.sentByUserId?.emailAddress
-                )
-                  ? "self-end md:pr-96"
-                  : "self-start sm:ml-64"
-              }`}
-              key={message._id}
-            >
-              <img
-                className="w-8 h-8 rounded-full"
-                src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                alt="Jese image"
-              />
-              <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
-                <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                  <span className="text-sm font-semibold text-gray-900 dark:text-white">
-                    {message.sentByUserId?.firstName || "Unbekannter User"}{" "}
-                    {message.sentByUserId?.lastName}
-                  </span>
-                  <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                    {new Date(message.createdAt).toLocaleDateString("de-AT", {
-                      year: "numeric",
-                      month: "2-digit",
-                      day: "2-digit",
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })}
-                  </span>
+          {isGetMessagesLoading ? (
+            Array.from({ length: 4 }).map((_, index) => (
+              <div
+                key={index}
+                className={`flex items-start gap-2.5 min-w-40 bg-slgate-100 animate-pulse ${
+                  index % 2 === 0 ? "self-start sm:ml-64" : "self-end md:mr-96"
+                }`}
+              >
+                <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
+                <div className="flex flex-col gap-2 w-full max-w-3xl leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
+                  <div className="h-4 bg-gray-300 rounded w-3/4"></div>
+                  <div className="h-3 bg-gray-300 rounded w-1/2"></div>
+                  <div className="h-3 bg-gray-300 rounded w-full"></div>
                 </div>
-                <p className="text-sm font-normal pt-2 text-gray-900 dark:text-white">
-                  {message.message}
-                </p>
-                {/* <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
+              </div>
+            ))
+          ) : isGetMessagesError ? (
+            <div className="flex items-center justify-start sm:ml-64 w-full h-full text-center text-red-500">
+              <p>
+                Ein Fehler ist aufgetreten. Bitte laden Sie die Seite neu oder
+                versuchen Sie es später erneut.
+              </p>
+            </div>
+          ) : (
+            messages?.data?.messages.map((message) => (
+              <div
+                className={`flex items-start gap-2.5 ${
+                  user.user?.emailAddresses.some(
+                    (e) => e.emailAddress === message.sentByUserId?.emailAddress
+                  )
+                    ? "self-end md:pr-96"
+                    : "self-start sm:ml-64"
+                }`}
+                key={message._id}
+              >
+                <img
+                  className="w-8 h-8 rounded-full"
+                  src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                  alt="Jese image"
+                />
+                <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
+                  <div className="flex items-center space-x-2 rtl:space-x-reverse">
+                    <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                      {message.sentByUserId?.firstName || "Unbekannter User"}{" "}
+                      {message.sentByUserId?.lastName}
+                    </span>
+                    <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
+                      {new Date(message.createdAt).toLocaleDateString("de-AT", {
+                        year: "numeric",
+                        month: "2-digit",
+                        day: "2-digit",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
+                    </span>
+                  </div>
+                  <p className="text-sm font-normal pt-2 text-gray-900 dark:text-white">
+                    {message.message}
+                  </p>
+                  {/* <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
                 Sent
               </span> */}
-              </div>
-              <button
-                id="dropdownMenuIconButton"
-                data-dropdown-toggle="dropdownDots"
-                data-dropdown-placement="bottom-start"
-                className="hidden lg:inline-flex self-center items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-800 dark:focus:ring-gray-600"
-                type="button"
-              >
-                <svg
-                  className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 4 15"
+                </div>
+                <button
+                  id="dropdownMenuIconButton"
+                  data-dropdown-toggle="dropdownDots"
+                  data-dropdown-placement="bottom-start"
+                  className="hidden lg:inline-flex self-center items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-800 dark:focus:ring-gray-600"
+                  type="button"
                 >
-                  <path d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
-                </svg>
-              </button>
-              <div
-                id="dropdownDots"
-                className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-40 dark:bg-gray-700 dark:divide-gray-600"
-              >
-                <ul
-                  className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                  aria-labelledby="dropdownMenuIconButton"
+                  <svg
+                    className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 4 15"
+                  >
+                    <path d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                  </svg>
+                </button>
+                <div
+                  id="dropdownDots"
+                  className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-40 dark:bg-gray-700 dark:divide-gray-600"
                 >
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      Reply
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      Forward
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      Copy
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      Report
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      Delete
-                    </a>
-                  </li>
-                </ul>
+                  <ul
+                    className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                    aria-labelledby="dropdownMenuIconButton"
+                  >
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Reply
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Forward
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Copy
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Report
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Delete
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
 
-      <form className="flex justify-center p-4 pt-2 sm:ml-64 md:mr-96">
-        <div className="flex items-center justify-center max-w-xl w-full">
+      <form className="flex flex-col items-center gap-2 p-4 pt-2 sm:ml-64 md:mr-96">
+        {addMessageError && (
+          <span className="text-red-500 max-w-xl w-full text-left">
+            Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.
+          </span>
+        )}
+        <div
+          className={`flex items-center justify-center max-w-xl w-full ${
+            isLoading ? "animate-pulse" : ""
+          }`}
+        >
           <label htmlFor="voice-search" className="sr-only">
             Message input
           </label>
@@ -260,7 +298,7 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
               </svg>
             ) : (
               <svg
-                className="w-4 h-4 me-2 transition-transform group-hover:translate-x-0.5"
+                className="w-4 h-4 me-2 transition-transform group-hover:translate-x-0.5 group-disabled:group-hover:translate-x-0"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -283,7 +321,7 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
               </svg>
             )}
 
-            <span className="transition-transform group-hover:translate-x-0.5">
+            <span className="transition-transform group-hover:translate-x-0.5 group-disabled:group-hover:translate-x-0">
               Senden
             </span>
           </button>

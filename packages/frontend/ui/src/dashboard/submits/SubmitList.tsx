@@ -6,12 +6,42 @@ import { Link } from "@com.synergy/frontend-shared-internationalization/routing"
 export interface SubmitListProps {}
 
 export const SubmitList = (props: SubmitListProps) => {
-  const { data: submits = { success: false, data: [] }, isLoading } =
-    useGetSubmitsQuery();
+  const {
+    data: submits = { success: false, data: [] },
+    isLoading,
+    error,
+  } = useGetSubmitsQuery();
 
   console.log("submits", submits);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (error) {
+    return (
+      <div className="flex flex-col gap-2 p-4 sm:pl-[272px] mt-14 items-center justify-center h-full">
+        <p className="text-red-500 font-bold text-lg">
+          Ein Fehler ist aufgetreten.
+        </p>
+        <p className="text-gray-500">
+          Bitte laden Sie die Seite neu oder versuchen Sie es später erneut.
+        </p>
+      </div>
+    );
+  }
+
+  if (isLoading)
+    return (
+      <div className="flex flex-col gap-4 p-4 sm:pl-[272px] mt-14 animate-pulse">
+        {Array.from({ length: 3 }).map((_, index) => (
+          <div
+            key={index}
+            className="border bg-synergy-light-grey border-synergy-light-grey p-4 rounded-xl"
+          >
+            <div className="h-6 bg-gray-300 rounded w-1/4 mb-2"></div>
+            <div className="h-4 bg-gray-300 rounded w-1/3 mb-1"></div>
+            <div className="h-4 bg-gray-300 rounded w-1/3"></div>
+          </div>
+        ))}
+      </div>
+    );
 
   return (
     <div className="flex flex-col gap-2 p-4 sm:pl-[272px] mt-14">

@@ -5,9 +5,9 @@ import {
   MessageInterface,
 } from "@com.synergy/frontend-backend-dashboard/message";
 
-type MessageResponse = { success: boolean; data: MessageInterface[] };
+// type MessageResponse = { success: boolean; data: MessageInterface[] };
 // On modifications, we only send the modified message back as an object
-type MessageResponseMod = { success: boolean; data: MessageInterface };
+// type MessageResponseMod = { success: boolean; data: MessageInterface };
 
 // export interface User {
 //   first_name: string;
@@ -16,7 +16,7 @@ type MessageResponseMod = { success: boolean; data: MessageInterface };
 //   phone: string;
 // }
 
-export const messageApi = api.injectEndpoints({
+export const stepApi = api.injectEndpoints({
   endpoints: (build) => ({
     // login: build.mutation<{ token: string; user: User }, any>({
     //   query: (credentials: any) => ({
@@ -31,28 +31,28 @@ export const messageApi = api.injectEndpoints({
     //     },
     //   },
     // }),
-    getMessages: build.query<GetMessagesInterface, string>({
-      query: (id) => ({ url: `dashboard/messages/${id}` }),
-      providesTags: (
-        result = {
-          success: false,
-          data: { submit: { emailAddress: "" }, messages: [] },
-        }
-      ) => [
-        ...result.data.messages.map(
-          ({ _id }: { _id: string }) => ({ type: "Messages", _id }) as const
-        ),
-        { type: "Messages" as const, id: "LIST" },
-      ],
-    }),
-    addMessage: build.mutation<MessageInterface, Partial<MessageInterface>>({
-      query: (body) => ({
-        url: `dashboard/messages`,
-        method: "POST",
-        body,
-      }),
-      invalidatesTags: [{ type: "Messages", id: "LIST" }],
-    }),
+    // getMessages: build.query<GetMessagesInterface, string>({
+    //   query: (id) => ({ url: `dashboard/messages/${id}` }),
+    //   providesTags: (
+    //     result = {
+    //       success: false,
+    //       data: { submit: { emailAddress: "" }, messages: [] },
+    //     }
+    //   ) => [
+    //     ...result.data.messages.map(
+    //       ({ _id }: { _id: string }) => ({ type: "Messages", _id }) as const
+    //     ),
+    //     { type: "Messages" as const, id: "LIST" },
+    //   ],
+    // }),
+    // addMessage: build.mutation<MessageInterface, Partial<MessageInterface>>({
+    //   query: (body) => ({
+    //     url: `dashboard/messages`,
+    //     method: "POST",
+    //     body,
+    //   }),
+    //   invalidatesTags: [{ type: "Messages", id: "LIST" }],
+    // }),
     // getSubmit: build.query<any, string>({
     //   query: (id) => `dashboard/submits/${id}`,
     //   providesTags: (_post, _err, id) => [{ type: "Submits", id }],
@@ -84,8 +84,8 @@ export const messageApi = api.injectEndpoints({
 });
 
 export const {
-  useAddMessageMutation,
-  useGetMessagesQuery,
+  // useAddMessageMutation,
+  // useGetMessagesQuery,
   // useGetSubmitsQuery,
   // useGetSubmitQuery,
   // useUpdateSubmitMutation,
@@ -95,7 +95,7 @@ export const {
   //   useLoginMutation,
   //   useUpdateItemMutation,
   //   useGetErrorProneQuery,
-} = messageApi;
+} = stepApi;
 
 // export const {
 //   endpoints: { getItem },

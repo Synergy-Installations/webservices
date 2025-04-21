@@ -15,7 +15,7 @@ const UserSchema = new mongoose.Schema({
     emailAddress: { type: Boolean, default: false },
     phoneNumber: { type: Boolean, default: false },
   },
-  createdUserAuthId: { type: String, required: false, unique: true },
+  createdUserAuthId: { type: String, required: false },
 });
 
 export default mongoose.models.User || mongoose.model("User", UserSchema);

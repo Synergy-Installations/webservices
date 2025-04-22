@@ -19,19 +19,17 @@ import {
 import SubmitList from "@com.synergy/frontend-ui/SubmitList";
 import { SubmitSingle } from "@com.synergy/frontend-ui/SubmitSingle";
 import { MessageSubmit } from "@com.synergy/frontend-ui/MessageSubmit";
+import { SingleSubmitTabs } from "@com.synergy/frontend-ui/SingleSubmitTabs";
 
-export default async function Page({
+export default function Page({
   params,
 }: {
-  params: Promise<{ id: string }>;
-}): Promise<JSX.Element> {
+  params: { id: string };
+}): JSX.Element {
   return (
-    <div className="flex flex-col justify-between overflow-hidden h-screen">
-      <SubmitSingle
-        params={await params}
-        STORAGE_ZONE_ACCESS_KEY={process.env.STORAGE_ZONE_ACCESS_KEY}
-      />
-      <MessageSubmit params={await params} />
-    </div>
+    <>
+      <SingleSubmitTabs params={params} />
+      <MessageSubmit params={params} />
+    </>
   );
 }

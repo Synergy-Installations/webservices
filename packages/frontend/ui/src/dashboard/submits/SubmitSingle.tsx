@@ -204,10 +204,27 @@ export const TopBarSubmitSingle = ({
           </div>
         )}
 
-        <div className="flex gap-2 w-full sm:w-auto justify-end">
+        <div className="flex gap-2 w-full sm:w-auto justify-end text-sm font-medium text-gray-800 dark:text-gray-400">
+          {/* <li>
+            <a
+              href="#"
+              className="inline-flex items-center px-4 py-3 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
+            >
+              <svg
+                className="w-4 h-4 me-2 text-gray-500 dark:text-gray-400"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 18 18"
+              >
+                <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
+              </svg>
+              Dashboard
+            </a>
+          </li> */}
           <button
             onClick={() => setSubmitOpen(!submitOpen)}
-            className="px-2 py-1 bg-synergy-light-blue rounded-lg text-white flex gap-1 items-center"
+            className="inline-flex items-center w-max px-4 py-2 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
           >
             <span className="whitespace-nowrap">
               Anfrage {submitOpen ? "schließen" : "öffnen"}
@@ -216,7 +233,7 @@ export const TopBarSubmitSingle = ({
           {submitOpen && (
             <button
               onClick={() => handleSave()}
-              className="px-2 py-1 bg-synergy-light-blue rounded-lg text-white flex gap-1 items-center"
+              className="inline-flex items-center gap-1 w-max px-4 py-2 rounded-lg text-gray-100 hover:text-white bg-synergy-light-blue dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
             >
               <span className="">Speichern</span>
               {status === "pending" && (

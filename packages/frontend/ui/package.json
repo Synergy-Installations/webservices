@@ -8,6 +8,7 @@
     "dist"
   ],
   "exports": {
+    "./SingleSubmitTabs": "./src/dashboard/submits/tabs/SingleSubmitTabs.tsx",
     "./MessageSubmit": "./src/dashboard/messages/MessageSubmit.tsx",
     "./SubmitSingle": "./src/dashboard/submits/SubmitSingle.tsx",
     "./SubmitList": "./src/dashboard/submits/SubmitList.tsx",

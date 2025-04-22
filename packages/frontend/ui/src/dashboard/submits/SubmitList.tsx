@@ -47,7 +47,7 @@ export const SubmitList = (props: SubmitListProps) => {
     <div className="flex flex-col gap-2 p-4 mt-12">
       {submits.data.map((data: any, index: number) => (
         <Link
-          href={`/dashboard/submits/${data._id}`}
+          href={`/dashboard/submits/${data._id}/steps`}
           key={data._id}
           className="group border border-synergy-light-grey p-2 rounded-xl hover:bg-synergy-light-grey transition-colors duration-200"
         >

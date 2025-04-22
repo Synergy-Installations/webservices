@@ -62,7 +62,7 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
               <div
                 key={index}
                 className={`flex items-start gap-2.5 min-w-40 bg-slgate-100 animate-pulse ${
-                  index % 2 === 0 ? "self-start sm:ml-64" : "self-end md:mr-96"
+                  index % 2 === 0 ? "self-start lg:ml-64" : "self-end lg:mr-96"
                 }`}
               >
                 <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
@@ -87,8 +87,8 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
                   user.user?.emailAddresses.some(
                     (e) => e.emailAddress === message.sentByUserId?.emailAddress
                   )
-                    ? "self-end md:pr-96"
-                    : "self-start sm:ml-64"
+                    ? "self-end lg:pr-96"
+                    : "self-start lg:ml-64"
                 }`}
                 key={message._id}
               >
@@ -193,7 +193,7 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
         </div>
       </div>
 
-      <form className="flex flex-col items-center gap-2 p-4 pt-2 sm:ml-64 md:mr-96">
+      <form className="flex flex-col items-center gap-2 p-4 pt-2 lg:mr-96">
         {addMessageError && (
           <span className="text-red-500 max-w-xl w-full text-left">
             Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.

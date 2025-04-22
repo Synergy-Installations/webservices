@@ -53,7 +53,7 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
   return (
     <>
       <div
-        className={`flex flex-col gap-2 pb-0 p-4 self-start w-full h-full overflow-y-scroll`}
+        className={`flex flex-col gap-2 px-4 self-start w-full h-full overflow-y-scroll`}
         ref={scrollContainerRef}
       >
         <div className="flex flex-col w-full gap-2 ">

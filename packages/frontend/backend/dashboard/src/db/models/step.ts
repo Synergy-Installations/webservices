@@ -1,14 +1,11 @@
 import mongoose, { Document } from "mongoose";
 
-// export interface GetMessagesInterface {
-//   success: boolean;
-//   data: {
-//     submit: {
-//       emailAddress: string;
-//     };
-//     messages: MessagePopulatedUser[];
-//   };
-// }
+export interface GetStepsInterface {
+  success: boolean;
+  data: {
+    steps: StepInterface[];
+  };
+}
 
 // interface MessagePopulatedUser extends Document<string> {
 //   sentByUserId: {
@@ -25,7 +22,7 @@ import mongoose, { Document } from "mongoose";
 export interface StepInterface extends Document<string> {
   order: number;
   title: string;
-  description: string;
+  description?: string;
   assets?: string[];
   status: {
     message: string;
@@ -39,12 +36,12 @@ export interface StepInterface extends Document<string> {
 const StepSchema = new mongoose.Schema<StepInterface>({
   order: { type: Number, required: true, default: 0 },
   title: { type: String, required: true, default: "Unnamed step" },
-  description: { type: String, required: true, default: "No description" },
+  description: { type: String, required: false, default: "No description" },
   assets: { type: [String], required: false },
   status: {
-    message: { type: String, required: true, default: "No status" },
-    code: { type: String, required: true, default: "no_status" },
-    color: { type: String, required: true, default: "#000000" },
+    message: { type: String, required: false, default: "No status" },
+    code: { type: String, required: false, default: "no_status" },
+    color: { type: String, required: false, default: "CornflowerBlue" },
   },
   submitId: {
     type: mongoose.Schema.Types.ObjectId,

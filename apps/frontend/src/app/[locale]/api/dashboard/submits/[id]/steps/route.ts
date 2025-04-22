@@ -5,6 +5,7 @@ import { clerkClient, getAuth } from "@clerk/nextjs/server";
 import { MessageInterface } from "@com.synergy/frontend-backend-dashboard/message";
 import User from "@com.synergy/frontend-backend-dashboard/user";
 import Message from "@com.synergy/frontend-backend-dashboard/message";
+import Step from "@com.synergy/frontend-backend-dashboard/step";
 
 export async function GET(
   req: NextRequest,
@@ -30,40 +31,32 @@ export async function GET(
       | string[]
       | undefined;
 
-    const dbSubmit = await Submit.findById(id, "emailAddress").exec();
-
     if (
       accessRights?.includes("all:*") ||
       accessRights?.includes("all:messages")
     ) {
-      const messages = await Message.find({ submitId: id })
-        .populate("sentByUserId", "firstName lastName emailAddress")
-        .sort({ createdAt: 1 })
-        .exec();
+      const steps = await Step.find({ submitId: id }).sort({ order: 1 }).exec();
 
       return NextResponse.json(
         {
           success: true,
-          data: { submit: { emailAddress: dbSubmit.emailAddress }, messages },
+          data: { steps },
         },
         { status: 200 }
       );
     }
 
+    const dbSubmit = await Submit.findById(id, "emailAddress").exec();
+
     if (
-      user.emailAddresses.some(
-        (e) => e.emailAddress === dbSubmit.emailAddress
-      )
+      user.emailAddresses.some((e) => e.emailAddress === dbSubmit.emailAddress)
     ) {
-      const messages = await Message.find({ submitId: id })
-        .populate("sentByUserId", "firstName lastName emailAddress")
-        .sort({ createdAt: 1 })
-        .exec();
+      const steps = await Step.find({ submitId: id }).sort({ order: 1 }).exec();
 
       return NextResponse.json(
         {
           success: true,
-          data: { submit: { emailAddress: dbSubmit.emailAddress }, messages },
+          data: { steps },
         },
         { status: 200 }
       );
@@ -75,8 +68,98 @@ export async function GET(
     );
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ success: false, error: error }, {
+    return NextResponse.json(
+      { success: false, error: error },
+      {
+        status: 400,
+      }
+    );
+  }
+}
+
+export async function POST(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  const { id } = params; // Extract the ID from the request parameters
+  const { userId } = getAuth(req); // Get the authenticated user's ID from the session
+
+  if (!userId) {
+    return new Response(
+      JSON.stringify({ success: false, error: "Unauthorized" }),
+      {
+        status: 401,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+  }
+
+  const client = await clerkClient();
+  const user = await client.users.getUser(userId);
+
+  await dbConnect();
+
+  const body: Partial<MessageInterface> = await req.json();
+  try {
+    const accessRights = user.privateMetadata?.accessRights as
+      | string[]
+      | undefined;
+
+    // User has all access or message rights
+    if (
+      accessRights?.includes("all:*") ||
+      accessRights?.includes("all:messages")
+    ) {
+      const step = await Step.create({
+        // sentByUserId: dbUser._id,
+        ...body,
+      });
+      return new Response(JSON.stringify({ success: true, data: step }), {
+        status: 201,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
+
+    const dbUser = await User.findOne({ createdUserAuthId: userId || user.id });
+    const dbSubmit = await Submit.findById(body.submitId);
+
+    // Check if user has created the submit
+    if (dbUser.emailAddress === dbSubmit.emailAddress) {
+      const step = await Step.create({
+        // sentByUserId: dbUser._id,
+        ...body,
+      });
+      return new Response(JSON.stringify({ success: true, data: step }), {
+        status: 201,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
+
+    return new Response(
+      JSON.stringify({
+        success: false,
+        error: "Unauthorized or not enough rights",
+      }),
+      {
+        status: 401,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+  } catch (error) {
+    console.error(error);
+    return new Response(JSON.stringify({ success: false, data: error }), {
       status: 400,
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
   }
 }

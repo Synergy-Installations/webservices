@@ -19,7 +19,7 @@ export const SingleSubmitTabs = (props: SingleSubmitTabsProps) => {
 
   return (
     <div className="">
-      <ul className="flex text-sm font-medium text-gray-500 dark:text-gray-400 m-2 gap-2 overflow-x-auto">
+      <ul className="flex text-sm font-medium text-gray-500 dark:text-gray-400 !p-2 gap-2 overflow-x-auto">
         <li>
           <Link
             href={`/dashboard/submits/${id}/steps`}

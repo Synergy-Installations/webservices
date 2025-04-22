@@ -4,6 +4,10 @@ import {
   GetMessagesInterface,
   MessageInterface,
 } from "@com.synergy/frontend-backend-dashboard/message";
+import {
+  GetStepsInterface,
+  StepInterface,
+} from "@com.synergy/frontend-backend-dashboard/step";
 
 // type MessageResponse = { success: boolean; data: MessageInterface[] };
 // On modifications, we only send the modified message back as an object
@@ -31,28 +35,28 @@ export const stepApi = api.injectEndpoints({
     //     },
     //   },
     // }),
-    // getMessages: build.query<GetMessagesInterface, string>({
-    //   query: (id) => ({ url: `dashboard/messages/${id}` }),
-    //   providesTags: (
-    //     result = {
-    //       success: false,
-    //       data: { submit: { emailAddress: "" }, messages: [] },
-    //     }
-    //   ) => [
-    //     ...result.data.messages.map(
-    //       ({ _id }: { _id: string }) => ({ type: "Messages", _id }) as const
-    //     ),
-    //     { type: "Messages" as const, id: "LIST" },
-    //   ],
-    // }),
-    // addMessage: build.mutation<MessageInterface, Partial<MessageInterface>>({
-    //   query: (body) => ({
-    //     url: `dashboard/messages`,
-    //     method: "POST",
-    //     body,
-    //   }),
-    //   invalidatesTags: [{ type: "Messages", id: "LIST" }],
-    // }),
+    getSteps: build.query<GetStepsInterface, string>({
+      query: (id) => ({ url: `dashboard/submits/${id}/steps` }),
+      providesTags: (
+        result = {
+          success: false,
+          data: { steps: [] },
+        }
+      ) => [
+        ...result.data.steps.map(
+          ({ _id }: { _id: string }) => ({ type: "Steps", _id }) as const
+        ),
+        { type: "Steps" as const, id: "LIST" },
+      ],
+    }),
+    addStep: build.mutation<StepInterface, Partial<StepInterface>>({
+      query: (body) => ({
+        url: `dashboard/submits/${body.submitId}/steps`,
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: [{ type: "Steps", id: "LIST" }],
+    }),
     // getSubmit: build.query<any, string>({
     //   query: (id) => `dashboard/submits/${id}`,
     //   providesTags: (_post, _err, id) => [{ type: "Submits", id }],
@@ -84,6 +88,8 @@ export const stepApi = api.injectEndpoints({
 });
 
 export const {
+  useGetStepsQuery,
+  useAddStepMutation,
   // useAddMessageMutation,
   // useGetMessagesQuery,
   // useGetSubmitsQuery,

@@ -7,6 +7,8 @@
   },
   "exports": {
     "./user": "./src/db/models/user.ts",
+    "./step": "./src/db/models/step.ts",
+    "./stepApi": "./src/store/slices/api/step.ts",
     "./message": "./src/db/models/message.ts",
     "./messageApi": "./src/store/slices/api/message.ts",
     "./submitApi": "./src/store/slices/api/submit.ts",

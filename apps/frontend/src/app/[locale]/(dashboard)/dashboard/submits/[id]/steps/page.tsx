@@ -20,16 +20,12 @@ import SubmitList from "@com.synergy/frontend-ui/SubmitList";
 import { SubmitSingle } from "@com.synergy/frontend-ui/SubmitSingle";
 import { MessageSubmit } from "@com.synergy/frontend-ui/MessageSubmit";
 import { SingleSubmitTabs } from "@com.synergy/frontend-ui/SingleSubmitTabs";
+import { StepsSubmit } from "@com.synergy/frontend-ui/StepsSubmit";
 
 export default function Page({
   params,
 }: {
   params: { id: string };
 }): JSX.Element {
-  return (
-    <>
-      <SingleSubmitTabs params={params} />
-      <MessageSubmit params={params} />
-    </>
-  );
+  return <StepsSubmit params={params} />;
 }

@@ -32,7 +32,7 @@ export const messageApi = api.injectEndpoints({
     //   },
     // }),
     getMessages: build.query<GetMessagesInterface, string>({
-      query: (id) => ({ url: `dashboard/messages/${id}` }),
+      query: (id) => ({ url: `dashboard/submits/${id}/messages` }),
       providesTags: (
         result = {
           success: false,
@@ -47,7 +47,7 @@ export const messageApi = api.injectEndpoints({
     }),
     addMessage: build.mutation<MessageInterface, Partial<MessageInterface>>({
       query: (body) => ({
-        url: `dashboard/messages`,
+        url: `dashboard/submits/${body.submitId}/messages`,
         method: "POST",
         body,
       }),

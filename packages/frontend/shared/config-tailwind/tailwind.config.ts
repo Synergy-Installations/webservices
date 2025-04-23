@@ -130,7 +130,11 @@ const config: Omit<Config, "content"> = {
     },
   },
   content: [flowbite.content()],
-  plugins: [addVariablesForColors, flowbite.plugin()],
+  plugins: [
+    addVariablesForColors,
+    flowbite.plugin(),
+    require("flowbite-typography"),
+  ],
 };
 
 // This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).

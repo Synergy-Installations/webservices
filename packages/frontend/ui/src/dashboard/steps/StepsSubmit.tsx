@@ -12,7 +12,7 @@ export const StepsSubmit = (props: StepsSubmitProps) => {
   return (
     <div className="h-full">
       <SingleSubmitTabs params={params} />
-      <StepsList params={params} />
+      <StepsList className={"lg:mr-96"} params={params} />
     </div>
   );
 };

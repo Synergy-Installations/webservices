@@ -7,6 +7,7 @@ import {
 import {
   GetStepsInterface,
   StepInterface,
+  GetStepInterface,
 } from "@com.synergy/frontend-backend-dashboard/step";
 
 // type MessageResponse = { success: boolean; data: MessageInterface[] };
@@ -57,10 +58,16 @@ export const stepApi = api.injectEndpoints({
       }),
       invalidatesTags: [{ type: "Steps", id: "LIST" }],
     }),
-    // getSubmit: build.query<any, string>({
-    //   query: (id) => `dashboard/submits/${id}`,
-    //   providesTags: (_post, _err, id) => [{ type: "Submits", id }],
-    // }),
+    getStep: build.query<
+      GetStepInterface,
+      { submitId: string; stepId: string }
+    >({
+      query: ({ submitId, stepId }) =>
+        `dashboard/submits/${submitId}/steps/${stepId}`,
+      providesTags: (_post, _err, { submitId, stepId }) => [
+        { type: "Steps", stepId },
+      ],
+    }),
     // updateSubmit: build.mutation<any, Partial<any>>({
     //   query(data) {
     //     const { _id, ...body } = data;
@@ -90,6 +97,7 @@ export const stepApi = api.injectEndpoints({
 export const {
   useGetStepsQuery,
   useAddStepMutation,
+  useGetStepQuery,
   // useAddMessageMutation,
   // useGetMessagesQuery,
   // useGetSubmitsQuery,

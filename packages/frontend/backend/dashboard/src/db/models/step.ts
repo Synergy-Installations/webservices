@@ -1,9 +1,18 @@
 import mongoose, { Document } from "mongoose";
 
-export interface GetStepsInterface {
+interface DefaultResponse {
   success: boolean;
+}
+
+export interface GetStepsInterface extends DefaultResponse {
   data: {
     steps: StepInterface[];
+  };
+}
+
+export interface GetStepInterface extends DefaultResponse {
+  data: {
+    step: StepInterface;
   };
 }
 

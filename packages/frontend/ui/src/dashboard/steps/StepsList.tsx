@@ -11,11 +11,13 @@ import { useEffect, useState } from "react";
 /* eslint-disable-next-line */
 export interface StepsListProps {
   params: { id: string };
+  className?: string;
 }
 
 export const StepsList = (props: StepsListProps) => {
   const {
     params: { id: submitId },
+    className = "",
   } = props;
 
   const {
@@ -85,7 +87,9 @@ export const StepsList = (props: StepsListProps) => {
   }
 
   return (
-    <div className="flex flex-col gap-2 pt-0 p-4 lg:mr-96 overflow-y-scroll h-full pb-48">
+    <div
+      className={`flex flex-col gap-2 pt-0 p-4 overflow-y-scroll h-full pb-48 ${className}`}
+    >
       {isGetStepsLoading ? (
         <div className="flex flex-col gap-2 animate-pulse">
           {Array.from({ length: 3 }).map((_, index) => (

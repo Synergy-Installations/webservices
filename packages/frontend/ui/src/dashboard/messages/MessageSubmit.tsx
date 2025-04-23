@@ -62,10 +62,12 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
               <div
                 key={index}
                 className={`flex items-start gap-2.5 min-w-40 bg-slgate-100 animate-pulse ${
-                  index % 2 === 0 ? "self-start lg:ml-64" : "self-end lg:mr-96"
+                  index % 2 === 0 ? "self-start" : "self-end lg:mr-96"
                 }`}
               >
-                <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
+                <div className="">
+                  <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
+                </div>
                 <div className="flex flex-col gap-2 w-full max-w-3xl leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
                   <div className="h-4 bg-gray-300 rounded w-3/4"></div>
                   <div className="h-3 bg-gray-300 rounded w-1/2"></div>
@@ -74,10 +76,13 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
               </div>
             ))
           ) : isGetMessagesError ? (
-            <div className="flex items-center justify-start sm:ml-64 w-full h-full text-center text-red-500">
-              <p>
-                Ein Fehler ist aufgetreten. Bitte laden Sie die Seite neu oder
-                versuchen Sie es später erneut.
+            <div className="flex flex-col gap-2 p-4 items-center justify-center h-full">
+              <p className="text-red-500 font-bold text-lg">
+                Ein Fehler ist aufgetreten.
+              </p>
+              <p className="text-gray-500">
+                Bitte laden Sie die Seite neu oder versuchen Sie es später
+                erneut.
               </p>
             </div>
           ) : (
@@ -88,7 +93,7 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
                     (e) => e.emailAddress === message.sentByUserId?.emailAddress
                   )
                     ? "self-end lg:pr-96"
-                    : "self-start lg:ml-64"
+                    : "self-start"
                 }`}
                 key={message._id}
               >

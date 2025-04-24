@@ -44,6 +44,9 @@ importers:
       '@sendgrid/mail':
         specifier: ^8.1.4
         version: 8.1.4
+      flowbite-react:
+        specifier: ^0.10.2
+        version: 0.10.2(react-dom@18.3.1)(react@18.3.1)(tailwindcss@3.4.17)
       jsdom:
         specifier: ^26.0.0
         version: 26.0.0
@@ -215,13 +218,37 @@ importers:
       '@react-input/number-format':
         specifier: ^2.0.3
         version: 2.0.3(@types/react@18.3.20)(react-dom@18.3.1)(react@18.3.1)
+      '@tiptap/extension-bold':
+        specifier: ^2.11.7
+        version: 2.11.7(@tiptap/core@2.11.7)
       '@tiptap/extension-color':
         specifier: ^2.11.7
         version: 2.11.7(@tiptap/core@2.11.7)(@tiptap/extension-text-style@2.11.7)
+      '@tiptap/extension-font-family':
+        specifier: ^2.11.7
+        version: 2.11.7(@tiptap/core@2.11.7)(@tiptap/extension-text-style@2.11.7)
+      '@tiptap/extension-highlight':
+        specifier: ^2.11.7
+        version: 2.11.7(@tiptap/core@2.11.7)
+      '@tiptap/extension-image':
+        specifier: ^2.11.7
+        version: 2.11.7(@tiptap/core@2.11.7)
+      '@tiptap/extension-link':
+        specifier: ^2.11.7
+        version: 2.11.7(@tiptap/core@2.11.7)(@tiptap/pm@2.11.7)
       '@tiptap/extension-list-item':
         specifier: ^2.11.7
         version: 2.11.7(@tiptap/core@2.11.7)
+      '@tiptap/extension-text-align':
+        specifier: ^2.11.7
+        version: 2.11.7(@tiptap/core@2.11.7)
       '@tiptap/extension-text-style':
+        specifier: ^2.11.7
+        version: 2.11.7(@tiptap/core@2.11.7)
+      '@tiptap/extension-underline':
+        specifier: ^2.11.7
+        version: 2.11.7(@tiptap/core@2.11.7)
+      '@tiptap/extension-youtube':
         specifier: ^2.11.7
         version: 2.11.7(@tiptap/core@2.11.7)
       '@tiptap/pm':
@@ -1579,6 +1606,16 @@ packages:
       tippy.js: 6.3.7
     dev: false
 
+  /@tiptap/extension-font-family@2.11.7(@tiptap/core@2.11.7)(@tiptap/extension-text-style@2.11.7):
+    resolution: {integrity: sha512-JlEy25RH6ah3rsqYzAtz7P7j6WngKxP5Z/QiDPrI++DboCS/dOtYsjeyXhThu3rQJzH3Vz+D6hFoOVykfZLJVg==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+      '@tiptap/extension-text-style': ^2.7.0
+    dependencies:
+      '@tiptap/core': 2.11.7(@tiptap/pm@2.11.7)
+      '@tiptap/extension-text-style': 2.11.7(@tiptap/core@2.11.7)
+    dev: false
+
   /@tiptap/extension-gapcursor@2.11.7(@tiptap/core@2.11.7)(@tiptap/pm@2.11.7):
     resolution: {integrity: sha512-EceesmPG7FyjXZ8EgeJPUov9G1mAf2AwdypxBNH275g6xd5dmU/KvjoFZjmQ0X1ve7mS+wNupVlGxAEUYoveew==}
     peerDependencies:
@@ -1605,6 +1642,14 @@ packages:
       '@tiptap/core': 2.11.7(@tiptap/pm@2.11.7)
     dev: false
 
+  /@tiptap/extension-highlight@2.11.7(@tiptap/core@2.11.7):
+    resolution: {integrity: sha512-c/NH4kIpNOWCUQv8RkFNDyOcgt+2pYFpDf0QBJmzhAuv4BIeS2bDmDtuNS7VgoWRZH+xxCNXfvm2BG+kjtipEg==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+    dependencies:
+      '@tiptap/core': 2.11.7(@tiptap/pm@2.11.7)
+    dev: false
+
   /@tiptap/extension-history@2.11.7(@tiptap/core@2.11.7)(@tiptap/pm@2.11.7):
     resolution: {integrity: sha512-Cu5x3aS13I040QSRoLdd+w09G4OCVfU+azpUqxufZxeNs9BIJC+0jowPLeOxKDh6D5GGT2A8sQtxc6a/ssbs8g==}
     peerDependencies:
@@ -1625,12 +1670,31 @@ packages:
       '@tiptap/pm': 2.11.7
     dev: false
 
+  /@tiptap/extension-image@2.11.7(@tiptap/core@2.11.7):
+    resolution: {integrity: sha512-YvCmTDB7Oo+A56tR4S/gcNaYpqU4DDlSQcRp5IQvmQV5EekSe0lnEazGDoqOCwsit9qQhj4MPQJhKrnaWrJUrg==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+    dependencies:
+      '@tiptap/core': 2.11.7(@tiptap/pm@2.11.7)
+    dev: false
+
   /@tiptap/extension-italic@2.11.7(@tiptap/core@2.11.7):
     resolution: {integrity: sha512-r985bkQfG0HMpmCU0X0p/Xe7U1qgRm2mxvcp6iPCuts2FqxaCoyfNZ8YnMsgVK1mRhM7+CQ5SEg2NOmQNtHvPw==}
     peerDependencies:
       '@tiptap/core': ^2.7.0
     dependencies:
       '@tiptap/core': 2.11.7(@tiptap/pm@2.11.7)
+    dev: false
+
+  /@tiptap/extension-link@2.11.7(@tiptap/core@2.11.7)(@tiptap/pm@2.11.7):
+    resolution: {integrity: sha512-qKIowE73aAUrnQCIifYP34xXOHOsZw46cT/LBDlb0T60knVfQoKVE4ku08fJzAV+s6zqgsaaZ4HVOXkQYLoW7g==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+      '@tiptap/pm': ^2.7.0
+    dependencies:
+      '@tiptap/core': 2.11.7(@tiptap/pm@2.11.7)
+      '@tiptap/pm': 2.11.7
+      linkifyjs: 4.2.0
     dev: false
 
   /@tiptap/extension-list-item@2.11.7(@tiptap/core@2.11.7):
@@ -1665,6 +1729,14 @@ packages:
       '@tiptap/core': 2.11.7(@tiptap/pm@2.11.7)
     dev: false
 
+  /@tiptap/extension-text-align@2.11.7(@tiptap/core@2.11.7):
+    resolution: {integrity: sha512-3M8zd9ROADXazVNpgR6Ejs1evSvBveN36qN4GgV71GqrNlTcjqYgQcXFLQrsd2hnE+aXir8/8bLJ+aaJXDninA==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+    dependencies:
+      '@tiptap/core': 2.11.7(@tiptap/pm@2.11.7)
+    dev: false
+
   /@tiptap/extension-text-style@2.11.7(@tiptap/core@2.11.7):
     resolution: {integrity: sha512-LHO6DBg/9SkCQFdWlVfw9nolUmw+Cid94WkTY+7IwrpyG2+ZGQxnKpCJCKyeaFNbDoYAtvu0vuTsSXeCkgShcA==}
     peerDependencies:
@@ -1675,6 +1747,22 @@ packages:
 
   /@tiptap/extension-text@2.11.7(@tiptap/core@2.11.7):
     resolution: {integrity: sha512-wObCn8qZkIFnXTLvBP+X8KgaEvTap/FJ/i4hBMfHBCKPGDx99KiJU6VIbDXG8d5ZcFZE0tOetK1pP5oI7qgMlQ==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+    dependencies:
+      '@tiptap/core': 2.11.7(@tiptap/pm@2.11.7)
+    dev: false
+
+  /@tiptap/extension-underline@2.11.7(@tiptap/core@2.11.7):
+    resolution: {integrity: sha512-NtoQw6PGijOAtXC6G+0Aq0/Z5wwEjPhNHs8nsjXogfWIgaj/aI4/zfBnA06eI3WT+emMYQTl0fTc4CUPnLVU8g==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+    dependencies:
+      '@tiptap/core': 2.11.7(@tiptap/pm@2.11.7)
+    dev: false
+
+  /@tiptap/extension-youtube@2.11.7(@tiptap/core@2.11.7):
+    resolution: {integrity: sha512-Cf8rziGNIVdsQXGO6nIYcpG5wP6RO+7VkpLZcVYo2I2KvEaXv+3Nb3mG4X+F7AClPfCEIE4G2EIVCsh3DCZ96A==}
     peerDependencies:
       '@tiptap/core': ^2.7.0
     dependencies:
@@ -5560,6 +5648,10 @@ packages:
     resolution: {integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==}
     dependencies:
       uc.micro: 2.1.0
+    dev: false
+
+  /linkifyjs@4.2.0:
+    resolution: {integrity: sha512-pCj3PrQyATaoTYKHrgWRF3SJwsm61udVh+vuls/Rl6SptiDhgE7ziUIudAedRY9QEfynmM7/RmLEfPUyw1HPCw==}
     dev: false
 
   /locate-path@5.0.0:

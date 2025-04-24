@@ -249,7 +249,10 @@ export const StepSingle = (props: StepSingleProps) => {
                 params={params}
               />
             ) : (
-              <div dangerouslySetInnerHTML={{__html: descriptionHTML}} />
+              <div
+                className="format"
+                dangerouslySetInnerHTML={{ __html: descriptionHTML }}
+              />
             )}
           </div>
         </div>

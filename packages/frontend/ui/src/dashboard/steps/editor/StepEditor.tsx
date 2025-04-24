@@ -195,7 +195,7 @@ export const StepEditor = (props: StepEditorProps) => {
         editorProps={{
           attributes: {
             class:
-              "format block relative w-full px-4 py-2 text-sm text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400 focus:outline-none",
+              "format block relative w-full px-4 py-2 text-sm bg-white border-0 focus:ring-0 focus:outline-none",
           },
         }}
       ></EditorProvider>

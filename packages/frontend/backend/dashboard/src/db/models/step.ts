@@ -31,7 +31,7 @@ export interface GetStepInterface extends DefaultResponse {
 export interface StepInterface extends Document<string> {
   order: number;
   title: string;
-  description?: string;
+  description?: JSON;
   assets?: string[];
   status: {
     message: string;
@@ -45,7 +45,10 @@ export interface StepInterface extends Document<string> {
 const StepSchema = new mongoose.Schema<StepInterface>({
   order: { type: Number, required: true, default: 0 },
   title: { type: String, required: true, default: "Unnamed step" },
-  description: { type: String, required: false, default: "No description" },
+  description: {
+    type: mongoose.Schema.Types.Mixed,
+    required: false,
+  },
   assets: { type: [String], required: false },
   status: {
     message: { type: String, required: false, default: "No status" },

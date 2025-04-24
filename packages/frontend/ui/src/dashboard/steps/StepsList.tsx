@@ -36,7 +36,7 @@ export const StepsList = (props: StepsListProps) => {
   const [newStep, setNewStep] = useState<Partial<StepInterface>>({
     order: submits?.data?.steps.length ? submits.data.steps.length + 1 : 1,
     title: "",
-    description: "",
+    description: JSON.parse("{}"),
     status: {
       message: "",
       code: "default_status",

@@ -68,17 +68,17 @@ export const stepApi = api.injectEndpoints({
         { type: "Steps", stepId },
       ],
     }),
-    // updateSubmit: build.mutation<any, Partial<any>>({
-    //   query(data) {
-    //     const { _id, ...body } = data;
-    //     return {
-    //       url: `dashboard/submits/${_id}`,
-    //       method: "PUT",
-    //       body: body,
-    //     };
-    //   },
-    //   invalidatesTags: (post) => [{ type: "Submits", id: post?._id }],
-    // }),
+    updateStep: build.mutation<any, Partial<any>>({
+      query(data) {
+        const { _id, submitId, ...body } = data;
+        return {
+          url: `dashboard/submits/${submitId}/steps/${_id}`,
+          method: "PUT",
+          body: body,
+        };
+      },
+      invalidatesTags: (post) => [{ type: "Steps", id: post?._id }],
+    }),
     //     deleteItem: build.mutation<{ success: boolean; id: number }, number>({
     //       query(id) {
     //         return {
@@ -98,6 +98,7 @@ export const {
   useGetStepsQuery,
   useAddStepMutation,
   useGetStepQuery,
+  useUpdateStepMutation,
   // useAddMessageMutation,
   // useGetMessagesQuery,
   // useGetSubmitsQuery,

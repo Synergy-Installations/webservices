@@ -95,9 +95,9 @@ export const TopBarSubmitSingle = ({
             <div className="">Anfrage #{submit?._id}</div>
             {submit?.status &&
               (editingStatus ? (
-                <div className="grid gap-2">
+                <div className="grid gap-1 mt-1">
                   {Object.keys(statusInput).map((key) => (
-                    <div className="mt-2">
+                    <div className="" key={key}>
                       <div
                         key={key}
                         className="flex items-center justify-start gap-2"

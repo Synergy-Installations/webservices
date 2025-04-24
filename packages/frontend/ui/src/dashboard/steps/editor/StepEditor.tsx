@@ -8,6 +8,7 @@ import {
 } from "@tiptap/react";
 import React from "react";
 import { EditorMenuBar } from "./EditorMenuBar";
+import { IsUpdateStepLoadingState } from "../StepSubmit";
 
 import { Color } from "@tiptap/extension-color";
 import ListItem from "@tiptap/extension-list-item";
@@ -21,9 +22,21 @@ import TextAlign from "@tiptap/extension-text-align";
 import Image from "@tiptap/extension-image";
 import YouTube from "@tiptap/extension-youtube";
 import FontFamily from "@tiptap/extension-font-family";
+import { useGetStepQuery } from "@com.synergy/frontend-backend-dashboard/stepApi";
 
 /* eslint-disable-next-line */
-export interface StepEditorProps {}
+export interface StepEditorProps {
+  params: { id: string; stepId: string };
+  saveStepToggle: boolean;
+  setSaveStepToggle: (saveStepToggle: boolean) => void;
+  editStepToggle: boolean;
+  setEditStepToggle: (editStepToggle: boolean) => void;
+  isUpdateStepLoading: IsUpdateStepLoadingState;
+  setIsUpdateStepLoading: React.Dispatch<
+    React.SetStateAction<IsUpdateStepLoadingState>
+  >;
+}
+
 const CustomBold = Bold.extend({
   // Override the renderHTML method
   renderHTML({ mark, HTMLAttributes }) {
@@ -60,7 +73,7 @@ const FontSizeTextStyle = TextStyle.extend({
   },
 });
 
-const extensions = [
+export const extensions = [
   Color.configure({ types: [TextStyle.name, ListItem.name] }),
   TextStyle.configure(),
   StarterKit.configure({
@@ -126,6 +139,30 @@ const content = `
 `;
 
 export const StepEditor = (props: StepEditorProps) => {
+  const {
+    params,
+    params: { id: submitId, stepId },
+    saveStepToggle,
+    setSaveStepToggle,
+    editStepToggle,
+    setEditStepToggle,
+    isUpdateStepLoading,
+    setIsUpdateStepLoading,
+  } = props;
+
+  const {
+    data: step,
+    isLoading: isGetStepLoading,
+    error,
+  } = useGetStepQuery(
+    { submitId: submitId, stepId: stepId },
+    {
+      refetchOnFocus: true,
+      refetchOnReconnect: true,
+      refetchOnMountOrArgChange: true,
+    }
+  );
+
   return (
     <div className="relative w-full border border-gray-200 rounded-lg overflow-hidden bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
       {/* <div className="px-4 py-2 bg-white rounded-b-lg dark:bg-gray-800">
@@ -138,9 +175,19 @@ export const StepEditor = (props: StepEditorProps) => {
         ></div>
       </div> */}
       <EditorProvider
-        slotBefore={<EditorMenuBar />}
+        slotBefore={
+          <EditorMenuBar
+            saveStepToggle={saveStepToggle}
+            setSaveStepToggle={setSaveStepToggle}
+            editStepToggle={editStepToggle}
+            setEditStepToggle={setEditStepToggle}
+            isUpdateStepLoading={isUpdateStepLoading}
+            setIsUpdateStepLoading={setIsUpdateStepLoading}
+            params={params}
+          />
+        }
         extensions={extensions}
-        content={content}
+        content={step?.data.step?.description || content}
         // editorContainerProps={{
         //   className:
         //     "block w-full px-4 py-2 text-sm text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400",

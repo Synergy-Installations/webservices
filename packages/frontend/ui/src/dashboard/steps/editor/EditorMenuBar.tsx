@@ -2,16 +2,111 @@
 
 import { Editor, useCurrentEditor } from "@tiptap/react";
 import { Tooltip } from "flowbite-react";
+import { IsUpdateStepLoadingState } from "../StepSubmit";
+import { useEffect } from "react";
+import {
+  useGetStepQuery,
+  useUpdateStepMutation,
+} from "@com.synergy/frontend-backend-dashboard/stepApi";
+import _ from "lodash";
 
 /* eslint-disable-next-line */
-export interface EditorMenuBarProps {}
+export interface EditorMenuBarProps {
+  params: { id: string; stepId: string };
+  saveStepToggle: boolean;
+  setSaveStepToggle: (saveStepToggle: boolean) => void;
+  editStepToggle: boolean;
+  setEditStepToggle: (editStepToggle: boolean) => void;
+  isUpdateStepLoading: IsUpdateStepLoadingState;
+  setIsUpdateStepLoading: React.Dispatch<
+    React.SetStateAction<IsUpdateStepLoadingState>
+  >;
+}
 
 export const EditorMenuBar = (props: EditorMenuBarProps) => {
+  const {
+    params: { id: submitId, stepId },
+    saveStepToggle,
+    setSaveStepToggle,
+    editStepToggle,
+    setEditStepToggle,
+    isUpdateStepLoading,
+    setIsUpdateStepLoading,
+  } = props;
+
   const { editor } = useCurrentEditor();
 
   if (!editor) {
     return null;
   }
+
+  const [
+    updateStep,
+    { isLoading: isUpdateStepMutationLoading, error: updateStepMutationError },
+  ] = useUpdateStepMutation();
+
+  const {
+    data: step,
+    isLoading: isGetStepLoading,
+    error,
+  } = useGetStepQuery(
+    { submitId: submitId, stepId: stepId },
+    {
+      refetchOnFocus: true,
+      refetchOnReconnect: true,
+      refetchOnMountOrArgChange: true,
+    }
+  );
+
+  useEffect(() => {
+    console.log(
+      "saveStepToggleEditorMenuBar",
+      _.isEqual(step?.data.step.description, editor.getJSON())
+    );
+
+    // loadash isEqual will be true twice regardless of the actual state (at least in dev (prod has not been tested yet)),
+    // this behavior does not matter, however, due to the fact that we need to know if it is not Equal
+    if (
+      saveStepToggle &&
+      !_.isEqual(step?.data.step.description, editor.getJSON())
+    ) {
+      console.log(
+        "about to update step for description",
+        step?.data.step.description,
+        editor.getJSON()
+      );
+      // Set the loading state at the beginning in order to make sure we are handling the loading state
+      // correctly in StepSingle in case other loading states from isUpdateStepLoading are false (due to no change)
+      setIsUpdateStepLoading({
+        ...isUpdateStepLoading,
+        description: true,
+      });
+      updateStep({
+        _id: stepId,
+        submitId: submitId,
+        description: editor.getJSON(),
+      });
+    } else {
+      // This is done in case we do not have any changes and the StepSubmit useEffect
+      // needs the isUpdateStepLoading state to be updated in order to reset the saveStepToggle
+      // and editStepToggle states
+      setIsUpdateStepLoading({
+        ...isUpdateStepLoading,
+        description: false,
+      });
+    }
+  }, [saveStepToggle]);
+
+  useEffect(() => {
+    if (isUpdateStepMutationLoading && !isUpdateStepLoading.description) {
+      setIsUpdateStepLoading({ ...isUpdateStepLoading, description: true });
+    } else if (
+      !isUpdateStepMutationLoading &&
+      isUpdateStepLoading.description
+    ) {
+      setIsUpdateStepLoading({ ...isUpdateStepLoading, description: false });
+    }
+  }, [isUpdateStepMutationLoading]);
 
   return (
     <div className="px-3 py-2 border-b border-gray-200 dark:border-gray-600">

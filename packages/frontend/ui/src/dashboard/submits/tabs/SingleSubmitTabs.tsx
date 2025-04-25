@@ -18,7 +18,7 @@ export const SingleSubmitTabs = (props: SingleSubmitTabsProps) => {
   const isSteps = path.includes("steps");
 
   return (
-    <>
+    <div>
       <ul className="flex text-sm font-medium text-gray-500 dark:text-gray-400 !p-2 gap-2 overflow-x-auto">
         <li>
           <Link
@@ -106,7 +106,7 @@ export const SingleSubmitTabs = (props: SingleSubmitTabsProps) => {
             </a>
           </li */}
       </ul>
-    </>
+    </div>
   );
 };
 

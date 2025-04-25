@@ -29,7 +29,13 @@ export default function Page({
   return (
     <>
       <SingleSubmitTabs params={params} />
-      <MessageSubmit params={params} />
+      <MessageSubmit
+        params={params}
+        style={{
+          addMessageFormClassName: "lg:mr-96",
+          messageEndClassName: "lg:pr-96",
+        }}
+      />
     </>
   );
 }

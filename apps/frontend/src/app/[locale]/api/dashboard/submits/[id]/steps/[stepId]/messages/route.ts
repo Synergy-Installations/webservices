@@ -8,9 +8,9 @@ import Message from "@com.synergy/frontend-backend-dashboard/message";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: { id: string; stepId: string } }
 ) {
-  const { id } = params;
+  const { id, stepId } = params;
   const { userId } = getAuth(req);
 
   if (!userId) {
@@ -36,10 +36,7 @@ export async function GET(
       accessRights?.includes("all:*") ||
       accessRights?.includes("all:messages")
     ) {
-      const messages = await Message.find({
-        submitId: id,
-        stepId: { $exists: false },
-      })
+      const messages = await Message.find({ stepId: stepId })
         .populate("sentByUserId", "firstName lastName emailAddress")
         .sort({ createdAt: 1 })
         .exec();
@@ -56,10 +53,7 @@ export async function GET(
     if (
       user.emailAddresses.some((e) => e.emailAddress === dbSubmit.emailAddress)
     ) {
-      const messages = await Message.find({
-        submitId: id,
-        stepId: { $exists: false },
-      })
+      const messages = await Message.find({ stepId: stepId })
         .populate("sentByUserId", "firstName lastName emailAddress")
         .sort({ createdAt: 1 })
         .exec();
@@ -90,9 +84,9 @@ export async function GET(
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: { id: string; stepId: string } }
 ) {
-  const { id } = params; // Extract the ID from the request parameters
+  const { id, stepId } = params; // Extract the ID from the request parameters
   const { userId } = getAuth(req); // Get the authenticated user's ID from the session
 
   if (!userId) {

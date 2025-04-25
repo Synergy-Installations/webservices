@@ -56,12 +56,14 @@ export const StepSubmit = (props: StepSubmitProps) => {
       </div>
       <div className="w-1/2 border-l border-gray-200">
         <SingleStepTabs
-          saveStepToggle={saveStepToggle}
-          setSaveStepToggle={setSaveStepToggle}
-          editStepToggle={editStepToggle}
-          setEditStepToggle={setEditStepToggle}
-          isUpdateStepLoading={isUpdateStepLoading}
-          setIsUpdateStepLoading={setIsUpdateStepLoading}
+          SingleStepTabsEdit={{
+            saveStepToggle: saveStepToggle,
+            setSaveStepToggle: setSaveStepToggle,
+            editStepToggle: editStepToggle,
+            setEditStepToggle: setEditStepToggle,
+            isUpdateStepLoading: isUpdateStepLoading,
+            setIsUpdateStepLoading: setIsUpdateStepLoading,
+          }}
           params={params}
         />
         <StepSingle

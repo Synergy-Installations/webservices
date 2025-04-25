@@ -14,7 +14,8 @@ export const SingleSubmitTabs = (props: SingleSubmitTabsProps) => {
   } = props;
 
   const path = usePathname();
-  const isChat = path.includes("chat");
+  // Check for the presence of chat but not steps because /steps/id/chat does exist
+  const isChat = path.includes("chat") && !path.includes("steps");
   const isSteps = path.includes("steps");
 
   return (

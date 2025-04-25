@@ -13,18 +13,30 @@ import { useUser } from "@clerk/nextjs";
 
 /* eslint-disable-next-line */
 export interface MessageSubmitProps {
-  params: { id: string };
+  params: { id: string; stepId?: string };
+  style?: {
+    addMessageFormClassName?: string;
+    messageEndClassName?: string;
+  };
 }
 
 export const MessageSubmit = (props: MessageSubmitProps) => {
-  const { id: submitId } = props.params;
+  const { style } = props;
+  const { id: submitId, stepId } = props.params;
   const [addMessage, { isLoading, error: addMessageError }] =
     useAddMessageMutation();
   const {
     data: messages,
     isLoading: isGetMessagesLoading,
     error: isGetMessagesError,
-  } = useGetMessagesQuery(submitId);
+  } = useGetMessagesQuery(
+    { submitId, stepId },
+    {
+      refetchOnFocus: true,
+      refetchOnReconnect: true,
+      refetchOnMountOrArgChange: true,
+    }
+  );
 
   const user = useUser();
 
@@ -39,12 +51,16 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
 
   const [newMessage, setNewMessage] = useState<Partial<MessageInterface>>({
     submitId: new Types.ObjectId(submitId),
+    ...(stepId && { stepId: new Types.ObjectId(stepId) }),
     message: "",
   });
 
   const createNewMessage = () => {
     addMessage({
       submitId: newMessage.submitId || new Types.ObjectId(submitId),
+      ...(stepId && {
+        stepId: newMessage.stepId || new Types.ObjectId(stepId),
+      }),
       message: newMessage.message,
     });
     setNewMessage({ ...newMessage, message: "" });
@@ -92,7 +108,7 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
                   user.user?.emailAddresses.some(
                     (e) => e.emailAddress === message.sentByUserId?.emailAddress
                   )
-                    ? "self-end lg:pr-96"
+                    ? "self-end " + style?.messageEndClassName
                     : "self-start"
                 }`}
                 key={message._id}
@@ -198,7 +214,9 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
         </div>
       </div>
 
-      <form className="flex flex-col items-center gap-2 p-4 pt-2 lg:mr-96">
+      <form
+        className={`flex flex-col items-center gap-2 p-4 pt-2 ${style?.addMessageFormClassName}`}
+      >
         {addMessageError && (
           <span className="text-red-500 max-w-xl w-full text-left">
             Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.

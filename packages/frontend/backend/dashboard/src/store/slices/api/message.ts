@@ -31,8 +31,15 @@ export const messageApi = api.injectEndpoints({
     //     },
     //   },
     // }),
-    getMessages: build.query<GetMessagesInterface, string>({
-      query: (id) => ({ url: `dashboard/submits/${id}/messages` }),
+    getMessages: build.query<
+      GetMessagesInterface,
+      { submitId?: string; stepId?: string }
+    >({
+      query: ({ submitId, stepId }) => ({
+        url: stepId
+          ? `dashboard/submits/${submitId}/steps/${stepId}/messages`
+          : `dashboard/submits/${submitId}/messages`,
+      }),
       providesTags: (
         result = {
           success: false,
@@ -47,7 +54,9 @@ export const messageApi = api.injectEndpoints({
     }),
     addMessage: build.mutation<MessageInterface, Partial<MessageInterface>>({
       query: (body) => ({
-        url: `dashboard/submits/${body.submitId}/messages`,
+        url: body.stepId
+          ? `dashboard/submits/${body.submitId}/steps/${body.stepId}/messages`
+          : `dashboard/submits/${body.submitId}/messages`,
         method: "POST",
         body,
       }),

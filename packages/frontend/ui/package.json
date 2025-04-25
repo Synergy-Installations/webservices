@@ -8,6 +8,7 @@
     "dist"
   ],
   "exports": {
+    "./StepsSubmitMessages": "./src/dashboard/steps/StepsSubmitMessages.tsx",
     "./EditorMenuBar": "./src/dashboard/steps/editor/EditorMenuBar.tsx",
     "./StepEditor": "./src/dashboard/steps/editor/StepEditor.tsx",
     "./StepSingle": "./src/dashboard/steps/StepSingle.tsx",

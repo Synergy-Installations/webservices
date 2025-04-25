@@ -7,6 +7,10 @@ import { IsUpdateStepLoadingState } from "../StepSubmit";
 /* eslint-disable-next-line */
 export interface SingleStepTabsProps {
   params: { id: string; stepId: string };
+  SingleStepTabsEdit?: SingleStepTabsEdit;
+}
+
+interface SingleStepTabsEdit {
   saveStepToggle: boolean;
   setSaveStepToggle: (saveStepToggle: boolean) => void;
   editStepToggle: boolean;
@@ -19,30 +23,26 @@ export interface SingleStepTabsProps {
 
 export const SingleStepTabs = (props: SingleStepTabsProps) => {
   const {
-    params: { id },
-    saveStepToggle,
-    setSaveStepToggle,
-    editStepToggle,
-    setEditStepToggle,
-    isUpdateStepLoading,
-    setIsUpdateStepLoading,
+    params: { id, stepId },
+    SingleStepTabsEdit,
   } = props;
 
   const path = usePathname();
   const isChat = path.includes("chat");
-  const isSteps = path.includes("steps");
+  const isGeneral = path.includes("general");
+  const isAssets = path.includes("assets");
 
   return (
     <div className="">
       <ul className="flex text-sm font-medium text-gray-500 dark:text-gray-400 !p-2 gap-2 overflow-x-auto">
         <li>
           <Link
-            href={`/dashboard/submits/${id}/steps`}
-            className={`inline-flex items-center px-4 py-2 ${isSteps ? "text-white bg-blue-700 dark:bg-blue-600" : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"} rounded-lg active w-full `}
+            href={`/dashboard/submits/${id}/steps/${stepId}/general`}
+            className={`inline-flex items-center px-4 py-2 ${isGeneral ? "text-white bg-blue-700 dark:bg-blue-600" : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"} rounded-lg active w-full `}
             aria-current="page"
           >
             <svg
-              className={`w-4 h-4 me-2 ${isSteps ? "text-white" : "text-gray-500 dark:text-gray-400"}`}
+              className={`w-4 h-4 me-2 ${isGeneral ? "text-white" : "text-gray-500 dark:text-gray-400"}`}
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -55,7 +55,7 @@ export const SingleStepTabs = (props: SingleStepTabsProps) => {
         </li>
         <li>
           <Link
-            href={`/dashboard/submits/${id}/chat`}
+            href={`/dashboard/submits/${id}/steps/${stepId}/chat`}
             className={`inline-flex items-center px-4 py-2 ${isChat ? "text-white bg-blue-700 dark:bg-blue-600" : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"} rounded-lg active w-full `}
           >
             <svg
@@ -74,10 +74,10 @@ export const SingleStepTabs = (props: SingleStepTabsProps) => {
         <li>
           <Link
             href={`/dashboard/submits/${id}/chat`}
-            className={`inline-flex items-center px-4 py-2 ${isChat ? "text-white bg-blue-700 dark:bg-blue-600" : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"} rounded-lg active w-full `}
+            className={`inline-flex items-center px-4 py-2 ${isAssets ? "text-white bg-blue-700 dark:bg-blue-600" : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"} rounded-lg active w-full `}
           >
             <svg
-              className="w-4 h-4 me-2 text-gray-500 dark:text-gray-400"
+              className={`w-4 h-4 me-2 ${isAssets ? "text-white" : "text-gray-500 dark:text-gray-400"}`}
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -88,23 +88,31 @@ export const SingleStepTabs = (props: SingleStepTabsProps) => {
             Assets
           </Link>
         </li>
-        <li className="">
-          <button
-            onClick={() => setEditStepToggle(!editStepToggle)}
-            className="inline-flex items-center gap-1 w-max px-4 py-2 rounded-lg text-gray-100 hover:text-white bg-synergy-light-blue dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
-          >
-            <span className="">{editStepToggle ? "View" : "Edit"}</span>
-          </button>
-        </li>
-        {editStepToggle && (
+        {SingleStepTabsEdit && (
           <li className="">
             <button
-              onClick={() => setSaveStepToggle(true)}
+              onClick={() =>
+                SingleStepTabsEdit.setEditStepToggle(
+                  !SingleStepTabsEdit.editStepToggle
+                )
+              }
+              className="inline-flex items-center gap-1 w-max px-4 py-2 rounded-lg text-gray-100 hover:text-white bg-synergy-light-blue dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
+            >
+              <span className="">
+                {SingleStepTabsEdit.editStepToggle ? "View" : "Edit"}
+              </span>
+            </button>
+          </li>
+        )}
+        {SingleStepTabsEdit && SingleStepTabsEdit.editStepToggle && (
+          <li className="">
+            <button
+              onClick={() => SingleStepTabsEdit.setSaveStepToggle(true)}
               className="inline-flex items-center gap-1 w-max px-4 py-2 rounded-lg text-gray-100 hover:text-white bg-synergy-light-blue dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
             >
               <span className="">Speichern</span>
-              {(isUpdateStepLoading.titleAndStatus ||
-                isUpdateStepLoading.description) && (
+              {(SingleStepTabsEdit.isUpdateStepLoading.titleAndStatus ||
+                SingleStepTabsEdit.isUpdateStepLoading.description) && (
                 <svg
                   aria-hidden="true"
                   role="status"

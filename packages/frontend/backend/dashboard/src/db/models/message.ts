@@ -31,6 +31,7 @@ export interface MessageInterface extends Document<string> {
   message: string;
   assets?: string[];
   createdAt: Date;
+  stepId?: mongoose.Types.ObjectId;
 }
 
 const MessageSchema = new mongoose.Schema<MessageInterface>({
@@ -47,6 +48,11 @@ const MessageSchema = new mongoose.Schema<MessageInterface>({
   message: { type: String, required: true },
   assets: { type: [String], required: false },
   createdAt: { type: Date, default: Date.now, required: true },
+  stepId: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: false,
+    ref: "Step",
+  },
 });
 
 export default mongoose.models.Message ||

@@ -33,7 +33,7 @@ export default function Page({
         params={params}
         style={{
           addMessageFormClassName: "lg:mr-96",
-          messageEndClassName: "lg:pr-96",
+          messageEndClassName: "lg:mr-96",
         }}
       />
     </>

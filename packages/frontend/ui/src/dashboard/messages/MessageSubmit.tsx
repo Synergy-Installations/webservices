@@ -78,7 +78,9 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
               <div
                 key={index}
                 className={`flex items-start gap-2.5 min-w-40 bg-slgate-100 animate-pulse ${
-                  index % 2 === 0 ? "self-start" : "self-end lg:mr-96"
+                  index % 2 === 0
+                    ? "self-start"
+                    : "self-end " + style?.messageEndClassName
                 }`}
               >
                 <div className="">

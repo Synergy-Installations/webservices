@@ -28,11 +28,20 @@ export interface GetStepInterface extends DefaultResponse {
 //   createdAt: Date;
 // }
 
+export interface AssetInterface {
+  name: string;
+  size: number;
+  type: string;
+  filePath: string;
+  status: string;
+  createdAt: Date;
+}
+
 export interface StepInterface extends Document<string> {
   order: number;
   title: string;
   description?: JSON;
-  assets?: string[];
+  assets?: AssetInterface[];
   status: {
     message: string;
     code: string;
@@ -49,7 +58,7 @@ const StepSchema = new mongoose.Schema<StepInterface>({
     type: mongoose.Schema.Types.Mixed,
     required: false,
   },
-  assets: { type: [String], required: false },
+  assets: { type: Array<AssetInterface>, required: false },
   status: {
     message: { type: String, required: false, default: "No status" },
     code: { type: String, required: false, default: "no_status" },

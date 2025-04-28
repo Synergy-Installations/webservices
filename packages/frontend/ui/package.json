@@ -8,6 +8,9 @@
     "dist"
   ],
   "exports": {
+    "./StepAssetsList": "./src/dashboard/steps/assets/StepAssetsList.tsx",
+    "./StepSubmitAssets": "./src/dashboard/steps/assets/StepSubmitAssets.tsx",
+    "./FileUpload": "./src/landingPage/contact/funnel/upload/FileUpload.tsx",
     "./StepsSubmitMessages": "./src/dashboard/steps/StepsSubmitMessages.tsx",
     "./EditorMenuBar": "./src/dashboard/steps/editor/EditorMenuBar.tsx",
     "./StepEditor": "./src/dashboard/steps/editor/StepEditor.tsx",
@@ -26,7 +29,6 @@
     "./LocaleNumber": "./src/shared/utils/numbers/LocaleNumber.tsx",
     "./Range": "./src/landingPage/contact/funnel/range/Range.tsx",
     "./Calendly": "./src/landingPage/contact/funnel/calendly/Calendly.tsx",
-    "./FileUpload": "./src/landingPage/contact/funnel/upload/FileUpload.tsx",
     "./Debounce": "./src/shared/utils/debounce/Debounce.ts",
     "./Funnel": "./src/landingPage/contact/funnel/Funnel.tsx",
     "./FunnelLayout": "./src/landingPage/contact/funnel/FunnelLayout.tsx",

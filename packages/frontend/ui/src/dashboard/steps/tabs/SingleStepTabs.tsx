@@ -73,7 +73,7 @@ export const SingleStepTabs = (props: SingleStepTabsProps) => {
         </li>
         <li>
           <Link
-            href={`/dashboard/submits/${id}/chat`}
+            href={`/dashboard/submits/${id}/steps/${stepId}/assets`}
             className={`inline-flex items-center px-4 py-2 ${isAssets ? "text-white bg-blue-700 dark:bg-blue-600" : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"} rounded-lg active w-full `}
           >
             <svg

@@ -215,7 +215,10 @@ export async function PUT(
       );
 
       if (!step) {
-        return NextResponse.json({ success: false }, { status: 400 });
+        return NextResponse.json(
+          { success: false, data: step },
+          { status: 400 }
+        );
       }
       return NextResponse.json({ success: true, data: step }, { status: 200 });
     }
@@ -235,12 +238,15 @@ export async function PUT(
       );
 
       if (!step) {
-        return NextResponse.json({ success: false }, { status: 400 });
+        return NextResponse.json(
+          { success: false, data: step },
+          { status: 400 }
+        );
       }
       return NextResponse.json({ success: true, data: step }, { status: 200 });
     }
   } catch (error) {
-    return NextResponse.json({ success: false }, { status: 400 });
+    return NextResponse.json({ success: false, error: error }, { status: 400 });
   }
 }
 

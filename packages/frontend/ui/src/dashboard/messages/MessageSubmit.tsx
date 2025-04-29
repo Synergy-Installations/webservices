@@ -10,6 +10,9 @@ import {
 } from "@com.synergy/frontend-backend-dashboard/messageApi";
 import { Types } from "mongoose";
 import { useUser } from "@clerk/nextjs";
+import { Tooltip } from "flowbite-react";
+import FileUpload from "../shared/file-upload/FileUpload";
+import { AssetInterface } from "@com.synergy/frontend-backend-dashboard/step";
 
 /* eslint-disable-next-line */
 export interface MessageSubmitProps {
@@ -18,10 +21,20 @@ export interface MessageSubmitProps {
     addMessageFormClassName?: string;
     messageEndClassName?: string;
   };
+  STORAGE_ZONE_REGION: string | undefined;
+  STORAGE_ZONE_BASE_HOSTNAME: string | undefined;
+  STORAGE_ZONE_NAME: string | undefined;
+  STORAGE_ZONE_ACCESS_KEY: string | undefined;
 }
 
 export const MessageSubmit = (props: MessageSubmitProps) => {
-  const { style } = props;
+  const {
+    style,
+    STORAGE_ZONE_ACCESS_KEY,
+    STORAGE_ZONE_REGION,
+    STORAGE_ZONE_BASE_HOSTNAME,
+    STORAGE_ZONE_NAME,
+  } = props;
   const { id: submitId, stepId } = props.params;
   const [addMessage, { isLoading, error: addMessageError }] =
     useAddMessageMutation();
@@ -53,7 +66,9 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
     submitId: new Types.ObjectId(submitId),
     ...(stepId && { stepId: new Types.ObjectId(stepId) }),
     message: "",
+    assets: [],
   });
+  console.log(newMessage);
 
   const createNewMessage = () => {
     addMessage({
@@ -62,8 +77,9 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
         stepId: newMessage.stepId || new Types.ObjectId(stepId),
       }),
       message: newMessage.message,
+      assets: newMessage.assets,
     });
-    setNewMessage({ ...newMessage, message: "" });
+    setNewMessage({ ...newMessage, message: "", assets: [] });
   };
 
   return (
@@ -106,7 +122,7 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
           ) : (
             messages?.data?.messages.map((message) => (
               <div
-                className={`flex items-start gap-2.5 ${
+                className={`relative flex items-start gap-2.5 ${
                   user.user?.emailAddresses.some(
                     (e) => e.emailAddress === message.sentByUserId?.emailAddress
                   )
@@ -120,29 +136,121 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
                   src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
                   alt="Jese image"
                 />
-                <div className="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
-                  <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                    <span className="text-sm font-semibold text-gray-900 dark:text-white">
-                      {message.sentByUserId?.firstName || "Unbekannter User"}{" "}
-                      {message.sentByUserId?.lastName}
-                    </span>
-                    <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                      {new Date(message.createdAt).toLocaleDateString("de-AT", {
-                        year: "numeric",
-                        month: "2-digit",
-                        day: "2-digit",
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })}
-                    </span>
-                  </div>
-                  <p className="text-sm font-normal pt-2 text-gray-900 dark:text-white">
-                    {message.message}
-                  </p>
-                  {/* <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
+                <div className="flex flex-col gap-1 items-start max-w-[320px]">
+                  <div className="flex flex-col w-full leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
+                    <div className="flex items-center space-x-2 rtl:space-x-reverse">
+                      <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                        {message.sentByUserId?.firstName || "Unbekannter User"}{" "}
+                        {message.sentByUserId?.lastName}
+                      </span>
+                      <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
+                        {new Date(message.createdAt).toLocaleDateString(
+                          "de-AT",
+                          {
+                            year: "numeric",
+                            month: "2-digit",
+                            day: "2-digit",
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          }
+                        )}
+                      </span>
+                    </div>
+                    <p className="text-sm font-normal pt-2 text-gray-900 dark:text-white">
+                      {message.message}
+                    </p>
+                    {/* <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
                 Sent
               </span> */}
+                  </div>
+                  <div
+                    className={`relative grid gap-1 w-full ${
+                      message.assets && message.assets.length > 1
+                        ? "grid-cols-2"
+                        : "grid-cols-1"
+                    }`}
+                  >
+                    {message.assets?.map((asset, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center w-full gap-2 p-2 border rounded-lg overflow-hidden"
+                      >
+                        {asset.type.startsWith("image/") ? (
+                          <img
+                            src={
+                              asset.status === "uploaded"
+                                ? `https://${STORAGE_ZONE_NAME}.b-cdn.net${asset.filePath}`
+                                : ""
+                            }
+                            alt=""
+                            className="w-10 h-10 object-cover flex-shrink-0"
+                          />
+                        ) : (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            className="h-10 flex-shrink-0"
+                            id="file"
+                          >
+                            <path
+                              fill="#000000"
+                              d="M20,8.94a1.31,1.31,0,0,0-.06-.27l0-.09a1.07,1.07,0,0,0-.19-.28h0l-6-6h0a1.07,1.07,0,0,0-.28-.19l-.09,0L13.06,2H7A3,3,0,0,0,4,5V19a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V9S20,9,20,8.94ZM14,5.41,16.59,8H14ZM18,19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V5A1,1,0,0,1,7,4h5V9a1,1,0,0,0,1,1h5Z"
+                            ></path>
+                          </svg>
+                        )}
+                        <span className="text-sm font-normal text-gray-900 dark:text-white truncate flex-1">
+                          {asset.name}
+                        </span>
+                        <div
+                          className="text-red-500 hover:text-red-700 hover:bg-slate-100 cursor-pointer flex-shrink-0"
+                          onClick={() => {
+                            fetch(
+                              `https://${STORAGE_ZONE_NAME}.b-cdn.net${asset.filePath}`,
+                              {
+                                method: "GET",
+                                headers: {
+                                  "Content-Type": asset.type,
+                                },
+                              }
+                            )
+                              .then((response) => response.blob())
+                              .then((blob) => {
+                                // Create blob link to download
+                                const url = window.URL.createObjectURL(blob);
+
+                                const link = document.createElement("a");
+                                link.href = url;
+                                link.setAttribute("download", asset.name);
+
+                                // Append to html link element page
+                                document.body.appendChild(link);
+
+                                // Start download
+                                link.click();
+
+                                // Clean up and remove the link
+                                link.parentNode?.removeChild(link);
+                              });
+                          }}
+                        >
+                          <svg
+                            className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              fill="currentColor"
+                              d="M18,9h-2c-0.6,0-1,0.4-1,1s0.4,1,1,1h2c0.6,0,1,0.4,1,1v7c0,0.6-0.4,1-1,1H6c-0.6,0-1-0.4-1-1v-7c0-0.6,0.4-1,1-1h2c0.6,0,1-0.4,1-1S8.6,9,8,9H6c-1.7,0-3,1.3-3,3v7c0,1.7,1.3,3,3,3h12c1.7,0,3-1.3,3-3v-7C21,10.3,19.7,9,18,9z M8.3,14.7l3,3c0.2,0.2,0.4,0.3,0.7,0.3c0.3,0,0.5-0.1,0.7-0.3l3-3c0.4-0.4,0.4-1,0-1.4c-0.4-0.4-1-0.4-1.4,0L13,14.6V3c0-0.6-0.4-1-1-1s-1,0.4-1,1v11.6l-1.3-1.3c-0.4-0.4-1-0.4-1.4,0C7.9,13.7,7.9,14.3,8.3,14.7z"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
+
                 <button
                   id="dropdownMenuIconButton"
                   data-dropdown-toggle="dropdownDots"
@@ -225,6 +333,76 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
           </span>
         )}
         <div
+          className={`relative grid gap-1 w-full max-w-xl ${
+            newMessage.assets && newMessage.assets.length > 1
+              ? "grid-cols-2"
+              : "grid-cols-1"
+          }`}
+        >
+          {newMessage.assets?.map((asset, index) => (
+            <div
+              key={index}
+              className="flex items-center w-full gap-2 p-2 border rounded-lg overflow-hidden"
+            >
+              {asset.type.startsWith("image/") ? (
+                <img
+                  src={
+                    asset.status === "uploaded"
+                      ? `https://${STORAGE_ZONE_NAME}.b-cdn.net${asset.filePath}`
+                      : ""
+                  }
+                  alt=""
+                  className="w-10 h-10 object-cover flex-shrink-0"
+                />
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  className="h-10 flex-shrink-0"
+                  id="file"
+                >
+                  <path
+                    fill="#000000"
+                    d="M20,8.94a1.31,1.31,0,0,0-.06-.27l0-.09a1.07,1.07,0,0,0-.19-.28h0l-6-6h0a1.07,1.07,0,0,0-.28-.19l-.09,0L13.06,2H7A3,3,0,0,0,4,5V19a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V9S20,9,20,8.94ZM14,5.41,16.59,8H14ZM18,19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V5A1,1,0,0,1,7,4h5V9a1,1,0,0,0,1,1h5Z"
+                  ></path>
+                </svg>
+              )}
+              <span className="text-sm font-normal text-gray-900 dark:text-white truncate flex-1">
+                {asset.name}
+              </span>
+              <div
+                className="text-red-500 hover:text-red-700 hover:bg-slate-100 cursor-pointer flex-shrink-0"
+                onClick={() => {
+                  setNewMessage((prev) => ({
+                    ...prev,
+                    assets: prev.assets?.filter(
+                      (assetFilter, i) =>
+                        assetFilter.filePath !== asset.filePath
+                    ),
+                  }));
+                }}
+              >
+                <svg
+                  className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div
           className={`flex items-center justify-center max-w-xl w-full ${
             isLoading ? "animate-pulse" : ""
           }`}
@@ -233,23 +411,61 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
             Message input
           </label>
           <div className="relative w-full">
-            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-              <svg
-                className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
+            <Tooltip
+              style="light"
+              trigger="click"
+              content={
+                <div className="">
+                  <FileUpload
+                    submitId={submitId}
+                    stepId={stepId}
+                    setAssets={(asset) => {
+                      if (typeof asset === "function") {
+                        setNewMessage((prev) => ({
+                          ...prev,
+                          assets:
+                            asset instanceof Function
+                              ? asset({
+                                  // @ts-ignore
+                                  assets: prev.assets as AssetInterface[],
+                                }).assets
+                              : [...(prev.assets || []), asset],
+                        }));
+                      } else {
+                        setNewMessage((prev) => ({
+                          ...prev,
+                          assets: [...(prev.assets || []), asset],
+                        }));
+                      }
+                    }}
+                    assets={newMessage.assets}
+                    STORAGE_ZONE_REGION={STORAGE_ZONE_REGION}
+                    STORAGE_ZONE_BASE_HOSTNAME={STORAGE_ZONE_BASE_HOSTNAME}
+                    STORAGE_ZONE_NAME={STORAGE_ZONE_NAME}
+                    STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
+                  />
+                </div>
+              }
+            >
+              <button
+                type="button"
+                className="absolute inset-y-0 start-0 flex items-center ps-3"
               >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M21 15a2 2 0 0 1-2 2H6l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z"
-                />
-              </svg>
-            </div>
+                <svg
+                  className="w-5 h-5 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M12.71,11.29a1,1,0,0,0-.33-.21,1,1,0,0,0-.76,0,1,1,0,0,0-.33.21l-2,2a1,1,0,0,0,1.42,1.42l.29-.3V17a1,1,0,0,0,2,0V14.41l.29.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42ZM20,8.94a1.31,1.31,0,0,0-.06-.27l0-.09a1.07,1.07,0,0,0-.19-.28h0l-6-6h0a1.07,1.07,0,0,0-.28-.19l-.1,0A1.1,1.1,0,0,0,13.06,2H7A3,3,0,0,0,4,5V19a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V9S20,9,20,8.94ZM14,5.41,16.59,8H15a1,1,0,0,1-1-1ZM18,19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V5A1,1,0,0,1,7,4h5V7a3,3,0,0,0,3,3h3Z"
+                  ></path>
+                </svg>
+              </button>
+            </Tooltip>
+
             <input
               type="text"
               id="voice-search"

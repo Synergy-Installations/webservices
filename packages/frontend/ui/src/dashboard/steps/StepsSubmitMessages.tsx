@@ -7,10 +7,20 @@ import MessageSubmit from "../messages/MessageSubmit";
 /* eslint-disable-next-line */
 export interface StepsSubmitMessagesProps {
   params: { id: string; stepId: string };
+  STORAGE_ZONE_REGION: string | undefined;
+  STORAGE_ZONE_BASE_HOSTNAME: string | undefined;
+  STORAGE_ZONE_NAME: string | undefined;
+  STORAGE_ZONE_ACCESS_KEY: string | undefined;
 }
 
 export const StepsSubmitMessages = (props: StepsSubmitMessagesProps) => {
-  const { params } = props;
+  const {
+    params,
+    STORAGE_ZONE_ACCESS_KEY,
+    STORAGE_ZONE_REGION,
+    STORAGE_ZONE_BASE_HOSTNAME,
+    STORAGE_ZONE_NAME,
+  } = props;
 
   return (
     <div className="flex justify-between h-full lg:mr-96">
@@ -24,6 +34,10 @@ export const StepsSubmitMessages = (props: StepsSubmitMessagesProps) => {
           <MessageSubmit
             params={params}
             style={{ addMessageFormClassName: "pb-48" }}
+            STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
+            STORAGE_ZONE_REGION={STORAGE_ZONE_REGION}
+            STORAGE_ZONE_BASE_HOSTNAME={STORAGE_ZONE_BASE_HOSTNAME}
+            STORAGE_ZONE_NAME={STORAGE_ZONE_NAME}
           />
         </div>
       </div>

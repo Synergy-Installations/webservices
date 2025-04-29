@@ -189,10 +189,10 @@ export const FileUpload = (props: FileUploadProps) => {
     });
   }, []);
 
-  const { getRootProps, getInputProps } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   return (
-    <>
+    <div>
       {/* <div {...getRootProps()}>
         // <input {...getInputProps()} />
         // <p>Drag 'n' drop some files here, or click to select files</p>
@@ -202,8 +202,14 @@ export const FileUpload = (props: FileUploadProps) => {
         {...getRootProps()}
         className="flex flex-col items-center justify-center w-full"
       >
+        <input
+          {...getInputProps()}
+          id={stepId}
+          type="file"
+          className="hidden"
+        />
         <label
-          htmlFor={`${submitId}`}
+          // htmlFor={stepId}
           className="relative flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500"
         >
           <div className="flex flex-col items-center justify-center pt-5 pb-6">
@@ -230,12 +236,6 @@ export const FileUpload = (props: FileUploadProps) => {
               SVG, PNG, JPG or GIF (MAX. 800x400px)
             </p>
           </div>
-          <input
-            {...getInputProps()}
-            id={`${submitId}`}
-            type="file"
-            className="hidden"
-          />
         </label>
       </div>
       <div className="relative flex flex-col w-full">
@@ -250,11 +250,11 @@ export const FileUpload = (props: FileUploadProps) => {
                   <img
                     src={
                       file.status === "uploaded"
-                        ? file.downloadUrl
+                        ? `https://${STORAGE_ZONE_NAME}.b-cdn.net${file.filePath}`
                         : file.localUrl
                     }
                     alt=""
-                    className="h-10"
+                    className="w-10 h-10 object-cover"
                   />
                 ) : (
                   <svg
@@ -322,7 +322,7 @@ export const FileUpload = (props: FileUploadProps) => {
       >
         {questionElements[questionKey].form[formKey].message.text}
       </p> */}
-    </>
+    </div>
   );
 };
 

@@ -129,8 +129,36 @@ export const StepAssetsList = (props: StepAssetsListProps) => {
   }, [isUpdateStepMutationLoading]);
 
   return (
-    <div>
-      <div className="relative flex flex-col w-full px-2">
+    <div className="overflow-y-auto h-full pb-48 grid gap-2">
+      {editStepToggle && (
+        <FileUpload
+          submitId={submitId}
+          stepId={stepId}
+          setAssets={(asset) => {
+            if (typeof asset === "function") {
+              setEditStep((prev) => ({
+                ...prev,
+                assets:
+                  asset instanceof Function
+                    ? // @ts-ignore
+                      asset({ assets: prev.assets as AssetInterface[] }).assets
+                    : [...(prev.assets || []), asset],
+              }));
+            } else {
+              setEditStep((prev) => ({
+                ...prev,
+                assets: [...(prev.assets || []), asset],
+              }));
+            }
+          }}
+          assets={editStep.assets}
+          STORAGE_ZONE_REGION={STORAGE_ZONE_REGION}
+          STORAGE_ZONE_BASE_HOSTNAME={STORAGE_ZONE_BASE_HOSTNAME}
+          STORAGE_ZONE_NAME={STORAGE_ZONE_NAME}
+          STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
+        />
+      )}
+      <div className="relative flex flex-col w-full px-2 gap-2">
         {step?.data?.step?.assets?.map((file, index: number) => (
           <div
             key={index}
@@ -149,16 +177,33 @@ export const StepAssetsList = (props: StepAssetsListProps) => {
               <button
                 className=""
                 onClick={() => {
-                  setEditStep((prev: any) => {
-                    /** Gets called twice in dev - do not fall off your chair - prod only updates the elements once */
-                    const updatedAssets = {
-                      assets: [...((prev as any).assets as AssetInterface[])],
-                    };
-                    updatedAssets.assets = updatedAssets.assets.filter(
-                      (fileFilter) => fileFilter.filePath !== file.filePath
-                    );
-                    return updatedAssets;
-                  });
+                  fetch(
+                    `https://${STORAGE_ZONE_NAME}.b-cdn.net${file.filePath}`,
+                    {
+                      method: "GET",
+                      headers: {
+                        "Content-Type": file.type,
+                      },
+                    }
+                  )
+                    .then((response) => response.blob())
+                    .then((blob) => {
+                      // Create blob link to download
+                      const url = window.URL.createObjectURL(blob);
+
+                      const link = document.createElement("a");
+                      link.href = url;
+                      link.setAttribute("download", file.name);
+
+                      // Append to html link element page
+                      document.body.appendChild(link);
+
+                      // Start download
+                      link.click();
+
+                      // Clean up and remove the link
+                      link.parentNode?.removeChild(link);
+                    });
                 }}
               >
                 <svg
@@ -169,12 +214,9 @@ export const StepAssetsList = (props: StepAssetsListProps) => {
                   viewBox="0 0 24 24"
                 >
                   <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                    fill="currentColor"
+                    d="M18,9h-2c-0.6,0-1,0.4-1,1s0.4,1,1,1h2c0.6,0,1,0.4,1,1v7c0,0.6-0.4,1-1,1H6c-0.6,0-1-0.4-1-1v-7c0-0.6,0.4-1,1-1h2c0.6,0,1-0.4,1-1S8.6,9,8,9H6c-1.7,0-3,1.3-3,3v7c0,1.7,1.3,3,3,3h12c1.7,0,3-1.3,3-3v-7C21,10.3,19.7,9,18,9z M8.3,14.7l3,3c0.2,0.2,0.4,0.3,0.7,0.3c0.3,0,0.5-0.1,0.7-0.3l3-3c0.4-0.4,0.4-1,0-1.4c-0.4-0.4-1-0.4-1.4,0L13,14.6V3c0-0.6-0.4-1-1-1s-1,0.4-1,1v11.6l-1.3-1.3c-0.4-0.4-1-0.4-1.4,0C7.9,13.7,7.9,14.3,8.3,14.7z"
+                  ></path>
                 </svg>
               </button>
             </div>
@@ -207,34 +249,6 @@ export const StepAssetsList = (props: StepAssetsListProps) => {
           </div>
         ))}
       </div>
-      {editStepToggle && (
-        <FileUpload
-          submitId={submitId}
-          stepId={stepId}
-          setAssets={(asset) => {
-            if (typeof asset === "function") {
-              setEditStep((prev) => ({
-                ...prev,
-                assets:
-                  asset instanceof Function
-                    ? // @ts-ignore
-                      asset({ assets: prev.assets as AssetInterface[] }).assets
-                    : [...(prev.assets || []), asset],
-              }));
-            } else {
-              setEditStep((prev) => ({
-                ...prev,
-                assets: [...(prev.assets || []), asset],
-              }));
-            }
-          }}
-          assets={editStep.assets}
-          STORAGE_ZONE_REGION={STORAGE_ZONE_REGION}
-          STORAGE_ZONE_BASE_HOSTNAME={STORAGE_ZONE_BASE_HOSTNAME}
-          STORAGE_ZONE_NAME={STORAGE_ZONE_NAME}
-          STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
-        />
-      )}
     </div>
   );
 };

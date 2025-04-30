@@ -6,6 +6,10 @@ export interface StepsSubmitProps {
   params: { id: string };
 }
 
+export interface IsUpdateSubmitLoadingState {
+  assets: boolean;
+}
+
 export const StepsSubmit = (props: StepsSubmitProps) => {
   const { params } = props;
 

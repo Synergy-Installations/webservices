@@ -8,6 +8,8 @@
     "dist"
   ],
   "exports": {
+    "./SubmitAssetsList": "./src/dashboard/submits/assets/SubmitAssetsList.tsx",
+    "./SubmitAssets": "./src/dashboard/submits/assets/SubmitAssets.tsx",
     "./StepAssetsList": "./src/dashboard/steps/assets/StepAssetsList.tsx",
     "./StepSubmitAssets": "./src/dashboard/steps/assets/StepSubmitAssets.tsx",
     "./FileUpload": "./src/landingPage/contact/funnel/upload/FileUpload.tsx",

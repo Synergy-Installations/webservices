@@ -30,9 +30,10 @@ export const FileUpload = (props: FileUploadProps) => {
   } = props;
 
   const HOSTNAME =
-    STORAGE_ZONE_REGION !== ""
+    STORAGE_ZONE_REGION !== "de"
       ? `${STORAGE_ZONE_REGION}.${STORAGE_ZONE_BASE_HOSTNAME}`
       : STORAGE_ZONE_BASE_HOSTNAME;
+  console.log("STORAGE_ZONE_REGION", STORAGE_ZONE_REGION);
 
   // const STORAGE_ZONE_NAME =
   //   questionElements[questionKey].form[formKey].options.upload.storageZoneName;
@@ -141,7 +142,7 @@ export const FileUpload = (props: FileUploadProps) => {
         });
 
         const response = await fetch(
-          `https://${HOSTNAME}/${STORAGE_ZONE_NAME}/${fileName}`,
+          `https://${HOSTNAME}/${STORAGE_ZONE_NAME}${fileName}`,
           {
             method: "PUT",
             headers: {

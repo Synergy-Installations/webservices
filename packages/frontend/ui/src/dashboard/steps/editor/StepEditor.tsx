@@ -164,7 +164,7 @@ export const StepEditor = (props: StepEditorProps) => {
   );
 
   return (
-    <div className="relative w-full border border-gray-200 rounded-lg overflow-hidden bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+    <div className="relative border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
       {/* <div className="px-4 py-2 bg-white rounded-b-lg dark:bg-gray-800">
         <label htmlFor="wysiwyg-example" className="sr-only">
           Publish post
@@ -195,7 +195,7 @@ export const StepEditor = (props: StepEditorProps) => {
         editorProps={{
           attributes: {
             class:
-              "format block relative w-full px-4 py-2 text-sm bg-white border-0 focus:ring-0 focus:outline-none",
+              "format block relative px-4 py-2 text-sm bg-white border-0 focus:ring-0 focus:outline-none rounded-b-lg",
           },
         }}
       ></EditorProvider>

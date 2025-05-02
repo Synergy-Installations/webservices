@@ -36,7 +36,7 @@ export const StepsSubmitMessages = (props: StepsSubmitMessagesProps) => {
       >
         <div className="w-full md:w-1/2 border-l border-gray-200">
           <SingleStepTabs params={params} />
-          <div className="flex flex-col justify-between relative h-full pb-12">
+          <div className="flex flex-col justify-between relative h-full pb-12 md:pb-0">
             <MessageSubmit
               params={params}
               style={{ addMessageFormClassName: "pb-48" }}

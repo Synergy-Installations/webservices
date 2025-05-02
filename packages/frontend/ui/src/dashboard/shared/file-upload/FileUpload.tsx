@@ -193,7 +193,7 @@ export const FileUpload = (props: FileUploadProps) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   return (
-    <div>
+    <div className="px-2">
       {/* <div {...getRootProps()}>
         // <input {...getInputProps()} />
         // <p>Drag 'n' drop some files here, or click to select files</p>

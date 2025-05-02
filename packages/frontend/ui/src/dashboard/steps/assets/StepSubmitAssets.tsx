@@ -76,7 +76,7 @@ export const StepSubmitAssets = (props: StepSubmitAssetsProps) => {
               setIsUpdateStepLoading: setIsUpdateStepLoading,
             }}
           />
-          <div className="flex flex-col justify-between relative h-full pb-12">
+          <div className="flex flex-col justify-between relative h-full pb-12 md:pb-0">
             <StepAssetsList
               params={params}
               saveStepToggle={saveStepToggle}

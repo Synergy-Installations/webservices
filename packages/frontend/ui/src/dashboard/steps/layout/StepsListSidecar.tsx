@@ -75,9 +75,9 @@ export const StepsListSidecar = (props: StepsListSidecarProps) => {
           aria-label="Sidebar"
         >
           <SingleSubmitTabs params={params} />
-          <StepsList className="" params={params} />
+          <StepsList className="pb-60" params={params} />
         </aside>
-        <div className="hidden md:block w-1/2 h-full">
+        <div className="hidden md:block w-1/2">
           <SingleSubmitTabs params={params} />
           <StepsList className="" params={params} />
         </div>

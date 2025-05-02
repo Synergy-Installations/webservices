@@ -12,8 +12,8 @@ import { set } from "mongoose";
 export interface SubmitSingleProps {
   params: { id: string };
   STORAGE_ZONE_ACCESS_KEY: string | undefined;
-  stepsListOpen: boolean;
-  setStepsListOpen: (open: boolean) => void;
+  stepsListOpen?: boolean;
+  setStepsListOpen?: (open: boolean) => void;
 }
 
 export const TopBarSubmitSingle = ({
@@ -34,8 +34,8 @@ export const TopBarSubmitSingle = ({
   isGetSubmitError: any | undefined;
   submitOpen: boolean;
   setSubmitOpen: (open: boolean) => void;
-  stepsListOpen: boolean;
-  setStepsListOpen: (open: boolean) => void;
+  stepsListOpen?: boolean;
+  setStepsListOpen?: (open: boolean) => void;
 }) => {
   const [updateSubmit, { status }] = useUpdateSubmitMutation();
 
@@ -167,7 +167,7 @@ export const TopBarSubmitSingle = ({
                     ></div>
                     <p className="text-sm font-medium">Status:</p>
                   </div>
-                  <p className="text-sm font-medium">
+                  <p className="text-sm font-medium truncate">
                     {submit.status?.message}
                   </p>
                   {Array.isArray(
@@ -210,17 +210,21 @@ export const TopBarSubmitSingle = ({
           </div>
         )}
 
-        <div className="flex gap-2 w-full md:w-auto justify-between text-sm font-medium text-gray-800 dark:text-gray-400">
-          <div className="">
+        <div
+          className={`flex gap-2 w-full md:w-auto ${setStepsListOpen ? "justify-between" : "justify-end"} text-sm font-medium text-gray-800 dark:text-gray-400`}
+        >
+          {setStepsListOpen && (
             <button
-              onClick={() => setStepsListOpen(!stepsListOpen)}
+              onClick={() =>
+                setStepsListOpen && setStepsListOpen(!stepsListOpen)
+              }
               className="inline-flex md:hidden items-center w-max px-4 py-2 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
             >
               <span className="whitespace-nowrap">
                 Schritte {stepsListOpen ? "schließen" : "öffnen"}
               </span>
             </button>
-          </div>
+          )}
           {/* <li>
             <a
               href="#"

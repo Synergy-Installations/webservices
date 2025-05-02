@@ -88,7 +88,7 @@ export const StepsList = (props: StepsListProps) => {
 
   return (
     <div
-      className={`flex flex-col gap-2 pt-0 p-4 overflow-y-scroll h-full pb-48 ${className}`}
+      className={`flex flex-col gap-2 pt-0 p-4 overflow-y-scroll h-full w-full ${className}`}
     >
       {isGetStepsLoading ? (
         <div className="flex flex-col gap-2 animate-pulse">

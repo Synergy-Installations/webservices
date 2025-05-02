@@ -155,7 +155,7 @@ export const StepSingle = (props: StepSingleProps) => {
 
   return (
     <div
-      className={`flex flex-col gap-2 overflow-y-scroll h-full pb-[11.5rem]`}
+      className={`flex flex-col gap-2 overflow-y-scroll h-full pb-48`}
     >
       {isGetStepLoading ? (
         <div className="flex flex-col gap-2 animate-pulse px-4 pb-4">

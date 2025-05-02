@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { debounce } from "@com.synergy/frontend-ui/Debounce";
 import SingleSubmitTabs from "../tabs/SingleSubmitTabs";
 import SubmitAssetsList from "./SubmitAssetsList";
+import SubmitSingle from "../SubmitSingle";
 
 /* eslint-disable-next-line */
 export interface SubmitAssetsProps {
@@ -46,7 +47,11 @@ export const SubmitAssets = (props: SubmitAssetsProps) => {
   }, [isUpdateSubmitLoading]);
 
   return (
-    <div className="h-full">
+    <>
+      <SubmitSingle
+        params={params}
+        STORAGE_ZONE_ACCESS_KEY={process.env.STORAGE_ZONE_ACCESS_KEY}
+      />
       <SingleSubmitTabs
         SingleStepTabsEdit={{
           saveStepToggle: saveSubmitToggle,
@@ -58,26 +63,24 @@ export const SubmitAssets = (props: SubmitAssetsProps) => {
         }}
         params={params}
       />
-      <div className="flex flex-col justify-between relative h-full">
-        <SubmitAssetsList
-          params={params}
-          saveSubmitToggle={saveSubmitToggle}
-          setSaveSubmitToggle={setSaveSubmitToggle}
-          editSubmitToggle={editSubmitToggle}
-          setEditSubmitToggle={setEditSubmitToggle}
-          isUpdateSubmitLoading={isUpdateSubmitLoading}
-          setIsUpdateSubmitLoading={setIsUpdateSubmitLoading}
-          STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
-          STORAGE_ZONE_REGION={STORAGE_ZONE_REGION}
-          STORAGE_ZONE_BASE_HOSTNAME={STORAGE_ZONE_BASE_HOSTNAME}
-          STORAGE_ZONE_NAME={STORAGE_ZONE_NAME}
-        />
-        {/* <MessageSubmit
+      <SubmitAssetsList
+        params={params}
+        saveSubmitToggle={saveSubmitToggle}
+        setSaveSubmitToggle={setSaveSubmitToggle}
+        editSubmitToggle={editSubmitToggle}
+        setEditSubmitToggle={setEditSubmitToggle}
+        isUpdateSubmitLoading={isUpdateSubmitLoading}
+        setIsUpdateSubmitLoading={setIsUpdateSubmitLoading}
+        STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
+        STORAGE_ZONE_REGION={STORAGE_ZONE_REGION}
+        STORAGE_ZONE_BASE_HOSTNAME={STORAGE_ZONE_BASE_HOSTNAME}
+        STORAGE_ZONE_NAME={STORAGE_ZONE_NAME}
+      />
+      {/* <MessageSubmit
             params={params}
             style={{ addMessageFormClassName: "pb-48" }}
-          /> */}
-      </div>
-    </div>
+            /> */}
+    </>
   );
 };
 

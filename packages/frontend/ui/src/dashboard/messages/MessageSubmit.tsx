@@ -13,6 +13,8 @@ import { useUser } from "@clerk/nextjs";
 import { Tooltip } from "flowbite-react";
 import FileUpload from "../shared/file-upload/FileUpload";
 import { AssetInterface } from "@com.synergy/frontend-backend-dashboard/step";
+import SubmitSingle from "../submits/SubmitSingle";
+import SingleSubmitTabs from "../submits/tabs/SingleSubmitTabs";
 
 /* eslint-disable-next-line */
 export interface MessageSubmitProps {
@@ -30,6 +32,7 @@ export interface MessageSubmitProps {
 export const MessageSubmit = (props: MessageSubmitProps) => {
   const {
     style,
+    params,
     STORAGE_ZONE_ACCESS_KEY,
     STORAGE_ZONE_REGION,
     STORAGE_ZONE_BASE_HOSTNAME,

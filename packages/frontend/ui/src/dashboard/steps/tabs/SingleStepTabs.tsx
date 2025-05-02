@@ -6,7 +6,7 @@ import { IsUpdateStepLoadingState } from "../StepSubmit";
 
 /* eslint-disable-next-line */
 export interface SingleStepTabsProps {
-  params: { id: string; stepId: string };
+  params: { id: string; stepId?: string };
   SingleStepTabsEdit?: SingleStepTabsEdit;
 }
 

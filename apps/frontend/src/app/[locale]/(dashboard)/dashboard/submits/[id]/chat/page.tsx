@@ -28,6 +28,10 @@ export default function Page({
 }): JSX.Element {
   return (
     <>
+      <SubmitSingle
+        params={params}
+        STORAGE_ZONE_ACCESS_KEY={process.env.STORAGE_ZONE_ACCESS_KEY}
+      />
       <SingleSubmitTabs params={params} />
       <MessageSubmit
         params={params}

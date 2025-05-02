@@ -12,6 +12,8 @@ import { set } from "mongoose";
 export interface SubmitSingleProps {
   params: { id: string };
   STORAGE_ZONE_ACCESS_KEY: string | undefined;
+  stepsListOpen: boolean;
+  setStepsListOpen: (open: boolean) => void;
 }
 
 export const TopBarSubmitSingle = ({
@@ -22,6 +24,8 @@ export const TopBarSubmitSingle = ({
   isGetSubmitError,
   submitOpen,
   setSubmitOpen,
+  stepsListOpen,
+  setStepsListOpen,
 }: {
   id: string;
   submit: any | undefined;
@@ -30,6 +34,8 @@ export const TopBarSubmitSingle = ({
   isGetSubmitError: any | undefined;
   submitOpen: boolean;
   setSubmitOpen: (open: boolean) => void;
+  stepsListOpen: boolean;
+  setStepsListOpen: (open: boolean) => void;
 }) => {
   const [updateSubmit, { status }] = useUpdateSubmitMutation();
 
@@ -84,7 +90,7 @@ export const TopBarSubmitSingle = ({
 
   return (
     <div className="mt-14 w-full z-50 top-[58px] py-2 border-b border-synergy-light-grey bg-white">
-      <div className="flex flex-col sm:flex-row justify-between items-center gap-2 px-4">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-2 px-4">
         {isGetSubmitLoading ? (
           <div className="animate-pulse h-14 w-full flex flex-col justify-center">
             <div className="h-6 bg-gray-300 rounded w-1/3 mb-2"></div>
@@ -204,7 +210,17 @@ export const TopBarSubmitSingle = ({
           </div>
         )}
 
-        <div className="flex gap-2 w-full sm:w-auto justify-end text-sm font-medium text-gray-800 dark:text-gray-400">
+        <div className="flex gap-2 w-full md:w-auto justify-between text-sm font-medium text-gray-800 dark:text-gray-400">
+          <div className="">
+            <button
+              onClick={() => setStepsListOpen(!stepsListOpen)}
+              className="inline-flex md:hidden items-center w-max px-4 py-2 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
+            >
+              <span className="whitespace-nowrap">
+                Schritte {stepsListOpen ? "schließen" : "öffnen"}
+              </span>
+            </button>
+          </div>
           {/* <li>
             <a
               href="#"
@@ -222,18 +238,18 @@ export const TopBarSubmitSingle = ({
               Dashboard
             </a>
           </li> */}
-          <button
-            onClick={() => setSubmitOpen(!submitOpen)}
-            className="inline-flex items-center w-max px-4 py-2 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
-          >
-            <span className="whitespace-nowrap">
-              Anfrage {submitOpen ? "schließen" : "öffnen"}
-            </span>
-          </button>
-          {submitOpen && (
+          <div className="grid xs:flex gap-2">
+            <button
+              onClick={() => setSubmitOpen(!submitOpen)}
+              className="inline-flex items-center lg:hidden w-max px-4 py-2 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
+            >
+              <span className="whitespace-nowrap">
+                Anfrage {submitOpen ? "schließen" : "öffnen"}
+              </span>
+            </button>
             <button
               onClick={() => handleSave()}
-              className="inline-flex items-center gap-1 w-max px-4 py-2 rounded-lg text-gray-100 hover:text-white bg-synergy-light-blue dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
+              className={`inline-flex ${submitOpen ? "block" : "hidden lg:block"} items-center gap-1 w-max px-4 py-2 rounded-lg text-gray-100 hover:text-white bg-synergy-light-blue dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white`}
             >
               <span className="">Speichern</span>
               {status === "pending" && (
@@ -256,7 +272,7 @@ export const TopBarSubmitSingle = ({
                 </svg>
               )}
             </button>
-          )}
+          </div>
         </div>
       </div>
     </div>
@@ -264,7 +280,7 @@ export const TopBarSubmitSingle = ({
 };
 
 export const SubmitSingle = (props: SubmitSingleProps) => {
-  const { STORAGE_ZONE_ACCESS_KEY } = props;
+  const { STORAGE_ZONE_ACCESS_KEY, stepsListOpen, setStepsListOpen } = props;
 
   const submitAside = useRef<HTMLDivElement>(null);
   const [submitOpen, setSubmitOpen] = useState(false);
@@ -291,6 +307,8 @@ export const SubmitSingle = (props: SubmitSingleProps) => {
           isGetSubmitError={isGetSubmitError}
           submitOpen={submitOpen}
           setSubmitOpen={setSubmitOpen}
+          stepsListOpen={stepsListOpen}
+          setStepsListOpen={setStepsListOpen}
         />
       </div>
       <aside

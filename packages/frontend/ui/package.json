@@ -8,6 +8,7 @@
     "dist"
   ],
   "exports": {
+    "./StepsListSidecar": "./src/dashboard/steps/layout/StepsListSidecar.tsx",
     "./SubmitAssetsList": "./src/dashboard/submits/assets/SubmitAssetsList.tsx",
     "./SubmitAssets": "./src/dashboard/submits/assets/SubmitAssets.tsx",
     "./StepAssetsList": "./src/dashboard/steps/assets/StepAssetsList.tsx",

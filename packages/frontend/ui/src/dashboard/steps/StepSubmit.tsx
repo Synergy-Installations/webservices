@@ -6,6 +6,8 @@ import SingleStepTabs from "./tabs/SingleStepTabs";
 import StepSingle from "./StepSingle";
 import { useEffect, useState } from "react";
 import { debounce } from "@com.synergy/frontend-ui/Debounce";
+import SubmitSingle from "../submits/SubmitSingle";
+import StepsListSidecar from "./layout/StepsListSidecar";
 
 /* eslint-disable-next-line */
 export interface StepSubmitProps {
@@ -22,6 +24,7 @@ export const StepSubmit = (props: StepSubmitProps) => {
 
   const [saveStepToggle, setSaveStepToggle] = useState<boolean>(false);
   const [editStepToggle, setEditStepToggle] = useState<boolean>(false);
+  const [stepsListOpen, setStepsListOpen] = useState(false);
   const [isUpdateStepLoading, setIsUpdateStepLoading] = useState<{
     titleAndStatus: boolean;
     description: boolean;
@@ -49,12 +52,12 @@ export const StepSubmit = (props: StepSubmitProps) => {
   }, [isUpdateStepLoading]);
 
   return (
-    <div className="flex justify-between h-full lg:mr-96">
-      <div className="h-full w-1/2">
-        <SingleSubmitTabs params={params} />
-        <StepsList className="" params={params} />
-      </div>
-      <div className="w-1/2 border-l border-gray-200">
+    <StepsListSidecar
+      params={params}
+      stepsListOpen={stepsListOpen}
+      setStepsListOpen={setStepsListOpen}
+    >
+      <div className="w-full md:w-1/2 border-l border-gray-200">
         <SingleStepTabs
           SingleStepTabsEdit={{
             saveStepToggle: saveStepToggle,
@@ -76,7 +79,7 @@ export const StepSubmit = (props: StepSubmitProps) => {
           params={params}
         />
       </div>
-    </div>
+    </StepsListSidecar>
   );
 };
 

@@ -1,8 +1,11 @@
+"use client";
 import { SingleSubmitTabs } from "@com.synergy/frontend-ui/SingleSubmitTabs";
 import StepsList from "./StepsList";
 import SingleStepTabs from "./tabs/SingleStepTabs";
 import StepSingle from "./StepSingle";
 import MessageSubmit from "../messages/MessageSubmit";
+import StepsListSidecar from "./layout/StepsListSidecar";
+import { useState } from "react";
 
 /* eslint-disable-next-line */
 export interface StepsSubmitMessagesProps {
@@ -22,26 +25,30 @@ export const StepsSubmitMessages = (props: StepsSubmitMessagesProps) => {
     STORAGE_ZONE_NAME,
   } = props;
 
+  const [stepsListOpen, setStepsListOpen] = useState(false);
+
   return (
-    <div className="flex justify-between h-full lg:mr-96">
-      <div className="h-full w-1/2">
-        <SingleSubmitTabs params={params} />
-        <StepsList className="" params={params} />
-      </div>
-      <div className="w-1/2 border-l border-gray-200">
-        <SingleStepTabs params={params} />
-        <div className="flex flex-col justify-between relative h-full">
-          <MessageSubmit
-            params={params}
-            style={{ addMessageFormClassName: "pb-48" }}
-            STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
-            STORAGE_ZONE_REGION={STORAGE_ZONE_REGION}
-            STORAGE_ZONE_BASE_HOSTNAME={STORAGE_ZONE_BASE_HOSTNAME}
-            STORAGE_ZONE_NAME={STORAGE_ZONE_NAME}
-          />
+    <>
+      <StepsListSidecar
+        params={params}
+        stepsListOpen={stepsListOpen}
+        setStepsListOpen={setStepsListOpen}
+      >
+        <div className="w-full md:w-1/2 border-l border-gray-200">
+          <SingleStepTabs params={params} />
+          <div className="flex flex-col justify-between relative h-full">
+            <MessageSubmit
+              params={params}
+              style={{ addMessageFormClassName: "pb-48" }}
+              STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
+              STORAGE_ZONE_REGION={STORAGE_ZONE_REGION}
+              STORAGE_ZONE_BASE_HOSTNAME={STORAGE_ZONE_BASE_HOSTNAME}
+              STORAGE_ZONE_NAME={STORAGE_ZONE_NAME}
+            />
+          </div>
         </div>
-      </div>
-    </div>
+      </StepsListSidecar>
+    </>
   );
 };
 

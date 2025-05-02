@@ -30,10 +30,10 @@ export default async function RootLayout({
 
   return (
     <div className="flex flex-col justify-between overflow-hidden h-screen">
-      <SubmitSingle
+      {/* <SubmitSingle
         params={params}
         STORAGE_ZONE_ACCESS_KEY={process.env.STORAGE_ZONE_ACCESS_KEY}
-      />
+      /> */}
       {children}
     </div>
   );

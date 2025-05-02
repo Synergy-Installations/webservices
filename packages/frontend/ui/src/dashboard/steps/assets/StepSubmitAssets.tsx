@@ -8,6 +8,7 @@ import MessageSubmit from "../../messages/MessageSubmit";
 import StepAssetsList from "./StepAssetsList";
 import { debounce } from "@com.synergy/frontend-ui/Debounce";
 import { useEffect, useState } from "react";
+import StepsListSidecar from "../layout/StepsListSidecar";
 
 /* eslint-disable-next-line */
 export interface StepSubmitAssetsProps {
@@ -29,6 +30,7 @@ export const StepSubmitAssets = (props: StepSubmitAssetsProps) => {
 
   const [saveStepToggle, setSaveStepToggle] = useState<boolean>(false);
   const [editStepToggle, setEditStepToggle] = useState<boolean>(false);
+  const [stepsListOpen, setStepsListOpen] = useState(false);
   const [isUpdateStepLoading, setIsUpdateStepLoading] = useState<{
     titleAndStatus: boolean;
     description: boolean;
@@ -56,44 +58,46 @@ export const StepSubmitAssets = (props: StepSubmitAssetsProps) => {
   }, [isUpdateStepLoading]);
 
   return (
-    <div className="flex justify-between h-full lg:mr-96">
-      <div className="h-full w-1/2">
-        <SingleSubmitTabs params={params} />
-        <StepsList className="" params={params} />
-      </div>
-      <div className="w-1/2 border-l border-gray-200">
-        <SingleStepTabs
-          params={params}
-          SingleStepTabsEdit={{
-            saveStepToggle: saveStepToggle,
-            setSaveStepToggle: setSaveStepToggle,
-            editStepToggle: editStepToggle,
-            setEditStepToggle: setEditStepToggle,
-            isUpdateStepLoading: isUpdateStepLoading,
-            setIsUpdateStepLoading: setIsUpdateStepLoading,
-          }}
-        />
-        <div className="flex flex-col justify-between relative h-full">
-          <StepAssetsList
+    <>
+      <StepsListSidecar
+        params={params}
+        stepsListOpen={stepsListOpen}
+        setStepsListOpen={setStepsListOpen}
+      >
+        <div className="w-full md:w-1/2 border-l border-gray-200">
+          <SingleStepTabs
             params={params}
-            saveStepToggle={saveStepToggle}
-            setSaveStepToggle={setSaveStepToggle}
-            editStepToggle={editStepToggle}
-            setEditStepToggle={setEditStepToggle}
-            isUpdateStepLoading={isUpdateStepLoading}
-            setIsUpdateStepLoading={setIsUpdateStepLoading}
-            STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
-            STORAGE_ZONE_REGION={STORAGE_ZONE_REGION}
-            STORAGE_ZONE_BASE_HOSTNAME={STORAGE_ZONE_BASE_HOSTNAME}
-            STORAGE_ZONE_NAME={STORAGE_ZONE_NAME}
+            SingleStepTabsEdit={{
+              saveStepToggle: saveStepToggle,
+              setSaveStepToggle: setSaveStepToggle,
+              editStepToggle: editStepToggle,
+              setEditStepToggle: setEditStepToggle,
+              isUpdateStepLoading: isUpdateStepLoading,
+              setIsUpdateStepLoading: setIsUpdateStepLoading,
+            }}
           />
-          {/* <MessageSubmit
+          <div className="flex flex-col justify-between relative h-full">
+            <StepAssetsList
+              params={params}
+              saveStepToggle={saveStepToggle}
+              setSaveStepToggle={setSaveStepToggle}
+              editStepToggle={editStepToggle}
+              setEditStepToggle={setEditStepToggle}
+              isUpdateStepLoading={isUpdateStepLoading}
+              setIsUpdateStepLoading={setIsUpdateStepLoading}
+              STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
+              STORAGE_ZONE_REGION={STORAGE_ZONE_REGION}
+              STORAGE_ZONE_BASE_HOSTNAME={STORAGE_ZONE_BASE_HOSTNAME}
+              STORAGE_ZONE_NAME={STORAGE_ZONE_NAME}
+            />
+            {/* <MessageSubmit
             params={params}
             style={{ addMessageFormClassName: "pb-48" }}
           /> */}
+          </div>
         </div>
-      </div>
-    </div>
+      </StepsListSidecar>
+    </>
   );
 };
 

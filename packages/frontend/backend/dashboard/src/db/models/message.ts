@@ -1,6 +1,7 @@
 import mongoose, { Document } from "mongoose";
 // import User from "@com.synergy/frontend-backend-dashboard/user";
 import Submit from "@com.synergy/frontend-backend-dashboard/submit";
+import { AssetInterface } from "./step";
 var User = require("@com.synergy/frontend-backend-dashboard/user");
 
 export interface GetMessagesInterface {
@@ -21,7 +22,7 @@ interface MessagePopulatedUser extends Document<string> {
   };
   submitId: mongoose.Types.ObjectId;
   message: string;
-  assets?: string[];
+  assets?: AssetInterface[];
   createdAt: Date;
 }
 
@@ -29,8 +30,9 @@ export interface MessageInterface extends Document<string> {
   sentByUserId: mongoose.Types.ObjectId;
   submitId: mongoose.Types.ObjectId;
   message: string;
-  assets?: string[];
+  assets?: AssetInterface[];
   createdAt: Date;
+  stepId?: mongoose.Types.ObjectId;
 }
 
 const MessageSchema = new mongoose.Schema<MessageInterface>({
@@ -45,8 +47,13 @@ const MessageSchema = new mongoose.Schema<MessageInterface>({
     ref: "Submit",
   },
   message: { type: String, required: true },
-  assets: { type: [String], required: false },
+  assets: { type: Array<AssetInterface>, required: false },
   createdAt: { type: Date, default: Date.now, required: true },
+  stepId: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: false,
+    ref: "Step",
+  },
 });
 
 export default mongoose.models.Message ||

@@ -16,7 +16,7 @@ export const SubmitList = (props: SubmitListProps) => {
 
   if (error) {
     return (
-      <div className="flex flex-col gap-2 p-4 sm:pl-[272px] mt-14 items-center justify-center h-full">
+      <div className="flex flex-col gap-2 p-4 mt-12 items-center justify-center h-full">
         <p className="text-red-500 font-bold text-lg">
           Ein Fehler ist aufgetreten.
         </p>
@@ -29,7 +29,7 @@ export const SubmitList = (props: SubmitListProps) => {
 
   if (isLoading)
     return (
-      <div className="flex flex-col gap-4 p-4 sm:pl-[272px] mt-14 animate-pulse">
+      <div className="flex flex-col gap-4 p-4 mt-12 animate-pulse">
         {Array.from({ length: 3 }).map((_, index) => (
           <div
             key={index}
@@ -44,10 +44,10 @@ export const SubmitList = (props: SubmitListProps) => {
     );
 
   return (
-    <div className="flex flex-col gap-2 p-4 sm:pl-[272px] mt-14">
+    <div className="flex flex-col gap-2 p-4 mt-12">
       {submits.data.map((data: any, index: number) => (
         <Link
-          href={`/dashboard/submits/${data._id}`}
+          href={`/dashboard/submits/${data._id}/steps`}
           key={data._id}
           className="group border border-synergy-light-grey p-2 rounded-xl hover:bg-synergy-light-grey transition-colors duration-200"
         >

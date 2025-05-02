@@ -70,10 +70,20 @@ export interface SubmitStatusInterface {
   color: string;
 }
 
+export interface AssetInterface {
+  name: string;
+  size: number;
+  type: string;
+  filePath: string;
+  status: string;
+  createdAt: Date;
+}
+
 export interface SubmitInterface extends Document<string> {
   data: Record<string, QuestionElement>;
   emailAddress: string;
   createdAt: Date;
+  assets?: AssetInterface[];
   status: SubmitStatusInterface;
 }
 
@@ -153,6 +163,7 @@ const SubmitSchema = new Schema<SubmitInterface>({
   data: { type: Map, of: Schema.Types.Mixed, required: true },
   emailAddress: { type: String, required: true },
   status: { type: SubmitStatusSchema, required: true },
+  assets: { type: Array<AssetInterface>, required: false },
   createdAt: { type: Date, default: Date.now, required: true },
 });
 

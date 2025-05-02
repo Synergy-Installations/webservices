@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="789" height="755" fill="none">
   <g filter="url(#a)">
-    <path fill="url(#b)" fill-opacity=".24" fill-rule="evenodd" d="m164 164 461 369-284 58-177-427Z" clip-rule="evenodd"/>
+    <path fill="url(#b)" fill-opacity=".24" fillRule="evenodd" d="m164 164 461 369-284 58-177-427Z" clipRule="evenodd"/>
   </g>
   <g filter="url(#c)" opacity=".58">
     <circle cx="198" cy="318" r="2" fill="#3B82F6" fill-opacity=".64"/>

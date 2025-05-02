@@ -7,6 +7,8 @@
   },
   "devDependencies": {
     "@com.synergy/frontend-shared-typescript-config": "workspace:*",
+    "@types/node": "^22.14.1",
+    "flowbite-typography": "^1.0.5",
     "tailwindcss": "^3.4.1"
   },
   "dependencies": {

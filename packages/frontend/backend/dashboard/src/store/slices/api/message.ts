@@ -16,7 +16,7 @@ type MessageResponseMod = { success: boolean; data: MessageInterface };
 //   phone: string;
 // }
 
-export const submitApi = api.injectEndpoints({
+export const messageApi = api.injectEndpoints({
   endpoints: (build) => ({
     // login: build.mutation<{ token: string; user: User }, any>({
     //   query: (credentials: any) => ({
@@ -31,8 +31,15 @@ export const submitApi = api.injectEndpoints({
     //     },
     //   },
     // }),
-    getMessages: build.query<GetMessagesInterface, string>({
-      query: (id) => ({ url: `dashboard/messages/${id}` }),
+    getMessages: build.query<
+      GetMessagesInterface,
+      { submitId?: string; stepId?: string }
+    >({
+      query: ({ submitId, stepId }) => ({
+        url: stepId
+          ? `dashboard/submits/${submitId}/steps/${stepId}/messages`
+          : `dashboard/submits/${submitId}/messages`,
+      }),
       providesTags: (
         result = {
           success: false,
@@ -47,7 +54,9 @@ export const submitApi = api.injectEndpoints({
     }),
     addMessage: build.mutation<MessageInterface, Partial<MessageInterface>>({
       query: (body) => ({
-        url: `dashboard/messages`,
+        url: body.stepId
+          ? `dashboard/submits/${body.submitId}/steps/${body.stepId}/messages`
+          : `dashboard/submits/${body.submitId}/messages`,
         method: "POST",
         body,
       }),
@@ -95,7 +104,7 @@ export const {
   //   useLoginMutation,
   //   useUpdateItemMutation,
   //   useGetErrorProneQuery,
-} = submitApi;
+} = messageApi;
 
 // export const {
 //   endpoints: { getItem },

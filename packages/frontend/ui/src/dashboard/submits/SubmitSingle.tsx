@@ -98,7 +98,7 @@ export const TopBarSubmitSingle = ({
           </div>
         ) : (
           <div className="min-h-14 w-full gap-4">
-            <div className="">Anfrage #{submit?._id}</div>
+            <div className="truncate">Anfrage #{submit?._id}</div>
             {submit?.status &&
               (editingStatus ? (
                 <div className="grid gap-1 mt-1">

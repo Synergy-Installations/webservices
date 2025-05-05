@@ -79,7 +79,7 @@ export const StepsListSidecar = (props: StepsListSidecarProps) => {
         </aside>
         <div className="hidden md:block w-1/2">
           <SingleSubmitTabs params={params} />
-          <StepsList className="" params={params} />
+          <StepsList className="pb-48" params={params} />
         </div>
         {/* <div className="w-1/2 border-l border-gray-200"> */}
         {children}

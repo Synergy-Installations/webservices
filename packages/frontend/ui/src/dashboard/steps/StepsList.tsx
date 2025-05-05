@@ -17,7 +17,7 @@ export interface StepsListProps {
 export const StepsList = (props: StepsListProps) => {
   const {
     params: { id: submitId },
-    className = "",
+    className,
   } = props;
 
   const {

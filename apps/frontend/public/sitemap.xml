@@ -1,0 +1,37 @@
+<!-- public/sitemap.xml -->
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://synergiemontagen.eco/de-AT</loc>
+        <lastmod>2025-05-06</lastmod>
+    </url>
+    <url>
+        <loc>https://synergiemontagen.eco/de-AT/products</loc>
+        <lastmod>2025-05-06</lastmod>
+    </url>
+    <url>
+        <loc>https://synergiemontagen.eco/de-AT/contact-us</loc>
+        <lastmod>2025-05-06</lastmod>
+    </url>
+    <url>
+        <loc>https://synergiemontagen.eco/de-AT/contact-us-funnel</loc>
+        <lastmod>2025-05-06</lastmod>
+    </url>
+    <url>
+        <loc>https://synergiemontagen.eco/de-AT/b2b</loc>
+        <lastmod>2025-05-06</lastmod>
+    </url>
+    <url>
+        <loc>https://synergiemontagen.eco/de-AT/energiekostenberatung</loc>
+        <lastmod>2025-05-06</lastmod>
+    </url>
+    <url>
+        <loc>https://synergiemontagen.eco/de-AT/energiegemeinschaft</loc>
+        <lastmod>2025-05-06</lastmod>
+    </url>
+    <url>
+        <loc>https://synergiemontagen.eco/de-AT/ueber-uns</loc>
+        <lastmod>2025-05-06</lastmod>
+    </url>
+    <!-- Add more pages as needed, excluding /dashboard -->
+</urlset>

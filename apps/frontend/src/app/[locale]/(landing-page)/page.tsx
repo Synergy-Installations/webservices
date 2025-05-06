@@ -14,12 +14,21 @@ import { FeatureAdvantages } from "@com.synergy/frontend-ui/FeatureAdvantages";
 import FeatureSteps from "@com.synergy/frontend-ui/FeatureSteps";
 import CtaLoose from "@com.synergy/frontend-ui/CtaLoose";
 import { TracingBeam } from "@com.synergy/frontend-ui/TracingBeam";
+import Head from "next/head";
 
 export default function Page(): JSX.Element {
   // const t = useTranslations("Index");
 
   return (
     <>
+      <Head>
+        <title>Synergiemontagen</title>
+        <meta
+          name="description"
+          content="Preisstabilität, Qualität und Zuverlässigkeit - Synergiemontagen ist Ihr Partner für professionelle Montagearbeiten."
+          key="desc"
+        />
+      </Head>
       {/* <TracingBeam> */}
       <HeroFull />
       <ServiceCatalog />

@@ -39,7 +39,7 @@ export const StepsSubmitMessages = (props: StepsSubmitMessagesProps) => {
           <div className="flex flex-col justify-between relative h-full ">
             <MessageSubmit
               params={params}
-              style={{ addMessageFormClassName: "pb-60" }}
+              style={{ addMessageFormClassName: "pb-60 lg:pb-48" }}
               STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
               STORAGE_ZONE_REGION={STORAGE_ZONE_REGION}
               STORAGE_ZONE_BASE_HOSTNAME={STORAGE_ZONE_BASE_HOSTNAME}

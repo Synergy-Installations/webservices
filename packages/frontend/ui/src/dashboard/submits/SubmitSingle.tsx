@@ -318,7 +318,7 @@ export const SubmitSingle = (props: SubmitSingleProps) => {
       <aside
         id="logo-sidebar"
         ref={submitAside}
-        className={`fixed right-0 z-10 w-96 h-screen transition-transform ${submitOpen ? "lg:translate-x-0" : "translate-x-full"} bg-white border-l border-gray-200 lg:translate-x-0 dark:bg-gray-800 dark:border-gray-700`}
+        className={`fixed right-0 z-10 w-screen xs:w-96 h-screen transition-transform ${submitOpen ? "lg:translate-x-0" : "translate-x-full"} bg-white border-l border-gray-200 lg:translate-x-0 dark:bg-gray-800 dark:border-gray-700`}
         aria-label="Sidebar"
       >
         <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">

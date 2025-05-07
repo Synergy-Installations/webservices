@@ -79,12 +79,22 @@ export interface AssetInterface {
   createdAt: Date;
 }
 
+export interface MembersRights {
+  userId: mongoose.Types.ObjectId;
+  userAuthId: string;
+  rights: string[];
+  modifiedAt: Date;
+}
+
 export interface SubmitInterface extends Document<string> {
+  title: string;
   data: Record<string, QuestionElement>;
   emailAddress: string;
   createdAt: Date;
   assets?: AssetInterface[];
   status: SubmitStatusInterface;
+  visibility: string;
+  members?: MembersRights[];
 }
 
 const OptionSchema = new Schema<Option>({
@@ -160,11 +170,14 @@ const SubmitStatusSchema = new Schema<SubmitStatusInterface>({
 });
 
 const SubmitSchema = new Schema<SubmitInterface>({
+  title: { type: String, required: true },
   data: { type: Map, of: Schema.Types.Mixed, required: true },
   emailAddress: { type: String, required: true },
   status: { type: SubmitStatusSchema, required: true },
   assets: { type: Array<AssetInterface>, required: false },
   createdAt: { type: Date, default: Date.now, required: true },
+  visibility: { type: String, required: true, default: "public" },
+  members: { type: Array<MembersRights>, required: false },
 });
 
 export default mongoose.models.Submit || mongoose.model("Submit", SubmitSchema);

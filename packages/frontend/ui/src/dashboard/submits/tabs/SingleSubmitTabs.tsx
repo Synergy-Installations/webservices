@@ -32,6 +32,7 @@ export const SingleSubmitTabs = (props: SingleSubmitTabsProps) => {
   const isChat = path.includes("chat") && !path.includes("steps");
   const isSteps = path.includes("steps");
   const isAssets = path.includes("assets") && !path.includes("steps");
+  const isMembers = path.includes("members") && !path.includes("steps");
 
   return (
     <div>
@@ -51,7 +52,7 @@ export const SingleSubmitTabs = (props: SingleSubmitTabsProps) => {
             >
               <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z" />
             </svg>
-            Steps
+            Schritte
           </Link>
         </li>
         <li>
@@ -86,7 +87,24 @@ export const SingleSubmitTabs = (props: SingleSubmitTabsProps) => {
             >
               <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
             </svg>
-            Assets
+            Dokumente
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/dashboard/submits/${id}/members`}
+            className={`inline-flex items-center justify-center px-4 py-2 ${isMembers ? "text-white bg-blue-700 dark:bg-blue-600" : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"} rounded-lg active w-full `}
+          >
+            <svg
+              className={`w-4 h-4 me-2 ${isMembers ? "text-white" : "text-gray-500 dark:text-gray-400"}`}
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 18 18"
+            >
+              <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
+            </svg>
+            Teilnehmer
           </Link>
         </li>
         {SingleStepTabsEdit && (
@@ -109,7 +127,7 @@ export const SingleSubmitTabs = (props: SingleSubmitTabsProps) => {
           <li className="">
             <button
               onClick={() => SingleStepTabsEdit.setSaveStepToggle(true)}
-              className="inline-flex items-center justify-center gap-1 w-full px-4 py-2 rounded-lg text-gray-100 hover:text-white bg-synergy-light-blue dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
+              className="inline-flex items-center justify-center w-full px-4 py-2 rounded-lg text-gray-100 hover:text-white bg-synergy-light-blue dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
             >
               <span className="">Speichern</span>
               <div className="">
@@ -117,7 +135,7 @@ export const SingleSubmitTabs = (props: SingleSubmitTabsProps) => {
                   <svg
                     aria-hidden="true"
                     role="status"
-                    className="inline w-4 h-4 text-white animate-spin"
+                    className="inline w-4 h-4 ml-1 text-white animate-spin"
                     viewBox="0 0 100 101"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"

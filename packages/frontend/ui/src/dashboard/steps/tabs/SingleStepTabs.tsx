@@ -34,7 +34,7 @@ export const SingleStepTabs = (props: SingleStepTabsProps) => {
 
   return (
     <div className="">
-      <ul className="grid grid-cols-3 xs:flex text-sm font-medium text-gray-500 dark:text-gray-400 !p-2 gap-2">
+      <ul className="grid grid-cols-3 xs:flex text-sm font-medium text-gray-500 dark:text-gray-400 !p-2 gap-2 overflow-x-auto">
         <li>
           <Link
             href={`/dashboard/submits/${id}/steps/${stepId}/general`}
@@ -108,7 +108,7 @@ export const SingleStepTabs = (props: SingleStepTabsProps) => {
           <li className="">
             <button
               onClick={() => SingleStepTabsEdit.setSaveStepToggle(true)}
-              className="inline-flex items-center justify-center gap-1 w-full px-4 py-2 rounded-lg text-gray-100 hover:text-white bg-synergy-light-blue dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
+              className="inline-flex items-center justify-center w-full px-4 py-2 rounded-lg text-gray-100 hover:text-white bg-synergy-light-blue dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
             >
               <span className="">Speichern</span>
               <div className="">
@@ -117,7 +117,7 @@ export const SingleStepTabs = (props: SingleStepTabsProps) => {
                   <svg
                     aria-hidden="true"
                     role="status"
-                    className="inline w-4 h-4 text-white animate-spin"
+                    className="inline w-4 h-4 ml-1 text-white animate-spin"
                     viewBox="0 0 100 101"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"

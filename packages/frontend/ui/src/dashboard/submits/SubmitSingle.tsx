@@ -221,7 +221,7 @@ export const TopBarSubmitSingle = ({
               className="inline-flex md:hidden items-center w-max px-4 py-2 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
             >
               <span className="whitespace-nowrap">
-                Schritte {stepsListOpen ? "schließen" : "öffnen"}
+                Projekt {stepsListOpen ? "schließen" : "öffnen"}
               </span>
             </button>
           )}

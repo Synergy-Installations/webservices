@@ -41,6 +41,9 @@ export const StepSubmitAssets = (props: StepSubmitAssetsProps) => {
 
   console.log("saveStepToggle", saveStepToggle);
 
+  // This is a poor implementation of removing the saveStepToggle and editStepToggle
+  // when the loading is done. This may cause jitter in the UI as the UI is not updated
+  // synchronously.
   const debouncedResetSaveEditStepToggle = debounce(() => {
     if (
       saveStepToggle &&
@@ -50,11 +53,19 @@ export const StepSubmitAssets = (props: StepSubmitAssetsProps) => {
       console.log("debouncedResetSaveEditStepToggle");
       setSaveStepToggle(false);
       setEditStepToggle(false);
+    } else {
+      debouncedResetSaveEditStepToggle();
     }
-  }, 1000);
+  }, 50);
 
   useEffect(() => {
     debouncedResetSaveEditStepToggle();
+
+    // This is used to make sure that the button gets disabled when the first
+    // call to the debounce function did not trigger the reset and never will.
+    setTimeout(() => {
+      debouncedResetSaveEditStepToggle();
+    }, 100);
   }, [isUpdateStepLoading]);
 
   return (

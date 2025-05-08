@@ -81,7 +81,7 @@ export const SubmitAssetsList = (props: SubmitAssetsListProps) => {
 
   console.log(
     "editSubmit",
-    submit?.data[0].submit,
+    submit?.data[0],
     editSubmit,
     "loading?",
     isUpdateSubmitMutationLoading,

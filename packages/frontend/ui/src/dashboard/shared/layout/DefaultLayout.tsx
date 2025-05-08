@@ -4,7 +4,13 @@ import Image from "next/image";
 import { ImageLoader } from "@com.synergy/frontend-ui/ImageLoader";
 import { useEffect, useRef, useState } from "react";
 import { set } from "mongoose";
-import { SignOutButton } from "@clerk/nextjs";
+import { ClerkLoading, SignedIn, SignOutButton } from "@clerk/nextjs";
+import dynamic from "next/dynamic";
+
+const UserButton = dynamic(
+  () => import("@clerk/nextjs").then((mod) => mod.UserButton),
+  { ssr: false }
+);
 
 /* eslint-disable-next-line */
 export interface DefaultLayoutProps {
@@ -113,18 +119,21 @@ export const DefaultLayout = (props: DefaultLayoutProps) => {
               </button>
               <Link
                 href={"/dashboard"}
-                className="flex gap-1 font-semibold cursor-pointer w-max"
+                className="flex gap-1 font-semibold cursor-pointer"
               >
-                <Image
-                  loader={ImageLoader}
-                  src="/frontend/landingPage/icons/Synergie-montagen-icon.svg"
-                  width={42}
-                  height={25}
-                  alt="Logo"
-                />
-                <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
-                  Synergie Webservices
-                </span>
+                <div className="">
+                  <Image
+                    loader={ImageLoader}
+                    src="/frontend/landingPage/icons/Synergie-montagen-icon.svg"
+                    width={42}
+                    height={25}
+                    alt="Logo"
+                  />
+                </div>
+                <div className="self-center inline-flex gap-1 text-xl font-semibold sm:text-2xl dark:text-white truncate">
+                  Synergie
+                  <span className="hidden xs:block">Webservices</span>
+                </div>
               </Link>
             </div>
             <div className="hidden sm:block">
@@ -170,22 +179,38 @@ export const DefaultLayout = (props: DefaultLayoutProps) => {
             </div>
             <div className="flex items-center py-2">
               <div className="flex items-center ms-3">
-                <div>
+                <div className="flex items-center gap-2">
                   <button
                     ref={userNavTrigger}
                     type="button"
-                    className="flex text-sm w-max bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                    className="flex text-sm w-max focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                     aria-expanded="false"
                     data-dropdown-toggle="dropdown-user"
                     onClick={() => setUserNavOpen(!userNavOpen)}
                   >
                     <span className="sr-only">Open user menu</span>
-                    <img
-                      className="w-8 h-8 rounded-full"
-                      src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                      alt="user photo"
-                    />
+                    <svg
+                      className="w-4 h-4 me-2 text-gray-500 dark:text-gray-400"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 18 18"
+                    >
+                      <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
+                    </svg>
                   </button>
+                  <UserButton
+                    appearance={{
+                      elements: {
+                        userButtonAvatarBox: "!w-8 !h-8",
+                      },
+                    }}
+                    fallback={
+                      <div className="animate-pulse flex items-center gap-2">
+                        <div className="w-8 h-8 bg-gray-300 rounded-full dark:bg-gray-600"></div>
+                      </div>
+                    }
+                  />
                 </div>
                 <div
                   ref={userNav}

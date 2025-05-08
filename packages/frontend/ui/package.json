@@ -8,6 +8,7 @@
     "dist"
   ],
   "exports": {
+    "./UserProfile": "./src/dashboard/user/profile/UserProfile.tsx",
     "./SumbitMembersRights": "./src/dashboard/submits/members/SumbitMembersRights.tsx",
     "./SubmitMembers": "./src/dashboard/submits/members/SubmitMembers.tsx",
     "./StepsListSidecar": "./src/dashboard/steps/layout/StepsListSidecar.tsx",

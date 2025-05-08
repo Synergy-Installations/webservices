@@ -6,6 +6,7 @@
     "build": "tsc"
   },
   "exports": {
+    "./userApi": "./src/store/slices/api/user.ts",
     "./user": "./src/db/models/user.ts",
     "./step": "./src/db/models/step.ts",
     "./stepApi": "./src/store/slices/api/step.ts",

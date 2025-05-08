@@ -80,10 +80,15 @@ export interface AssetInterface {
 }
 
 export interface MembersRights {
-  userId: mongoose.Types.ObjectId;
+  userUid: mongoose.Types.ObjectId;
   userAuthId: string;
   rights: string[];
   modifiedAt: Date;
+}
+
+export interface GetSubmitsInterface {
+  success: boolean;
+  data: SubmitInterface[];
 }
 
 export interface SubmitInterface extends Document<string> {

@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import { store } from "@com.synergy/frontend-backend-dashboard/store";
 import { StoreProvider } from "@com.synergy/frontend-backend-dashboard/StoreProvider";
 import { DefaultLayout } from "@com.synergy/frontend-ui/DashboardDefaultLayout";
+import { createTheme, Flowbite } from "flowbite-react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,10 +27,20 @@ export default async function RootLayout({
   // side is the easiest way to get started
   const messages = await getMessages();
 
+  const customTheme = createTheme({
+    theme: {
+      tooltip: {
+        target: "",
+      },
+    },
+  });
+
   return (
     <NextIntlClientProvider messages={messages}>
       <StoreProvider>
-        <DefaultLayout>{children}</DefaultLayout>
+        <Flowbite theme={customTheme}>
+          <DefaultLayout>{children}</DefaultLayout>
+        </Flowbite>
       </StoreProvider>
     </NextIntlClientProvider>
   );

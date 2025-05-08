@@ -8,7 +8,8 @@ export interface StepsSubmitProps {
 }
 
 export interface IsUpdateSubmitLoadingState {
-  assets: boolean;
+  assets?: boolean;
+  membersRights?: boolean;
 }
 
 export const StepsSubmit = (props: StepsSubmitProps) => {

@@ -8,6 +8,8 @@
     "dist"
   ],
   "exports": {
+    "./SumbitMembersRights": "./src/dashboard/submits/members/SumbitMembersRights.tsx",
+    "./SubmitMembers": "./src/dashboard/submits/members/SubmitMembers.tsx",
     "./StepsListSidecar": "./src/dashboard/steps/layout/StepsListSidecar.tsx",
     "./SubmitAssetsList": "./src/dashboard/submits/assets/SubmitAssetsList.tsx",
     "./SubmitAssets": "./src/dashboard/submits/assets/SubmitAssets.tsx",
@@ -152,6 +154,7 @@
     "react-calendly": "^4.3.1",
     "react-dom-confetti": "^0.2.0",
     "react-dropzone": "^14.3.8",
+    "react-select": "^5.10.1",
     "tailwind-merge": "^2.6.0"
   }
 }

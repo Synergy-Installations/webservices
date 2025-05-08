@@ -1,4 +1,4 @@
-import SubmitAssets from "@com.synergy/frontend-ui/SubmitAssets";
+import SubmitMembers from "@com.synergy/frontend-ui/SubmitMembers";
 
 export default function Page({
   params,
@@ -6,7 +6,7 @@ export default function Page({
   params: { id: string; stepId: string };
 }): JSX.Element {
   return (
-    <SubmitAssets
+    <SubmitMembers
       STORAGE_ZONE_ACCESS_KEY={process.env.STORAGE_ZONE_ACCESS_KEY}
       STORAGE_ZONE_REGION={process.env.STORAGE_ZONE_REGION}
       STORAGE_ZONE_BASE_HOSTNAME={process.env.STORAGE_ZONE_BASE_HOSTNAME}

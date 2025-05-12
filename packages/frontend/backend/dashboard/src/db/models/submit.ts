@@ -91,6 +91,11 @@ export interface GetSubmitsInterface {
   data: SubmitInterface[];
 }
 
+export interface GetSubmitInterface {
+  success: boolean;
+  data: SubmitInterface;
+}
+
 export interface SubmitInterface extends Document<string> {
   title: string;
   data: Record<string, QuestionElement>;

@@ -4,20 +4,71 @@ import Submit from "@com.synergy/frontend-backend-dashboard/submit";
 import { clerkClient, getAuth } from "@clerk/nextjs/server";
 
 export async function GET(
-  req: Request,
+  req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   const { id } = params;
   await dbConnect();
 
   try {
-    const items = await Submit.find({ _id: id });
-    return new Response(JSON.stringify({ success: true, data: items }), {
-      status: 200,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const submit = await Submit.findById(id);
+
+    // Discriminate rights based on the user
+    const { userId } = getAuth(req); // Get the authenticated user's ID from the session
+    if (!userId) {
+      return new Response(
+        JSON.stringify({ success: false, error: "Unauthorized" }),
+        {
+          status: 401,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+    }
+
+    if (
+      submit.visibility === "public" ||
+      submit.members
+        .find((right: any) => right.userAuthId === userId)
+        .rights.includes("read")
+    ) {
+      return new Response(JSON.stringify({ success: true, data: submit }), {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    } else {
+      // Check if user is an admin or has specific access rights
+      const client = await clerkClient();
+      const user = await client.users.getUser(userId);
+      const accessRights = user.privateMetadata?.accessRights as
+        | string[]
+        | undefined;
+
+      if (
+        accessRights?.includes("all:*") ||
+        accessRights?.includes("all:submits")
+      ) {
+        return new Response(JSON.stringify({ success: true, data: submit }), {
+          status: 200,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+      } else {
+        return new Response(
+          JSON.stringify({ success: false, error: "Unauthorized" }),
+          {
+            status: 401,
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+      }
+    }
   } catch (error) {
     return new Response(JSON.stringify({ success: false }), {
       status: 400,

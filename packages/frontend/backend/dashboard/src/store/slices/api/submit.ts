@@ -1,6 +1,7 @@
 import { retry } from "@reduxjs/toolkit/query/react";
 import { api } from "./api";
 import {
+  GetSubmitInterface,
   GetSubmitsInterface,
   SubmitInterface,
 } from "@com.synergy/frontend-backend-dashboard/submit";
@@ -46,7 +47,7 @@ export const submitApi = api.injectEndpoints({
       }),
       invalidatesTags: [{ type: "Submits", id: "LIST" }],
     }),
-    getSubmit: build.query<GetSubmitsInterface, string>({
+    getSubmit: build.query<GetSubmitInterface, string>({
       query: (id) => `dashboard/submits/${id}`,
       providesTags: (_post, _err, id) => [{ type: "Submits", id }],
     }),

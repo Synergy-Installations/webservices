@@ -169,8 +169,8 @@ export const SumbitMembersRights = (props: SumbitMembersRightsProps) => {
 
   const [editSubmit, setEditSubmit] = useState({
     _id: new Types.ObjectId(submitId),
-    visibility: submit?.data[0].visibility,
-    members: submit?.data[0].members,
+    visibility: submit?.data.visibility,
+    members: submit?.data.members,
   });
 
   useEffect(() => {
@@ -184,14 +184,14 @@ export const SumbitMembersRights = (props: SumbitMembersRightsProps) => {
   useEffect(() => {
     setEditSubmit({
       ...editSubmit,
-      visibility: submit?.data[0].visibility,
-      members: submit?.data[0].members,
+      visibility: submit?.data.visibility,
+      members: submit?.data.members,
     });
   }, [submit]);
 
   console.log(
     "editSubmit",
-    submit?.data[0],
+    submit?.data,
     editSubmit,
     "loading?",
     isUpdateSubmitMutationLoading,

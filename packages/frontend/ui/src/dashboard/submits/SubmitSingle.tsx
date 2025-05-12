@@ -305,7 +305,7 @@ export const SubmitSingle = (props: SubmitSingleProps) => {
       <div className="">
         <TopBarSubmitSingle
           id={props.params.id}
-          submit={submit?.data[0]}
+          submit={submit?.data}
           questionElements={questionElements}
           isGetSubmitLoading={isGetSubmitLoading}
           isGetSubmitError={isGetSubmitError}
@@ -356,7 +356,7 @@ export const SubmitSingle = (props: SubmitSingleProps) => {
             ) : (
               submit?.data && (
                 <DefaultFunnel
-                  questionElementsRaw={submit?.data[0].data || {}}
+                  questionElementsRaw={submit?.data.data || {}}
                   STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
                   config={{
                     format: {

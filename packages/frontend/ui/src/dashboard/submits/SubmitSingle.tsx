@@ -7,6 +7,7 @@ import { div } from "framer-motion/client";
 import { useEffect, useRef, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 import { set } from "mongoose";
+import { SubmitInterface } from "@com.synergy/frontend-backend-dashboard/submit";
 
 /* eslint-disable-next-line */
 export interface SubmitSingleProps {
@@ -28,7 +29,7 @@ export const TopBarSubmitSingle = ({
   setStepsListOpen,
 }: {
   id: string;
-  submit: any | undefined;
+  submit: SubmitInterface | undefined;
   questionElements: any;
   isGetSubmitLoading: boolean;
   isGetSubmitError: any | undefined;
@@ -43,14 +44,24 @@ export const TopBarSubmitSingle = ({
 
   const [editingStatus, setEditingStatus] = useState(false);
   const [statusInput, setStatusInput] = useState<{
-    code: string;
-    message: string;
-    color: string;
+    code: string | undefined;
+    message: string | undefined;
+    color: string | undefined;
   }>({
     code: submit?.status?.code,
     message: submit?.status?.message,
     color: submit?.status?.color,
   });
+  const [isTitleEditing, setIsTitleEditing] = useState(false);
+  const [titleInput, setTitleInput] = useState<string | undefined>(
+    submit?.title
+  );
+
+  useEffect(() => {
+    if (submit?.title) {
+      setTitleInput(submit.title);
+    }
+  }, [submit?.title]);
 
   useEffect(() => {
     if (!isGetSubmitLoading && submit?.status) {
@@ -98,7 +109,68 @@ export const TopBarSubmitSingle = ({
           </div>
         ) : (
           <div className="min-h-14 w-full gap-4">
-            <div className="truncate">Anfrage #{submit?._id}</div>
+            {isTitleEditing ? (
+              <div className="flex items-center gap-2">
+                <span className="">Projekt:</span>
+                <input
+                  type="text"
+                  value={titleInput}
+                  placeholder="Projektname"
+                  onChange={(e) => setTitleInput(e.target.value)}
+                  className="border border-gray-300 rounded px-2 py-1 text-sm w-full"
+                />
+                <button
+                  onClick={async () => {
+                    await updateSubmit({ _id: id, title: titleInput });
+                    setIsTitleEditing(false);
+                  }}
+                  className="flex gap-1 justify-center items-center px-2 py-1 bg-synergy-light-blue rounded-lg text-white"
+                >
+                  Speichern
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center gap-2">
+                <div className="truncate">
+                  Projekt: {submit?.title ? submit.title : `#${submit?._id}`}
+                </div>
+                {Array.isArray(
+                  (user?.publicMetadata as { accessRights?: string[] })
+                    ?.accessRights
+                ) &&
+                  ((
+                    (user?.publicMetadata as { accessRights?: string[] })
+                      ?.accessRights ?? []
+                  ).includes("all:status") ||
+                    (
+                      (user?.publicMetadata as { accessRights?: string[] })
+                        ?.accessRights ?? []
+                    ).includes("all:*")) && (
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => setIsTitleEditing(true)}
+                        className="flex items-center gap-1 text-synergy-light-blue"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="currentColor"
+                          className="w-4 h-4"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M16.862 3.487a2.25 2.25 0 113.182 3.182L7.5 19.213l-4.5 1.125 1.125-4.5L16.862 3.487z"
+                          />
+                        </svg>
+                        <span>Bearbeiten</span>
+                      </button>
+                    </div>
+                  )}
+              </div>
+            )}
             {submit?.status &&
               (editingStatus ? (
                 <div className="grid gap-1 mt-1">
@@ -201,7 +273,7 @@ export const TopBarSubmitSingle = ({
                               d="M16.862 3.487a2.25 2.25 0 113.182 3.182L7.5 19.213l-4.5 1.125 1.125-4.5L16.862 3.487z"
                             />
                           </svg>
-                          <span>Edit</span>
+                          <span>Bearbeiten</span>
                         </button>
                       </div>
                     )}

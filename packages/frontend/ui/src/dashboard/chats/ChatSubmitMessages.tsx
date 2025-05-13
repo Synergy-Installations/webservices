@@ -1,22 +1,20 @@
 "use client";
-import { SingleSubmitTabs } from "@com.synergy/frontend-ui/SingleSubmitTabs";
-import StepsList from "./StepsList";
-import SingleStepTabs from "./tabs/SingleStepTabs";
-import StepSingle from "./StepSingle";
 import MessageSubmit from "../messages/MessageSubmit";
-import StepsListSidecar from "./layout/StepsListSidecar";
+import StepsListSidecar from "@com.synergy/frontend-ui/StepsListSidecar";
+import { SingleChatTabs } from "@com.synergy/frontend-ui/SingleChatTabs";
 import { useState } from "react";
+import ChatsListSidecar from "./layout/ChatsListSidecar";
 
 /* eslint-disable-next-line */
-export interface StepsSubmitMessagesProps {
-  params: { id: string; stepId: string };
+export interface ChatSubmitMessagesProps {
+  params: { id: string; chatId: string };
   STORAGE_ZONE_REGION: string | undefined;
   STORAGE_ZONE_BASE_HOSTNAME: string | undefined;
   STORAGE_ZONE_NAME: string | undefined;
   STORAGE_ZONE_ACCESS_KEY: string | undefined;
 }
 
-export const StepsSubmitMessages = (props: StepsSubmitMessagesProps) => {
+export const ChatSubmitMessages = (props: ChatSubmitMessagesProps) => {
   const {
     params,
     STORAGE_ZONE_ACCESS_KEY,
@@ -29,14 +27,14 @@ export const StepsSubmitMessages = (props: StepsSubmitMessagesProps) => {
 
   return (
     <>
-      <StepsListSidecar
+      <ChatsListSidecar
         params={params}
         stepsListOpen={stepsListOpen}
         setStepsListOpen={setStepsListOpen}
       >
         <div className="w-full md:w-1/2 border-l border-gray-200">
-          <SingleStepTabs params={params} />
-          <div className="flex flex-col justify-between relative h-screen ">
+          <SingleChatTabs params={params} />
+          <div className="flex flex-col justify-between relative h-screen">
             <MessageSubmit
               params={params}
               style={{ addMessageFormClassName: "pb-48 lg:pb-48" }}
@@ -47,9 +45,9 @@ export const StepsSubmitMessages = (props: StepsSubmitMessagesProps) => {
             />
           </div>
         </div>
-      </StepsListSidecar>
+      </ChatsListSidecar>
     </>
   );
 };
 
-export default StepsSubmitMessages;
+export default ChatSubmitMessages;

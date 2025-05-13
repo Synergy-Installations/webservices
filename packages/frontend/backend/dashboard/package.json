@@ -8,6 +8,8 @@
   "exports": {
     "./userApi": "./src/store/slices/api/user.ts",
     "./user": "./src/db/models/user.ts",
+    "./chat": "./src/db/models/chat.ts",
+    "./chatApi": "./src/store/slices/api/chat.ts",
     "./step": "./src/db/models/step.ts",
     "./stepApi": "./src/store/slices/api/step.ts",
     "./message": "./src/db/models/message.ts",

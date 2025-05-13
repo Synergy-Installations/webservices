@@ -53,7 +53,7 @@ export const SingleStepTabs = (props: SingleStepTabsProps) => {
             General
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link
             href={`/dashboard/submits/${id}/steps/${stepId}/chat`}
             className={`inline-flex items-center justify-center px-4 py-2 ${isChat ? "text-white bg-blue-700 dark:bg-blue-600" : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"} rounded-lg active w-full `}
@@ -70,7 +70,7 @@ export const SingleStepTabs = (props: SingleStepTabsProps) => {
             </svg>
             Chat
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link
             href={`/dashboard/submits/${id}/steps/${stepId}/assets`}

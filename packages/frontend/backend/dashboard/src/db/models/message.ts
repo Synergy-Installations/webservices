@@ -33,6 +33,7 @@ export interface MessageInterface extends Document<string> {
   assets?: AssetInterface[];
   createdAt: Date;
   stepId?: mongoose.Types.ObjectId;
+  chatId: mongoose.Types.ObjectId;
 }
 
 const MessageSchema = new mongoose.Schema<MessageInterface>({
@@ -53,6 +54,11 @@ const MessageSchema = new mongoose.Schema<MessageInterface>({
     type: mongoose.Schema.Types.ObjectId,
     required: false,
     ref: "Step",
+  },
+  chatId: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "Chat",
   },
 });
 

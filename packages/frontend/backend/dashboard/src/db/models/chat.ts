@@ -1,12 +1,8 @@
 import mongoose, { Document } from "mongoose";
+import { MembersRights } from "@com.synergy/frontend-backend-dashboard/membersTypes";
 
 interface DefaultResponse {
   success: boolean;
-}
-
-export interface IsUpdateChatLoadingState {
-  titleDescription: boolean;
-  membersRights: boolean;
 }
 
 export interface GetChatsRequestInterface {
@@ -50,6 +46,8 @@ export interface ChatInterface extends Document<string> {
   submitId: mongoose.Types.ObjectId;
   stepId?: mongoose.Types.ObjectId;
   createdAt: Date;
+  visibility: string;
+  members?: MembersRights[];
 }
 
 const Chatschema = new mongoose.Schema<ChatInterface>({
@@ -70,6 +68,8 @@ const Chatschema = new mongoose.Schema<ChatInterface>({
     ref: "Step",
   },
   createdAt: { type: Date, default: Date.now, required: true },
+  visibility: { type: String, required: true, default: "public" },
+  members: { type: Array<MembersRights>, required: false },
 });
 
 export default mongoose.models.Chat || mongoose.model("Chat", Chatschema);

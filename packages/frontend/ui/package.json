@@ -8,6 +8,8 @@
     "dist"
   ],
   "exports": {
+    "./ChatSubmitSettings": "./src/dashboard/chats/settings/ChatSubmitSettings.tsx",
+    "./ChatSettings": "./src/dashboard/chats/settings/ChatSettings.tsx",
     "./ChatsListSidecar": "./src/dashboard/chats/layout/ChatsListSidecar.tsx",
     "./SingleChatTabs": "./src/dashboard/chats/tabs/SingleChatTabs.tsx",
     "./ChatSubmitMessages": "./src/dashboard/chats/ChatSubmitMessages.tsx",

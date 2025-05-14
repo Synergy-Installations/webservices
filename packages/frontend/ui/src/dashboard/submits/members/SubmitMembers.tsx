@@ -6,6 +6,10 @@ import { SubmitSingle } from "@com.synergy/frontend-ui/SubmitSingle";
 import { SingleSubmitTabs } from "@com.synergy/frontend-ui/SingleSubmitTabs";
 import { SubmitAssetsList } from "@com.synergy/frontend-ui/SubmitAssetsList";
 import SumbitMembersRights from "./SumbitMembersRights";
+import {
+  useGetSubmitQuery,
+  useUpdateSubmitMutation,
+} from "@com.synergy/frontend-backend-dashboard/submitApi";
 
 /* eslint-disable-next-line */
 export interface SubmitMembersProps {
@@ -19,6 +23,7 @@ export interface SubmitMembersProps {
 export const SubmitMembers = (props: SubmitMembersProps) => {
   const {
     params,
+    params: { id: submitId },
     STORAGE_ZONE_ACCESS_KEY,
     STORAGE_ZONE_REGION,
     STORAGE_ZONE_BASE_HOSTNAME,
@@ -31,6 +36,20 @@ export const SubmitMembers = (props: SubmitMembersProps) => {
     useState<IsUpdateSubmitLoadingState>({
       membersRights: false,
     });
+
+  const {
+    data: submit,
+    isLoading: isGetSubmitLoading,
+    error,
+  } = useGetSubmitQuery(submitId);
+
+  const [
+    updateSubmit,
+    {
+      isLoading: isUpdateSubmitMutationLoading,
+      error: updateSubmitMutationError,
+    },
+  ] = useUpdateSubmitMutation();
 
   console.log("saveSubmitToggle", saveSubmitToggle);
 
@@ -67,12 +86,17 @@ export const SubmitMembers = (props: SubmitMembersProps) => {
       />
       <SumbitMembersRights
         params={params}
+        submit={submit?.data}
+        updateSubmit={updateSubmit}
+        isGetSubmitLoading={isGetSubmitLoading}
+        isUpdateSubmitMutationLoading={isUpdateSubmitMutationLoading}
         saveSubmitToggle={saveSubmitToggle}
         setSaveSubmitToggle={setSaveSubmitToggle}
         editSubmitToggle={editSubmitToggle}
         setEditSubmitToggle={setEditSubmitToggle}
         isUpdateSubmitLoading={isUpdateSubmitLoading}
         setIsUpdateSubmitLoading={setIsUpdateSubmitLoading}
+        styles={{ containerClassName: "p-4 h-full overflow-y-scroll" }}
       />
       {/* <MessageSubmit
             params={params}

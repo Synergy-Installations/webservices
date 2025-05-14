@@ -14,19 +14,26 @@ import {
 import Select, { StylesConfig } from "react-select";
 import makeAnimated from "react-select/animated";
 import { li } from "framer-motion/client";
-import { MembersRights } from "@com.synergy/frontend-backend-dashboard/submit";
+import { MembersRights } from "@com.synergy/frontend-backend-dashboard/membersTypes";
 
 /* eslint-disable-next-line */
 export interface SumbitMembersRightsProps {
-  params: { id: string };
+  params: { id: string; chatId?: string };
+  submit: any;
+  updateSubmit(props: any): any;
+  isGetSubmitLoading: boolean;
   saveSubmitToggle: boolean;
+  isUpdateSubmitMutationLoading: boolean;
   setSaveSubmitToggle: (saveSubmitToggle: boolean) => void;
   editSubmitToggle: boolean;
   setEditSubmitToggle: (editSubmitToggle: boolean) => void;
-  isUpdateSubmitLoading: IsUpdateSubmitLoadingState;
+  isUpdateSubmitLoading: { membersRights?: boolean };
   setIsUpdateSubmitLoading: React.Dispatch<
-    React.SetStateAction<IsUpdateSubmitLoadingState>
+    React.SetStateAction<{ membersRights?: boolean }>
   >;
+  styles?: {
+    containerClassName: string;
+  };
 }
 
 const rulesOption = [
@@ -130,13 +137,18 @@ const RenderUser = ({ userUid }: { userUid: string }): JSX.Element => {
 export const SumbitMembersRights = (props: SumbitMembersRightsProps) => {
   const {
     params,
-    params: { id: submitId },
+    params: { id: submitId, chatId },
+    submit,
+    isGetSubmitLoading,
+    updateSubmit,
+    isUpdateSubmitMutationLoading,
     saveSubmitToggle,
     setSaveSubmitToggle,
     editSubmitToggle,
     setEditSubmitToggle,
     isUpdateSubmitLoading,
     setIsUpdateSubmitLoading,
+    styles: { containerClassName } = { containerClassName: "" },
   } = props;
 
   const animatedComponents = makeAnimated();
@@ -153,24 +165,11 @@ export const SumbitMembersRights = (props: SumbitMembersRightsProps) => {
     setSearchUsersInput(value);
   }, 500);
 
-  const {
-    data: submit,
-    isLoading: isGetSubmitLoading,
-    error,
-  } = useGetSubmitQuery(submitId);
-
-  const [
-    updateSubmit,
-    {
-      isLoading: isUpdateSubmitMutationLoading,
-      error: updateSubmitMutationError,
-    },
-  ] = useUpdateSubmitMutation();
-
   const [editSubmit, setEditSubmit] = useState({
-    _id: new Types.ObjectId(submitId),
-    visibility: submit?.data.visibility,
-    members: submit?.data.members,
+    _id: chatId ? new Types.ObjectId(chatId) : new Types.ObjectId(submitId),
+    submitId: new Types.ObjectId(submitId),
+    visibility: submit?.visibility,
+    members: submit?.members,
   });
 
   useEffect(() => {
@@ -184,14 +183,14 @@ export const SumbitMembersRights = (props: SumbitMembersRightsProps) => {
   useEffect(() => {
     setEditSubmit({
       ...editSubmit,
-      visibility: submit?.data.visibility,
-      members: submit?.data.members,
+      visibility: submit?.visibility,
+      members: submit?.members,
     });
   }, [submit]);
 
   console.log(
     "editSubmit",
-    submit?.data,
+    submit,
     editSubmit,
     "loading?",
     isUpdateSubmitMutationLoading,
@@ -199,47 +198,67 @@ export const SumbitMembersRights = (props: SumbitMembersRightsProps) => {
   );
 
   useEffect(() => {
-    if (saveSubmitToggle) {
-      console.log("saveSubmitToggle", editSubmit);
-      // Set the loading state at the beginning in order to make sure we are handling the loading state
-      // correctly in SubmitSingle in case other loading states from isUpdateSubmitLoading are false (due to no change)
-      setIsUpdateSubmitLoading({
-        ...isUpdateSubmitLoading,
-        membersRights: true,
-      });
-      updateSubmit({
-        ...editSubmit,
-        members: editSubmit.members?.filter(
-          (member) => member.userUid !== ("default" as unknown)
-        ),
-      });
-    } else {
-      // This is done in case we do not have any changes and the SubmitSubmit useEffect
-      // needs the isUpdateSubmitLoading state to be updated in order to reset the saveSubmitToggle
-      // and editSubmitToggle states
-      setIsUpdateSubmitLoading({
-        ...isUpdateSubmitLoading,
-        membersRights: false,
-      });
-    }
+    const handleSaveSubmitToggle = async () => {
+      console.log("saveSubmitToggleBeforeIf", saveSubmitToggle);
+      if (saveSubmitToggle) {
+        console.log("saveSubmitToggle", editSubmit);
+        // Set the loading state at the beginning in order to make sure we are handling the loading state
+        // correctly in SubmitSingle in case other loading states from isUpdateSubmitLoading are false (due to no change)
+        setIsUpdateSubmitLoading({
+          ...isUpdateSubmitLoading,
+          membersRights: true,
+        });
+        await updateSubmit({
+          ...editSubmit,
+          members: editSubmit.members?.filter(
+            (member: any) => member.userUid !== ("default" as unknown)
+          ),
+        });
+        setIsUpdateSubmitLoading({
+          ...isUpdateSubmitLoading,
+          membersRights: false,
+        });
+      } else {
+        // This is done in case we do not have any changes and the SubmitSubmit useEffect
+        // needs the isUpdateSubmitLoading state to be updated in order to reset the saveSubmitToggle
+        // and editSubmitToggle states
+        setIsUpdateSubmitLoading({
+          ...isUpdateSubmitLoading,
+          membersRights: false,
+        });
+      }
+    };
+
+    handleSaveSubmitToggle();
   }, [saveSubmitToggle]);
 
-  useEffect(() => {
-    if (isUpdateSubmitMutationLoading && !isUpdateSubmitLoading.membersRights) {
-      setIsUpdateSubmitLoading({
-        ...isUpdateSubmitLoading,
-        membersRights: true,
-      });
-    } else if (
-      !isUpdateSubmitMutationLoading &&
-      isUpdateSubmitLoading.membersRights
-    ) {
-      setIsUpdateSubmitLoading({
-        ...isUpdateSubmitLoading,
-        membersRights: false,
-      });
-    }
-  }, [isUpdateSubmitMutationLoading]);
+  // useEffect(() => {
+  //   console.log(
+  //     "isUpdateSubmitMutationLoadingBeforeIf",
+  //     isUpdateSubmitMutationLoading,
+  //     isUpdateSubmitLoading
+  //   );
+  //   if (isUpdateSubmitMutationLoading && !isUpdateSubmitLoading.membersRights) {
+  //     console.log("isUpdateSubmitMutationLoading", isUpdateSubmitLoading);
+  //     setIsUpdateSubmitLoading({
+  //       ...isUpdateSubmitLoading,
+  //       membersRights: true,
+  //     });
+  //     console.log("isUpdateSubmitMutationLoading", isUpdateSubmitLoading);
+  //   } else if (
+  //     !isUpdateSubmitMutationLoading &&
+  //     isUpdateSubmitLoading.membersRights
+  //   ) {
+  //     console.log(
+  //       "isUpdateSubmitMutationLoadingToFalse",
+  //       isUpdateSubmitLoading
+  //     );
+  //     setIsUpdateSubmitLoading({
+  //       ...isUpdateSubmitLoading,
+  //       membersRights: false,
+  //     });
+  //   }
+  // }, [isUpdateSubmitMutationLoading]);
 
   const addDefaultMember = () => {
     setEditSubmit((prev) => {
@@ -270,7 +289,7 @@ export const SumbitMembersRights = (props: SumbitMembersRightsProps) => {
   const debouncedAddDefaultMember = debounce(addDefaultMember, 100);
 
   return (
-    <div className="h-full p-4 lg:mr-96">
+    <div className={`lg:mr-96 ${containerClassName}`}>
       <div className="flex flex-col gap-1">
         <h4 className="text-lg font-semibold mb-1">Sichtbarkeitsrechte</h4>
         {isGetSubmitLoading ? (
@@ -456,7 +475,7 @@ export const SumbitMembersRights = (props: SumbitMembersRightsProps) => {
                     ?.find(
                       (memberMap: any) => memberMap.userUid === member.userUid
                     )
-                    ?.rights.map((right) => ({
+                    ?.rights.map((right: any) => ({
                       value: right,
                       label: rulesOption.find(
                         (option) => option.value === right
@@ -516,7 +535,6 @@ export const SumbitMembersRights = (props: SumbitMembersRightsProps) => {
           ))
         )}
         {editSubmitToggle &&
-          editSubmit.members &&
           !editSubmit.members?.some(
             (member: any) => member.userUid === "default"
           ) && (

@@ -1,4 +1,5 @@
 import mongoose, { Schema, Document } from "mongoose";
+import { MembersRights } from "@com.synergy/frontend-backend-dashboard/membersTypes";
 
 interface Option {
   text: string;
@@ -77,13 +78,6 @@ export interface AssetInterface {
   filePath: string;
   status: string;
   createdAt: Date;
-}
-
-export interface MembersRights {
-  userUid: mongoose.Types.ObjectId;
-  userAuthId: string;
-  rights: string[];
-  modifiedAt: Date;
 }
 
 export interface GetSubmitsInterface {

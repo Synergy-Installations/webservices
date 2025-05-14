@@ -30,7 +30,7 @@ export default async function RootLayout({
   const customTheme = createTheme({
     theme: {
       tooltip: {
-        target: "w-fit",
+        target: "",
         animation: "transition-opacity",
         arrow: {
           base: "absolute z-10 h-2 w-2 rotate-45",

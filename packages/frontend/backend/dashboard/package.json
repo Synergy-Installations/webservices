@@ -6,6 +6,7 @@
     "build": "tsc"
   },
   "exports": {
+    "./membersTypes": "./src/db/utils/types/members.ts",
     "./userApi": "./src/store/slices/api/user.ts",
     "./user": "./src/db/models/user.ts",
     "./chat": "./src/db/models/chat.ts",

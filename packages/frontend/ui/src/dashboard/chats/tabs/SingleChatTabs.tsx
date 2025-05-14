@@ -2,35 +2,35 @@
 
 import { usePathname } from "next/navigation";
 import { Link } from "@com.synergy/frontend-shared-internationalization/routing";
-import { IsUpdateChatLoadingState } from "@com.synergy/frontend-backend-dashboard/chat";
+import { IsUpdateChatLoadingState } from "@com.synergy/frontend-ui/ChatSubmitSettings";
 
 /* eslint-disable-next-line */
 export interface SingleChatTabsProps {
-  params: { id: string; stepId?: string };
-  SingleStepTabsEdit?: SingleChatTabsEdit;
+  params: { id: string; chatId?: string };
+  SingleChatTabsEdit?: SingleChatTabsEdit;
 }
 
 interface SingleChatTabsEdit {
-  saveStepToggle: boolean;
-  setSaveStepToggle: (saveStepToggle: boolean) => void;
-  editStepToggle: boolean;
-  setEditStepToggle: (editStepToggle: boolean) => void;
-  isUpdateStepLoading: IsUpdateChatLoadingState;
-  setIsUpdateStepLoading: React.Dispatch<
+  saveChatToggle: boolean;
+  setSaveChatToggle: (saveChatToggle: boolean) => void;
+  editChatToggle: boolean;
+  setEditChatToggle: (editChatToggle: boolean) => void;
+  isUpdateChatLoading: IsUpdateChatLoadingState;
+  setIsUpdateChatLoading: React.Dispatch<
     React.SetStateAction<IsUpdateChatLoadingState>
   >;
 }
 
 export const SingleChatTabs = (props: SingleChatTabsProps) => {
   const {
-    params: { id, stepId },
-    SingleStepTabsEdit,
+    params: { id, chatId },
+    SingleChatTabsEdit,
   } = props;
 
   const path = usePathname();
   const isChat = path.includes("messages");
   const isGeneral = path.includes("general");
-  const isAssets = path.includes("assets");
+  const isSettings = path.includes("settings");
 
   return (
     <div className="">
@@ -55,7 +55,7 @@ export const SingleChatTabs = (props: SingleChatTabsProps) => {
         </li> */}
         <li>
           <Link
-            href={`/dashboard/submits/${id}/steps/${stepId}/chat`}
+            href={`/dashboard/submits/${id}/chats/${chatId}/messages`}
             className={`inline-flex items-center justify-center px-4 py-2 ${isChat ? "text-white bg-blue-700 dark:bg-blue-600" : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"} rounded-lg active w-full `}
           >
             <svg
@@ -71,13 +71,13 @@ export const SingleChatTabs = (props: SingleChatTabsProps) => {
             Nachrichten
           </Link>
         </li>
-        {/* <li>
+        <li>
           <Link
-            href={`/dashboard/submits/${id}/steps/${stepId}/assets`}
-            className={`inline-flex items-center justify-center px-4 py-2 ${isAssets ? "text-white bg-blue-700 dark:bg-blue-600" : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"} rounded-lg active w-full `}
+            href={`/dashboard/submits/${id}/chats/${chatId}/settings`}
+            className={`inline-flex items-center justify-center px-4 py-2 ${isSettings ? "text-white bg-blue-700 dark:bg-blue-600" : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"} rounded-lg active w-full `}
           >
             <svg
-              className={`w-4 h-4 me-2 ${isAssets ? "text-white" : "text-gray-500 dark:text-gray-400"}`}
+              className={`w-4 h-4 me-2 ${isSettings ? "text-white" : "text-gray-500 dark:text-gray-400"}`}
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -85,35 +85,35 @@ export const SingleChatTabs = (props: SingleChatTabsProps) => {
             >
               <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
             </svg>
-            Assets
+            Info
           </Link>
-        </li> */}
-        {SingleStepTabsEdit && (
+        </li>
+        {SingleChatTabsEdit && (
           <li className="">
             <button
               onClick={() =>
-                SingleStepTabsEdit.setEditStepToggle(
-                  !SingleStepTabsEdit.editStepToggle
+                SingleChatTabsEdit.setEditChatToggle(
+                  !SingleChatTabsEdit.editChatToggle
                 )
               }
               className="inline-flex items-center justify-center gap-1 w-full px-4 py-2 rounded-lg text-gray-100 hover:text-white bg-synergy-light-blue dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
             >
               <span className="">
-                {SingleStepTabsEdit.editStepToggle ? "View" : "Edit"}
+                {SingleChatTabsEdit.editChatToggle ? "View" : "Edit"}
               </span>
             </button>
           </li>
         )}
-        {SingleStepTabsEdit && SingleStepTabsEdit.editStepToggle && (
+        {SingleChatTabsEdit && SingleChatTabsEdit.editChatToggle && (
           <li className="">
             <button
-              onClick={() => SingleStepTabsEdit.setSaveStepToggle(true)}
+              onClick={() => SingleChatTabsEdit.setSaveChatToggle(true)}
               className="inline-flex items-center justify-center w-full px-4 py-2 rounded-lg text-gray-100 hover:text-white bg-synergy-light-blue dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
             >
               <span className="">Speichern</span>
               <div className="">
-                {(SingleStepTabsEdit.isUpdateStepLoading.titleDescription ||
-                  SingleStepTabsEdit.isUpdateStepLoading.membersRights) && (
+                {(SingleChatTabsEdit.isUpdateChatLoading.titleDesc ||
+                  SingleChatTabsEdit.isUpdateChatLoading.membersRights) && (
                   <svg
                     aria-hidden="true"
                     role="status"

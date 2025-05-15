@@ -31,7 +31,7 @@ export const ProductPreviewSmall = (props: ProductPreviewSmallProps) => {
           alt={props.image.alt}
         />
       </div>
-      <h2 className="font-semibold text-white">{props.name}</h2>
+      <h2 className="font-semibold text-white truncate">{props.name}</h2>
     </Link>
   );
 };

@@ -22,7 +22,7 @@ export const StepsSubmit = (props: StepsSubmitProps) => {
         STORAGE_ZONE_ACCESS_KEY={process.env.STORAGE_ZONE_ACCESS_KEY}
       />
       <SingleSubmitTabs params={params} />
-      <StepsList className={"lg:mr-96"} params={params} />
+      <StepsList className={""} params={params} />
     </>
   );
 };

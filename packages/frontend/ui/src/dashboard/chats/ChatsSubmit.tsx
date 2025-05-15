@@ -22,7 +22,7 @@ export const ChatsSubmit = (props: StepsSubmitProps) => {
         STORAGE_ZONE_ACCESS_KEY={process.env.STORAGE_ZONE_ACCESS_KEY}
       />
       <SingleSubmitTabs params={params} />
-      <ChatsList className={"lg:mr-96"} params={params} />
+      <ChatsList className={""} params={params} />
     </>
   );
 };

@@ -289,7 +289,7 @@ export const SumbitMembersRights = (props: SumbitMembersRightsProps) => {
   const debouncedAddDefaultMember = debounce(addDefaultMember, 100);
 
   return (
-    <div className={`lg:mr-96 ${containerClassName}`}>
+    <div className={`${containerClassName}`}>
       <div className="flex flex-col gap-1">
         <h4 className="text-lg font-semibold mb-1">Sichtbarkeitsrechte</h4>
         {isGetSubmitLoading ? (

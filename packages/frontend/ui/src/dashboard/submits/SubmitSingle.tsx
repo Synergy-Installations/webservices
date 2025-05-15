@@ -317,7 +317,7 @@ export const TopBarSubmitSingle = ({
           <div className="grid xs:flex gap-2">
             <button
               onClick={() => setSubmitOpen(!submitOpen)}
-              className="inline-flex items-center lg:hidden w-max px-4 py-2 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
+              className="inline-flex items-center w-max px-4 py-2 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
             >
               <span className="whitespace-nowrap">
                 Anfrage {submitOpen ? "schließen" : "öffnen"}
@@ -325,7 +325,7 @@ export const TopBarSubmitSingle = ({
             </button>
             <button
               onClick={() => handleSave()}
-              className={`inline-flex ${submitOpen ? "block" : "hidden lg:block"} items-center gap-1 w-max px-4 py-2 rounded-lg text-gray-100 hover:text-white bg-synergy-light-blue dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white`}
+              className={`inline-flex ${submitOpen ? "block" : "hidden"} items-center gap-1 w-max px-4 py-2 rounded-lg text-gray-100 hover:text-white bg-synergy-light-blue dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white`}
             >
               <span className="">Speichern</span>
               {status === "pending" && (
@@ -387,10 +387,11 @@ export const SubmitSingle = (props: SubmitSingleProps) => {
           setStepsListOpen={setStepsListOpen}
         />
       </div>
+      {/* If you want to show the submit on large screens all the time, you have to put lg:translate-x-0 in the submitOpen ? and after the inline if */}
       <aside
         id="logo-sidebar"
         ref={submitAside}
-        className={`fixed right-0 z-10 w-screen xs:w-96 h-screen transition-transform ${submitOpen ? "lg:translate-x-0" : "translate-x-full"} bg-white border-l border-gray-200 lg:translate-x-0 dark:bg-gray-800 dark:border-gray-700`}
+        className={`fixed right-0 z-10 w-screen xs:w-96 h-screen transition-transform ${submitOpen ? "" : "translate-x-full"} bg-white border-l border-gray-200 dark:bg-gray-800 dark:border-gray-700`}
         aria-label="Sidebar"
       >
         <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">

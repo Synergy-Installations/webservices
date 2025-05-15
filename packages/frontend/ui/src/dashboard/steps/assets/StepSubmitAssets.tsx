@@ -75,7 +75,7 @@ export const StepSubmitAssets = (props: StepSubmitAssetsProps) => {
         stepsListOpen={stepsListOpen}
         setStepsListOpen={setStepsListOpen}
       >
-        <div className="w-full md:w-1/2 border-l border-gray-200">
+        <div className="w-full border-l border-gray-200">
           <SingleStepTabs
             params={params}
             SingleStepTabsEdit={{

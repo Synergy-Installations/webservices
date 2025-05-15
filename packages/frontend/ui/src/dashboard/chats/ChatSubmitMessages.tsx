@@ -32,7 +32,7 @@ export const ChatSubmitMessages = (props: ChatSubmitMessagesProps) => {
         stepsListOpen={stepsListOpen}
         setStepsListOpen={setStepsListOpen}
       >
-        <div className="w-full md:w-1/2 border-l border-gray-200">
+        <div className="w-full border-l border-gray-200">
           <SingleChatTabs params={params} />
           <div className="flex flex-col justify-between relative h-screen">
             <MessageSubmit

@@ -40,8 +40,8 @@ export default function Page({
         STORAGE_ZONE_BASE_HOSTNAME={process.env.STORAGE_ZONE_BASE_HOSTNAME}
         STORAGE_ZONE_NAME={process.env.STORAGE_ZONE_NAME}
         style={{
-          addMessageFormClassName: "lg:mr-96",
-          messageEndClassName: "lg:mr-96",
+          addMessageFormClassName: "",
+          messageEndClassName: "",
         }}
       />
     </>

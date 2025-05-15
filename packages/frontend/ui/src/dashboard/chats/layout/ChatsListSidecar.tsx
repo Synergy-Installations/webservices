@@ -68,7 +68,7 @@ export const ChatsListSidecar = (props: ChatsListSidecarProps) => {
         stepsListOpen={stepsListOpen}
         setStepsListOpen={setStepsListOpen}
       />
-      <div className="flex justify-between h-full lg:mr-96">
+      <div className="flex justify-between h-full">
         <aside
           id="logo-sidebar"
           ref={mobileNav}
@@ -78,7 +78,7 @@ export const ChatsListSidecar = (props: ChatsListSidecarProps) => {
           <SingleSubmitTabs params={params} />
           <ChatsList className="pb-60" params={params} />
         </aside>
-        <div className="hidden md:block w-1/2">
+        <div className="hidden md:block w-1/3">
           <SingleSubmitTabs params={params} />
           <ChatsList className="pb-48" params={params} />
         </div>

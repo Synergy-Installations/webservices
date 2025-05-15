@@ -118,7 +118,7 @@ export const SubmitAssetsList = (props: SubmitAssetsListProps) => {
   }, [isUpdateSubmitMutationLoading]);
 
   return (
-    <div className="overflow-y-auto h-full grid gap-2 pb-2 lg:mr-96">
+    <div className="overflow-y-auto h-full grid gap-2 pb-2">
       {editSubmitToggle && (
         <FileUpload
           submitId={submitId}

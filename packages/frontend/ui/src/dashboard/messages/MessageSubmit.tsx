@@ -136,11 +136,15 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
                 }`}
                 key={message._id}
               >
-                <img
-                  className="w-8 h-8 rounded-full"
-                  src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                  alt="Jese image"
-                />
+                {user.user?.imageUrl ? (
+                  <img
+                    className="w-8 h-8 rounded-full"
+                    src={user.user?.imageUrl}
+                    alt="User image"
+                  />
+                ) : (
+                  <div className="w-8 h-8 bg-gray-300 rounded-full animate-pulse"></div>
+                )}
                 <div className="flex flex-col gap-1 items-start max-w-[320px]">
                   <div className="flex flex-col w-full leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
                     <div className="flex items-center space-x-2 rtl:space-x-reverse">

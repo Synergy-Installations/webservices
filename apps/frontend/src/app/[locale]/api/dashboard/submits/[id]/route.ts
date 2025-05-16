@@ -73,6 +73,7 @@ export async function GET(
       }
     }
   } catch (error) {
+    console.error("Error fetching submit:", error);
     return new Response(JSON.stringify({ success: false, error: error }), {
       status: 400,
       headers: {

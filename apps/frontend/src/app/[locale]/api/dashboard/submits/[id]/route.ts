@@ -73,7 +73,7 @@ export async function GET(
       }
     }
   } catch (error) {
-    return new Response(JSON.stringify({ success: false }), {
+    return new Response(JSON.stringify({ success: false, error: error }), {
       status: 400,
       headers: {
         "Content-Type": "application/json",

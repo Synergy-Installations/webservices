@@ -31,7 +31,7 @@ export async function GET(
       submit.visibility === "public" ||
       submit.members
         .find((right: any) => right.userAuthId === userId)
-        .rights.includes("read")
+        ?.rights?.includes("read")
     ) {
       console.log("public or a member");
       return new Response(JSON.stringify({ success: true, data: submit }), {

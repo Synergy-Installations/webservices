@@ -34,7 +34,7 @@ export const SingleStepTabs = (props: SingleStepTabsProps) => {
 
   return (
     <div className="">
-      <ul className="grid grid-cols-3 xs:flex text-sm font-medium text-gray-500 dark:text-gray-400 !p-2 gap-2">
+      <ul className="grid grid-cols-3 xs:flex text-sm font-medium text-gray-500 dark:text-gray-400 !p-2 gap-2 overflow-x-auto">
         <li>
           <Link
             href={`/dashboard/submits/${id}/steps/${stepId}/general`}
@@ -53,7 +53,7 @@ export const SingleStepTabs = (props: SingleStepTabsProps) => {
             General
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link
             href={`/dashboard/submits/${id}/steps/${stepId}/chat`}
             className={`inline-flex items-center justify-center px-4 py-2 ${isChat ? "text-white bg-blue-700 dark:bg-blue-600" : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"} rounded-lg active w-full `}
@@ -70,7 +70,7 @@ export const SingleStepTabs = (props: SingleStepTabsProps) => {
             </svg>
             Chat
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link
             href={`/dashboard/submits/${id}/steps/${stepId}/assets`}
@@ -85,7 +85,7 @@ export const SingleStepTabs = (props: SingleStepTabsProps) => {
             >
               <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
             </svg>
-            Assets
+            Dokumente
           </Link>
         </li>
         {SingleStepTabsEdit && (
@@ -108,7 +108,7 @@ export const SingleStepTabs = (props: SingleStepTabsProps) => {
           <li className="">
             <button
               onClick={() => SingleStepTabsEdit.setSaveStepToggle(true)}
-              className="inline-flex items-center justify-center gap-1 w-full px-4 py-2 rounded-lg text-gray-100 hover:text-white bg-synergy-light-blue dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
+              className="inline-flex items-center justify-center w-full px-4 py-2 rounded-lg text-gray-100 hover:text-white bg-synergy-light-blue dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
             >
               <span className="">Speichern</span>
               <div className="">
@@ -117,7 +117,7 @@ export const SingleStepTabs = (props: SingleStepTabsProps) => {
                   <svg
                     aria-hidden="true"
                     role="status"
-                    className="inline w-4 h-4 text-white animate-spin"
+                    className="inline w-4 h-4 ml-1 text-white animate-spin"
                     viewBox="0 0 100 101"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"

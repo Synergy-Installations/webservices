@@ -39,8 +39,10 @@ export const SubmitAssets = (props: SubmitAssetsProps) => {
       console.log("debouncedResetSaveEditSubmitToggle");
       setSaveSubmitToggle(false);
       setEditSubmitToggle(false);
+    } else {
+      debouncedResetSaveEditSubmitToggle();
     }
-  }, 1000);
+  }, 50);
 
   useEffect(() => {
     debouncedResetSaveEditSubmitToggle();

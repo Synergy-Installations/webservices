@@ -18,7 +18,7 @@ import SingleSubmitTabs from "../submits/tabs/SingleSubmitTabs";
 
 /* eslint-disable-next-line */
 export interface MessageSubmitProps {
-  params: { id: string; stepId?: string };
+  params: { id: string; stepId?: string; chatId?: string };
   style?: {
     addMessageFormClassName?: string;
     messageEndClassName?: string;
@@ -38,7 +38,7 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
     STORAGE_ZONE_BASE_HOSTNAME,
     STORAGE_ZONE_NAME,
   } = props;
-  const { id: submitId, stepId } = props.params;
+  const { id: submitId, stepId, chatId } = props.params;
   const [addMessage, { isLoading, error: addMessageError }] =
     useAddMessageMutation();
   const {
@@ -46,7 +46,7 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
     isLoading: isGetMessagesLoading,
     error: isGetMessagesError,
   } = useGetMessagesQuery(
-    { submitId, stepId },
+    { submitId, stepId, chatId },
     {
       refetchOnFocus: true,
       refetchOnReconnect: true,
@@ -67,6 +67,7 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
 
   const [newMessage, setNewMessage] = useState<Partial<MessageInterface>>({
     submitId: new Types.ObjectId(submitId),
+    chatId: new Types.ObjectId(chatId),
     ...(stepId && { stepId: new Types.ObjectId(stepId) }),
     message: "",
     assets: [],
@@ -79,6 +80,7 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
       ...(stepId && {
         stepId: newMessage.stepId || new Types.ObjectId(stepId),
       }),
+      chatId: newMessage.chatId || new Types.ObjectId(chatId),
       message: newMessage.message,
       assets: newMessage.assets,
     });
@@ -88,7 +90,7 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
   return (
     <>
       <div
-        className={`flex flex-col gap-2 px-4 self-start w-full h-full overflow-y-scroll`}
+        className={`flex flex-col gap-2 px-4 self-start justify-between w-full overflow-y-scroll`}
         ref={scrollContainerRef}
       >
         <div className="flex flex-col w-full gap-2 ">
@@ -134,11 +136,15 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
                 }`}
                 key={message._id}
               >
-                <img
-                  className="w-8 h-8 rounded-full"
-                  src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                  alt="Jese image"
-                />
+                {user.user?.imageUrl ? (
+                  <img
+                    className="w-8 h-8 rounded-full"
+                    src={user.user?.imageUrl}
+                    alt="User image"
+                  />
+                ) : (
+                  <div className="w-8 h-8 bg-gray-300 rounded-full animate-pulse"></div>
+                )}
                 <div className="flex flex-col gap-1 items-start max-w-[320px]">
                   <div className="flex flex-col w-full leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl dark:bg-gray-700">
                     <div className="flex items-center space-x-2 rtl:space-x-reverse">
@@ -328,7 +334,7 @@ export const MessageSubmit = (props: MessageSubmitProps) => {
       </div>
 
       <form
-        className={`flex flex-col items-center gap-2 p-4 pt-2 ${style?.addMessageFormClassName}`}
+        className={`flex flex-col items-center gap-2 p-4 pt-1 ${style?.addMessageFormClassName}`}
       >
         {addMessageError && (
           <span className="text-red-500 max-w-xl w-full text-left">

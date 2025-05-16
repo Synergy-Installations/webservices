@@ -8,9 +8,9 @@ import Message from "@com.synergy/frontend-backend-dashboard/message";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: { id: string; chatId: string } }
 ) {
-  const { id } = params;
+  const { id: submitId, chatId } = params;
   const { userId } = getAuth(req);
 
   if (!userId) {
@@ -30,15 +30,14 @@ export async function GET(
       | string[]
       | undefined;
 
-    const dbSubmit = await Submit.findById(id, "emailAddress").exec();
+    const dbSubmit = await Submit.findById(submitId, "emailAddress").exec();
 
     if (
       accessRights?.includes("all:*") ||
       accessRights?.includes("all:messages")
     ) {
       const messages = await Message.find({
-        submitId: id,
-        stepId: { $exists: false },
+        chatId,
       })
         .populate("sentByUserId", "firstName lastName emailAddress")
         .sort({ createdAt: 1 })
@@ -54,11 +53,13 @@ export async function GET(
     }
 
     if (
-      user.emailAddresses.some((e) => e.emailAddress === dbSubmit.emailAddress)
+      dbSubmit.visibility === "public" ||
+      dbSubmit.members
+        .find((right: any) => right.userAuthId === userId)
+        .rights.includes("read:chats")
     ) {
       const messages = await Message.find({
-        submitId: id,
-        stepId: { $exists: false },
+        chatId: chatId,
       })
         .populate("sentByUserId", "firstName lastName emailAddress")
         .sort({ createdAt: 1 })
@@ -140,7 +141,12 @@ export async function POST(
     const dbSubmit = await Submit.findById(body.submitId);
 
     // Check if user has created the submit
-    if (dbUser.emailAddress === dbSubmit.emailAddress) {
+    if (
+      dbSubmit.visibility === "public" ||
+      dbSubmit.members
+        .find((right: any) => right.userAuthId === userId)
+        .rights.includes("write:chats")
+    ) {
       const message = await Message.create({
         sentByUserId: dbUser._id,
         ...body,

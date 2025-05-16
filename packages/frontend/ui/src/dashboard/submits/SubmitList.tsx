@@ -52,7 +52,7 @@ export const SubmitList = (props: SubmitListProps) => {
           className="group border border-synergy-light-grey p-2 rounded-xl hover:bg-synergy-light-grey transition-colors duration-200"
         >
           <p className="text-lg font-bold group-hover:underline">
-            Projekt {index + 1}:
+            Projekt: {data.title ? data.title : index + 1}
           </p>
           <div className="flex gap-1">
             <p className="font-medium">Adresse: </p>

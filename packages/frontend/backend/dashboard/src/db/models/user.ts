@@ -1,6 +1,25 @@
-import mongoose from "mongoose";
+import mongoose, { Document, Schema } from "mongoose";
 
-const UserSchema = new mongoose.Schema({
+export interface GetUsers {
+  success: boolean;
+  data: UserInterface[];
+}
+
+export interface UserInterface extends Document<string> {
+  status: "missing_requirements" | "complete" | "abandoned";
+  firstName: string | null;
+  lastName: string | null;
+  createdAt: Date;
+  emailAddress: string;
+  phoneNumber: string | null;
+  verifications: {
+    emailAddress: boolean;
+    phoneNumber: boolean;
+  };
+  createdUserAuthId: string | null;
+}
+
+const UserSchema = new Schema<UserInterface>({
   status: {
     type: String,
     enum: ["missing_requirements", "complete", "abandoned"],

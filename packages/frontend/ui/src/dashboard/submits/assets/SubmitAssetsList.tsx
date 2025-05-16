@@ -61,7 +61,7 @@ export const SubmitAssetsList = (props: SubmitAssetsListProps) => {
 
   const [editSubmit, setEditSubmit] = useState<Partial<any>>({
     _id: new Types.ObjectId(submitId),
-    assets: submit?.data[0].assets,
+    assets: submit?.data.assets,
   });
 
   useEffect(() => {
@@ -75,13 +75,13 @@ export const SubmitAssetsList = (props: SubmitAssetsListProps) => {
   useEffect(() => {
     setEditSubmit({
       ...editSubmit,
-      assets: submit?.data[0].assets,
+      assets: submit?.data.assets,
     });
   }, [submit]);
 
   console.log(
     "editSubmit",
-    submit?.data[0].submit,
+    submit?.data,
     editSubmit,
     "loading?",
     isUpdateSubmitMutationLoading,
@@ -118,7 +118,7 @@ export const SubmitAssetsList = (props: SubmitAssetsListProps) => {
   }, [isUpdateSubmitMutationLoading]);
 
   return (
-    <div className="overflow-y-auto h-full grid gap-2 pb-2 lg:mr-96">
+    <div className="overflow-y-auto h-full grid gap-2 pb-2">
       {editSubmitToggle && (
         <FileUpload
           submitId={submitId}
@@ -147,7 +147,7 @@ export const SubmitAssetsList = (props: SubmitAssetsListProps) => {
         />
       )}
       <div className="relative flex flex-col w-full px-2 gap-2">
-        {submit?.data[0]?.assets?.map((file: any, index: number) => (
+        {submit?.data?.assets?.map((file: any, index: number) => (
           <div
             key={index}
             className="flex-col md:flex md:flex-row-reverse items-center justify-between gap-2 w-full p-2 border rounded-lg"

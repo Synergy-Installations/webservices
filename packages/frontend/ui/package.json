@@ -8,6 +8,16 @@
     "dist"
   ],
   "exports": {
+    "./ChatSubmitSettings": "./src/dashboard/chats/settings/ChatSubmitSettings.tsx",
+    "./ChatSettings": "./src/dashboard/chats/settings/ChatSettings.tsx",
+    "./ChatsListSidecar": "./src/dashboard/chats/layout/ChatsListSidecar.tsx",
+    "./SingleChatTabs": "./src/dashboard/chats/tabs/SingleChatTabs.tsx",
+    "./ChatSubmitMessages": "./src/dashboard/chats/ChatSubmitMessages.tsx",
+    "./ChatsList": "./src/dashboard/chats/ChatsList.tsx",
+    "./ChatsSubmit": "./src/dashboard/chats/ChatsSubmit.tsx",
+    "./UserProfile": "./src/dashboard/user/profile/UserProfile.tsx",
+    "./SumbitMembersRights": "./src/dashboard/submits/members/SumbitMembersRights.tsx",
+    "./SubmitMembers": "./src/dashboard/submits/members/SubmitMembers.tsx",
     "./StepsListSidecar": "./src/dashboard/steps/layout/StepsListSidecar.tsx",
     "./SubmitAssetsList": "./src/dashboard/submits/assets/SubmitAssetsList.tsx",
     "./SubmitAssets": "./src/dashboard/submits/assets/SubmitAssets.tsx",
@@ -152,6 +162,7 @@
     "react-calendly": "^4.3.1",
     "react-dom-confetti": "^0.2.0",
     "react-dropzone": "^14.3.8",
+    "react-select": "^5.10.1",
     "tailwind-merge": "^2.6.0"
   }
 }

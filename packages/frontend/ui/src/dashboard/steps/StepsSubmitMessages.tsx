@@ -36,10 +36,10 @@ export const StepsSubmitMessages = (props: StepsSubmitMessagesProps) => {
       >
         <div className="w-full md:w-1/2 border-l border-gray-200">
           <SingleStepTabs params={params} />
-          <div className="flex flex-col justify-between relative h-full ">
+          <div className="flex flex-col justify-between relative h-screen ">
             <MessageSubmit
               params={params}
-              style={{ addMessageFormClassName: "pb-60 lg:pb-48" }}
+              style={{ addMessageFormClassName: "pb-48 lg:pb-48" }}
               STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
               STORAGE_ZONE_REGION={STORAGE_ZONE_REGION}
               STORAGE_ZONE_BASE_HOSTNAME={STORAGE_ZONE_BASE_HOSTNAME}

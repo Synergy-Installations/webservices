@@ -33,12 +33,14 @@ export const messageApi = api.injectEndpoints({
     // }),
     getMessages: build.query<
       GetMessagesInterface,
-      { submitId?: string; stepId?: string }
+      { submitId?: string; stepId?: string; chatId?: string }
     >({
-      query: ({ submitId, stepId }) => ({
-        url: stepId
-          ? `dashboard/submits/${submitId}/steps/${stepId}/messages`
-          : `dashboard/submits/${submitId}/messages`,
+      query: ({ submitId, stepId, chatId }) => ({
+        url: chatId
+          ? `dashboard/submits/${submitId}/chats/${chatId}/messages`
+          : stepId
+            ? `dashboard/submits/${submitId}/steps/${stepId}/messages`
+            : `dashboard/submits/${submitId}/messages`,
       }),
       providesTags: (
         result = {
@@ -54,9 +56,11 @@ export const messageApi = api.injectEndpoints({
     }),
     addMessage: build.mutation<MessageInterface, Partial<MessageInterface>>({
       query: (body) => ({
-        url: body.stepId
-          ? `dashboard/submits/${body.submitId}/steps/${body.stepId}/messages`
-          : `dashboard/submits/${body.submitId}/messages`,
+        url: body.chatId
+          ? `dashboard/submits/${body.submitId}/chats/${body.chatId}/messages`
+          : body.stepId
+            ? `dashboard/submits/${body.submitId}/steps/${body.stepId}/messages`
+            : `dashboard/submits/${body.submitId}/messages`,
         method: "POST",
         body,
       }),

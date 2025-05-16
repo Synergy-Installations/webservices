@@ -33,6 +33,7 @@ export async function GET(
         .find((right: any) => right.userAuthId === userId)
         .rights.includes("read")
     ) {
+      console.log("public or a member");
       return new Response(JSON.stringify({ success: true, data: submit }), {
         status: 200,
         headers: {
@@ -46,6 +47,8 @@ export async function GET(
       const accessRights = user.privateMetadata?.accessRights as
         | string[]
         | undefined;
+
+      console.log("accessRights", accessRights);
 
       if (
         accessRights?.includes("all:*") ||

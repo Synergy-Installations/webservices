@@ -14,7 +14,7 @@ export const routing = defineRouting({
   // external paths. Based on the locale, the external
   // paths are rewritten to the shared, internal ones.
   // Currently does not work and gives a TypeError
-  pathnames: {
+  // pathnames: {
     // If all locales use the same pathname, a single
     // external path can be used for all locales
     // "/": "/",
@@ -37,7 +37,7 @@ export const routing = defineRouting({
     // "/categories/[...slug]": {
     //   de: "/kategorien/[...slug]",
     // },
-  },
+  // },
 });
 
 // Lightweight wrappers around Next.js' navigation APIs

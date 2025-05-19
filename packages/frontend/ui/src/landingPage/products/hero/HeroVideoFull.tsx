@@ -48,7 +48,7 @@ export const HeroVideoFull = (props: HeroVideoFullProps) => {
       if (!isEdge && !isFirefox) {
         video.playsInline = true;
         video.play().catch((error) => {
-          alert("Error playing video:" + error);
+          console.error("Error playing video:" + error);
         });
       }
     }

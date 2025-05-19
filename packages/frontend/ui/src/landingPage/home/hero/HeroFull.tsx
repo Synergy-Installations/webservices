@@ -23,7 +23,7 @@ export const HeroFull = (props: HeroFullProps) => {
   return (
     <div className="h-svh w-svw min-h-[993px] relative">
       <div className="z-10 relative h-screen flex flex-col items-center justify-center lg:block lg:pt-[204px] lg:pl-[140px] xl:pl-[200px] 2xl:pl-[300px] min-[1700px]:pl-[350px] min-[1700px]:pt-[194px] w-auto">
-        <div className="relative flex flex-col w-[272px] rounded-2xl">
+        <div className="relative flex flex-col justify-center rounded-2xl">
           <ProductPreviewSmallTransition
             products={productPreviewKeys.map(
               (key) => messages.LandingPage.Home.Hero.productPreviewSmall[key]
@@ -67,7 +67,7 @@ export const HeroFull = (props: HeroFullProps) => {
       </div>
       <div className="z-10 w-[calc(105vw)] absolute bottom-[170px] xl:bottom-[195px] 2xl:bottom-[80px] -left-[10px] rotate-[-5deg] bg-orange-500">
         <Marquee className="![--duration:150s] p-1">
-          <div className="text-[#eeeae8] text-4xl font-bold uppercase pr-2">
+          <div className="text-[#eeeae8] text-2xl xs:text-3xl md:text-4xl font-bold uppercase pr-2">
             {t("banner")}&nbsp;
           </div>
         </Marquee>

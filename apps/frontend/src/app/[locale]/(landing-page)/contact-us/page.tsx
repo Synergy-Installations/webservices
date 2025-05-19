@@ -14,12 +14,12 @@ export default function Page(): JSX.Element {
         <div className="pt-32 pb-12 md:pt-40 md:pb-20">
           <div className="px-4 sm:px-6">
             {/* Page header */}
-            <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-              <h1 className="font-inter-tight text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-500 via-slate-900 to-slate-900 pb-4">
-                {t("title")}
+            <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16 overflow-hidden">
+              <h1 className="font-inter-tight text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-500 via-slate-900 to-slate-900 pb-4 break-words break-all hyphens-auto">
+              {t("title")}
               </h1>
               <div className="text-lg text-slate-500">
-                <RichText>{(tags) => t.rich("description", tags)}</RichText>
+              <RichText>{(tags) => t.rich("description", tags)}</RichText>
               </div>
             </div>
 

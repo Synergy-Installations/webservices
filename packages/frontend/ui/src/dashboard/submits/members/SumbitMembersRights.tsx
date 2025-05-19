@@ -531,6 +531,37 @@ export const SumbitMembersRights = (props: SumbitMembersRightsProps) => {
               </Tooltip>
             </label> */}
               </div>
+              {editSubmitToggle && (
+                <div className="w-full xs:w-auto">
+                  <button
+                    className="flex items-center justify-center w-8 h-8 rounded-lg bg-gray-200 hover:bg-red-600 text-black hover:text-white"
+                    onClick={() => {
+                      setEditSubmit({
+                        ...editSubmit,
+                        members: editSubmit.members?.filter(
+                          (memberMap: any) =>
+                            memberMap.userUid !== member.userUid
+                        ),
+                      });
+                    }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={2}
+                      stroke="currentColor"
+                      className="w-4 h-4"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              )}
             </div>
           ))
         )}

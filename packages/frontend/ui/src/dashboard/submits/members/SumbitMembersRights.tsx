@@ -154,12 +154,13 @@ export const SumbitMembersRights = (props: SumbitMembersRightsProps) => {
   const animatedComponents = makeAnimated();
 
   const [searchUsersInput, setSearchUsersInput] = useState<string>("");
-  const { data: users, isLoading: isSearchUsersLoading } = useSearchUsersQuery(
-    searchUsersInput,
-    {
-      skip: searchUsersInput === "",
-    }
-  );
+  const {
+    data: users,
+    isLoading: isSearchUsersLoading,
+    isFetching: isSearchUsersFetching,
+  } = useSearchUsersQuery(searchUsersInput, {
+    skip: searchUsersInput === "",
+  });
 
   const debouncedSetSearchUsersInput = debounce((value: string) => {
     setSearchUsersInput(value);
@@ -400,20 +401,55 @@ export const SumbitMembersRights = (props: SumbitMembersRightsProps) => {
                         }
                       />
                       <ul className="max-h-40 overflow-y-auto">
-                        {isSearchUsersLoading
-                          ? Array.from({ length: 3 }).map((_, index) => (
-                              <li key={index} className="animate-pulse">
-                                <div className="py-2 flex gap-2 w-full rounded-lg justify-between">
-                                  <div className="h-5 bg-gray-300 dark:bg-gray-600 rounded w-full"></div>
-                                  <div className="h-5 bg-gray-300 dark:bg-gray-600 rounded w-1/2"></div>
-                                </div>
-                              </li>
-                            ))
-                          : users?.data.map((user) => (
+                        {isSearchUsersFetching ? (
+                          Array.from({ length: 3 }).map((_, index) => (
+                            <li key={index} className="animate-pulse">
+                              <div className="py-2 flex gap-2 w-full rounded-lg justify-between">
+                                <div className="h-5 bg-gray-300 dark:bg-gray-600 rounded w-full"></div>
+                                <div className="h-5 bg-gray-300 dark:bg-gray-600 rounded w-1/2"></div>
+                              </div>
+                            </li>
+                          ))
+                        ) : users?.data.filter(
+                            (user) =>
+                              !editSubmit.members?.some(
+                                (member: any) => member.userUid === user._id
+                              )
+                          ).length == 0 ? (
+                          <div className="text-synergy-dark-grey">
+                            Keine User gefunden{" "}
+                            {editSubmit.members?.filter(
+                              (member: any) =>
+                                member.userUid !== ("default" as unknown)
+                            ).length > 0 && "oder User ist bereits ein Member"}
+                          </div>
+                        ) : (
+                          users?.data
+                            .filter(
+                              (user) =>
+                                !editSubmit.members?.some(
+                                  (member: any) => member.userUid === user._id
+                                )
+                            )
+                            .map((user) => (
                               <li key={user._id}>
                                 <button
-                                  className="px-3 py-2 flex gap-1 w-full rounded-lg justify-between hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+                                  className="px-3 py-2 flex gap-1 w-full rounded-lg justify-between hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer disabled:cursor-not-allowed"
+                                  disabled={editSubmit.members?.some(
+                                    (memberMap: any) =>
+                                      memberMap.userUid === user._id
+                                  )}
                                   onClick={() => {
+                                    // Check if the user is already in the members array
+                                    if (
+                                      editSubmit.members?.some(
+                                        (memberMap: any) =>
+                                          memberMap.userUid === user._id
+                                      )
+                                    ) {
+                                      return;
+                                    }
+
                                     setEditSubmit({
                                       ...editSubmit,
                                       members: editSubmit.members?.map(
@@ -446,7 +482,8 @@ export const SumbitMembersRights = (props: SumbitMembersRightsProps) => {
                                   </span>
                                 </button>
                               </li>
-                            ))}
+                            ))
+                        )}
                       </ul>
                     </div>
                   }

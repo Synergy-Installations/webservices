@@ -1914,43 +1914,38 @@
             "label": "Für welches Produkt interessieren Sie sich?",
             "options": {
               "optionGoogle": {
-                "text": "Wärmepumpen"
+                "text": "Wärmepumpen & Heizsysteme"
               },
               "optionTwitter": {
                 "text": "Klimasysteme"
               },
               "optionMouthToMouth": {
-                "text": "Photovoltaik"
-              },
-              "optionConv": {
-                "text": "Stromspeicher"
+                "text": "Photovoltaik & Stromspeicher"
               },
               "optionsOne": {
-                "text": "Gemeinschaftliche Erzeugungsanlage"
+                "text": "Gemeinschaftliche Erzeugungsanlagen"
               },
               "optionsTwo": {
-                "text": "Energiegemeinschaft"
+                "text": "Energiegemeinschaften"
               },
               "optionsThree": {
                 "text": "Energiekostenoptimierung"
               },
               "optionsFour": {
-                "text": "Smart Home"
+                "text": "Smart Home & Energiemanagement Systeme"
               },
-              "optionsFive": {
-                "text": "Energiemanagement System"
-              },
+
               "optionsSix": {
-                "text": "Wallbox"
+                "text": "Stromtankstellen & Wallboxen"
               },
               "optionsSeven": {
-                "text": "Autarke Warmwasser-Erzeugung"
+                "text": "Autarke Warmwassererzeugung"
               },
               "optionsEight": {
                 "text": "Notstrom Versorgung"
               },
               "optionOthers": {
-                "text": "Balkonkraftwerk"
+                "text": "Balkon- und Kleinstkraftwerke"
               },
               "optionWallbox": {
                 "text": "Wartung & Service"

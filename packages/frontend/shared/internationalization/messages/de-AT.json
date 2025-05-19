@@ -1917,8 +1917,8 @@
     },
     "ContactUs": {
       "Header": {
-        "title": "Starten Sie hier Ihre Montageabwicklung",
-        "description": "Und gestalten Sie ihre Prozesse mit Leichtigkeit. Wir liefern Projektmanagement seit mehr als 10 Jahren mit Kundenfokus und Handschlagqualität - jetzt auch digital."
+        "title": "Starten Sie in die Energieunabhängikeit!",
+        "description": "Sie erhalten danach unseren Ratgeber mit Tipps und Tricks zu Anschaffung, Förderung und Betrieb Ihrer PV-Anlage!"
       },
       "Form": {
         "elements": {
@@ -1940,6 +1940,34 @@
             "placeholder": "Geben Sie Ihre Telefonnummer ein",
             "required": "false"
           },
+          "productSelection": {
+            "type": "selection",
+            "label": "Für welches Produkt interessieren Sie sich?",
+            "options": {
+              "optionBeratung": {
+                "text": "Berate mich"
+              },
+              "optionGoogle": {
+                "text": "Photovoltaik"
+              },
+                "optionTwitter": {
+                "text": "Wärmesysteme"
+              },
+              "optionMouthToMouth": {
+                "text": "Klimasysteme"
+              },
+              "optionConv": {
+                "text": "Smart Home"
+              },
+              "optionOthers": {
+                "text": "Energiemanagement"
+              },
+              "optionWallbox": {
+                "text": "Wallbox"
+              }
+            },
+            "required": "false"
+          },
           "funnel": {
             "type": "selection",
             "label": "Wie sind Sie auf uns aufmerksam geworden?",
@@ -1948,13 +1976,16 @@
                 "text": "Google"
               },
               "optionTwitter": {
-                "text": "Twitter"
+                "text": "Social Media"
               },
               "optionMouthToMouth": {
-                "text": "Mund zu Mund"
+                "text": "Empfehlung"
               },
               "optionConv": {
-                "text": "Messe"
+                "text": "Messe & Werbung"
+              },
+              "optionOthers": {
+                "text": "Sonstiges"
               }
             },
             "required": "false"
@@ -2053,6 +2084,10 @@
         }
       },
       "Funnel": {
+        "Header": {
+          "title": "Starten Sie hier Ihre Montageabwicklung",
+          "description": "Und gestalten Sie ihre Prozesse mit Leichtigkeit. Wir liefern Projektmanagement seit mehr als 10 Jahren mit Kundenfokus und Handschlagqualität - jetzt auch digital."
+        },
         "progress": {
           "labels": {
             "topLeft": "Synergie Anfrage Progress",

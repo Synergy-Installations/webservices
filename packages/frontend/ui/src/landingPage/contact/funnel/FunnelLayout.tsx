@@ -9,7 +9,7 @@ export interface FunnelLayoutProps {
 }
 
 export const FunnelLayout = (props: FunnelLayoutProps) => {
-  const t = useTranslations("LandingPage.ContactUs.Header");
+  const t = useTranslations("LandingPage.ContactUs.Funnel.Header");
 
   return (
     <>

@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
     html: `
       <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
         <div style="text-align: center; margin-bottom: 20px;">
-          <img src="https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/icons/Synergie-montagen-logo.svg" alt="Synergiemontagen Logo" style="max-width: 200px;" />
+          <img src="https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/icons/Flyer%20Synergie%20B2C%20v1.svg" alt="Synergiemontagen Logo" style="max-width: 200px;" />
         </div>
         <h2 style="color: #0CC0DF;">Vielen Dank für Ihre Anfrage mit Synergiemontagen</h2>
         <p><strong>Name:</strong> ${restBody.formData.name}</p>

@@ -48,7 +48,7 @@ export const HeroVideoFull = (props: HeroVideoFullProps) => {
       if (!isEdge && !isFirefox) {
         video.playsInline = true;
         video.play().catch((error) => {
-          alert("Error playing video:" + error);
+          console.error("Error playing video:" + error);
         });
       }
     }
@@ -64,7 +64,7 @@ export const HeroVideoFull = (props: HeroVideoFullProps) => {
         >
           {t("title")}
         </h1>
-        <div className="flex flex-col sm:flex-col-reverse justify-start items-center">
+        <div className="flex flex-col sm:flex-col-reverse justify-start items-center sm:items-start">
           <div className="grid grid-cols-2 sm:mt-12 gap-2 sm:gap-5">
             {productPreviewKeys.map((productPreviewKey, index) => (
               <ProductPreviewSmall

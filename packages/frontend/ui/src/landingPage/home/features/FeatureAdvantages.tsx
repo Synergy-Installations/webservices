@@ -82,7 +82,7 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
                   <Transition show={tab === index} key={index}>
                     <div className="transition ease-in-out data-[closed]:opacity-0 data-[enter]:duration-700 data-[enter]:data-[closed]:translate-x-8 data-[closed]:absolute data-[leave]:duration-300 data-[leave]:data-[closed]:-translate-x-8">
                       <Image
-                        className="lg:max-w-none h-[620px] mx-auto rounded-lg shadow-2xl object-cover"
+                        className="lg:max-w-none mx-auto rounded-lg shadow-2xl object-cover"
                         loader={ImageLoader}
                         width={Number(t(`buttons.${key}.image.width`))}
                         height={Number(t(`buttons.${key}.image.height`))}
@@ -96,9 +96,9 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
               {/* Gear illustration */}
               {buttonKeys.map((key, index) => (
                 <Transition show={tab === index} key={index}>
-                  <div className="absolute left-0 bottom-0 -translate-x-1/2 translate-y-1/3 bg-[#333333]/60 backdrop-blur-sm p-12 rounded-[56px] transition ease-in-out data-[closed]:opacity-0 data-[enter]:duration-700 data-[enter]:data-[closed]:translate-x-8 data-[closed]:absolute data-[leave]:duration-300 data-[leave]:data-[closed]:-translate-x-8">
+                  <div className="absolute left-0 bottom-0 sm:-translate-x-1/2 translate-y-1/2 sm:translate-y-1/2 bg-[#333333]/60 backdrop-blur-sm p-6 sm:p-12 rounded-3xl sm:rounded-[56px] transition ease-in-out data-[closed]:opacity-0 data-[enter]:duration-700 data-[enter]:data-[closed]:translate-x-8 data-[closed]:absolute data-[leave]:duration-300 data-[leave]:data-[closed]:-translate-x-8">
                     <Image
-                      className="w-min h-[80px] lg:h-[101px] object-fill"
+                      className="w-min h-[40px] lg:h-[101px] object-fill"
                       loader={ImageLoader}
                       width={Number(t(`buttons.${key}.imageIcon.width`))}
                       height={Number(t(`buttons.${key}.imageIcon.height`))}

@@ -20,7 +20,27 @@ export async function POST(req: NextRequest) {
     from: "office@synergiemontagen.eco", // Change to your verified sender
     subject: "Ihre Anfrage von Synergiemontagen",
     text: message,
-    html: `<h1>Vielen Dank für Ihre Anfrage mit Synergiemontagen</h1><br /><p><strong>Name:</strong> ${restBody.formData.name}</p><br /><p><strong>E-Mail:</strong> ${restBody.formData.email}</p><br /><p><strong>Tel.:</strong> ${restBody.formData.phone}</p><br /><p><strong>Aufmerksam durch:</strong> ${restBody.formData.funnel}</p><br /><p><strong>Projektdetails:</strong>${message}</p>`,
+    html: `
+      <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <div style="text-align: center; margin-bottom: 20px;">
+          <img src="https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/icons/Flyer%20Synergie%20B2C%20v1.svg" alt="Synergiemontagen Logo" style="max-width: 200px;" />
+        </div>
+        <h2 style="color: #0CC0DF;">Vielen Dank für Ihre Anfrage mit Synergiemontagen</h2>
+        <p><strong>Name:</strong> ${restBody.formData.name}</p>
+        <p><strong>E-Mail:</strong> ${restBody.formData.email}</p>
+        <p><strong>Tel.:</strong> ${restBody.formData.phone}</p>
+        <p><strong>Produktauswahl:</strong> ${restBody.formData.productSelection}</p>
+        <p><strong>Aufmerksam durch:</strong> ${restBody.formData.funnel}</p>
+        <p><strong>Projektdetails:</strong> ${message}</p>
+        <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;" />
+        <p style="font-size: 0.9em; color: #555;">
+          Wenn Sie weitere Informationen, Details oder Dokumente haben, senden Sie diese bitte an uns. Wir freuen uns darauf, Ihnen zu helfen!
+        </p>
+        <div style="text-align: center; margin-top: 20px;">
+          <p style="font-size: 0.8em; color: #888;">© ${new Date().getFullYear()} Synergiemontagen. Alle Rechte vorbehalten.</p>
+        </div>
+      </div>
+    `,
   };
 
   let errorBoolean = false;

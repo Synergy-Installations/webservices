@@ -140,10 +140,11 @@ export const MobileMenu = (props: MobileMenuProps) => {
               </div>
             ))}
 
-            <li className="flex items-center justify-center mt-4 gap-2">
+            <li className="flex flex-col xs:flex-row items-center justify-center mt-4 gap-2">
               <Link
                 href={t("button.href")}
                 className="btn !rounded-[10px] backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue text-white group"
+                onClick={() => setMobileNavOpen(false)}
               >
                 <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
                   {t("button.text")}
@@ -155,6 +156,7 @@ export const MobileMenu = (props: MobileMenuProps) => {
               <Link
                 href={"/dashboard"}
                 className="btn !rounded-[10px] backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue text-white group"
+                onClick={() => setMobileNavOpen(false)}
               >
                 <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
                   Member Login

@@ -537,11 +537,11 @@
       "FeatureAdvantages": {
         "pill": "Erste Klasse",
         "title": "Ihr Fachmann mit Handschlagqualität und Kundenfokus.",
-        "description": "Unsere Fachkräfte bieten Ihnen nicht nur Beratung, Installation und Wartung. Wir liefern Service und Entertainment mit Begeisterung und Leidenschaft für die Ewigkeit.",
+        "description": "Unsere Fachkräfte bieten Ihnen nicht nur Beratung, Installation und Wartung. Sondern örtliche Nähe, Erreichbarkeit und Sorgfalt als wäre es unsere eigene Anlage.",
         "buttons": {
           "Button1": {
             "text": "Kundenbedürfnis",
-            "description": "Klarheit steht bei uns an erster Stelle. Wir wollen verstehen was Kunden wichtig ist, damit sie langfristig zufrieden bleibt",
+            "description": "Klarheit steht bei uns an erster Stelle. Wir verstehen was Ihnen wichtig ist, damit sie langfristig zufrieden bleiben.",
             "buttonIcon": {
               "src": "/frontend/landingPage/icons/double_arrows.svg",
               "alt": "Double Arrows",
@@ -551,8 +551,8 @@
             "image": {
               "src": "/frontend/landingPage/FeatureAdvantages/Family.jpeg",
               "alt": "Synergy family",
-              "width": "800",
-              "height": "620"
+              "width": "600",
+              "height": "200"
             },
             "imageIcon": {
               "src": "/frontend/landingPage/icons/eco-charging.svg",
@@ -563,7 +563,7 @@
           },
           "Button2": {
             "text": "Prozessorientiert",
-            "description": "Eine reibungsarme Abwicklung ist im Projektgeschäft keine Seltenheit. Genau diese Herausforderung treibt uns im Management voran",
+            "description": "Digitale Prozesse sorgen für eine reibungslose Abwicklung. Ständige Verbesserungen treiben uns im Management voran",
             "buttonIcon": {
               "src": "/frontend/landingPage/icons/double_arrows.svg",
               "alt": "Double Arrows",
@@ -585,7 +585,7 @@
           },
           "Button3": {
             "text": "Hohe Standards",
-            "description": "Hohe Vorgaben erfordern Zeit und Gewissenhaftigkeit. Uns ist es wichtig allen dasselbe Maß an Qualität zu ermöglichen.",
+            "description": "Wir nehmen uns Zeit für konstant hohe Qualität",
             "buttonIcon": {
               "src": "/frontend/landingPage/icons/double_arrows.svg",
               "alt": "Double Arrows",
@@ -818,8 +818,8 @@
         },
         "blocks": {
           "Discussions": {
-            "title": "Persönlichkeit",
-            "description": "Einige Kunden sind bereit ihre Anlagen Ihnen zu präsentieren.",
+            "title": "Kunden Referenzen",
+            "description": "Einige Kunden präsentieren Ihnen installierte Anlagen.",
             "icon": {
               "src": "/frontend/landingPage/icons/eco-charging.svg",
               "alt": "Eco Charging",
@@ -829,17 +829,7 @@
           },
           "Team-views": {
             "title": "Kundennähe",
-            "description": "Auch nach der Installation sind wir stets für Sie im Einsatz.",
-            "icon": {
-              "src": "/frontend/landingPage/icons/function.svg",
-              "alt": "Eco Charging",
-              "width": "16",
-              "height": "16"
-            }
-          },
-          "Powerful-search": {
-            "title": "Netzwerk",
-            "description": "Werden Sie teil der Synergie Community.",
+            "description": "Nach der Installation sind wir immer gut erreichbar, warten und optimieren weiter.",
             "icon": {
               "src": "/frontend/landingPage/icons/function.svg",
               "alt": "Eco Charging",
@@ -1242,28 +1232,7 @@
             "text": "Jetzt Anfragen",
             "href": "/contact-us"
           },
-          "boxesTop": {
-            "boxOne": {
-              "title": "(Empty)",
-              "description": "Steuern und automatisieren Sie Licht, das Öffnen und Schließen von Rollläden, die Steuerung der Heizung oder die Bewässerung des Gartens, um Energie zu sparen und smarter zu wohnen.",
-              "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
-                "alt": "Eco Charging",
-                "width": "16",
-                "height": "16"
-              }
-            },
-            "boxTwo": {
-              "title": "(Empty)",
-              "description": "Energieverschwender im Haushalt identifizieren und damit Einsparpotenziale aufdecken",
-              "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
-                "alt": "Eco Charging",
-                "width": "16",
-                "height": "16"
-              }
-            }
-          },
+          "boxesTop": {},
           "boxesBottom": {
             "boxOne": {
               "title": "Automatisierung von Alltagsabläufen",
@@ -1407,7 +1376,7 @@
             },
             "boxTwo": {
               "title": "4x günstiger als Benzin",
-              "description": "(Empty)",
+              "description": "Mit einer Wallbox laden Sie Ihr Elektroauto bequem zu Hause auf und fahren so bis zu viermal günstiger als mit Benzin.",
               "icon": {
                 "src": "/frontend/landingPage/icons/eco-charging.svg",
                 "alt": "Eco Charging",
@@ -1469,11 +1438,11 @@
       "AboutUsCard": {
         "cardIdentifier": "Energie endlich gunstig",
         "title": "Vom Handwerker mit Handschlagqualität",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "description": "Zuverlässigkeit, Entgegenkommen, persönliche und vertrauensvolle Firma.",
         "boxes": {
           "boxOne": {
-            "title": "Einfach Geld Sparen",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+            "title": "Ihr Fachmann",
+            "description": "ganz in Ihrer Nähe mit Handschlagqualität & Zuverlässigkeit",
             "icon": {
               "src": "/frontend/landingPage/icons/eco-charging.svg",
               "alt": "Eco Charging",
@@ -1488,8 +1457,8 @@
             }
           },
           "boxTwo": {
-            "title": "Einfach Geld Sparen",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+            "title": "Unser Ziel",
+            "description": "Den Energiemarkt für ALLE leistbar, frei und zugänglich gestalten",
             "icon": {
               "src": "/frontend/landingPage/icons/eco-charging.svg",
               "alt": "Eco Charging",
@@ -1504,8 +1473,8 @@
             }
           },
           "boxThree": {
-            "title": "Einfach Geld Sparen",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua minim veniam, quis nostrud exercitation.",
+            "title": "Unsere Vision",
+            "description": "Eine interaktive Energieinfrastruktur erschaffen in der Haushalte, Kommunen und Gewerbeparks unabhängig und effizient profitieren.",
             "icon": {
               "src": "/frontend/landingPage/icons/eco-charging.svg",
               "alt": "Eco Charging",
@@ -1917,8 +1886,8 @@
     },
     "ContactUs": {
       "Header": {
-        "title": "Starten Sie hier Ihre Montageabwicklung",
-        "description": "Und gestalten Sie ihre Prozesse mit Leichtigkeit. Wir liefern Projektmanagement seit mehr als 10 Jahren mit Kundenfokus und Handschlagqualität - jetzt auch digital."
+        "title": "Starten Sie in die Energieunabhängikeit!",
+        "description": "Sie erhalten danach unseren Ratgeber mit Tipps und Tricks zu Anschaffung, Förderung und Betrieb Ihrer PV-Anlage!"
       },
       "Form": {
         "elements": {
@@ -1940,6 +1909,50 @@
             "placeholder": "Geben Sie Ihre Telefonnummer ein",
             "required": "false"
           },
+          "productSelection": {
+            "type": "selection",
+            "label": "Für welches Produkt interessieren Sie sich?",
+            "options": {
+              "optionGoogle": {
+                "text": "Wärmepumpen & Heizsysteme"
+              },
+              "optionTwitter": {
+                "text": "Klimasysteme"
+              },
+              "optionMouthToMouth": {
+                "text": "Photovoltaik & Stromspeicher"
+              },
+              "optionsOne": {
+                "text": "Gemeinschaftliche Erzeugungsanlagen"
+              },
+              "optionsTwo": {
+                "text": "Energiegemeinschaften"
+              },
+              "optionsThree": {
+                "text": "Energiekostenoptimierung"
+              },
+              "optionsFour": {
+                "text": "Smart Home & Energiemanagement Systeme"
+              },
+
+              "optionsSix": {
+                "text": "Stromtankstellen & Wallboxen"
+              },
+              "optionsSeven": {
+                "text": "Autarke Warmwassererzeugung"
+              },
+              "optionsEight": {
+                "text": "Notstrom Versorgung"
+              },
+              "optionOthers": {
+                "text": "Balkon- und Kleinstkraftwerke"
+              },
+              "optionWallbox": {
+                "text": "Wartung & Service"
+              }
+            },
+            "required": "false"
+          },
           "funnel": {
             "type": "selection",
             "label": "Wie sind Sie auf uns aufmerksam geworden?",
@@ -1948,13 +1961,16 @@
                 "text": "Google"
               },
               "optionTwitter": {
-                "text": "Twitter"
+                "text": "Social Media"
               },
               "optionMouthToMouth": {
-                "text": "Mund zu Mund"
+                "text": "Empfehlung"
               },
               "optionConv": {
-                "text": "Messe"
+                "text": "Messe & Werbung"
+              },
+              "optionOthers": {
+                "text": "Sonstiges"
               }
             },
             "required": "false"
@@ -2053,6 +2069,10 @@
         }
       },
       "Funnel": {
+        "Header": {
+          "title": "Starten Sie hier Ihre Montageabwicklung",
+          "description": "Und gestalten Sie ihre Prozesse mit Leichtigkeit. Wir liefern Projektmanagement seit mehr als 10 Jahren mit Kundenfokus und Handschlagqualität - jetzt auch digital."
+        },
         "progress": {
           "labels": {
             "topLeft": "Synergie Anfrage Progress",

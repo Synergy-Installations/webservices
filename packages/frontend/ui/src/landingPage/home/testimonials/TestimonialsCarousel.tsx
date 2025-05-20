@@ -160,29 +160,35 @@ export const TestimonialsCarousel = (props: TestimonialsCarouselProps) => {
           </div>
         </div>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-12 lg:pb-20 relative z-10">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16">
+            <div
+            className={`grid gap-8 lg:gap-16 ${
+              blockKeys.length === 2
+              ? "sm:grid-cols-2 lg:grid-cols-2 justify-center"
+              : "sm:grid-cols-2 lg:grid-cols-3"
+            }`}
+            >
             {/* Blocks*/}
             {blockKeys.map((key, index) => (
               <div key={index}>
-                <div className="flex items-center mb-1">
-                  <Image
-                    className="shrink-0 fill-synergy-light-blue mr-2 opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                    loader={ImageLoader}
-                    width={Number(t(`blocks.${key}.icon.width`))}
-                    height={Number(t(`blocks.${key}.icon.height`))}
-                    src={t(`blocks.${key}.icon.src`)}
-                    alt={t(`blocks.${key}.icon.alt`)}
-                  />
-                  <h3 className="font-inter-tight font-semibold text-synergy-dark-grey">
-                    {t(`blocks.${key}.title`)}
-                  </h3>
-                </div>
-                <p className="text-sm text-synergy-dark-grey">
-                  {t(`blocks.${key}.description`)}
-                </p>
+              <div className="flex items-center mb-1">
+                <Image
+                className="shrink-0 fill-synergy-light-blue mr-2 opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
+                loader={ImageLoader}
+                width={Number(t(`blocks.${key}.icon.width`))}
+                height={Number(t(`blocks.${key}.icon.height`))}
+                src={t(`blocks.${key}.icon.src`)}
+                alt={t(`blocks.${key}.icon.alt`)}
+                />
+                <h3 className="font-inter-tight font-semibold text-synergy-dark-grey">
+                {t(`blocks.${key}.title`)}
+                </h3>
+              </div>
+              <p className="text-sm text-synergy-dark-grey">
+                {t(`blocks.${key}.description`)}
+              </p>
               </div>
             ))}
-          </div>
+            </div>
         </div>
       </div>
     </section>

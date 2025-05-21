@@ -7,10 +7,15 @@ import FileUpload from "../../shared/file-upload/FileUpload";
 import { IsUpdateSubmitLoadingState } from "../../steps/StepsSubmit";
 import { useEffect, useState } from "react";
 import { Types } from "mongoose";
+import {
+  useGetAssetsQuery,
+  useDeleteAssetMutation,
+} from "@com.synergy/frontend-backend-dashboard/assetApi";
+import FileUploadVault from "../../shared/file-upload/FileUploadVault";
 
 /* eslint-disable-next-line */
 export interface SubmitAssetsListProps {
-  params: { id: string };
+  params: { id: string; stepId?: string; vaultId?: string };
   saveSubmitToggle: boolean;
   setSaveSubmitToggle: (saveSubmitToggle: boolean) => void;
   editSubmitToggle: boolean;
@@ -28,7 +33,7 @@ export interface SubmitAssetsListProps {
 export const SubmitAssetsList = (props: SubmitAssetsListProps) => {
   const {
     params,
-    params: { id: submitId },
+    params: { id: submitId, stepId, vaultId },
     saveSubmitToggle,
     setSaveSubmitToggle,
     editSubmitToggle,
@@ -41,113 +46,34 @@ export const SubmitAssetsList = (props: SubmitAssetsListProps) => {
     STORAGE_ZONE_NAME,
   } = props;
 
-  const [
-    updateSubmit,
-    {
-      isLoading: isUpdateSubmitMutationLoading,
-      error: updateSubmitMutationError,
-    },
-  ] = useUpdateSubmitMutation();
+  const [deleteAsset] = useDeleteAssetMutation();
 
   const {
-    data: submit,
+    data: assets,
     isLoading: isGetSubmitLoading,
     error,
-  } = useGetSubmitQuery(submitId, {
-    refetchOnFocus: true,
-    refetchOnReconnect: true,
-    refetchOnMountOrArgChange: true,
-  });
-
-  const [editSubmit, setEditSubmit] = useState<Partial<any>>({
-    _id: new Types.ObjectId(submitId),
-    assets: submit?.data.assets,
-  });
-
-  useEffect(() => {
-    console.log("editSubmitEffect", editSubmit);
-    setEditSubmit({
-      ...editSubmit,
-      _id: new Types.ObjectId(submitId),
-    });
-  }, [submitId]);
-
-  useEffect(() => {
-    setEditSubmit({
-      ...editSubmit,
-      assets: submit?.data.assets,
-    });
-  }, [submit]);
-
-  console.log(
-    "editSubmit",
-    submit?.data,
-    editSubmit,
-    "loading?",
-    isUpdateSubmitMutationLoading,
-    isUpdateSubmitLoading
+  } = useGetAssetsQuery(
+    { submitId, stepId, vaultId },
+    {
+      refetchOnFocus: true,
+      refetchOnReconnect: true,
+      refetchOnMountOrArgChange: true,
+    }
   );
 
-  useEffect(() => {
-    if (saveSubmitToggle) {
-      console.log("saveSubmitToggle", editSubmit);
-      // Set the loading state at the beginning in order to make sure we are handling the loading state
-      // correctly in SubmitSingle in case other loading states from isUpdateSubmitLoading are false (due to no change)
-      setIsUpdateSubmitLoading({
-        ...isUpdateSubmitLoading,
-        assets: true,
-      });
-      updateSubmit(editSubmit);
-    } else {
-      // This is done in case we do not have any changes and the SubmitSubmit useEffect
-      // needs the isUpdateSubmitLoading state to be updated in order to reset the saveSubmitToggle
-      // and editSubmitToggle states
-      setIsUpdateSubmitLoading({
-        ...isUpdateSubmitLoading,
-        assets: false,
-      });
-    }
-  }, [saveSubmitToggle]);
-
-  useEffect(() => {
-    if (isUpdateSubmitMutationLoading && !isUpdateSubmitLoading.assets) {
-      setIsUpdateSubmitLoading({ ...isUpdateSubmitLoading, assets: true });
-    } else if (!isUpdateSubmitMutationLoading && isUpdateSubmitLoading.assets) {
-      setIsUpdateSubmitLoading({ ...isUpdateSubmitLoading, assets: false });
-    }
-  }, [isUpdateSubmitMutationLoading]);
-
   return (
-    <div className="overflow-y-auto h-full grid gap-2 pb-2">
+    <div className="overflow-y-auto h-full pb-48">
       {editSubmitToggle && (
-        <FileUpload
-          submitId={submitId}
-          setAssets={(asset) => {
-            if (typeof asset === "function") {
-              setEditSubmit((prev) => ({
-                ...prev,
-                assets:
-                  asset instanceof Function
-                    ? // @ts-ignore
-                      asset({ assets: prev.assets as AssetInterface[] }).assets
-                    : [...(prev.assets || []), asset],
-              }));
-            } else {
-              setEditSubmit((prev) => ({
-                ...prev,
-                assets: [...(prev.assets || []), asset],
-              }));
-            }
-          }}
-          assets={editSubmit.assets}
+        <FileUploadVault
+          params={params}
           STORAGE_ZONE_REGION={STORAGE_ZONE_REGION}
           STORAGE_ZONE_BASE_HOSTNAME={STORAGE_ZONE_BASE_HOSTNAME}
           STORAGE_ZONE_NAME={STORAGE_ZONE_NAME}
           STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
         />
       )}
-      <div className="relative flex flex-col w-full px-2 gap-2">
-        {submit?.data?.assets?.map((file: any, index: number) => (
+      <div className="relative flex flex-col w-full px-2 pt-2 gap-2">
+        {assets?.data?.assets?.map(({ asset: file }, index: number) => (
           <div
             key={index}
             className="flex-col md:flex md:flex-row-reverse items-center justify-between gap-2 w-full p-2 border rounded-lg"

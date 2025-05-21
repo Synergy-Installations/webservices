@@ -8,6 +8,14 @@
     "dist"
   ],
   "exports": {
+    "./FileUploadVault": "./src/dashboard/shared/file-upload/FileUploadVault.tsx",
+    "./VaultSubmitSettings": "./src/dashboard/vaults/settings/VaultSubmitSettings.tsx",
+    "./VaultSettings": "./src/dashboard/vaults/settings/VaultSettings.tsx",
+    "./SingleVaultTabs": "./src/dashboard/vaults/tabs/SingleVaultTabs.tsx",
+    "./VaultsListSidecar": "./src/dashboard/vaults/layout/VaultsListSidecar.tsx",
+    "./VaultSubmitAssets": "./src/dashboard/vaults/VaultSubmitAssets.tsx",
+    "./VaultsList": "./src/dashboard/vaults/VaultsList.tsx",
+    "./VaultsSubmit": "./src/dashboard/vaults/VaultsSubmit.tsx",
     "./ChatSubmitSettings": "./src/dashboard/chats/settings/ChatSubmitSettings.tsx",
     "./ChatSettings": "./src/dashboard/chats/settings/ChatSettings.tsx",
     "./ChatsListSidecar": "./src/dashboard/chats/layout/ChatsListSidecar.tsx",

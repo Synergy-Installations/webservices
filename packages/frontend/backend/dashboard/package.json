@@ -6,6 +6,10 @@
     "build": "tsc"
   },
   "exports": {
+    "./assetApi": "./src/store/slices/api/asset.ts",
+    "./asset": "./src/db/models/asset.ts",
+    "./vaultApi": "./src/store/slices/api/vault.ts",
+    "./vault": "./src/db/models/vault.ts",
     "./membersTypes": "./src/db/utils/types/members.ts",
     "./userApi": "./src/store/slices/api/user.ts",
     "./user": "./src/db/models/user.ts",

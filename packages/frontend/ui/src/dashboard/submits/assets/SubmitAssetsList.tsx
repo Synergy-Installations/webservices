@@ -16,14 +16,8 @@ import FileUploadVault from "../../shared/file-upload/FileUploadVault";
 /* eslint-disable-next-line */
 export interface SubmitAssetsListProps {
   params: { id: string; stepId?: string; vaultId?: string };
-  saveSubmitToggle: boolean;
-  setSaveSubmitToggle: (saveSubmitToggle: boolean) => void;
   editSubmitToggle: boolean;
   setEditSubmitToggle: (editSubmitToggle: boolean) => void;
-  isUpdateSubmitLoading: IsUpdateSubmitLoadingState;
-  setIsUpdateSubmitLoading: React.Dispatch<
-    React.SetStateAction<IsUpdateSubmitLoadingState>
-  >;
   STORAGE_ZONE_REGION: string | undefined;
   STORAGE_ZONE_BASE_HOSTNAME: string | undefined;
   STORAGE_ZONE_NAME: string | undefined;
@@ -34,12 +28,8 @@ export const SubmitAssetsList = (props: SubmitAssetsListProps) => {
   const {
     params,
     params: { id: submitId, stepId, vaultId },
-    saveSubmitToggle,
-    setSaveSubmitToggle,
     editSubmitToggle,
     setEditSubmitToggle,
-    isUpdateSubmitLoading,
-    setIsUpdateSubmitLoading,
     STORAGE_ZONE_ACCESS_KEY,
     STORAGE_ZONE_REGION,
     STORAGE_ZONE_BASE_HOSTNAME,

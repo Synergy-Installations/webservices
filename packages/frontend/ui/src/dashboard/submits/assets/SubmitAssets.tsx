@@ -67,12 +67,8 @@ export const SubmitAssets = (props: SubmitAssetsProps) => {
       />
       <SubmitAssetsList
         params={params}
-        saveSubmitToggle={saveSubmitToggle}
-        setSaveSubmitToggle={setSaveSubmitToggle}
         editSubmitToggle={editSubmitToggle}
         setEditSubmitToggle={setEditSubmitToggle}
-        isUpdateSubmitLoading={isUpdateSubmitLoading}
-        setIsUpdateSubmitLoading={setIsUpdateSubmitLoading}
         STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
         STORAGE_ZONE_REGION={STORAGE_ZONE_REGION}
         STORAGE_ZONE_BASE_HOSTNAME={STORAGE_ZONE_BASE_HOSTNAME}

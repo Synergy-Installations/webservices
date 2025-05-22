@@ -27,34 +27,7 @@ export const VaultSubmitAssets = (props: VaultSubmitAssetsProps) => {
   } = props;
 
   const [stepsListOpen, setStepsListOpen] = useState(false);
-  const [saveVaultToggle, setSaveVaultToggle] = useState<boolean>(false);
   const [editVaultToggle, setEditVaultToggle] = useState<boolean>(false);
-  const [vaultsListOpen, setVaultsListOpen] = useState(false);
-  const [isUpdateVaultLoading, setIsUpdateVaultLoading] =
-    useState<IsUpdateVaultLoadingState>({
-      titleDesc: false,
-      membersRights: false,
-    });
-
-  console.log("saveVaultToggle", saveVaultToggle);
-
-  const debouncedResetSaveEditVaultToggle = debounce(() => {
-    if (
-      saveVaultToggle &&
-      !isUpdateVaultLoading.titleDesc &&
-      !isUpdateVaultLoading.membersRights
-    ) {
-      console.log("debouncedResetSaveEditVaultToggle");
-      setSaveVaultToggle(false);
-      setEditVaultToggle(false);
-    } else {
-      debouncedResetSaveEditVaultToggle();
-    }
-  }, 50);
-
-  useEffect(() => {
-    debouncedResetSaveEditVaultToggle();
-  }, [isUpdateVaultLoading]);
 
   return (
     <>
@@ -66,24 +39,16 @@ export const VaultSubmitAssets = (props: VaultSubmitAssetsProps) => {
         <div className="w-full border-l border-gray-200">
           <SingleVaultTabs
             SingleVaultTabsEdit={{
-              saveVaultToggle: saveVaultToggle,
-              setSaveVaultToggle: setSaveVaultToggle,
               editVaultToggle: editVaultToggle,
               setEditVaultToggle: setEditVaultToggle,
-              isUpdateVaultLoading: isUpdateVaultLoading,
-              setIsUpdateVaultLoading: setIsUpdateVaultLoading,
             }}
             params={params}
           />
           <div className="flex flex-col justify-between relative h-screen">
             <SubmitAssetsList
               params={params}
-              saveSubmitToggle={saveVaultToggle}
-              setSaveSubmitToggle={setSaveVaultToggle}
               editSubmitToggle={editVaultToggle}
               setEditSubmitToggle={setEditVaultToggle}
-              isUpdateSubmitLoading={isUpdateVaultLoading}
-              setIsUpdateSubmitLoading={setIsUpdateVaultLoading}
               STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
               STORAGE_ZONE_REGION={STORAGE_ZONE_REGION}
               STORAGE_ZONE_BASE_HOSTNAME={STORAGE_ZONE_BASE_HOSTNAME}

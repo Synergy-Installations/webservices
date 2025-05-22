@@ -1,9 +1,9 @@
-import ChatSubmitSettings from "@com.synergy/frontend-ui/ChatSubmitSettings";
+import VaultSubmitSettings from "@com.synergy/frontend-ui/VaultSubmitSettings";
 
 export default function Page({
   params,
 }: {
-  params: { id: string; chatId: string };
+  params: { id: string; vaultId: string };
 }): JSX.Element {
-  return <ChatSubmitSettings params={params} />;
+  return <VaultSubmitSettings params={params} />;
 }

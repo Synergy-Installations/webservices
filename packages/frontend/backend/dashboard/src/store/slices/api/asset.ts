@@ -93,6 +93,7 @@ export const assetApi = api.injectEndpoints({
       },
       invalidatesTags: (post, _, { assetId }) => [
         { type: "Assets", id: assetId },
+        { type: "Assets" as const, id: "LIST" },
       ],
     }),
     // getErrorProne: build.query<{ success: boolean }, void>({

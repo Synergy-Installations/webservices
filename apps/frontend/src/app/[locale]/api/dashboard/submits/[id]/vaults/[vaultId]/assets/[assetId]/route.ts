@@ -5,6 +5,7 @@ import { clerkClient, getAuth } from "@clerk/nextjs/server";
 import { AssetInterface } from "@com.synergy/frontend-backend-dashboard/asset";
 import User from "@com.synergy/frontend-backend-dashboard/user";
 import Asset from "@com.synergy/frontend-backend-dashboard/asset";
+import Vault from "@com.synergy/frontend-backend-dashboard/vault";
 
 export async function DELETE(
   req: NextRequest,
@@ -30,7 +31,6 @@ export async function DELETE(
 
   await dbConnect();
 
-  const body: Partial<AssetInterface> = await req.json();
   try {
     const accessRights = user.privateMetadata?.accessRights as
       | string[]
@@ -54,12 +54,12 @@ export async function DELETE(
       });
     }
 
-    const dbSubmit = await Submit.findById(body.submitId);
+    const dbVault = await Vault.findById(vaultId);
 
     // Check if user has created the submit
     if (
-      dbSubmit.visibility === "public" ||
-      dbSubmit.members
+      dbVault.visibility === "public" ||
+      dbVault.members
         .find((right: any) => right.userAuthId === userId)
         .rights.includes("write:vaults")
     ) {

@@ -6,6 +6,7 @@
     "build": "tsc"
   },
   "exports": {
+    "./sendMessageNotification": "./src/helper/api/email/sendMessageNotification.ts",
     "./assetApi": "./src/store/slices/api/asset.ts",
     "./asset": "./src/db/models/asset.ts",
     "./vaultApi": "./src/store/slices/api/vault.ts",

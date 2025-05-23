@@ -5,6 +5,7 @@ import { clerkClient, getAuth } from "@clerk/nextjs/server";
 import { MessageInterface } from "@com.synergy/frontend-backend-dashboard/message";
 import User from "@com.synergy/frontend-backend-dashboard/user";
 import Message from "@com.synergy/frontend-backend-dashboard/message";
+import sendMessageNotification from "@com.synergy/frontend-backend-dashboard/sendMessageNotification";
 
 export async function GET(
   req: NextRequest,
@@ -130,6 +131,12 @@ export async function POST(
         sentByUserId: dbUser._id,
         ...body,
       });
+
+      sendMessageNotification({
+        params: { submitId: body.submitId, chatId: body.chatId },
+        newMessage: message
+      });
+
       return new Response(JSON.stringify({ success: true, data: message }), {
         status: 201,
         headers: {

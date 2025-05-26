@@ -5,6 +5,7 @@ import { MembersRightsPopulatedUserOrigin } from "../../../db/utils/types/member
 import Submit from "../../../db/models/submit";
 import Step from "../../../db/models/step";
 import Message from "../../../db/models/message";
+import nodemailer from "nodemailer";
 
 interface SendMessageNotificationParams {
   params: {
@@ -24,6 +25,8 @@ export const sendMessageNotification = async (
   } = props;
 
   let sendToUsers: MembersRightsPopulatedUserOrigin[] = [];
+  let emailTitle: string = "";
+  let emailDescription: string = "";
 
   if (chatId !== undefined) {
     const chat = await Chat.findById(chatId)
@@ -37,6 +40,9 @@ export const sendMessageNotification = async (
       })
       .sort({ createdAt: 1 })
       .exec();
+
+    emailTitle = chat?.title;
+    emailDescription = `Sie haben eine neue Nachricht in der Chatgruppe "${chat?.title}" erhalten, weil Sie Mitglied dieser Gruppe oder Projekt sind.`;
 
     if (chat?.members) {
       chat.members.forEach((member: any) => {
@@ -106,6 +112,9 @@ export const sendMessageNotification = async (
       .sort({ createdAt: 1 })
       .exec();
 
+    emailTitle = step?.title;
+    emailDescription = `Sie haben eine neue Nachricht in dem Schritt ${step?.title} erhalten, weil Sie ein Mitglied des Schrittes oder dem Projekt sind.`;
+
     if (step?.members) {
       step.members.forEach((member: any) => {
         const user = member.userUid;
@@ -171,6 +180,82 @@ export const sendMessageNotification = async (
     .exec();
 
   console.log("messages", messages, "newMessage", newMessage);
+
+  const transporter = nodemailer.createTransport({
+    host: "smtp.ethereal.email",
+    port: 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: "lindsay.hills@ethereal.email",
+      pass: "pKZDFVj97R9mYu7xxz",
+    },
+  });
+
+  // Wrap in an async IIFE so we can use await.
+  (async () => {
+    const info = await transporter.sendMail({
+      from: '"Lindsay Hills" <lindsay.hills@ethereal.email>',
+      to: sendToUsers.map((user) => user.emailAddress).join(", "),
+      subject: "Neue Nachricht auf Synergiemontagen erhalten",
+      text: `"${messages[0].message}" von ${
+        messages[0].sentByUserId?.firstName ||
+        messages[0].sentByUserId?.lastName
+          ? `${messages[0].sentByUserId?.firstName || ""} ${messages[0].sentByUserId?.lastName || ""}`.trim()
+          : "Unbekannter Benutzer"
+      } gesendet.`, // plain‑text body
+      html: `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+      <div style="text-align: center; margin-bottom: 20px;">
+      <img src="https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/icons/Flyer%20Synergie%20B2C%20v1.svg" alt="Projekt-Logo" style="max-width: 300px; margin-bottom: 10px;" />
+      <h1 style="font-size: 24px; font-weight: bold; margin: 0;">${emailTitle}</h1>
+      <p style="font-size: 14px; color: #555;">${emailDescription}</p>
+      </div>
+      <div style="margin-bottom: 20px;">
+      <h2 style="font-size: 20px; font-weight: bold; color: #333;">Hallo, Sie haben eine neue Nachricht erhalten.</h2>
+      <div style="background-color: #e6f7ff; padding: 15px; border-radius: 8px; border: 1px solid #91d5ff; margin-top: 10px;">
+      <span style="font-size: 14px; font-weight: bold; color: #1890ff;">${
+        messages[0].sentByUserId?.firstName ||
+        messages[0].sentByUserId?.lastName
+          ? `${messages[0].sentByUserId?.firstName || ""} ${messages[0].sentByUserId?.lastName || ""}`.trim()
+          : "Unbekannter Benutzer"
+      }<span style="background-color: #1890ff; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 12px; margin-left: 5px;">NEU</span></span>
+      <p style="font-size: 14px; color: #333; margin: 10px 0;">${messages[0].message}</p>
+      </div>
+      </div>
+      <div style="text-align: center; margin-bottom: 20px;">
+      <a href="${chatId !== undefined ? `dashboard/submit/${submitId}/chats/${chatId}/messages` : `dashboard/submit/${submitId}/steps/${stepId}/chat`}" style="display: inline-block; background-color: #1890ff; color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-size: 16px;">Jetzt antworten</a>
+      </div>
+      <div style="margin-bottom: 20px;">
+      <h3 style="font-size: 18px; font-weight: bold; color: #333;">Ältere Nachrichten</h3>
+      <ul style="list-style: none; padding: 0; margin: 0;">
+      ${messages
+        .slice(1) // Exclude the first message
+        .map(
+          (msg) => `
+      <li style="margin-bottom: 10px; padding: 10px; border-bottom: 1px solid #ddd;">
+      <span style="font-weight: bold; color: #333;">${
+        msg.sentByUserId?.firstName || msg.sentByUserId?.lastName
+          ? `${msg.sentByUserId?.firstName || ""} ${msg.sentByUserId?.lastName || ""}`.trim()
+          : "Unbekannter Benutzer"
+      }</span>
+      <span style="font-size: 12px; color: #999; margin-left: 10px;">${new Date(msg.createdAt).toLocaleString("de-DE")}</span>
+      <p style="font-size: 14px; color: #555; margin: 5px 0;">${msg.message}</p>
+      </li>
+      `
+        )
+        .join("")}
+      </ul>
+      </div>
+      <div style="text-align: center; font-size: 12px; color: #999; margin-top: 20px;">
+      <p>Bitte antworten Sie nicht auf diese E-Mail, nutzen Sie den Button oben.</p>
+      <p>&copy; ${new Date().getFullYear()} Synergiemontagen.eco - Alle Rechte vorbehalten.</p>
+      </div>
+      </div>
+      `,
+    });
+
+    console.log("Message sent:", info.messageId);
+  })();
 
   console.log("sendToUsers", sendToUsers);
 };

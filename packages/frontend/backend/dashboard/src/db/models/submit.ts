@@ -174,13 +174,13 @@ const SubmitStatusSchema = new Schema<SubmitStatusInterface>({
 });
 
 const SubmitSchema = new Schema<SubmitInterface>({
-  title: { type: String, required: true },
+  title: { type: String, required: false },
   data: { type: Map, of: Schema.Types.Mixed, required: true },
   emailAddress: { type: String, required: true },
-  status: { type: SubmitStatusSchema, required: true },
+  status: { type: SubmitStatusSchema, required: false },
   assets: { type: Array<AssetInterface>, required: false },
   createdAt: { type: Date, default: Date.now, required: true },
-  visibility: { type: String, required: true, default: "public" },
+  visibility: { type: String, required: false, default: "public" },
   members: { type: Array<MembersRights>, required: false },
 });
 

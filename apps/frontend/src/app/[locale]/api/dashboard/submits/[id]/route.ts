@@ -114,11 +114,24 @@ export async function PUT(
       | string[]
       | undefined;
 
+    const submitFormElements: any = Object.values(
+      body?.data?.submit?.form || {}
+    );
+    const updateEmailAddress =
+      body?.emailAddress ||
+      submitFormElements?.find((form: any) => form.uid === "submit-form-email")
+        ?.selected?.inputValue;
+
     // User has all access rights
     if (accessRights?.includes("all:*")) {
       const submit = await Submit.findByIdAndUpdate(
         id,
-        { ...body },
+        {
+          ...body,
+          ...(updateEmailAddress !== undefined && {
+            emailAddress: updateEmailAddress,
+          }),
+        },
         {
           runValidators: true,
         }
@@ -136,7 +149,12 @@ export async function PUT(
     else {
       const submit = await Submit.findOneAndUpdate(
         { _id: id, emailAddress: user.emailAddresses[0].emailAddress },
-        { ...body },
+        {
+          ...body,
+          ...(updateEmailAddress !== undefined && {
+            emailAddress: updateEmailAddress,
+          }),
+        },
         {
           runValidators: true,
         }
@@ -154,7 +172,7 @@ export async function PUT(
       );
     }
   } catch (error) {
-    return NextResponse.json({ success: false }, { status: 400 });
+    return NextResponse.json({ success: false, error: error }, { status: 400 });
   }
 }
 

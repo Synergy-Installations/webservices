@@ -5,36 +5,37 @@ import { clerkClient, getAuth } from "@clerk/nextjs/server";
 import { MessageInterface } from "@com.synergy/frontend-backend-dashboard/message";
 import User from "@com.synergy/frontend-backend-dashboard/user";
 import Message from "@com.synergy/frontend-backend-dashboard/message";
+import Step from "@com.synergy/frontend-backend-dashboard/step";
 
 export async function GET(
   req: NextRequest,
   { params }: { params: { id: string; stepId: string } }
 ) {
-  const { id, stepId } = params;
+  const { id: submitId, stepId } = params;
   const { userId } = getAuth(req);
 
-  if (!userId) {
-    return NextResponse.json(
-      { success: false, error: "Unauthorized" },
-      { status: 401 }
-    );
-  }
-
-  const client = await clerkClient();
-  const user = await client.users.getUser(userId);
+  // if (!userId) {
+  //   return NextResponse.json(
+  //     { success: false, error: "Unauthorized" },
+  //     { status: 401 }
+  //   );
+  // }
 
   await dbConnect();
 
   try {
-    const accessRights = user.privateMetadata?.accessRights as
-      | string[]
-      | undefined;
-
-    const dbSubmit = await Submit.findById(id, "emailAddress").exec();
+    const dbSubmit = await Submit.findById(submitId, "emailAddress").exec();
+    const step = await Step.findOne({
+      _id: stepId,
+      submitId: submitId,
+    }).exec();
 
     if (
-      accessRights?.includes("all:*") ||
-      accessRights?.includes("all:messages")
+      step.visibility === "public" ||
+      step.members?.some(
+        (right: any) =>
+          right.userAuthId === userId && right.rights.includes("read")
+      )
     ) {
       const messages = await Message.find({ stepId: stepId })
         .populate("sentByUserId", "firstName lastName emailAddress")
@@ -48,23 +49,30 @@ export async function GET(
         },
         { status: 200 }
       );
-    }
+    } else if (userId) {
+      const client = await clerkClient();
+      const user = await client.users.getUser(userId);
+      const accessRights = user.privateMetadata?.accessRights as
+        | string[]
+        | undefined;
 
-    if (
-      user.emailAddresses.some((e) => e.emailAddress === dbSubmit.emailAddress)
-    ) {
-      const messages = await Message.find({ stepId: stepId })
-        .populate("sentByUserId", "firstName lastName emailAddress")
-        .sort({ createdAt: 1 })
-        .exec();
+      if (
+        accessRights?.includes("all:*") ||
+        accessRights?.includes("all:messages")
+      ) {
+        const messages = await Message.find({ stepId: stepId })
+          .populate("sentByUserId", "firstName lastName emailAddress")
+          .sort({ createdAt: 1 })
+          .exec();
 
-      return NextResponse.json(
-        {
-          success: true,
-          data: { submit: { emailAddress: dbSubmit.emailAddress }, messages },
-        },
-        { status: 200 }
-      );
+        return NextResponse.json(
+          {
+            success: true,
+            data: { submit: { emailAddress: dbSubmit.emailAddress }, messages },
+          },
+          { status: 200 }
+        );
+      }
     }
 
     return NextResponse.json(

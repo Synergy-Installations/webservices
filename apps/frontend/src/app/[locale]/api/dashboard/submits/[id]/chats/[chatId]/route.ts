@@ -15,32 +15,33 @@ export async function GET(
   const { id: submitId, chatId } = params;
   const { userId } = getAuth(req);
 
-  if (!userId) {
-    return NextResponse.json(
-      { success: false, error: "Unauthorized" },
-      { status: 401 }
-    );
-  }
-
-  const client = await clerkClient();
-  const user = await client.users.getUser(userId);
+  // if (!userId) {
+  //   return NextResponse.json(
+  //     { success: false, error: "Unauthorized" },
+  //     { status: 401 }
+  //   );
+  // }
 
   await dbConnect();
 
   try {
-    const accessRights = user.privateMetadata?.accessRights as
-      | string[]
-      | undefined;
+    // const dbSubmit = await Submit.findById(
+    //   submitId,
+    //   "emailAddress members visibility"
+    // ).exec();
+
+    const chat = await Chat.findOne({
+      _id: chatId,
+      submitId,
+    }).exec();
 
     if (
-      accessRights?.includes("all:*") ||
-      accessRights?.includes("all:chats")
+      chat?.visibility === "public" ||
+      chat?.members?.some(
+        (right: any) =>
+          right.userAuthId === userId && right.rights.includes("read")
+      )
     ) {
-      const chat = await Chat.findOne({
-        _id: chatId,
-        submitId,
-      }).exec();
-
       return NextResponse.json(
         {
           success: true,
@@ -48,28 +49,25 @@ export async function GET(
         },
         { status: 200 }
       );
-    }
+    } else if (userId) {
+      const client = await clerkClient();
+      const user = await client.users.getUser(userId);
+      const accessRights = user.privateMetadata?.accessRights as
+        | string[]
+        | undefined;
 
-    const dbSubmit = await Submit.findById(submitId, "emailAddress").exec();
-
-    if (
-      dbSubmit.visibility === "public" ||
-      dbSubmit.members
-        .find((right: any) => right.userAuthId === userId)
-        .rights.includes("read:chats")
-    ) {
-      const chat = await Chat.findOne({
-        _id: chatId,
-        submitId: submitId,
-      }).exec();
-
-      return NextResponse.json(
-        {
-          success: true,
-          data: { chat },
-        },
-        { status: 200 }
-      );
+      if (
+        accessRights?.includes("all:*") ||
+        accessRights?.includes("all:chats")
+      ) {
+        return NextResponse.json(
+          {
+            success: true,
+            data: { chat },
+          },
+          { status: 200 }
+        );
+      }
     }
 
     return NextResponse.json(

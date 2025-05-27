@@ -5,6 +5,7 @@ import { clerkClient, getAuth } from "@clerk/nextjs/server";
 import { AssetInterface } from "@com.synergy/frontend-backend-dashboard/asset";
 import User from "@com.synergy/frontend-backend-dashboard/user";
 import Asset from "@com.synergy/frontend-backend-dashboard/asset";
+import Vault from "@com.synergy/frontend-backend-dashboard/vault";
 
 export async function GET(
   req: NextRequest,
@@ -13,28 +14,28 @@ export async function GET(
   const { id: submitId, vaultId } = params;
   const { userId } = getAuth(req);
 
-  if (!userId) {
-    return NextResponse.json(
-      { success: false, error: "Unauthorized" },
-      { status: 401 }
-    );
-  }
-
-  const client = await clerkClient();
-  const user = await client.users.getUser(userId);
+  // if (!userId) {
+  //   return NextResponse.json(
+  //     { success: false, error: "Unauthorized" },
+  //     { status: 401 }
+  //   );
+  // }
 
   await dbConnect();
 
   try {
-    const accessRights = user.privateMetadata?.accessRights as
-      | string[]
-      | undefined;
-
     const dbSubmit = await Submit.findById(submitId, "emailAddress").exec();
+    const vault = await Vault.findOne({
+      _id: vaultId,
+      submitId,
+    }).exec();
 
     if (
-      accessRights?.includes("all:*") ||
-      accessRights?.includes("all:assets")
+      vault?.visibility === "public" ||
+      vault?.members?.some(
+        (right: any) =>
+          right.userAuthId === userId && right.rights.includes("read")
+      )
     ) {
       const assets = await Asset.find({
         vaultId,
@@ -50,28 +51,32 @@ export async function GET(
         },
         { status: 200 }
       );
-    }
+    } else if (userId) {
+      const client = await clerkClient();
+      const user = await client.users.getUser(userId);
+      const accessRights = user.privateMetadata?.accessRights as
+        | string[]
+        | undefined;
 
-    if (
-      dbSubmit.visibility === "public" ||
-      dbSubmit.members
-        .find((right: any) => right.userAuthId === userId)
-        .rights.includes("read:vaults")
-    ) {
-      const assets = await Asset.find({
-        vaultId: vaultId,
-      })
-        .populate("createdByUserId", "firstName lastName emailAddress")
-        .sort({ createdAt: 1 })
-        .exec();
+      if (
+        accessRights?.includes("all:*") ||
+        accessRights?.includes("all:assets")
+      ) {
+        const assets = await Asset.find({
+          vaultId,
+        })
+          .populate("createdByUserId", "firstName lastName emailAddress")
+          .sort({ createdAt: 1 })
+          .exec();
 
-      return NextResponse.json(
-        {
-          success: true,
-          data: { submit: { emailAddress: dbSubmit.emailAddress }, assets },
-        },
-        { status: 200 }
-      );
+        return NextResponse.json(
+          {
+            success: true,
+            data: { submit: { emailAddress: dbSubmit.emailAddress }, assets },
+          },
+          { status: 200 }
+        );
+      }
     }
 
     return NextResponse.json(

@@ -21,68 +21,47 @@ export async function GET(
 
   const { userId } = getAuth(req);
 
-  if (!userId) {
-    return NextResponse.json(
-      { success: false, error: "Unauthorized" },
-      { status: 401 }
-    );
-  }
-
-  const client = await clerkClient();
-  const user = await client.users.getUser(userId);
+  // if (!userId) {
+  //   return NextResponse.json(
+  //     { success: false, error: "Unauthorized" },
+  //     { status: 401 }
+  //   );
+  // }
 
   await dbConnect();
 
   try {
-    const accessRights = user.privateMetadata?.accessRights as
-      | string[]
-      | undefined;
+    const dbSubmit = await Submit.findById(
+      submitId,
+      "emailAddress members visibility"
+    ).exec();
 
-    if (
-      accessRights?.includes("all:*") ||
-      accessRights?.includes("all:vaults")
-    ) {
-      let vaults: VaultInterface[] = [];
-
-      if (stepId) {
-        // Get the vaults for the specific step
-        vaults = await Vault.find({ submitId, stepId }).sort({ order: 1 }).exec();
-      } else {
-        // Get the vaults for the submitId without a specific step
-        vaults = await Vault.find({ submitId, stepId: null })
-          .sort({ order: 1 })
-          .exec();
-      }
-
-      return NextResponse.json(
-        {
-          success: true,
-          data: { vaults },
-        },
-        { status: 200 }
-      );
-    }
-
-    const dbSubmit = await Submit.findById(submitId, "emailAddress").exec();
-
-    // Future will want to check for each vault individually if access rights exist
     if (
       dbSubmit.visibility === "public" ||
-      dbSubmit.members
-        .find((right: any) => right.userAuthId === userId)
-        .rights.includes("read:vaults")
+      dbSubmit.members?.some(
+        (right: any) =>
+          right.userAuthId === userId && right.rights.includes("read")
+      )
     ) {
-      let vaults: VaultInterface[] = [];
-
-      if (stepId) {
-        // Get the vaults for the specific step
-        vaults = await Vault.find({ submitId, stepId }).sort({ order: 1 }).exec();
-      } else {
-        // Get the vaults for the submitId without a specific step
-        vaults = await Vault.find({ submitId, stepId: null })
-          .sort({ order: 1 })
-          .exec();
-      }
+      // Get the vaults for the submitId without a specific step or
+      // get the vaults for the specific step
+      const vaults = await Vault.find({
+        submitId,
+        stepId: stepId,
+        $or: [
+          { visibility: "public" },
+          {
+            members: {
+              $elemMatch: {
+                userAuthId: userId,
+                rights: { $in: ["read"] },
+              },
+            },
+          },
+        ],
+      })
+        .sort({ order: 1 })
+        .exec();
 
       return NextResponse.json(
         {
@@ -91,6 +70,31 @@ export async function GET(
         },
         { status: 200 }
       );
+    } else if (userId) {
+      const client = await clerkClient();
+      const user = await client.users.getUser(userId);
+      const accessRights = user.privateMetadata?.accessRights as
+        | string[]
+        | undefined;
+
+      if (
+        accessRights?.includes("all:*") ||
+        accessRights?.includes("all:vaults")
+      ) {
+        // Get the vaults for the submitId without a specific step or
+        // get the vaults for the specific step
+        const vaults = await Vault.find({ submitId, stepId: stepId })
+          .sort({ order: 1 })
+          .exec();
+
+        return NextResponse.json(
+          {
+            success: true,
+            data: { vaults },
+          },
+          { status: 200 }
+        );
+      }
     }
 
     return NextResponse.json(

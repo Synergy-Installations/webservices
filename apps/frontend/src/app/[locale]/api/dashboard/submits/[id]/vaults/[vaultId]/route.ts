@@ -15,32 +15,28 @@ export async function GET(
   const { id: submitId, vaultId } = params;
   const { userId } = getAuth(req);
 
-  if (!userId) {
-    return NextResponse.json(
-      { success: false, error: "Unauthorized" },
-      { status: 401 }
-    );
-  }
-
-  const client = await clerkClient();
-  const user = await client.users.getUser(userId);
+  // if (!userId) {
+  //   return NextResponse.json(
+  //     { success: false, error: "Unauthorized" },
+  //     { status: 401 }
+  //   );
+  // }
 
   await dbConnect();
 
   try {
-    const accessRights = user.privateMetadata?.accessRights as
-      | string[]
-      | undefined;
+    const vault = await Vault.findOne({
+      _id: vaultId,
+      submitId,
+    }).exec();
 
     if (
-      accessRights?.includes("all:*") ||
-      accessRights?.includes("all:vaults")
+      vault?.visibility === "public" ||
+      vault?.members?.some(
+        (right: any) =>
+          right.userAuthId === userId && right.rights.includes("read")
+      )
     ) {
-      const vault = await Vault.findOne({
-        _id: vaultId,
-        submitId,
-      }).exec();
-
       return NextResponse.json(
         {
           success: true,
@@ -48,28 +44,26 @@ export async function GET(
         },
         { status: 200 }
       );
-    }
+    } else if (userId) {
+      const client = await clerkClient();
+      const user = await client.users.getUser(userId);
 
-    const dbSubmit = await Submit.findById(submitId, "emailAddress").exec();
+      const accessRights = user.privateMetadata?.accessRights as
+        | string[]
+        | undefined;
 
-    if (
-      dbSubmit.visibility === "public" ||
-      dbSubmit.members
-        .find((right: any) => right.userAuthId === userId)
-        .rights.includes("read:vaults")
-    ) {
-      const vault = await Vault.findOne({
-        _id: vaultId,
-        submitId: submitId,
-      }).exec();
-
-      return NextResponse.json(
-        {
-          success: true,
-          data: { vault },
-        },
-        { status: 200 }
-      );
+      if (
+        accessRights?.includes("all:*") ||
+        accessRights?.includes("all:vaults")
+      ) {
+        return NextResponse.json(
+          {
+            success: true,
+            data: { vault },
+          },
+          { status: 200 }
+        );
+      }
     }
 
     return NextResponse.json(

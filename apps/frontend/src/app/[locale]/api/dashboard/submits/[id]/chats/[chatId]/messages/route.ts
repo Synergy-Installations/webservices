@@ -6,6 +6,7 @@ import { MessageInterface } from "@com.synergy/frontend-backend-dashboard/messag
 import User from "@com.synergy/frontend-backend-dashboard/user";
 import Message from "@com.synergy/frontend-backend-dashboard/message";
 import sendMessageNotification from "@com.synergy/frontend-backend-dashboard/sendMessageNotification";
+import Chat from "@com.synergy/frontend-backend-dashboard/chat";
 
 export async function GET(
   req: NextRequest,
@@ -14,28 +15,28 @@ export async function GET(
   const { id: submitId, chatId } = params;
   const { userId } = getAuth(req);
 
-  if (!userId) {
-    return NextResponse.json(
-      { success: false, error: "Unauthorized" },
-      { status: 401 }
-    );
-  }
-
-  const client = await clerkClient();
-  const user = await client.users.getUser(userId);
+  // if (!userId) {
+  //   return NextResponse.json(
+  //     { success: false, error: "Unauthorized" },
+  //     { status: 401 }
+  //   );
+  // }
 
   await dbConnect();
 
   try {
-    const accessRights = user.privateMetadata?.accessRights as
-      | string[]
-      | undefined;
-
     const dbSubmit = await Submit.findById(submitId, "emailAddress").exec();
+    const chat = await Chat.findOne({
+      _id: chatId,
+      submitId,
+    }).exec();
 
     if (
-      accessRights?.includes("all:*") ||
-      accessRights?.includes("all:messages")
+      chat?.visibility === "public" ||
+      chat?.members.some(
+        (right: any) =>
+          right.userAuthId === userId && right.rights.includes("read")
+      )
     ) {
       const messages = await Message.find({
         chatId,
@@ -51,28 +52,32 @@ export async function GET(
         },
         { status: 200 }
       );
-    }
+    } else if (userId) {
+      const client = await clerkClient();
+      const user = await client.users.getUser(userId);
+      const accessRights = user.privateMetadata?.accessRights as
+        | string[]
+        | undefined;
 
-    if (
-      dbSubmit.visibility === "public" ||
-      dbSubmit.members
-        .find((right: any) => right.userAuthId === userId)
-        .rights.includes("read:chats")
-    ) {
-      const messages = await Message.find({
-        chatId: chatId,
-      })
-        .populate("sentByUserId", "firstName lastName emailAddress")
-        .sort({ createdAt: 1 })
-        .exec();
+      if (
+        accessRights?.includes("all:*") ||
+        accessRights?.includes("all:messages")
+      ) {
+        const messages = await Message.find({
+          chatId,
+        })
+          .populate("sentByUserId", "firstName lastName emailAddress")
+          .sort({ createdAt: 1 })
+          .exec();
 
-      return NextResponse.json(
-        {
-          success: true,
-          data: { submit: { emailAddress: dbSubmit.emailAddress }, messages },
-        },
-        { status: 200 }
-      );
+        return NextResponse.json(
+          {
+            success: true,
+            data: { submit: { emailAddress: dbSubmit.emailAddress }, messages },
+          },
+          { status: 200 }
+        );
+      }
     }
 
     return NextResponse.json(
@@ -134,7 +139,7 @@ export async function POST(
 
       sendMessageNotification({
         params: { submitId: body.submitId, chatId: body.chatId },
-        newMessage: message
+        newMessage: message,
       });
 
       return new Response(JSON.stringify({ success: true, data: message }), {

@@ -179,16 +179,16 @@ export const sendMessageNotification = async (
     .limit(10)
     .exec();
 
-  console.log("messages", messages, "newMessage", newMessage);
+  // console.log("messages", messages, "newMessage", newMessage);
 
-  console.log(
-    "process.env.SMTP_HOST",
-    process.env.SMTP_HOST,
-    process.env.SMTP_PORT,
-    parseInt(process.env.SMTP_PORT || "587", 10),
-    process.env.SMTP_REQUIRE_TLS === "true",
-    process.env.SMTP_USER
-  );
+  // console.log(
+  //   "process.env.SMTP_HOST",
+  //   process.env.SMTP_HOST,
+  //   process.env.SMTP_PORT,
+  //   parseInt(process.env.SMTP_PORT || "587", 10),
+  //   process.env.SMTP_REQUIRE_TLS === "true",
+  //   process.env.SMTP_USER
+  // );
 
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST || "smtp.office365.com",
@@ -237,7 +237,7 @@ export const sendMessageNotification = async (
       </div>
       </div>
       <div style="text-align: center; margin-bottom: 20px;">
-      <a href="${chatId !== undefined ? `dashboard/submit/${submitId}/chats/${chatId}/messages` : `dashboard/submit/${submitId}/steps/${stepId}/chat`}" style="display: inline-block; background-color: #1890ff; color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-size: 16px;">Jetzt antworten</a>
+      <a href="${chatId !== undefined ? `https://synergiemontagen.eco/dashboard/submit/${submitId}/chats/${chatId}/messages` : `https://synergiemontagen.eco/dashboard/submit/${submitId}/steps/${stepId}/chat`}" style="display: inline-block; background-color: #1890ff; color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-size: 16px;">Jetzt antworten</a>
       </div>
       <div style="margin-bottom: 20px;">
       <h3 style="font-size: 18px; font-weight: bold; color: #333;">Ältere Nachrichten</h3>
@@ -271,7 +271,7 @@ export const sendMessageNotification = async (
     console.log("Message sent:", info.messageId);
   })();
 
-  console.log("sendToUsers", sendToUsers);
+  // console.log("sendToUsers", sendToUsers);
 };
 
 export default sendMessageNotification;

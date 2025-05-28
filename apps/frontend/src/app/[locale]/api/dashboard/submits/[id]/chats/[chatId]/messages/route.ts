@@ -125,7 +125,7 @@ export async function POST(
       | string[]
       | undefined;
 
-    console.log("accessRights", accessRights);
+    // console.log("accessRights", accessRights);
 
     const dbUser = await User.findOne({ createdUserAuthId: userId || user.id });
 
@@ -139,7 +139,7 @@ export async function POST(
         ...body,
       });
 
-      console.log("sendMessageFromAdmin");
+      // console.log("sendMessageFromAdmin");
 
       await sendMessageNotification({
         params: { submitId: body.submitId, chatId: body.chatId },
@@ -168,7 +168,7 @@ export async function POST(
         ...body,
       });
 
-      console.log("sendMessageFromUser");
+      // console.log("sendMessageFromUser");
 
       await sendMessageNotification({
         params: { submitId: body.submitId, chatId: body.chatId },

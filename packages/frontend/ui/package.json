@@ -8,6 +8,8 @@
     "dist"
   ],
   "exports": {
+    "./StepSettings": "./src/dashboard/steps/settings/StepSettings.tsx",
+    "./StepSubmitSettings": "./src/dashboard/steps/settings/StepSubmitSettings.tsx",
     "./FileUploadVault": "./src/dashboard/shared/file-upload/FileUploadVault.tsx",
     "./VaultSubmitSettings": "./src/dashboard/vaults/settings/VaultSubmitSettings.tsx",
     "./VaultSettings": "./src/dashboard/vaults/settings/VaultSettings.tsx",

@@ -21,15 +21,14 @@ export async function GET(
   //   );
   // }
 
-  
   await dbConnect();
-  
+
   try {
     const dbSubmit = await Submit.findById(
       id,
       "emailAddress members visibility"
     ).exec();
-    
+
     // Check if the submit is public or if the user is a member with read rights
     if (
       dbSubmit.visibility === "public" ||
@@ -53,9 +52,9 @@ export async function GET(
           },
         ],
       })
-      .sort({ order: 1 })
-      .exec();
-      
+        .sort({ order: 1 })
+        .exec();
+
       return NextResponse.json(
         {
           success: true,
@@ -70,12 +69,8 @@ export async function GET(
         | string[]
         | undefined;
 
-      // Otherwise, check if the user is an admin, has specific access rights, or
-      // has created the submit
+      // Otherwise, check if the user is an admin, has specific access rights
       if (
-        user.emailAddresses.some(
-          (e) => e.emailAddress === dbSubmit.emailAddress
-        ) ||
         accessRights?.includes("all:*") ||
         accessRights?.includes("all:steps")
       ) {

@@ -15,8 +15,9 @@ export interface StepSubmitProps {
 }
 
 export interface IsUpdateStepLoadingState {
-  titleAndStatus: boolean;
-  description: boolean;
+  titleAndStatus?: boolean;
+  description?: boolean;
+  membersRights?: boolean;
 }
 
 export const StepSubmit = (props: StepSubmitProps) => {
@@ -25,13 +26,11 @@ export const StepSubmit = (props: StepSubmitProps) => {
   const [saveStepToggle, setSaveStepToggle] = useState<boolean>(false);
   const [editStepToggle, setEditStepToggle] = useState<boolean>(false);
   const [stepsListOpen, setStepsListOpen] = useState(false);
-  const [isUpdateStepLoading, setIsUpdateStepLoading] = useState<{
-    titleAndStatus: boolean;
-    description: boolean;
-  }>({
-    titleAndStatus: false,
-    description: false,
-  });
+  const [isUpdateStepLoading, setIsUpdateStepLoading] =
+    useState<IsUpdateStepLoadingState>({
+      titleAndStatus: false,
+      description: false,
+    });
 
   console.log("saveStepToggle", saveStepToggle);
 

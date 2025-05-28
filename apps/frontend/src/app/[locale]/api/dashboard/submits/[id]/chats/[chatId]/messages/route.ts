@@ -141,7 +141,7 @@ export async function POST(
 
       console.log("sendMessageFromAdmin");
 
-      sendMessageNotification({
+      await sendMessageNotification({
         params: { submitId: body.submitId, chatId: body.chatId },
         newMessage: message,
       });
@@ -170,7 +170,7 @@ export async function POST(
 
       console.log("sendMessageFromUser");
 
-      sendMessageNotification({
+      await sendMessageNotification({
         params: { submitId: body.submitId, chatId: body.chatId },
         newMessage: message,
       });

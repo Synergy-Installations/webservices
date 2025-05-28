@@ -181,20 +181,34 @@ export const sendMessageNotification = async (
 
   console.log("messages", messages, "newMessage", newMessage);
 
+  console.log(
+    "process.env.SMTP_HOST",
+    process.env.SMTP_HOST,
+    process.env.SMTP_PORT,
+    parseInt(process.env.SMTP_PORT || "587", 10),
+    process.env.SMTP_REQUIRE_TLS === "true",
+    process.env.SMTP_USER
+  );
+
   const transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false, // true for 465, false for other ports
+    host: process.env.SMTP_HOST || "smtp.office365.com",
+    port: parseInt(process.env.SMTP_PORT || "587", 10),
+    // secureConnection: false,
+    secure: process.env.SMTP_SECURE === "true", // true for 465, false for other ports
+    requireTLS: process.env.SMTP_REQUIRE_TLS === "true",
     auth: {
-      user: "lindsay.hills@ethereal.email",
-      pass: "pKZDFVj97R9mYu7xxz",
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASSWORD,
+    },
+    tls: {
+      rejectUnauthorized: process.env.SMTP_TLS_REJECT_UNAUTHORIZED === "true",
     },
   });
 
   // Wrap in an async IIFE so we can use await.
   (async () => {
     const info = await transporter.sendMail({
-      from: '"Lindsay Hills" <lindsay.hills@ethereal.email>',
+      from: '"Michael Riegler" <office@synergiemontagen.eco>',
       to: sendToUsers.map((user) => user.emailAddress).join(", "),
       subject: "Neue Nachricht auf Synergiemontagen erhalten",
       text: `"${messages[0].message}" von ${

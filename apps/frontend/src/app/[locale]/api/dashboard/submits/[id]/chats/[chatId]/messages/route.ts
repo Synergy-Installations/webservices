@@ -125,6 +125,8 @@ export async function POST(
       | string[]
       | undefined;
 
+    console.log("accessRights", accessRights);
+
     const dbUser = await User.findOne({ createdUserAuthId: userId || user.id });
 
     // User has all access or message rights
@@ -136,6 +138,8 @@ export async function POST(
         sentByUserId: dbUser._id,
         ...body,
       });
+
+      console.log("sendMessageFromAdmin");
 
       sendMessageNotification({
         params: { submitId: body.submitId, chatId: body.chatId },
@@ -163,6 +167,8 @@ export async function POST(
         sentByUserId: dbUser._id,
         ...body,
       });
+
+      console.log("sendMessageFromUser");
 
       sendMessageNotification({
         params: { submitId: body.submitId, chatId: body.chatId },

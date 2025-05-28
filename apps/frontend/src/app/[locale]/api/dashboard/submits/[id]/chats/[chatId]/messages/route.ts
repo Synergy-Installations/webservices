@@ -163,6 +163,12 @@ export async function POST(
         sentByUserId: dbUser._id,
         ...body,
       });
+
+      sendMessageNotification({
+        params: { submitId: body.submitId, chatId: body.chatId },
+        newMessage: message,
+      });
+
       return new Response(JSON.stringify({ success: true, data: message }), {
         status: 201,
         headers: {

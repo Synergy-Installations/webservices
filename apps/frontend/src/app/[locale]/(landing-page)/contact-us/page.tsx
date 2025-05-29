@@ -21,7 +21,7 @@ export default function Page(): JSX.Element {
               <div className="flex justify-center items-center mb-4">
                 <div className="relative flex items-center">
                   <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-full w-0 h-0 border-t-[1.47em] border-t-transparent border-b-[1.47em] border-b-transparent border-r-[1.47em] border-r-synergy-light-blue"></div>
-                  <h2 className="font-inter-tight text-2xl md:text-3xl text-slate-90 font-medium py-1 bg-synergy-light-blue text-white w-max break-words hyphens-auto">
+                  <h2 className="font-inter-tight text-2xl md:text-3xl text-slate-90 font-medium py-1 bg-synergy-light-blue text-white break-words hyphens-auto">
                     <RichText>{(tags) => t.rich("smallTitle", tags)}</RichText>
                   </h2>
                   <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-full w-0 h-0 border-t-[1.47em] border-t-transparent border-b-[1.47em] border-b-transparent border-l-[1.47em] border-l-synergy-light-blue"></div>

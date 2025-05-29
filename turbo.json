@@ -10,7 +10,14 @@
         "CLERK_WEBHOOK_SIGNING_SECRET",
         "STORAGE_ZONE_REGION",
         "STORAGE_ZONE_BASE_HOSTNAME",
-        "STORAGE_ZONE_NAME"
+        "STORAGE_ZONE_NAME",
+        "SMTP_HOST",
+        "SMTP_PORT",
+        "SMTP_SECURE",
+        "SMTP_REQUIRE_TLS",
+        "SMTP_TLS_REJECT_UNAUTHORIZED",
+        "SMTP_USER",
+        "SMTP_PASSWORD"
       ],
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],

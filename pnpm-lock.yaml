@@ -117,6 +117,9 @@ importers:
       '@reduxjs/toolkit':
         specifier: ^2.6.1
         version: 2.7.0(react-redux@9.2.0)(react@18.3.1)
+      '@types/nodemailer':
+        specifier: ^6.4.17
+        version: 6.4.17
       '@types/react':
         specifier: ^18.2.61
         version: 18.3.20
@@ -129,6 +132,9 @@ importers:
       mongoose:
         specifier: ^8.13.0
         version: 8.14.0
+      nodemailer:
+        specifier: ^7.0.3
+        version: 7.0.3
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -305,6 +311,9 @@ importers:
       react-dropzone:
         specifier: ^14.3.8
         version: 14.3.8(react@18.3.1)
+      react-floating-whatsapp:
+        specifier: ^5.0.8
+        version: 5.0.8(react-dom@18.3.1)(react@18.3.1)
       react-select:
         specifier: ^5.10.1
         version: 5.10.1(@types/react@18.3.20)(react-dom@18.3.1)(react@18.3.1)
@@ -2050,12 +2059,17 @@ packages:
     resolution: {integrity: sha512-zeMXFn8zQ+UkjK4ws0RiOC9EWByyW1CcVmLe+2rQocXRsGEDxUCwPEIVgpsGcLHS/P8JkT0oa3839BRABS0oPw==}
     dependencies:
       undici-types: 6.19.8
-    dev: true
 
   /@types/node@22.15.3:
     resolution: {integrity: sha512-lX7HFZeHf4QG/J7tBZqrCAXwz9J5RD56Y6MpP0eJkka8p+K0RY/yBTW7CYFJ4VGCclxqOLKmiGP5juQc6MKgcw==}
     dependencies:
       undici-types: 6.21.0
+
+  /@types/nodemailer@6.4.17:
+    resolution: {integrity: sha512-I9CCaIp6DTldEg7vyUTZi8+9Vo0hi1/T8gv3C89yk1rSAAzoKQ8H8ki/jBYJSFoH/BisgLP8tkZMlQ91CIquww==}
+    dependencies:
+      '@types/node': 20.17.32
+    dev: false
 
   /@types/normalize-package-data@2.4.4:
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -6099,6 +6113,11 @@ packages:
     resolution: {integrity: sha512-xxOWJsBKtzAq7DY0J+DTzuz58K8e7sJbdgwkbMWQe8UYB6ekmsQ45q0M/tJDsGaZmbC+l7n57UV8Hl5tHxO9uw==}
     dev: true
 
+  /nodemailer@7.0.3:
+    resolution: {integrity: sha512-Ajq6Sz1x7cIK3pN6KesGTah+1gnwMnx5gKl3piQlQQE/PwyJ4Mbc8is2psWYxK3RJTVeqsDaCv8ZzXLCDHMTZw==}
+    engines: {node: '>=6.0.0'}
+    dev: false
+
   /normalize-package-data@2.5.0:
     resolution: {integrity: sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==}
     dependencies:
@@ -6822,6 +6841,17 @@ packages:
       file-selector: 2.1.2
       prop-types: 15.8.1
       react: 18.3.1
+    dev: false
+
+  /react-floating-whatsapp@5.0.8(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-4X485d04u7MoWpn61OpWPO/mL94P3gaFq1L932ztH7bo9eClAFcg5ufIxNKbJo9/1h0xpjWZKEW0KBB0apWzZw==}
+    engines: {node: '>=16'}
+    peerDependencies:
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
     dev: false
 
   /react-icons@5.2.1(react@18.3.1):
@@ -8058,7 +8088,6 @@ packages:
 
   /undici-types@6.19.8:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
-    dev: true
 
   /undici-types@6.21.0:
     resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}

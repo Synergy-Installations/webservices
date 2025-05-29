@@ -1,4 +1,5 @@
 import mongoose, { Document } from "mongoose";
+import { MembersRights } from "../utils/types/members";
 
 interface DefaultResponse {
   success: boolean;
@@ -49,6 +50,8 @@ export interface StepInterface extends Document<string> {
   };
   submitId: mongoose.Types.ObjectId;
   createdAt: Date;
+  visibility: string;
+  members?: MembersRights[];
 }
 
 const StepSchema = new mongoose.Schema<StepInterface>({
@@ -70,6 +73,8 @@ const StepSchema = new mongoose.Schema<StepInterface>({
     ref: "Submit",
   },
   createdAt: { type: Date, default: Date.now, required: true },
+  visibility: { type: String, required: true, default: "public" },
+  members: { type: Array<MembersRights>, required: false },
 });
 
 export default mongoose.models.Step || mongoose.model("Step", StepSchema);

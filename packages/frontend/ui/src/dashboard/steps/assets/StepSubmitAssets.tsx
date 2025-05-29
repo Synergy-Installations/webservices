@@ -9,6 +9,7 @@ import StepAssetsList from "./StepAssetsList";
 import { debounce } from "@com.synergy/frontend-ui/Debounce";
 import { useEffect, useState } from "react";
 import StepsListSidecar from "../layout/StepsListSidecar";
+import { IsUpdateStepLoadingState } from "../StepSubmit";
 
 /* eslint-disable-next-line */
 export interface StepSubmitAssetsProps {
@@ -31,13 +32,11 @@ export const StepSubmitAssets = (props: StepSubmitAssetsProps) => {
   const [saveStepToggle, setSaveStepToggle] = useState<boolean>(false);
   const [editStepToggle, setEditStepToggle] = useState<boolean>(false);
   const [stepsListOpen, setStepsListOpen] = useState(false);
-  const [isUpdateStepLoading, setIsUpdateStepLoading] = useState<{
-    titleAndStatus: boolean;
-    description: boolean;
-  }>({
-    titleAndStatus: false,
-    description: false,
-  });
+  const [isUpdateStepLoading, setIsUpdateStepLoading] =
+    useState<IsUpdateStepLoadingState>({
+      titleAndStatus: false,
+      description: false,
+    });
 
   console.log("saveStepToggle", saveStepToggle);
 

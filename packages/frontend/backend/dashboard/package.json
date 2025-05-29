@@ -6,6 +6,11 @@
     "build": "tsc"
   },
   "exports": {
+    "./sendMessageNotification": "./src/helper/api/email/sendMessageNotification.ts",
+    "./assetApi": "./src/store/slices/api/asset.ts",
+    "./asset": "./src/db/models/asset.ts",
+    "./vaultApi": "./src/store/slices/api/vault.ts",
+    "./vault": "./src/db/models/vault.ts",
     "./membersTypes": "./src/db/utils/types/members.ts",
     "./userApi": "./src/store/slices/api/user.ts",
     "./user": "./src/db/models/user.ts",
@@ -37,10 +42,12 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
+    "@types/nodemailer": "^6.4.17",
     "@types/react": "^18.2.61",
     "aws4": "^1.13.2",
     "immer": "^10.0.3",
     "mongoose": "^8.13.0",
+    "nodemailer": "^7.0.3",
     "react-redux": "^9.2.0"
   }
 }

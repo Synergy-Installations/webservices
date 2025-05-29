@@ -18,7 +18,7 @@ import { MembersRights } from "@com.synergy/frontend-backend-dashboard/membersTy
 
 /* eslint-disable-next-line */
 export interface SumbitMembersRightsProps {
-  params: { id: string; chatId?: string };
+  params: { id: string; chatId?: string; vaultId?: string; stepId?: string };
   submit: any;
   updateSubmit(props: any): any;
   isGetSubmitLoading: boolean;
@@ -137,7 +137,7 @@ const RenderUser = ({ userUid }: { userUid: string }): JSX.Element => {
 export const SumbitMembersRights = (props: SumbitMembersRightsProps) => {
   const {
     params,
-    params: { id: submitId, chatId },
+    params: { id: submitId, chatId, vaultId, stepId },
     submit,
     isGetSubmitLoading,
     updateSubmit,
@@ -167,7 +167,13 @@ export const SumbitMembersRights = (props: SumbitMembersRightsProps) => {
   }, 500);
 
   const [editSubmit, setEditSubmit] = useState({
-    _id: chatId ? new Types.ObjectId(chatId) : new Types.ObjectId(submitId),
+    _id: stepId
+      ? new Types.ObjectId(stepId)
+      : vaultId
+        ? new Types.ObjectId(vaultId)
+        : chatId
+          ? new Types.ObjectId(chatId)
+          : new Types.ObjectId(submitId),
     submitId: new Types.ObjectId(submitId),
     visibility: submit?.visibility,
     members: submit?.members,

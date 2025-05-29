@@ -14,28 +14,46 @@ export async function GET(
   const { id } = params;
   const { userId } = getAuth(req);
 
-  if (!userId) {
-    return NextResponse.json(
-      { success: false, error: "Unauthorized" },
-      { status: 401 }
-    );
-  }
-
-  const client = await clerkClient();
-  const user = await client.users.getUser(userId);
+  // if (!userId) {
+  //   return NextResponse.json(
+  //     { success: false, error: "Unauthorized" },
+  //     { status: 401 }
+  //   );
+  // }
 
   await dbConnect();
 
   try {
-    const accessRights = user.privateMetadata?.accessRights as
-      | string[]
-      | undefined;
+    const dbSubmit = await Submit.findById(
+      id,
+      "emailAddress members visibility"
+    ).exec();
 
+    // Check if the submit is public or if the user is a member with read rights
     if (
-      accessRights?.includes("all:*") ||
-      accessRights?.includes("all:steps")
+      dbSubmit.visibility === "public" ||
+      dbSubmit.members?.some(
+        (right: any) =>
+          right.userAuthId === userId && right.rights.includes("read")
+      )
     ) {
-      const steps = await Step.find({ submitId: id }).sort({ order: 1 }).exec();
+      // Filter the step based on the visiblity and member rights
+      const steps = await Step.find({
+        submitId: id,
+        $or: [
+          { visibility: "public" },
+          {
+            members: {
+              $elemMatch: {
+                userAuthId: userId,
+                rights: { $in: ["read"] },
+              },
+            },
+          },
+        ],
+      })
+        .sort({ order: 1 })
+        .exec();
 
       return NextResponse.json(
         {
@@ -44,22 +62,30 @@ export async function GET(
         },
         { status: 200 }
       );
-    }
+    } else if (userId) {
+      const client = await clerkClient();
+      const user = await client.users.getUser(userId);
+      const accessRights = user.privateMetadata?.accessRights as
+        | string[]
+        | undefined;
 
-    const dbSubmit = await Submit.findById(id, "emailAddress").exec();
+      // Otherwise, check if the user is an admin, has specific access rights
+      if (
+        accessRights?.includes("all:*") ||
+        accessRights?.includes("all:steps")
+      ) {
+        const steps = await Step.find({ submitId: id })
+          .sort({ order: 1 })
+          .exec();
 
-    if (
-      user.emailAddresses.some((e) => e.emailAddress === dbSubmit.emailAddress)
-    ) {
-      const steps = await Step.find({ submitId: id }).sort({ order: 1 }).exec();
-
-      return NextResponse.json(
-        {
-          success: true,
-          data: { steps },
-        },
-        { status: 200 }
-      );
+        return NextResponse.json(
+          {
+            success: true,
+            data: { steps },
+          },
+          { status: 200 }
+        );
+      }
     }
 
     return NextResponse.json(

@@ -31,7 +31,7 @@ export const SingleSubmitTabs = (props: SingleSubmitTabsProps) => {
   // Check for the presence of chat but not steps because /steps/id/chat does exist
   const isChat = path.includes("chat") && !path.includes("steps");
   const isSteps = path.includes("steps");
-  const isAssets = path.includes("assets") && !path.includes("steps");
+  const isVaults = path.includes("vaults") && !path.includes("steps");
   const isMembers = path.includes("members") && !path.includes("steps");
 
   return (
@@ -75,11 +75,11 @@ export const SingleSubmitTabs = (props: SingleSubmitTabsProps) => {
         </li>
         <li>
           <Link
-            href={`/dashboard/submits/${id}/assets`}
-            className={`inline-flex items-center justify-center px-4 py-2 ${isAssets ? "text-white bg-blue-700 dark:bg-blue-600" : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"} rounded-lg active w-full `}
+            href={`/dashboard/submits/${id}/vaults`}
+            className={`inline-flex items-center justify-center px-4 py-2 ${isVaults ? "text-white bg-blue-700 dark:bg-blue-600" : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"} rounded-lg active w-full `}
           >
             <svg
-              className={`w-4 h-4 me-2 ${isAssets ? "text-white" : "text-gray-500 dark:text-gray-400"}`}
+              className={`w-4 h-4 me-2 ${isVaults ? "text-white" : "text-gray-500 dark:text-gray-400"}`}
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"

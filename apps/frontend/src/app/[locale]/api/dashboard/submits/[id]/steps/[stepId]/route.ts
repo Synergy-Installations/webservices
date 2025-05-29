@@ -14,32 +14,33 @@ export async function GET(
   const { id: submitId, stepId } = params;
   const { userId } = getAuth(req);
 
-  if (!userId) {
-    return NextResponse.json(
-      { success: false, error: "Unauthorized" },
-      { status: 401 }
-    );
-  }
-
-  const client = await clerkClient();
-  const user = await client.users.getUser(userId);
+  // if (!userId) {
+  //   return NextResponse.json(
+  //     { success: false, error: "Unauthorized" },
+  //     { status: 401 }
+  //   );
+  // }
 
   await dbConnect();
 
   try {
-    const accessRights = user.privateMetadata?.accessRights as
-      | string[]
-      | undefined;
+    const dbSubmit = await Submit.findById(
+      submitId,
+      "emailAddress members visibility"
+    ).exec();
+
+    const step = await Step.findOne({
+      _id: stepId,
+      submitId: submitId,
+    }).exec();
 
     if (
-      accessRights?.includes("all:*") ||
-      accessRights?.includes("all:steps")
+      step.visibility === "public" ||
+      step.members?.some(
+        (right: any) =>
+          right.userAuthId === userId && right.rights.includes("read")
+      )
     ) {
-      const step = await Step.findOne({
-        _id: stepId,
-        submitId: submitId,
-      }).exec();
-
       return NextResponse.json(
         {
           success: true,
@@ -47,25 +48,30 @@ export async function GET(
         },
         { status: 200 }
       );
-    }
+    } else if (userId) {
+      const client = await clerkClient();
+      const user = await client.users.getUser(userId);
+      const accessRights = user.privateMetadata?.accessRights as
+        | string[]
+        | undefined;
 
-    const dbSubmit = await Submit.findById(submitId, "emailAddress").exec();
+      if (
+        accessRights?.includes("all:*") ||
+        accessRights?.includes("all:steps")
+      ) {
+        const step = await Step.findOne({
+          _id: stepId,
+          submitId: submitId,
+        }).exec();
 
-    if (
-      user.emailAddresses.some((e) => e.emailAddress === dbSubmit.emailAddress)
-    ) {
-      const step = await Step.findOne({
-        _id: stepId,
-        submitId: submitId,
-      }).exec();
-
-      return NextResponse.json(
-        {
-          success: true,
-          data: { step },
-        },
-        { status: 200 }
-      );
+        return NextResponse.json(
+          {
+            success: true,
+            data: { step },
+          },
+          { status: 200 }
+        );
+      }
     }
 
     return NextResponse.json(

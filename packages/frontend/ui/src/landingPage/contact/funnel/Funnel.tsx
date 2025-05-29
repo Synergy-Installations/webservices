@@ -443,6 +443,7 @@ export const Funnel = (props: FunnelProps) => {
 
       // console.log("Updated Question Elements:", updatedQuestionElements);
 
+      let submitId;
       const res = await fetch("/api/dashboard/submits", {
         method: "POST",
         body: JSON.stringify({
@@ -454,13 +455,15 @@ export const Funnel = (props: FunnelProps) => {
             color: "LimeGreen",
           },
         }),
-      }).then((res) => {
-        console.log("Successfully sent submit to db", res);
       });
+
+      const responseBody = await res.json();
+      console.log("Successfully sent submit to db", res);
+      submitId = responseBody.data._id;
 
       const resTwo = await fetch("/api/contact/submitFunnel", {
         method: "POST",
-        body: JSON.stringify(body),
+        body: JSON.stringify({ ...body, submitId }),
       })
         .then((res) => {
           console.log("Successfully sent EMail", res);

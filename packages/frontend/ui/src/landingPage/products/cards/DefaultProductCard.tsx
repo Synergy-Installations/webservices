@@ -31,7 +31,7 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
   let orientationRight = t(`${productKey}.orientation`) === "right";
 
   return (
-    <section id={t(`${productKey}.sectionIdentifier`)} className="mt-12 md:mt-20 mb-12 md:mb-20" data-aos-id-3>
+    <section id={t(`${productKey}.sectionIdentifier`)} className="mt-12 md:mt-20 mb-12 md:mb-20 scroll-m-16" data-aos-id-3>
       <div className="relative max-w-7xl mx-auto">
         {/* Bg */}
         <div

@@ -7,18 +7,17 @@ import FileUpload from "../../shared/file-upload/FileUpload";
 import { IsUpdateSubmitLoadingState } from "../../steps/StepsSubmit";
 import { useEffect, useState } from "react";
 import { Types } from "mongoose";
+import {
+  useGetAssetsQuery,
+  useDeleteAssetMutation,
+} from "@com.synergy/frontend-backend-dashboard/assetApi";
+import FileUploadVault from "../../shared/file-upload/FileUploadVault";
 
 /* eslint-disable-next-line */
 export interface SubmitAssetsListProps {
-  params: { id: string };
-  saveSubmitToggle: boolean;
-  setSaveSubmitToggle: (saveSubmitToggle: boolean) => void;
+  params: { id: string; stepId?: string; vaultId?: string };
   editSubmitToggle: boolean;
   setEditSubmitToggle: (editSubmitToggle: boolean) => void;
-  isUpdateSubmitLoading: IsUpdateSubmitLoadingState;
-  setIsUpdateSubmitLoading: React.Dispatch<
-    React.SetStateAction<IsUpdateSubmitLoadingState>
-  >;
   STORAGE_ZONE_REGION: string | undefined;
   STORAGE_ZONE_BASE_HOSTNAME: string | undefined;
   STORAGE_ZONE_NAME: string | undefined;
@@ -28,126 +27,45 @@ export interface SubmitAssetsListProps {
 export const SubmitAssetsList = (props: SubmitAssetsListProps) => {
   const {
     params,
-    params: { id: submitId },
-    saveSubmitToggle,
-    setSaveSubmitToggle,
+    params: { id: submitId, stepId, vaultId },
     editSubmitToggle,
     setEditSubmitToggle,
-    isUpdateSubmitLoading,
-    setIsUpdateSubmitLoading,
     STORAGE_ZONE_ACCESS_KEY,
     STORAGE_ZONE_REGION,
     STORAGE_ZONE_BASE_HOSTNAME,
     STORAGE_ZONE_NAME,
   } = props;
 
-  const [
-    updateSubmit,
-    {
-      isLoading: isUpdateSubmitMutationLoading,
-      error: updateSubmitMutationError,
-    },
-  ] = useUpdateSubmitMutation();
+  const [deleteAsset, { isLoading }] = useDeleteAssetMutation();
+
+  const [deletedAssetId, setDeletedAssetId] = useState<string | null>(null);
 
   const {
-    data: submit,
+    data: assets,
     isLoading: isGetSubmitLoading,
     error,
-  } = useGetSubmitQuery(submitId, {
-    refetchOnFocus: true,
-    refetchOnReconnect: true,
-    refetchOnMountOrArgChange: true,
-  });
-
-  const [editSubmit, setEditSubmit] = useState<Partial<any>>({
-    _id: new Types.ObjectId(submitId),
-    assets: submit?.data.assets,
-  });
-
-  useEffect(() => {
-    console.log("editSubmitEffect", editSubmit);
-    setEditSubmit({
-      ...editSubmit,
-      _id: new Types.ObjectId(submitId),
-    });
-  }, [submitId]);
-
-  useEffect(() => {
-    setEditSubmit({
-      ...editSubmit,
-      assets: submit?.data.assets,
-    });
-  }, [submit]);
-
-  console.log(
-    "editSubmit",
-    submit?.data,
-    editSubmit,
-    "loading?",
-    isUpdateSubmitMutationLoading,
-    isUpdateSubmitLoading
+  } = useGetAssetsQuery(
+    { submitId, stepId, vaultId },
+    {
+      refetchOnFocus: true,
+      refetchOnReconnect: true,
+      refetchOnMountOrArgChange: true,
+    }
   );
 
-  useEffect(() => {
-    if (saveSubmitToggle) {
-      console.log("saveSubmitToggle", editSubmit);
-      // Set the loading state at the beginning in order to make sure we are handling the loading state
-      // correctly in SubmitSingle in case other loading states from isUpdateSubmitLoading are false (due to no change)
-      setIsUpdateSubmitLoading({
-        ...isUpdateSubmitLoading,
-        assets: true,
-      });
-      updateSubmit(editSubmit);
-    } else {
-      // This is done in case we do not have any changes and the SubmitSubmit useEffect
-      // needs the isUpdateSubmitLoading state to be updated in order to reset the saveSubmitToggle
-      // and editSubmitToggle states
-      setIsUpdateSubmitLoading({
-        ...isUpdateSubmitLoading,
-        assets: false,
-      });
-    }
-  }, [saveSubmitToggle]);
-
-  useEffect(() => {
-    if (isUpdateSubmitMutationLoading && !isUpdateSubmitLoading.assets) {
-      setIsUpdateSubmitLoading({ ...isUpdateSubmitLoading, assets: true });
-    } else if (!isUpdateSubmitMutationLoading && isUpdateSubmitLoading.assets) {
-      setIsUpdateSubmitLoading({ ...isUpdateSubmitLoading, assets: false });
-    }
-  }, [isUpdateSubmitMutationLoading]);
-
   return (
-    <div className="overflow-y-auto h-full grid gap-2 pb-2">
+    <div className="overflow-y-auto h-full pb-60">
       {editSubmitToggle && (
-        <FileUpload
-          submitId={submitId}
-          setAssets={(asset) => {
-            if (typeof asset === "function") {
-              setEditSubmit((prev) => ({
-                ...prev,
-                assets:
-                  asset instanceof Function
-                    ? // @ts-ignore
-                      asset({ assets: prev.assets as AssetInterface[] }).assets
-                    : [...(prev.assets || []), asset],
-              }));
-            } else {
-              setEditSubmit((prev) => ({
-                ...prev,
-                assets: [...(prev.assets || []), asset],
-              }));
-            }
-          }}
-          assets={editSubmit.assets}
+        <FileUploadVault
+          params={params}
           STORAGE_ZONE_REGION={STORAGE_ZONE_REGION}
           STORAGE_ZONE_BASE_HOSTNAME={STORAGE_ZONE_BASE_HOSTNAME}
           STORAGE_ZONE_NAME={STORAGE_ZONE_NAME}
           STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
         />
       )}
-      <div className="relative flex flex-col w-full px-2 gap-2">
-        {submit?.data?.assets?.map((file: any, index: number) => (
+      <div className="relative flex flex-col w-full px-2 pt-2 gap-2">
+        {assets?.data?.assets?.map(({ asset: file, _id }, index: number) => (
           <div
             key={index}
             className="flex-col md:flex md:flex-row-reverse items-center justify-between gap-2 w-full p-2 border rounded-lg"
@@ -207,6 +125,51 @@ export const SubmitAssetsList = (props: SubmitAssetsListProps) => {
                   ></path>
                 </svg>
               </button>
+              {vaultId && (
+                <button
+                  onClick={() => {
+                    setDeletedAssetId(_id);
+                    deleteAsset({
+                      assetId: _id,
+                      submitId,
+                      vaultId,
+                    });
+                  }}
+                >
+                  {isLoading && deletedAssetId === _id ? (
+                    <svg
+                      aria-hidden="true"
+                      role="status"
+                      className="inline w-4 h-4 ml-1 text-white animate-spin"
+                      viewBox="0 0 100 101"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                        fill="#E5E7EB"
+                      />
+                      <path
+                        d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      className="w-6 h-6 text-red-500 dark:text-red-400"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M18 6h-3.5l-1-1h-5l-1 1H6v2h12V6zm-1 4H7v10c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2V10zm-2 8h-2v-6h2v6zm-4 0H9v-6h2v6z"
+                      />
+                    </svg>
+                  )}
+                </button>
+              )}
             </div>
             <div className="flex items-center w-full">
               <div className="grid lg:flex gap-2 items-center">

@@ -21,68 +21,47 @@ export async function GET(
 
   const { userId } = getAuth(req);
 
-  if (!userId) {
-    return NextResponse.json(
-      { success: false, error: "Unauthorized" },
-      { status: 401 }
-    );
-  }
-
-  const client = await clerkClient();
-  const user = await client.users.getUser(userId);
+  // if (!userId) {
+  //   return NextResponse.json(
+  //     { success: false, error: "Unauthorized" },
+  //     { status: 401 }
+  //   );
+  // }
 
   await dbConnect();
 
   try {
-    const accessRights = user.privateMetadata?.accessRights as
-      | string[]
-      | undefined;
+    const dbSubmit = await Submit.findById(
+      submitId,
+      "emailAddress members visibility"
+    ).exec();
 
-    if (
-      accessRights?.includes("all:*") ||
-      accessRights?.includes("all:chats")
-    ) {
-      let chats: ChatInterface[] = [];
-
-      if (stepId) {
-        // Get the chats for the specific step
-        chats = await Chat.find({ submitId, stepId }).sort({ order: 1 }).exec();
-      } else {
-        // Get the chats for the submitId without a specific step
-        chats = await Chat.find({ submitId, stepId: null })
-          .sort({ order: 1 })
-          .exec();
-      }
-
-      return NextResponse.json(
-        {
-          success: true,
-          data: { chats },
-        },
-        { status: 200 }
-      );
-    }
-
-    const dbSubmit = await Submit.findById(submitId, "emailAddress").exec();
-
-    // Future will want to check for each chat individually if access rights exist
     if (
       dbSubmit.visibility === "public" ||
-      dbSubmit.members
-        .find((right: any) => right.userAuthId === userId)
-        .rights.includes("read:chats")
+      dbSubmit.members?.some(
+        (right: any) =>
+          right.userAuthId === userId && right.rights.includes("read")
+      )
     ) {
-      let chats: ChatInterface[] = [];
-
-      if (stepId) {
-        // Get the chats for the specific step
-        chats = await Chat.find({ submitId, stepId }).sort({ order: 1 }).exec();
-      } else {
-        // Get the chats for the submitId without a specific step
-        chats = await Chat.find({ submitId, stepId: null })
-          .sort({ order: 1 })
-          .exec();
-      }
+      // Get the chats for the submitId without a specific step or
+      // get the chats for the specific step
+      const chats = await Chat.find({
+        submitId,
+        stepId: stepId,
+        $or: [
+          { visibility: "public" },
+          {
+            members: {
+              $elemMatch: {
+                userAuthId: userId,
+                rights: { $in: ["read"] },
+              },
+            },
+          },
+        ],
+      })
+        .sort({ order: 1 })
+        .exec();
 
       return NextResponse.json(
         {
@@ -91,6 +70,31 @@ export async function GET(
         },
         { status: 200 }
       );
+    } else if (userId) {
+      const client = await clerkClient();
+      const user = await client.users.getUser(userId);
+      const accessRights = user.privateMetadata?.accessRights as
+        | string[]
+        | undefined;
+
+      if (
+        accessRights?.includes("all:*") ||
+        accessRights?.includes("all:chats")
+      ) {
+        // Get the chats for the submitId without a specific step or
+        // get the chats for the specific step
+        const chats = await Chat.find({ submitId, stepId: stepId })
+          .sort({ order: 1 })
+          .exec();
+
+        return NextResponse.json(
+          {
+            success: true,
+            data: { chats },
+          },
+          { status: 200 }
+        );
+      }
     }
 
     return NextResponse.json(

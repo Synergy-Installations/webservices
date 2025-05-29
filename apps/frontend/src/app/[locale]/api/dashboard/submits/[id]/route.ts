@@ -15,18 +15,19 @@ export async function GET(
 
     // Discriminate rights based on the user
     const { userId } = getAuth(req); // Get the authenticated user's ID from the session
-    if (!userId) {
-      return new Response(
-        JSON.stringify({ success: false, error: "Unauthorized" }),
-        {
-          status: 401,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-    }
+    // if (!userId) {
+    //   return new Response(
+    //     JSON.stringify({ success: false, error: "Unauthorized" }),
+    //     {
+    //       status: 401,
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //     }
+    //   );
+    // }
 
+    // Check if sumbit is public or if the user is a member with read rights
     if (
       submit.visibility === "public" ||
       submit.members
@@ -40,8 +41,7 @@ export async function GET(
           "Content-Type": "application/json",
         },
       });
-    } else {
-      // Check if user is an admin or has specific access rights
+    } else if (userId) {
       const client = await clerkClient();
       const user = await client.users.getUser(userId);
       const accessRights = user.privateMetadata?.accessRights as
@@ -50,6 +50,8 @@ export async function GET(
 
       console.log("accessRights", accessRights);
 
+      // Check if user is an admin, has specific access rights, or 
+      // is the creator of the submit 
       if (
         accessRights?.includes("all:*") ||
         accessRights?.includes("all:submits")
@@ -62,7 +64,10 @@ export async function GET(
         });
       } else {
         return new Response(
-          JSON.stringify({ success: false, error: "Unauthorized" }),
+          JSON.stringify({
+            success: false,
+            error: "Unauthorized or not enough rights",
+          }),
           {
             status: 401,
             headers: {
@@ -114,11 +119,24 @@ export async function PUT(
       | string[]
       | undefined;
 
+    const submitFormElements: any = Object.values(
+      body?.data?.submit?.form || {}
+    );
+    const updateEmailAddress =
+      body?.emailAddress ||
+      submitFormElements?.find((form: any) => form.uid === "submit-form-email")
+        ?.selected?.inputValue;
+
     // User has all access rights
     if (accessRights?.includes("all:*")) {
       const submit = await Submit.findByIdAndUpdate(
         id,
-        { ...body },
+        {
+          ...body,
+          ...(updateEmailAddress !== undefined && {
+            emailAddress: updateEmailAddress,
+          }),
+        },
         {
           runValidators: true,
         }
@@ -136,7 +154,12 @@ export async function PUT(
     else {
       const submit = await Submit.findOneAndUpdate(
         { _id: id, emailAddress: user.emailAddresses[0].emailAddress },
-        { ...body },
+        {
+          ...body,
+          ...(updateEmailAddress !== undefined && {
+            emailAddress: updateEmailAddress,
+          }),
+        },
         {
           runValidators: true,
         }
@@ -154,7 +177,7 @@ export async function PUT(
       );
     }
   } catch (error) {
-    return NextResponse.json({ success: false }, { status: 400 });
+    return NextResponse.json({ success: false, error: error }, { status: 400 });
   }
 }
 

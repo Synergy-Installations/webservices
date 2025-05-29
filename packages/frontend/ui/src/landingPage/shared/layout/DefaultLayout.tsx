@@ -7,6 +7,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import DefaultFooter from "@com.synergy/frontend-ui/DefaultFooter";
 import { useMessages, useTranslations } from "next-intl";
+import WhatsappButton from "../whatsapp/WhatsappButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +32,7 @@ export const DefaultLayout = (props: DefaultLayoutProps) => {
     >
       <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
         <DefaultHeader />
+        <WhatsappButton />
         <main className="grow">{props.children}</main>
         <DefaultFooter border={true} />
       </div>

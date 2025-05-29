@@ -14,12 +14,22 @@ export default function Page(): JSX.Element {
         <div className="pt-32 pb-12 md:pt-40 md:pb-20">
           <div className="px-4 sm:px-6">
             {/* Page header */}
-            <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16 overflow-hidden">
-              <h1 className="font-inter-tight text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-500 via-slate-900 to-slate-900 pb-4 break-words break-all hyphens-auto">
-              {t("title")}
+            <div className="max-w-4xl mx-auto text-center pb-12 md:pb-16 overflow-hidden">
+              <h1 className="font-inter-tight text-4xl md:text-5xl font-bold text-slate-900 pb-8 break-words hyphens-auto">
+                <RichText>{(tags) => t.rich("title", tags)}</RichText>
               </h1>
+              <div className="flex justify-center items-center mb-4">
+                <div className="relative flex items-center">
+                  <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-full w-0 h-0 border-t-[1.47em] border-t-transparent border-b-[1.47em] border-b-transparent border-r-[1.47em] border-r-synergy-light-blue"></div>
+                  <h2 className="font-inter-tight text-2xl md:text-3xl text-slate-90 font-medium py-1 bg-synergy-light-blue text-white w-max break-words hyphens-auto">
+                    <RichText>{(tags) => t.rich("smallTitle", tags)}</RichText>
+                  </h2>
+                  <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-full w-0 h-0 border-t-[1.47em] border-t-transparent border-b-[1.47em] border-b-transparent border-l-[1.47em] border-l-synergy-light-blue"></div>
+                </div>
+              </div>
+
               <div className="text-lg text-slate-500">
-              <RichText>{(tags) => t.rich("description", tags)}</RichText>
+                <RichText>{(tags) => t.rich("description", tags)}</RichText>
               </div>
             </div>
 

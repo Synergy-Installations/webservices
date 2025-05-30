@@ -8,6 +8,12 @@
     "dist"
   ],
   "exports": {
+    "./Icons": "./src/landingPage/focus/photovoltaic/shared/Icons.tsx",
+    "./PhotovoltaicCta": "./src/landingPage/focus/photovoltaic/PhotovoltaicCta.tsx",
+    "./PhotovoltaicTestimonials": "./src/landingPage/focus/photovoltaic/PhotovoltaicTestimonials.tsx",
+    "./PhotovoltaicBackground": "./src/landingPage/focus/photovoltaic/PhotovoltaicBackground.tsx",
+    "./PhotovoltaicComponents": "./src/landingPage/focus/photovoltaic/PhotovoltaicComponents.tsx",
+    "./PhotovoltaicHero": "./src/landingPage/focus/photovoltaic/PhotovoltaicHero.tsx",
     "./WhatsappButton": "./src/landingPage/shared/whatsapp/WhatsappButton.tsx",
     "./StepSettings": "./src/dashboard/steps/settings/StepSettings.tsx",
     "./StepSubmitSettings": "./src/dashboard/steps/settings/StepSubmitSettings.tsx",

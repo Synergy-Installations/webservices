@@ -152,15 +152,15 @@ export const Form = (props: FormProps) => {
         //   disabled: true,
         //   text: "Danke für Ihre Anfrage. Bitte überprüfen Sie Ihre Inbox. Falls die Nachricht nicht angekommen ist, benutzen Sie bitte die unten angegebene E-Mail.",
         // });
-        setFormElements((prevFormElements) =>
-          Object.keys(prevFormElements).reduce(
-            (acc: Record<string, any>, key: string) => {
-              acc[key] = { ...prevFormElements[key], value: "" };
-              return acc;
-            },
-            {}
-          )
-        );
+        // setFormElements((prevFormElements) =>
+        //   Object.keys(prevFormElements).reduce(
+        //     (acc: Record<string, any>, key: string) => {
+        //       acc[key] = { ...prevFormElements[key], value: "" };
+        //       return acc;
+        //     },
+        //     {}
+        //   )
+        // );
       })
       .catch((error) => {
         console.error("Error sending email", error);

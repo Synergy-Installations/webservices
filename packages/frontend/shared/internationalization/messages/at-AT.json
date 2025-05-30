@@ -1887,8 +1887,8 @@
     "ContactUs": {
       "Header": {
         "title": "Starten Sie in die Energieunabhängikeit!",
-        "smallTitle": "Wir übernehmen die Verantwortung.",
-        "description": "Sie erhalten danach unseren Ratgeber mit Tipps und Tricks zu Anschaffung, Förderung und Betrieb Ihrer PV-Anlage!"
+        "smallTitle": "Wir übernehmen Verantwortung.",
+        "description": "Innerhalb von 24 Stunden nehmen wir mit Ihnen Kontakt auf."
       },
       "Form": {
         "elements": {
@@ -1954,32 +1954,11 @@
             },
             "required": "false"
           },
-          "funnel": {
-            "type": "selection",
-            "label": "Wie sind Sie auf uns aufmerksam geworden?",
-            "options": {
-              "optionGoogle": {
-                "text": "Google"
-              },
-              "optionTwitter": {
-                "text": "Social Media"
-              },
-              "optionMouthToMouth": {
-                "text": "Empfehlung"
-              },
-              "optionConv": {
-                "text": "Messe & Werbung"
-              },
-              "optionOthers": {
-                "text": "Sonstiges"
-              }
-            },
-            "required": "false"
-          },
           "message": {
             "type": "textarea",
             "label": "Projektdetails *",
             "placeholder": "Teilen Sie Ihre Anforderungen",
+            "defaultValue": "Leistungsgröße: \nVerbrauch: \nSpeicher: Ja/Nein \nInstallationsort: \nSonstige Wünsche: ",
             "required": "true"
           }
         },

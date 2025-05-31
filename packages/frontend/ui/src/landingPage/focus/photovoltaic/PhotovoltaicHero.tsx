@@ -9,7 +9,9 @@ export const PhotovoltaicHero = (props: PhotovoltaicHeroProps) => {
     >
       <div className="bg-teal-500/40 flex flex-col items-center justify-between text-white text-center px-4 pt-32 pb-12">
         <div>
-          <h2 className="text-4xl font-bold mb-2">Ihr neues Bad:</h2>
+          <h2 className="text-4xl font-bold mb-2">
+            Ihre Zukunft beginnt mit Sonnenenergie
+          </h2>
           <h2 className="text-4xl font-bold mb-4">
             sicher, barrierefrei, stilvoll
           </h2>

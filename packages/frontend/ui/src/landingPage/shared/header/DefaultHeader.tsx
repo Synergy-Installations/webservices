@@ -26,7 +26,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
     <header className="fixed z-50 w-full">
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex justify-center xs:justify-end">
-          <div className="grid xs:flex gap-1 justify-center w-full xs:w-max backdrop-blur-sm bg-white/70 px-2 py-[2px] rounded-lg">
+          <div className="grid xs:flex gap-8 justify-center w-full xs:w-max backdrop-blur-sm bg-white/70 px-2 py-[2px] rounded-lg">
             <a
               href={`mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG`}
               className="text-synergy-dark-grey hover:underline text-center hidden xs:block"
@@ -34,10 +34,10 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
               office@synergiemontagen.eco
             </a>
             <a
-              href="tel:+436508696436"
+              href="tel:+436642448742"
               className="text-synergy-dark-grey hover:underline text-center"
             >
-              +43 650 8696436
+              +43 664 244 87 42
             </a>
           </div>
         </div>

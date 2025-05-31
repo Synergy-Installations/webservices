@@ -14,10 +14,10 @@ export const PhotovoltaicCta = (props: PhotovoltaicCtaProps) => {
         {t("description")} <br />
         <br /> Sichern Sie sich Ihren Termin gleich per Telefon{" "}
         <a
-          href="tel:+436508696436"
+          href="tel:+436642448742"
           className="underline hover:text-synergy-yellow"
         >
-          +43 650 8696436
+          +43 664 244 87 42
         </a>{" "}
         über unser{" "}
         <Link className="underline hover:text-synergy-yellow" href="/kontakt">

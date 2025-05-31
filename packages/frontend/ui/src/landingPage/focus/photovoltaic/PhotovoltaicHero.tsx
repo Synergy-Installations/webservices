@@ -1,30 +1,37 @@
+import { useTranslations } from "next-intl";
+
 /* eslint-disable-next-line */
 export interface PhotovoltaicHeroProps {}
 
 export const PhotovoltaicHero = (props: PhotovoltaicHeroProps) => {
+  const t = useTranslations("LandingPage.Focus.Photovoltaic.Hero");
+
   return (
     <section
       className="relative h-full min-h-[500px] bg-cover bg-center"
-      style={{ backgroundImage: "url('/images/Banner-Badsanierung.webp')" }}
+      style={{
+        backgroundImage: `url('${t("backgroundImage.src")}')`,
+      }}
     >
-      <div className="bg-teal-500/40 flex flex-col items-center justify-between text-white text-center px-4 pt-32 pb-12">
-        <div>
-          <h2 className="text-4xl font-bold mb-2">
-            Ihre Zukunft beginnt mit Sonnenenergie
+      <div className="bg-black/40 flex flex-col items-center justify-between text-white text-center px-4 pt-40 pb-12">
+        <div className="max-w-3xl">
+          <h2 className="text-4xl font-bold mb-3">
+            <span className="w-max bg-black px-2 py-1 rounded-2xl">
+              {t("titleUpper")}
+            </span>
           </h2>
           <h2 className="text-4xl font-bold mb-4">
-            sicher, barrierefrei, stilvoll
+            <span className="w-max bg-black px-2 py-1 rounded-2xl">
+              {t("titleLower")}
+            </span>
           </h2>
-          <p className="text-lg mb-6 max-w-2xl">
-            Ein modernes, barrierefreies Bad schenkt Ihnen nicht nur Komfort,
-            sondern auch das gute Gefühl, an morgen gedacht zu haben.
-          </p>
+          <p className="text-lg mb-6 max-w-2xl">{t("description")}</p>
         </div>
         <a
-          href={`mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG`}
-          className="border border-white py-2 mt-20 px-4 rounded-md hover:bg-white hover:text-teal-500 transition"
+          href={t("button.href")}
+          className="border border-white hover:border-synergy-light-blue py-2 mt-20 px-4 rounded-md hover:bg-synergy-light-blue hover:text-white transition"
         >
-          Kostenlose Vor-Ort-Beratung vereinbaren
+          {t("button.text")}
         </a>
       </div>
     </section>

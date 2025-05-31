@@ -25,7 +25,7 @@ export default async function RootLayout({
 }) {
   const options: ConsentManagerOptions = {
     mode: "c15t",
-    backendURL: process.env.NEXT_PUBLIC_C15T_URL,
+    backendURL: process.env.NEXT_PUBLIC_C15T_URL || "",
   };
 
   return (

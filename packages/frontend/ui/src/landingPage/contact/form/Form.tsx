@@ -46,7 +46,7 @@ export const Form = (props: FormProps) => {
             type: element.type,
             label: element.label,
             placeholder: element.placeholder,
-            value: "",
+            value: element.defaultValue ? element.defaultValue : "",
             required: element.required === "true",
           };
         }
@@ -73,15 +73,25 @@ export const Form = (props: FormProps) => {
       HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement
     >,
     elementKey: any,
-    element: any
+    element: any,
+    timeout: number = 300
   ) => {
+    if (timeout === 0) {
+      console.log("Immediate update for", elementKey, e.target.value);
+      setFormElements({
+        ...formElements,
+        [elementKey]: { ...element, value: e.target.value },
+      });
+      return;
+    }
+    // Clear the previous timeout if it exists
     clearTimeout(debounceTimeout);
     debounceTimeout = setTimeout(() => {
       setFormElements({
         ...formElements,
         [elementKey]: { ...element, value: e.target.value },
       });
-    }, 300);
+    }, timeout);
   };
 
   const sendEmail = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -142,15 +152,15 @@ export const Form = (props: FormProps) => {
         //   disabled: true,
         //   text: "Danke für Ihre Anfrage. Bitte überprüfen Sie Ihre Inbox. Falls die Nachricht nicht angekommen ist, benutzen Sie bitte die unten angegebene E-Mail.",
         // });
-        setFormElements((prevFormElements) =>
-          Object.keys(prevFormElements).reduce(
-            (acc: Record<string, any>, key: string) => {
-              acc[key] = { ...prevFormElements[key], value: "" };
-              return acc;
-            },
-            {}
-          )
-        );
+        // setFormElements((prevFormElements) =>
+        //   Object.keys(prevFormElements).reduce(
+        //     (acc: Record<string, any>, key: string) => {
+        //       acc[key] = { ...prevFormElements[key], value: "" };
+        //       return acc;
+        //     },
+        //     {}
+        //   )
+        // );
       })
       .catch((error) => {
         console.error("Error sending email", error);
@@ -180,12 +190,12 @@ export const Form = (props: FormProps) => {
                   </label>
                   <select
                     id={elementKey}
-                    className="form-select w-full"
+                    className="form-select w-full font-inter"
                     required={element.required}
                     onChange={(e) => handleChange(e, elementKey, element)}
                   >
                     {Object.keys(element.options).map((optionKey, index) => (
-                      <option key={index}>
+                      <option key={index} className="font-inter">
                         {element.options[optionKey].text}
                       </option>
                     ))}
@@ -204,8 +214,9 @@ export const Form = (props: FormProps) => {
                   <textarea
                     id={elementKey}
                     className="form-textarea text-sm w-full"
-                    rows={4}
-                    onChange={(e) => handleChange(e, elementKey, element)}
+                    rows={5}
+                    value={element.value}
+                    onChange={(e) => handleChange(e, elementKey, element, 0)}
                     placeholder={element.placeholder}
                     required={element.required}
                   ></textarea>

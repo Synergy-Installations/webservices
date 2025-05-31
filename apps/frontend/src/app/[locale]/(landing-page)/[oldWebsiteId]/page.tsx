@@ -1,5 +1,3 @@
-import { useEffect, useRef, useState } from "react";
-
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 

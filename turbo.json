@@ -17,7 +17,8 @@
         "SMTP_REQUIRE_TLS",
         "SMTP_TLS_REJECT_UNAUTHORIZED",
         "SMTP_USER",
-        "SMTP_PASSWORD"
+        "SMTP_PASSWORD",
+        "NEXT_PUBLIC_C15T_URL"
       ],
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],

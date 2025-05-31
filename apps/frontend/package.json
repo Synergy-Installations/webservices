@@ -10,6 +10,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@c15t/react": "^1.2.1",
     "@clerk/nextjs": "^6.12.12",
     "@com.synergy/frontend-backend-dashboard": "workspace:*",
     "@com.synergy/frontend-shared-internationalization": "workspace:*",

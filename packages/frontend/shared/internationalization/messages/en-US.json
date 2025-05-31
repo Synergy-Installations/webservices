@@ -1499,7 +1499,7 @@
             "featured": "false",
             "label": "",
             "title": "Daikin Wärmepumpe",
-            "description": "DAIKIN Altherma 3 LT mit 8 kW Heizleistung und Warmwasserspeicher *",
+            "description": "DAIKIN Altherma 3 LT 8 kW Heizleistung und Warmwasserspeicher *",
             "image": {
               "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
               "alt": "Photovoltaic",
@@ -1593,7 +1593,7 @@
             "featured": "true",
             "label": "Beliebt",
             "title": "Klimaanlage",
-            "description": "Splitklimaanlage DAIKIN Inverter Sensira 2,5 kW *",
+            "description": "Splitklimaanlage Inverter Sensira 2,5 kW *",
             "image": {
               "src": "/frontend/landingPage/products/close-up-shot-of-air-conditioner-hanging-on-white-2024-11-19-02-00-43-utc.jpeg",
               "alt": "Photovoltaic",
@@ -1696,7 +1696,7 @@
             "featured": "false",
             "label": "",
             "title": "Fronius Photovoltaik",
-            "description": "Fronius GEN24 Plus 10kW mit BYD Speicher und AIKO Paneele *",
+            "description": "Fronius GEN24 Plus 10kWp mit 10 kWh BYD Speicher und AIKO Paneele *",
             "image": {
               "src": "/frontend/landingPage/products/AdobeStock_838065823.jpg",
               "alt": "Photovoltaic",
@@ -1790,7 +1790,7 @@
             "featured": "false",
             "label": "",
             "title": "Schnäppchen Photovoltaik",
-            "description": "Huawei, Solax oder Growatt 10kW mit Ja-solar Paneele *",
+            "description": "Notstrom fähiger Wechselrichter mit Tier1 Paneele bifacial G/G, 10kWp Generator 10kWh Speicher *",
             "image": {
               "src": "/frontend/landingPage/products/AdobeStock_838066134.jpeg",
               "alt": "Photovoltaic",
@@ -1887,8 +1887,8 @@
     "ContactUs": {
       "Header": {
         "title": "Starten Sie in die Energieunabhängikeit!",
-        "smallTitle": "Wir übernehmen die Verantwortung.",
-        "description": "Sie erhalten danach unseren Ratgeber mit Tipps und Tricks zu Anschaffung, Förderung und Betrieb Ihrer PV-Anlage!"
+        "smallTitle": "Wir übernehmen Verantwortung.",
+        "description": "Innerhalb von 24 Stunden nehmen wir mit Ihnen Kontakt auf."
       },
       "Form": {
         "elements": {
@@ -1954,32 +1954,11 @@
             },
             "required": "false"
           },
-          "funnel": {
-            "type": "selection",
-            "label": "Wie sind Sie auf uns aufmerksam geworden?",
-            "options": {
-              "optionGoogle": {
-                "text": "Google"
-              },
-              "optionTwitter": {
-                "text": "Social Media"
-              },
-              "optionMouthToMouth": {
-                "text": "Empfehlung"
-              },
-              "optionConv": {
-                "text": "Messe & Werbung"
-              },
-              "optionOthers": {
-                "text": "Sonstiges"
-              }
-            },
-            "required": "false"
-          },
           "message": {
             "type": "textarea",
             "label": "Projektdetails *",
             "placeholder": "Teilen Sie Ihre Anforderungen",
+            "defaultValue": "Leistungsgröße: \nVerbrauch: \nSpeicher: Ja/Nein \nInstallationsort: \nSonstige Wünsche: ",
             "required": "true"
           }
         },
@@ -3695,6 +3674,113 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "Focus": {
+      "Photovoltaic": {
+        "Hero": {
+          "titleUpper": "Ihre neue Photovoltaik Anlage:",
+          "titleLower": "unabhängig, preissicher & qualitativ sorglos",
+          "description": "Wir realisieren Ihre maßgeschneiderte Photovoltaik-Anlage – von der Planung bis zur Inbetriebnahme, alles aus einer Hand und perfekt auf Ihre Bedürfnisse abgestimmt.",
+          "backgroundImage": {
+            "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+            "alt": "Photovoltaik"
+          },
+          "button": {
+            "text": "Jetzt kostenlose Vor-Ort-Beratung vereinbaren",
+            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+          }
+        },
+        "Components": {
+          "title": "Warum jetzt? Warum wir?",
+          "description": "Sie denken über eine Photovoltaik-Anlage nach, möchten aber keine komplizierte Planung und langwierige Umsetzung? Dann sind Sie bei uns richtig. Wir planen, koordinieren und realisieren Ihre maßgeschneiderte Solaranlage – effizient, zuverlässig und mit Expertise.",
+          "boxes": {
+            "solar-panels": {
+              "title": "Rundum-Sorglos-Paket",
+              "description": "Von Förderberatung bis Wartung – wir kümmern uns um alles.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Solarmodule"
+              }
+            },
+            "inverters": {
+              "title": "Preissicherheit garantiert",
+              "description": "Keine Überraschungen: Ihr Angebot bleibt auch bei Marktpreisschwankungen stabil.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Wechselrichter"
+              }
+            },
+            "batteries": {
+              "title": "In 3 Monaten zur fertigen Anlage",
+              "description": "Schnell, effizient, professionell – mit eingespielten Prozessen und erfahrenen Partnern.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Batteriespeicher"
+              }
+            }
+          }
+        },
+        "Background": {
+          "boxes": {
+            "boxLeft": {
+              "title": "Was Sie erwarten können:",
+              "list": {
+                "itemOne": "Eigene Energie produzieren, Stromkosten senken.",
+                "itemTwo": "Nachhaltig handeln, CO₂-Fußabdruck reduzieren.",
+                "itemThree": "Moderne PV-Anlage als Zukunftsinvestition.",
+                "itemFour": "Passend zu Dach, Bedarf & Budget.",
+                "itemFive": "Effizient, langlebig, förderfähig."
+              }
+            },
+            "boxRight": {
+              "title": "In 5 einfachen Schritten zur eigenen PV-Anlage:",
+              "list": {
+                "itemOne": "Rückmeldung innerhalb 24h – Angebot in weiteren 24h.",
+                "itemTwo": "Persönliche Analyse Ihrer Gegebenheiten & Ziele.",
+                "itemThree": "Maßgeschneidertes System inkl. Wirtschaftlichkeitscheck.",
+                "itemFour": "Transparente Kosten + Unterstützung bei allen Anträgen.",
+                "itemFive": "Schnell, sauber, alles aus einer Hand – in wenigen Tagen betriebsbereit."
+              }
+            }
+          }
+        },
+        "Testimonials": {
+          "testimonialsList": {
+            "testimonialOne": {
+              "text": "Ich bin persönlich rund um zufrieden! Zuverlässigkeit, Entgegenkommen, persönliche und vertrauensvolle Firma. Im Endeffekt treffen die Punkte zu mit denen geworben wird - Handschlagqualität. Ich lass mir auch von der selben Firma die PV-Anlage erweitern.",
+              "author": "Otto Eichwalder",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialTwo": {
+              "text": "Die Firma besteht aus einem jungen-dynamischen Team. Es gibt noch eine persönliche Beratung. Der Projektbericht wurde ausführlich und rasch übermittelt. Die Arbeiten wurden sauber und termingerecht ausgeführt. Herr Riegler ist sehr um seine Kunden bemüht. Diese Firma ist wirklich empfehlenswert!",
+              "author": "Manfred Hein",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialThree": {
+              "text": "Super Firma, sehr kompetent und sehr zu empfehlen. Tolle Beratung und Planung, zeitnahe Umsetzung - hat alles super funktioniert - bin rundum sehr zufrieden. Sehr gutes Preis- / Leistungsverhältnis - einfach top!",
+              "author": "Andreas Goisser",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            }
+          }
+        },
+        "Cta": {
+          "title": "Warten war gestern – holen Sie sich jetzt Ihr konkretes PV-Angebot.",
+          "description": "Sie wünschen sich Unabhängigkeit von steigenden Strompreisen, möchten aktiv die Umwelt schützen und den Wert Ihrer Immobilie steigern? Und legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen? Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich.",
+          "button": {
+            "text": " Jetzt kostenlose Vor-Ort-Beratung sichern",
+            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
           }
         }
       }

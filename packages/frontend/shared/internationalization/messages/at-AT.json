@@ -1958,7 +1958,7 @@
             "type": "textarea",
             "label": "Projektdetails *",
             "placeholder": "Teilen Sie Ihre Anforderungen",
-            "defaultValue": "Leistungsgröße: \nVerbrauch: \nSpeicher: Ja/Nein \nInstallationsort: \nSonstige Wünsche: ",
+            "defaultValue": "Leistungsgröße: \nVerbrauch: \nSpeicher: Ja/Nein \nInstallationsort: \nSonstige Wünsche: \nAddresse Bauvorhaben: ",
             "required": "true"
           }
         },
@@ -1973,8 +1973,9 @@
         "Discussions": {
           "title": "Eine E-Mail, tausende Möglichkeiten",
           "description": "office@synergiemontagen.eco",
+          "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG",
           "icon": {
-            "src": "/frontend/landingPage/icons/eco-charging.svg",
+            "src": "/frontend/landingPage/icons/mail_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg",
             "alt": "Eco Charging",
             "width": "16",
             "height": "16"
@@ -1983,8 +1984,9 @@
         "Team-views": {
           "title": "Telefon - Wenn es ganz schnell gehen muss",
           "description": "+43 664 2448742",
+          "href": "tel:+436642448742",
           "icon": {
-            "src": "/frontend/landingPage/icons/function.svg",
+            "src": "/frontend/landingPage/icons/call_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg",
             "alt": "Eco Charging",
             "width": "16",
             "height": "16"
@@ -1993,8 +1995,9 @@
         "Powerful-search": {
           "title": "Oder kommen Sie vorbei und lassen Sie sich beraten",
           "description": "Wagenseilgasse 14, Stock 5<br></br>c/o andys coworking company<br></br>‍1120 Wien",
+          "href": "https://g.co/kgs/zvtKtWc",
           "icon": {
-            "src": "/frontend/landingPage/icons/function.svg",
+            "src": "/frontend/landingPage/icons/storefront_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg",
             "alt": "Eco Charging",
             "width": "16",
             "height": "16"

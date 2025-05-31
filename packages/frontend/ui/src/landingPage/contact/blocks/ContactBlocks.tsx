@@ -36,11 +36,14 @@ export const ContactBlocks = (props: ContactBlocksProps) => {
                 <h3 className="font-inter-tight font-semibold text-slate-800 mb-1">
                   {t(`${contactBlockKey}.title`)}
                 </h3>
-                <div className="text-sm text-slate-500">
+                <a
+                  className="text-sm text-slate-500 underline"
+                  href={t(`${contactBlockKey}.href`)}
+                >
                   <RichText>
                     {(tags) => t.rich(`${contactBlockKey}.description`, tags)}
                   </RichText>
-                </div>
+                </a>
               </div>
             ))}
           </div>

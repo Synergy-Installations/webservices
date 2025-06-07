@@ -16,7 +16,7 @@ export const WhatsappButton = (props: WhatsappButtonProps) => {
       notification={true}
       notificationDelay={20}
       notificationLoop={1}
-      statusMessage="Antwortet innerhalb einer Stunde"
+      statusMessage="Antwortet innerhalb 24 Stunden"
     />
   );
 };

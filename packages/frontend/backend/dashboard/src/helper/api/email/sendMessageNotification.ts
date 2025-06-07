@@ -171,53 +171,54 @@ export const sendMessageNotification = async (
     }
   }
 
-  const messages = await Message.find({
-    [chatId ? "chatId" : "stepId"]: chatId ? chatId : stepId,
-  })
-    .populate("sentByUserId", "firstName lastName emailAddress")
-    .sort({ createdAt: -1 })
-    .limit(10)
-    .exec();
+  if (sendToUsers.length !== 0) {
+    const messages = await Message.find({
+      [chatId ? "chatId" : "stepId"]: chatId ? chatId : stepId,
+    })
+      .populate("sentByUserId", "firstName lastName emailAddress")
+      .sort({ createdAt: -1 })
+      .limit(10)
+      .exec();
 
-  // console.log("messages", messages, "newMessage", newMessage);
+    // console.log("messages", messages, "newMessage", newMessage);
 
-  // console.log(
-  //   "process.env.SMTP_HOST",
-  //   process.env.SMTP_HOST,
-  //   process.env.SMTP_PORT,
-  //   parseInt(process.env.SMTP_PORT || "587", 10),
-  //   process.env.SMTP_REQUIRE_TLS === "true",
-  //   process.env.SMTP_USER
-  // );
+    // console.log(
+    //   "process.env.SMTP_HOST",
+    //   process.env.SMTP_HOST,
+    //   process.env.SMTP_PORT,
+    //   parseInt(process.env.SMTP_PORT || "587", 10),
+    //   process.env.SMTP_REQUIRE_TLS === "true",
+    //   process.env.SMTP_USER
+    // );
 
-  const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST || "smtp.office365.com",
-    port: parseInt(process.env.SMTP_PORT || "587", 10),
-    // secureConnection: false,
-    secure: process.env.SMTP_SECURE === "true", // true for 465, false for other ports
-    requireTLS: process.env.SMTP_REQUIRE_TLS === "true",
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASSWORD,
-    },
-    tls: {
-      rejectUnauthorized: process.env.SMTP_TLS_REJECT_UNAUTHORIZED === "true",
-    },
-  });
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST || "smtp.office365.com",
+      port: parseInt(process.env.SMTP_PORT || "587", 10),
+      // secureConnection: false,
+      secure: process.env.SMTP_SECURE === "true", // true for 465, false for other ports
+      requireTLS: process.env.SMTP_REQUIRE_TLS === "true",
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASSWORD,
+      },
+      tls: {
+        rejectUnauthorized: process.env.SMTP_TLS_REJECT_UNAUTHORIZED === "true",
+      },
+    });
 
-  // Wrap in an async IIFE so we can use await.
-  await (async () => {
-    const info = await transporter.sendMail({
-      from: '"Michael Riegler" <office@synergiemontagen.eco>',
-      to: sendToUsers.map((user) => user.emailAddress).join(", "),
-      subject: "Neue Nachricht auf Synergiemontagen erhalten",
-      text: `"${messages[0].message}" von ${
-        messages[0].sentByUserId?.firstName ||
-        messages[0].sentByUserId?.lastName
-          ? `${messages[0].sentByUserId?.firstName || ""} ${messages[0].sentByUserId?.lastName || ""}`.trim()
-          : "Unbekannter Benutzer"
-      } gesendet.`, // plain‑text body
-      html: `
+    // Wrap in an async IIFE so we can use await.
+    await (async () => {
+      const info = await transporter.sendMail({
+        from: '"Michael Riegler" <office@synergiemontagen.eco>',
+        to: sendToUsers.map((user) => user.emailAddress).join(", "),
+        subject: "Neue Nachricht auf Synergiemontagen erhalten",
+        text: `"${messages[0].message}" von ${
+          messages[0].sentByUserId?.firstName ||
+          messages[0].sentByUserId?.lastName
+            ? `${messages[0].sentByUserId?.firstName || ""} ${messages[0].sentByUserId?.lastName || ""}`.trim()
+            : "Unbekannter Benutzer"
+        } gesendet.`, // plain‑text body
+        html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
       <div style="text-align: center; margin-bottom: 20px;">
       <img src="https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/icons/Flyer%20Synergie%20B2C%20v1.svg" alt="Projekt-Logo" style="max-width: 300px; margin-bottom: 10px;" />
@@ -266,10 +267,11 @@ export const sendMessageNotification = async (
       </div>
       </div>
       `,
-    });
+      });
 
-    console.log("Message sent:", info.messageId);
-  })();
+      console.log("Message sent:", info.messageId);
+    })();
+  }
 
   // console.log("sendToUsers", sendToUsers);
 };

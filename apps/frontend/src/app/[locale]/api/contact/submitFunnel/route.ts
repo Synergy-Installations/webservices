@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
       margin: 0;
       padding: 0;
       background-color: #f4f4f4;
-      color: #333;
+      color: #ffffff;
     }
     .email-container {
       max-width: 600px;

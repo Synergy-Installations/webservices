@@ -2086,9 +2086,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "requiredMessage": "This field is required",
-                  "successMessage": "Thank you for your input",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "buttons": {
@@ -2153,9 +2153,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "trapez": {
@@ -2328,9 +2328,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "Kurze Beschreibung",
@@ -2351,9 +2351,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "photovoltaic": {
@@ -2448,9 +2448,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "Kurze Beschreibung",
@@ -2470,9 +2470,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "requiredMessage": "This field is required",
-                  "successMessage": "Thank you for your input",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "buttons": {
@@ -2536,9 +2536,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "requiredMessage": "This field is required",
-                  "successMessage": "Thank you for your input",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "buttons": {
@@ -2602,9 +2602,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "",
@@ -2625,8 +2625,8 @@
                   "text": "Mit dem Hochladen Ihrer Dateien stimmen Sie unseren Datenschutzbestimmungen zu.",
                   "type": "info",
                   "successMessage": "Thank you for your upload",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Thank your for your input. Please resolve all error from previous forms"
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Thank your for your input. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "upload": {
@@ -2657,9 +2657,9 @@
                 "message": {
                   "text": "Only valid Names are allowed",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "Enter your Name",
@@ -2678,9 +2678,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "Enter your Name",
@@ -2700,9 +2700,9 @@
                 "message": {
                   "text": "Only valid Names are allowed",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "photovoltaic": {
@@ -2797,9 +2797,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "Enter your Name",
@@ -2818,9 +2818,9 @@
                 "message": {
                   "text": "Only valid Names are allowed",
                   "type": "info",
-                  "requiredMessage": "This field is required",
-                  "successMessage": "Thank you for your input",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "buttons": {
@@ -2885,9 +2885,9 @@
                 "message": {
                   "text": "Only valid Names are allowed",
                   "type": "info",
-                  "requiredMessage": "This field is required",
-                  "successMessage": "Thank you for your input",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "photovoltaic": {
@@ -2983,9 +2983,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "inputForm": {
@@ -3018,9 +3018,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "photovoltaic": {
@@ -3051,9 +3051,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "photovoltaic": {
@@ -3084,9 +3084,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "photovoltaic": {
@@ -3124,9 +3124,9 @@
                 "message": {
                   "text": "Only valid Names are allowed",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "photovoltaic": {
@@ -3221,9 +3221,9 @@
                 "message": {
                   "text": "Only valid Names are allowed",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "photovoltaic": {
@@ -3326,9 +3326,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "Firmenname",
@@ -3347,9 +3347,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "E-Mail",
@@ -3368,9 +3368,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "Telefonnummer",
@@ -3389,9 +3389,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "Provide your project details",
@@ -3414,9 +3414,9 @@
                 "message": {
                   "text": "If none apply, select \"Other\"",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "please-select": {
@@ -3499,9 +3499,9 @@
                 "message": {
                   "text": "If none apply, select \"Other\"",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "Search-Engine": {
@@ -3574,9 +3574,9 @@
                 "message": {
                   "text": "Only valid Search Engines are allowed",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "Enter the Search Engine",
@@ -3595,9 +3595,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "Datum der Montage (Montageplan folgt in Kürze)",
@@ -3616,9 +3616,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "",
@@ -3637,9 +3637,9 @@
                 "message": {
                   "text": "Only book an appointment if you already know the date and time",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "embed": {

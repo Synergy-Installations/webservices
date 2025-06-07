@@ -571,7 +571,7 @@
               "height": "24"
             },
             "image": {
-              "src": "/frontend/landingPage/FeatureAdvantages/Family.jpeg",
+              "src": "/frontend/landingPage/FeatureAdvantages/Money_coins_electronics.jpg",
               "alt": "Synergy family",
               "width": "800",
               "height": "620"
@@ -593,7 +593,7 @@
               "height": "24"
             },
             "image": {
-              "src": "/frontend/landingPage/FeatureAdvantages/Family.jpeg",
+              "src": "/frontend/landingPage/FeatureAdvantages/Together_future_buildings.jpg",
               "alt": "Synergy family",
               "width": "800",
               "height": "620"
@@ -906,7 +906,7 @@
           "href": "/contact-us"
         },
         "buttonRight": {
-          "text": "Buchen Sie Ihre PV-Montage",
+          "text": "Material vorhanden, buchen Sie Ihre PV Montage ",
           "href": "/contact-us-funnel"
         },
         "productPreviewSmall": {
@@ -995,16 +995,20 @@
           "productIdentifier": "Photovoltaik",
           "title": "Sparen und unabhängig vom Strompreis sein",
           "description": "Mit PV-Anlage & Stromspeicher<br></br>Attraktive Marktentwicklungen befördern die zweckmäßige<br></br>Anschaffung<br></br>Solarmodule Preise sind seit Ende 2022 um bis zu 40 Prozent gesunken.<br></br>Auch Stromspeicher sind in 2 Jahren von ca. 1000 Euro pro kWh auf 500 bis 700 € pro kWh gefallen.",
-          "button": {
+          "buttonLeft": {
             "text": "Jetzt Anfragen",
             "href": "/contact-us"
+          },
+          "buttonRight": {
+            "text": "Material vorhanden, buchen Sie Ihre PV Montage",
+            "href": "/contact-us-funnel"
           },
           "boxesTop": {
             "boxOne": {
               "title": "Geld sparen",
               "description": "Amortisierung in bis zu 7 Jahren",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/solar-panel-sun_15865230%20blau.svg",
                 "alt": "Eco Charging",
                 "width": "16",
                 "height": "16"
@@ -1014,7 +1018,7 @@
               "title": "Autarkie",
               "description": "Mit hohem Eigenverbrauch Netzunabhängigkeit erhöhen",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/solar-panel-sun_15865230%20blau.svg",
                 "alt": "Eco Charging",
                 "width": "16",
                 "height": "16"
@@ -1026,17 +1030,17 @@
               "title": "Hochleistungsmodule",
               "description": "Leistungsstarke Qualitätsmodule inklusive Verschattungsmanagement",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/solar-panel-sun_15865230%20blau.svg",
                 "alt": "Eco Charging",
-                "width": "40",
-                "height": "40"
+                "width": "24",
+                "height": "24"
               }
             },
             "boxTwo": {
               "title": "Maßgeschneiderte PV-Anlage",
               "description": "für alle Arten von Dächern",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/solar-panel-sun_15865230%20blau.svg",
                 "alt": "Eco Charging",
                 "width": "24",
                 "height": "24"
@@ -1046,7 +1050,7 @@
               "title": "Ansprechende Optik",
               "description": "Full-Black Module für ästhetisches, schwarzes Design",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/solar-panel-sun_15865230%20blau.svg",
                 "alt": "Eco Charging",
                 "width": "24",
                 "height": "24"
@@ -1056,7 +1060,7 @@
               "title": "In 6 Wochen installiert",
               "description": "Im Schnitt sind wir so flink von Anfrage bis zur Installation",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/solar-panel-sun_15865230%20blau.svg",
                 "alt": "Eco Charging",
                 "width": "24",
                 "height": "24"
@@ -1076,7 +1080,7 @@
           "productIdentifier": "Wärmepumpe",
           "title": "Intelligent und smart heizen mit Wärmepumpen",
           "description": "Die Online Wettersteuerung ermöglicht, die Heizleistung für die nächsten Stunden und Tage vorausschauend anzupassen. Steht ein sonniger Tag bevor, wird der Heizbetrieb rechtzeitig gesenkt. Und in Erwartung einer klirrenden Frostnacht wird die Heizleistung früh genug erhöht.",
-          "button": {
+          "buttonLeft": {
             "text": "Jetzt Anfragen",
             "href": "/contact-us"
           },
@@ -1085,7 +1089,7 @@
               "title": "Rasche Umsetzung Österreichweit",
               "description": "verfügbar",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/Heizen%20temperature-list_17511602%20blau-1.svg",
                 "alt": "Eco Charging",
                 "width": "16",
                 "height": "16"
@@ -1095,7 +1099,7 @@
               "title": "Förderung bequem abwickeln",
               "description": "Von 70% bis 100% Förderung erhalten",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/Heizen%20temperature-list_17511602%20blau-1.svg",
                 "alt": "Eco Charging",
                 "width": "16",
                 "height": "16"
@@ -1107,17 +1111,17 @@
               "title": "Wirkungsgrad",
               "description": "4x effizienter als Öl & Gas",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/Heizen%20temperature-list_17511602%20blau-1.svg",
                 "alt": "Eco Charging",
-                "width": "40",
-                "height": "40"
+                "width": "24",
+                "height": "24"
               }
             },
             "boxThree": {
               "title": "Geringere Heizkosten",
               "description": "Sparen Sie bis zu 40% der jährlichen Heizkosten.",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/Heizen%20temperature-list_17511602%20blau-1.svg",
                 "alt": "Eco Charging",
                 "width": "24",
                 "height": "24"
@@ -1127,7 +1131,7 @@
               "title": "Unabhängig von Öl & Gas",
               "description": "Machen Sie sich unabhängig von importierten Rohstoffen.",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/Heizen%20temperature-list_17511602%20blau-1.svg",
                 "alt": "Eco Charging",
                 "width": "24",
                 "height": "24"
@@ -1147,7 +1151,7 @@
           "productIdentifier": "Klimaanlage",
           "title": "Komfortables Wohnen bei zunehmenden Hitzetagen",
           "description": "Vielfach erleben wir eine klare Tendenz zu heißeren Sommern und häufigeren Hitzewellen.<br></br>Um die Auswirkungen von Hitze auf das tägliche Leben und die Gesundheit zu optimieren, ist eine Klimaanlage sinnvoll.",
-          "button": {
+          "buttonLeft": {
             "text": "Jetzt Anfragen",
             "href": "/contact-us"
           },
@@ -1156,7 +1160,7 @@
               "title": "Höheres Komfortniveau",
               "description": "Kühlen, entfeuchten und Luft reinigen für besseres Wohlbefinden",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/Klimaanlage_7857364%20blau-1.svg",
                 "alt": "Eco Charging",
                 "width": "16",
                 "height": "16"
@@ -1166,7 +1170,7 @@
               "title": "Sehr leiser Betrieb",
               "description": "Im leisen Modus ca. 20-40 dB(A) so laut wie sehr leises Flüstern",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/Klimaanlage_7857364%20blau-1.svg",
                 "alt": "Eco Charging",
                 "width": "16",
                 "height": "16"
@@ -1178,17 +1182,17 @@
               "title": "Verbesserte Luftfilterung",
               "description": "Fortschrittliche Filtersysteme können Allergene, Feinstaub und sogar Viren effektiver aus der Luft entfernen",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/Klimaanlage_7857364%20blau-1.svg",
                 "alt": "Eco Charging",
-                "width": "40",
-                "height": "40"
+                "width": "24",
+                "height": "24"
               }
             },
             "boxTwo": {
               "title": "Bessere Schlafqualität",
               "description": "Eine angenehme Raumtemperatur ist wichtig für einen erholsamen Schlaf.",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/Klimaanlage_7857364%20blau-1.svg",
                 "alt": "Eco Charging",
                 "width": "24",
                 "height": "24"
@@ -1198,7 +1202,7 @@
               "title": "Bessere Raumluftfeuchtigkeit",
               "description": "Klimaanlagen können nicht nur die Temperatur, sondern auch die Luftfeuchtigkeit regulieren",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/Klimaanlage_7857364%20blau-1.svg",
                 "alt": "Eco Charging",
                 "width": "24",
                 "height": "24"
@@ -1208,7 +1212,7 @@
               "title": "Moderne Klimaanlagen",
               "description": "sind deutlich energieeffizienter geworden",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/Klimaanlage_7857364%20blau-1.svg",
                 "alt": "Eco Charging",
                 "width": "24",
                 "height": "24"
@@ -1227,8 +1231,8 @@
           "sectionIdentifier": "smart-home",
           "productIdentifier": "Smart Home",
           "title": "Lösungen für Komfort, Licht und Energiemanagement",
-          "description": "(Lorem Ipsum) Die Online Wettersteuerung ermöglicht, die Heizleistung für die nächsten Stunden und Tage vorausschauend anzupassen. Steht ein sonniger Tag bevor, wird der Heizbetrieb rechtzeitig gesenkt. Und in Erwartung einer klirrenden Frostnacht wird die Heizleistung früh genug erhöht.",
-          "button": {
+          "description": "Die Online Wettersteuerung ermöglicht, die Heizleistung für die nächsten Stunden und Tage vorausschauend anzupassen. Steht ein sonniger Tag bevor, wird der Heizbetrieb rechtzeitig gesenkt. Und in Erwartung einer klirrenden Frostnacht wird die Heizleistung früh genug erhöht.",
+          "buttonLeft": {
             "text": "Jetzt Anfragen",
             "href": "/contact-us"
           },
@@ -1238,17 +1242,17 @@
               "title": "Automatisierung von Alltagsabläufen",
               "description": "Sparen Sie Zeit und beeindrucken Sie Ihre Gäste mit coolen Smart Home Features",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/Smart%20Home%20house-signal_11270047%20blau.svg",
                 "alt": "Eco Charging",
-                "width": "40",
-                "height": "40"
+                "width": "24",
+                "height": "24"
               }
             },
             "boxThree": {
               "title": "Fernsteuerung von Geräten",
               "description": "Über eine App auf dem Smartphone oder Tablet lassen sich Geräte im Haus auch von unterwegs steuern",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/Smart%20Home%20house-signal_11270047%20blau.svg",
                 "alt": "Eco Charging",
                 "width": "24",
                 "height": "24"
@@ -1258,7 +1262,7 @@
               "title": "Flexibilität und Erweiterbarkeit",
               "description": "Starten Sie günstig und bei Bedarf erweitern wir Ihr System easy und flexibel",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/Smart%20Home%20house-signal_11270047%20blau.svg",
                 "alt": "Eco Charging",
                 "width": "24",
                 "height": "24"
@@ -1278,7 +1282,7 @@
           "productIdentifier": "Energiemanagement & Stromspeicher",
           "title": "Energiefluss jederzeit im Griff",
           "description": "bei dynamischen Tarifen und maximalem Eigenverbrauch",
-          "button": {
+          "buttonLeft": {
             "text": "Jetzt Anfragen",
             "href": "/contact-us"
           },
@@ -1287,7 +1291,7 @@
               "title": "Optimale Verteilung und Nutzung",
               "description": "der selbst erzeugten Energie im Haushalt",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/Stromspeicher_9236322%20blau.svg",
                 "alt": "Eco Charging",
                 "width": "16",
                 "height": "16"
@@ -1297,7 +1301,7 @@
               "title": "Erhöht Ihren Energie Eigenverbrauch",
               "description": "von ca. 30 % auf bis zu 98%.",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/Stromspeicher_9236322%20blau.svg",
                 "alt": "Eco Charging",
                 "width": "16",
                 "height": "16"
@@ -1309,17 +1313,17 @@
               "title": "Intelligenz & KI",
               "description": "Wetterdaten und dynamische Stromtarife kombinieren",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/Stromspeicher_9236322%20blau.svg",
                 "alt": "Eco Charging",
-                "width": "40",
-                "height": "40"
+                "width": "24",
+                "height": "24"
               }
             },
             "boxTwo": {
               "title": "Größere Unabhängigkeit",
               "description": "vom öffentlichen Stromnetz und schwankenden Strompreisen",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/Stromspeicher_9236322%20blau.svg",
                 "alt": "Eco Charging",
                 "width": "24",
                 "height": "24"
@@ -1329,7 +1333,7 @@
               "title": "Herstellerunabhängige Steuerung",
               "description": "Kompatibilität mit verschiedenen Verbrauchern wie Elektroheizstäben, Wärmepumpen und Wallboxen",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/Stromspeicher_9236322%20blau.svg",
                 "alt": "Eco Charging",
                 "width": "24",
                 "height": "24"
@@ -1339,7 +1343,7 @@
               "title": "Klimafreundlichkeit",
               "description": "Optimierung der PV-Anlage zur Unterstützung der Umwelt",
               "icon": {
-                "src": "/frontend/landingPage/icons/eco-charging.svg",
+                "src": "/frontend/landingPage/icons/Stromspeicher_9236322%20blau.svg",
                 "alt": "Eco Charging",
                 "width": "24",
                 "height": "24"
@@ -1359,7 +1363,7 @@
           "productIdentifier": "Wallboxen",
           "title": "Nie wieder tanken",
           "description": "Dank der eignen Wallbox",
-          "button": {
+          "buttonLeft": {
             "text": "Jetzt Anfragen",
             "href": "/contact-us"
           },
@@ -1392,8 +1396,8 @@
               "icon": {
                 "src": "/frontend/landingPage/icons/eco-charging.svg",
                 "alt": "Eco Charging",
-                "width": "40",
-                "height": "40"
+                "width": "25",
+                "height": "25"
               }
             },
             "boxThree": {
@@ -1436,7 +1440,7 @@
         }
       },
       "AboutUsCard": {
-        "cardIdentifier": "Energie endlich gunstig",
+        "cardIdentifier": "Energie endlich günstig",
         "title": "Vom Handwerker mit Handschlagqualität",
         "description": "Zuverlässigkeit, Entgegenkommen, persönliche und vertrauensvolle Firma.",
         "boxes": {
@@ -1466,7 +1470,7 @@
               "height": "40"
             },
             "image": {
-              "src": "/frontend/landingPage/AboutUsCard/Familie.jpeg",
+              "src": "/frontend/landingPage/FeatureAdvantages/Money_coins_electronics.jpg",
               "alt": "Photovoltaic",
               "width": "500",
               "height": "500"
@@ -1482,7 +1486,7 @@
               "height": "40"
             },
             "image": {
-              "src": "/frontend/landingPage/AboutUsCard/Familie.jpeg",
+              "src": "/frontend/landingPage/FeatureAdvantages/Together_future_buildings.jpg",
               "alt": "Photovoltaic",
               "width": "500",
               "height": "500"
@@ -1493,7 +1497,7 @@
       "PackagesCard": {
         "cardIdentifier": "Sparen",
         "title": "Häufig kombinierte Produkte in <br></br> Paketen",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "description": "Sparen Sie clever mit unseren Produktpaketen! Wir haben beliebte Artikel für Sie gebündelt, damit Sie von attraktiven Rabatten profitieren können.",
         "pricingTables": {
           "pricingTableOne": {
             "featured": "false",
@@ -2082,9 +2086,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "requiredMessage": "This field is required",
-                  "successMessage": "Thank you for your input",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "buttons": {
@@ -2149,9 +2153,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "trapez": {
@@ -2324,9 +2328,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "Kurze Beschreibung",
@@ -2347,9 +2351,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "photovoltaic": {
@@ -2444,9 +2448,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "Kurze Beschreibung",
@@ -2466,9 +2470,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "requiredMessage": "This field is required",
-                  "successMessage": "Thank you for your input",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "buttons": {
@@ -2532,9 +2536,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "requiredMessage": "This field is required",
-                  "successMessage": "Thank you for your input",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "buttons": {
@@ -2598,9 +2602,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "",
@@ -2621,8 +2625,8 @@
                   "text": "Mit dem Hochladen Ihrer Dateien stimmen Sie unseren Datenschutzbestimmungen zu.",
                   "type": "info",
                   "successMessage": "Thank you for your upload",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Thank your for your input. Please resolve all error from previous forms"
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Thank your for your input. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "upload": {
@@ -2653,9 +2657,9 @@
                 "message": {
                   "text": "Only valid Names are allowed",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "Enter your Name",
@@ -2674,9 +2678,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "Enter your Name",
@@ -2696,9 +2700,9 @@
                 "message": {
                   "text": "Only valid Names are allowed",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "photovoltaic": {
@@ -2793,9 +2797,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "Enter your Name",
@@ -2814,9 +2818,9 @@
                 "message": {
                   "text": "Only valid Names are allowed",
                   "type": "info",
-                  "requiredMessage": "This field is required",
-                  "successMessage": "Thank you for your input",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "buttons": {
@@ -2881,9 +2885,9 @@
                 "message": {
                   "text": "Only valid Names are allowed",
                   "type": "info",
-                  "requiredMessage": "This field is required",
-                  "successMessage": "Thank you for your input",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "photovoltaic": {
@@ -2979,9 +2983,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "inputForm": {
@@ -3014,9 +3018,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "photovoltaic": {
@@ -3047,9 +3051,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "photovoltaic": {
@@ -3080,9 +3084,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "photovoltaic": {
@@ -3120,9 +3124,9 @@
                 "message": {
                   "text": "Only valid Names are allowed",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "photovoltaic": {
@@ -3217,9 +3221,9 @@
                 "message": {
                   "text": "Only valid Names are allowed",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "photovoltaic": {
@@ -3322,9 +3326,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "Firmenname",
@@ -3343,9 +3347,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "E-Mail",
@@ -3364,9 +3368,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "Telefonnummer",
@@ -3385,9 +3389,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "Provide your project details",
@@ -3410,9 +3414,9 @@
                 "message": {
                   "text": "If none apply, select \"Other\"",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "please-select": {
@@ -3495,9 +3499,9 @@
                 "message": {
                   "text": "If none apply, select \"Other\"",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "Search-Engine": {
@@ -3570,9 +3574,9 @@
                 "message": {
                   "text": "Only valid Search Engines are allowed",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "Enter the Search Engine",
@@ -3591,9 +3595,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "Datum der Montage (Montageplan folgt in Kürze)",
@@ -3612,9 +3616,9 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "label": "",
@@ -3633,9 +3637,9 @@
                 "message": {
                   "text": "Only book an appointment if you already know the date and time",
                   "type": "info",
-                  "successMessage": "Thank you for your input",
-                  "requiredMessage": "This field is required",
-                  "checkPreviousFormsMessage": "Please resolve all error from previous forms"
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "embed": {

@@ -46,7 +46,7 @@ export const StepSubmit = (props: StepSubmitProps) => {
     } else {
       debouncedResetSaveEditStepToggle();
     }
-  }, 50);
+  }, 100);
 
   useEffect(() => {
     debouncedResetSaveEditStepToggle();

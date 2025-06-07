@@ -907,7 +907,7 @@
         },
         "buttonRight": {
           "text": "Material vorhanden, buchen Sie Ihre PV Montage ",
-          "href": "/contact-us-funnel"
+          "href": "/funnel/photovoltaik"
         },
         "productPreviewSmall": {
           "photovoltaic": {
@@ -1001,7 +1001,7 @@
           },
           "buttonRight": {
             "text": "Material vorhanden, buchen Sie Ihre PV Montage",
-            "href": "/contact-us-funnel"
+            "href": "/funnel/photovoltaik"
           },
           "boxesTop": {
             "boxOne": {

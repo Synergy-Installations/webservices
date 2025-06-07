@@ -10,6 +10,7 @@ import {
   type ConsentManagerOptions,
   // @ts-ignore
 } from "@c15t/react";
+import YandexTag from "@com.synergy/frontend-ui/YandexTag";
 
 export const metadata: Metadata = {
   title: "",
@@ -32,7 +33,9 @@ export default async function RootLayout({
     <ConsentManagerProvider options={options}>
       <ClerkProvider>
         <html lang={locale} className="scroll-smooth">
-          <body className="relative">{children}</body>
+          <YandexTag>
+            <body className="relative">{children}</body>
+          </YandexTag>
           <CookieBanner
             title="Ihr Datenschutz ist uns wichtig"
             description="Diese Website verwendet Cookies, um Ihr Surferlebnis zu verbessern, den Website-Traffic zu analysieren und personalisierte Inhalte anzuzeigen."

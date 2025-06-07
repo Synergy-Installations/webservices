@@ -31,7 +31,7 @@ export const FunnelLayout = (props: FunnelLayoutProps) => {
           </div>
         </div>
       </section>
-      <ContactBlocks />
+      {/* <ContactBlocks /> */}
       <ContactCommunity />
     </>
   );

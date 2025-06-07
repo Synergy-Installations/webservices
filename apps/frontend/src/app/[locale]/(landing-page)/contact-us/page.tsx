@@ -45,7 +45,7 @@ export default function Page(): JSX.Element {
         </div>
       </section>
 
-      <ContactBlocks />
+      {/* <ContactBlocks /> */}
       {/* <ContactCommunity /> */}
     </>
   );

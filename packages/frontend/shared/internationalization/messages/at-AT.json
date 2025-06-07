@@ -906,7 +906,7 @@
           "href": "/contact-us"
         },
         "buttonRight": {
-          "text": "Material vorhanden, buchen Sie Ihre PV Montage ",
+          "text": "Buchen Sie Ihre PV Montage",
           "href": "/funnel/photovoltaik"
         },
         "productPreviewSmall": {
@@ -1000,7 +1000,7 @@
             "href": "/contact-us"
           },
           "buttonRight": {
-            "text": "Material vorhanden, buchen Sie Ihre PV Montage",
+            "text": "Buchen Sie Ihre PV Montage",
             "href": "/funnel/photovoltaik"
           },
           "boxesTop": {
@@ -3688,21 +3688,23 @@
     "Focus": {
       "Photovoltaic": {
         "Hero": {
-          "titleUpper": "Ihre neue Photovoltaik Anlage:",
+          "titleUpper": "Ihre Zukunft beginnt mit Sonnenenergie:",
           "titleLower": "unabhängig, preissicher & qualitativ sorglos",
-          "description": "Wir realisieren Ihre maßgeschneiderte Photovoltaik-Anlage – von der Planung bis zur Inbetriebnahme, alles aus einer Hand und perfekt auf Ihre Bedürfnisse abgestimmt.",
+          "description": "Schluss mit hohen Stromrechnungen – starten Sie jetzt Ihre Energiewende mit Sonnenkraft.",
           "backgroundImage": {
             "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
             "alt": "Photovoltaik"
           },
           "button": {
-            "text": "Jetzt kostenlose Vor-Ort-Beratung vereinbaren",
-            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+            "text": "Jetzt kostenlose Vor-Ort-Beratung sichern",
+            "href": "/kontakt"
           }
         },
         "Components": {
-          "title": "Warum jetzt? Warum wir?",
-          "description": "Sie denken über eine Photovoltaik-Anlage nach, möchten aber keine komplizierte Planung und langwierige Umsetzung? Dann sind Sie bei uns richtig. Wir planen, koordinieren und realisieren Ihre maßgeschneiderte Solaranlage – effizient, zuverlässig und mit Expertise.",
+          "titleOne": "Warum jetzt? Warum wir?",
+          "descriptionOne": "Strompreise steigen, Materialkosten sinken, Fördermittel verfügbar und jede Kilowattstunde produziert Geld - Jetzt ist Ihr Zeitpunkt.",
+          "titleTwo": "Warum wir?",
+          "descriptionTwo": "Sie bekommen von uns eine maßgeschneiderte Lösung mit Handschlagqualität, persönlicher Beratung und einer Umsetzung, die hält, was sie verspricht.",
           "boxes": {
             "solar-panels": {
               "title": "Rundum-Sorglos-Paket",
@@ -3735,21 +3737,23 @@
             "boxLeft": {
               "title": "Was Sie erwarten können:",
               "list": {
-                "itemOne": "Eigene Energie produzieren, Stromkosten senken.",
-                "itemTwo": "Nachhaltig handeln, CO₂-Fußabdruck reduzieren.",
-                "itemThree": "Moderne PV-Anlage als Zukunftsinvestition.",
-                "itemFour": "Passend zu Dach, Bedarf & Budget.",
-                "itemFive": "Effizient, langlebig, förderfähig."
+                "itemOne": "Effektive Stromkostenersparnis garantiert",
+                "itemTwo": "Aktiver Umweltschutz durch Solarenergie",
+                "itemThree": "Spürbare Wertsteigerung Ihrer Immobilie",
+                "itemFour": "Maßgeschneiderte Lösungen für Ihr Eigenheim",
+                "itemFive": "Zukunftssichere Methoden und Technologien",
+                "itemSix": "Unschlagbarer Kundenservice rundum"
               }
             },
             "boxRight": {
-              "title": "In 5 einfachen Schritten zur eigenen PV-Anlage:",
+              "title": "In 6 einfachen Schritten zur eigenen PV-Anlage:",
               "list": {
-                "itemOne": "Rückmeldung innerhalb 24h – Angebot in weiteren 24h.",
-                "itemTwo": "Persönliche Analyse Ihrer Gegebenheiten & Ziele.",
-                "itemThree": "Maßgeschneidertes System inkl. Wirtschaftlichkeitscheck.",
-                "itemFour": "Transparente Kosten + Unterstützung bei allen Anträgen.",
-                "itemFive": "Schnell, sauber, alles aus einer Hand – in wenigen Tagen betriebsbereit."
+                "itemOne": "Rückmeldung innerhalb einem Werktag",
+                "itemTwo": "Persönliche Analyse Ihrer Gegebenheiten und Ziele",
+                "itemThree": "Individuelle Planung mit Wirtschaftlichkeitscheck",
+                "itemFour": "Kostentransparenz und Unterstützung bei allen Anträgen",
+                "itemFive": "Schnell, sauber, alles aus einer Hand",
+                "itemSix": "Betriebsbereit nach wenigen Tagen"
               }
             }
           }

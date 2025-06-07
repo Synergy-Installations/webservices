@@ -302,6 +302,9 @@ importers:
       next-intl:
         specifier: ^3.26.0
         version: 3.26.5(next@14.2.28)(react@18.3.1)
+      next-yandex-metrica:
+        specifier: ^1.1.2
+        version: 1.1.2(next@14.2.28)(react@18.3.1)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -7467,6 +7470,16 @@ packages:
       next: 14.2.28(@opentelemetry/api@1.8.0)(react-dom@18.3.1)(react@18.3.1)
       react: 18.3.1
       use-intl: 3.26.5(react@18.3.1)
+    dev: false
+
+  /next-yandex-metrica@1.1.2(next@14.2.28)(react@18.3.1):
+    resolution: {integrity: sha512-gHlf3qTFY1PMyk/hqLwKKGkIs5XUa+ALQQb2xcTLR9PKxoD35O5eCzR34LRwgCtdMyHunQ1VSyn33E1l9AOWDA==}
+    peerDependencies:
+      next: '>=11.0.0'
+      react: '>=17.0.0'
+    dependencies:
+      next: 14.2.28(@opentelemetry/api@1.8.0)(react-dom@18.3.1)(react@18.3.1)
+      react: 18.3.1
     dev: false
 
   /next@14.2.28(@opentelemetry/api@1.8.0)(react-dom@18.3.1)(react@18.3.1):

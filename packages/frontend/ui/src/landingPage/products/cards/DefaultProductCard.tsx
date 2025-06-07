@@ -31,7 +31,11 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
   let orientationRight = t(`${productKey}.orientation`) === "right";
 
   return (
-    <section id={t(`${productKey}.sectionIdentifier`)} className="mt-12 md:mt-20 mb-12 md:mb-20 scroll-m-16" data-aos-id-3>
+    <section
+      id={t(`${productKey}.sectionIdentifier`)}
+      className="mt-12 md:mt-20 mb-12 md:mb-20 scroll-m-16"
+      data-aos-id-3
+    >
       <div className="relative max-w-7xl mx-auto">
         {/* Bg */}
         <div
@@ -74,36 +78,48 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
 
                 {/* Button */}
                 <div
-                  className="max-w-xs mx-auto sm:max-w-none mb-8"
+                  className="max-w-xs mx-auto sm:max-w-none mb-8 grid gap-1"
                   // data-aos="fade-up"
                   // data-aos-anchor="[data-aos-id-3]"
                   // data-aos-delay="300"
                 >
-                  <div>
-                    <Link
-                      className="btn !rounded-xl !py-3 !text-base text-white backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue shadow-xl group"
-                      href={t(`${productKey}.button.href`)}
-                    >
-                      <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
-                        {t(`${productKey}.button.text`)}
-                        <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
-                          {"->"}
+                  <div className="flex flex-col items-center gap-2">
+                    <div className="w-full flex justify-center sm:justify-start">
+                      <Link
+                        className="btn !rounded-xl !py-3 !text-base text-white backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue shadow-xl group w-fit break-words text-center"
+                        href={t(`${productKey}.buttonLeft.href`)}
+                        style={{
+                          wordBreak: "break-word",
+                          whiteSpace: "normal",
+                        }}
+                      >
+                        <span className="relative w-fit inline-flex items-center justify-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5 break-words text-center">
+                          {t(`${productKey}.buttonLeft.text`)}
+                          <span className="tracking-normal whitespace-nowrap text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
+                            {"->"}
+                          </span>
                         </span>
-                      </span>
-                      {/* <span className="inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
-                        Jetzt Anfragen
-                        <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
-                          <svg
-                            className="fill-current"
-                            width="12"
-                            height="10"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M1 6.002h7.586L6.293 8.295a1 1 0 1 0 1.414 1.414l4-4a1 1 0 0 0 0-1.416l-4-4a1 1 0 0 0-1.414 1.416l2.293 2.293H1a1 1 0 1 0 0 2Z" />
-                          </svg>
-                        </span>
-                      </span> */}
-                    </Link>
+                      </Link>
+                    </div>
+                    {messages.LandingPage.Products.ProductCards[productKey]?.buttonRight && (
+                      <div className="w-full flex justify-center sm:justify-start">
+                        <Link
+                          className="btn !rounded-xl !py-3 !text-base text-white backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue shadow-xl group w-fit break-words text-center"
+                          href={t(`${productKey}.buttonRight.href`)}
+                          style={{
+                            wordBreak: "break-word",
+                            whiteSpace: "normal",
+                          }}
+                        >
+                          <span className="relative inline-flex items-center justify-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5 break-words text-center w-fit">
+                            {t(`${productKey}.buttonRight.text`)}
+                            <span className="tracking-normal whitespace-nowrap text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
+                              {"->"}
+                            </span>
+                          </span>
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 </div>
                 {/* Features blocks */}

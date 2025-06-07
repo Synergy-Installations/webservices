@@ -8,6 +8,7 @@
     "dist"
   ],
   "exports": {
+    "./YandexTag": "./src/landingPage/shared/layout/YandexTag.tsx",
     "./Icons": "./src/landingPage/focus/photovoltaic/shared/Icons.tsx",
     "./PhotovoltaicCta": "./src/landingPage/focus/photovoltaic/PhotovoltaicCta.tsx",
     "./PhotovoltaicTestimonials": "./src/landingPage/focus/photovoltaic/PhotovoltaicTestimonials.tsx",
@@ -176,6 +177,7 @@
     "motion": "^11.18.2",
     "next": "^14.2.26",
     "next-intl": "^3.26.0",
+    "next-yandex-metrica": "^1.1.2",
     "react-calendly": "^4.3.1",
     "react-dom-confetti": "^0.2.0",
     "react-dropzone": "^14.3.8",

@@ -8,6 +8,11 @@
     "dist"
   ],
   "exports": {
+    "./AuroraText": "./src/landingPage/shared/text/AuroraText.tsx",
+    "./BentoGridHero": "./src/landingPage/home/hero/BentoGridHero.tsx",
+    "./BentoCard": "./src/shared/bentoGrid/BentoCard.tsx",
+    "./BentoGrid": "./src/shared/bentoGrid/BentoGrid.tsx",
+    "./BentoGridHeroLayout": "./src/landingPage/home/hero/BentoGrid.tsx",
     "./YandexTag": "./src/landingPage/shared/layout/YandexTag.tsx",
     "./Icons": "./src/landingPage/focus/photovoltaic/shared/Icons.tsx",
     "./PhotovoltaicCta": "./src/landingPage/focus/photovoltaic/PhotovoltaicCta.tsx",
@@ -105,8 +110,6 @@
     "./AnimatedBeam": "./src/shared/animatedBeam/AnimatedBeam.tsx",
     "./ServiceCatalog": "./src/landingPage/home/serviceCatalog/ServiceCatalog.tsx",
     "./BentoButton": "./src/shared/bentoGrid/BentoButton.tsx",
-    "./BentoCard": "./src/shared/bentoGrid/BentoCard.tsx",
-    "./BentoGrid": "./src/shared/bentoGrid/BentoGrid.tsx",
     "./MarqueeTestimonials": "./src/landingPage/home/testimonials/MarqueeTestimonials.tsx",
     "./TestimonialCard": "./src/shared/marquee/TestimonialCard.tsx",
     "./Marquee": "./src/shared/marquee/Marquee.tsx",
@@ -183,6 +186,7 @@
     "react-dropzone": "^14.3.8",
     "react-floating-whatsapp": "^5.0.8",
     "react-select": "^5.10.1",
+    "swiper": "^11.2.8",
     "tailwind-merge": "^2.6.0"
   }
 }

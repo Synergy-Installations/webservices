@@ -21,14 +21,7 @@ export default function Page(): JSX.Element {
 
   return (
     <>
-      <Head>
-        <title>Synergiemontagen</title>
-        <meta
-          name="description"
-          content="Preisstabilität, Qualität und Zuverlässigkeit - Synergiemontagen ist Ihr Partner für professionelle Montagearbeiten."
-          key="desc"
-        />
-      </Head>
+      
       {/* <TracingBeam> */}
       <HeroFull />
       <ServiceCatalog />

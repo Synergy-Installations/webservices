@@ -8,13 +8,30 @@ import { PhotovoltaicComponents } from "@com.synergy/frontend-ui/PhotovoltaicCom
 import { PhotovoltaicBackground } from "@com.synergy/frontend-ui/PhotovoltaicBackground";
 import { PhotovoltaicTestimonials } from "@com.synergy/frontend-ui/PhotovoltaicTestimonials";
 import { PhotovoltaicCta } from "@com.synergy/frontend-ui/PhotovoltaicCta";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Fokus Photovoltaik – PV-Anlagen & Speicher | Synergie Montagen",
+  description:
+    "Ganzheitliche Photovoltaik-Komplettlösungen: Module, Wechselrichter, Speicher & Installation für maximale Effizienz.",
+  keywords: [
+    "Photovoltaik",
+    "PV-Anlage",
+    "Solar Speicher",
+    "Wechselrichter",
+    "PV Komplettlösung",
+  ],
+};
 
 export default function Page(): JSX.Element {
   const t = useTranslations("LandingPage.ContactUs.Header");
 
   return (
     <>
-      <meta name="keywords" content="Photovoltaik kaufen, PV-Anlage installieren lassen, Stromkosten sparen, Förderung Photovoltaik" />
+      <meta
+        name="keywords"
+        content="Photovoltaik kaufen, PV-Anlage installieren lassen, Stromkosten sparen, Förderung Photovoltaik"
+      />
       <PhotovoltaicHero />
       <PhotovoltaicComponents />
       <PhotovoltaicBackground />

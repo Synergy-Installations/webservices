@@ -10,8 +10,32 @@ import DefaultLayout from "@com.synergy/frontend-ui/DefaultLayout";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "",
-  description: "",
+  metadataBase: new URL("https://synergiemontagen.eco"),
+  title: {
+    default:
+      "Synergiemontagen – Photovoltaik & Haustechnik in Wien und Niederösterreich",
+    template: "%s | Synergiemontagen",
+  },
+  description:
+    "Nachhaltige Photovoltaik-, Wärmepumpen-, Smart‑Home‑ und Wallbox‑Lösungen in Wien und Niederösterreich. Persönliche Beratung & Handschlagqualität vom jungen, dynamischen Team.",
+    keywords: ['Synergie Montagen', 'Photovoltaik', 'Wärmepumpe', 'Smart Home', 'Wallbox', 'Energiesysteme'],
+  openGraph: {
+    title: "Synergiemontagen – Photovoltaik & Haustechnik in Wien",
+    description:
+      "Nachhaltige PV-, Wärme-, Klima- und Smart‑Home‑Lösungen mit Handschlagqualität. Individuelle Beratung & Förderung inklusive.",
+    url: "https://synergiemontagen.eco",
+    siteName: "Synergiemontagen",
+    images: [
+      {
+        url: "/frontend/landingPage/Hero/house-technical-illustration-3.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Photovoltaik Installation von Synergiemontagen in Wien",
+      },
+    ],
+    locale: "at_AT",
+    type: "website",
+  },
 };
 
 export default async function RootLayout({

@@ -3896,7 +3896,83 @@
           "products": {
             "text": "Produkte",
             "href": "/products",
-            "children": ""
+            "children": {
+              "title": "Unsere Produkte",
+              "list": {
+                "productOne": {
+                  "title": "Photovoltaik & Stromspeicher",
+                  "imageSrc": "/images/categories/photovoltaik-stromspeicher.jpg",
+                  "alt": "Photovoltaik Module mit Speicher",
+                  "href": "/photovoltaik-stromspeicher"
+                },
+                "productTwo": {
+                  "title": "Wärmepumpen",
+                  "imageSrc": "/images/categories/waermepumpen.jpg",
+                  "alt": "Wärmepumpe Gerät",
+                  "href": "/waermepumpen"
+                },
+                "productThree": {
+                  "title": "Klimasysteme",
+                  "imageSrc": "/images/categories/klimasysteme.jpg",
+                  "alt": "Klimaanlage",
+                  "href": "/klimasysteme"
+                },
+                "productFour": {
+                  "title": "Smart Home & Energie-Management",
+                  "imageSrc": "/images/categories/smart-home-energie.jpg",
+                  "alt": "Smart Home System",
+                  "href": "/smart-home-energie"
+                },
+                "productFive": {
+                  "title": "Energiegemeinschaften",
+                  "imageSrc": "/images/categories/energiegemeinschaften.jpg",
+                  "alt": "Energiegemeinschaften",
+                  "href": "/energiegemeinschaften"
+                },
+                "productSix": {
+                  "title": "Autarke Warmwasser-Erzeugung",
+                  "imageSrc": "/images/categories/warmwasser.jpg",
+                  "alt": "Warmwasser Erzeugung",
+                  "href": "/warmwasser"
+                },
+                "productSeven": {
+                  "title": "Notstrom-Versorgung",
+                  "imageSrc": "/images/categories/notstrom.jpg",
+                  "alt": "Notstrom Versorgung",
+                  "href": "/notstrom"
+                },
+                "productEight": {
+                  "title": "Balkonkraftwerk Basic",
+                  "imageSrc": "/images/categories/balkonkraftwerk.jpg",
+                  "alt": "Balkonkraftwerk",
+                  "href": "/balkonkraftwerk"
+                },
+                "productNine": {
+                  "title": "Komplettpaket 4,5 kWp",
+                  "imageSrc": "/images/categories/komplettpaket.jpg",
+                  "alt": "Komplettpaket Anlage",
+                  "href": "/komplettpaket"
+                },
+                "productTen": {
+                  "title": "Wartung & Service",
+                  "imageSrc": "/images/categories/wartung-service.jpg",
+                  "alt": "Wartung und Service",
+                  "href": "/wartung-service"
+                },
+                "productEleven": {
+                  "title": "Energiekosten-Beratung",
+                  "imageSrc": "/images/categories/energiekosten-beratung.jpg",
+                  "alt": "Energiekosten Beratung",
+                  "href": "/energiekosten-beratung"
+                },
+                "productTwelve": {
+                  "title": "Stromtankstelle",
+                  "imageSrc": "/images/categories/stromtankstelle.jpg",
+                  "alt": "Stromtankstelle",
+                  "href": "/stromtankstelle"
+                }
+              }
+            }
           },
           "B2B": {
             "text": "B2B",
@@ -3907,13 +3983,16 @@
             "text": "Leistungen",
             "href": "",
             "children": {
-              "featuresTwo": {
-                "text": "Energiekostenberatung",
-                "href": "/energiekostenberatung"
-              },
-              "featuresThree": {
-                "text": "Energiegemeinschaften",
-                "href": "/energiegemeinschaft"
+              "title": "Unsere Leistungen",
+              "list": {
+                "featuresTwo": {
+                  "title": "Energiekostenberatung",
+                  "href": "/energiekostenberatung"
+                },
+                "featuresThree": {
+                  "title": "Energiegemeinschaften",
+                  "href": "/energiegemeinschaft"
+                }
               }
             }
           },

@@ -126,17 +126,17 @@ export const MobileMenu = (props: MobileMenuProps) => {
                     </Link>
                   )}
                 </li>
-                {getNavChildrenKeys(navKey).map((childKey, index) => (
+                {/* {getNavChildrenKeys(navKey).map((childKey, index) => (
                   <li key={index}>
                     <Link
                       href={t(`nav.${navKey}.children.${childKey}.href`)}
                       className="flex rounded-lg ml-2 px-2 py-1.5 text-gray-700 hover:bg-gray-100"
                       onClick={() => setMobileNavOpen(false)}
                     >
-                      {t(`nav.${navKey}.children.${childKey}.text`)}
+                      {t(`nav.${navKey}.children.list.${childKey}.title`)}
                     </Link>
                   </li>
-                ))}
+                ))} */}
               </div>
             ))}
 

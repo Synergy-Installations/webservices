@@ -18,7 +18,8 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
 
   const getNavChildrenKeys = (key: string): string[] => {
     return (
-      Object.keys(messages.LandingPage.Shared.Header.nav[key].children) || []
+      Object.keys(messages.LandingPage.Shared.Header.nav[key].children.list) ||
+      []
     );
   };
 
@@ -75,19 +76,90 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
                   </li>
                 ) : (
                   /* 1st level: hover */
-                  <DefaultDropdown key={index} title={t(`nav.${navKey}.text`)}>
-                    {/* 2nd level: hover */}
-                    {getNavChildrenKeys(navKey).map((childKey, index) => (
-                      <li key={index}>
-                        <Link
-                          href={t(`nav.${navKey}.children.${childKey}.href`)}
-                          className="flex  rounded-lg px-2 py-1.5 text-sm text-synergy-dark-grey hover:bg-gray-100 w-full whitespace-nowrap"
+                  <>
+                    {(() => {
+                      const childrenKeys = getNavChildrenKeys(navKey);
+                      const hasImages = childrenKeys.some(
+                        (childKey) =>
+                          messages.LandingPage.Shared.Header.nav[navKey]
+                            .children.list[childKey].imageSrc !== undefined
+                      );
+                      const ulClass = hasImages
+                        ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+                        : "flex flex-col gap-2";
+                      return (
+                        <DefaultDropdown
+                          key={index}
+                          title={t(`nav.${navKey}.text`)}
+                          className={`absolute left-0 top-8 mt-2 w-screen ${hasImages ? "max-w-md md:max-w-lg lg:max-w-lg" : "max-w-min"} bg-white rounded-2xl shadow-lg ring-1 ring-black ring-opacity-5`}
                         >
-                          {t(`nav.${navKey}.children.${childKey}.text`)}
-                        </Link>
-                      </li>
-                    ))}
-                  </DefaultDropdown>
+                          <div className="p-4">
+                            <h3 className="text-lg font-semibold text-gray-800 mb-4 whitespace-nowrap">
+                              {t(`nav.${navKey}.children.title`)}
+                            </h3>
+                            <ul className={ulClass}>
+                              {childrenKeys.map((childKey, idx) => {
+                                const child =
+                                  messages.LandingPage.Shared.Header.nav[navKey]
+                                    .children.list[childKey];
+                                return child.imageSrc !== undefined ? (
+                                  <li
+                                    key={t(
+                                      `nav.${navKey}.children.list.${childKey}.title`
+                                    )}
+                                  >
+                                    <Link
+                                      href={t(
+                                        `nav.${navKey}.children.list.${childKey}.href`
+                                      )}
+                                      className="flex flex-col items-center p-3 hover:bg-green-50 rounded-lg transition"
+                                    >
+                                      <div className="w-16 h-16 mb-2">
+                                        <Image
+                                          loader={ImageLoader}
+                                          src={t(
+                                            `nav.${navKey}.children.list.${childKey}.imageSrc`
+                                          )}
+                                          alt={t(
+                                            `nav.${navKey}.children.list.${childKey}.alt`
+                                          )}
+                                          width={64}
+                                          height={64}
+                                          className="rounded-lg object-cover"
+                                        />
+                                      </div>
+                                      <span className="text-gray-800 font-medium text-sm text-center w-min break-words">
+                                        {t(
+                                          `nav.${navKey}.children.list.${childKey}.title`
+                                        )}
+                                      </span>
+                                    </Link>
+                                  </li>
+                                ) : (
+                                  <li
+                                    key={t(
+                                      `nav.${navKey}.children.list.${childKey}.title`
+                                    )}
+                                  >
+                                    <Link
+                                      href={t(
+                                        `nav.${navKey}.children.list.${childKey}.href`
+                                      )}
+                                      className="flex rounded-lg px-2 py-1.5 text-sm text-synergy-dark-grey hover:bg-gray-100 whitespace-nowrap"
+                                    >
+                                      {t(
+                                        `nav.${navKey}.children.list.${childKey}.title`
+                                      )}
+                                    </Link>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          </div>
+                        </DefaultDropdown>
+                      );
+                    })()}
+                  </>
                 )
               )}
             </ul>

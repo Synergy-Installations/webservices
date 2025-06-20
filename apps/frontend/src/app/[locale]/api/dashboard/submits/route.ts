@@ -42,7 +42,10 @@ export async function GET(req: NextRequest) {
         (email) => email.emailAddress
       );
       const items = await Submit.find({
-        emailAddress: { $in: emailAddresses },
+        $or: [
+          { "members.userUid": userId },
+          { emailAddress: { $in: emailAddresses } },
+        ],
       });
       return new Response(JSON.stringify({ success: true, data: items }), {
         status: 200,

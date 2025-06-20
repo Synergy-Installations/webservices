@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@com.synergy/frontend-backend-dashboard/mongodb";
 import Submit from "@com.synergy/frontend-backend-dashboard/submit";
 import { clerkClient, getAuth } from "@clerk/nextjs/server";
+import User from "@com.synergy/frontend-backend-dashboard/user";
 
 export async function GET(
   req: NextRequest,
@@ -50,8 +51,8 @@ export async function GET(
 
       console.log("accessRights", accessRights);
 
-      // Check if user is an admin, has specific access rights, or 
-      // is the creator of the submit 
+      // Check if user is an admin, has specific access rights, or
+      // is the creator of the submit
       if (
         accessRights?.includes("all:*") ||
         accessRights?.includes("all:submits")
@@ -181,23 +182,108 @@ export async function PUT(
   }
 }
 
-// export async function DELETE(
-//   req: Request,
-//   { params }: { params: { id: string } }
-// ) {
-//   const { id } = params;
+export async function DELETE(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  const { id: submitId } = params; // Extract the ID from the request parameters
+  const { userId } = getAuth(req); // Get the authenticated user's ID from the session
 
-//   await dbConnect();
+  if (!userId) {
+    return new Response(
+      JSON.stringify({ success: false, error: "Unauthorized" }),
+      {
+        status: 401,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+  }
 
-//   try {
-//     const deletedItem = await Submit.deleteOne({ _id: id });
+  const client = await clerkClient();
+  const user = await client.users.getUser(userId);
 
-//     if (!deletedItem) {
-//       return NextResponse.json({ success: false }, { status: 400 });
-//     }
+  await dbConnect();
 
-//     return NextResponse.json({ success: true, data: {} }, { status: 200 });
-//   } catch (error) {
-//     return NextResponse.json({ success: false }, { status: 400 });
-//   }
-// }
+  try {
+    const accessRights = user.privateMetadata?.accessRights as
+      | string[]
+      | undefined;
+
+    // const dbUser = await User.findOne({ createdUserAuthId: userId || user.id });
+
+    // User has all access or asset rights
+    if (
+      accessRights?.includes("all:*") ||
+      accessRights?.includes("all:submits")
+    ) {
+      const submit = await Submit.deleteOne({
+        _id: submitId,
+      });
+      return new Response(JSON.stringify({ success: true, data: submit }), {
+        status: 201,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
+
+    const dbSubmit = await Submit.findById(submitId);
+
+    // Check if user has created the submit
+    if (
+      dbSubmit.visibility === "public" ||
+      dbSubmit.members
+        ?.find((right: any) => right.userAuthId === userId)
+        ?.rights?.includes("write:vaults")
+    ) {
+      const submit = await Submit.deleteOne({
+        _id: submitId,
+      });
+      return new Response(JSON.stringify({ success: true, data: submit }), {
+        status: 201,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
+
+    return new Response(
+      JSON.stringify({
+        success: false,
+        error: "Unauthorized or not enough rights",
+      }),
+      {
+        status: 401,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+  } catch (error) {
+    console.error(error);
+    return new Response(JSON.stringify({ success: false, data: error }), {
+      status: 400,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
+  //   const { id } = params;
+
+  //   await dbConnect();
+
+  //   try {
+  //     const deletedItem = await Submit.deleteOne({ _id: id });
+
+  //     if (!deletedItem) {
+  //       return NextResponse.json({ success: false }, { status: 400 });
+  //     }
+
+  //     return NextResponse.json({ success: true, data: {} }, { status: 200 });
+  //   } catch (error) {
+  //     return NextResponse.json({ success: false }, { status: 400 });
+  //   }
+}

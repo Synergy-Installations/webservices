@@ -47,7 +47,7 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
                 {buttonKeys.map((key, index) => (
                   <button
                     key={index}
-                    className={`relative text-left flex items-center px-6 py-4 rounded border border-transparent ${tab !== index ? "" : "before:opacity-20 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl"}`}
+                    className={`relative text-left flex items-center px-6 py-4 rounded border border-transparent w-full ${tab !== index ? "" : "before:opacity-20 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl"}`}
                     onClick={(e) => {
                       e.preventDefault();
                       setTab(index);

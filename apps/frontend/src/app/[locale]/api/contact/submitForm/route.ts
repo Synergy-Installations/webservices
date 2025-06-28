@@ -30,7 +30,6 @@ export async function POST(req: NextRequest) {
         <p><strong>E-Mail:</strong> ${restBody.formData.email}</p>
         <p><strong>Tel.:</strong> ${restBody.formData.phone}</p>
         <p><strong>Produktauswahl:</strong> ${restBody.formData.productSelection}</p>
-        <p><strong>Aufmerksam durch:</strong> ${restBody.formData.funnel}</p>
         <p><strong>Projektdetails:</strong> ${message}</p>
         <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;" />
         <p style="font-size: 0.9em; color: #555;">

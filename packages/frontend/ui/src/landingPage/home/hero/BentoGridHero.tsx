@@ -25,10 +25,9 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
   const items: BentoItem[] = [
     {
       id: "pv",
-      title: "Photovoltaik",
+      title: "Photovoltaik & Stromspeicher",
       description: "Strom direkt vom Dach",
-      image:
-        "/frontend/landingPage/FeatureAdvantages/Money_coins_electronics.jpg",
+      image: "/frontend/landingPage/products/AA%20Dach-montage.jpg",
       rowSpan: 3,
       button: {
         link: "/products#phtovoltaic",
@@ -38,8 +37,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
     {
       id: "heat",
       title: "Wärmepumpen",
-      image:
-        "/frontend/landingPage/FeatureAdvantages/Money_coins_electronics.jpg",
+      image: "/frontend/landingPage/products/heat-pump-orange.jpg",
       rowSpanSm: 2,
       button: {
         link: "/products#phtovoltaic",
@@ -48,50 +46,76 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
     },
     {
       id: "ac",
-      title: "Klimaanlagen",
+      title: "Klimasysteme",
       image:
-        "/frontend/landingPage/FeatureAdvantages/Money_coins_electronics.jpg",
+        "/frontend/landingPage/products/close-up-shot-of-air-conditioner-hanging-on-white-2024-11-19-02-00-43-utc.jpeg",
       rowSpanSm: 2,
       button: {
         link: "/products#phtovoltaic",
         text: "Hier Photovoltaik sichern",
       },
     },
-
-    // The previous slide is now full (3×1 + 1×1 + 2×1 = 6)
     {
-      id: "wallbox",
-      title: "Wallbox‑Lösungen",
-      image:
-        "/frontend/landingPage/FeatureAdvantages/Money_coins_electronics.jpg",
-      rowSpanSm: 2,
+      id: "energiegemeinschaften",
+      title: "Energiegemeinschaften",
+      image: "/images/categories/energiegemeinschaften.jpg",
       button: {
-        link: "/products#phtovoltaic",
-        text: "Hier Photovoltaik sichern",
+        link: "/energiegemeinschaft",
+        text: "Mehr erfahren",
       },
-      colSpan: 1,
     },
     {
-      id: "smart",
-      title: "Smart Home",
-      image:
-        "/frontend/landingPage/FeatureAdvantages/Money_coins_electronics.jpg",
-      rowSpanSm: 2,
+      id: "stromtankstelle",
+      title: "Stromtankstelle",
+      image: "/images/categories/warmwasser.jpg",
       button: {
-        link: "/products#phtovoltaic",
-        text: "Hier Photovoltaik sichern",
+        link: "/products",
+        text: "Mehr erfahren",
       },
-      rowSpan: 2,
     },
     {
-      id: "storage",
-      title: "Stromspeicher",
-      image:
-        "/frontend/landingPage/FeatureAdvantages/Money_coins_electronics.jpg",
-      rowSpanSm: 2,
+      id: "notstrom",
+      title: "Notstrom Versorgung",
+      image: "/images/categories/notstrom.jpg",
       button: {
-        link: "/products#phtovoltaic",
-        text: "Hier Photovoltaik sichern",
+        link: "/products",
+        text: "Mehr erfahren",
+      },
+    },
+    {
+      id: "balkonkraftwerk",
+      title: "Balkonkraftwerk",
+      image: "/images/categories/balkonkraftwerk.jpg",
+      button: {
+        link: "/products",
+        text: "Mehr erfahren",
+      },
+    },
+    {
+      id: "energiekosten-beratung",
+      title: "Energiekosten-Beratung",
+      image: "/images/categories/komplettpaket.jpg",
+      button: {
+        link: "/products",
+        text: "Mehr erfahren",
+      },
+    },
+    {
+      id: "warmwasser",
+      title: "Autarke Warmwasser-Erzeugung",
+      image: "/images/categories/energiekosten-beratung.jpg",
+      button: {
+        link: "/products",
+        text: "Mehr erfahren",
+      },
+    },
+    {
+      id: "wartung-service",
+      title: "Wartung & Service",
+      image: "/images/categories/stromtankstelle.jpg",
+      button: {
+        link: "/products",
+        text: "Mehr erfahren",
       },
     },
   ];
@@ -101,7 +125,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-10 pt-32">
         <header className="mb-10 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">
-            Innovative <AuroraText>Energielösungen</AuroraText> für Ihr Zuhause
+            Innovative <AuroraText>Synergielösungen</AuroraText> für Ihr Zuhause
           </h1>
         </header>
         <BentoGrid items={items} autoplayDelay={5000} />

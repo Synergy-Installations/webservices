@@ -33,7 +33,7 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
   return (
     <section
       id={t(`${productKey}.sectionIdentifier`)}
-      className="mt-12 md:mt-20 mb-12 md:mb-20 scroll-m-16"
+      className="mt-12 md:mt-20 mb-12 md:mb-20 scroll-m-20"
       data-aos-id-3
     >
       <div className="relative max-w-7xl mx-auto">

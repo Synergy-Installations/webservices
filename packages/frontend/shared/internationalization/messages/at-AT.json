@@ -3893,6 +3893,11 @@
           "href": "/"
         },
         "nav": {
+          "B2B": {
+            "text": "B2B",
+            "href": "/b2b",
+            "children": ""
+          },
           "products": {
             "text": "Produkte",
             "href": "/products",
@@ -3901,97 +3906,69 @@
               "list": {
                 "productOne": {
                   "title": "Photovoltaik & Stromspeicher",
-                  "imageSrc": "/images/categories/photovoltaik-stromspeicher.jpg",
+                  "imageSrc": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                   "alt": "Photovoltaik Module mit Speicher",
-                  "href": "/photovoltaik-stromspeicher"
+                  "href": "/products#photovoltaic"
                 },
                 "productTwo": {
                   "title": "Wärmepumpen",
-                  "imageSrc": "/images/categories/waermepumpen.jpg",
+                  "imageSrc": "/frontend/landingPage/products/heat-pump-orange.jpg",
                   "alt": "Wärmepumpe Gerät",
-                  "href": "/waermepumpen"
+                  "href": "/products#heat-pump"
                 },
                 "productThree": {
                   "title": "Klimasysteme",
-                  "imageSrc": "/images/categories/klimasysteme.jpg",
+                  "imageSrc": "/frontend/landingPage/products/close-up-shot-of-air-conditioner-hanging-on-white-2024-11-19-02-00-43-utc.jpeg",
                   "alt": "Klimaanlage",
-                  "href": "/klimasysteme"
-                },
-                "productFour": {
-                  "title": "Smart Home & Energie-Management",
-                  "imageSrc": "/images/categories/smart-home-energie.jpg",
-                  "alt": "Smart Home System",
-                  "href": "/smart-home-energie"
+                  "href": "/products#air-conditioning"
                 },
                 "productFive": {
                   "title": "Energiegemeinschaften",
                   "imageSrc": "/images/categories/energiegemeinschaften.jpg",
                   "alt": "Energiegemeinschaften",
-                  "href": "/energiegemeinschaften"
+                  "href": "/energiegemeinschaft"
+                },
+                "productFour": {
+                  "title": "Smart Home",
+                  "imageSrc": "/frontend/landingPage/products/AA%2520Smart%2520Home.jpeg",
+                  "alt": "Smart Home System",
+                  "href": "/products#smart-home"
                 },
                 "productSix": {
-                  "title": "Autarke Warmwasser-Erzeugung",
-                  "imageSrc": "/images/categories/warmwasser.jpg",
-                  "alt": "Warmwasser Erzeugung",
-                  "href": "/warmwasser"
+                  "title": "Stromtankstelle",
+                  "imageSrc": "/frontend/landingPage/products/AA%2520Wallbox%2520AdobeStock_762399295.jpeg",
+                  "alt": "Stromtankstelle",
+                  "href": "/products"
                 },
                 "productSeven": {
-                  "title": "Notstrom-Versorgung",
+                  "title": "Notstrom Versorgung",
                   "imageSrc": "/images/categories/notstrom.jpg",
                   "alt": "Notstrom Versorgung",
-                  "href": "/notstrom"
+                  "href": "/products"
                 },
                 "productEight": {
-                  "title": "Balkonkraftwerk Basic",
+                  "title": "Balkonkraftwerk",
                   "imageSrc": "/images/categories/balkonkraftwerk.jpg",
                   "alt": "Balkonkraftwerk",
-                  "href": "/balkonkraftwerk"
+                  "href": "/products"
                 },
                 "productNine": {
-                  "title": "Komplettpaket 4,5 kWp",
+                  "title": "Energiekosten-Beratung",
                   "imageSrc": "/images/categories/komplettpaket.jpg",
                   "alt": "Komplettpaket Anlage",
-                  "href": "/komplettpaket"
-                },
-                "productTen": {
-                  "title": "Wartung & Service",
-                  "imageSrc": "/images/categories/wartung-service.jpg",
-                  "alt": "Wartung und Service",
-                  "href": "/wartung-service"
+                  "href": "/products"
                 },
                 "productEleven": {
-                  "title": "Energiekosten-Beratung",
+                  "title": "Autarke Warmwasser-Erzeugung",
                   "imageSrc": "/images/categories/energiekosten-beratung.jpg",
                   "alt": "Energiekosten Beratung",
-                  "href": "/energiekosten-beratung"
+                  "href": "/products"
                 },
                 "productTwelve": {
-                  "title": "Stromtankstelle",
+                  "title": "Wartung & Service",
                   "imageSrc": "/images/categories/stromtankstelle.jpg",
-                  "alt": "Stromtankstelle",
-                  "href": "/stromtankstelle"
-                }
-              }
-            }
-          },
-          "B2B": {
-            "text": "B2B",
-            "href": "/b2b",
-            "children": ""
-          },
-          "features": {
-            "text": "Leistungen",
-            "href": "",
-            "children": {
-              "title": "Unsere Leistungen",
-              "list": {
-                "featuresTwo": {
-                  "title": "Energiekostenberatung",
-                  "href": "/energiekostenberatung"
-                },
-                "featuresThree": {
-                  "title": "Energiegemeinschaften",
-                  "href": "/energiegemeinschaft"
+                  "alt": "Wartung & Service",
+                  "href": "/products"
                 }
               }
             }

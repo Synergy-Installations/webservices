@@ -85,13 +85,13 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
                             .children.list[childKey].imageSrc !== undefined
                       );
                       const ulClass = hasImages
-                        ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+                        ? "grid grid-cols-1 md:grid-cols-3 gap-4"
                         : "flex flex-col gap-2";
                       return (
                         <DefaultDropdown
                           key={index}
                           title={t(`nav.${navKey}.text`)}
-                          className={`absolute left-0 top-8 mt-2 w-screen ${hasImages ? "max-w-md md:max-w-lg lg:max-w-lg" : "max-w-min"} bg-white rounded-2xl shadow-lg ring-1 ring-black ring-opacity-5`}
+                          className={`absolute left-1/2 -translate-x-1/2 top-8 mt-2 w-screen ${hasImages ? "max-w-md md:max-w-lg lg:max-w-lg" : "max-w-min"} bg-white rounded-2xl shadow-lg ring-1 ring-black ring-opacity-5`}
                         >
                           <div className="p-4">
                             <h3 className="text-lg font-semibold text-gray-800 mb-4 whitespace-nowrap">
@@ -114,7 +114,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
                                       )}
                                       className="flex flex-col items-center p-3 hover:bg-green-50 rounded-lg transition"
                                     >
-                                      <div className="w-16 h-16 mb-2">
+                                      <div className="relative w-16 h-16 mb-2">
                                         <Image
                                           loader={ImageLoader}
                                           src={t(
@@ -125,7 +125,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
                                           )}
                                           width={64}
                                           height={64}
-                                          className="rounded-lg object-cover"
+                                          className="rounded-lg w-16 h-16 object-cover"
                                         />
                                       </div>
                                       <span className="text-gray-800 font-medium text-sm text-center w-min break-words">

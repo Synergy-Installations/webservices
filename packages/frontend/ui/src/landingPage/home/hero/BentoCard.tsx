@@ -54,11 +54,11 @@ export const BentoCard = (props: BentoCardProps) => {
         </p> */}
           <div className="flex items-end justify-between gap-4">
             <div className="">
-              <h3 className="text-base md:text-3xl font-semibold leading-tight">
+              <h3 className="text-2xl md:text-3xl font-semibold leading-tight">
                 {title}
               </h3>
               {description && (
-                <p className="text-sm md:text-base opacity-100 whitespace-pre-wrap font-normal">
+                <p className="text-base opacity-100 whitespace-pre-wrap font-normal">
                   {description}
                 </p>
               )}

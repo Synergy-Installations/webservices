@@ -21,6 +21,8 @@ export interface BentoItem {
   rowSpan?: 1 | 2 | 3;
   /** grid columns the card should occupy (1‑2) */
   colSpan?: 1 | 2;
+  rowSpanSm?: 1 | 2 | 3; // responsive row span for <md
+  colSpanSm?: 1 | 2; // responsive col span for <md
   button: {
     link: string;
     text: string;
@@ -59,6 +61,18 @@ export const BentoGrid = (props: BentoGridProps) => {
     progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
   };
 
+  // Responsive bucket logic: use rowSpanSm/colSpanSm for <md, rowSpan/colSpan for >=md
+  const [isMdUp, setIsMdUp] = React.useState<boolean>(false);
+
+  // Watch for screen size changes
+  React.useEffect(() => {
+    const media = window.matchMedia("(min-width: 768px)");
+    const handler = () => setIsMdUp(media.matches);
+    handler();
+    media.addEventListener("change", handler);
+    return () => media.removeEventListener("change", handler);
+  }, []);
+
   // Bucket items until the cell‑area limit (6) would be exceeded.
   const slides = useMemo(() => {
     const out: BentoItem[][] = [];
@@ -74,18 +88,25 @@ export const BentoGrid = (props: BentoGridProps) => {
     };
 
     items.forEach((item) => {
-      const area = (item.rowSpan || 1) * (item.colSpan || 1);
+      // Use responsive spans if available
+      const rowSpan = isMdUp
+        ? (item.rowSpan ?? 1)
+        : ((item as any).rowSpanSm ?? item.rowSpan ?? 1);
+      const colSpan = isMdUp
+        ? (item.colSpan ?? 1)
+        : ((item as any).colSpanSm ?? item.colSpan ?? 1);
+      const area = rowSpan * colSpan;
       if (area > GRID_CAPACITY) return; // skip impossible items
 
       if (bucketArea + area > GRID_CAPACITY) flush();
-      bucket.push(item);
+      bucket.push({ ...item, rowSpan, colSpan });
       bucketArea += area;
     });
     flush();
 
     // Duplicate for seamless looping
-    return [...out, ...out];
-  }, [items]);
+    return [...out];
+  }, [items, isMdUp]);
 
   return (
     <Swiper
@@ -96,7 +117,8 @@ export const BentoGrid = (props: BentoGridProps) => {
       pagination={{
         clickable: true,
         bulletClass: "swiper-pagination-bullet !bg-synergy-light-blue",
-        bulletActiveClass: "swiper-pagination-bullet-active !bg-synergy-light-blue",
+        bulletActiveClass:
+          "swiper-pagination-bullet-active !bg-synergy-light-blue",
       }}
       navigation={{
         nextEl: ".swiper-button-next",
@@ -105,10 +127,10 @@ export const BentoGrid = (props: BentoGridProps) => {
       className="w-full"
       spaceBetween={16}
       onAutoplayTimeLeft={onAutoplayTimeLeft}
-        >
+    >
       {slides.map((slideItems, idx) => (
         <SwiperSlide key={idx} className="w-full">
-          <div className="grid grid-cols-2 grid-rows-3 gap-4 h-[70vh]">
+          <div className="grid md:grid-cols-2 grid-rows-6 md:grid-rows-3 gap-4 h-[70vh]">
             {slideItems.map((item) => (
               <BentoCard key={item.id} {...item} />
             ))}

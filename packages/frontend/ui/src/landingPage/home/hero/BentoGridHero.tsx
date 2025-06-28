@@ -40,6 +40,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
       title: "Wärmepumpen",
       image:
         "/frontend/landingPage/FeatureAdvantages/Money_coins_electronics.jpg",
+      rowSpanSm: 2,
       button: {
         link: "/products#phtovoltaic",
         text: "Hier Photovoltaik sichern",
@@ -50,6 +51,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
       title: "Klimaanlagen",
       image:
         "/frontend/landingPage/FeatureAdvantages/Money_coins_electronics.jpg",
+      rowSpanSm: 2,
       button: {
         link: "/products#phtovoltaic",
         text: "Hier Photovoltaik sichern",
@@ -62,6 +64,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
       title: "Wallbox‑Lösungen",
       image:
         "/frontend/landingPage/FeatureAdvantages/Money_coins_electronics.jpg",
+      rowSpanSm: 2,
       button: {
         link: "/products#phtovoltaic",
         text: "Hier Photovoltaik sichern",
@@ -73,6 +76,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
       title: "Smart Home",
       image:
         "/frontend/landingPage/FeatureAdvantages/Money_coins_electronics.jpg",
+      rowSpanSm: 2,
       button: {
         link: "/products#phtovoltaic",
         text: "Hier Photovoltaik sichern",
@@ -84,6 +88,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
       title: "Stromspeicher",
       image:
         "/frontend/landingPage/FeatureAdvantages/Money_coins_electronics.jpg",
+      rowSpanSm: 2,
       button: {
         link: "/products#phtovoltaic",
         text: "Hier Photovoltaik sichern",

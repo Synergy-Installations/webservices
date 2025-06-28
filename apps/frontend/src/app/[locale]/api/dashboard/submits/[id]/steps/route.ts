@@ -29,6 +29,32 @@ export async function GET(
       "emailAddress members visibility"
     ).exec();
 
+    if (userId) {
+      const client = await clerkClient();
+      const user = await client.users.getUser(userId);
+      const accessRights = user.privateMetadata?.accessRights as
+        | string[]
+        | undefined;
+
+      // Otherwise, check if the user is an admin, has specific access rights
+      if (
+        accessRights?.includes("all:*") ||
+        accessRights?.includes("all:steps")
+      ) {
+        const steps = await Step.find({ submitId: id })
+          .sort({ order: 1 })
+          .exec();
+
+        return NextResponse.json(
+          {
+            success: true,
+            data: { steps },
+          },
+          { status: 200 }
+        );
+      }
+    }
+
     // Check if the submit is public or if the user is a member with read rights
     if (
       dbSubmit.visibility === "public" ||
@@ -62,32 +88,8 @@ export async function GET(
         },
         { status: 200 }
       );
-    } else if (userId) {
-      const client = await clerkClient();
-      const user = await client.users.getUser(userId);
-      const accessRights = user.privateMetadata?.accessRights as
-        | string[]
-        | undefined;
-
-      // Otherwise, check if the user is an admin, has specific access rights
-      if (
-        accessRights?.includes("all:*") ||
-        accessRights?.includes("all:steps")
-      ) {
-        const steps = await Step.find({ submitId: id })
-          .sort({ order: 1 })
-          .exec();
-
-        return NextResponse.json(
-          {
-            success: true,
-            data: { steps },
-          },
-          { status: 200 }
-        );
-      }
     }
-
+    // If the user is not authorized, return an error
     return NextResponse.json(
       { success: false, error: "Unauthorized or not enough rights" },
       { status: 401 }

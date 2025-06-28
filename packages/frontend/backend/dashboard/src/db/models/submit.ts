@@ -180,7 +180,7 @@ const SubmitSchema = new Schema<SubmitInterface>({
   status: { type: SubmitStatusSchema, required: false },
   assets: { type: Array<AssetInterface>, required: false },
   createdAt: { type: Date, default: Date.now, required: true },
-  visibility: { type: String, required: false, default: "public" },
+  visibility: { type: String, required: false, default: "private" },
   members: { type: Array<MembersRights>, required: false },
 });
 

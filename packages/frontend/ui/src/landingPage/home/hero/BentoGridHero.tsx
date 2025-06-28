@@ -4,6 +4,7 @@ import {
   BentoItem,
 } from "@com.synergy/frontend-ui/BentoGridHeroLayout";
 import { AuroraText } from "../../shared/text/AuroraText";
+import { div } from "framer-motion/client";
 
 /* eslint-disable-next-line */
 export interface BentoGridHeroProps {}
@@ -121,16 +122,19 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
   ];
 
   return (
-    <section className="w-full bg-synergy-light-blue/10">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-10 pt-32">
-        <header className="mb-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">
-            Innovative <AuroraText>Synergielösungen</AuroraText> für Ihr Zuhause
-          </h1>
-        </header>
-        <BentoGrid items={items} autoplayDelay={5000} />
-      </div>
-    </section>
+    <div className="bg-white">
+      <section className="w-full bg-synergy-light-blue bg-opacity-[0.12]">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-10 pt-32">
+          <header className="mb-10 text-center">
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">
+              Innovative <AuroraText>Synergielösungen</AuroraText> für Ihr
+              Zuhause
+            </h1>
+          </header>
+          <BentoGrid items={items} autoplayDelay={5000} />
+        </div>
+      </section>
+    </div>
   );
 };
 

@@ -1,3 +1,8 @@
 /* Additional styles */
 @import "additionalStyles/utility-patterns.css";
 @import "additionalStyles/theme.css";
+
+@theme {
+  --font-inter: Inter, sans-serif;
+  --font-playfair-display: Playfair Display, serif;
+}

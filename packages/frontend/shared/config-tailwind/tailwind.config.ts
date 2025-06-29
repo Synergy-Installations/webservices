@@ -24,11 +24,12 @@ const config: Omit<Config, "content"> = {
           "linear-gradient(270deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb)",
       },
       backgroundSize: {
-        "aurora": "400% 400%",
+        aurora: "400% 400%",
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
         mono: ["Roboto Mono", "monospace"],
+        "playfair-display": ["Playfair Display", "serif"],
       },
       fontSize: {
         xs: ["0.75rem", { lineHeight: "1.5" }],

@@ -2,7 +2,9 @@ import { link } from "framer-motion/client";
 import { useTranslations } from "next-intl";
 
 /* eslint-disable-next-line */
-export interface PhotovoltaicTestimonialsProps {}
+export interface PhotovoltaicTestimonialsProps {
+  translationProduct: string;
+}
 
 const testimonials = [
   {
@@ -34,8 +36,9 @@ const testimonials = [
 export const PhotovoltaicTestimonials = (
   props: PhotovoltaicTestimonialsProps
 ) => {
+  const { translationProduct } = props;
   const t = useTranslations(
-    "LandingPage.Focus.Photovoltaic.Testimonials.testimonialsList"
+    `LandingPage.Focus.${translationProduct}.Testimonials.testimonialsList`
   );
 
   return (

@@ -3688,8 +3688,8 @@
     "Focus": {
       "Photovoltaic": {
         "Hero": {
-          "titleUpper": "Ihre Zukunft beginnt mit Sonnenenergie:",
-          "titleLower": "unabhängig, preissicher & qualitativ sorglos",
+          "titleUpper": "<p>Ihre Zukunft beginnt mit Sonnenenergie:</p>",
+          "titleLower": "<p>unabhängig, preissicher & qualitativ sorglos</p>",
           "description": "Schluss mit hohen Stromrechnungen – starten Sie jetzt Ihre Energiewende mit Sonnenkraft.",
           "backgroundImage": {
             "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
@@ -3705,6 +3705,10 @@
           "descriptionOne": "Strompreise steigen, Materialkosten sinken, Fördermittel verfügbar und jede Kilowattstunde produziert Geld - Jetzt ist Ihr Zeitpunkt.",
           "titleTwo": "Warum wir?",
           "descriptionTwo": "Sie bekommen von uns eine maßgeschneiderte Lösung mit Handschlagqualität, persönlicher Beratung und einer Umsetzung, die hält, was sie verspricht.",
+          "button": {
+            "text": "Jetzt kostenlose Vor-Ort-Beratung sichern",
+            "href": "/kontakt"
+          },
           "boxes": {
             "solar-panels": {
               "title": "Rundum-Sorglos-Paket",
@@ -3791,6 +3795,1538 @@
           "description": "Sie wünschen sich Unabhängigkeit von steigenden Strompreisen, möchten aktiv die Umwelt schützen und den Wert Ihrer Immobilie steigern? Und legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen? Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich.",
           "button": {
             "text": " Jetzt kostenlose Vor-Ort-Beratung sichern",
+            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+          }
+        }
+      },
+      "Heat-Pump": {
+        "Hero": {
+          "titleUpper": "<p>Intelligent und smart heizen mit Wärmepumpen</p>",
+          "titleLower": "",
+          "description": "Schluss mit explodierenden Gas- und Ölpreisen – starten Sie jetzt Ihre persönliche Wärmewende.",
+          "backgroundImage": {
+            "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/air-heat-pump-standing-outdoors-modern-environme-2024-12-07-13-38-57-utc-compretssed.jpg",
+            "alt": "Photovoltaik"
+          },
+          "button": {
+            "text": "Jetzt gratis vor Ort beraten lassen!",
+            "href": "/kontakt"
+          }
+        },
+        "Components": {
+          "titleOne": "Warum jetzt? Warum wir?",
+          "descriptionOne": "Heizkosten steigen, die Abhängigkeit von fossilen Brennstoffen wird zum Risiko und attraktive staatliche Förderungen machen den Umstieg so günstig wie nie – Jetzt ist Ihr Zeitpunkt für eine Wärmepumpe.",
+          "titleTwo": "Warum wir?",
+          "descriptionTwo": "Wir liefern Ihnen nicht nur eine Heizung, sondern ein maßgeschneidertes Zukunftskonzept für Ihr Zuhause – mit persönlicher Fachberatung, Handschlagqualität und einer Umsetzung, die für nachhaltige Wärme und Sorgenfreiheit garantiert. ",
+          "boxes": {
+            "solar-panels": {
+              "title": "Rundum-Sorglos-Paket",
+              "description": "Von der Förderberatung über die Planung bis zur finalen Inbetriebnahme – wir kümmern uns um alles. ",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Solarmodule"
+              }
+            },
+            "inverters": {
+              "title": "Preissicherheit garantiert",
+              "description": "Keine versteckten Kosten: Ihr Angebotspreis ist fix und schützt Sie vor unliebsamen Überraschungen.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Wechselrichter"
+              }
+            },
+            "batteries": {
+              "title": "In wenigen Wochen zur neuen Heizung",
+              "description": "Dank eingespielter Prozesse und klarer Planung ist Ihr Weg zu effizienter Wärme kurz und unkompliziert.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Batteriespeicher"
+              }
+            }
+          },
+          "button": {
+            "text": "Kostenlose Beratung jetzt anfordern!",
+            "href": "/kontakt"
+          }
+        },
+        "Background": {
+          "boxes": {
+            "boxLeft": {
+              "title": "Was Sie von uns erwarten können:",
+              "list": {
+                "itemOne": "<b>Drastische Senkung Ihrer Heizkosten</b> garantiert",
+                "itemTwo": "<b>Aktiver Klimaschutz</b> durch CO₂-freie Wärme aus der Umwelt",
+                "itemThree": "<b>Spürbare Wertsteigerung</b> Ihrer Immobilie",
+                "itemFour": "<b>Wohlfühlklima im Sommer</b> durch integrierte Kühlfunktion",
+                "itemFive": "<b>Maßgeschneiderte & effiziente Heizsysteme</b> für Ihr Zuhause",
+                "itemSix": "<b>Zukunftssichere Technologie</b> vom Fachmann",
+                "itemSeven": "<b>Persönlicher Kundenservice</b>, der Sie nicht im Kalten stehen lässt"
+              }
+            },
+            "boxRight": {
+              "title": "In 6 einfachen Schritten zu Ihrer Wärmepumpe:",
+              "list": {
+                "itemOne": "<b>Ihre Anfrage & Erstkontakt</b> – Wir melden uns innerhalb eines Werktages bei Ihnen.",
+                "itemTwo": "<b>Vor-Ort-Analyse & Bedarfsermittlung</b> – Wir analysieren Ihre Gegebenheiten und verstehen Ihre Ziele.",
+                "itemThree": "<b>Maßgeschneiderte Systemplanung & Förder-Check</b> – Sie erhalten ein individuelles Konzept inkl. Wirtschaftlichkeitsberechnung für die Wärmepumpe.",
+                "itemFour": "<b>Transparentes Angebot & Unterstützung bei Anträgen</b> – Wir sichern Ihre Förderungen und garantieren volle Kostentransparenz.",
+                "itemFive": "<b>Fachgerechte Montage aus einer Hand</b> – Unsere Teams arbeiten schnell, sauber und professionell.",
+                "itemSix": "<b>Inbetriebnahme & persönliche Einweisung</b> – Ihre Anlage läuft nach wenigen Tagen und wir erklären Ihnen alles im Detail."
+              }
+            }
+          },
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Testimonials": {
+          "testimonialsList": {
+            "testimonialOne": {
+              "text": "Ich bin persönlich rund um zufrieden! Zuverlässigkeit, Entgegenkommen, persönliche und vertrauensvolle Firma. Im Endeffekt treffen die Punkte zu mit denen geworben wird - Handschlagqualität. Ich lass mir auch von der selben Firma die PV-Anlage erweitern.",
+              "author": "Otto Eichwalder",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialTwo": {
+              "text": "Die Firma besteht aus einem jungen-dynamischen Team. Es gibt noch eine persönliche Beratung. Der Projektbericht wurde ausführlich und rasch übermittelt. Die Arbeiten wurden sauber und termingerecht ausgeführt. Herr Riegler ist sehr um seine Kunden bemüht. Diese Firma ist wirklich empfehlenswert!",
+              "author": "Manfred Hein",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialThree": {
+              "text": "Super Firma, sehr kompetent und sehr zu empfehlen. Tolle Beratung und Planung, zeitnahe Umsetzung - hat alles super funktioniert - bin rundum sehr zufrieden. Sehr gutes Preis- / Leistungsverhältnis - einfach top!",
+              "author": "Andreas Goisser",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            }
+          }
+        },
+        "Cta": {
+          "title": "Warten Sie nicht auf die nächste Heizkostenabrechnung – <br></br>holen Sie sich jetzt Ihr zukunftssicheres Heizsystem.",
+          "description": "Sie wünschen sich Unabhängigkeit von steigenden Heizkosten, möchten aktiv das Klima schützen und den Wert Ihrer Immobilie nachhaltig steigern? <br></br>Und legen dabei Wert auf persönliche, ehrliche Beratung, verlässliche Abläufe und eine schnelle, saubere Umsetzung durch erfahrene Profis? <br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich von Ihrer neuen Wärmelösung.",
+          "button": {
+            "text": "Jetzt kostenlose Vor-Ort-Beratung sichern",
+            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+          }
+        }
+      },
+      "Air-Conditioning": {
+        "Hero": {
+          "titleUpper": "<p>Klimasysteme - Komfortables Wohnen bei zunehmenden Hitzetage</p>",
+          "titleLower": "",
+          "description": "<li>Kühl im Sommer, warm im Winter & qualitativ sorglos.</li> <li>Schluss mit unerträglicher Sommerhitze und stickiger Luft – starten Sie jetzt in Ihr persönliches Wohlfühl-Zuhause.</li>",
+          "backgroundImage": {
+            "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/white-air-conditioner-in-modern-room-2025-02-10-11-34-18-utc-compressed.jpeg",
+            "alt": "Photovoltaik"
+          },
+          "button": {
+            "text": "Jetzt kostenloses Angebot sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Components": {
+          "titleOne": "Warum jetzt? Warum wir?",
+          "descriptionOne": "Die Sommer werden heißer, die Hitzetage mehr – doch moderne Klimasysteme kühlen und heizen effizienter, leiser und sparsamer als je zuvor. Jetzt ist Ihr Zeitpunkt für ein perfektes Raumklima.",
+          "titleTwo": "Warum wir?",
+          "descriptionTwo": "Sie bekommen von uns eine maßgeschneiderte Lösung mit Handschlagqualität, persönlicher Fachberatung und einer Umsetzung, die für dauerhaftes Wohlbefinden sorgt.",
+          "boxes": {
+            "solar-panels": {
+              "title": "Rundum-Sorglos-Paket",
+              "description": "Von der Bedarfsanalyse bis zur regelmäßigen Wartung – wir kümmern uns um alles.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Solarmodule"
+              }
+            },
+            "inverters": {
+              "title": "Preissicherheit garantiert",
+              "description": "Keine Überraschungen: Ihr detailliertes Angebot bleibt auch bei Marktpreisschwankungen stabil.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Wechselrichter"
+              }
+            },
+            "batteries": {
+              "title": "In wenigen Tagen zum Wunschklima",
+              "description": "Dank professioneller Planung und eingespielter Teams genießen Sie Ihr neues Klima in kürzester Zeit.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Batteriespeicher"
+              }
+            }
+          },
+          "button": {
+            "text": "Jetzt beraten lassen!",
+            "href": "/kontakt"
+          }
+        },
+        "Background": {
+          "boxes": {
+            "boxLeft": {
+              "title": "Was Sie erwarten können:",
+              "list": {
+                "itemOne": "<b>Perfektes Wohlfühlklima</b> im Sommer wie im Winter",
+                "itemTwo": "<b>Gesündere & reinere Luft</b> durch modernste Filtertechnologie",
+                "itemThree": "<b>Spürbare Wertsteigerung</b> Ihrer Immobilie",
+                "itemFour": "<b>Flüsterleiser Betrieb</b> für einen ungestörten Schlaf und Alltag",
+                "itemFive": "<b>Maßgeschneiderte Lösungen</b> für Ihr Eigenheim oder Büro",
+                "itemSix": "<b>Zukunftssichere & energieeffiziente</b> Methoden und Technologien",
+                "itemSeven": "<b>Unschlagbarer Kundenservice</b> rundum"
+              }
+            },
+            "boxRight": {
+              "title": "In 6 einfachen Schritten zu Ihrem perfekten Raumklima:",
+              "list": {
+                "itemOne": "<b>Rückmeldung innerhalb eines Werktags</b><br></br> – Wir kontaktieren Sie für ein erstes unverbindliches Gespräch.",
+                "itemTwo": "<b>Persönliche Analyse Ihrer Gegebenheiten und Ziele</b><br></br> – Wir kommen zu Ihnen und ermitteln die optimale Lösung für Ihre Räume.",
+                "itemThree": "<b>Individuelle Planung & Geräteauswahl</b><br></br> – Sie erhalten ein maßgeschneidertes Konzept, das genau zu Ihren Wünschen passt.",
+                "itemFour": "<b>Kostentransparenz und klares Angebot</b><br></br> – Wir legen alle Kosten detailliert und verständlich für Sie dar.",
+                "itemFive": "<b>Schnelle & saubere Montage aus einer Hand</b><br></br> – Unsere zertifizierten Techniker installieren Ihr System professionell und sauber.",
+                "itemSix": "<b>Inbetriebnahme & Einweisung</b><br></br> – Ihre Anlage ist nach kurzer Zeit betriebsbereit und wir erklären Ihnen alle Funktionen."
+              }
+            }
+          },
+          "button": {
+            "text": "Jetzt kostenlose Beratung nutzen",
+            "href": "/kontakt"
+          }
+        },
+        "Testimonials": {
+          "testimonialsList": {
+            "testimonialOne": {
+              "text": "Endlich wieder im Sommer durchschlafen! Die Beratung war top und die Monteure haben extrem sauber gearbeitet. Eine absolut zuverlässige und vertrauensvolle Firma, die ich jedem nur empfehlen kann. Die Handschlagqualität, mit der geworben wird, trifft zu 100 % zu.",
+              "author": "Martina L., Wiener Neustadt",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialTwo": {
+              "text": "Ein junges, dynamisches Team, das sein Handwerk versteht. Von der persönlichen Beratung bis zur termingerechten Ausführung war alles perfekt. Die neue Klimaanlage ist so leise, dass man sie kaum hört. Wirklich eine empfehlenswerte Firma!",
+              "author": "Familie Gruber, Eisenstadt",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialThree": {
+              "text": "Super Firma, sehr kompetent und absolut zu empfehlen. Tolle Beratung, faire Preise und eine unglaublich schnelle Umsetzung. Hat alles super funktioniert – wir sind rundum sehr zufrieden und genießen unsere kühle Wohnung.",
+              "author": "David K., Baden",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            }
+          }
+        },
+        "Cta": {
+          "title": "Warten Sie nicht auf die nächste Hitzewelle – holen Sie sich jetzt Ihr konkretes Klima-Angebot.",
+          "description": "Sie wünschen sich endlich wieder erholsamen Schlaf im Sommer, möchten jederzeit ein angenehmes Raumklima genießen und den Wert Ihrer Immobilie steigern?<br></br>Und legen dabei Wert auf persönliche, ehrliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen?<br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich von Ihrer neuen Klimalösung.  ",
+          "button": {
+            "text": "Jetzt kostenloses Angebot sichern",
+            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+          }
+        }
+      },
+      "Power-Storage": {
+        "Hero": {
+          "titleUpper": "<p>Mit Stromspeicher mehr Eigenverbrauch und höhere Unabhängigkeit</p>",
+          "titleLower": "<p>Maximal unabhängig, versorgungssicher & zukunftsorientiert</p>",
+          "description": "Schluss mit verschenktem Sonnenstrom – nutzen Sie Ihre eigene, saubere Energie, wann immer Sie es wollen.",
+          "backgroundImage": {
+            "src": "https://synergy-webservices-assets.b-cdn.net//frontend/landingPage/products/AA%2520Wallbox%2520AdobeStock_762399295.jpeg",
+            "alt": "Photovoltaik"
+          },
+          "button": {
+            "text": "Profitieren Sie von einer kostenlosen Beratung",
+            "href": "/kontakt"
+          }
+        },
+        "Components": {
+          "titleOne": "Warum jetzt? Warum wir?",
+          "descriptionOne": "Strompreise steigen, Einspeisetarife sinken und die Sehnsucht nach Unabhängigkeit wächst – Jetzt ist der perfekte Zeitpunkt, Ihre Solaranlage mit einem Stromspeicher zu komplettieren und Ihre Energie selbst zu managen.",
+          "titleTwo": "Warum wir?",
+          "descriptionTwo": "Sie bekommen von uns eine maßgeschneiderte Speicherlösung mit Handschlagqualität, persönlicher Fachberatung und einer Umsetzung, die Ihre Unabhängigkeit sicherstellt.",
+          "boxes": {
+            "solar-panels": {
+              "title": "Rundum-Sorglos-Paket",
+              "description": "Von der Bedarfsanalyse über die Förderberatung bis zur Inbetriebnahme – wir kümmern uns um alles.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Solarmodule"
+              }
+            },
+            "inverters": {
+              "title": "Preissicherheit garantiert",
+              "description": "Keine Überraschungen: Ihr Angebot bleibt auch bei Marktpreisschwankungen stabil und transparent.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Wechselrichter"
+              }
+            },
+            "batteries": {
+              "title": "In kürzester Zeit zum vollen Speicher",
+              "description": "Dank eingespielter Prozesse ist Ihr Weg zur Energieunabhängigkeit kurz und unkompliziert.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Batteriespeicher"
+              }
+            }
+          },
+          "button": {
+            "text": "Vereinbaren Sie jetzt Ihre kostenlose Beratung",
+            "href": "/kontakt"
+          }
+        },
+        "Background": {
+          "boxes": {
+            "boxLeft": {
+              "title": "Was Sie erwarten können:",
+              "list": {
+                "itemOne": "Maximale Unabhängigkeit vom Stromnetz und steigenden Preisen",
+                "itemTwo": "Versorgungssicherheit durch Notstromfunktion bei Netzausfall",
+                "itemThree": "Deutliche Senkung Ihrer Stromrechnung durch maximalen Eigenverbrauch",
+                "itemFour": "Eigenen Solarstrom rund um die Uhr nutzen, auch nachts und bei Schlechtwetter",
+                "itemFive": "Spürbare Wertsteigerung Ihrer Immobilie und gesamten PV-Anlage",
+                "itemSix": "Maßgeschneiderte Speicherlösungen, perfekt auf Ihre Anlage und Ihren Verbrauch abgestimmt"
+              }
+            },
+            "boxRight": {
+              "title": "In 6 einfachen Schritten zum eigenen Stromspeicher:",
+              "list": {
+                "itemOne": "<b>Rückmeldung innerhalb eines Werktags</b><br></br>Wir kontaktieren Sie für ein unverbindliches Erstgespräch.",
+                "itemTwo": "<b>Persönliche Analyse Ihrer PV-Anlage und Ziele</b><br></br>Wir prüfen Ihre Gegebenheiten und Ihren Energiebedarf vor Ort.",
+                "itemThree": "<b>Individuelle Planung mit Wirtschaftlichkeitscheck</b><br></br>Sie erhalten ein Konzept, das die Rentabilität Ihres Speichers aufzeigt.",
+                "itemFour": "<b>Kostentransparenz und Unterstützung bei allen Anträgen</b><br></br>Wir helfen Ihnen, Förderungen zu sichern und legen alle Kosten offen.",
+                "itemFive": "<b>Schnelle & saubere Installation aus einer Hand</b><br></br>Unsere Experten integrieren den Speicher fachgerecht in Ihr System.",
+                "itemSix": "<b>Betriebsbereit nach wenigen Stunden</b><br></br>Ihre Anlage speichert sofort Sonnenstrom und wir erklären Ihnen alles im Detail."
+              }
+            }
+          },
+          "button": {
+            "text": "Jetzt kostenlose Vor-Ort-Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Testimonials": {
+          "testimonialsList": {
+            "testimonialOne": {
+              "text": "Endlich nutzen wir unseren Solarstrom auch am Abend! Die Beratung zur Speichergröße war perfekt auf uns zugeschnitten. Das Team hat super sauber gearbeitet und die Installation war an einem Tag erledigt. Eine Firma mit echter Handschlagqualität!",
+              "author": "Familie B., Wiener Neustadt",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialTwo": {
+              "text": "Die Firma besteht aus einem jungen, kompetenten Team. Die persönliche Beratung und die ehrliche Einschätzung zur Notstromfunktion waren für uns entscheidend. Die Arbeiten wurden sauber und termingerecht ausgeführt. Diese Firma ist wirklich empfehlenswert!",
+              "author": "Markus P., Niederösterreich",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialThree": {
+              "text": "Super Firma, sehr kompetent und absolut zu empfehlen. Tolle Beratung und Planung, wie der Speicher am besten in unsere bestehende Anlage passt. Sehr gutes Preis-Leistungs-Verhältnis – wir sind rundum zufrieden und fühlen uns sicherer.",
+              "author": "Johanna F., Burgenland",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            }
+          }
+        },
+        "Cta": {
+          "title": "Warten war gestern – holen Sie das Maximum aus Ihrer Solaranlage.",
+          "description": "Sie wünschen sich Unabhängigkeit von Stromanbietern, möchten Ihren eigenen Solarstrom optimal nutzen und auch bei einem Stromausfall nicht im Dunkeln sitzen?  <br></br>Und legen dabei Wert auf persönliche, ehrliche Beratung, verlässliche Abläufe und eine schnelle Umsetzung ohne Überraschungen?  <br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich, wie Sie noch mehr aus Ihrer Sonne holen können.  ",
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern ",
+            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+          }
+        }
+      },
+      "Energy-Community": {
+        "Hero": {
+          "titleUpper": "<p>Ihre Kosteneinsparungen mit einer Energiegemeinschaft:</p>",
+          "titleLower": "<p>Wir begleiten und realisieren GEMEINSAM</p>",
+          "description": "Ihre Energie-Zukunft beginnt jetzt: Teil einer starken Energiegemeinschaft sein!<br></br>Unabhängig, nachhaltig & gemeinsam stark.<br></br>Schluss mit steigenden Strompreisen und Unsicherheit – gestalten Sie Ihre Energiezukunft aktiv mit Ihrer lokalen Energiegemeinschaft! ",
+          "backgroundImage": {
+            "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/energy-community-poor-quality.png",
+            "alt": "Photovoltaik"
+          },
+          "button": {
+            "text": "Jetzt kostenlose Erstberatung sichern & Mitglied werden!",
+            "href": "/kontakt"
+          }
+        },
+        "Components": {
+          "titleOne": "Warum jetzt? Warum wir?",
+          "descriptionOne": "Strompreise steigen, Fördermittel sind verfügbar und jede Kilowattstunde aus der Gemeinschaft spart bares Geld. <b>Jetzt ist Ihr Zeitpunkt!</b>",
+          "titleTwo": "Warum wir?",
+          "descriptionTwo": "Wir bieten Ihnen eine maßgeschneiderte Lösung für die Integration in eine Energiegemeinschaft, persönliche Beratung und eine Umsetzung, die hält, was sie verspricht.",
+          "boxes": {
+            "solar-panels": {
+              "title": "Rundum-Sorglos-Paket",
+              "description": "Von der Förderberatung bis zur technischen Einbindung – wir kümmern uns um alles.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Solarmodule"
+              }
+            },
+            "inverters": {
+              "title": "Preissicherheit garantiert",
+              "description": "Keine Überraschungen: Als Teil der Gemeinschaft profitieren Sie von stabilen, oft günstigeren Energiepreisen.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Wechselrichter"
+              }
+            },
+            "batteries": {
+              "title": "In wenigen Schritten zur aktiven Teilnahme ",
+              "description": "Wir begleiten Sie von der ersten Idee bis zur aktiven Teilnahme in Ihrer Energiegemeinschaft.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Batteriespeicher"
+              }
+            }
+          },
+          "button": {
+            "text": "Jetzt kostenlose Erstberatung sichern & Mitglied werden!",
+            "href": "/kontakt"
+          }
+        },
+        "Background": {
+          "boxes": {
+            "boxLeft": {
+              "title": "Was Sie erwarten können:",
+              "list": {
+                "itemOne": "<b>Effektive Stromkostenersparnis garantiert</b> durch lokalen Energieaustausch",
+                "itemTwo": "<b>Aktiver Umweltschutz</b> durch Nutzung und Förderung erneuerbarer Energien vor Ort",
+                "itemThree": "<b>Spürbare Wertsteigerung Ihrer Immobilie</b> durch nachhaltige Energieversorgung",
+                "itemFour": "<b>Maßgeschneiderte Lösungen</b> für Ihr Eigenheim oder Unternehmen innerhalb der Gemeinschaft",
+                "itemFive": "<b>Zukunftssichere Methoden und Technologien</b> für eine dezentrale Energieversorgung",
+                "itemSix": "<b>Unschlagbarer Kundenservice</b> und eine starke Gemeinschaft, die Sie unterstützt"
+              }
+            },
+            "boxRight": {
+              "title": "In 6 einfachen Schritten zur eigenen Energie-Gemeinschaft:",
+              "list": {
+                "itemOne": "<b>Rückmeldung</b> innerhalb eines Werktages",
+                "itemTwo": "<b>Persönliche Analyse</b> Ihrer Gegebenheiten und Ziele für die Gemeinschaft",
+                "itemThree": "<b>Individuelle Planung</b> Ihrer Teilnahme mit Wirtschaftlichkeitscheck",
+                "itemFour": "<b>Kostentransparenz</b> und Unterstützung bei allen Anträgen und Formalitäten",
+                "itemFive": "<b>Schnell, sauber, alles aus einer Hand</b> – Ihre Integration in die Gemeinschaft",
+                "itemSix": "<b>Betriebsbereit</b> und aktiv in Ihrer lokalen Energiegemeinschaft"
+              }
+            }
+          },
+          "button": {
+            "text": "Jetzt kostenlose Erstberatung sichern & Mitglied werden!",
+            "href": "/kontakt"
+          }
+        },
+        "Testimonials": {
+          "testimonialsList": {
+            "testimonialOne": {
+              "text": "Ich bin persönlich rundum zufrieden! Die Möglichkeit, Teil einer Energiegemeinschaft zu sein, ist fantastisch. Zuverlässigkeit, Entgegenkommen, eine persönliche und vertrauensvolle Firma. Im Endeffekt treffen die Punkte zu, mit denen geworben wird – Handschlagqualität und echte Gemeinschaft. Ich plane auch, meine Teilnahme in der Gemeinschaft weiter auszubauen.",
+              "author": "Otto Eichwalder",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialTwo": {
+              "text": "Super Firma, sehr kompetent und sehr zu empfehlen. Tolle Beratung und Planung für unsere Energiegemeinschaft, zeitnahe Umsetzung – hat alles super funktioniert – bin rundum sehr zufrieden. Sehr gutes Preis- / Leistungsverhältnis – einfach top!",
+              "author": "Andreas Goisser",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialThree": {
+              "text": "Super Firma, sehr kompetent und absolut zu empfehlen. Tolle Beratung und Planung, wie der Speicher am besten in unsere bestehende Anlage passt. Sehr gutes Preis-Leistungs-Verhältnis – wir sind rundum zufrieden und fühlen uns sicherer.",
+              "author": "Johanna F., Burgenland",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            }
+          }
+        },
+        "Cta": {
+          "title": "Warten war gestern – holen Sie sich jetzt Ihr konkretes Angebot für die Energiegemeinschaft.",
+          "description": "Sie wünschen sich Unabhängigkeit von steigenden Strompreisen, möchten aktiv die Umwelt schützen und den Wert Ihrer Immobilie steigern, indem Sie Teil einer starken Energiegemeinschaft werden?<br></br>Und legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen?<br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich.",
+          "button": {
+            "text": "Jetzt kostenlose Erstberatung sichern & Mitglied werden!",
+            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+          }
+        }
+      },
+      "Community-Generation-Plant": {
+        "Hero": {
+          "titleUpper": "<p>Smart sparen. Grün. Gemeinsam: Mit gemeinschaftlicher Erzeugungsanlage (GEA)  zur unabhängigen Energieversorgung</p>",
+          "titleLower": "<p>Entdecken Sie die Vorteile gemeinschaftlicher Erzeugungsanlagen für Ihr Mehrparteienhaus</p>",
+          "description": "<b>Was ist eine Gemeinschaftliche Erzeugungsanlage (GEA)?</b><br></br><br></br>Eine Gemeinschaftliche Erzeugungsanlage (GEA) ist eine innovative und unkomplizierte Lösung für Gebäude mit mehreren Parteien, wie z.B. Mehrparteienhäuser. Sie ermöglicht die gemeinsame Nutzung einer Energieerzeugungsanlage, typischerweise einer Photovoltaikanlage auf dem Dach, um umweltfreundlichen Strom direkt vor Ort zu produzieren und zu verbrauchen. Es ist primär eine technische Lösung zur gemeinsamen Nutzung einer Anlage, die Ihnen und Ihren Nachbarn mehr Unabhängigkeit und Nachhaltigkeit bietet. ",
+          "backgroundImage": {
+            "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/newly-build-houses-with-solar-panels-attached-on-t-2025-01-10-03-55-24-utc.jpg",
+            "alt": "Photovoltaik"
+          },
+          "button": {
+            "text": "Jetzt kostenlose Erstberatung sichern & Mitglied werden!",
+            "href": "/kontakt"
+          }
+        },
+        "Components": {
+          "titleOne": "Warum jetzt? Warum wir?",
+          "descriptionOne": "<li><b>Kompetenz und Erfahrung:</b> Wir sind Ihr verlässlicher Partner für die Planung, Installation und den Betrieb Ihrer GEA.</li><li><b>Rundum-Sorglos-Paket:</b> Von der ersten Beratung bis zur laufenden Betreuung – wir kümmern uns um alles.</li>",
+          "titleTwo": "Warum wir?",
+          "descriptionTwo": "<li><b>Individuelle Lösungen:</b> Wir entwickeln maßgeschneiderte Konzepte, die perfekt zu den Bedürfnissen Ihres Gebäudes passen.</li>",
+          "boxes": {
+            "solar-panels": {
+              "title": "Was ist eine Gemeinschaftliche Erzeugungsanlage (GEA)?",
+              "description": "Eine Gemeinschaftliche Erzeugungsanlage (GEA) ist eine innovative und unkomplizierte Lösung für Gebäude mit mehreren Parteien, wie z.B. Mehrparteienhäuser.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Solarmodule"
+              }
+            },
+            "inverters": {
+              "title": "Wie funktioniert eine gemeinschaftliche Erzeugungsanlage?",
+              "description": "Sie ermöglicht die gemeinsame Nutzung einer Energieerzeugungsanlage, typischerweise einer Photovoltaikanlage auf dem Dach, um umweltfreundlichen Strom direkt vor Ort zu produzieren und zu verbrauchen.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Wechselrichter"
+              }
+            },
+            "batteries": {
+              "title": "Was bringt eine gemeinschaftliche Erzeugungsanlage?",
+              "description": "Es ist primär eine technische Lösung zur gemeinsamen Nutzung einer Anlage, die Ihnen und Ihren Nachbarn mehr Unabhängigkeit und Nachhaltigkeit bietet.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Batteriespeicher"
+              }
+            }
+          },
+          "button": {
+            "text": "Jetzt kostenlose Erstberatung sichern & Mitglied werden!",
+            "href": "/kontakt"
+          }
+        },
+        "Background": {
+          "boxes": {
+            "boxLeft": {
+              "title": "Ihre Vorteile mit einer GEA:",
+              "list": {
+                "itemOne": "<b>Senken Sie Ihre Energiekosten nachhaltig:</b> Nutzen Sie günstigen, selbst produzierten Solarstrom direkt vom Dach Ihres Gebäudes und reduzieren Sie Ihre Abhängigkeit von steigenden Strompreisen. Für den innerhalb der GEA genutzten Strom entfallen oft Netzentgelte und Abgaben, was zu spürbaren Ersparnissen führt.",
+                "itemTwo": "<b>Leisten Sie einen aktiven Beitrag zum Klimaschutz:</b> Produzieren Sie saubere, erneuerbare Energie und reduzieren Sie den CO2-Fußabdruck Ihres Gebäudes. Werden Sie Teil der Energiewende!",
+                "itemThree": "<b>Steigern Sie den Wert Ihrer Immobilie:</b> Ein Gebäude mit einer GEA wird attraktiver für Mieter und Käufer. Es signalisiert Modernität, Umweltbewusstsein und langfristige Kosteneinsparungen.",
+                "itemFour": "<b>Mehr Unabhängigkeit und Autarkie:</b> Machen Sie sich unabhängiger von externen Energieversorgern und profitieren Sie von einer stabilen und zuverlässigen Stromversorgung direkt in Ihrem Zuhause.",
+                "itemFive": "<b>Einfache und faire Abrechnung:</b> Dank smarter Zähler und transparenter Aufteilungsschlüssel wird der erzeugte und verbrauchte Strom gerecht auf alle teilnehmenden Parteien verteilt."
+              }
+            },
+            "boxRight": {
+              "title": "So funktioniert Ihre GEA (vereinfacht):",
+              "list": {
+                "itemOne": "<b>Planung & Installation:</b> Eine Photovoltaikanlage wird auf dem Dach Ihres Mehrparteienhauses installiert.",
+                "itemTwo": "<b>Gemeinsame Nutzung:</b> Der erzeugte Solarstrom wird direkt im Gebäude genutzt, um den Bedarf der teilnehmenden Parteien zu decken.",
+                "itemThree": "<b>Intelligente Verteilung:</b> Moderne Messsysteme erfassen Produktion und Verbrauch in Echtzeit und ermöglichen eine faire Zuteilung des Stroms.",
+                "itemFour": "<b>Überschuss & Bezug:</b> Nicht sofort verbrauchter Strom kann ins öffentliche Netz eingespeist werden. Bei höherem Bedarf wird zusätzlich Strom aus dem öffentlichen Netz bezogen."
+              }
+            }
+          },
+          "button": {
+            "text": "Jetzt kostenlose Erstberatung sichern & Mitglied werden!",
+            "href": "/kontakt"
+          }
+        },
+        "Testimonials": {
+          "testimonialsList": {
+            "testimonialOne": {
+              "text": "Ich bin persönlich rundum zufrieden! Die Möglichkeit, Teil einer gemeinschaftlichen Erzeugungsanlage zu sein, ist fantastisch. Zuverlässigkeit, Entgegenkommen, eine persönliche und vertrauensvolle Firma. Im Endeffekt treffen die Punkte zu, mit denen geworben wird – Handschlagqualität und echte Gemeinschaft. Ich plane auch, meine Teilnahme in der Gemeinschaft weiter auszubauen.",
+              "author": "Otto Eichwalder",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialTwo": {
+              "text": "Super Firma, sehr kompetent und sehr zu empfehlen. Tolle Beratung und Planung für unsere Energiegemeinschaft, zeitnahe Umsetzung – hat alles super funktioniert – bin rundum sehr zufrieden. Sehr gutes Preis- / Leistungsverhältnis – einfach top!",
+              "author": "Andreas Goisser",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialThree": {
+              "text": "Super Firma, sehr kompetent und absolut zu empfehlen. Tolle Beratung und Planung, wie der Speicher am besten in unsere bestehende Anlage passt. Sehr gutes Preis-Leistungs-Verhältnis – wir sind rundum zufrieden und fühlen uns sicherer.",
+              "author": "Johanna F., Burgenland",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            }
+          }
+        },
+        "Cta": {
+          "title": "Bereit für Ihre eigene GEA?",
+          "description": "Gemeinschaftliche Erzeugungsanlagen sind in Österreich bereits etabliert. Weitere Informationen zu diesem Thema finden Sie auch auf den Webseiten von Experten und Energieversorgern: <li>Gemeinschaftliche Erzeugungsanlagen - in aller Kürze - Energiegemeinschaften</li><li>Gemeinschaftliche Erzeugungsanlagen - TINETZ – Sichere Versorgung für Tirol</li><li>Grundlagen Gemeinschaftliche Erzeugungsanlagen - Energie-noe.at</li><li>Gemeinschaftliche Erzeugungsanlagen: Alle Infos - Neoom</li><li>Energiegemeinschaften - LINZ Netz</li><li>Strom gemeinsam nutzen | Energiegemeinschaften - eww Gruppe</li><li>Energiegemeinsam - Energie AG</li>",
+          "button": {
+            "text": "Kontaktieren Sie uns noch heute für eine unverbindliche Beratung!",
+            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+          }
+        }
+      },
+      "Smart-Home": {
+        "Hero": {
+          "titleUpper": "<p>Erleben Sie ein neues Wohngefühl – mit intelligenten Smart Home Lösungen.</p>",
+          "titleLower": "",
+          "description": "Komfortabel, effizient & sicher",
+          "backgroundImage": {
+            "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/side-view-pleasant-young-woman-using-smart-home-sy-2025-01-09-20-00-11-utc-compressed.jpeg",
+            "alt": "Photovoltaik"
+          },
+          "button": {
+            "text": "Jetzt kostenloses Angebot sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Components": {
+          "titleOne": "Warum jetzt? Warum wir?",
+          "descriptionOne": "Steigern Sie Wohnkomfort, sparen Sie Energie und sichern Sie sich Ihr zukunftssicheres Zuhause – Jetzt ist Ihr Zeitpunkt für Smart Home.",
+          "titleTwo": "Warum wir?",
+          "descriptionTwo": "Sie bekommen von uns eine maßgeschneiderte Smart Home Lösung mit Handschlagqualität, persönlicher Beratung und einer Umsetzung, die hält, was sie verspricht.",
+          "boxes": {
+            "solar-panels": {
+              "title": "Intelligentes Energiemanagement:",
+              "description": "Optimieren Sie Ihren Verbrauch mit vorausschauender Online Wettersteuerung, die die Heiz- und Kühlleistung intelligent anpasst. Steht ein sonniger Tag bevor, wird der Heizbetrieb rechtzeitig gesenkt. Und in Erwartung einer klirrenden Frostnacht wird die Heizleistung früh genug erhöht.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Solarmodule"
+              }
+            },
+            "inverters": {
+              "title": "Automatisierung von Alltagsabläufen:",
+              "description": "Sparen Sie Zeit im Alltag und beeindrucken Sie Ihre Gäste mit coolen Smart Home Features, die Abläufe automatisch steuern. Über eine App auf dem Smartphone oder Tablet lassen sich Geräte im Haus auch von unterwegs steuern.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Wechselrichter"
+              }
+            },
+            "batteries": {
+              "title": "Maximale Flexibilität & Erweiterbarkeit:",
+              "description": "Starten Sie günstig und erweitern Sie Ihr System jederzeit einfach und flexibel nach Ihren Bedürfnissen – inklusive Energiemanagement und Stromspeicher-Integration.  ",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Batteriespeicher"
+              }
+            }
+          },
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Background": {
+          "boxes": {
+            "boxLeft": {
+              "title": "Was Sie erwarten können:",
+              "list": {
+                "itemOne": "<b>Mehr Komfort und Lebensqualität:</b> Steuern Sie Licht, Heizung und Geräte bequem per App oder automatisieren Sie Routinen.",
+                "itemTwo": "<b>Effizientes Energiemanagement:</b> Senken Sie Ihren Verbrauch durch intelligente Steuerung und vorausschauende Anpassung, für spürbare Kostenersparnis.",
+                "itemThree": "<b>Erhöhte Sicherheit:</b> Überwachen Sie Ihr Zuhause von überall und erhalten Sie Benachrichtigungen bei Unregelmäßigkeiten.",
+                "itemFour": "<b>Spürbare Wertsteigerung Ihrer Immobilie:</b> Ein Smart Home ist attraktiv für potenzielle Käufer und Mieter.",
+                "itemFive": "<b>Maßgeschneiderte Lösungen für Ihr Zuhause:</b> Wir passen das System perfekt an Ihre individuellen Bedürfnisse an.",
+                "itemSix": "<b>Zukunftssichere Methoden und Technologien:</b> Investieren Sie in ein System, das mit Ihren Anforderungen wächst.",
+                "itemSeven": "<b>Unschlagbarer Kundenservice rundum:</b> Wir begleiten Sie von der Beratung bis zur Installation und darüber hinaus."
+              }
+            },
+            "boxRight": {
+              "title": "In 6 einfachen Schritten zu Ihrem Smart Home:",
+              "list": {
+                "itemOne": "Rückmeldung innerhalb einem Werktag",
+                "itemTwo": "Persönliche Analyse Ihrer Gegebenheiten und Ziele",
+                "itemThree": "Individuelle Smart Home Planung mit Funktionsübersicht",
+                "itemFour": "Kostentransparenz und umfassende Beratung bei allen Anliegen",
+                "itemFive": "Schnelle, saubere Installation – alles aus einer Hand",
+                "itemSix": "Ihr Smart Home ist nach wenigen Tagen betriebsbereit"
+              }
+            }
+          },
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Testimonials": {
+          "testimonialsList": {
+            "testimonialOne": {
+              "text": "Ich bin persönlich rundum zufrieden! Die Möglichkeit ist fantastisch. Zuverlässigkeit, Entgegenkommen, eine persönliche und vertrauensvolle Firma. Im Endeffekt treffen die Punkte zu, mit denen geworben wird – Handschlagqualität und echte Gemeinschaft. Ich plane auch, meine Teilnahme in der Gemeinschaft weiter auszubauen.",
+              "author": "Otto Eichwalder",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialTwo": {
+              "text": "Super Firma, sehr kompetent und sehr zu empfehlen. Tolle Beratung und Planung für unseres Smart-Home System, zeitnahe Umsetzung – hat alles super funktioniert – bin rundum sehr zufrieden. Sehr gutes Preis- / Leistungsverhältnis – einfach top!",
+              "author": "Andreas Goisser",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialThree": {
+              "text": "Super Firma, sehr kompetent und absolut zu empfehlen. Tolle Beratung und Planung, wie der Speicher am besten in unsere bestehende Anlage passt. Sehr gutes Preis-Leistungs-Verhältnis – wir sind rundum zufrieden und fühlen uns sicherer.",
+              "author": "Johanna F., Burgenland",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            }
+          }
+        },
+        "Cta": {
+          "title": "Warten war gestern – holen Sie sich jetzt Ihr konkretes Smart Home Angebot.",
+          "description": "Sie wünschen sich mehr Komfort, Sicherheit und Effizienz in Ihrem Zuhause und möchten den Wert Ihrer Immobilie steigern? Und legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen? Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich.",
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+          }
+        }
+      },
+      "Energy-Management": {
+        "Hero": {
+          "titleUpper": "<p>Ihr Energiefluss im Griff durch</p>",
+          "titleLower": "<p>intelligent, effizient & unabhängig</p>",
+          "description": "Maximieren Sie Ihren Eigenverbrauch – starten Sie jetzt Ihr intelligentes Energiemanagement.",
+          "backgroundImage": {
+            "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/a-hand-holding-the-electricity-bill-and-euro-bankn-2025-03-13-01-30-07-utc-compressed.jpeg",
+            "alt": "Photovoltaik"
+          },
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Components": {
+          "titleOne": "Warum jetzt? Warum wir?",
+          "descriptionOne": "Übernehmen Sie die Kontrolle über Ihren Energiefluss, profitieren Sie von dynamischen Tarifen und maximieren Sie Ihren Eigenverbrauch – Jetzt ist Ihr Zeitpunkt für intelligentes Energiemanagement.",
+          "titleTwo": "Warum wir?",
+          "descriptionTwo": "Sie bekommen von uns eine maßgeschneiderte Lösung mit Handschlagqualität, persönlicher Beratung und einer Umsetzung, die hält, was sie verspricht.",
+          "boxes": {
+            "solar-panels": {
+              "title": "Maximaler Eigenverbrauch:",
+              "description": "Erhöhen Sie Ihren Energie-Eigenverbrauch von ca. 30 % auf bis zu 98 % durch optimale Verteilung und Nutzung der selbst erzeugten Energie im Haushalt.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Solarmodule"
+              }
+            },
+            "inverters": {
+              "title": "Intelligenz & KI:",
+              "description": "Unser System kombiniert Wetterdaten und dynamische Stromtarife, um Ihren Energiefluss vorausschauend zu steuern.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Wechselrichter"
+              }
+            },
+            "batteries": {
+              "title": "Größere Unabhängigkeit:",
+              "description": "Reduzieren Sie Ihre Abhängigkeit vom öffentlichen Stromnetz und schwankenden Strompreisen.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Batteriespeicher"
+              }
+            }
+          },
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Background": {
+          "boxes": {
+            "boxLeft": {
+              "title": "Was Sie erwarten können:",
+              "list": {
+                "itemOne": "<b>Maximale Kostenersparnis:</b> Optimieren Sie Ihren Energiefluss für niedrigere Stromrechnungen.",
+                "itemTwo": "<b>Erhöhter Eigenverbrauch:</b> Nutzen Sie bis zu 98 % Ihrer selbst erzeugten Energie.",
+                "itemThree": "<b>Aktiver Klimaschutz:</b> Optimierung Ihrer PV-Anlage zur Unterstützung der Umwelt.",
+                "itemFour": "<b>Spürbare Wertsteigerung Ihrer Immobilie:</b> Moderne Energiemanagement-Systeme machen Ihr Zuhause zukunftssicher.",
+                "itemFive": "<b>Maßgeschneiderte Lösungen für Ihr Eigenheim:</b> Perfekt auf Ihre Bedürfnisse abgestimmt.",
+                "itemSix": "<b>Zukunftssichere Methoden und Technologien:</b> Profitieren Sie von Intelligenz & KI für vorausschauende Steuerung.",
+                "itemSeven": "<b>Unschlagbarer Kundenservice rundum:</b> Wir sind für Sie da, von der Beratung bis zur Installation."
+              }
+            },
+            "boxRight": {
+              "title": "In 6 einfachen Schritten zu Ihrem Energiemanagement-System:",
+              "list": {
+                "itemOne": "Rückmeldung innerhalb einem Werktag",
+                "itemTwo": "Persönliche Analyse Ihrer Gegebenheiten und Ziele",
+                "itemThree": "Individuelle Planung mit Wirtschaftlichkeitscheck",
+                "itemFour": "Kostentransparenz und Unterstützung bei allen Anträgen",
+                "itemFive": "Schnell, sauber, alles aus einer Hand",
+                "itemSix": "Ihr Energiemanagement-System ist nach wenigen Tagen betriebsbereit"
+              }
+            }
+          },
+          "button": {
+            "text": "Ihre kostenlose Beratung wartet!",
+            "href": "/kontakt"
+          }
+        },
+        "Testimonials": {
+          "testimonialsList": {
+            "testimonialOne": {
+              "text": "Ich bin persönlich rundum zufrieden! Die Möglichkeit ist fantastisch. Zuverlässigkeit, Entgegenkommen, eine persönliche und vertrauensvolle Firma. Im Endeffekt treffen die Punkte zu, mit denen geworben wird – Handschlagqualität und echte Gemeinschaft. Ich plane auch, meine Teilnahme in der Gemeinschaft weiter auszubauen.",
+              "author": "Otto Eichwalder",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialTwo": {
+              "text": "Super Firma, sehr kompetent und sehr zu empfehlen. Tolle Beratung und Planung für unsere Anforderungen, zeitnahe Umsetzung – hat alles super funktioniert – bin rundum sehr zufrieden. Sehr gutes Preis- / Leistungsverhältnis – einfach top!",
+              "author": "Andreas Goisser",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialThree": {
+              "text": "Super Firma, sehr kompetent und absolut zu empfehlen. Tolle Beratung und Planung, wie der Speicher am besten in unsere bestehende Anlage passt. Sehr gutes Preis-Leistungs-Verhältnis – wir sind rundum zufrieden und fühlen uns sicherer.",
+              "author": "Johanna F., Burgenland",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            }
+          }
+        },
+        "Cta": {
+          "title": "Warten war gestern – holen Sie sich jetzt Ihr konkretes Energiemanagement-Angebot.",
+          "description": "Sie wünschen sich volle Kontrolle über Ihren Energieverbrauch, maximale Unabhängigkeit von Strompreisen und möchten aktiv die Umwelt unterstützen? Sie legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen?<br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich.  ",
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+          }
+        }
+      },
+      "Wallbox": {
+        "Hero": {
+          "titleUpper": "<p>Ihre private Stromtankstelle:</p>",
+          "titleLower": "<p>bequem, günstig & autark laden</p>",
+          "description": "Nie wieder tanken – laden Sie Ihr Elektroauto smart zuhause.",
+          "backgroundImage": {
+            "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/a-hand-holding-the-electricity-bill-and-euro-bankn-2025-03-13-01-30-07-utc-compressed.jpeg",
+            "alt": "Photovoltaik"
+          },
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Components": {
+          "titleOne": "Warum jetzt? Warum wir?",
+          "descriptionOne": "Fahren Sie günstiger, unabhängiger und komfortabler – Jetzt ist Ihr Zeitpunkt für die eigene Wallbox.",
+          "titleTwo": "Warum wir?",
+          "descriptionTwo": "Sie bekommen von uns eine maßgeschneiderte Lösung mit Handschlagqualität, persönlicher Beratung und einer Umsetzung, die hält, was sie verspricht.",
+          "boxes": {
+            "solar-panels": {
+              "title": "Sparen Sie bis zu 85% der Kosten:",
+              "description": "Bei 30.000 km pro Jahr sparen Sie etwa 3.600 € pro Jahr – das ist eine Kostenreduktion von rund 85% im Vergleich zu Benzin. Mit einer Wallbox laden Sie Ihr Elektroauto bequem zu Hause auf und fahren so bis zu viermal günstiger als mit Benzin.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Solarmodule"
+              }
+            },
+            "inverters": {
+              "title": "Schnelleres & bequemes Laden:",
+              "description": "Wallboxen ermöglichen deutlich kürzere Ladezeiten im Vergleich zu herkömmlichen Steckdosen. Eine eigene Ladestation ermöglicht das bequeme Aufladen in der Garage oder unter einem Carport.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Wechselrichter"
+              }
+            },
+            "batteries": {
+              "title": "Maximale Unabhängigkeit & Klimafreundlichkeit:",
+              "description": "Laden Sie Ihr Elektroauto mit PV-Strom. Wallboxen lassen sich mit Photovoltaikanlagen und Stromspeichern kombinieren, was die Nutzung von selbst erzeugtem Solarstrom ermöglicht. Mit E-Auto & PV werden Sie nahezu komplett autark von der Ölindustrie.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Batteriespeicher"
+              }
+            }
+          },
+          "button": {
+            "text": "Jetzt kostenloses Angebot sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Background": {
+          "boxes": {
+            "boxLeft": {
+              "title": "Was Sie erwarten können:",
+              "list": {
+                "itemOne": "<b>Signifikante Kosteneinsparung:</b> Laden Sie Ihr E-Auto bequem zu Hause und fahren Sie deutlich günstiger.",
+                "itemTwo": "<b>Schnelles und effizientes Laden:</b> Deutlich kürzere Ladezeiten im Vergleich zur Haushaltssteckdose.",
+                "itemThree": "<b>Komfort und Bequemlichkeit:</b> Einfaches Aufladen direkt bei Ihnen zu Hause.",
+                "itemFour": "<b>Maximale Unabhängigkeit:</b> Werden Sie mit E-Auto und PV nahezu komplett autark von der Ölindustrie.",
+                "itemFive": "<b>Aktiver Umweltschutz:</b> Nutzen Sie selbst erzeugten Solarstrom für Ihr Elektroauto.",
+                "itemSix": "<b>Spürbare Wertsteigerung Ihrer Immobilie:</b> Eine integrierte Ladeinfrastruktur macht Ihr Zuhause attraktiver.",
+                "itemSeven": "<b>Maßgeschneiderte Lösungen für Ihr Eigenheim:</b> Wir finden die passende Wallbox für Ihre Bedürfnisse.",
+                "itemEight": "<b>Unschlagbarer Kundenservice rundum:</b> Von der Beratung bis zur Installation – wir sind für Sie da."
+              }
+            },
+            "boxRight": {
+              "title": "In 6 einfachen Schritten zu Ihrer Wallbox:",
+              "list": {
+                "itemOne": "Rückmeldung innerhalb einem Werktag",
+                "itemTwo": "Persönliche Analyse Ihrer Gegebenheiten und Ziele",
+                "itemThree": "Individuelle Planung und Auswahl der passenden Wallbox",
+                "itemFour": "Kostentransparenz und Unterstützung bei allen Anträgen",
+                "itemFive": "Schnell, sauber, alles aus einer Hand",
+                "itemSix": "Ihre Wallbox ist nach wenigen Tagen betriebsbereit"
+              }
+            }
+          },
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Testimonials": {
+          "testimonialsList": {
+            "testimonialOne": {
+              "text": "Super Firma, sehr kompetent und sehr zu empfehlen. Tolle Beratung und Planung für unsere Anforderungen, zeitnahe Umsetzung – hat alles super funktioniert – bin rundum sehr zufrieden. Sehr gutes Preis- / Leistungsverhältnis – einfach top!",
+              "author": "Andreas Goisser",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialTwo": {
+              "text": "Ich bin persönlich rundum zufrieden! Die Möglichkeit ist fantastisch. Zuverlässigkeit, Entgegenkommen, eine persönliche und vertrauensvolle Firma. Im Endeffekt treffen die Punkte zu, mit denen geworben wird – Handschlagqualität und echte Gemeinschaft. Ich plane auch, meine Teilnahme in der Gemeinschaft weiter auszubauen.",
+              "author": "Otto Eichwalder",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialThree": {
+              "text": "Super Firma, sehr kompetent und absolut zu empfehlen. Tolle Beratung und Planung, wie der Speicher am besten in unsere bestehende Anlage passt. Sehr gutes Preis-Leistungs-Verhältnis – wir sind rundum zufrieden und fühlen uns sicherer.",
+              "author": "Johanna F., Burgenland",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            }
+          }
+        },
+        "Cta": {
+          "title": "Warten war gestern – holen Sie sich jetzt Ihr konkretes Wallbox-Angebot.",
+          "description": "Sie wünschen sich Unabhängigkeit von Tankstellen, möchten Ihr Elektroauto bequem und günstig laden und den Wert Ihrer Immobilie steigern? Und legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen?<br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich.",
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+          }
+        }
+      },
+      "Emergency-Power-Supply": {
+        "Hero": {
+          "titleUpper": "<p>Mittels Notstromversorgung sind Sie sicher, unabhängig & unterbrechungsfrei</p>",
+          "titleLower": "",
+          "description": "Schluss mit Stromausfällen – sichern Sie Ihr Zuhause jetzt zuverlässig ab.",
+          "backgroundImage": {
+            "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/Emergency-power-supply.jpg",
+            "alt": "Photovoltaik"
+          },
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Components": {
+          "titleOne": "Warum jetzt? Warum wir?",
+          "descriptionOne": "Sichern Sie sich gegen unvorhergesehene Stromausfälle ab, schützen Sie Ihre kritischen Systeme und genießen Sie ununterbrochene Sicherheit – Jetzt ist Ihr Zeitpunkt für eine Notstromversorgung.",
+          "titleTwo": "Warum wir?",
+          "descriptionTwo": "Sie bekommen von uns eine maßgeschneiderte Lösung mit Handschlagqualität, persönlicher Beratung und einer Umsetzung, die hält, was sie verspricht.",
+          "boxes": {
+            "solar-panels": {
+              "title": "Absolute Versorgungssicherheit:",
+              "description": "Bei einem Netzausfall schaltet Ihr System automatisch und nahtlos auf Notstrom um.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Solarmodule"
+              }
+            },
+            "inverters": {
+              "title": "Schutz für Ihr Zuhause & Geschäft:",
+              "description": "Vermeiden Sie Schäden an Geräten, Datenverlust und Unterbrechungen des Alltags oder Betriebs.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Wechselrichter"
+              }
+            },
+            "batteries": {
+              "title": "Unabhängigkeit vom Stromnetz:",
+              "description": "Werden Sie immun gegen Schwankungen und Ausfälle des öffentlichen Stromnetzes.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Batteriespeicher"
+              }
+            }
+          },
+          "button": {
+            "text": "Ihre kostenlose Beratung wartet!",
+            "href": "/kontakt"
+          }
+        },
+        "Background": {
+          "boxes": {
+            "boxLeft": {
+              "title": "Was Sie erwarten können:",
+              "list": {
+                "itemOne": "<br>Zuverlässige Absicherung:</br> Schutz vor Stromausfällen für Ihr Zuhause oder Geschäft.",
+                "itemTwo": "<br>Ununterbrochener Komfort:</br> Heizung, Licht, Internet und wichtige Geräte bleiben funktionsfähig.",
+                "itemThree": "<br>Sicherheit für kritische Systeme:</br> Schutz vor Datenverlust und Beschädigung empfindlicher Elektronik.",
+                "itemFour": "<br>Gelassenheit im Notfall:</br> Wissen, dass Sie vorbereitet sind, egal was passiert.",
+                "itemFive": "<br>Maßgeschneiderte Lösungen:</br> Individuell an Ihren Bedarf und Ihre Immobilie angepasst.",
+                "itemSix": "<br>Zukunftssichere Technologien:</br> Modernste Systeme für maximale Performance und Langlebigkeit.",
+                "itemSeven": "<br>Unschlagbarer Kundenservice rundum:</br> Von der Beratung bis zur Wartung sind wir Ihr verlässlicher Partner."
+              }
+            },
+            "boxRight": {
+              "title": "In 6 einfachen Schritten zu Ihrer Notstromversorgung:",
+              "list": {
+                "itemOne": "Rückmeldung innerhalb einem Werktag",
+                "itemTwo": "Persönliche Analyse Ihrer Gegebenheiten und Schutzbedürfnisse",
+                "itemThree": "Individuelle Planung des passenden Notstromsystems",
+                "itemFour": "Kostentransparenz und umfassende Beratung",
+                "itemFive": "Schnelle, saubere Installation – alles aus einer Hand",
+                "itemSix": "Ihr Notstromsystem ist nach wenigen Tagen betriebsbereit und getestet"
+              }
+            }
+          },
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Testimonials": {
+          "testimonialsList": {
+            "testimonialOne": {
+              "text": "Ich bin persönlich rundum zufrieden! Zuverlässigkeit, Entgegenkommen, persönliche und vertrauensvolle Firma. Im Endeffekt treffen die Punkte zu mit denen geworben wird - Handschlagqualität. Ich lass mir auch von der selben Firma die PV-Anlage erweitern.",
+              "author": "Otto Eichwalder",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialTwo": {
+              "text": "Die Firma besteht aus einem jungen-dynamischen Team. Es gibt noch eine persönliche Beratung. Der Projektbericht wurde ausführlich und rasch übermittelt. Die Arbeiten wurden sauber und termingerecht ausgeführt. Herr Riegler ist sehr um seine Kunden bemüht. Diese Firma ist wirklich empfehlenswert!",
+              "author": "Manfred Hein",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialThree": {
+              "text": "Super Firma, sehr kompetent und sehr zu empfehlen. Tolle Beratung und Planung, zeitnahe Umsetzung - hat alles super funktioniert - bin rundum sehr zufrieden. Sehr gutes Preis- / Leistungsverhältnis - einfach top!",
+              "author": "Andreas Goisser",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            }
+          }
+        },
+        "Cta": {
+          "title": "Warten war gestern – holen Sie sich jetzt Ihr konkretes Notstrom-Angebot.",
+          "description": "Sie wünschen sich zuverlässigen Schutz vor Stromausfällen, möchten Ihre wichtigen Systeme absichern und jederzeit auf eine stabile Energieversorgung vertrauen können? Und legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen?<br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich.",
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+          }
+        }
+      },
+      "Balcony-Power-Supply": {
+        "Hero": {
+          "titleUpper": "<p>Ihre persönliche Energiewende: So rechnet sich ein Balkonkraftwerk mit Speicher</p>",
+          "titleLower": "<p>einfach, günstig & sofort wirksam</p>",
+          "description": "Schluss mit hohen Stromrechnungen – starten Sie jetzt mit Ihrem Balkonkraftwerk.",
+          "backgroundImage": {
+            "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/Balkonkraftwerk.jpg",
+            "alt": "Photovoltaik"
+          },
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Components": {
+          "titleOne": "Warum jetzt? Warum wir?",
+          "descriptionOne": "Strompreise steigen weiter, der Einstieg in die Solarenergie war noch nie so einfach und effizient – Jetzt ist Ihr Zeitpunkt für ein Balkonkraftwerk.",
+          "titleTwo": "Warum wir?",
+          "descriptionTwo": "Sie bekommen von uns eine maßgeschneiderte Lösung mit Handschlagqualität, persönlicher Beratung und einer Umsetzung, die hält, was sie verspricht.",
+          "boxes": {
+            "solar-panels": {
+              "title": "Einfache Installation & sofortige Ersparnis:",
+              "description": "Unkompliziert und schnell installiert, fangen Sie sofort an, Ihren eigenen Strom zu produzieren und Ihre Stromrechnung zu senken.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Solarmodule"
+              }
+            },
+            "inverters": {
+              "title": "Flexibilität mit und ohne Speicher:",
+              "description": "Starten Sie günstig und erweitern Sie bei Bedarf um einen Stromspeicher, um Ihren Eigenverbrauch auch nachts zu maximieren.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Wechselrichter"
+              }
+            },
+            "batteries": {
+              "title": "Ideal für Mieter & Eigenheimbesitzer:",
+              "description": "Die perfekte Lösung, um auch mit begrenztem Platz aktiv zur Energiewende beizutragen.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Batteriespeicher"
+              }
+            }
+          },
+          "button": {
+            "text": "Ihre kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Background": {
+          "boxes": {
+            "boxLeft": {
+              "title": "Was Sie erwarten können:",
+              "list": {
+                "itemOne": "<b>Sofortige Stromkostenersparnis:</b> Senken Sie Ihre monatlichen Ausgaben direkt mit selbst produziertem Solarstrom.",
+                "itemTwo": "<b>Aktiver Umweltschutz:</b> Leisten Sie einen direkten Beitrag zur Energiewende und reduzieren Sie Ihren CO2-Fußabdruck.",
+                "itemThree": "<b>Einfache Installation & Nutzung:</b> \"Plug & Play\"-Lösung für den schnellen Start in die Solarenergie.",
+                "itemFour": "<b>Flexibilität durch Speicheroption:</b> Nutzen Sie Ihren Solarstrom auch nach Sonnenuntergang und steigern Sie Ihren Eigenverbrauch erheblich.",
+                "itemFive": "<b>Maßgeschneiderte Beratung:</b> Wir finden das passende Balkonkraftwerk für Ihre Bedürfnisse, mit oder ohne Speicher.",
+                "itemSix": "<b>Zukunftssichere Technologie:</b> Investieren Sie in eine nachhaltige und erweiterbare Energielösung.",
+                "itemSeven": "<b>Unschlagbarer Kundenservice rundum:</b> Wir unterstützen Sie von der Auswahl bis zur Inbetriebnahme."
+              }
+            },
+            "boxRight": {
+              "title": "In 6 einfachen Schritten zu Ihrem Balkonkraftwerk:",
+              "list": {
+                "itemOne": "Rückmeldung innerhalb einem Werktag",
+                "itemTwo": "Persönliche Analyse Ihrer Gegebenheiten und Ziele",
+                "itemThree": "Individuelle Auswahl des passenden Systems (mit/ohne Speicher)",
+                "itemFour": "Kostentransparenz und Unterstützung bei Anmeldung/Förderungen",
+                "itemFive": "Schnelle, saubere Lieferung und einfache Montage",
+                "itemSix": "Ihr Balkonkraftwerk ist nach wenigen Tagen betriebsbereit"
+              }
+            }
+          },
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Testimonials": {
+          "testimonialsList": {
+            "testimonialOne": {
+              "text": "Ich bin persönlich rundum zufrieden! Zuverlässigkeit, Entgegenkommen, persönliche und vertrauensvolle Firma. Im Endeffekt treffen die Punkte zu mit denen geworben wird - Handschlagqualität. Ich lass mir auch von der selben Firma die PV-Anlage erweitern.",
+              "author": "Otto Eichwalder",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialTwo": {
+              "text": "Die Firma besteht aus einem jungen-dynamischen Team. Es gibt noch eine persönliche Beratung. Der Projektbericht wurde ausführlich und rasch übermittelt. Die Arbeiten wurden sauber und termingerecht ausgeführt. Herr Riegler ist sehr um seine Kunden bemüht. Diese Firma ist wirklich empfehlenswert!",
+              "author": "Manfred Hein",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialThree": {
+              "text": "Super Firma, sehr kompetent und sehr zu empfehlen. Tolle Beratung und Planung, zeitnahe Umsetzung - hat alles super funktioniert - bin rundum sehr zufrieden. Sehr gutes Preis- / Leistungsverhältnis - einfach top!",
+              "author": "Andreas Goisser",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            }
+          }
+        },
+        "Cta": {
+          "title": "Warten war gestern – holen Sie sich jetzt Ihr konkretes Balkonkraftwerk-Angebot.",
+          "description": "Sie wünschen sich einfache Unabhängigkeit von steigenden Strompreisen, möchten aktiv die Umwelt schützen und Ihren Eigenverbrauch maximieren? Und legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen?<br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich.  ",
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+          }
+        }
+      },
+      "Energy-Cost-Advice": {
+        "Hero": {
+          "titleUpper": "<p>Mit Energiekostenberatung Ihre Kosten im Griff: Ganz einfach Energiesparpotenziale finden</p>",
+          "titleLower": "<p>Clever sparen, nachhaltig leben & profitieren</p>",
+          "description": "Sparen Sie Energiekosten – starten Sie jetzt mit Ihrer persönlichen Energieberatung.",
+          "backgroundImage": {
+            "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/saving-electricity-led-lamp-wire-with-plug-and-l-2025-02-12-19-13-32-utc-compressed.jpeg",
+            "alt": "Photovoltaik"
+          },
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Components": {
+          "titleOne": "Warum jetzt? Warum wir?",
+          "descriptionOne": "Die Energiekosten steigen, doch Sie können Ihre Fixkosten senken und Ihren Lebensstandard verbessern. Wir haben die gleiche Ambition – Fixkosten senken und den Lebensstandard verbessern. Jetzt ist Ihr Zeitpunkt für eine professionelle Energiekostenberatung.",
+          "titleTwo": "Warum wir?",
+          "descriptionTwo": "Sie bekommen von uns eine maßgeschneiderte Lösung mit Handschlagqualität, persönlicher Beratung und einer Umsetzung, die hält, was sie verspricht. ",
+          "boxes": {
+            "solar-panels": {
+              "title": "Budget optimieren – so geht's:",
+              "description": "Es ist ganz einfach – sowohl der Energiemarkt und die Gesetzeslage als auch technische Aspekte bieten ein umfangreiches Spektrum an Möglichkeiten. Wir geben Möglichkeiten, das Eigenheim sowie den Industriebetrieb auf ein energetisch und lukratives Maximum zu heben.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Solarmodule"
+              }
+            },
+            "inverters": {
+              "title": "Laufende Marktkenntnis & Anpassung:",
+              "description": "Wir übernehmen die laufende Marktrecherche und die kontinuierliche Anpassung.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Wechselrichter"
+              }
+            },
+            "batteries": {
+              "title": "Experten mit As im Ärmel:",
+              "description": "Unsere Experten stehen Ihnen zur Seite. Wir sind Experten auf dem Gebiet und haben für Sie in den meisten Fällen ein As im Ärmel. Insbesondere, wenn Sie sowohl Abnehmer als auch Einspeiser sind, können wir Ihnen dabei helfen, dass sich Ihre Erzeugungsanlage schneller amortisiert.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Batteriespeicher"
+              }
+            }
+          },
+          "button": {
+            "text": "Ihre kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Background": {
+          "boxes": {
+            "boxLeft": {
+              "title": "Was Sie erwarten können:",
+              "list": {
+                "itemOne": "<b>Signifikante Kostenreduktion:</b> Wir entwickeln maßgeschneiderte Strategien zur Senkung Ihrer Energiekosten auf der Grundlage Ihrer spezifischen Bedürfnisse und Ziele.",
+                "itemTwo": "<b>Budgetoptimierung:</b> Ihr Eigenheim oder Industriebetrieb wird auf ein energetisch und lukratives Maximum gehoben.",
+                "itemThree": "<b>Fachkundige & jährliche Beratung:</b> Unser Team von Energieberatern steht Ihnen jährlich mit Rat und Tat zur Seite.",
+                "itemFour": "<b>Persönliche Strategien:</b> Maßgeschneiderte Strategien zur Kostensenkung.",
+                "itemFive": "<b>Schnellere Amortisation:</b> Wir helfen Ihnen, dass sich Ihre Erzeugungsanlage schneller amortisiert.",
+                "itemSix": "<b>Kontinuierliche Anpassung:</b> Profitieren Sie von laufender Marktrecherche und Anpassung Ihrer Energiestrategie.",
+                "itemSeven": "<b>Umfassende Lösungen:</b> Wir errichten erneuerbare Energieanlagen (Photovoltaik).",
+                "itemEight": "<b>Unschlagbarer Kundenservice rundum:</b> Wir sind Ihr zuverlässiger Partner für alle Fragen rund um Ihre Energiekosten."
+              }
+            },
+            "boxRight": {
+              "title": "In 6 einfachen Schritten zu Ihrer optimierten Energielösung:",
+              "list": {
+                "itemOne": "Rückmeldung innerhalb einem Werktag",
+                "itemTwo": "Persönliche Analyse Ihrer aktuellen Energiekosten und Ziele",
+                "itemThree": "Entwicklung maßgeschneiderter Strategien zur Kostensenkung",
+                "itemFour": "Kostentransparenz und Unterstützung bei allen Umsetzungsfragen",
+                "itemFive": "Auf Wunsch: Planung und Errichtung erneuerbarer Energieanlagen (z.B. Photovoltaik)",
+                "itemSix": "Laufende Betreuung und jährliche Überprüfung Ihrer Strategie"
+              }
+            }
+          },
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Testimonials": {
+          "testimonialsList": {
+            "testimonialOne": {
+              "text": "Ich bin persönlich rundum zufrieden! Zuverlässigkeit, Entgegenkommen, persönliche und vertrauensvolle Firma. Im Endeffekt treffen die Punkte zu mit denen geworben wird - Handschlagqualität. Ich lass mir auch von der selben Firma die PV-Anlage erweitern.",
+              "author": "Otto Eichwalder",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialTwo": {
+              "text": "Die Firma besteht aus einem jungen-dynamischen Team. Es gibt noch eine persönliche Beratung. Der Projektbericht wurde ausführlich und rasch übermittelt. Die Arbeiten wurden sauber und termingerecht ausgeführt. Herr Riegler ist sehr um seine Kunden bemüht. Diese Firma ist wirklich empfehlenswert!",
+              "author": "Manfred Hein",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialThree": {
+              "text": "Super Firma, sehr kompetent und sehr zu empfehlen. Tolle Beratung und Planung, zeitnahe Umsetzung - hat alles super funktioniert - bin rundum sehr zufrieden. Sehr gutes Preis- / Leistungsverhältnis - einfach top!",
+              "author": "Andreas Goisser",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            }
+          }
+        },
+        "Cta": {
+          "title": "Warten war gestern – holen Sie sich jetzt Ihr konkretes Energiekostenberatungs-Angebot.",
+          "description": "Sie wünschen sich eine effektive Senkung Ihrer Energiekosten, möchten Ihr Budget optimieren und von einer nachhaltigen Energieversorgung profitieren? Und legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen?<br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich.",
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+          }
+        }
+      },
+      "Self-Sufficient-Hot-Water-Production": {
+        "Hero": {
+          "titleUpper": "<p>Ihr Warmwasser aus Sonnenkraft:</p>",
+          "titleLower": "<p>autark, effizient & umweltschonend</p>",
+          "description": "Schluss mit hohen Heizkosten – erzeugen Sie Ihr Warmwasser jetzt selbst.",
+          "backgroundImage": {
+            "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/boiling-water-splash-with-steam-on-black-backgroun-2025-03-13-11-28-22-utc-compressed.jpeg",
+            "alt": "Photovoltaik"
+          },
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Components": {
+          "titleOne": "Warum jetzt? Warum wir?",
+          "descriptionOne": "Die Energiekosten für Warmwasser steigen kontinuierlich – sichern Sie sich jetzt mit Ihrer autarken Lösung Unabhängigkeit und Nachhaltigkeit. Jetzt ist Ihr Zeitpunkt!",
+          "titleTwo": "Warum wir?",
+          "descriptionTwo": "Sie bekommen von uns eine maßgeschneiderte Lösung mit Handschlagqualität, persönlicher Beratung und einer Umsetzung, die hält, was sie verspricht.",
+          "boxes": {
+            "solar-panels": {
+              "title": "Kostengünstig & effizient:",
+              "description": "Erzeugen Sie Warmwasser einfach und kostengünstig mit Gleichstrom aus Photovoltaik-Modulen. Nutzen Sie die Sonnenenergie optimal für Ihr Warmwasser.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Solarmodule"
+              }
+            },
+            "inverters": {
+              "title": "Flexibilität & Kompatibilität:",
+              "description": "Kann in die meisten bestehenden Systeme nachgerüstet werden. Zusätzliches Heizen mit Netzstrom ist bei Bedarf weiterhin möglich, um Ihre Versorgung jederzeit zu gewährleisten.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Wechselrichter"
+              }
+            },
+            "batteries": {
+              "title": "Umweltschonend & zukunftssicher:",
+              "description": "Erzeugen Sie Ihr Warmwasser zum Duschen hauptsächlich mit Solarstrom und reduzieren Sie so Ihren ökologischen Fußabdruck und Ihre Abhängigkeit von fossilen Brennstoffen.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Batteriespeicher"
+              }
+            }
+          },
+          "button": {
+            "text": "Ihre kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Background": {
+          "boxes": {
+            "boxLeft": {
+              "title": "Was Sie erwarten können:",
+              "list": {
+                "itemOne": "<b>Deutliche Heizkostenersparnis:</b> Erzeugen Sie Ihr Warmwasser kostengünstig mit Solarstrom.",
+                "itemTwo": "<b>Umweltfreundlich & nachhaltig:</b> Duschen Sie hauptsächlich mit selbst erzeugtem Solarstrom und reduzieren Sie CO2.",
+                "itemThree": "<b>Einfache Nachrüstung:</b> Ihr System lässt sich in die meisten bestehenden Warmwassersysteme integrieren.",
+                "itemFour": "<b>Maximale Autarkie:</b> Werden Sie unabhängiger von externen Energieversorgern und steigenden Preisen.",
+                "itemFive": "<b>Sicherheit durch Hybridbetrieb:</b> Zusätzliches Heizen mit Netzstrom ist bei Bedarf jederzeit möglich.",
+                "itemSix": "<b>Maßgeschneiderte Lösungen:</b> Individuelle Anpassung an Ihre Bedürfnisse und Ihr Zuhause.",
+                "itemSeven": "<b>Zukunftssichere Technologie:</b> Investieren Sie in eine innovative und langlebige Lösung für Ihr Warmwasser.",
+                "itemEight": "<b>Unschlagbarer Kundenservice rundum:</b> Wir begleiten Sie von der Planung bis zur Inbetriebnahme."
+              }
+            },
+            "boxRight": {
+              "title": "In 6 einfachen Schritten zu Ihrer autarken Warmwassererzeugung:",
+              "list": {
+                "itemOne": "Rückmeldung innerhalb einem Werktag",
+                "itemTwo": "Persönliche Analyse Ihrer Gegebenheiten und Warmwasserbedarfs",
+                "itemThree": "Individuelle Planung und Auswahl des passenden Systems",
+                "itemFour": "Kostentransparenz und Unterstützung bei allen Anträgen",
+                "itemFive": "Schnelle, saubere Installation und Nachrüstung",
+                "itemSix": "Ihr autarkes Warmwassersystem ist nach wenigen Tagen betriebsbereit"
+              }
+            }
+          },
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Testimonials": {
+          "testimonialsList": {
+            "testimonialOne": {
+              "text": "Ich bin persönlich rundum zufrieden! Zuverlässigkeit, Entgegenkommen, persönliche und vertrauensvolle Firma. Im Endeffekt treffen die Punkte zu mit denen geworben wird - Handschlagqualität. Ich lass mir auch von der selben Firma die PV-Anlage erweitern.",
+              "author": "Otto Eichwalder",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialTwo": {
+              "text": "Die Firma besteht aus einem jungen-dynamischen Team. Es gibt noch eine persönliche Beratung. Der Projektbericht wurde ausführlich und rasch übermittelt. Die Arbeiten wurden sauber und termingerecht ausgeführt. Herr Riegler ist sehr um seine Kunden bemüht. Diese Firma ist wirklich empfehlenswert!",
+              "author": "Manfred Hein",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialThree": {
+              "text": "Super Firma, sehr kompetent und sehr zu empfehlen. Tolle Beratung und Planung, zeitnahe Umsetzung - hat alles super funktioniert - bin rundum sehr zufrieden. Sehr gutes Preis- / Leistungsverhältnis - einfach top!",
+              "author": "Andreas Goisser",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            }
+          }
+        },
+        "Cta": {
+          "title": "Warten war gestern – holen Sie sich jetzt Ihr konkretes Angebot zur autarken Warmwassererzeugung.",
+          "description": "Sie wünschen sich Unabhängigkeit von hohen Heizkosten, möchten Ihr Warmwasser umweltschonend selbst erzeugen und von einer zukunftssicheren Lösung profitieren? Und legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen?<br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich. ",
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+          }
+        }
+      },
+      "Maintenance-Service": {
+        "Hero": {
+          "titleUpper": "<p>Wartungs & Service für Solar und Haustechnik</p>",
+          "titleLower": "<p>Maximale Effizienz, lange Lebensdauer & sorgenfrei</p>",
+          "description": "Sichern Sie die Leistung Ihrer Anlage – starten Sie jetzt mit professionellem Service.",
+          "backgroundImage": {
+            "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/solar-panel-maintenance-tools-and-outdoor-with-en-2025-04-06-07-27-43-utc-compressed.jpg",
+            "alt": "Photovoltaik"
+          },
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Components": {
+          "titleOne": "Warum jetzt? Warum wir?",
+          "descriptionOne": "Nur eine optimal gewartete Anlage läuft effizient und störungsfrei. Schützen Sie Ihre Investition und sichern Sie sich dauerhaft maximale Leistung – Jetzt ist Ihr Zeitpunkt für professionellen Wartungs- und Service.",
+          "titleTwo": "Warum wir?",
+          "descriptionTwo": "Sie bekommen von uns eine maßgeschneiderte Lösung mit Handschlagqualität, persönlicher Beratung und einer Umsetzung, die hält, was sie verspricht.",
+          "boxes": {
+            "solar-panels": {
+              "title": "Maximale Leistung & Ertragssicherheit:",
+              "description": "Regelmäßige Wartung sorgt dafür, dass Ihre Solar- und Haustechniksysteme stets im optimalen Bereich arbeiten und Sie den maximalen Ertrag erzielen. ",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Solarmodule"
+              }
+            },
+            "inverters": {
+              "title": "Längere Lebensdauer Ihrer Investition:",
+              "description": "Vorbeugende Wartung verhindert teure Reparaturen und verlängert die Lebensdauer Ihrer Anlagen erheblich.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Wechselrichter"
+              }
+            },
+            "batteries": {
+              "title": "Sicherheit & Zuverlässigkeit:",
+              "description": "Minimieren Sie das Risiko unerwarteter Ausfälle und genießen Sie die Gewissheit einer zuverlässigen Energieversorgung.",
+              "image": {
+                "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "alt": "Batteriespeicher"
+              }
+            }
+          },
+          "button": {
+            "text": "Ihre kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Background": {
+          "boxes": {
+            "boxLeft": {
+              "title": "Was Sie erwarten können:",
+              "list": {
+                "itemOne": "<b>Optimale Effizienz & Erträge:</b> Ihre Anlagen arbeiten stets am Maximum ihrer Leistungsfähigkeit.",
+                "itemTwo": "<b>Vorbeugung von Schäden:</b> Minimierung des Risikos teurer Reparaturen durch frühzeitige Erkennung von Problemen.",
+                "itemThree": "<b>Verlängerte Lebensdauer:</b> Maximieren Sie die Nutzungsdauer Ihrer Solar- und Haustechniksysteme.",
+                "itemFour": "<b>Einhaltung von Garantiebedingungen:</b> Professionelle Wartung sichert Ihre Herstellergarantien.",
+                "itemFive": "<b>Schneller Notfallservice:</b> Im Falle einer Störung sind wir schnell zur Stelle.",
+                "itemSix": "<b>Transparente Wartungsprotokolle:</b> Sie erhalten detaillierte Berichte über den Zustand Ihrer Anlage.",
+                "itemSeven": "<b>Zertifizierte Fachexperten:</b> Ihr System ist in den besten Händen unseres geschulten Personals.",
+                "itemEight": "<b>Unschlagbarer Kundenservice rundum:</b> Wir sind Ihr verlässlicher Partner für alle Servicefragen."
+              }
+            },
+            "boxRight": {
+              "title": "In 6 einfachen Schritten zu Ihrem zuverlässigen Wartungsservice:",
+              "list": {
+                "itemOne": "Rückmeldung innerhalb einem Werktag",
+                "itemTwo": "Persönliche Aufnahme Ihrer Anlagen und Servicebedürfnisse",
+                "itemThree": "Individuelles Service- und Wartungsangebot",
+                "itemFour": "Transparente Terminplanung und Abstimmung",
+                "itemFive": "Professionelle Durchführung der Wartung/Reparatur vor Ort",
+                "itemSix": "Detailliertes Protokoll und Empfehlungen für die Zukunft"
+              }
+            }
+          },
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
+            "href": "/kontakt"
+          }
+        },
+        "Testimonials": {
+          "testimonialsList": {
+            "testimonialOne": {
+              "text": "Ich bin persönlich rundum zufrieden! Zuverlässigkeit, Entgegenkommen, persönliche und vertrauensvolle Firma. Im Endeffekt treffen die Punkte zu mit denen geworben wird - Handschlagqualität. Ich lass mir auch von der selben Firma die PV-Anlage erweitern.",
+              "author": "Otto Eichwalder",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialTwo": {
+              "text": "Die Firma besteht aus einem jungen-dynamischen Team. Es gibt noch eine persönliche Beratung. Der Projektbericht wurde ausführlich und rasch übermittelt. Die Arbeiten wurden sauber und termingerecht ausgeführt. Herr Riegler ist sehr um seine Kunden bemüht. Diese Firma ist wirklich empfehlenswert!",
+              "author": "Manfred Hein",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            },
+            "testimonialThree": {
+              "text": "Super Firma, sehr kompetent und sehr zu empfehlen. Tolle Beratung und Planung, zeitnahe Umsetzung - hat alles super funktioniert - bin rundum sehr zufrieden. Sehr gutes Preis- / Leistungsverhältnis - einfach top!",
+              "author": "Andreas Goisser",
+              "link": {
+                "text": "Zur Rezension",
+                "href": "https://g.co/kgs/tkBkdUm"
+              }
+            }
+          }
+        },
+        "Cta": {
+          "title": "Warten war gestern – holen Sie sich jetzt Ihr konkretes Wartungs- & Service-Angebot.",
+          "description": "Sie wünschen sich maximale Effizienz, eine lange Lebensdauer und sorgenfreien Betrieb Ihrer Solar- und Haustechnik? Und legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen?<br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich. ",
+          "button": {
+            "text": "Jetzt kostenlose Beratung sichern",
             "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
           }
         }

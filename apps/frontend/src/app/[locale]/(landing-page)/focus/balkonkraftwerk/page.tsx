@@ -18,11 +18,11 @@ export default function Page(): JSX.Element {
         name="keywords"
         content="Photovoltaik kaufen, PV-Anlage installieren lassen, Stromkosten sparen, Förderung Photovoltaik"
       />
-      <PhotovoltaicHero translationProduct="Photovoltaic" />
-      <PhotovoltaicComponents translationProduct="Photovoltaic" />
-      <PhotovoltaicBackground translationProduct="Photovoltaic" />
-      <PhotovoltaicTestimonials translationProduct="Photovoltaic" />
-      <PhotovoltaicCta translationProduct="Photovoltaic" />
+      <PhotovoltaicHero translationProduct="Balcony-Power-Supply" />
+      <PhotovoltaicComponents translationProduct="Balcony-Power-Supply" />
+      <PhotovoltaicBackground translationProduct="Balcony-Power-Supply" />
+      <PhotovoltaicTestimonials translationProduct="Balcony-Power-Supply" />
+      <PhotovoltaicCta translationProduct="Balcony-Power-Supply" />
     </>
   );
 }

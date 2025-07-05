@@ -1,10 +1,16 @@
-import { useTranslations } from "next-intl";
+import { useMessages, useTranslations } from "next-intl";
+import RichText from "../../../shared/internationalization/text/RichText";
 
 /* eslint-disable-next-line */
-export interface PhotovoltaicHeroProps {}
+export interface PhotovoltaicHeroProps {
+  translationProduct?: string;
+}
 
 export const PhotovoltaicHero = (props: PhotovoltaicHeroProps) => {
-  const t = useTranslations("LandingPage.Focus.Photovoltaic.Hero");
+  const { translationProduct } = props;
+  const t = useTranslations(`LandingPage.Focus.${translationProduct}.Hero`);
+
+  const messages: any = useMessages();
 
   return (
     <section
@@ -16,16 +22,25 @@ export const PhotovoltaicHero = (props: PhotovoltaicHeroProps) => {
       <div className="bg-black/40 h-full min-h-[600px] flex flex-col items-center justify-between text-white text-center px-4 pt-40 pb-12">
         <div className="max-w-3xl">
           <h2 className="text-4xl font-bold mb-3">
-            <span className="w-max bg-black px-2 py-1 rounded-2xl">
-              {t("titleUpper")}
+            <span className="w-max">
+              <RichText className="bg-black px-2 py-1 rounded-2xl">
+                {(tags) => t.rich("titleUpper", tags)}
+              </RichText>
             </span>
           </h2>
-          <h2 className="text-4xl font-bold mb-6">
-            <span className="w-max bg-black px-2 py-1 rounded-2xl">
-              {t("titleLower")}
-            </span>
-          </h2>
-          <p className="text-2xl mb-6 text-center">{t("description")}</p>
+          {messages.LandingPage.Focus[`${translationProduct}`].Hero
+            .titleLower && (
+            <h2 className="text-4xl font-bold">
+              <span className="w-max">
+                <RichText className="bg-black px-2 py-1 rounded-2xl">
+                  {(tags) => t.rich("titleLower", tags)}
+                </RichText>
+              </span>
+            </h2>
+          )}
+          <p className="text-2xl my-6 text-center">
+            <RichText>{(tags) => t.rich("description", tags)}</RichText>
+          </p>
         </div>
         <div className="relative mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center">
           <a

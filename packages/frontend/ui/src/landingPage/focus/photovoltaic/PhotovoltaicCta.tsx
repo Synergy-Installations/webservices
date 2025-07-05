@@ -1,15 +1,21 @@
 import { Link } from "@com.synergy/frontend-shared-internationalization/routing";
 import { useTranslations } from "next-intl";
+import RichText from "../../../shared/internationalization/text/RichText";
 
 /* eslint-disable-next-line */
-export interface PhotovoltaicCtaProps {}
+export interface PhotovoltaicCtaProps {
+  translationProduct: string;
+}
 
 export const PhotovoltaicCta = (props: PhotovoltaicCtaProps) => {
-  const t = useTranslations("LandingPage.Focus.Photovoltaic.Cta");
+  const { translationProduct } = props;
+  const t = useTranslations(`LandingPage.Focus.${translationProduct}.Cta`);
 
   return (
     <section className="bg-gradient-to-r from-synergy-blue to-synergy-light-blue text-black text-center pt-16 pb-6 px-6 rounded-lg shadow-lg">
-      <h2 className="text-3xl font-extrabold mb-6">{t("title")}</h2>
+      <h2 className="text-3xl max-w-4xl mx-auto font-extrabold mb-6">
+        <RichText>{(tags) => t.rich("title", tags)}</RichText>
+      </h2>
       <div className="relative mx-auto max-w-xs sm:flex sm:max-w-none w-fit sm:justify-center mb-6">
         <a
           className="btn group mb-0 !py-4 !px-5 !text-lg w-full before:opacity-100 before:absolute before:inset-0 before:rounded-xl before:backdrop-blur-md before:bg-gradient-to-t before:from-synergy-light-blue/70 before:via-synergy-light-blue before:to-synergy-light-blue/70 hover:before:from-synergy-light-blue hover:before:to-synergy-light-blue before:shadow-xl text-white shadow sm:w-auto break-words whitespace-pre-line"
@@ -17,7 +23,7 @@ export const PhotovoltaicCta = (props: PhotovoltaicCtaProps) => {
         >
           <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5 break-words whitespace-pre-line">
             {/* {t("button.text")} */}
-            Jetzt kostenlose Vor-Ort-Beratung sichern
+            {t("button.text")}
             <div className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
               <div className=" whitespace-nowrap">{"->"}</div>
             </div>
@@ -25,7 +31,7 @@ export const PhotovoltaicCta = (props: PhotovoltaicCtaProps) => {
         </a>
       </div>
       <p className="mb-8 max-w-3xl mx-auto text-lg leading-relaxed">
-        {t("description")} <br />
+        <RichText>{(tags) => t.rich("description", tags)}</RichText> <br />
         <br /> Sichern Sie sich Ihren Termin gleich per Telefon{" "}
         <a
           href="tel:+436642448742"

@@ -1,16 +1,23 @@
 import { useMessages, useTranslations } from "next-intl";
+import RichText from "../../../shared/internationalization/text/RichText";
 
 /* eslint-disable-next-line */
-export interface PhotovoltaicBackgroundProps {}
+export interface PhotovoltaicBackgroundProps {
+  translationProduct: string;
+}
 
 export const PhotovoltaicBackground = (props: PhotovoltaicBackgroundProps) => {
-  const t = useTranslations("LandingPage.Focus.Photovoltaic.Background");
+  const { translationProduct } = props;
+  const t = useTranslations(
+    `LandingPage.Focus.${translationProduct}.Background`
+  );
   const messages: any = useMessages();
   const boxesLeftKeys = Object.keys(
-    messages.LandingPage.Focus.Photovoltaic.Background.boxes.boxLeft.list
+    messages.LandingPage.Focus[translationProduct].Background.boxes.boxLeft.list
   );
   const boxesRightKeys = Object.keys(
-    messages.LandingPage.Focus.Photovoltaic.Background.boxes.boxLeft.list
+    messages.LandingPage.Focus[translationProduct].Background.boxes.boxRight
+      .list
   );
   return (
     <section className="bg-gray-50 pb-12 px-4">
@@ -34,9 +41,12 @@ export const PhotovoltaicBackground = (props: PhotovoltaicBackgroundProps) => {
           </h3>
           <ul className="list-none list-inside space-y-2 text-yellow-900">
             {boxesLeftKeys.map((key) => (
-              <li key={key}>
+              <li key={key} className="flex items-center">
                 <span className="mr-2">★</span>
-                {t(`boxes.boxLeft.list.${key}`)}
+                <RichText>
+                  {(tags) => t.rich(`boxes.boxLeft.list.${key}`, tags)}
+                </RichText>
+                {/* {t(`boxes.boxLeft.list.${key}`)} */}
               </li>
             ))}
           </ul>
@@ -60,7 +70,12 @@ export const PhotovoltaicBackground = (props: PhotovoltaicBackgroundProps) => {
           </h3>
           <ol className="list-decimal list-inside space-y-2 text-teal-900">
             {boxesRightKeys.map((key) => (
-              <li key={key}>{t(`boxes.boxRight.list.${key}`)}</li>
+              <li key={key}>
+                <RichText>
+                  {(tags) => t.rich(`boxes.boxRight.list.${key}`, tags)}
+                </RichText>
+                {/* {t(`boxes.boxRight.list.${key}`)} */}
+              </li>
             ))}
           </ol>
         </div>
@@ -72,7 +87,7 @@ export const PhotovoltaicBackground = (props: PhotovoltaicBackgroundProps) => {
         >
           <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5 break-words whitespace-pre-line">
             {/* {t("button.text")} */}
-            Jetzt kostenlose Vor-Ort-Beratung sichern
+            {t("button.text")}
             <div className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
               <div className=" whitespace-nowrap">{"->"}</div>
             </div>

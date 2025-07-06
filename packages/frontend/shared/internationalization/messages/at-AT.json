@@ -1003,6 +1003,10 @@
             "text": "Buchen Sie Ihre PV Montage",
             "href": "/funnel/photovoltaik"
           },
+          "buttonImage": {
+            "text": "Weitere Informationen",
+            "href": "/focus/photovoltaik"
+          },
           "boxesTop": {
             "boxOne": {
               "title": "Geld sparen",
@@ -1084,6 +1088,10 @@
             "text": "Jetzt Anfragen",
             "href": "/contact-us"
           },
+          "buttonImage": {
+            "text": "Weitere Informationen",
+            "href": "/focus/waermepumpe"
+          },
           "boxesTop": {
             "boxOne": {
               "title": "Rasche Umsetzung Österreichweit",
@@ -1154,6 +1162,10 @@
           "buttonLeft": {
             "text": "Jetzt Anfragen",
             "href": "/contact-us"
+          },
+          "buttonImage": {
+            "text": "Weitere Informationen",
+            "href": "/focus/klimasysteme"
           },
           "boxesTop": {
             "boxOne": {
@@ -1236,6 +1248,10 @@
             "text": "Jetzt Anfragen",
             "href": "/contact-us"
           },
+          "buttonImage": {
+            "text": "Weitere Informationen",
+            "href": "/focus/smart-home"
+          },
           "boxesTop": {},
           "boxesBottom": {
             "boxOne": {
@@ -1285,6 +1301,10 @@
           "buttonLeft": {
             "text": "Jetzt Anfragen",
             "href": "/contact-us"
+          },
+          "buttonImage": {
+            "text": "Weitere Informationen",
+            "href": "/focus/stromspeicher"
           },
           "boxesTop": {
             "boxOne": {
@@ -1366,6 +1386,10 @@
           "buttonLeft": {
             "text": "Jetzt Anfragen",
             "href": "/contact-us"
+          },
+          "buttonImage": {
+            "text": "Weitere Informationen",
+            "href": "/focus/stromtankstelle"
           },
           "boxesTop": {
             "boxOne": {

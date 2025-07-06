@@ -101,7 +101,8 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
                         </span>
                       </Link>
                     </div>
-                    {messages.LandingPage.Products.ProductCards[productKey]?.buttonRight && (
+                    {messages.LandingPage.Products.ProductCards[productKey]
+                      ?.buttonRight && (
                       <div className="w-full flex justify-center sm:justify-start">
                         <Link
                           className="btn !rounded-xl !py-3 !text-base text-white backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue shadow-xl group w-fit break-words text-center"
@@ -175,6 +176,25 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
                     height={Number(t(`${productKey}.image.height`))}
                     alt={t(`${productKey}.image.alt`)}
                   />
+                </div>
+                <div className="flex flex-col items-center gap-2 mt-4">
+                  <div className="w-full flex justify-center sm:justify-start">
+                    <Link
+                      className="btn !rounded-xl !py-3 !text-base text-white backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue shadow-xl group w-fit break-words text-center"
+                      href={t(`${productKey}.buttonImage.href`)}
+                      style={{
+                        wordBreak: "break-word",
+                        whiteSpace: "normal",
+                      }}
+                    >
+                      <span className="relative w-fit inline-flex items-center justify-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5 break-words text-center">
+                        {t(`${productKey}.buttonImage.text`)}
+                        <span className="tracking-normal whitespace-nowrap text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
+                          {"->"}
+                        </span>
+                      </span>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

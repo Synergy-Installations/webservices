@@ -5490,7 +5490,7 @@
                   "title": "Energiegemeinschaften",
                   "imageSrc": "/images/categories/energiegemeinschaften.jpg",
                   "alt": "Energiegemeinschaften",
-                  "href": "/energiegemeinschaft"
+                  "href": "/focus/energiegemeinschaft"
                 },
                 "productFour": {
                   "title": "Smart Home",
@@ -5502,37 +5502,37 @@
                   "title": "Stromtankstelle",
                   "imageSrc": "/frontend/landingPage/products/AA%2520Wallbox%2520AdobeStock_762399295.jpeg",
                   "alt": "Stromtankstelle",
-                  "href": "/products"
+                  "href": "/products#wallbox"
                 },
                 "productSeven": {
                   "title": "Notstrom Versorgung",
                   "imageSrc": "/images/categories/notstrom.jpg",
                   "alt": "Notstrom Versorgung",
-                  "href": "/products"
+                  "href": "/focus/notstromversorgung"
                 },
                 "productEight": {
                   "title": "Balkonkraftwerk",
                   "imageSrc": "/images/categories/balkonkraftwerk.jpg",
                   "alt": "Balkonkraftwerk",
-                  "href": "/products"
+                  "href": "/focus/balkonkraftwerk"
                 },
                 "productNine": {
                   "title": "Energiekosten-Beratung",
                   "imageSrc": "/images/categories/komplettpaket.jpg",
                   "alt": "Komplettpaket Anlage",
-                  "href": "/products"
+                  "href": "/focus/energiekostenberatung"
                 },
                 "productEleven": {
                   "title": "Autarke Warmwasser-Erzeugung",
                   "imageSrc": "/images/categories/energiekosten-beratung.jpg",
                   "alt": "Energiekosten Beratung",
-                  "href": "/products"
+                  "href": "/focus/autarke-warmwasser-erzeugung"
                 },
                 "productTwelve": {
                   "title": "Wartung & Service",
                   "imageSrc": "/images/categories/stromtankstelle.jpg",
                   "alt": "Wartung & Service",
-                  "href": "/products"
+                  "href": "/focus/wartung-service"
                 }
               }
             }

@@ -65,7 +65,7 @@ export const PhotovoltaicBackground = (props: PhotovoltaicBackgroundProps) => {
               d="M240-280h240v-80H240v80Zm120-160h240v-80H360v80Zm120-160h240v-80H480v80ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"
             />
           </svg>
-          <h3 className="text-xl font-bold text-teal-800 mb-4">
+          <h3 className="text-xl font-bold text-center text-teal-800 mb-4">
             {t("boxes.boxRight.title")}
           </h3>
           <ol className="list-decimal list-inside space-y-2 text-teal-900">

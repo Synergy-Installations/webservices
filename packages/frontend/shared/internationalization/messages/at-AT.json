@@ -3725,7 +3725,7 @@
           }
         },
         "Components": {
-          "titleOne": "Warum jetzt? Warum wir?",
+          "titleOne": "Warum jetzt Photovoltaik? Warum wir?",
           "descriptionOne": "Strompreise steigen, Materialkosten sinken, Fördermittel verfügbar und jede Kilowattstunde produziert Geld - Jetzt ist Ihr Zeitpunkt.",
           "titleTwo": "Warum wir?",
           "descriptionTwo": "Sie bekommen von uns eine maßgeschneiderte Lösung mit Handschlagqualität, persönlicher Beratung und einer Umsetzung, die hält, was sie verspricht.",
@@ -3763,7 +3763,7 @@
         "Background": {
           "boxes": {
             "boxLeft": {
-              "title": "Was Sie erwarten können:",
+              "title": "Was Sie von ihrer Solaranlage erwarten können:",
               "list": {
                 "itemOne": "Effektive Stromkostenersparnis garantiert",
                 "itemTwo": "Aktiver Umweltschutz durch Solarenergie",
@@ -3784,6 +3784,10 @@
                 "itemSix": "Betriebsbereit nach wenigen Tagen"
               }
             }
+          },
+          "button": {
+            "text": "Kostenlose Beratung",
+            "href": "/kontakt"
           }
         },
         "Testimonials": {
@@ -3838,7 +3842,7 @@
           }
         },
         "Components": {
-          "titleOne": "Warum jetzt? Warum wir?",
+          "titleOne": "Warum das richtige Heizsystem finden?",
           "descriptionOne": "Heizkosten steigen, die Abhängigkeit von fossilen Brennstoffen wird zum Risiko und attraktive staatliche Förderungen machen den Umstieg so günstig wie nie – Jetzt ist Ihr Zeitpunkt für eine Wärmepumpe.",
           "titleTwo": "Warum wir?",
           "descriptionTwo": "Wir liefern Ihnen nicht nur eine Heizung, sondern ein maßgeschneidertes Zukunftskonzept für Ihr Zuhause – mit persönlicher Fachberatung, Handschlagqualität und einer Umsetzung, die für nachhaltige Wärme und Sorgenfreiheit garantiert. ",
@@ -3852,7 +3856,7 @@
               }
             },
             "inverters": {
-              "title": "Preissicherheit garantiert",
+              "title": "Preissicherheit garantiert für Luft-Luft Wärmepumpe und Luft-Wasser Wärmepumpe",
               "description": "Keine versteckten Kosten: Ihr Angebotspreis ist fix und schützt Sie vor unliebsamen Überraschungen.",
               "image": {
                 "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
@@ -3876,7 +3880,7 @@
         "Background": {
           "boxes": {
             "boxLeft": {
-              "title": "Was Sie von uns erwarten können:",
+              "title": "Was Sie von einer intelligenten Wärmepumpe erwarten können:",
               "list": {
                 "itemOne": "<b>Drastische Senkung Ihrer Heizkosten</b> garantiert",
                 "itemTwo": "<b>Aktiver Klimaschutz</b> durch CO₂-freie Wärme aus der Umwelt",
@@ -3888,7 +3892,7 @@
               }
             },
             "boxRight": {
-              "title": "In 6 einfachen Schritten zu Ihrer Wärmepumpe:",
+              "title": "In 6 einfachen Schritten zu Ihrem Wärmepumpensystem:",
               "list": {
                 "itemOne": "<b>Ihre Anfrage & Erstkontakt</b> – Wir melden uns innerhalb eines Werktages bei Ihnen.",
                 "itemTwo": "<b>Vor-Ort-Analyse & Bedarfsermittlung</b> – Wir analysieren Ihre Gegebenheiten und verstehen Ihre Ziele.",

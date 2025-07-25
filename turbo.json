@@ -18,7 +18,8 @@
         "SMTP_TLS_REJECT_UNAUTHORIZED",
         "SMTP_USER",
         "SMTP_PASSWORD",
-        "NEXT_PUBLIC_C15T_URL"
+        "NEXT_PUBLIC_C15T_URL",
+        "RESEND_API_KEY"
       ],
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],

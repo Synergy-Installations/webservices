@@ -1912,6 +1912,108 @@
         "disclamer": "* Das Angebot versteht sich inkl. Abwicklung durch zertifizierten Projektmanager und Elektrotechniker bzw. Kältetechniker und Fachkräfte für Gebäudehülle, benötigtem Montagematerial von bis zu 20 Metern. Anfahrtskosten sind bis 50 km außerhalb Wiens inkludiert. 36 Monate Gewährleistung bei Abschluss eines Wartungsvertrages. Elektrische Anschlüsse bauseits durch Elektriker oder von uns nach näherer Begutachtung. Zusätzliche Arbeiten, werden nach Aufwand verrechnet. Diese Arbeiten werden im Vorhinein detailiert mit ihnen besprochen. Alle Preise verstehen sich exkl. Mehrwertsteuer. Angebot gültig solange der Vorrat reicht."
       }
     },
+    "B2B": {
+      "Services": {
+        "consulting": {
+          "title": "Beratung",
+          "SubServices": {
+            "project-acquisition": {
+              "Diamond": {
+                "title": "Projektaquise",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaik"
+                }
+              },
+              "Components": {
+                "titleOne": "Warum jetzt Photovoltaik? Warum wir?",
+                "descriptionOne": "Strompreise steigen, Materialkosten sinken, Fördermittel verfügbar und jede Kilowattstunde produziert Geld - Jetzt ist Ihr Zeitpunkt.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Sie bekommen von uns eine maßgeschneiderte Lösung mit Handschlagqualität, persönlicher Beratung und einer Umsetzung, die hält, was sie verspricht.",
+                "button": {
+                  "text": "Jetzt kostenlose Vor-Ort-Beratung sichern",
+                  "href": "/kontakt"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Rundum-Sorglos-Paket",
+                    "description": "Von Förderberatung bis Wartung – wir kümmern uns um alles.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Solarmodule"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/Solar-panel_11270047%20blau.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Preissicherheit garantiert",
+                    "description": "Keine Überraschungen: Ihr Angebot bleibt auch bei Marktpreisschwankungen stabil.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Wechselrichter"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/Solar-panel_11270047%20blau.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "In 3 Monaten zur fertigen Anlage",
+                    "description": "Schnell, effizient, professionell – mit eingespielten Prozessen und erfahrenen Partnern.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Batteriespeicher"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/Solar-panel_11270047%20blau.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Was Sie von ihrer Solaranlage erwarten können:",
+                    "list": {
+                      "itemOne": "Effektive Stromkostenersparnis garantiert",
+                      "itemTwo": "Aktiver Umweltschutz durch Solarenergie",
+                      "itemThree": "Spürbare Wertsteigerung Ihrer Immobilie",
+                      "itemFour": "Maßgeschneiderte Lösungen für Ihr Eigenheim",
+                      "itemFive": "Zukunftssichere Methoden und Technologien",
+                      "itemSix": "Unschlagbarer Kundenservice rundum"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "In 6 einfachen Schritten zur eigenen PV-Anlage:",
+                    "list": {
+                      "itemOne": "Rückmeldung innerhalb einem Werktag",
+                      "itemTwo": "Persönliche Analyse Ihrer Gegebenheiten und Ziele",
+                      "itemThree": "Individuelle Planung mit Wirtschaftlichkeitscheck",
+                      "itemFour": "Kostentransparenz und Unterstützung bei allen Anträgen",
+                      "itemFive": "Schnell, sauber, alles aus einer Hand",
+                      "itemSix": "Betriebsbereit nach wenigen Tagen"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Kostenlose Beratung",
+                  "href": "/kontakt"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "ContactUs": {
       "Header": {
         "title": "Starten Sie in die Energieunabhängikeit!",

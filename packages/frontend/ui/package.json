@@ -8,6 +8,9 @@
     "dist"
   ],
   "exports": {
+    "./ServiceComponents": "./src/landingPage/b2b/service/ServiceComponents.tsx",
+    "./DiamondClips": "./src/landingPage/shared/ui/clips/DiamondClips.tsx",
+    "./ServiceWrapper": "./src/landingPage/b2b/service/ServiceWrapper.tsx",
     "./AboutCta": "./src/landingPage/about/cta/AboutCta.tsx",
     "./AboutTeamMembers": "./src/landingPage/about/team/AboutTeamMembers.tsx",
     "./AboutStory": "./src/landingPage/about/story/AboutStory.tsx",

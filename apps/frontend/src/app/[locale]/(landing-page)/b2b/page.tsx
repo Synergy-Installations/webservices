@@ -7,6 +7,7 @@ import B2bPartnersSection from "@com.synergy/frontend-ui/B2bPartnersSection";
 import B2bFaqSection from "@com.synergy/frontend-ui/B2bFaqSection";
 import B2bCompetenciesSection from "@com.synergy/frontend-ui/B2bCompetenciesSection";
 import B2bCtaSection from "@com.synergy/frontend-ui/B2bCtaSection";
+import ServiceWrapper from "@com.synergy/frontend-ui/ServiceWrapper";
 
 export default function Page() {
   return (
@@ -21,6 +22,7 @@ export default function Page() {
       <main className="space-y-20">
         <B2bHero />
         {/* <B2BServiceSection /> */}
+        <ServiceWrapper />
         <B2bCompetenciesSection />
         <B2bProcessSection />
         <B2bTestimonialSection />

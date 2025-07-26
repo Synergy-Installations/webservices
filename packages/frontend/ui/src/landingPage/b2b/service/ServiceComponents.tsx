@@ -2,6 +2,7 @@ import { useMessages, useTranslations } from "next-intl";
 import RichText from "../../../shared/internationalization/text/RichText";
 import Image from "next/image";
 import ImageLoader from "../../../shared/utils/image/ImageLoader";
+import { Link } from "@com.synergy/frontend-shared-internationalization/routing";
 
 /* eslint-disable-next-line */
 export interface ServiceComponentsProps {
@@ -24,14 +25,18 @@ export const ServiceComponents = (props: ServiceComponentsProps) => {
 
   return (
     <>
-      <section className="pt-12 text-center px-4">
-        <h1 className="text-3xl font-bold mb-4">{t("titleOne")}</h1>
+      <section className="pt-12 text-center">
+        <h1 className="text-3xl font-bold mb-4">{t("Components.titleOne")}</h1>
         <p className=" max-w-2xl mx-auto text-lg">
-          <RichText>{(tags) => t.rich("descriptionOne", tags)}</RichText>
+          <RichText>
+            {(tags) => t.rich("Components.descriptionOne", tags)}
+          </RichText>
         </p>
         <div className="w-24 h-1 bg-teal-500 mx-auto my-4"></div>
         <p className=" max-w-2xl mx-auto text-lg">
-          <RichText>{(tags) => t.rich("descriptionTwo", tags)}</RichText>
+          <RichText>
+            {(tags) => t.rich("Components.descriptionTwo", tags)}
+          </RichText>
         </p>
       </section>
       {/* <section className="p-12 text-center px-4">
@@ -49,9 +54,10 @@ export const ServiceComponents = (props: ServiceComponentsProps) => {
                 <Image
                   loader={ImageLoader}
                   src={t(`Components.boxes.${benefit}.icon.src`)}
-                  alt={t(`Components.boxes.${benefit}.icon.title`)}
+                  alt={t(`Components.boxes.${benefit}.icon.alt`)}
                   width={Number(t(`Components.boxes.${benefit}.icon.width`))}
                   height={Number(t(`Components.boxes.${benefit}.icon.height`))}
+                  className="text-white"
                 />
                 {/* <benefit.Icon className="w-8 h-8" /> */}
               </div>
@@ -59,23 +65,23 @@ export const ServiceComponents = (props: ServiceComponentsProps) => {
                 {t(`Components.boxes.${benefit}.title`)}
               </h5>
               <p className="text-gray-600 text-center">
-                {t(`Components.boxes.${benefit}.text`)}
+                {t(`Components.boxes.${benefit}.description`)}
               </p>
             </div>
           ))}
         </div>
         <div className="relative mx-auto max-w-xs sm:flex sm:max-w-none w-fit sm:justify-center">
-          <a
+          <Link
             className="btn group mb-0 !py-4 !px-5 !text-lg w-full before:opacity-100 before:absolute before:inset-0 before:rounded-xl before:backdrop-blur-md before:bg-gradient-to-t before:from-synergy-light-blue/70 before:via-synergy-light-blue before:to-synergy-light-blue/70 hover:before:from-synergy-light-blue hover:before:to-synergy-light-blue before:shadow-xl text-white shadow sm:w-auto break-words whitespace-pre-line"
-            href={`/kontakt`}
+            href={t("Components.button.href")}
           >
             <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5 break-words whitespace-pre-line">
-              {t("button.text")}
+              {t("Components.button.text")}
               <div className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                 <div className=" whitespace-nowrap">{"->"}</div>
               </div>
             </span>
-          </a>
+          </Link>
         </div>
       </section>
     </>

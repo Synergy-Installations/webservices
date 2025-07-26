@@ -1939,11 +1939,11 @@
                     "title": "Rundum-Sorglos-Paket",
                     "description": "Von Förderberatung bis Wartung – wir kümmern uns um alles.",
                     "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Solarmodule"
                     },
                     "icon": {
-                      "src": "/frontend/landingPage/icons/Solar-panel_11270047%20blau.svg",
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Solarmodule",
                       "width": "32",
                       "height": "32"
@@ -1957,7 +1957,7 @@
                       "alt": "Wechselrichter"
                     },
                     "icon": {
-                      "src": "/frontend/landingPage/icons/Solar-panel_11270047%20blau.svg",
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
                       "alt": "Solarmodule",
                       "width": "32",
                       "height": "32"
@@ -1971,7 +1971,7 @@
                       "alt": "Batteriespeicher"
                     },
                     "icon": {
-                      "src": "/frontend/landingPage/icons/Solar-panel_11270047%20blau.svg",
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
                       "alt": "Solarmodule",
                       "width": "32",
                       "height": "32"

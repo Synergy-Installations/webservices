@@ -19,7 +19,7 @@ export const AboutCta = (props: AboutCtaProps) => {
             </div>
 
             <div className="relative">
-              <h2 className="h2 text-4xl font-bold -tracking-[0.01em] font-playfair-display text-slate-800 mb-4">
+              <h2 className="h2 text-4xl font-bold -tracking-[0.01em] font-inter text-slate-800 mb-4">
                 Möchtest du Teil unserer Reise sein?
               </h2>
               <p className="text-xl text-slate-500 mb-8">

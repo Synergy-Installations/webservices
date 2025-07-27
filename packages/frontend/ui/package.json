@@ -8,6 +8,7 @@
     "dist"
   ],
   "exports": {
+    "./SingleServiceWrapper": "./src/landingPage/b2b/service/SingleServiceWrapper.tsx",
     "./ServiceBackground": "./src/landingPage/b2b/service/ServiceBackground.tsx",
     "./ServiceComponents": "./src/landingPage/b2b/service/ServiceComponents.tsx",
     "./DiamondClips": "./src/landingPage/shared/ui/clips/DiamondClips.tsx",

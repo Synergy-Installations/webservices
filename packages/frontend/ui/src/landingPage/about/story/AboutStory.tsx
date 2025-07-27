@@ -11,7 +11,7 @@ export const AboutStory = (props: AboutStoryProps) => {
         <div className="pb-12 md:pb-20">
           <div className="max-w-3xl mx-auto">
             <div className="text-lg text-slate-500">
-              <h2 className="h3 text-4xl font-bold font-playfair-display text-slate-800 mb-4">
+              <h2 className="h3 text-4xl font-bold font-inter text-slate-800 mb-4">
                 Unsere Geschichte
               </h2>
               <p className="mb-8">

@@ -11,7 +11,7 @@ export const AboutTeamMembers = (props: AboutTeamMembersProps) => {
         <div className="py-12 md:py-20">
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="h2 text-4xl font-bold -tracking-[0.01em] font-playfair-display text-slate-800">
+            <h2 className="h2 text-4xl font-bold -tracking-[0.01em] font-inter text-slate-800">
               Was ist uns wichtig? Allerlei Dinge!
             </h2>
           </div>
@@ -37,7 +37,7 @@ export const AboutTeamMembers = (props: AboutTeamMembersProps) => {
                   alt="Member 01"
                 />
               </div>
-              <h4 className="h4 text-2xl font-bold -tracking-[0.01em] font-playfair-display text-slate-800 mb-1">
+              <h4 className="h4 text-2xl font-bold -tracking-[0.01em] font-inter text-slate-800 mb-1">
                 Michael Riegler
               </h4>
               <div className="font-medium text-base text-blue-600">
@@ -62,7 +62,7 @@ export const AboutTeamMembers = (props: AboutTeamMembersProps) => {
                   alt="Member 02"
                 />
               </div>
-              <h4 className="h4 text-2xl font-bold -tracking-[0.01em] font-playfair-display text-slate-800 mb-1">
+              <h4 className="h4 text-2xl font-bold -tracking-[0.01em] font-inter text-slate-800 mb-1">
                 Elias Cerne
               </h4>
               <div className="font-medium text-base text-blue-600">
@@ -87,7 +87,7 @@ export const AboutTeamMembers = (props: AboutTeamMembersProps) => {
                   alt="Member 03"
                 />
               </div>
-              <h4 className="h4 text-2xl font-bold -tracking-[0.01em] font-playfair-display text-slate-800 mb-1">
+              <h4 className="h4 text-2xl font-bold -tracking-[0.01em] font-inter text-slate-800 mb-1">
                 Samuel Knechtl
               </h4>
               <div className="font-medium text-base text-blue-600">
@@ -112,7 +112,7 @@ export const AboutTeamMembers = (props: AboutTeamMembersProps) => {
                   alt="Member 04"
                 />
               </div>
-              <h4 className="h4 text-2xl font-bold -tracking-[0.01em] font-playfair-display text-slate-800 mb-1">
+              <h4 className="h4 text-2xl font-bold -tracking-[0.01em] font-inter text-slate-800 mb-1">
                 Filip Mareno
               </h4>
               <div className="font-medium text-base text-blue-600">

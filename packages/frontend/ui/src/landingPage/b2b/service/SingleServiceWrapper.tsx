@@ -61,6 +61,8 @@ export const SingleServiceWrapper = (props: SingleServiceWrapperProps) => {
                 src={src}
                 alt={alt}
                 text={text}
+                index={idx}
+                numberServices={DiamondClipsArray.length}
                 subServiceId={subServiceId}
                 selectedSubService={selectedSubService}
                 setSelectedSubService={setSelectedSubService}

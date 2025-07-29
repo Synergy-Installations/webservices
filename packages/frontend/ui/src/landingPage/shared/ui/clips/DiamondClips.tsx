@@ -6,6 +6,8 @@ export interface DiamondClipsProps {
   alt: string;
   text: string;
   subServiceId: string;
+  index: number;
+  numberServices: number;
   selectedSubService: string;
   setSelectedSubService: (subService: string) => void;
 }
@@ -16,6 +18,8 @@ export const DiamondClips = (props: DiamondClipsProps) => {
     alt = "",
     text = "",
     subServiceId,
+    index,
+    numberServices,
     selectedSubService,
     setSelectedSubService,
   } = props;
@@ -34,6 +38,9 @@ export const DiamondClips = (props: DiamondClipsProps) => {
         style={{ backgroundImage: `url(${src})` }}
         role="img"
         aria-label={alt}
+        data-aos="fade-right"
+        data-aos-offset={`${index * 100}`}
+        // data-aos-duration=""
       >
         {/* Overlay for darkening the image */}
         <div className="absolute inset-0 bg-black bg-opacity-30 pointer-events-none" />

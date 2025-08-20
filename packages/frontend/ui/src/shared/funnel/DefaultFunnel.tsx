@@ -308,7 +308,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
   const getNextQuestionKey = (
     currentQuestionKey: string,
     formKey: string,
-    redirect: "next" | "previous" = "next"
+    redirect: "next" | "previous" | "none" = "none"
   ): { status: string } => {
     const questionKeys = Object.keys(questionElements);
     const currentQuestion = questionElements[currentQuestionKey];
@@ -531,7 +531,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
           "success";
         return updatedElements;
       });
-
+      console.log("Push to next question2", visibleQuestionKeys);
       if (redirect === "next")
         router.push(`#${visibleFormKeys[currentVisibleFormIndex + 1]}`);
       return { status: "success" };
@@ -542,8 +542,9 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
      */
     const currentIndex = questionKeys.indexOf(currentQuestionKey);
     if (
-      currentVisibleQuestionIndex === -1 ||
-      currentVisibleQuestionIndex === visibleQuestionKeys.length - 1
+      redirect !== "previous" &&
+      (currentVisibleQuestionIndex === -1 ||
+        currentVisibleQuestionIndex === visibleQuestionKeys.length - 1)
     ) {
       console.log("when is this called?", currentQuestionKey, formKey);
       if (
@@ -566,6 +567,8 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
             "success";
           return updatedElements;
         });
+
+        console.log("Push to next question1", visibleQuestionKeys);
 
         if (redirect === "next") router.push(`#${formKey}`);
       }

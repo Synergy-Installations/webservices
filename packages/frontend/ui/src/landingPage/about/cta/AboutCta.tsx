@@ -1,9 +1,12 @@
 import Link from "next/link";
+import { useRef } from "react";
 
 /* eslint-disable-next-line */
 export interface AboutCtaProps {}
 
 export const AboutCta = (props: AboutCtaProps) => {
+  const testRef = useRef<HTMLDivElement>(null);
+
   return (
     <section className="bg-slate-100">
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">

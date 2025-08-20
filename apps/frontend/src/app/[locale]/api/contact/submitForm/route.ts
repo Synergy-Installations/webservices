@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
   try {
     const { data, error } = await resend.emails.send({
       from: "office@synergiemontagen.eco",
-      to: [to, "office@synergiemontagen.eco"],
+      to: [to, "office@synergiemontagen.eco", "admin@synergiemontagen.eco"],
       subject: "Ihre Anfrage von Synergiemontagen",
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">

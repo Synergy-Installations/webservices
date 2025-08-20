@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
   try {
     const { data, error } = await resend.emails.send({
       from: "office@synergiemontagen.eco",
-      to: [to, "office@synergiemontagen.eco"],
+      to: [to, "office@synergiemontagen.eco", "admin@synergiemontagen.eco"],
       subject: "Ihre Anfrage von Synergiemontagen",
       html: `
   <html>
@@ -151,19 +151,19 @@ export async function POST(req: NextRequest) {
       </thead>
       <tbody>
         ${restBody.formData
-        .map((form) =>
-          form.forms
-          .map(
-            (f) => `
+          .map((form) =>
+            form.forms
+              .map(
+                (f) => `
         <tr>
         <td>${f.formTitle}</td>
         <td>${Array.isArray(f.selected) ? f.selected.join(", ") : f.selected}</td>
         </tr>
       `
+              )
+              .join("")
           )
-          .join("")
-        )
-        .join("")}
+          .join("")}
       </tbody>
       </table>
       <div class="email-button-bottom">

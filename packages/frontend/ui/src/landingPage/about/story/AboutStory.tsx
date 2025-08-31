@@ -14,30 +14,35 @@ export const AboutStory = (props: AboutStoryProps) => {
               <h2 className="h3 text-4xl font-bold font-inter text-slate-800 mb-4">
                 Unsere Geschichte
               </h2>
-              <p className="mb-8">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                enim lobortis scelerisque fermentum. Neque sodales ut etiam sit
-                amet how to manage. Malesuada proin libero nunc consequat
-                interdum varius. Quam pellentesque nec nam aliquam sem et tortor
-                consequat. Pellentesque adipiscing commodo elit at imperdiet.
-                Semper auctor neque{" "}
+              <p className="mb-4">
+                SYNERGIE ist aus der Idee entstanden, Energie-Unabhängigkeit für
+                alle einfach und leistbar zu machen. Aus einem jungen,
+                engagierten Team mit Handschlagqualität wurde ein regionaler
+                Partner für Photovoltaik, Haustechnik, Smart Home und
+                E-Mobilität – mit{" "}
+                <strong className="font-medium text-slate-800">500+</strong>
+                realisierten Sonnenkraftprojekten,{" "}
                 <strong className="font-medium text-slate-800">
-                  vitae tempus quam pellentesque
+                  2.480+
                 </strong>{" "}
-                nec. Amet dictum sit amet justo donec enim diam. Varius sit amet
-                mattis vulputate enim nulla aliquet porttitor. Odio pellentesque
-                diam volutpat commodo sed. Elit sed vulputate mi sit amet mauris
-                commodo quis imperdiet.
+                installierten Wohlfühlanlagen und{" "}
+                <strong className="font-medium text-slate-800">20+</strong>{" "}
+                Jahren Branchenerfahrung.
               </p>
-              <p className="mb-8">
-                Temper auctor neque vitae tempus quam pellentesque nec. Amet
-                dictum sit amet justo donec enim diam. Varius sit amet mattis
-                vulputate enim nulla aliquet porttitor. Odio pellentesque diam
-                volutpat commodo sed. Elit sed vulputate mi sit amet mauris
-                commodo quis imperdiet.
+              <p className="mb-4">
+                Seit Anfang an planen, errichten und betreuen wir Anlagen wie
+                unsere eigenen – persönlich, transparent und auf Augenhöhe. Unser
+                Ziel: den Energiemarkt frei und zugänglich gestalten. Unsere
+                Vision: eine vernetzte Energieinfrastruktur, in der Haushalte,
+                Kommunen und Gewerbeparks unabhängig profitieren.
               </p>
-              <p className="mb-4">The Synergiemontagen Team</p>
+              <p className="mb-8
+              ">
+                Heute begleiten wir Sie von der ersten Beratung über Förderungen
+                und Behördengänge bis zur Wartung – alles aus einer Hand. So
+                wird Energieautarkie preisstabil, wirtschaftlich und greifbar.
+              </p>
+              <p className="mb-4">Das Synergiemontagen Team</p>
               <Image
                 loader={ImageLoader}
                 src={"/frontend/landingPage/about/synergiemontagen_stamp.png"}

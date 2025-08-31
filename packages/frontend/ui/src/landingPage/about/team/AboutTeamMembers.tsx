@@ -12,7 +12,7 @@ export const AboutTeamMembers = (props: AboutTeamMembersProps) => {
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
             <h2 className="h2 text-4xl font-bold -tracking-[0.01em] font-inter text-slate-800">
-              Was ist uns wichtig? Allerlei Dinge!
+              Unser Team stellt sich vor
             </h2>
           </div>
 
@@ -107,7 +107,7 @@ export const AboutTeamMembers = (props: AboutTeamMembersProps) => {
                 <Image
                   className="rounded-full"
                   loader={ImageLoader}
-                  src={""}
+                  src={"/frontend/landingPage/about/strichmaennchen.jpg"}
                   width={120}
                   height={120}
                   alt="Member 04"

@@ -41,36 +41,13 @@ export const AboutTeamMembers = (props: AboutTeamMembersProps) => {
                 Michael Riegler
               </h4>
               <div className="font-medium text-base text-blue-600">
-                CEO &amp; Founder
+                Gründer
               </div>
             </div>
 
-            {/* 2nd member */}
-            <div
-              className="text-center"
-              data-aos="fade-up"
-              data-aos-anchor="[data-aos-id-team]"
-              data-aos-delay={100}
-            >
-              <div className="inline-flex mb-4">
-                <Image
-                  className="rounded-full"
-                  loader={ImageLoader}
-                  src={"/frontend/landingPage/about/IMG_0398_Elias_2.jpeg"}
-                  width={120}
-                  height={120}
-                  alt="Member 02"
-                />
-              </div>
-              <h4 className="h4 text-2xl font-bold -tracking-[0.01em] font-inter text-slate-800 mb-1">
-                Elias Cerne
-              </h4>
-              <div className="font-medium text-base text-blue-600">
-                CTO, Lead Engineer
-              </div>
-            </div>
+            
 
-            {/* 3rd member */}
+            {/* 2rd member */}
             <div
               className="text-center"
               data-aos="fade-up"
@@ -91,11 +68,11 @@ export const AboutTeamMembers = (props: AboutTeamMembersProps) => {
                 Samuel Knechtl
               </h4>
               <div className="font-medium text-base text-blue-600">
-                Projekt Manager
+                Projekt Manager Innendienst
               </div>
             </div>
 
-            {/* 4th member */}
+            {/* 3th member */}
             <div
               className="text-center"
               data-aos="fade-up"
@@ -113,10 +90,59 @@ export const AboutTeamMembers = (props: AboutTeamMembersProps) => {
                 />
               </div>
               <h4 className="h4 text-2xl font-bold -tracking-[0.01em] font-inter text-slate-800 mb-1">
-                Filip Mareno
+                Filip Marencin
               </h4>
               <div className="font-medium text-base text-blue-600">
-                Installationsleiter
+                Projektmanager Außendienst
+              </div>
+            </div>
+            {/* 3th member */}
+            <div
+              className="text-center"
+              data-aos="fade-up"
+              data-aos-anchor="[data-aos-id-team]"
+              data-aos-delay={300}
+            >
+              <div className="inline-flex mb-4">
+                <Image
+                  className="rounded-full"
+                  loader={ImageLoader}
+                  src={""}
+                  width={120}
+                  height={120}
+                  alt="Member 04"
+                />
+              </div>
+              <h4 className="h4 text-2xl font-bold -tracking-[0.01em] font-inter text-slate-800 mb-1">
+                Karin Rosenberger
+              </h4>
+              <div className="font-medium text-base text-blue-600">
+                Kundenservice & Marketing Agent
+              </div>
+            </div>
+
+            {/* 4nd member */}
+            <div
+              className="text-center"
+              data-aos="fade-up"
+              data-aos-anchor="[data-aos-id-team]"
+              data-aos-delay={100}
+            >
+              <div className="inline-flex mb-4">
+                <Image
+                  className="rounded-full"
+                  loader={ImageLoader}
+                  src={"/frontend/landingPage/about/IMG_0398_Elias_2.jpeg"}
+                  width={120}
+                  height={120}
+                  alt="Member 02"
+                />
+              </div>
+              <h4 className="h4 text-2xl font-bold -tracking-[0.01em] font-inter text-slate-800 mb-1">
+                Elias Cerne
+              </h4>
+              <div className="font-medium text-base text-blue-600">
+                Partner, IT Operator
               </div>
             </div>
           </div>

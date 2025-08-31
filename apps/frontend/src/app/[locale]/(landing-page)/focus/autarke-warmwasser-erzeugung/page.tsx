@@ -8,6 +8,7 @@ import { PhotovoltaicComponents } from "@com.synergy/frontend-ui/PhotovoltaicCom
 import { PhotovoltaicBackground } from "@com.synergy/frontend-ui/PhotovoltaicBackground";
 import { PhotovoltaicTestimonials } from "@com.synergy/frontend-ui/PhotovoltaicTestimonials";
 import { PhotovoltaicCta } from "@com.synergy/frontend-ui/PhotovoltaicCta";
+import ScrollUp from "@com.synergy/frontend-ui/ScrollUp";
 
 export default function Page(): JSX.Element {
   const t = useTranslations("LandingPage.ContactUs.Header");
@@ -18,6 +19,7 @@ export default function Page(): JSX.Element {
         name="keywords"
         content="Photovoltaik kaufen, PV-Anlage installieren lassen, Stromkosten sparen, Förderung Photovoltaik"
       />
+      <ScrollUp />
       <PhotovoltaicHero translationProduct="Self-Sufficient-Hot-Water-Production" />
       <PhotovoltaicComponents translationProduct="Self-Sufficient-Hot-Water-Production" />
       <PhotovoltaicBackground translationProduct="Self-Sufficient-Hot-Water-Production" />

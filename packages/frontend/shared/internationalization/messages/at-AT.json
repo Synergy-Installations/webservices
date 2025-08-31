@@ -614,12 +614,12 @@
           },
           "packages": {
             "number": "10000",
-            "suffix": "+ kW",
+            "suffix": "+",
             "text": "kW gesamt installierte Leistung"
           },
           "resolved": {
             "number": "20",
-            "suffix": "+ Jahre",
+            "suffix": "+",
             "text": "Jahre in der Branche"
           },
           "managerial": {
@@ -7882,7 +7882,7 @@
                 },
                 "productFive": {
                   "title": "Energiegemeinschaften",
-                  "imageSrc": "/images/categories/energiegemeinschaften.jpg",
+                  "imageSrc": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
                   "alt": "Energiegemeinschaften",
                   "href": "/focus/energiegemeinschaft"
                 },
@@ -7900,31 +7900,31 @@
                 },
                 "productSeven": {
                   "title": "Notstrom Versorgung",
-                  "imageSrc": "/images/categories/notstrom.jpg",
+                  "imageSrc": "/frontend/landingPage/products/notstromversorgung.svg",
                   "alt": "Notstrom Versorgung",
                   "href": "/focus/notstromversorgung"
                 },
                 "productEight": {
                   "title": "Balkonkraftwerk",
-                  "imageSrc": "/images/categories/balkonkraftwerk.jpg",
+                  "imageSrc": "/frontend/landingPage/focus/Heat-Pump/Balkonkraftwerk.jpg",
                   "alt": "Balkonkraftwerk",
                   "href": "/focus/balkonkraftwerk"
                 },
                 "productNine": {
                   "title": "Energiekosten-Beratung",
-                  "imageSrc": "/images/categories/komplettpaket.jpg",
+                  "imageSrc": "/frontend/landingPage/products/a-hand-holding-the-electricity-bill-and-euro-bankn-2025-03-13-01-30-07-utc.jpeg",
                   "alt": "Komplettpaket Anlage",
                   "href": "/focus/energiekostenberatung"
                 },
                 "productEleven": {
                   "title": "Autarke Warmwasser-Erzeugung",
-                  "imageSrc": "/images/categories/energiekosten-beratung.jpg",
+                  "imageSrc": "/frontend/landingPage/products/boiling-water-splash-with-steam-on-black-backgroun-2025-03-13-11-28-22-utc.jpeg",
                   "alt": "Energiekosten Beratung",
                   "href": "/focus/autarke-warmwasser-erzeugung"
                 },
                 "productTwelve": {
                   "title": "Wartung & Service",
-                  "imageSrc": "/images/categories/stromtankstelle.jpg",
+                  "imageSrc": "/frontend/landingPage/products/certified-male-electrician-installing-home-ev-char-2024-10-18-05-46-25-utc.jpeg",
                   "alt": "Wartung & Service",
                   "href": "/focus/wartung-service"
                 }

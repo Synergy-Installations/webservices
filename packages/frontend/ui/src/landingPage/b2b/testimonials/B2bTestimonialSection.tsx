@@ -7,13 +7,8 @@ export interface B2bTestimonialSectionProps {}
 const testimonials = [
   {
     quote:
-      "Synergiemontagen hat unser Projekt termingerecht und in höchster Qualität realisiert.",
-    author: "Mag. Thomas Berger, EnergieProfi GmbH",
-  },
-  {
-    quote:
-      "Durch die transparente Kommunikation fühlten wir uns stets gut informiert.",
-    author: "Ing. Sabine Müller, GreenEnergy AG",
+      "Hat alles bestens funktioniert, Perfekte Umsetzung. Hilft auch bei Förderabwicklung",
+    author: "Alexander Arkai, REICHEL Haustechnik GesmbH",
   },
 ];
 

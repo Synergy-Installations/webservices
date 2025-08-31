@@ -20,7 +20,7 @@ export const B2bPartnersSection = (props: B2bPartnersSectionProps) => {
         className="container mx-auto px-6 lg:px-0 text-center mb-8"
         data-aos="fade-up"
       >
-        <h2 className="text-3xl md:text-4xl font-bold">Unsere Partner</h2>
+        <h2 className="text-3xl md:text-4xl font-bold">Einige unserer Partner</h2>
       </div>
       <div className="container mx-auto px-6 lg:px-0">
         <div

@@ -19,9 +19,10 @@ export const HeroFull = (props: HeroFullProps) => {
   const productPreviewKeys = Object.keys(
     messages.LandingPage.Home.Hero.productPreviewSmall
   );
+  const blueBoxes = Object.keys(messages.LandingPage.Home.Hero.blueBoxes);
 
   return (
-    <div className="h-svh w-svw min-h-[993px] relative">
+    <div className="h-svh w-svw max-h-[993px] relative">
       <div className="z-10 relative h-screen flex flex-col items-center justify-center lg:block lg:pt-[204px] lg:pl-[140px] xl:pl-[200px] 2xl:pl-[300px] min-[1700px]:pl-[350px] min-[1700px]:pt-[194px] w-auto">
         <div className="relative flex flex-col justify-center rounded-2xl">
           <ProductPreviewSmallTransition
@@ -30,9 +31,6 @@ export const HeroFull = (props: HeroFullProps) => {
             )}
           />
         </div>
-        {/* <h1 className="mb-6 mt-5 py-2 border-y text-5xl font-bold w-fit text-white [border-image:linear-gradient(to_right,transparent,theme(colors.slate.300/.8),transparent)1] md:text-6xl">
-          Preisstabil
-        </h1> */}
         <div className="mb-6 mt-5 w-fit border-y [border-image:linear-gradient(to_right,transparent,theme(colors.slate.300/.8),transparent)1]">
           <WordRotate
             className="text-5xl font-bold w-fit text-white md:text-6xl"
@@ -40,11 +38,7 @@ export const HeroFull = (props: HeroFullProps) => {
           />
         </div>
         <div className="relative w-fit mt-20 before:absolute before:inset-0 before:border-none before:[border-image:linear-gradient(to_right,transparent,theme(colors.slate.300/.8),transparent)1]">
-          <div
-            className="relative mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center"
-            // data-aos="zoom-y-out"
-            // data-aos-delay={450}
-          >
+          <div className="relative mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center">
             <Link
               className="btn relative group mb-4 !py-4 !px-5 !text-lg w-full before:opacity-100 before:absolute before:inset-0 before:rounded-xl before:backdrop-blur-md before:bg-gradient-to-t before:from-synergy-light-blue/70 before:via-synergy-light-blue before:to-synergy-light-blue/70 hover:before:from-synergy-light-blue hover:before:to-synergy-light-blue before:shadow-xl text-white shadow sm:mb-0 sm:w-auto"
               href={t("buttons.buttonLeft.href")}
@@ -64,22 +58,54 @@ export const HeroFull = (props: HeroFullProps) => {
             </Link>
           </div>
         </div>
+        {/* Blue boxes at the bottom center */}
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-6 z-20">
+          {[1, 2, 3].map((i) => (
+            <div
+              key={i}
+              className="flex flex-col items-center justify-center px-6 py-4 rounded-2xl bg-synergy-light-blue/70 backdrop-blur-md shadow-lg min-w-[220px] max-w-[260px]"
+            >
+              {/* <div className="mb-2">
+                <svg
+                  width={32}
+                  height={32}
+                  fill="none"
+                  viewBox="0 0 32 32"
+                  className="text-white"
+                >
+                  <circle
+                    cx="16"
+                    cy="16"
+                    r="14"
+                    stroke="white"
+                    strokeWidth="2"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M16 10v8M16 22h.01"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </div> */}
+              <div className="text-lg font-semibold text-white mb-1">
+                {t(`blueBoxes.${i}.title`)}
+              </div>
+              <div className="text-sm text-white/80 text-center">
+                {t(`blueBoxes.${i}.description`)}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-      {/* <div className="z-10 w-[calc(105vw)] absolute bottom-[170px] xl:bottom-[195px] 2xl:bottom-[80px] -left-[10px] rotate-[-5deg] bg-orange-500">
-        <Marquee className="![--duration:150s] p-1">
-          <div className="text-[#eeeae8] text-2xl xs:text-3xl md:text-4xl font-bold uppercase pr-2">
-            {t("banner")}&nbsp;
-          </div>
-        </Marquee>
-      </div> */}
-
       <Image
         loader={ImageLoader}
         src={t("image.src")}
         width={undefined}
         height={undefined}
         fill={true}
-        className="object-cover min-h-[993px] object-[60%_100%] sm:object-[70%_100%] md:object-[70%_100%] lg:object-[50%_100%] xl:object-[40%_50%] 2xl:object-[60%_50%]"
+        className="object-cover object-[60%_100%] sm:object-[70%_100%] md:object-[70%_100%] lg:object-[50%_100%] xl:object-[40%_50%] 2xl:object-[60%_50%]"
         alt={t("image.alt")}
       />
       <div className="absolute inset-0 bg-black/20 lg:bg-transparent"></div>

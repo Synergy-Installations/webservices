@@ -56,6 +56,23 @@
             }
           }
         },
+        "blueBoxes": {
+          "1": {
+            "title": "Preisstabil",
+            "icon": "💶",
+            "description": "Energieausgaben planbar statt volatil – Energieautarkie mit bewährten Methoden."
+          },
+          "2": {
+            "title": "Unabhängig",
+            "icon": "🏠",
+            "description": "Strom vom Dach, Wärme aus der Pumpe – weniger Abhängigkeit von Tarifen."
+          },
+          "3": {
+            "title": "Wohlfühlen",
+            "icon": "🏡",
+            "description": "Ganzjahres-Komfort mit moderner Haustechnik – Klima, Wärme, Smart Home."
+          }
+        },
         "rotatingText": "Preisstabil, Unabhängig, Zuverlässig, Kompetent",
         "buttons": {
           "buttonLeft": {

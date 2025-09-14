@@ -1976,8 +1976,8 @@
       "ContactBlocks": {
         "Discussions": {
           "title": "Eine E-Mail, tausende Möglichkeiten",
-          "description": "office@synergiemontagen.eco",
-          "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG",
+          "description": "office@synergie.cc",
+          "href": "mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG",
           "icon": {
             "src": "/frontend/landingPage/icons/mail_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg",
             "alt": "Eco Charging",
@@ -3353,7 +3353,7 @@
                 },
                 "options": {
                   "label": "E-Mail",
-                  "placeholder": "office@synergiemontagen.eco"
+                  "placeholder": "office@synergie.cc"
                 }
               },
               "submit-form-telephone": {
@@ -3791,7 +3791,7 @@
           "description": "Sie wünschen sich Unabhängigkeit von steigenden Strompreisen, möchten aktiv die Umwelt schützen und den Wert Ihrer Immobilie steigern? Und legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen? Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich.",
           "button": {
             "text": " Jetzt kostenlose Vor-Ort-Beratung sichern",
-            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+            "href": "mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
           }
         }
       }

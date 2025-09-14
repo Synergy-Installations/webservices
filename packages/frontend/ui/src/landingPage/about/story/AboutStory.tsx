@@ -15,34 +15,28 @@ export const AboutStory = (props: AboutStoryProps) => {
                 Unsere Geschichte
               </h2>
               <p className="mb-4">
-                SYNERGIE ist aus der Idee entstanden, Energie-Unabhängigkeit für
-                alle einfach und leistbar zu machen. Aus einem jungen,
-                engagierten Team mit Handschlagqualität wurde ein regionaler
-                Partner für Photovoltaik, Haustechnik, Smart Home und
-                E-Mobilität – mit{" "}
-                <strong className="font-medium text-slate-800">500+</strong>
-                realisierten Sonnenkraftprojekten,{" "}
-                <strong className="font-medium text-slate-800">
-                  2.480+
-                </strong>{" "}
-                installierten Wohlfühlanlagen und{" "}
-                <strong className="font-medium text-slate-800">20+</strong>{" "}
-                Jahren Branchenerfahrung.
+                Synergie.cc ergab sich aus einer Chance das Projektmanagement
+                der Errichtung von Photovoltaikanlagen zu revolutionieren. Da
+                eigentlich die gesamtheitliche Betrachtung von Energiesystemen
+                und -gemeinschaften ein Herzensprojekt ist, Ortschaften
+                unabhängig sich selbst mit Energie versorgen zu können. Da
+                großes Interesse am Anlagenbau an sich besteht und durch
+                wachsende Partnerschaften, IT und Marketing stetig an Bedeutung
+                gewinnen, entwickelt sich nun dadurch das neuartige Firmenmodell
+                mit den Divisions Anlagen, Management und Gemeinschaften.
               </p>
               <p className="mb-4">
-                Seit Anfang an planen, errichten und betreuen wir Anlagen wie
-                unsere eigenen – persönlich, transparent und auf Augenhöhe. Unser
-                Ziel: den Energiemarkt frei und zugänglich gestalten. Unsere
-                Vision: eine vernetzte Energieinfrastruktur, in der Haushalte,
-                Kommunen und Gewerbeparks unabhängig profitieren.
+                Somit arbeiten wir mit unseren Partnern und gemeinsames
+                Engagement daran, sämtliche Produkte und Dienstleistungen aus
+                dem Energie Sektor aus einer Hand mit Begeisterung und
+                Leidenschaft anbieten zu können.
+                <br />
               </p>
-              <p className="mb-8
-              ">
-                Heute begleiten wir Sie von der ersten Beratung über Förderungen
-                und Behördengänge bis zur Wartung – alles aus einer Hand. So
-                wird Energieautarkie preisstabil, wirtschaftlich und greifbar.
+              <p className="mb-8">
+                Wir spielen mit offenen Karten – Transparenz gilt als wichtiger
+                Treiber und bildet eine stabile Geschäfts- und Kundenbeziehung.
               </p>
-              <p className="mb-4">Das Synergiemontagen Team</p>
+              <p className="mb-4">Das Synergie Montagen Team</p>
               <Image
                 loader={ImageLoader}
                 src={"/frontend/landingPage/about/synergiemontagen_stamp.png"}

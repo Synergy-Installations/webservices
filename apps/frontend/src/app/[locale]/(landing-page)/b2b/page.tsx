@@ -19,7 +19,7 @@ export default function Page() {
           content="Professionelle B2B-Services im Bereich Photovoltaik, Wärmepumpen & Co. für Unternehmen. Qualität, Effizienz & After-Sales aus einer Hand."
         />
       </Head>
-      <main className="space-y-20">
+      <main className="">
         <B2bHero />
         {/* <B2BServiceSection /> */}
         <ServiceWrapper />

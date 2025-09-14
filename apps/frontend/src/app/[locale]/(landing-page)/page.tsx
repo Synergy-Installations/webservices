@@ -31,7 +31,7 @@ export default function Page(): JSX.Element {
         />
       </Head>
       {/* <TracingBeam> */}
-      {/* <BentoGridHero /> */}
+      <BentoGridHero />
       <HeroFull />
       <ServiceCatalog />
       <FeatureAdvantages />

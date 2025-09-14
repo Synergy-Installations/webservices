@@ -24,19 +24,19 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
   };
 
   return (
-    <header className="fixed z-50 w-full">
+    <header className="fixed top-2 xs:top-1 z-50 w-full">
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex justify-center xs:justify-end">
+        <div className="hidden xs:flex justify-center xs:justify-end xs:mb-1">
           <div className="grid xs:flex gap-8 justify-center w-full xs:w-max backdrop-blur-sm bg-white/70 px-2 py-[2px] rounded-lg">
             <a
-              href={`mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG`}
+              href={`mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG`}
               className="text-synergy-dark-grey hover:underline text-center hidden xs:block"
             >
-              office@synergiemontagen.eco
+              office@synergie.cc
             </a>
             <a
               href="tel:+436642448742"
-              className="text-synergy-dark-grey hover:underline text-center"
+              className="text-synergy-dark-grey hover:underline text-center hidden xs:block"
             >
               +43 664 244 87 42
             </a>
@@ -63,7 +63,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
           {/* Desktop navigation */}
           <nav className="hidden md:flex md:grow !mb-0">
             {/* Desktop menu links */}
-            <ul className="flex grow flex-wrap items-center justify-center gap-2 text-sm lg:gap-8">
+            <ul className="flex grow flex-wrap items-center justify-center gap-2 text-base lg:gap-8">
               {NavKeys.map((navKey, index) =>
                 t(`nav.${navKey}.children`) === "" ? (
                   <li className="px-3 py-1" key={index}>

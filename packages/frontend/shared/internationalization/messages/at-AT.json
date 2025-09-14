@@ -58,19 +58,34 @@
         },
         "blueBoxes": {
           "1": {
-            "title": "Preisstabil",
-            "icon": "💶",
-            "description": "Energieausgaben planbar statt volatil – Energieautarkie mit bewährten Methoden."
+            "title": "Ihr Vorteil",
+            "icon": {
+              "src": "/frontend/landingPage/icons/license_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+              "alt": "Personal Advisor",
+              "width": "32",
+              "height": "32"
+            },
+            "description": "Wir beraten Sie persönlich"
           },
           "2": {
-            "title": "Unabhängig",
-            "icon": "🏠",
-            "description": "Strom vom Dach, Wärme aus der Pumpe – weniger Abhängigkeit von Tarifen."
+            "title": "Ihre Sicherheit",
+            "icon": {
+              "src": "/frontend/landingPage/icons/admin_panel_settings_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+              "alt": "Personal Advisor",
+              "width": "32",
+              "height": "32"
+            },
+            "description": "Wir planen, errichten und betreuen Ihre Anlagen wie unsere eigenen"
           },
           "3": {
-            "title": "Wohlfühlen",
-            "icon": "🏡",
-            "description": "Ganzjahres-Komfort mit moderner Haustechnik – Klima, Wärme, Smart Home."
+            "title": "Immer für Sie da",
+            "icon": {
+              "src": "/frontend/landingPage/icons/concierge_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+              "alt": "Personal Advisor",
+              "width": "32",
+              "height": "32"
+            },
+            "description": "Wir sind täglich für Sie im Einsatz und erreichbar"
           }
         },
         "rotatingText": "Preisstabil, Unabhängig, Zuverlässig, Kompetent",
@@ -2305,6 +2320,378 @@
                   "href": "/kontakt"
                 }
               }
+            },
+            "project-acquisition-2": {
+              "Diamond": {
+                "title": "Projektaquise",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaik"
+                }
+              },
+              "Components": {
+                "titleOne": "Warum ist professionelle Projektaquise entscheidend?",
+                "descriptionOne": "Mit gezielter Projektaquise sichern Sie sich frühzeitig die besten Chancen am Markt. Wir identifizieren passende Projekte, analysieren Potenziale und begleiten Sie von der ersten Idee bis zum erfolgreichen Abschluss.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Profitieren Sie von unserem Netzwerk, unserer Erfahrung und unserer Handschlagqualität. Wir bringen Sie mit den richtigen Partnern zusammen und sorgen für eine reibungslose Umsetzung.",
+                "button": {
+                  "text": "Jetzt Projektchancen sichern",
+                  "href": "/kontakt"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Gezielte Marktanalyse",
+                    "description": "Wir finden für Sie die passenden Projekte und Partner.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Effiziente Kontaktaufnahme",
+                    "description": "Wir übernehmen die Ansprache und Koordination mit allen Beteiligten.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Wechselrichter"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Schneller Projektstart",
+                    "description": "Durch strukturierte Prozesse bringen wir Ihr Projekt zügig auf den Weg.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Batteriespeicher"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch professionelle Projektaquise:",
+                    "list": {
+                      "itemOne": "Frühzeitige Identifikation von Chancen",
+                      "itemTwo": "Gezielte Ansprache potenzieller Kunden",
+                      "itemThree": "Effiziente Projektkoordination",
+                      "itemFour": "Schneller Zugang zu relevanten Netzwerken",
+                      "itemFive": "Höhere Erfolgsquote bei der Projektumsetzung",
+                      "itemSix": "Transparente Kommunikation und Betreuung"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft die Projektaquise ab:",
+                    "list": {
+                      "itemOne": "Erstgespräch und Zieldefinition",
+                      "itemTwo": "Marktanalyse und Projektidentifikation",
+                      "itemThree": "Kontaktaufnahme und Qualifizierung",
+                      "itemFour": "Vorstellung und Vermittlung passender Projekte",
+                      "itemFive": "Begleitung bis zum Vertragsabschluss",
+                      "itemSix": "Nachbetreuung und Feedback"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Projektchancen nutzen",
+                  "href": "/kontakt"
+                }
+              }
+            },
+            "consulting-2": {
+              "Diamond": {
+                "title": "Mediator",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaik"
+                }
+              },
+              "Components": {
+                "titleOne": "Warum ist Mediation im Projekt wichtig?",
+                "descriptionOne": "Konflikte und Missverständnisse können Projekte verzögern oder gefährden. Als Mediator sorgen wir für klare Kommunikation, vermitteln zwischen den Parteien und schaffen eine konstruktive Basis für den Projekterfolg.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Unsere erfahrenen Mediatoren bringen alle Beteiligten an einen Tisch, lösen Konflikte frühzeitig und sichern so den reibungslosen Ablauf Ihres Projekts.",
+                "button": {
+                  "text": "Jetzt Mediation anfragen",
+                  "href": "/kontakt"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Konfliktprävention",
+                    "description": "Wir erkennen und entschärfen Konflikte, bevor sie eskalieren.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Vermittlung & Moderation",
+                    "description": "Wir moderieren Gespräche und finden gemeinsame Lösungen.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Wechselrichter"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Nachhaltige Einigung",
+                    "description": "Wir schaffen tragfähige Vereinbarungen für alle Parteien.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Batteriespeicher"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch Mediation:",
+                    "list": {
+                      "itemOne": "Frühzeitige Konfliktlösung",
+                      "itemTwo": "Verbesserte Zusammenarbeit",
+                      "itemThree": "Kosteneinsparung durch Vermeidung von Verzögerungen",
+                      "itemFour": "Stärkung des Teamgeists",
+                      "itemFive": "Transparente Kommunikation",
+                      "itemSix": "Langfristige Projektstabilität"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft die Mediation ab:",
+                    "list": {
+                      "itemOne": "Analyse der Situation",
+                      "itemTwo": "Einladung aller Parteien",
+                      "itemThree": "Moderierte Gespräche",
+                      "itemFour": "Erarbeitung gemeinsamer Lösungen",
+                      "itemFive": "Dokumentation der Ergebnisse",
+                      "itemSix": "Nachhaltige Nachbetreuung"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Mediation starten",
+                  "href": "/kontakt"
+                }
+              }
+            },
+            "marketing-2": {
+              "Diamond": {
+                "title": "Marketing",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaik"
+                }
+              },
+              "Components": {
+                "titleOne": "Warum ist gezieltes Marketing für Ihr Projekt wichtig?",
+                "descriptionOne": "Mit professionellem Marketing steigern Sie die Sichtbarkeit Ihres Projekts, gewinnen neue Kunden und stärken Ihre Marktposition. Wir entwickeln individuelle Strategien, die Ihre Zielgruppe erreichen.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Wir kombinieren Branchenkenntnis mit modernen Marketingmethoden und sorgen dafür, dass Ihr Projekt die Aufmerksamkeit bekommt, die es verdient.",
+                "button": {
+                  "text": "Jetzt Marketingberatung sichern",
+                  "href": "/kontakt"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Zielgruppenanalyse",
+                    "description": "Wir identifizieren Ihre Zielgruppe und deren Bedürfnisse.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Strategie & Umsetzung",
+                    "description": "Wir entwickeln und realisieren maßgeschneiderte Marketingkampagnen.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Wechselrichter"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Erfolgskontrolle",
+                    "description": "Wir messen den Erfolg und optimieren laufend Ihre Maßnahmen.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Batteriespeicher"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch professionelles Marketing:",
+                    "list": {
+                      "itemOne": "Höhere Sichtbarkeit am Markt",
+                      "itemTwo": "Gezielte Ansprache Ihrer Wunschkunden",
+                      "itemThree": "Stärkung Ihrer Marke",
+                      "itemFour": "Mehr Anfragen und Aufträge",
+                      "itemFive": "Effizienter Einsatz Ihres Budgets",
+                      "itemSix": "Messbare Ergebnisse"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft das Marketing ab:",
+                    "list": {
+                      "itemOne": "Analyse Ihrer Ziele",
+                      "itemTwo": "Entwicklung einer Marketingstrategie",
+                      "itemThree": "Umsetzung der Maßnahmen",
+                      "itemFour": "Monitoring und Reporting",
+                      "itemFive": "Optimierung der Kampagnen",
+                      "itemSix": "Langfristige Betreuung"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Marketing starten",
+                  "href": "/kontakt"
+                }
+              }
+            },
+            "vermittlung-2": {
+              "Diamond": {
+                "title": "Vermittlung",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaik"
+                }
+              },
+              "Components": {
+                "titleOne": "Warum ist Vermittlung ein Erfolgsfaktor?",
+                "descriptionOne": "Die richtige Vermittlung bringt die passenden Partner zusammen – ob Auftraggeber, Dienstleister oder Investoren. Wir sorgen für die optimale Verbindung und begleiten Sie bis zum erfolgreichen Abschluss.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Mit unserem Netzwerk und unserer Erfahrung finden wir für Sie die besten Partner und schaffen Win-Win-Situationen für alle Beteiligten.",
+                "button": {
+                  "text": "Jetzt Vermittlung anfragen",
+                  "href": "/kontakt"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Partnernetzwerk",
+                    "description": "Wir greifen auf ein breites Netzwerk an Experten und Unternehmen zurück.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Passgenaue Auswahl",
+                    "description": "Wir wählen die richtigen Partner für Ihr Projekt aus.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Wechselrichter"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Begleitung bis zum Abschluss",
+                    "description": "Wir unterstützen Sie während des gesamten Vermittlungsprozesses.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Batteriespeicher"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch Vermittlung:",
+                    "list": {
+                      "itemOne": "Schneller Zugang zu passenden Partnern",
+                      "itemTwo": "Zeit- und Kostenersparnis",
+                      "itemThree": "Erprobte Prozesse für effiziente Vermittlung",
+                      "itemFour": "Transparente Kommunikation",
+                      "itemFive": "Begleitung bis zum Vertragsabschluss",
+                      "itemSix": "Langfristige Zusammenarbeit"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft die Vermittlung ab:",
+                    "list": {
+                      "itemOne": "Bedarfsanalyse",
+                      "itemTwo": "Recherche und Auswahl geeigneter Partner",
+                      "itemThree": "Vorstellung und Kontaktanbahnung",
+                      "itemFour": "Begleitung der Verhandlungen",
+                      "itemFive": "Abschluss und Nachbetreuung",
+                      "itemSix": "Feedback und Optimierung"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Vermittlung starten",
+                  "href": "/kontakt"
+                }
+              }
             }
           }
         },
@@ -3343,8 +3730,8 @@
       "ContactBlocks": {
         "Discussions": {
           "title": "Eine E-Mail, tausende Möglichkeiten",
-          "description": "office@synergiemontagen.eco",
-          "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG",
+          "description": "office@synergie.cc",
+          "href": "mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG",
           "icon": {
             "src": "/frontend/landingPage/icons/mail_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg",
             "alt": "Eco Charging",
@@ -5788,7 +6175,7 @@
                 },
                 "options": {
                   "label": "E-Mail",
-                  "placeholder": "office@synergiemontagen.eco"
+                  "placeholder": "office@synergie.cc"
                 }
               },
               "submit-form-telephone": {
@@ -6234,7 +6621,7 @@
           "description": "Sie wünschen sich Unabhängigkeit von steigenden Strompreisen, möchten aktiv die Umwelt schützen und den Wert Ihrer Immobilie steigern? Und legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen? Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich.",
           "button": {
             "text": " Jetzt kostenlose Vor-Ort-Beratung sichern",
-            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+            "href": "mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
           }
         }
       },
@@ -6352,7 +6739,7 @@
           "description": "Sie wünschen sich Unabhängigkeit von steigenden Heizkosten, möchten aktiv das Klima schützen und den Wert Ihrer Immobilie nachhaltig steigern? <br></br>Und legen dabei Wert auf persönliche, ehrliche Beratung, verlässliche Abläufe und eine schnelle, saubere Umsetzung durch erfahrene Profis? <br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich von Ihrer neuen Wärmelösung.",
           "button": {
             "text": "Jetzt kostenlose Vor-Ort-Beratung sichern",
-            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+            "href": "mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
           }
         }
       },
@@ -6470,7 +6857,7 @@
           "description": "Sie wünschen sich endlich wieder erholsamen Schlaf im Sommer, möchten jederzeit ein angenehmes Raumklima genießen und den Wert Ihrer Immobilie steigern?<br></br>Und legen dabei Wert auf persönliche, ehrliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen?<br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich von Ihrer neuen Klimalösung.  ",
           "button": {
             "text": "Jetzt kostenloses Angebot sichern",
-            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+            "href": "mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
           }
         }
       },
@@ -6587,7 +6974,7 @@
           "description": "Sie wünschen sich Unabhängigkeit von Stromanbietern, möchten Ihren eigenen Solarstrom optimal nutzen und auch bei einem Stromausfall nicht im Dunkeln sitzen?  <br></br>Und legen dabei Wert auf persönliche, ehrliche Beratung, verlässliche Abläufe und eine schnelle Umsetzung ohne Überraschungen?  <br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich, wie Sie noch mehr aus Ihrer Sonne holen können.  ",
           "button": {
             "text": "Jetzt kostenlose Beratung sichern ",
-            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+            "href": "mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
           }
         }
       },
@@ -6704,7 +7091,7 @@
           "description": "Sie wünschen sich Unabhängigkeit von steigenden Strompreisen, möchten aktiv die Umwelt schützen und den Wert Ihrer Immobilie steigern, indem Sie Teil einer starken Energiegemeinschaft werden?<br></br>Und legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen?<br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich.",
           "button": {
             "text": "Jetzt kostenlose Erstberatung sichern & Mitglied werden!",
-            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+            "href": "mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
           }
         }
       },
@@ -6818,7 +7205,7 @@
           "description": "Gemeinschaftliche Erzeugungsanlagen sind in Österreich bereits etabliert. Weitere Informationen zu diesem Thema finden Sie auch auf den Webseiten von Experten und Energieversorgern: <li>Gemeinschaftliche Erzeugungsanlagen - in aller Kürze - Energiegemeinschaften</li><li>Gemeinschaftliche Erzeugungsanlagen - TINETZ – Sichere Versorgung für Tirol</li><li>Grundlagen Gemeinschaftliche Erzeugungsanlagen - Energie-noe.at</li><li>Gemeinschaftliche Erzeugungsanlagen: Alle Infos - Neoom</li><li>Energiegemeinschaften - LINZ Netz</li><li>Strom gemeinsam nutzen | Energiegemeinschaften - eww Gruppe</li><li>Energiegemeinsam - Energie AG</li>",
           "button": {
             "text": "Kontaktieren Sie uns noch heute für eine unverbindliche Beratung!",
-            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+            "href": "mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
           }
         }
       },
@@ -6936,7 +7323,7 @@
           "description": "Sie wünschen sich mehr Komfort, Sicherheit und Effizienz in Ihrem Zuhause und möchten den Wert Ihrer Immobilie steigern? Und legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen? Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich.",
           "button": {
             "text": "Jetzt kostenlose Beratung sichern",
-            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+            "href": "mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
           }
         }
       },
@@ -7054,7 +7441,7 @@
           "description": "Sie wünschen sich volle Kontrolle über Ihren Energieverbrauch, maximale Unabhängigkeit von Strompreisen und möchten aktiv die Umwelt unterstützen? Sie legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen?<br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich.  ",
           "button": {
             "text": "Jetzt kostenlose Beratung sichern",
-            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+            "href": "mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
           }
         }
       },
@@ -7173,7 +7560,7 @@
           "description": "Sie wünschen sich Unabhängigkeit von Tankstellen, möchten Ihr Elektroauto bequem und günstig laden und den Wert Ihrer Immobilie steigern? Und legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen?<br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich.",
           "button": {
             "text": "Jetzt kostenlose Beratung sichern",
-            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+            "href": "mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
           }
         }
       },
@@ -7291,7 +7678,7 @@
           "description": "Sie wünschen sich zuverlässigen Schutz vor Stromausfällen, möchten Ihre wichtigen Systeme absichern und jederzeit auf eine stabile Energieversorgung vertrauen können? Und legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen?<br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich.",
           "button": {
             "text": "Jetzt kostenlose Beratung sichern",
-            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+            "href": "mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
           }
         }
       },
@@ -7409,7 +7796,7 @@
           "description": "Sie wünschen sich einfache Unabhängigkeit von steigenden Strompreisen, möchten aktiv die Umwelt schützen und Ihren Eigenverbrauch maximieren? Und legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen?<br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich.  ",
           "button": {
             "text": "Jetzt kostenlose Beratung sichern",
-            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+            "href": "mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
           }
         }
       },
@@ -7528,7 +7915,7 @@
           "description": "Sie wünschen sich eine effektive Senkung Ihrer Energiekosten, möchten Ihr Budget optimieren und von einer nachhaltigen Energieversorgung profitieren? Und legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen?<br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich.",
           "button": {
             "text": "Jetzt kostenlose Beratung sichern",
-            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+            "href": "mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
           }
         }
       },
@@ -7647,7 +8034,7 @@
           "description": "Sie wünschen sich Unabhängigkeit von hohen Heizkosten, möchten Ihr Warmwasser umweltschonend selbst erzeugen und von einer zukunftssicheren Lösung profitieren? Und legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen?<br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich. ",
           "button": {
             "text": "Jetzt kostenlose Beratung sichern",
-            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+            "href": "mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
           }
         }
       },
@@ -7766,7 +8153,7 @@
           "description": "Sie wünschen sich maximale Effizienz, eine lange Lebensdauer und sorgenfreien Betrieb Ihrer Solar- und Haustechnik? Und legen Wert auf persönliche Beratung, klare Abläufe und eine schnelle Umsetzung ohne Überraschungen?<br></br>Dann sind Sie bei uns genau richtig. Überzeugen Sie sich jetzt ganz unverbindlich. ",
           "button": {
             "text": "Jetzt kostenlose Beratung sichern",
-            "href": "mailto:office@synergiemontagen.eco?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
+            "href": "mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG"
           }
         }
       }

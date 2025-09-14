@@ -31,7 +31,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
       image: "/frontend/landingPage/products/AA%20Dach-montage.jpg",
       rowSpan: 3,
       button: {
-        link: "/products#phtovoltaic",
+        link: "/products#photovoltaic",
         text: "Hier Photovoltaik sichern",
       },
     },
@@ -41,8 +41,8 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
       image: "/frontend/landingPage/products/heat-pump-orange.jpg",
       rowSpanSm: 2,
       button: {
-        link: "/products#phtovoltaic",
-        text: "Hier Photovoltaik sichern",
+        link: "/products#heat-pump",
+        text: "Hier Wärmepumpe sichern",
       },
     },
     {
@@ -52,70 +52,83 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
         "/frontend/landingPage/products/close-up-shot-of-air-conditioner-hanging-on-white-2024-11-19-02-00-43-utc.jpeg",
       rowSpanSm: 2,
       button: {
-        link: "/products#phtovoltaic",
-        text: "Hier Photovoltaik sichern",
+        link: "/products#air-conditioning",
+        text: "Hier Klimasystem sichern",
+      },
+    },
+    {
+      id: "smart-home",
+      title: "Smart Home",
+      image: "/frontend/landingPage/products/AA%20Smart%20Home.jpeg",
+      button: {
+        link: "/products#smart-home",
+        text: "Mehr erfahren",
       },
     },
     {
       id: "energiegemeinschaften",
       title: "Energiegemeinschaften",
-      image: "/images/categories/energiegemeinschaften.jpg",
+      image: "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
       button: {
-        link: "/energiegemeinschaft",
+        link: "/focus/energiegemeinschaft",
         text: "Mehr erfahren",
       },
     },
     {
       id: "stromtankstelle",
       title: "Stromtankstelle",
-      image: "/images/categories/warmwasser.jpg",
+      image:
+        "/frontend/landingPage/products/AA%20Wallbox%20AdobeStock_762399295.jpeg",
       button: {
-        link: "/products",
+        link: "/products#wallbox",
         text: "Mehr erfahren",
       },
     },
     {
       id: "notstrom",
       title: "Notstrom Versorgung",
-      image: "/images/categories/notstrom.jpg",
+      image: "/frontend/landingPage/products/notstromversorgung.svg",
       button: {
-        link: "/products",
+        link: "/focus/notstromversorgung",
         text: "Mehr erfahren",
       },
     },
     {
       id: "balkonkraftwerk",
       title: "Balkonkraftwerk",
-      image: "/images/categories/balkonkraftwerk.jpg",
+      image: "/frontend/landingPage/focus/Heat-Pump/Balkonkraftwerk.jpg",
       button: {
-        link: "/products",
+        link: "/focus/balkonkraftwerk",
         text: "Mehr erfahren",
       },
     },
     {
       id: "energiekosten-beratung",
       title: "Energiekosten-Beratung",
-      image: "/images/categories/komplettpaket.jpg",
+      image:
+        "/frontend/landingPage/products/a-hand-holding-the-electricity-bill-and-euro-bankn-2025-03-13-01-30-07-utc.jpeg",
       button: {
-        link: "/products",
+        link: "/focus/energiekostenberatung",
         text: "Mehr erfahren",
       },
     },
     {
       id: "warmwasser",
       title: "Autarke Warmwasser-Erzeugung",
-      image: "/images/categories/energiekosten-beratung.jpg",
+      image:
+        "/frontend/landingPage/products/boiling-water-splash-with-steam-on-black-backgroun-2025-03-13-11-28-22-utc.jpeg",
       button: {
-        link: "/products",
+        link: "/focus/autarke-warmwasser-erzeugung",
         text: "Mehr erfahren",
       },
     },
     {
       id: "wartung-service",
       title: "Wartung & Service",
-      image: "/images/categories/stromtankstelle.jpg",
+      image:
+        "/frontend/landingPage/products/certified-male-electrician-installing-home-ev-char-2024-10-18-05-46-25-utc.jpeg",
       button: {
-        link: "/products",
+        link: "/focus/wartung-service",
         text: "Mehr erfahren",
       },
     },
@@ -123,7 +136,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
 
   return (
     <div className="bg-white">
-      <section className="w-full bg-synergy-light-blue bg-opacity-[0.12]">
+      <section className="w-full bg-synergy-light-blue bg-opacity-[0.13]">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-10 pt-32">
           <header className="mb-10 text-center">
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">

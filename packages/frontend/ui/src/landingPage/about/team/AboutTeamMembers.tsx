@@ -40,12 +40,8 @@ export const AboutTeamMembers = (props: AboutTeamMembersProps) => {
               <h4 className="h4 text-2xl font-bold -tracking-[0.01em] font-inter text-slate-800 mb-1">
                 Michael Riegler
               </h4>
-              <div className="font-medium text-base text-blue-600">
-                Gründer
-              </div>
+              <div className="font-medium text-base text-blue-600">Gründer</div>
             </div>
-
-            
 
             {/* 2rd member */}
             <div
@@ -107,7 +103,7 @@ export const AboutTeamMembers = (props: AboutTeamMembersProps) => {
                 <Image
                   className="rounded-full"
                   loader={ImageLoader}
-                  src={"/frontend/landingPage/about/strichmaennchen.jpg"}
+                  src={"/frontend/landingPage/about/1537447145969.jpeg"}
                   width={120}
                   height={120}
                   alt="Member 04"

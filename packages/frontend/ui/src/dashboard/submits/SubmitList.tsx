@@ -54,8 +54,7 @@ export const SubmitList = (props: SubmitListProps) => {
     },
     visibility: "public",
     emailAddress:
-      user?.user?.primaryEmailAddress?.emailAddress ||
-      "office@synergiemontagen.eco",
+      user?.user?.primaryEmailAddress?.emailAddress || "office@synergie.cc",
   });
 
   const createNewSubmit = () => {

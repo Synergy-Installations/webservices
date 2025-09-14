@@ -60,10 +60,10 @@ export const HeroFull = (props: HeroFullProps) => {
         </div>
         {/* Blue boxes at the bottom center */}
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-6 z-20">
-          {[1, 2, 3].map((i) => (
+          {blueBoxes.map((i) => (
             <div
               key={i}
-              className="flex flex-col items-center justify-center px-6 py-4 rounded-2xl bg-synergy-light-blue/70 backdrop-blur-md shadow-lg min-w-[220px] max-w-[260px]"
+              className="flex flex-col items-center justify-start gap-2 px-6 py-4 rounded-2xl bg-synergy-light-blue/70 backdrop-blur-md shadow-lg min-w-[220px] max-w-[260px]"
             >
               {/* <div className="mb-2">
                 <svg
@@ -89,11 +89,21 @@ export const HeroFull = (props: HeroFullProps) => {
                   />
                 </svg>
               </div> */}
-              <div className="text-lg font-semibold text-white mb-1">
-                {t(`blueBoxes.${i}.title`)}
-              </div>
-              <div className="text-sm text-white/80 text-center">
-                {t(`blueBoxes.${i}.description`)}
+              <Image
+                className="shrink-0 fill-synergy-light-blue mr-3 opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
+                loader={ImageLoader}
+                width={Number(t(`blueBoxes.${i}.icon.width`))}
+                height={Number(t(`blueBoxes.${i}.icon.height`))}
+                src={t(`blueBoxes.${i}.icon.src`)}
+                alt={t(`blueBoxes.${i}.icon.alt`)}
+              />
+              <div className="flex flex-col items-center">
+                <div className="text-lg font-semibold text-white mb-1">
+                  {t(`blueBoxes.${i}.title`)}
+                </div>
+                <div className="text-sm text-white/80 text-center">
+                  {t(`blueBoxes.${i}.description`)}
+                </div>
               </div>
             </div>
           ))}

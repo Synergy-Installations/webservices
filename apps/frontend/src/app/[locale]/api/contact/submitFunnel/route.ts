@@ -33,8 +33,8 @@ export async function POST(req: NextRequest) {
   console.log("restBody", restBody);
 
   const msg = {
-    to: [to, "office@synergiemontagen.eco", "admin@synergiemontagen.eco"], // Change to your recipient
-    from: "office@synergiemontagen.eco", // Change to your verified sender
+    to: [to, "office@synergie.cc", "admin@synergie.cc"], // Change to your recipient
+    from: "office@synergie.cc", // Change to your verified sender
     subject: "Ihre Anfrage von Synergiemontagen",
     text: "Ihre Anfrage wurde erfolgreich versendet",
     html: `

@@ -16,8 +16,8 @@ export async function POST(req: NextRequest) {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: "office@synergiemontagen.eco",
-      to: [to, "office@synergiemontagen.eco", "admin@synergiemontagen.eco"],
+      from: "office@synergie.cc",
+      to: [to, "office@synergie.cc", "admin@synergie.cc"],
       subject: "Ihre Anfrage von Synergiemontagen",
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
@@ -72,8 +72,8 @@ export async function POST(req: NextRequest) {
   // });
 
   // const msg = {
-  //   to: [to, "office@synergiemontagen.eco"], // Change to your recipient
-  //   from: "office@synergiemontagen.eco", // Change to your verified sender
+  //   to: [to, "office@synergie.cc"], // Change to your recipient
+  //   from: "office@synergie.cc", // Change to your verified sender
   //   subject: "Ihre Anfrage von Synergiemontagen",
   //   text: message,
   //   html: `

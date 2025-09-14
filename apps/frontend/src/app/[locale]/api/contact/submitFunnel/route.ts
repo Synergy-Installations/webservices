@@ -36,8 +36,8 @@ export async function POST(req: NextRequest) {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: "office@synergiemontagen.eco",
-      to: [to, "office@synergiemontagen.eco", "admin@synergiemontagen.eco"],
+      from: "office@synergie.cc",
+      to: [to, "office@synergie.cc", "admin@synergie.cc"],
       subject: "Ihre Anfrage von Synergiemontagen",
       html: `
   <html>

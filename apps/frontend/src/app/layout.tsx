@@ -68,7 +68,7 @@ export default async function RootLayout({
                 name: "Synergie Montagen Riegler GmbH",
                 url: "https://synergiemontagen.eco",
                 telephone: "+43 664 244 87 42",
-                email: "office@synergiemontagen.eco",
+                email: "office@synergie.cc",
                 address: {
                   "@type": "PostalAddress",
                   streetAddress: "Wagenseilgasse 14",

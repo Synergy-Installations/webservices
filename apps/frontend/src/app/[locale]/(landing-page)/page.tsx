@@ -15,6 +15,7 @@ import FeatureSteps from "@com.synergy/frontend-ui/FeatureSteps";
 import CtaLoose from "@com.synergy/frontend-ui/CtaLoose";
 import { TracingBeam } from "@com.synergy/frontend-ui/TracingBeam";
 import Head from "next/head";
+import BentoGridHero from "@com.synergy/frontend-ui/BentoGridHero";
 
 export default function Page(): JSX.Element {
   // const t = useTranslations("Index");
@@ -23,6 +24,7 @@ export default function Page(): JSX.Element {
     <>
       
       {/* <TracingBeam> */}
+      <BentoGridHero />
       <HeroFull />
       <ServiceCatalog />
       <FeatureAdvantages />

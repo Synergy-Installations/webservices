@@ -161,7 +161,7 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
                             `partnerCarousel.${partnerCarouselKey}.partners.${partnerKey}.href`
                           )}
                           target="_blank"
-                          className="swiper-slide !h-32 !min-w-32 p-4 overflow-hidden bg-gray-200 rounded-2xl flex items-center justify-center group"
+                          className="swiper-slide !h-32 !min-w-32 !w-fit p-4 overflow-hidden bg-gray-200 rounded-2xl !flex items-center justify-center group"
                         >
                           <Image
                             className="opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"

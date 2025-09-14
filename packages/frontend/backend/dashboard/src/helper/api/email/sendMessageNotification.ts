@@ -209,7 +209,7 @@ export const sendMessageNotification = async (
     // Wrap in an async IIFE so we can use await.
     await (async () => {
       const info = await transporter.sendMail({
-        from: '"Michael Riegler" <office@synergiemontagen.eco>',
+        from: '"Michael Riegler" <office@synergie.cc>',
         to: sendToUsers.map((user) => user.emailAddress).join(", "),
         subject: "Neue Nachricht auf Synergiemontagen erhalten",
         text: `"${messages[0].message}" von ${

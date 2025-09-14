@@ -7,11 +7,12 @@ import { Transition } from "@headlessui/react";
 export interface DefaultDropdownProps {
   children: React.ReactNode;
   title: string;
+  className?: string;
 }
 
 export const DefaultDropdown = (props: DefaultDropdownProps) => {
-  const { children, title } = props;
-  
+  const { children, title, className } = props;
+
   const dropdownRef = useRef<HTMLUListElement | null>(null);
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
@@ -57,7 +58,11 @@ export const DefaultDropdown = (props: DefaultDropdownProps) => {
         ref={dropdownRef}
         show={dropdownOpen}
         as="ul"
-        className="absolute left-0 top-full min-w-36 origin-top-left rounded-xl border border-gray-100 bg-white p-2 shadow-lg shadow-black/[0.03]"
+        className={
+          className
+            ? className
+            : `absolute left-0 top-full min-w-36 origin-top-left rounded-xl border border-gray-100 bg-white p-2 shadow-lg shadow-black/[0.03]`
+        }
         enter="transition ease-out duration-200 transform"
         enterFrom="opacity-0 -translate-y-2"
         enterTo="opacity-100 translate-y-0"

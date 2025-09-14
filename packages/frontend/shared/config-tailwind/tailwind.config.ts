@@ -20,10 +20,16 @@ const config: Omit<Config, "content"> = {
       backgroundImage: {
         "glow-conic":
           "conic-gradient(from 180deg at 50% 50%, #2a8af6 0deg, #a853ba 180deg, #e92a67 360deg)",
+        "aurora-gradient":
+          "linear-gradient(270deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb)",
+      },
+      backgroundSize: {
+        aurora: "400% 400%",
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
         mono: ["Roboto Mono", "monospace"],
+        "playfair-display": ["Playfair Display", "serif"],
       },
       fontSize: {
         xs: ["0.75rem", { lineHeight: "1.5" }],
@@ -46,6 +52,7 @@ const config: Omit<Config, "content"> = {
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
         shine: "shine var(--duration) infinite linear",
+        aurora: "aurora 8s ease-in-out infinite alternate",
       },
       keyframes: {
         "code-1": {
@@ -124,6 +131,28 @@ const config: Omit<Config, "content"> = {
           },
           to: {
             "background-position": "0% 0%",
+          },
+        },
+        aurora: {
+          "0%": {
+            backgroundPosition: "0% 50%",
+            transform: "rotate(-5deg) scale(0.9)",
+          },
+          "25%": {
+            backgroundPosition: "50% 100%",
+            transform: "rotate(5deg) scale(1.1)",
+          },
+          "50%": {
+            backgroundPosition: "100% 50%",
+            transform: "rotate(-3deg) scale(0.95)",
+          },
+          "75%": {
+            backgroundPosition: "50% 0%",
+            transform: "rotate(3deg) scale(1.05)",
+          },
+          "100%": {
+            backgroundPosition: "0% 50%",
+            transform: "rotate(-5deg) scale(0.9)",
           },
         },
       },

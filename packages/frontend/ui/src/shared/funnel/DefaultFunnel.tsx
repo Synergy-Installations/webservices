@@ -69,11 +69,17 @@ export interface DefaultFunnelProps {
     progressContainerBackground?: boolean;
     sectionContainerClassNames?: string;
   };
+  questionPresentation?: "scroll" | "window";
   children?(questionElements: any): void;
 }
 
 export const DefaultFunnel = (props: DefaultFunnelProps) => {
-  const { questionElementsRaw, STORAGE_ZONE_ACCESS_KEY, children } = props;
+  const {
+    questionElementsRaw,
+    STORAGE_ZONE_ACCESS_KEY,
+    questionPresentation = "window",
+    children,
+  } = props;
   const {
     submitFunnel,
     auth,
@@ -93,6 +99,14 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
 
   const [verificationButtonClicked, setVerificationButtonClicked] =
     useState<boolean>(false);
+
+  // Use a reference to store the first question element key generated firstly
+  // from the server and changes later by the client to purpusefully recreate state
+  // in useEffect when needed (e.g. url queryParameters)
+  const [
+    referencingFirstQuestionElementKey,
+    setReferencingFirstQuestionElementKey,
+  ] = useState<string | null>(null);
 
   const [questionElements, setQuestionElements] = useState<Record<string, any>>(
     () => {
@@ -114,6 +128,9 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
           return acc;
         },
         {}
+      );
+      setReferencingFirstQuestionElementKey(
+        Object.keys(questionElementsRawReduce)[0] || null
       );
 
       return questionElementsRawReduce;
@@ -176,9 +193,67 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
         },
         {}
       );
+
+      setReferencingFirstQuestionElementKey(
+        Object.keys(questionElementsRawReduce)[0] || null
+      );
+
       return questionElementsRawReduce;
     });
   }, []);
+
+  const setQuestionElementParameters = () => {
+    if (
+      typeof window !== "undefined" &&
+      questionPresentation === "window" &&
+      Object.keys(questionElements).length > 0
+    ) {
+      console.log("set currentQuestionId to URL", questionElements);
+      const firstKey = Object.keys(questionElements)[0];
+      let currentQuestionId = firstKey;
+      const url = new URL(window.location.href);
+
+      // If currentQuestionId is already in the query, use it if valid, else set to firstKey
+      const paramId = url.searchParams.get("currentQuestionId");
+      if (paramId && questionElements[paramId]) {
+        currentQuestionId = paramId;
+      } else {
+        url.searchParams.set("currentQuestionId", firstKey);
+        window.history.replaceState({}, "", url.toString());
+      }
+    }
+  };
+
+  // Set the current question id to the URL for advanced use
+  // to start where the user left off (requires saving state)
+  useEffect(() => {
+    console.log(
+      "setQuestionElementParameters",
+      referencingFirstQuestionElementKey
+    );
+    const url = new URL(window.location.href);
+    if (
+      // typeof window !== "undefined" &&
+      questionPresentation === "window" &&
+      url.searchParams.get("currentQuestionId") !==
+        Object.keys(questionElements)[0]
+    ) {
+      setQuestionElementParameters();
+    }
+
+    // if (
+    //   typeof window !== "undefined" &&
+    //   questionPresentation === "window" &&
+    //   Object.keys(questionElements).length > 0
+    // ) {
+    //   debouncedSetQuestionElementParameters();
+    // }
+  }, [referencingFirstQuestionElementKey]);
+
+  console.log(
+    "referenceFirstQuestionElementKey",
+    referencingFirstQuestionElementKey
+  );
 
   const countForms = (): { totalForms: number; successForms: number } => {
     let totalForms = 0;
@@ -233,7 +308,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
   const getNextQuestionKey = (
     currentQuestionKey: string,
     formKey: string,
-    redirect: boolean = false
+    redirect: "next" | "previous" | "none" = "none"
   ): { status: string } => {
     const questionKeys = Object.keys(questionElements);
     const currentQuestion = questionElements[currentQuestionKey];
@@ -361,8 +436,8 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
               } else if (
                 /** Success for form that the button got pressed on */
                 error == true &&
-                questionIndex == currentQuestionIndex &&
-                formIndex == currentFormIndex
+                questionIndex == currentVisibleQuestionIndex &&
+                formIndex == currentVisibleFormIndex
               ) {
                 /** Correct input at current form, however, previous forms are not correct */
                 console.log(
@@ -411,7 +486,10 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     );
 
     debouncedCountFormsAndSet();
-    if (error) return { status: "error" };
+
+    // Check if there is an error in the form if we redirect forward,
+    // if so, return error status
+    if (error && redirect === "next") return { status: "error" };
 
     // if (
     //   ((questionElements[currentQuestionKey].form[formKey].type ===
@@ -453,8 +531,8 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
           "success";
         return updatedElements;
       });
-
-      if (redirect)
+      console.log("Push to next question2", visibleQuestionKeys);
+      if (redirect === "next")
         router.push(`#${visibleFormKeys[currentVisibleFormIndex + 1]}`);
       return { status: "success" };
     }
@@ -464,8 +542,9 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
      */
     const currentIndex = questionKeys.indexOf(currentQuestionKey);
     if (
-      currentVisibleQuestionIndex === -1 ||
-      currentVisibleQuestionIndex === visibleQuestionKeys.length - 1
+      redirect !== "previous" &&
+      (currentVisibleQuestionIndex === -1 ||
+        currentVisibleQuestionIndex === visibleQuestionKeys.length - 1)
     ) {
       console.log("when is this called?", currentQuestionKey, formKey);
       if (
@@ -489,7 +568,9 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
           return updatedElements;
         });
 
-        if (redirect) router.push(`#${formKey}`);
+        console.log("Push to next question1", visibleQuestionKeys);
+
+        if (redirect === "next") router.push(`#${formKey}`);
       }
 
       return { status: "success" };
@@ -506,8 +587,44 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
         "success";
       return updatedElements;
     });
-    if (redirect)
+    console.log("Push to next question", visibleQuestionKeys);
+    if (redirect === "next") {
+      // Change the searchParameters in the URL to the next question to render the next question
+      if (questionPresentation === "window") {
+        const url = new URL(window.location.href);
+        url.searchParams.set(
+          "currentQuestionId",
+          visibleQuestionKeys[currentVisibleQuestionIndex + 1]
+        );
+        window.history.replaceState({}, "", url.toString());
+        // router.push(
+        //   `?currentQuestionId=${visibleQuestionKeys[currentVisibleQuestionIndex + 1]}`
+        // );
+      }
       router.push(`#${visibleQuestionKeys[currentVisibleQuestionIndex + 1]}`);
+    } else if (redirect === "previous") {
+      // Change the searchParameters in the URL to the previous question to render the previous question
+      if (questionPresentation === "window") {
+        const url = new URL(window.location.href);
+        url.searchParams.set(
+          "currentQuestionId",
+          visibleQuestionKeys[
+            currentVisibleQuestionIndex - 1 >= 0
+              ? currentVisibleQuestionIndex - 1
+              : 0
+          ]
+        );
+        // Does not work with submit-button for whatever reason
+        console.log("previous", url.toString());
+        window.history.replaceState({}, "", url.toString());
+        // router.push(
+        //   `?currentQuestionId=${visibleQuestionKeys[currentVisibleQuestionIndex - 1]}`
+        // );
+      }
+      router.push(
+        `#${visibleQuestionKeys[currentVisibleQuestionIndex - 1 > 0 ? currentVisibleQuestionIndex - 1 : 0]}`
+      );
+    }
     return { status: "success" };
   };
 
@@ -795,6 +912,27 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     );
   };
 
+  const questionElementsToBeRendered = () => {
+    // Helper to get the currentQuestionId from the URL if questionPresentation is "window"
+    let filteredQuestionKeys = Object.keys(questionElements ?? {}).filter(
+      (questionKey: any) =>
+        questionElements[questionKey]?.defaultVisible === true
+    );
+
+    if (questionPresentation === "window" && typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      const currentQuestionId = url.searchParams.get("currentQuestionId");
+      console.log("currentQuestionId", currentQuestionId, filteredQuestionKeys);
+      if (
+        currentQuestionId &&
+        filteredQuestionKeys.includes(currentQuestionId)
+      ) {
+        filteredQuestionKeys = [currentQuestionId];
+      }
+    }
+    return filteredQuestionKeys;
+  };
+
   return (
     <>
       {topBar && topBar(questionElements)}
@@ -833,12 +971,8 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
           </div>
         </div>
         <div className={`${props.ui?.sectionContainerClassNames ?? ""}`}>
-          {Object.keys(questionElements ?? {})
-            .filter(
-              (questionKey: any) =>
-                questionElements[questionKey]?.defaultVisible === true
-            )
-            .map((questionKey: any, index: any) => (
+          {questionElementsToBeRendered().map(
+            (questionKey: any, index: any) => (
               <section id={questionKey} key={index} className="scroll-mt-40">
                 {/** Title and description of question */}
                 <div className="text-center">
@@ -1568,6 +1702,20 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                         ) : questionElements[questionKey].form[formKey].type ===
                           "submit-button" ? (
                           <div className="flex justify-between">
+                            <div className="flex">
+                              <button
+                                onClick={() => {
+                                  getNextQuestionKey(
+                                    questionKey,
+                                    formKey,
+                                    "previous"
+                                  );
+                                }}
+                                className="px-3 py-1 rounded-md bg-synergy-light-blue text-white "
+                              >
+                                Vorherige
+                              </button>
+                            </div>
                             <p
                               className={`text-sm mt-2 min-h-[1.57rem] ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : questionElements[questionKey].form[formKey].message.type === "warning" ? "text-orange-600 dark:text-orange-500" : questionElements[questionKey].form[formKey].message.type === "loading" ? "text-blue-600 dark:text-blue-500" : "text-green-600 dark:text-green-500"} `}
                             >
@@ -1720,26 +1868,43 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                   .defaultVisible === true
                             ).length -
                               1 && (
-                            <div className="flex justify-end">
-                              <button
-                                onClick={() => {
-                                  getNextQuestionKey(
-                                    questionKey,
-                                    formKey,
-                                    true
-                                  );
-                                }}
-                                className="px-3 py-1 rounded-md bg-synergy-light-blue text-white "
-                              >
-                                Weiter
-                              </button>
+                            <div className="flex justify-between">
+                              <div className="flex">
+                                <button
+                                  onClick={() => {
+                                    getNextQuestionKey(
+                                      questionKey,
+                                      formKey,
+                                      "previous"
+                                    );
+                                  }}
+                                  className="px-3 py-1 rounded-md bg-synergy-light-blue text-white "
+                                >
+                                  Vorherige
+                                </button>
+                              </div>
+                              <div className="flex">
+                                <button
+                                  onClick={() => {
+                                    getNextQuestionKey(
+                                      questionKey,
+                                      formKey,
+                                      "next"
+                                    );
+                                  }}
+                                  className="px-3 py-1 rounded-md bg-synergy-light-blue text-white "
+                                >
+                                  Weiter
+                                </button>
+                              </div>
                             </div>
                           )}
                       </section>
                     ))}
                 </div>
               </section>
-            ))}
+            )
+          )}
         </div>
 
         <Dialog

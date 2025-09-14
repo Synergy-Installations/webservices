@@ -68,7 +68,7 @@ export default async function RootLayout({
                 name: "Synergie Montagen Riegler GmbH",
                 url: "https://synergiemontagen.eco",
                 telephone: "+43 664 244 87 42",
-                email: "office@synergiemontagen.eco",
+                email: "office@synergie.cc",
                 address: {
                   "@type": "PostalAddress",
                   streetAddress: "Wagenseilgasse 14",
@@ -197,6 +197,13 @@ export default async function RootLayout({
             rejectButtonText="Ablehnen"
             customizeButtonText="Anpassen"
             acceptButtonText="Akzeptieren"
+            theme={{
+              "banner.footer": "bg-synergy-light-blue/10",
+              "banner.footer.reject-button": "rounded-lg",
+              "banner.footer.customize-button": "rounded-lg",
+              "banner.footer.accept-button":
+                "text-white rounded-lg !shadow-none bg-gradient-to-t from-synergy-light-blue via-synergy-light-blue/70 to-synergy-light-blue hover:from-synergy-light-blue hover:to-synergy-light-blue",
+            }}
           />
           <ConsentManagerDialog />
           <GoogleTag />

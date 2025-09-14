@@ -8,6 +8,7 @@ import { PhotovoltaicComponents } from "@com.synergy/frontend-ui/PhotovoltaicCom
 import { PhotovoltaicBackground } from "@com.synergy/frontend-ui/PhotovoltaicBackground";
 import { PhotovoltaicTestimonials } from "@com.synergy/frontend-ui/PhotovoltaicTestimonials";
 import { PhotovoltaicCta } from "@com.synergy/frontend-ui/PhotovoltaicCta";
+import ScrollUp from "@com.synergy/frontend-ui/ScrollUp";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -32,11 +33,12 @@ export default function Page(): JSX.Element {
         name="keywords"
         content="Photovoltaik kaufen, PV-Anlage installieren lassen, Stromkosten sparen, Förderung Photovoltaik"
       />
-      <PhotovoltaicHero />
-      <PhotovoltaicComponents />
-      <PhotovoltaicBackground />
-      <PhotovoltaicTestimonials />
-      <PhotovoltaicCta />
+      <ScrollUp />
+      <PhotovoltaicHero translationProduct="Photovoltaic" />
+      <PhotovoltaicComponents translationProduct="Photovoltaic" />
+      <PhotovoltaicBackground translationProduct="Photovoltaic" />
+      <PhotovoltaicTestimonials translationProduct="Photovoltaic" />
+      <PhotovoltaicCta translationProduct="Photovoltaic" />
     </>
   );
 }

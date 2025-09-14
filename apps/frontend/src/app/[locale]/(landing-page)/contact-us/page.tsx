@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 export const metadata: Metadata = {
   title: "Kontakt – Synergie Montagen Riegler GmbH",
   description:
-    "Kontaktieren Sie uns: Büro Wien, Telefon +43 664 244 8742, office@synergiemontagen.eco – Ihr Fachbetrieb für nachhaltige Haustechnik.",
+    "Kontaktieren Sie uns: Büro Wien, Telefon +43 664 244 8742, office@synergie.cc – Ihr Fachbetrieb für nachhaltige Haustechnik.",
   keywords: [
     "Kontakt",
     "Wien",

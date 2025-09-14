@@ -126,19 +126,35 @@ export const MobileMenu = (props: MobileMenuProps) => {
                     </Link>
                   )}
                 </li>
-                {getNavChildrenKeys(navKey).map((childKey, index) => (
+                {/* {getNavChildrenKeys(navKey).map((childKey, index) => (
                   <li key={index}>
                     <Link
                       href={t(`nav.${navKey}.children.${childKey}.href`)}
                       className="flex rounded-lg ml-2 px-2 py-1.5 text-gray-700 hover:bg-gray-100"
                       onClick={() => setMobileNavOpen(false)}
                     >
-                      {t(`nav.${navKey}.children.${childKey}.text`)}
+                      {t(`nav.${navKey}.children.list.${childKey}.title`)}
                     </Link>
                   </li>
-                ))}
+                ))} */}
               </div>
             ))}
+            <div className="flex justify-center xs:justify-end">
+              <div className="grid xs:flex gap-4 text-base justify-center w-full xs:w-max backdrop-blur-sm bg-white/70 px-2 py-[2px] rounded-lg">
+                <a
+                  href={`mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG`}
+                  className="text-synergy-dark-grey hover:underline text-center"
+                >
+                  office@synergie.cc
+                </a>
+                <a
+                  href="tel:+436642448742"
+                  className="text-synergy-dark-grey hover:underline text-center"
+                >
+                  +43 664 244 87 42
+                </a>
+              </div>
+            </div>
 
             <li className="flex flex-col xs:flex-row items-center justify-center mt-4 gap-2">
               <Link

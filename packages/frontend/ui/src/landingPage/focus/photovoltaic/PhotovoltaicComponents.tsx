@@ -8,9 +8,12 @@ import {
   IconInMonaten,
 } from "@com.synergy/frontend-ui/Icons";
 import { useTranslations } from "next-intl";
+import RichText from "../../../shared/internationalization/text/RichText";
 
 /* eslint-disable-next-line */
-export interface PhotovoltaicComponentsProps {}
+export interface PhotovoltaicComponentsProps {
+  translationProduct: string;
+}
 
 const benefits = [
   {
@@ -31,15 +34,22 @@ const benefits = [
 ];
 
 export const PhotovoltaicComponents = (props: PhotovoltaicComponentsProps) => {
-  const t = useTranslations("LandingPage.Focus.Photovoltaic.Components");
+  const { translationProduct } = props;
+  const t = useTranslations(
+    `LandingPage.Focus.${translationProduct}.Components`
+  );
 
   return (
     <>
       <section className="pt-12 text-center px-4">
         <h1 className="text-3xl font-bold mb-4">{t("titleOne")}</h1>
-        <p className=" max-w-2xl mx-auto text-lg">{t("descriptionOne")}</p>
+        <p className=" max-w-2xl mx-auto text-lg">
+          <RichText>{(tags) => t.rich("descriptionOne", tags)}</RichText>
+        </p>
         <div className="w-24 h-1 bg-teal-500 mx-auto my-4"></div>
-        <p className=" max-w-2xl mx-auto text-lg">{t("descriptionTwo")}</p>
+        <p className=" max-w-2xl mx-auto text-lg">
+          <RichText>{(tags) => t.rich("descriptionTwo", tags)}</RichText>
+        </p>
       </section>
       {/* <section className="p-12 text-center px-4">
         <h1 className="text-3xl font-bold mb-4">{t("titleTwo")}</h1>
@@ -68,8 +78,7 @@ export const PhotovoltaicComponents = (props: PhotovoltaicComponentsProps) => {
             href={`/kontakt`}
           >
             <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5 break-words whitespace-pre-line">
-              {/* {t("button.text")} */}
-              Jetzt kostenlose Vor-Ort-Beratung sichern
+              {t("button.text")}
               <div className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                 <div className=" whitespace-nowrap">{"->"}</div>
               </div>

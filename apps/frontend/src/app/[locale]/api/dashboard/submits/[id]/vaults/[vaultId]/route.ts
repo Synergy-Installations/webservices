@@ -221,14 +221,15 @@ export async function PUT(
       return NextResponse.json({ success: true, data: vault }, { status: 200 });
     }
 
-    const dbSubmit = await Submit.findById(submitId, "emailAddress").exec();
+    const dbSubmit = await Submit.findById(submitId, "emailAddress visibility members").exec();
+    console.log("dbSubmit", dbSubmit);
 
     // Otherwise, check if the user requesting the update is the same as the one who created the submit
     if (
       dbSubmit.visibility === "public" ||
       dbSubmit.members
-        .find((right: any) => right.userAuthId === userId)
-        .rights.includes("write:vaults")
+        ?.find((right: any) => right.userAuthId === userId)
+        ?.rights?.includes("write:vaults")
     ) {
       const vault = await Vault.findByIdAndUpdate(
         vaultId,
@@ -246,7 +247,21 @@ export async function PUT(
       }
       return NextResponse.json({ success: true, data: vault }, { status: 200 });
     }
+
+    return new Response(
+      JSON.stringify({
+        success: false,
+        error: "Unauthorized or not enough rights",
+      }),
+      {
+        status: 401,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
   } catch (error) {
+    console.error(error);
     return NextResponse.json({ success: false, error: error }, { status: 400 });
   }
 }

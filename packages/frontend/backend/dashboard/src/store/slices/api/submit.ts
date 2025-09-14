@@ -62,6 +62,18 @@ export const submitApi = api.injectEndpoints({
       },
       invalidatesTags: (post) => [{ type: "Submits", id: post?._id }],
     }),
+    deleteSubmit: build.mutation<GetSubmitInterface, string>({
+      query(submitId) {
+        return {
+          url: `dashboard/submits/${submitId}/`,
+          method: "DELETE",
+        };
+      },
+      invalidatesTags: (post, _, submitId) => [
+        { type: "Submits", id: submitId },
+        { type: "Submits" as const, id: "LIST" },
+      ],
+    }),
     //     deleteItem: build.mutation<{ success: boolean; id: number }, number>({
     //       query(id) {
     //         return {
@@ -82,6 +94,7 @@ export const {
   useGetSubmitsQuery,
   useGetSubmitQuery,
   useUpdateSubmitMutation,
+  useDeleteSubmitMutation,
   //   useDeleteItemMutation,
   //   useGetItemQuery,
   //   useGetItemsQuery,

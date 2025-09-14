@@ -2,7 +2,14 @@ import { ContactBlocks } from "@com.synergy/frontend-ui/ContactBlocks";
 import { ContactCommunity } from "@com.synergy/frontend-ui/ContactCommunity";
 import { Form } from "@com.synergy/frontend-ui/Form";
 import RichText from "@com.synergy/frontend-ui/RichText";
+import { Metadata } from "next";
 import { useTranslations } from "next-intl";
+
+export const metadata: Metadata = {
+  title: 'Kontakt – Synergie Montagen Riegler GmbH',
+  description: 'Kontaktieren Sie uns: Büro Wien, Telefon +43 664 244 8742, office@synergiemontagen.eco – Ihr Fachbetrieb für nachhaltige Haustechnik.',
+  keywords: ['Kontakt', 'Wien', 'Anfrage', 'Telefon', 'E-Mail', 'Synergie Montagen']
+}
 
 export default function Page(): JSX.Element {
   const t = useTranslations("LandingPage.ContactUs.Header");

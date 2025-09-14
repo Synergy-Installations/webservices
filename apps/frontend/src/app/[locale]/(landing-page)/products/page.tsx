@@ -7,6 +7,21 @@ import { ProductCards } from "@com.synergy/frontend-ui/ProductCards";
 
 import { useTranslations } from "next-intl";
 import CtaLoose from "@com.synergy/frontend-ui/CtaLoose";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Produkte – Photovoltaik, Speicher & Wallbox | Synergie Montagen",
+  description:
+    "Unsere Produktpalette: PV-Anlagen, Energiespeicher, Wärmepumpen, Smart Home, Wallbox-Pakete – nachhaltig & hochwertig.",
+  keywords: [
+    "Produkte",
+    "Photovoltaik",
+    "PV-Speicher",
+    "Wärmepumpe",
+    "Smart Home",
+    "Wallbox",
+  ],
+};
 
 export default function Page(): JSX.Element {
   // const t = useTranslations("Index");
@@ -14,17 +29,17 @@ export default function Page(): JSX.Element {
   return (
     <>
       {/* <TracingBeam> */}
-        <HeroVideoFull />
-        <ProductCards />
-        {/* <DefaultProductCard />
+      <HeroVideoFull />
+      <ProductCards />
+      {/* <DefaultProductCard />
         <DefaultProductCard orientation="left" />
         <DefaultProductCard />
         <DefaultProductCard orientation="left" />
         <DefaultProductCard />
         <DefaultProductCard orientation="left" /> */}
-        <AboutUsCard />
-        <PackagesCard />
-        <CtaLoose />
+      <AboutUsCard />
+      <PackagesCard />
+      <CtaLoose />
       {/* </TracingBeam> */}
     </>
   );

@@ -8,6 +8,7 @@ import "aos/dist/aos.css";
 import DefaultFooter from "@com.synergy/frontend-ui/DefaultFooter";
 import { useMessages, useTranslations } from "next-intl";
 import WhatsappButton from "../whatsapp/WhatsappButton";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -3716,7 +3716,7 @@
             "type": "textarea",
             "label": "Projektdetails *",
             "placeholder": "Teilen Sie Ihre Anforderungen",
-            "defaultValue": "Leistungsgröße: \nVerbrauch: \nSpeicher: Ja/Nein \nInstallationsort: \nSonstige Wünsche: \nAddresse Bauvorhaben: ",
+            "defaultValue": "Stromverbrauch: \nSpeicher: Ja/Nein \nMontageort: \nSonstige Wünsche: \nAddresse Bauvorhaben: ",
             "required": "true"
           }
         },

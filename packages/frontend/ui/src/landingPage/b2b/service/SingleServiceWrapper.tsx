@@ -57,12 +57,16 @@ export const SingleServiceWrapper = (props: SingleServiceWrapperProps) => {
           <div className="w-full max-w-6xl mx-auto">
             <div
               className="relative p-2 md:p-4 max-w-5xl mx-auto w-full bg-transparent rounded-xl
-              grid grid-cols-2 sm:grid-cols-3 gap-6
+              grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-2 xs:gap-6
               lg:block"
               style={{
                 position: "relative",
                 height: (() => {
-                  if (window.innerWidth <= 1024) return "unset";
+                  if (
+                    typeof window !== "undefined" &&
+                    window.innerWidth <= 1024
+                  )
+                    return "min-content";
                   // Calculate number of rows
                   const diamondsPerRow = 4;
                   const diamondHeight = 160; // px

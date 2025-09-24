@@ -22,8 +22,8 @@ export const HeroFull = (props: HeroFullProps) => {
   const blueBoxes = Object.keys(messages.LandingPage.Home.Hero.blueBoxes);
 
   return (
-    <div className="h-svh w-svw max-h-[993px] relative">
-      <div className="z-10 relative h-screen flex flex-col items-center justify-center lg:block lg:pt-[204px] lg:pl-[140px] xl:pl-[200px] 2xl:pl-[300px] min-[1700px]:pl-[350px] min-[1700px]:pt-[194px] w-auto">
+    <div className="min-h-svh w-svw relative">
+      <div className="z-10 relative min-h-screen flex flex-col items-center justify-center lg:block lg:pt-[204px] lg:pl-[140px] xl:pl-[200px] 2xl:pl-[300px] min-[1700px]:pl-[350px] min-[1700px]:pt-[194px] w-auto">
         <div className="relative flex flex-col justify-center rounded-2xl">
           <ProductPreviewSmallTransition
             products={productPreviewKeys.map(
@@ -59,51 +59,27 @@ export const HeroFull = (props: HeroFullProps) => {
           </div>
         </div>
         {/* Blue boxes at the bottom center */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-6 z-20">
+        <div className="relative hidden md:flex items-stretch justify-center lg:pr-[200px] py-6 gap-6 z-20">
           {blueBoxes.map((i) => (
             <div
               key={i}
-              className="flex flex-col items-center justify-start gap-2 px-6 py-4 rounded-2xl bg-synergy-light-blue/70 backdrop-blur-md shadow-lg min-w-[220px] max-w-[260px]"
+              className="flex flex-col items-center justify-start gap-2 px-6 py-4 rounded-2xl bg-synergy-light-blue/70 backdrop-blur-md shadow-lg min-w-[220px] max-w-[260px] h-[170px]"
             >
-              {/* <div className="mb-2">
-                <svg
-                  width={32}
-                  height={32}
-                  fill="none"
-                  viewBox="0 0 32 32"
-                  className="text-white"
-                >
-                  <circle
-                    cx="16"
-                    cy="16"
-                    r="14"
-                    stroke="white"
-                    strokeWidth="2"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M16 10v8M16 22h.01"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </div> */}
               <Image
-                className="shrink-0 fill-synergy-light-blue mr-3 opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                loader={ImageLoader}
-                width={Number(t(`blueBoxes.${i}.icon.width`))}
-                height={Number(t(`blueBoxes.${i}.icon.height`))}
-                src={t(`blueBoxes.${i}.icon.src`)}
-                alt={t(`blueBoxes.${i}.icon.alt`)}
+          className="shrink-0 fill-synergy-light-blue mr-3 opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
+          loader={ImageLoader}
+          width={Number(t(`blueBoxes.${i}.icon.width`))}
+          height={Number(t(`blueBoxes.${i}.icon.height`))}
+          src={t(`blueBoxes.${i}.icon.src`)}
+          alt={t(`blueBoxes.${i}.icon.alt`)}
               />
               <div className="flex flex-col items-center">
-                <div className="text-lg font-semibold text-white mb-1">
-                  {t(`blueBoxes.${i}.title`)}
-                </div>
-                <div className="text-sm text-white/80 text-center">
-                  {t(`blueBoxes.${i}.description`)}
-                </div>
+          <div className="text-lg font-semibold text-white mb-1">
+            {t(`blueBoxes.${i}.title`)}
+          </div>
+          <div className="text-sm text-white/80 text-center">
+            {t(`blueBoxes.${i}.description`)}
+          </div>
               </div>
             </div>
           ))}

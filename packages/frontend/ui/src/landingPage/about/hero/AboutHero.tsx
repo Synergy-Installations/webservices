@@ -29,7 +29,7 @@ export const AboutHero = (props: AboutHeroProps) => {
         <div className="pt-32 md:pt-40">
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-16">
-            <h1 className="h1 text-5xl md:text-6xl font-bold !-tracking-[0.01em] font-inter text-slate-100">
+            <h1 className="h1 text-4xl md:text-6xl font-bold !-tracking-[0.01em] font-inter text-slate-100">
               Wir gestalten die Zukunft der Installationstechnik
             </h1>
           </div>
@@ -41,7 +41,7 @@ export const AboutHero = (props: AboutHeroProps) => {
             data-aos-delay="100"
           >
             <Image
-              className="mx-auto"
+              className="mx-auto rounded-2xl"
               loader={ImageLoader}
               src={
                 "/frontend/landingPage/about/IMG_0398_compressed_cropped.jpeg"

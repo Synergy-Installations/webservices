@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     "Smart Home",
     "Wallbox",
   ],
+  alternates: {
+    canonical: "https://synergie.cc/products",
+  },
 };
 
 export default function Page(): JSX.Element {

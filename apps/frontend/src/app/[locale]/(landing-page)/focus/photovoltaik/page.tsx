@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     "Wechselrichter",
     "PV Komplettlösung",
   ],
+  alternates: {
+    canonical: "https://synergie.cc/focus/photovoltaik",
+  },
 };
 
 export default function Page(): JSX.Element {

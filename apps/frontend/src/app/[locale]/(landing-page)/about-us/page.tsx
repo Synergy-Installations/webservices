@@ -5,6 +5,12 @@ import AboutStory from "@com.synergy/frontend-ui/AboutStory";
 import AboutTeamMembers from "@com.synergy/frontend-ui/AboutTeamMembers";
 import Head from "next/head";
 
+export const metadata = {
+  alternates: {
+    canonical: "https://synergie.cc/about-us",
+  },
+};
+
 export default function Page() {
   return (
     <>

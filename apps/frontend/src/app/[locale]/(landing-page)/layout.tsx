@@ -22,7 +22,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://synergiemontagen.eco"),
+  metadataBase: new URL("https://synergie.cc"),
   title: {
     default:
       "Synergiemontagen – Photovoltaik & Haustechnik in Wien und Niederösterreich",
@@ -30,7 +30,14 @@ export const metadata: Metadata = {
   },
   description:
     "Nachhaltige Photovoltaik-, Wärmepumpen-, Smart‑Home‑ und Wallbox‑Lösungen in Wien und Niederösterreich. Persönliche Beratung & Handschlagqualität vom jungen, dynamischen Team.",
-    keywords: ['Synergie Montagen', 'Photovoltaik', 'Wärmepumpe', 'Smart Home', 'Wallbox', 'Energiesysteme'],
+  keywords: [
+    "Synergie Montagen",
+    "Photovoltaik",
+    "Wärmepumpe",
+    "Smart Home",
+    "Wallbox",
+    "Energiesysteme",
+  ],
   openGraph: {
     title: "Synergiemontagen – Photovoltaik & Haustechnik in Wien",
     description:
@@ -67,8 +74,10 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <NextIntlClientProvider messages={messages}>
-      <DefaultLayout>{children}</DefaultLayout>
-    </NextIntlClientProvider>
+    <>
+      <NextIntlClientProvider messages={messages}>
+        <DefaultLayout>{children}</DefaultLayout>
+      </NextIntlClientProvider>
+    </>
   );
 }

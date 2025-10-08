@@ -9,6 +9,12 @@ import B2bCompetenciesSection from "@com.synergy/frontend-ui/B2bCompetenciesSect
 import B2bCtaSection from "@com.synergy/frontend-ui/B2bCtaSection";
 import ServiceWrapper from "@com.synergy/frontend-ui/ServiceWrapper";
 
+export const metadata = {
+  alternates: {
+    canonical: "https://synergie.cc/b2b",
+  },
+};
+
 export default function Page() {
   return (
     <>

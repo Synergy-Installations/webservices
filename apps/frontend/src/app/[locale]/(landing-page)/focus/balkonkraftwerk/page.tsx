@@ -10,6 +10,12 @@ import { PhotovoltaicTestimonials } from "@com.synergy/frontend-ui/PhotovoltaicT
 import { PhotovoltaicCta } from "@com.synergy/frontend-ui/PhotovoltaicCta";
 import ScrollUp from "@com.synergy/frontend-ui/ScrollUp";
 
+export const metadata = {
+  alternates: {
+    canonical: "https://synergie.cc/focus/balkonkraftwerk",
+  },
+};
+
 export default function Page(): JSX.Element {
   const t = useTranslations("LandingPage.ContactUs.Header");
 

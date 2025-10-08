@@ -17,12 +17,17 @@ import { TracingBeam } from "@com.synergy/frontend-ui/TracingBeam";
 import Head from "next/head";
 import BentoGridHero from "@com.synergy/frontend-ui/BentoGridHero";
 
+export const metadata = {
+  alternates: {
+    canonical: "https://synergie.cc/",
+  },
+};
+
 export default function Page(): JSX.Element {
   // const t = useTranslations("Index");
 
   return (
     <>
-      
       {/* <TracingBeam> */}
       <BentoGridHero />
       <HeroFull />

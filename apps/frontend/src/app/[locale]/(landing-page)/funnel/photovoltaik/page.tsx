@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     "E-Mail",
     "Synergie Montagen",
   ],
+  alternates: {
+    canonical: "https://synergie.cc/funnel/photovoltaik",
+  },
 };
 
 export default function Page(): JSX.Element {

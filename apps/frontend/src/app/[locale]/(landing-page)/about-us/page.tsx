@@ -15,7 +15,7 @@ export default function Page() {
   return (
     <>
       <Head>
-        <title>B2B Services | Synergiemontagen.eco</title>
+        <title>B2B Services | Synergie.cc</title>
         <meta
           name="description"
           content="Professionelle B2B-Services im Bereich Photovoltaik, Wärmepumpen & Co. für Unternehmen. Qualität, Effizienz & After-Sales aus einer Hand."

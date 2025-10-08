@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Synergiemontagen – Photovoltaik & Haustechnik in Wien",
     description:
       "Nachhaltige PV-, Wärme-, Klima- und Smart‑Home‑Lösungen mit Handschlagqualität. Individuelle Beratung & Förderung inklusive.",
-    url: "https://synergiemontagen.eco",
+    url: "https://synergie.cc",
     siteName: "Synergiemontagen",
     images: [
       {

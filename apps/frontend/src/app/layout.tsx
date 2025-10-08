@@ -66,7 +66,7 @@ export default async function RootLayout({
                 "@context": "https://schema.org",
                 "@type": "LocalBusiness",
                 name: "Synergie Montagen Riegler GmbH",
-                url: "https://synergiemontagen.eco",
+                url: "https://synergie.cc",
                 telephone: "+43 664 244 87 42",
                 email: "office@synergie.cc",
                 address: {

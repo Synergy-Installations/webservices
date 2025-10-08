@@ -331,7 +331,7 @@ export const EditorMenuBar = (props: EditorMenuBarProps) => {
               onClick={() => {
                 const url = window.prompt(
                   "Enter your URL:",
-                  "https://synergiemontagen.eco"
+                  "https://synergie.cc"
                 );
 
                 if (url == null) {

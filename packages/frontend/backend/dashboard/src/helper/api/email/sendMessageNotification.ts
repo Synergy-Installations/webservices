@@ -263,7 +263,7 @@ export const sendMessageNotification = async (
       </div>
       <div style="text-align: center; font-size: 12px; color: #999; margin-top: 20px;">
       <p>Bitte antworten Sie nicht auf diese E-Mail, nutzen Sie den Button oben.</p>
-      <p>&copy; ${new Date().getFullYear()} Synergiemontagen.eco - Alle Rechte vorbehalten.</p>
+      <p>&copy; ${new Date().getFullYear()} Synergie.cc - Alle Rechte vorbehalten.</p>
       </div>
       </div>
       `,

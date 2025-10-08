@@ -47,7 +47,7 @@ export default async function WebflowPage({
 //       ref={ref}
 //       onLoad={onLoad}
 //       id="myFrame"
-//       src="https://synergiemontagen.eco/b2b"
+//       src="https://synergie.cc/b2b"
 //       width="100%"
 //       className="relative top-[-88px] md:top-[-104px] xl:top-[-137px]"
 //       height={height}

@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
             Wenn Sie weitere Informationen, Details oder Dokumente haben, senden Sie diese bitte an uns. Wir freuen uns darauf, Ihnen zu helfen!
           </p>
           <div style="text-align: center; margin-top: 20px;">
-            <p style="font-size: 0.8em; color: #888;">© ${new Date().getFullYear()} Synergiemontagen.eco - Alle Rechte vorbehalten.</p>
+            <p style="font-size: 0.8em; color: #888;">© ${new Date().getFullYear()} Synergie.cc - Alle Rechte vorbehalten.</p>
           </div>
         </div>
       `,
@@ -93,7 +93,7 @@ export async function POST(req: NextRequest) {
   //         Wenn Sie weitere Informationen, Details oder Dokumente haben, senden Sie diese bitte an uns. Wir freuen uns darauf, Ihnen zu helfen!
   //       </p>
   //       <div style="text-align: center; margin-top: 20px;">
-  //         <p style="font-size: 0.8em; color: #888;">© ${new Date().getFullYear()} Synergiemontagen.eco - Alle Rechte vorbehalten.</p>
+  //         <p style="font-size: 0.8em; color: #888;">© ${new Date().getFullYear()} Synergie.cc - Alle Rechte vorbehalten.</p>
   //       </div>
   //     </div>
   //   `,

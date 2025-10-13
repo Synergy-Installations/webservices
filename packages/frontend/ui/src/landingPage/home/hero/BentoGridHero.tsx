@@ -5,6 +5,9 @@ import {
 } from "@com.synergy/frontend-ui/BentoGridHeroLayout";
 import { AuroraText } from "../../shared/text/AuroraText";
 import { div } from "framer-motion/client";
+import ImageLoader from "../../../shared/utils/image/ImageLoader";
+import Image from "next/image";
+import Link from "next/link";
 
 /* eslint-disable-next-line */
 export interface BentoGridHeroProps {}
@@ -136,15 +139,110 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
 
   return (
     <div className="bg-white">
-      <section className="w-full bg-synergy-light-blue bg-opacity-[0.13]">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-10 pt-32">
-          <header className="mb-10 text-center">
+      <section className="w-full">
+        <div className="max-w-7xl mx-auto min-[350px]:px-4 md:px-8 py-10 pt-20 md:pt-32">
+          <header className="mb-4 md:mb-10 text-center">
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">
               Innovative <AuroraText>Synergielösungen</AuroraText> für Ihr
               Zuhause
             </h1>
+            <h2 className="text-xl md:text-2xl text-synergy-dark-grey text-slate-90 font-black py-4 break-words hyphens-auto">
+              Ihr Anbieter für ganzheitliche Energielösungen
+            </h2>
           </header>
-          <BentoGrid items={items} autoplayDelay={5000} />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Dienstleistungen Box */}
+            <div className="relative flex flex-col">
+              <div
+                className={`absolute inset-0 rounded-t-2xl rounded-br-[100px] mb-0 bg-gradient-to-b from-synergy-light-blue pointer-events-none`}
+                aria-hidden="true"
+              />
+              <div className="relative z-10 h-48 m-1">
+                <Image
+                  src="/frontend/landingPage/Hero/persons-shaking-hands-hero.jpg"
+                  alt="Dienstleistungen Symbolbild"
+                  loader={ImageLoader}
+                  className="w-full h-48 object-cover object-top rounded-t-xl"
+                  fill
+                />
+              </div>
+              <div className="relative z-10 p-6 flex flex-col flex-1">
+                <h3 className="text-2xl font-bold text-black mb-4">
+                  Dienstleistungen
+                </h3>
+                <ul className="text-black text-base mb-6 space-y-1 list-disc list-inside">
+                  <li>Beratung</li>
+                  <li>Mediation</li>
+                  <li>Marketing</li>
+                  <li>Planung</li>
+                  <li>Service</li>
+                  <li>Umsetzung</li>
+                </ul>
+                <Link
+                  href={"/dashboard"}
+                  className="btn mt-6 md:mt-auto !rounded-[10px] backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue text-white group"
+                >
+                  <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
+                    Details anzeigen
+                    <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
+                      {/* {"->"} */}
+                    </span>
+                  </span>
+                </Link>
+              </div>
+              {/* <div className="absolute inset-0 bg-synergy-light-grey z-0"></div> */}
+            </div>
+            {/* Produkte Box */}
+            <div className="relative flex flex-col">
+              <div
+                className={`absolute inset-0 rounded-t-2xl rounded-bl-[100px] mb-0 bg-gradient-to-b from-synergy-light-grey to-transparent to-[99%] pointer-events-none`}
+                aria-hidden="true"
+              />
+              <div className="relative z-10 h-48 m-1">
+                <Image
+                  src="/frontend/landingPage/Hero/person_in_front_of_products.jpg"
+                  alt="Produkte Symbolbild"
+                  loader={ImageLoader}
+                  className="w-full h-48 object-cover object-top rounded-t-xl"
+                  fill
+                />
+              </div>
+              <div className="relative z-10 p-6 flex flex-col flex-1">
+                <h3 className="text-2xl font-bold text-black mb-4">Produkte</h3>
+                <div className="mb-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+                    <ul className="text-black text-base space-y-1 list-disc list-inside">
+                      <li>PV-Anlage &amp; Stromspeicher</li>
+                      <li>Wärmepumpe</li>
+                      <li>Klimaanlage</li>
+                      <li>Energiegemeinschaften</li>
+                      <li>Smart Home</li>
+                      <li>Strom Tankstelle (Wallboxen)</li>
+                    </ul>
+                    <ul className="text-black text-base space-y-1 list-disc list-inside">
+                      <li>Notstromversorgung</li>
+                      <li>Balkonkraftwerk</li>
+                      <li>Energiekostenberatung</li>
+                      <li>Autarke Warmwasser Erzeugung</li>
+                      <li>Wartung &amp; Service</li>
+                    </ul>
+                  </div>
+                </div>
+                <Link
+                  href={"/dashboard"}
+                  className="btn mt-auto !rounded-[10px] backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue text-white group"
+                >
+                  <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
+                    Details anzeigen
+                    <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
+                      {/* {"->"} */}
+                    </span>
+                  </span>
+                </Link>
+              </div>
+            </div>
+          </div>
+          {/* <BentoGrid items={items} autoplayDelay={5000} /> */}
         </div>
       </section>
     </div>

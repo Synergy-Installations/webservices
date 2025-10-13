@@ -9104,6 +9104,10 @@
           "text": "Jetzt Anfragen",
           "href": "/contact-us"
         }
+      },
+      "LocaleSwitcher": {
+        "label": "Change language",
+        "locale": "{locale, select, atAT {🇦🇹 Deutsch} en {🇺🇸 English} other {Unknown}}"
       }
     }
   }

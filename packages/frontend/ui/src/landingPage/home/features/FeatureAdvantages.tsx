@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useMessages, useTranslations } from "next-intl";
 import { ImageLoader } from "@com.synergy/frontend-ui/ImageLoader";
 import { Stats } from "@com.synergy/frontend-ui/Stats";
+import RichText from "../../../shared/internationalization/text/RichText";
 
 /* eslint-disable-next-line */
 export interface FeatureAdvantagesProps {}
@@ -32,14 +33,17 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
             {/* Content */}
             <div className="lg:max-w-none lg:min-w-[524px]">
               <div className="mb-8">
+                <div className="flex justify-center">
+
                 <div className="inline-flex text-sm font-medium px-4 py-0.5 text-white border border-transparent backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue rounded-full mb-4">
                   {t("pill")}
                 </div>
-                <h3 className="font-inter-tight text-3xl font-bold text-synergy-dark-grey mb-4">
+                </div>
+                <h3 className="font-inter-tight text-3xl text-center font-bold text-synergy-dark-grey mb-4">
                   {t("title")}
                 </h3>
-                <p className="text-lg text-synergy-dark-grey">
-                  {t("description")}
+                <p className="text-lg text-center text-synergy-dark-grey">
+                   <RichText>{(tags) => t.rich("description", tags)}</RichText>
                 </p>
               </div>
               {/* Tabs buttons */}

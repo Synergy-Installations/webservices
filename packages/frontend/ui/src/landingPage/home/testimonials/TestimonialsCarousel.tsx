@@ -1,8 +1,4 @@
 import { BaseTestimonial } from "@com.synergy/frontend-ui/BaseTestimonial";
-import TestimonialImg01 from "../../../shared/images/testimonial-01.jpg";
-import TestimonialImg02 from "../../../shared/images/testimonial-02.jpg";
-import TestimonialImg03 from "../../../shared/images/testimonial-03.jpg";
-import TestimonialImg04 from "../../../shared/images/testimonial-04.jpg";
 import { RichText } from "@com.synergy/frontend-ui/RichText";
 import { useMessages, useTranslations } from "next-intl";
 import Image from "next/image";
@@ -23,51 +19,14 @@ export const TestimonialsCarousel = (props: TestimonialsCarouselProps) => {
     messages.LandingPage.Home.TestimonialsCarousel.blocks
   );
 
-  const testimonials = [
-    {
-      img: TestimonialImg01,
-      name: "Peter Lowe",
-      username: "@peterlowex",
-      date: "May 19, 2027",
-      content:
-        "As a founder, having a visually appealing and user-friendly website is essential. This tool not only helped me achieve that but also improved my site's performance and SEO.",
-      channel: "Twitter",
-    },
-    {
-      img: TestimonialImg02,
-      name: "Rodri Alba",
-      username: "@rodri_spn",
-      date: "Apr 12, 2027",
-      content:
-        "Synergy has revolutionized the way I manage my work. Its intuitive interface and seamless functionality make staying organized effortless. I can't imagine my life without it.",
-      channel: "Twitter",
-    },
-    {
-      img: TestimonialImg03,
-      name: "Michele Lex",
-      username: "@MikyBrown",
-      date: "Mar 04, 2027",
-      content:
-        "I've tried several website builders before, but none were as user-friendly and versatile as this one. From design to functionality, it exceeded my expectations!",
-      channel: "Twitter",
-    },
-    {
-      img: TestimonialImg04,
-      name: "Michael Ross",
-      username: "@michjack",
-      date: "Jan 15, 2027",
-      content:
-        "Synergy lives up to its name in every way. It's incredibly easy to use yet powerful enough to handle all my tasks effortlessly. It's become an essential part of my daily routine.",
-      channel: "Twitter",
-    },
-  ];
+  
 
   return (
     <section className="relative bg-synergy-light-grey before:pointer-events-none before:absolute before:inset-0 before:z-10 before:h-[120%] before:bg-gradient-to-b before:from-synergy-light-grey">
       <div className="pt-12 md:pt-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-4xl font-bold md:text-4xl relative z-10">
+            <h2 className="text-xl md:text-2xl font-bold relative z-10">
               <RichText>{(tags) => t.rich("title", tags)}</RichText>
             </h2>
           </div>
@@ -159,7 +118,8 @@ export const TestimonialsCarousel = (props: TestimonialsCarouselProps) => {
             </div>
           </div>
         </div>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-12 lg:pb-20 relative z-10">
+        {/* Blocks */}
+        {/* <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-12 lg:pb-20 relative z-10">
             <div
             className={`grid gap-8 lg:gap-16 ${
               blockKeys.length === 2
@@ -167,7 +127,6 @@ export const TestimonialsCarousel = (props: TestimonialsCarouselProps) => {
               : "sm:grid-cols-2 lg:grid-cols-3"
             }`}
             >
-            {/* Blocks*/}
             {blockKeys.map((key, index) => (
               <div key={index}>
               <div className="flex items-center mb-1">
@@ -189,7 +148,7 @@ export const TestimonialsCarousel = (props: TestimonialsCarouselProps) => {
               </div>
             ))}
             </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

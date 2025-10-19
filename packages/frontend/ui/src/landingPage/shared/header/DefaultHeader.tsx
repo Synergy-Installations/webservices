@@ -49,7 +49,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
             {/* <Logo /> */}
             <Link
               href={t("logo.href")}
-              className="font-semibold pl-5 cursor-pointer w-max"
+              className="font-semibold md:pl-5 cursor-pointer w-max"
             >
               <Image
                 loader={ImageLoader}

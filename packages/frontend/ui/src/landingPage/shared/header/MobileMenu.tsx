@@ -140,7 +140,7 @@ export const MobileMenu = (props: MobileMenuProps) => {
               </div>
             ))}
             <div className="flex justify-center xs:justify-end">
-              <div className="grid xs:flex gap-4 text-base justify-center w-full xs:w-max backdrop-blur-sm bg-white/70 px-2 py-[2px] rounded-lg">
+              <div className="grid xs:flex gap-4 text-base justify-center w-full backdrop-blur-sm bg-white/70 px-2 py-[2px] rounded-lg">
                 <a
                   href={`mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG`}
                   className="text-synergy-dark-grey hover:underline text-center"

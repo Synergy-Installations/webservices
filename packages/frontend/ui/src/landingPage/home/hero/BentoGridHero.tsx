@@ -140,10 +140,10 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
   return (
     <div className="bg-white">
       <section className="w-full">
-        <div className="max-w-7xl mx-auto min-[350px]:px-4 md:px-8 py-10 pt-20 md:pt-32">
+        <div className="max-w-7xl mx-auto min-[350px]:px-4 md:px-8 py-10 pt-20 xs:pt-28 md:pt-32">
           <header className="mb-4 md:mb-10 text-center">
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">
-              Innovative <AuroraText>Synergielösungen</AuroraText> für Ihr
+              Innovative <AuroraText>Synergielösungen</AuroraText> <div className="block sm:hidden"></div> für Ihr
               Zuhause
             </h1>
             <h2 className="text-2xl md:text-3xl text-synergy-dark-grey text-slate-90 font-bold py-4 break-words hyphens-auto">

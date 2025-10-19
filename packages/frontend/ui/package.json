@@ -8,6 +8,7 @@
     "dist"
   ],
   "exports": {
+    "./ServicesPopup": "./src/landingPage/home/hero/ServicesPopup.tsx",
     "./LocaleSwitcherSelect": "./src/landingPage/shared/translation/LocaleSwitcherSelect.tsx",
     "./LocaleSwitcher": "./src/landingPage/shared/translation/LocaleSwitcher.tsx",
     "./ScrollUp": "./src/landingPage/focus/photovoltaic/shared/ScrollUp.tsx",

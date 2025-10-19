@@ -8,6 +8,7 @@ import { div } from "framer-motion/client";
 import ImageLoader from "../../../shared/utils/image/ImageLoader";
 import Image from "next/image";
 import Link from "next/link";
+import ServicesPopup from "./ServicesPopup";
 
 /* eslint-disable-next-line */
 export interface BentoGridHeroProps {}
@@ -143,8 +144,8 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
         <div className="max-w-7xl mx-auto min-[350px]:px-4 md:px-8 py-10 pt-20 xs:pt-28 md:pt-32">
           <header className="mb-4 md:mb-10 text-center">
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 leading-normal">
-              Innovative <AuroraText>Synergielösungen</AuroraText> <div className="block sm:hidden"></div> für Ihr
-              Zuhause
+              Innovative <AuroraText>Synergielösungen</AuroraText>{" "}
+              <div className="block sm:hidden"></div> für Ihr Zuhause
             </h1>
             <h2 className="text-2xl md:text-3xl text-synergy-dark-grey text-slate-90 font-bold py-4 break-words hyphens-auto">
               Ihr Anbieter für ganzheitliche Energielösungen
@@ -171,20 +172,19 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                   Dienstleistungen
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
-
-                <ul className="text-black text-base mb-6 space-y-1 list-disc list-inside">
-                  <li>Beratung</li>
-                  <li>Mediation</li>
-                  <li>Marketing</li>
-                </ul>
-                <ul className="text-black text-base mb-6 space-y-1 list-disc list-inside">
-                  <li>Planung</li>
-                  <li>Service</li>
-                  <li>Umsetzung</li>
-                </ul>
+                  <ul className="text-black text-base mb-6 space-y-1 list-disc list-inside">
+                    <li>Beratung</li>
+                    <li>Mediation</li>
+                    <li>Marketing</li>
+                  </ul>
+                  <ul className="text-black text-base mb-6 space-y-1 list-disc list-inside">
+                    <li>Planung</li>
+                    <li>Service</li>
+                    <li>Umsetzung</li>
+                  </ul>
                 </div>
                 <Link
-                  href={"/dashboard"}
+                  href={"/dienstleistungen"}
                   className="btn mt-6 md:mt-auto !rounded-[10px] backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue text-white group"
                 >
                   <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
@@ -233,17 +233,23 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                     </ul>
                   </div>
                 </div>
-                <Link
-                  href={"/dashboard"}
+                <button
+                  type="button"
                   className="btn mt-auto !rounded-[10px] backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue text-white group"
+                  onClick={() => {
+                    const dlg = document.getElementById(
+                      "productsModal"
+                    ) as HTMLDialogElement | null;
+                    dlg?.showModal?.();
+                    // disable page scrolling while modal is open
+                    document.body.style.overflow = "hidden";
+                  }}
                 >
                   <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
                     Details anzeigen
-                    <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
-                      {/* {"->"} */}
-                    </span>
                   </span>
-                </Link>
+                </button>
+                <ServicesPopup />
               </div>
             </div>
           </div>

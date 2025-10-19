@@ -154,7 +154,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
             {/* Dienstleistungen Box */}
             <div className="relative flex flex-col">
               <div
-                className={`absolute inset-0 rounded-t-2xl rounded-br-[100px] mb-0 before:opacity-20 before:rounded-2xl before:absolute before:inset-0  before:bg-gradient-to-b before:from-synergy-light-blue before:to-synergy-light-blue/0 before:to-[100%] pointer-events-none`}
+                className={`absolute inset-0 rounded-t-2xl rounded-br-[100px] mb-0 before:opacity-20 before:rounded-2xl before:absolute before:inset-0  before:bg-gradient-to-b before:from-synergy-light-blue before:to-synergy-light-blue/0 before:to-[110%] pointer-events-none`}
                 aria-hidden="true"
               />
               <div className="relative z-10 h-48 m-1 overflow-hidden rounded-t-xl">

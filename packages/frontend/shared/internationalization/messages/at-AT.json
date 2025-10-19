@@ -576,7 +576,8 @@
           }
         }
       },
-      "FeatureAdvantages": {"blueBoxes": {
+      "FeatureAdvantages": {
+        "blueBoxes": {
           "1": {
             "title": "Ihr Vorteil:",
             "icon": {
@@ -8977,7 +8978,7 @@
               },
               "b2b": {
                 "text": "Dienstleistungen",
-                "href": "/b2b"
+                "href": "/dienstleistungen"
               },
               "integrations": {
                 "text": "Energiekostenberatung",
@@ -9057,7 +9058,7 @@
         "nav": {
           "B2B": {
             "text": "Dienstleistungen",
-            "href": "/b2b",
+            "href": "/dienstleistungen",
             "children": ""
           },
           "products": {

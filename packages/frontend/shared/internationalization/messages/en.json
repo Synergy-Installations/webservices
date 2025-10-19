@@ -8936,7 +8936,7 @@
               },
               "b2b": {
                 "text": "Services",
-                "href": "/b2b"
+                "href": "/dienstleistungen"
               },
               "integrations": {
                 "text": "Energiekostenberatung",
@@ -9016,7 +9016,7 @@
         "nav": {
           "B2B": {
             "text": "Services",
-            "href": "/b2b",
+            "href": "/dienstleistungen",
             "children": ""
           },
           "products": {

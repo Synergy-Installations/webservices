@@ -81,18 +81,21 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
 
             {/* Tabs items */}
             <div className="relative lg:max-w-none">
-              <div className="relative flex flex-col">
+              <div className="relative flex flex-col h-full">
                 {/* Items */}
                 {buttonKeys.map((key, index) => (
                   <Transition show={tab === index} key={index}>
-                    <div className="transition ease-in-out data-[closed]:opacity-0 data-[enter]:duration-700 data-[enter]:data-[closed]:translate-x-8 data-[closed]:absolute data-[leave]:duration-300 data-[leave]:data-[closed]:-translate-x-8">
+                    <div className="transition h-full ease-in-out data-[closed]:opacity-0 data-[enter]:duration-700 data-[enter]:data-[closed]:translate-x-8 data-[closed]:absolute data-[leave]:duration-300 data-[leave]:data-[closed]:-translate-x-8">
                       <Image
-                        className="lg:max-w-none mx-auto rounded-xl shadow-2xl object-cover"
+                        className={`lg:max-w-none mx-auto rounded-xl shadow-2xl object-cover h-full`}
                         loader={ImageLoader}
                         width={Number(t(`buttons.${key}.image.width`))}
                         height={Number(t(`buttons.${key}.image.height`))}
                         src={t(`buttons.${key}.image.src`)}
                         alt={t(`buttons.${key}.image.alt`)}
+                        style={
+                        { objectPosition: t(`buttons.${key}.image.objectPosition`) as any}
+                        }
                       />
                     </div>
                   </Transition>
@@ -119,7 +122,7 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
         </div>
 
         {/* Features blocks */}
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 mt-24 lg:mt-32">
+        <div className="max-w-6xl mx-auto mt-24 lg:mt-32">
           <Stats />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16">
             {/* Blocks */}
@@ -146,27 +149,27 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
           </div>
         </div>
         {/* Blue boxes at the bottom center */}
-        <div className="relative hidden md:flex items-stretch justify-center lg:pr-[200px] py-6 gap-6 mt-12 z-20">
+        <div className="relative flex flex-wrap items-stretch justify-center py-6 gap-6 mt-4 z-20">
           {blueBoxes.map((i) => (
             <div
               key={i}
-              className="flex flex-col items-center justify-start gap-2 px-6 py-4 rounded-2xl bg-synergy-light-blue/70 backdrop-blur-md shadow-lg min-w-[220px] max-w-[260px]"
+              className="flex flex-col items-center justify-start gap-2 px-6 py-4 rounded-2xl bg-synergy-light-blue/70 backdrop-blur-md shadow-lg min-w-[220px] max-w-[260px] w-full sm:w-[48%] md:w-[31%] lg:w-[22%] xl:w-[18%]"
             >
               <Image
-                className="shrink-0 fill-synergy-light-blue mr-3 opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                loader={ImageLoader}
-                width={Number(t(`blueBoxes.${i}.icon.width`))}
-                height={Number(t(`blueBoxes.${i}.icon.height`))}
-                src={t(`blueBoxes.${i}.icon.src`)}
-                alt={t(`blueBoxes.${i}.icon.alt`)}
+          className="shrink-0 fill-synergy-light-blue mr-3 opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
+          loader={ImageLoader}
+          width={Number(t(`blueBoxes.${i}.icon.width`))}
+          height={Number(t(`blueBoxes.${i}.icon.height`))}
+          src={t(`blueBoxes.${i}.icon.src`)}
+          alt={t(`blueBoxes.${i}.icon.alt`)}
               />
               <div className="flex flex-col items-center">
-                <div className="text-lg font-semibold text-white mb-1 text-center">
-                  {t(`blueBoxes.${i}.title`)}
-                </div>
-                <div className="text-sm text-white/80 text-center">
-                  {t(`blueBoxes.${i}.description`)}
-                </div>
+          <div className="text-lg font-semibold text-white mb-1 text-center">
+            {t(`blueBoxes.${i}.title`)}
+          </div>
+          <div className="text-sm text-white/80 text-center">
+            {t(`blueBoxes.${i}.description`)}
+          </div>
               </div>
             </div>
           ))}

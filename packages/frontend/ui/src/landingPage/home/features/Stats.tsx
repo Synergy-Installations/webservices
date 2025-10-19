@@ -13,20 +13,21 @@ export const Stats = (props: StatsProps) => {
   );
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6">
-      <div className="max-w-sm mx-auto grid gap-12 sm:grid-cols-2 md:grid-cols-4 md:-mx-5 md:gap-0 items-start md:max-w-none">
-        {statsKeys.map((stat, index) => (
-          <div key={index} className="relative text-center md:px-5">
-            <h4 className="font-inter-tight text-2xl md:text-3xl font-bold tabular-nums mb-2">
-              <Counter number={Number(t(`${stat}.number`))} />
-              {t(`${stat}.suffix`)}
-            </h4>
-            <p className="text-sm text-synergy-dark-grey">
-              {t(`${stat}.text`)}
-            </p>
-          </div>
-        ))}
+    <div className="relative flex flex-wrap items-stretch justify-center py-6 gap-6 mt-4 z-20">
+      {statsKeys.map((stat, index) => (
+      <div
+        key={index}
+        className="flex flex-col items-center justify-start gap-2 py-4 rounded-2xl min-w-[220px] max-w-[260px] w-full"
+      >
+        <h4 className="font-inter-tight text-2xl md:text-3xl font-bold tabular-nums mb-2 text-center">
+        <Counter number={Number(t(`${stat}.number`))} />
+        {t(`${stat}.suffix`)}
+        </h4>
+        <p className="text-sm text-synergy-dark-grey text-center">
+        {t(`${stat}.text`)}
+        </p>
       </div>
+      ))}
     </div>
   );
 };

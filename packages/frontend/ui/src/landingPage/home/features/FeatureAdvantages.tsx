@@ -23,9 +23,10 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
   const blockKeys = Object.keys(
     messages.LandingPage.Home.FeatureAdvantages.blocks
   );
+  const blueBoxes = Object.keys(messages.LandingPage.Home.Hero.blueBoxes);
 
   return (
-    <section className="relative rounded-tl-[100px] bg-synergy-light-grey after:absolute after:top-0 after:right-0 after:h-full after:w-96 after:pointer-events-none after:bg-gradient-to-l after:from-synergy-light-grey/0 max-lg:after:hidden">
+    <section className="relative rounded-t-[100px] bg-synergy-light-grey after:absolute after:top-0 after:right-0 after:h-full after:w-96 after:pointer-events-none after:bg-gradient-to-l after:from-synergy-light-grey/0 max-lg:after:hidden">
       <div className="py-12 md:py-20">
         {/* Carousel */}
         <div className="max-w-xl lg:max-w-6xl mx-auto px-4 sm:px-6">
@@ -86,7 +87,7 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
                   <Transition show={tab === index} key={index}>
                     <div className="transition ease-in-out data-[closed]:opacity-0 data-[enter]:duration-700 data-[enter]:data-[closed]:translate-x-8 data-[closed]:absolute data-[leave]:duration-300 data-[leave]:data-[closed]:-translate-x-8">
                       <Image
-                        className="lg:max-w-none mx-auto rounded-lg shadow-2xl object-cover"
+                        className="lg:max-w-none mx-auto rounded-xl shadow-2xl object-cover"
                         loader={ImageLoader}
                         width={Number(t(`buttons.${key}.image.width`))}
                         height={Number(t(`buttons.${key}.image.height`))}
@@ -98,7 +99,7 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
                 ))}
               </div>
               {/* Gear illustration */}
-              {buttonKeys.map((key, index) => (
+              {/* {buttonKeys.map((key, index) => (
                 <Transition show={tab === index} key={index}>
                   <div className="absolute left-0 bottom-0 sm:-translate-x-1/2 translate-y-1/2 sm:translate-y-1/2 bg-[#333333]/60 backdrop-blur-sm p-6 sm:p-12 rounded-3xl sm:rounded-[56px] transition ease-in-out data-[closed]:opacity-0 data-[enter]:duration-700 data-[enter]:data-[closed]:translate-x-8 data-[closed]:absolute data-[leave]:duration-300 data-[leave]:data-[closed]:-translate-x-8">
                     <Image
@@ -112,7 +113,7 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
                     />
                   </div>
                 </Transition>
-              ))}
+              ))} */}
             </div>
           </div>
         </div>
@@ -143,6 +144,32 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
               </div>
             ))} */}
           </div>
+        </div>
+        {/* Blue boxes at the bottom center */}
+        <div className="relative hidden md:flex items-stretch justify-center lg:pr-[200px] py-6 gap-6 mt-12 z-20">
+          {blueBoxes.map((i) => (
+            <div
+              key={i}
+              className="flex flex-col items-center justify-start gap-2 px-6 py-4 rounded-2xl bg-synergy-light-blue/70 backdrop-blur-md shadow-lg min-w-[220px] max-w-[260px]"
+            >
+              <Image
+                className="shrink-0 fill-synergy-light-blue mr-3 opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
+                loader={ImageLoader}
+                width={Number(t(`blueBoxes.${i}.icon.width`))}
+                height={Number(t(`blueBoxes.${i}.icon.height`))}
+                src={t(`blueBoxes.${i}.icon.src`)}
+                alt={t(`blueBoxes.${i}.icon.alt`)}
+              />
+              <div className="flex flex-col items-center">
+                <div className="text-lg font-semibold text-white mb-1 text-center">
+                  {t(`blueBoxes.${i}.title`)}
+                </div>
+                <div className="text-sm text-white/80 text-center">
+                  {t(`blueBoxes.${i}.description`)}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

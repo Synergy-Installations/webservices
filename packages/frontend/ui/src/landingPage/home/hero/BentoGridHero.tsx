@@ -146,7 +146,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
               Innovative <AuroraText>Synergielösungen</AuroraText> für Ihr
               Zuhause
             </h1>
-            <h2 className="text-xl md:text-2xl text-synergy-dark-grey text-slate-90 font-black py-4 break-words hyphens-auto">
+            <h2 className="text-2xl md:text-3xl text-synergy-dark-grey text-slate-90 font-bold py-4 break-words hyphens-auto">
               Ihr Anbieter für ganzheitliche Energielösungen
             </h2>
           </header>
@@ -154,7 +154,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
             {/* Dienstleistungen Box */}
             <div className="relative flex flex-col">
               <div
-                className={`absolute inset-0 rounded-t-2xl rounded-br-[100px] mb-0 bg-gradient-to-b from-synergy-light-blue pointer-events-none`}
+                className={`absolute inset-0 rounded-t-2xl rounded-br-[100px] mb-0 before:opacity-20 before:rounded-2xl before:absolute before:inset-0  before:bg-gradient-to-b before:from-synergy-light-blue before:to-synergy-light-blue/0 before:to-[100%] pointer-events-none`}
                 aria-hidden="true"
               />
               <div className="relative z-10 h-48 m-1">
@@ -170,14 +170,19 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                 <h3 className="text-2xl font-bold text-black mb-4">
                   Dienstleistungen
                 </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+
                 <ul className="text-black text-base mb-6 space-y-1 list-disc list-inside">
                   <li>Beratung</li>
                   <li>Mediation</li>
                   <li>Marketing</li>
+                </ul>
+                <ul className="text-black text-base mb-6 space-y-1 list-disc list-inside">
                   <li>Planung</li>
                   <li>Service</li>
                   <li>Umsetzung</li>
                 </ul>
+                </div>
                 <Link
                   href={"/dashboard"}
                   className="btn mt-6 md:mt-auto !rounded-[10px] backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue text-white group"
@@ -195,7 +200,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
             {/* Produkte Box */}
             <div className="relative flex flex-col">
               <div
-                className={`absolute inset-0 rounded-t-2xl rounded-bl-[100px] mb-0 bg-gradient-to-b from-synergy-light-grey to-transparent to-[99%] pointer-events-none`}
+                className={`absolute inset-0 rounded-2xl mb-0 bg-gradient-to-b from-synergy-light-grey to-transparent to-[100%] pointer-events-none`}
                 aria-hidden="true"
               />
               <div className="relative z-10 h-48 m-1">

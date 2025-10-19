@@ -576,7 +576,48 @@
           }
         }
       },
-      "FeatureAdvantages": {
+      "FeatureAdvantages": {"blueBoxes": {
+          "1": {
+            "title": "Ihr Vorteil:",
+            "icon": {
+              "src": "/frontend/landingPage/icons/support_agent_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+              "alt": "Personal Advisor",
+              "width": "32",
+              "height": "32"
+            },
+            "description": "Wir beraten Sie persönlich durch kompetente Fachkräfte."
+          },
+          "2": {
+            "title": "Ihr maßgeschneidertes Konzept:",
+            "icon": {
+              "src": "/frontend/landingPage/icons/design_services_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+              "alt": "Design Services",
+              "width": "32",
+              "height": "32"
+            },
+            "description": "Produktunabhängige Lösungen mit transparenter stabiler Preisgestaltung"
+          },
+          "3": {
+            "title": "Ihre Sicherheit:",
+            "icon": {
+              "src": "/frontend/landingPage/icons/verified_user_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+              "alt": "Verified User",
+              "width": "32",
+              "height": "32"
+            },
+            "description": "Präzise Machbarkeits- & Kosten-Nutzen-Analyse - Wir planen, errichten und betreuen Ihre Anlagen wie unsere eigenen."
+          },
+          "4": {
+            "title": "Immer für Sie da:",
+            "icon": {
+              "src": "/frontend/landingPage/icons/concierge_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+              "alt": "Personal Advisor",
+              "width": "32",
+              "height": "32"
+            },
+            "description": "Wir sind täglich für Sie im Einsatz und erreichbar."
+          }
+        },
         "pill": "Erste Klasse",
         "title": "Ihr Fachmann mit Handschlagqualität und Kundenfokus.",
         "description": "Unsere Fachkräfte bieten Ihnen nicht nur Beratung, Installation und Wartung, sondern örtliche Nähe, Erreichbarkeit und Sorgfalt, als wäre es unsere eigene Anlage. <br></br><br></br> Auf jeden Kunden wird individuell eingegangen, unsere Kunden werden genauso unterstützt, wie sie möchten, Sie können sich so viel oder so wenig einbringen wie Sie wollen und erhalten die Menge an Informationen und Beratung, die sie benötigen – „Wir finden gemeinsam die beste Lösung.“",
@@ -704,7 +745,7 @@
         }
       },
       "FeatureSteps": {
-        "title": "Die 4 Stufen zu Ihrem <br></br> optimalen System",
+        "title": "Die 4 Stufen zu Ihrem optimalen System",
         "video": {
           "thumbnail": {
             "src": "/frontend/landingPage/FeatureSteps/scenic-house.jpeg",
@@ -745,7 +786,7 @@
         }
       },
       "TestimonialsCarousel": {
-        "title": "Unsere KundInnen sind<br></br>überzeugt",
+        "title": "Unsere KundInnen sind überzeugt",
         "testimonials": {
           "testimonialOne": {
             "profilePicture": {

@@ -142,7 +142,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
       <section className="w-full">
         <div className="max-w-7xl mx-auto min-[350px]:px-4 md:px-8 py-10 pt-20 xs:pt-28 md:pt-32">
           <header className="mb-4 md:mb-10 text-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 leading-normal">
               Innovative <AuroraText>Synergielösungen</AuroraText> <div className="block sm:hidden"></div> für Ihr
               Zuhause
             </h1>
@@ -157,12 +157,12 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                 className={`absolute inset-0 rounded-t-2xl rounded-br-[100px] mb-0 before:opacity-20 before:rounded-2xl before:absolute before:inset-0  before:bg-gradient-to-b before:from-synergy-light-blue before:to-synergy-light-blue/0 before:to-[100%] pointer-events-none`}
                 aria-hidden="true"
               />
-              <div className="relative z-10 h-48 m-1">
+              <div className="relative z-10 h-48 m-1 overflow-hidden rounded-t-xl">
                 <Image
-                  src="/frontend/landingPage/Hero/persons-shaking-hands-hero.jpg"
+                  src="/frontend/landingPage/Hero/services_people_shaking_hands_v2.jpg"
                   alt="Dienstleistungen Symbolbild"
                   loader={ImageLoader}
-                  className="w-full h-48 object-cover object-top rounded-t-xl"
+                  className="w-full h-48 object-cover object-[50%,50%] scale-125"
                   fill
                 />
               </div>
@@ -203,12 +203,12 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                 className={`absolute inset-0 rounded-2xl mb-0 bg-gradient-to-b from-synergy-light-grey to-transparent to-[100%] pointer-events-none`}
                 aria-hidden="true"
               />
-              <div className="relative z-10 h-48 m-1">
+              <div className="relative z-10 h-48 m-1 overflow-hidden rounded-t-xl">
                 <Image
-                  src="/frontend/landingPage/Hero/person_in_front_of_products.jpg"
+                  src="/frontend/landingPage/Hero/handyman_products_v2.jpg"
                   alt="Produkte Symbolbild"
                   loader={ImageLoader}
-                  className="w-full h-48 object-cover object-top rounded-t-xl"
+                  className="w-full h-48 object-cover object-[50%,10%]"
                   fill
                 />
               </div>

@@ -593,8 +593,9 @@
             "image": {
               "src": "/frontend/landingPage/FeatureAdvantages/Family.jpeg",
               "alt": "Synergy family",
-              "width": "600",
-              "height": "200"
+              "width": "800",
+              "height": "620",
+              "objectPosition": "70% 50%"
             },
             "imageIcon": {
               "src": "/frontend/landingPage/icons/eco-charging.svg",
@@ -616,7 +617,8 @@
               "src": "/frontend/landingPage/FeatureAdvantages/Money_coins_electronics.jpg",
               "alt": "Synergy family",
               "width": "800",
-              "height": "620"
+              "height": "620",
+              "objectPosition": "center"
             },
             "imageIcon": {
               "src": "/frontend/landingPage/icons/eco-charging.svg",
@@ -638,7 +640,8 @@
               "src": "/frontend/landingPage/FeatureAdvantages/Together_future_buildings.jpg",
               "alt": "Synergy family",
               "width": "800",
-              "height": "620"
+              "height": "620",
+              "objectPosition": "center"
             },
             "imageIcon": {
               "src": "/frontend/landingPage/icons/eco-charging.svg",
@@ -668,6 +671,48 @@
             "number": "2480",
             "suffix": "+",
             "text": "Wohlfühlanlagen installiert"
+          }
+        },
+        "blueBoxes": {
+          "1": {
+            "title": "Ihr Vorteil:",
+            "icon": {
+              "src": "/frontend/landingPage/icons/license_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+              "alt": "Personal Advisor",
+              "width": "32",
+              "height": "32"
+            },
+            "description": "Wir beraten Sie persönlich durch kompetente Fachkräfte."
+          },
+          "2": {
+            "title": "Ihr maßgeschneidertes Konzept:",
+            "icon": {
+              "src": "/frontend/landingPage/icons/design_services_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+              "alt": "Design Services",
+              "width": "32",
+              "height": "32"
+            },
+            "description": "Produktunabhängige Lösungen mit transparenter stabiler Preisgestaltung"
+          },
+          "3": {
+            "title": "Ihre Sicherheit:",
+            "icon": {
+              "src": "/frontend/landingPage/icons/verified_user_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+              "alt": "Verified User",
+              "width": "32",
+              "height": "32"
+            },
+            "description": "Präzise Machbarkeits- & Kosten-Nutzen-Analyse - Wir planen, errichten und betreuen Ihre Anlagen wie unsere eigenen."
+          },
+          "4": {
+            "title": "Immer für Sie da:",
+            "icon": {
+              "src": "/frontend/landingPage/icons/concierge_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+              "alt": "Personal Advisor",
+              "width": "32",
+              "height": "32"
+            },
+            "description": "Wir sind täglich für Sie im Einsatz und erreichbar."
           }
         },
         "blocks": {
@@ -704,7 +749,7 @@
         }
       },
       "FeatureSteps": {
-        "title": "Die 4 Stufen zu Ihrem <br></br> optimalen System",
+        "title": "Die 4 Stufen zu Ihrem optimalen System",
         "video": {
           "thumbnail": {
             "src": "/frontend/landingPage/FeatureSteps/scenic-house.jpeg",
@@ -745,7 +790,7 @@
         }
       },
       "TestimonialsCarousel": {
-        "title": "Unsere KundInnen sind<br></br>überzeugt",
+        "title": "Unsere KundInnen sind überzeugt",
         "testimonials": {
           "testimonialOne": {
             "profilePicture": {
@@ -8931,11 +8976,11 @@
             "title": "Leistungen",
             "links": {
               "features": {
-                "text": "Products",
+                "text": "Produkte",
                 "href": "/products"
               },
               "b2b": {
-                "text": "Services",
+                "text": "Dienstleistungen",
                 "href": "/dienstleistungen"
               },
               "integrations": {
@@ -9015,12 +9060,12 @@
         },
         "nav": {
           "B2B": {
-            "text": "Services",
+            "text": "Dienstleistungen",
             "href": "/dienstleistungen",
             "children": ""
           },
           "products": {
-            "text": "Products",
+            "text": "Produkte",
             "href": "/products",
             "children": {
               "title": "Unsere Produkte",
@@ -9095,13 +9140,13 @@
             }
           },
           "changelog": {
-            "text": "About us",
+            "text": "Über uns",
             "href": "/about-us",
             "children": ""
           }
         },
         "button": {
-          "text": "Contact us",
+          "text": "Jetzt Anfragen",
           "href": "/contact-us"
         }
       },

@@ -593,9 +593,9 @@
             "image": {
               "src": "/frontend/landingPage/FeatureAdvantages/Family.jpeg",
               "alt": "Synergy family",
-              "width": "800",
+              "width": "620",
               "height": "620",
-              "objectPosition": "70% 50%"
+              "objectPosition": "75% 50%"
             },
             "imageIcon": {
               "src": "/frontend/landingPage/icons/eco-charging.svg",
@@ -641,7 +641,7 @@
               "alt": "Synergy family",
               "width": "800",
               "height": "620",
-              "objectPosition": "center"
+              "objectPosition": "45% 50%"
             },
             "imageIcon": {
               "src": "/frontend/landingPage/icons/eco-charging.svg",

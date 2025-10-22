@@ -160,10 +160,10 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
               />
               <div className="relative z-10 h-48 m-1 overflow-hidden rounded-t-xl">
                 <Image
-                  src="/frontend/landingPage/Hero/services_people_shaking_hands_v2.jpg"
+                  src="/frontend/landingPage/Hero/services_people_shaking_hands_v4.jpeg"
                   alt="Dienstleistungen Symbolbild"
                   loader={ImageLoader}
-                  className="w-full h-48 object-cover object-[50%,50%] scale-125"
+                  className="w-full h-48 object-cover scale-[115%] object-[50%,50%]"
                   fill
                 />
               </div>

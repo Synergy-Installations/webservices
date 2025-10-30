@@ -5,6 +5,7 @@ import DiamondClips from "../../shared/ui/clips/DiamondClips";
 import ServiceComponents from "./ServiceComponents";
 import ServiceBackground from "./ServiceBackground";
 import { useState } from "react";
+import { AuroraText } from "../../shared/text/AuroraText";
 
 /* eslint-disable-next-line */
 export interface SingleServiceWrapperProps {
@@ -34,56 +35,15 @@ export const SingleServiceWrapper = (props: SingleServiceWrapperProps) => {
   return (
     <li className="mx-4 relative">
       <section className="scroll-mt-20" id={service}>
-        <div className=" z-10 top-[3.5rem] pt-2 xs:pt-[4rem] grid lg:flex items-center gap-2 px-2 rounded-b-xl bg-slate-50/90 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-none">
-          <div className="min-w-40">
-            <span className="absolute flex items-center justify-center ms-2 w-6 h-6 bg-blue-100 rounded-full -start-9 ring-8 ring-slate-50 dark:ring-gray-900 dark:bg-blue-900">
-              <svg
-                className="w-2.5 h-2.5 text-blue-800 dark:text-blue-300"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-              </svg>
-            </span>
-            <h3 className="flex items-center mb-1 text-lg font-bold text-gray-900 dark:text-white">
-              {t(`title`)}{" "}
-              {/* <span className="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300 ms-3">
-                Latest
-                </span> */}
+        <div className=" z-10 top-[3.5rem] pt-2 xs:pt-[4rem] grid gap-2 max-w-6xl mx-auto px-2 lg:px-0 rounded-b-xl bg-slate-50/90 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-none">
+          <div className="min-w-40 mb-12 w-full flex justify-center">
+            <h3 className="flex items-center mb-1 text-4xl text-center font-bold text-gray-900 dark:text-white">
+              <AuroraText>{t(`title`)}</AuroraText>
             </h3>
           </div>
           <div className="w-full max-w-6xl mx-auto">
-            <div
-              className="relative p-2 md:p-4 max-w-5xl mx-auto w-full bg-transparent rounded-xl
-              grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-2 xs:gap-6
-              lg:block"
-              style={{
-                position: "relative",
-                height: (() => {
-                  if (
-                    typeof window !== "undefined" &&
-                    window.innerWidth <= 1024
-                  )
-                    return "min-content";
-                  // Calculate number of rows
-                  const diamondsPerRow = 4;
-                  const diamondHeight = 160; // px
-                  const verticalGap = 24; // px
-                  const overlap = 0.7; // 0.7 to account for diamond overlap
-                  const numDiamonds = DiamondClipsArray.length;
-                  const numRows = Math.ceil(numDiamonds / diamondsPerRow);
-                  if (numRows === 0) return 0;
-                  // Each row after the first is offset by (diamondHeight * overlap + verticalGap)
-                  // Total height = first row + (numRows - 1) * (diamondHeight * overlap + verticalGap)
-                  return (
-                    diamondHeight +
-                    (numRows - 1) * (diamondHeight * overlap + verticalGap)
-                  );
-                })(),
-              }}
-            >
+            {/* Mobile/Tablet Grid Layout */}
+            <div className="lg:hidden grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-2 xs:gap-6 p-2 md:p-4">
               {DiamondClipsArray.map(
                 ({ subServiceId, src, alt, text }, idx) => (
                   <DiamondClips
@@ -101,6 +61,49 @@ export const SingleServiceWrapper = (props: SingleServiceWrapperProps) => {
                   />
                 )
               )}
+            </div>
+
+            {/* Desktop Diamond Layout */}
+            <div className="hidden lg:flex lg:justify-center w-full">
+              <div
+                className="relative"
+                style={{
+                  // Use a fixed container width that can accommodate any diamond layout
+                  width: "1000px", // Fixed width for consistent centering
+                  height: (() => {
+                    const diamondsPerRow = 4;
+                    const diamondHeight = 160;
+                    const verticalGap = 24;
+                    const overlap = 0.7;
+                    const numDiamonds = DiamondClipsArray.length;
+                    const numRows = Math.ceil(numDiamonds / diamondsPerRow);
+                    if (numRows === 0) return 0;
+
+                    return (
+                      diamondHeight +
+                      (numRows - 1) * (diamondHeight * overlap + verticalGap)
+                    );
+                  })(),
+                }}
+              >
+                {DiamondClipsArray.map(
+                  ({ subServiceId, src, alt, text }, idx) => (
+                    <DiamondClips
+                      key={subServiceId}
+                      src={src}
+                      alt={alt}
+                      text={text}
+                      index={idx}
+                      numberServices={DiamondClipsArray.length}
+                      subServiceId={subServiceId}
+                      selectedSubService={selectedSubService}
+                      setSelectedSubService={setSelectedSubService}
+                      idx={idx}
+                      service={service}
+                    />
+                  )
+                )}
+              </div>
             </div>
           </div>
         </div>

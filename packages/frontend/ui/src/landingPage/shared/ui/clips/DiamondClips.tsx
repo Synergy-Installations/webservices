@@ -38,11 +38,68 @@ export const DiamondClips = (props: DiamondClipsProps) => {
   const diamondHeight = 160; // px, adjust to match your diamond size
   const verticalGap = 24; // px, vertical gap between rows
 
-  const row = Math.floor(idx / diamondsPerRow);
-  const col = idx % diamondsPerRow;
+  // Function to map original index to center-out position
+  const getCenterOutPosition = (originalIdx: number) => {
+    const row = Math.floor(originalIdx / diamondsPerRow);
+    const col = originalIdx % diamondsPerRow;
 
-  // Offset every other row by half a diamond width
-  const xOffset = row % 2 === 1 ? diamondWidth / 2 : 0;
+    // For row 0, keep normal left-to-right order
+    if (row === 0) {
+      return { row, col };
+    }
+
+    // For row 1 and beyond, arrange from center out
+    if (row === 1) {
+      // Second row: center-out pattern
+      // Original order: 0,1,2,3 -> Center-out: 1,2,0,3 (center positions first)
+      const centerOutMapping = [1, 2, 0, 3]; // Positions 1,2 are center, then 0,3 are edges
+      const newCol =
+        centerOutMapping[col] !== undefined ? centerOutMapping[col] : col;
+      return { row, col: newCol };
+    }
+
+    // For subsequent rows, continue center-out pattern
+    const centerOutMapping = [1, 2, 0, 3];
+    const newCol =
+      centerOutMapping[col] !== undefined ? centerOutMapping[col] : col;
+    return { row, col: newCol };
+  };
+
+  const position = getCenterOutPosition(idx);
+  const row = position.row;
+  const col = position.col;
+
+  // Calculate the diamond pattern bounds to center it within the fixed container
+  const calculatePatternBounds = () => {
+    const numRows = Math.ceil(numberServices / diamondsPerRow);
+    let minX = Infinity;
+    let maxX = -Infinity;
+
+    // Calculate bounds of the entire diamond pattern using center-out positioning
+    for (let i = 0; i < numberServices; i++) {
+      const position = getCenterOutPosition(i);
+      const diamondRow = position.row;
+      const diamondCol = position.col;
+      const staggerOffset = diamondRow % 2 === 1 ? diamondWidth / 2 : 0;
+      const xPos = diamondCol * diamondWidth + staggerOffset;
+
+      minX = Math.min(minX, xPos);
+      maxX = Math.max(maxX, xPos + diamondWidth);
+    }
+
+    const patternWidth = maxX - minX;
+    const containerWidth = 1000; // Fixed container width from SingleServiceWrapper
+    const centeringOffset = (containerWidth - patternWidth) / 2 - minX;
+
+    // Add a small right offset to balance the visual centering
+    const balanceOffset = 30; // Adjust this value to fine-tune centering
+
+    return centeringOffset + balanceOffset;
+  };
+
+  const centeringOffset = calculatePatternBounds();
+  const staggerOffset = row % 2 === 1 ? diamondWidth / 2 : 0;
+  const xOffset = col * diamondWidth + staggerOffset + centeringOffset;
   const yOffset = row * (diamondHeight * 0.7 + verticalGap); // 0.7 to account for diamond overlap
 
   return (
@@ -75,7 +132,7 @@ export const DiamondClips = (props: DiamondClipsProps) => {
         key={idx}
         style={{
           position: "absolute",
-          left: col * diamondWidth + xOffset,
+          left: xOffset,
           top: yOffset,
           width: diamondWidth,
           height: diamondHeight,

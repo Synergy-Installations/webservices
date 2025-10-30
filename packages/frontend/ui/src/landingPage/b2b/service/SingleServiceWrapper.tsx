@@ -36,7 +36,7 @@ export const SingleServiceWrapper = (props: SingleServiceWrapperProps) => {
     <li className="mx-4 relative">
       <section className="scroll-mt-20" id={service}>
         <div className=" z-10 top-[3.5rem] pt-2 xs:pt-[4rem] grid gap-2 max-w-6xl mx-auto px-2 lg:px-0 rounded-b-xl bg-slate-50/90 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-none">
-          <div className="min-w-40 mb-12 w-full flex justify-center">
+          <div className="min-w-40 mb-4 lg:mb-12 w-full flex justify-center">
             <h3 className="flex items-center mb-1 text-4xl text-center font-bold text-gray-900 dark:text-white">
               <AuroraText>{t(`title`)}</AuroraText>
             </h3>
@@ -71,18 +71,20 @@ export const SingleServiceWrapper = (props: SingleServiceWrapperProps) => {
                   // Use a fixed container width that can accommodate any hexagon layout
                   width: "1000px", // Fixed width for consistent centering
                   height: (() => {
-                    const hexagonsPerRow = 3; // Changed to 3 hexagons per row
-                    const hexagonHeight = 240; // Larger hexagon height
-                    const verticalGap = 20; // Small gap between rows
-                    const overlap = 0.75; // Honeycomb overlap
+                    const hexagonsPerRow = 4; // Match DiamondClips value
+                    const hexagonHeight = 220; // Match DiamondClips value
+                    const verticalGap = 5; // Match DiamondClips value
+                    const overlap = 0.75; // Match DiamondClips overlap factor
                     const numHexagons = DiamondClipsArray.length;
                     const numRows = Math.ceil(numHexagons / hexagonsPerRow);
                     if (numRows === 0) return 0;
 
-                    return (
-                      hexagonHeight +
-                      (numRows - 1) * (hexagonHeight * overlap + verticalGap)
-                    );
+                    // Use the same calculation as DiamondClips yOffset
+                    // yOffset = row * (hexagonHeight * 0.75 + verticalGap)
+                    // So for the last row, yOffset = (numRows - 1) * (hexagonHeight * 0.75 + verticalGap)
+                    // Total height = yOffset of last row + hexagonHeight
+                    const lastRowYOffset = (numRows - 1) * (hexagonHeight * overlap + verticalGap);
+                    return lastRowYOffset + hexagonHeight;
                   })(),
                 }}
               >

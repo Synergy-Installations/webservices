@@ -36,8 +36,8 @@ export const DiamondClips = (props: DiamondClipsProps) => {
   const hexagonsPerRow = 4; // Reduced from 4 to accommodate larger hexagons
   const hexagonWidth = 220; // px, larger to fit text properly
   const hexagonHeight = 220; // px, hexagon height
-  const horizontalGap = 10; // Small gap between hexagons
-  const verticalGap = 10; // Small gap between rows
+  const horizontalGap = 5; // Small gap between hexagons
+  const verticalGap = 5; // Small gap between rows
 
   // Function to map original index to center-out position
   const getCenterOutPosition = (originalIdx: number) => {

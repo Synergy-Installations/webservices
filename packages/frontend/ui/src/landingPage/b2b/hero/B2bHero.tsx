@@ -15,7 +15,7 @@ export const B2bHero = (props: B2bHeroProps) => {
       <div className="absolute inset-0 bg-black bg-opacity-60" />
       <div className="relative container mx-auto px-6 lg:px-0 flex flex-col justify-center items-start h-full text-white space-y-4">
         <p className="uppercase tracking-widest font-semibold text-sm lg:text-base">
-          B2B
+          Dienstleistungen
         </p>
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
           Services für Betriebe aus dem Energiesektor

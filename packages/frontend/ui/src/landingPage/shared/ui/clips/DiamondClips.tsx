@@ -32,34 +32,35 @@ export const DiamondClips = (props: DiamondClipsProps) => {
 
   const router = useRouter();
 
-  // Set diamonds per row (adjust as needed)
-  const diamondsPerRow = 4;
-  const diamondWidth = 220; // px, adjust to match your diamond size
-  const diamondHeight = 160; // px, adjust to match your diamond size
-  const verticalGap = 24; // px, vertical gap between rows
+  // Set hexagons per row (adjust as needed)
+  const hexagonsPerRow = 4; // Reduced from 4 to accommodate larger hexagons
+  const hexagonWidth = 220; // px, larger to fit text properly
+  const hexagonHeight = 220; // px, hexagon height
+  const horizontalGap = 10; // Small gap between hexagons
+  const verticalGap = 10; // Small gap between rows
 
   // Function to map original index to center-out position
   const getCenterOutPosition = (originalIdx: number) => {
-    const row = Math.floor(originalIdx / diamondsPerRow);
-    const col = originalIdx % diamondsPerRow;
+    const row = Math.floor(originalIdx / hexagonsPerRow);
+    const col = originalIdx % hexagonsPerRow;
 
     // For row 0, keep normal left-to-right order
     if (row === 0) {
       return { row, col };
     }
 
-    // For row 1 and beyond, arrange from center out
+    // For hexagons, we'll use a simpler center-out for 3 per row
     if (row === 1) {
-      // Second row: center-out pattern
-      // Original order: 0,1,2,3 -> Center-out: 1,2,0,3 (center positions first)
-      const centerOutMapping = [1, 2, 0, 3]; // Positions 1,2 are center, then 0,3 are edges
+      // Second row: center-out pattern for 3 hexagons
+      // Original order: 0,1,2 -> Center-out: 1,0,2 (center first, then sides)
+      const centerOutMapping = [1, 0, 2]; // Position 1 is center, then 0,2 are edges
       const newCol =
         centerOutMapping[col] !== undefined ? centerOutMapping[col] : col;
       return { row, col: newCol };
     }
 
     // For subsequent rows, continue center-out pattern
-    const centerOutMapping = [1, 2, 0, 3];
+    const centerOutMapping = [1, 0, 2];
     const newCol =
       centerOutMapping[col] !== undefined ? centerOutMapping[col] : col;
     return { row, col: newCol };
@@ -71,20 +72,22 @@ export const DiamondClips = (props: DiamondClipsProps) => {
 
   // Calculate the diamond pattern bounds to center it within the fixed container
   const calculatePatternBounds = () => {
-    const numRows = Math.ceil(numberServices / diamondsPerRow);
+    const numRows = Math.ceil(numberServices / hexagonsPerRow);
     let minX = Infinity;
     let maxX = -Infinity;
 
-    // Calculate bounds of the entire diamond pattern using center-out positioning
+    // Calculate bounds of the entire hexagon pattern using center-out positioning
     for (let i = 0; i < numberServices; i++) {
       const position = getCenterOutPosition(i);
-      const diamondRow = position.row;
-      const diamondCol = position.col;
-      const staggerOffset = diamondRow % 2 === 1 ? diamondWidth / 2 : 0;
-      const xPos = diamondCol * diamondWidth + staggerOffset;
+      const hexagonRow = position.row;
+      const hexagonCol = position.col;
+      // For hexagons, use honeycomb offset pattern (every other row is offset)
+      const staggerOffset =
+        hexagonRow % 2 === 1 ? (hexagonWidth + horizontalGap) / 2 : 0;
+      const xPos = hexagonCol * (hexagonWidth + horizontalGap) + staggerOffset;
 
       minX = Math.min(minX, xPos);
-      maxX = Math.max(maxX, xPos + diamondWidth);
+      maxX = Math.max(maxX, xPos + hexagonWidth);
     }
 
     const patternWidth = maxX - minX;
@@ -94,13 +97,15 @@ export const DiamondClips = (props: DiamondClipsProps) => {
     // Add a small right offset to balance the visual centering
     const balanceOffset = 30; // Adjust this value to fine-tune centering
 
-    return centeringOffset + balanceOffset;
+    return centeringOffset;
   };
 
   const centeringOffset = calculatePatternBounds();
-  const staggerOffset = row % 2 === 1 ? diamondWidth / 2 : 0;
-  const xOffset = col * diamondWidth + staggerOffset + centeringOffset;
-  const yOffset = row * (diamondHeight * 0.7 + verticalGap); // 0.7 to account for diamond overlap
+  // For hexagons, use honeycomb offset pattern (every other row is offset)
+  const staggerOffset = row % 2 === 1 ? (hexagonWidth + horizontalGap) / 2 : 0;
+  const xOffset =
+    col * (hexagonWidth + horizontalGap) + staggerOffset + centeringOffset;
+  const yOffset = row * (hexagonHeight * 0.75 + verticalGap); // 0.75 for honeycomb overlap
 
   return (
     <>
@@ -134,8 +139,9 @@ export const DiamondClips = (props: DiamondClipsProps) => {
           position: "absolute",
           left: xOffset,
           top: yOffset,
-          width: diamondWidth,
-          height: diamondHeight,
+          width: hexagonWidth,
+          height: hexagonHeight,
+          filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15))",
         }}
         className="transition-all hidden lg:block"
       >
@@ -146,70 +152,136 @@ export const DiamondClips = (props: DiamondClipsProps) => {
             router.push(`#${service}`);
           }}
           className={`
-        hidden md:block w-24 h-24 md:w-40 md:h-40 
-        bg-synergy-light-blue relative
-        shadow-md hover:shadow-lg transition-shadow duration-300
-        backdrop-blur-md
+            relative w-full h-full
+            transition-all duration-300 hover:scale-105 hover:-translate-y-2
+            group bg-synergy-light-blue
           `}
           style={{
-            transform: "rotate(45deg)",
-            borderRadius: "16px",
-            overflow: "hidden",
+            clipPath:
+              "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+            boxShadow:
+              selectedSubService === subServiceId
+                ? `
+                0 16px 40px rgba(12, 192, 223, 0.5),
+                0 12px 24px rgba(12, 192, 223, 0.4),
+                0 8px 16px rgba(12, 192, 223, 0.3),
+                0 4px 8px rgba(12, 192, 223, 0.2),
+                inset 0 2px 4px rgba(255, 255, 255, 0.4),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(255, 255, 255, 0.1)
+              `
+                : `
+                0 12px 28px rgba(12, 192, 223, 0.3),
+                0 8px 16px rgba(12, 192, 223, 0.25),
+                0 4px 12px rgba(12, 192, 223, 0.2),
+                0 2px 6px rgba(12, 192, 223, 0.15),
+                inset 0 2px 4px rgba(255, 255, 255, 0.3),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.05),
+                0 0 0 1px rgba(255, 255, 255, 0.05)
+              `,
+            border:
+              selectedSubService === subServiceId
+                ? "2px solid rgba(255, 255, 255, 0.4)"
+                : "2px solid rgba(255, 255, 255, 0.2)",
+            filter:
+              selectedSubService === subServiceId
+                ? "brightness(1.1) saturate(1.2)"
+                : "brightness(1)",
           }}
           role="img"
           aria-label={alt}
           data-aos="fade-right"
-          data-aos-offset={`${index * 70}`}
+          data-aos-offset={`${index * 10}`}
         >
-          {/* Overlay for extra backdrop effect */}
+          {/* Enhanced 3D Effect Overlay */}
           <div
-            className="absolute inset-0 bg-white bg-opacity-20 pointer-events-none backdrop-blur-sm"
+            className="absolute inset-0 pointer-events-none"
             style={{
-              borderRadius: "16px",
+              background:
+                selectedSubService === subServiceId
+                  ? `linear-gradient(135deg, 
+                    rgba(255, 255, 255, 0.4) 0%, 
+                    rgba(255, 255, 255, 0.2) 25%, 
+                    rgba(255, 255, 255, 0.1) 50%,
+                    rgba(0, 0, 0, 0.05) 75%, 
+                    rgba(0, 0, 0, 0.15) 100%)`
+                  : `linear-gradient(135deg, 
+                    rgba(255, 255, 255, 0.3) 0%, 
+                    rgba(255, 255, 255, 0.15) 25%, 
+                    rgba(255, 255, 255, 0.05) 50%,
+                    rgba(0, 0, 0, 0.02) 75%, 
+                    rgba(0, 0, 0, 0.1) 100%)`,
+              clipPath:
+                "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
             }}
           />
+
+          {/* Additional Light Reflection */}
           <div
-            className="absolute inset-0 flex items-center justify-center"
+            className="absolute inset-0 pointer-events-none opacity-60"
             style={{
-              borderRadius: "16px",
-              transform: "rotate(-45deg)",
+              background:
+                "linear-gradient(45deg, transparent 0%, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.1) 40%, transparent 60%)",
+              clipPath:
+                "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
             }}
-          >
-            <span className="text-white text-xs md:text-base lg:text-lg font-bold text-center">
+          />
+
+          {/* Content Container */}
+          <div className="absolute inset-0 flex items-center justify-center p-4">
+            <span
+              lang="en"
+              className="text-white text-sm md:text-base lg:text-lg font-bold text-center leading-tight"
+              style={{
+                display: "-webkit-box",
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "normal",
+                wordBreak: "normal",
+                hyphens: "auto",
+                WebkitHyphens: "auto",
+                msHyphens: "auto",
+              }}
+            >
               {text}
             </span>
-            {/* Checked/Unchecked Icon */}
-            <span
-              className="absolute top-2 right-2"
-              style={{ transform: "rotate(45deg)" }}
-            >
-              {selectedSubService === subServiceId ? (
-                // Checked icon (simple SVG checkmark)
-                <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="12" fill="#0cc0df" />
-                  <path
-                    d="M7 13l3 3 7-7"
-                    stroke="#fff"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              ) : (
-                // Unchecked icon (empty circle)
-                <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="11"
-                    stroke="#0cc0df"
-                    strokeWidth="2"
-                    fill="#f8fafc"
-                  />
-                </svg>
-              )}
-            </span>
           </div>
+
+          {/* Checked/Unchecked Icon */}
+          <span className="absolute top-3 right-6">
+            {selectedSubService === subServiceId ? (
+              // Checked icon (simple SVG checkmark)
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  fill="rgba(255, 255, 255, 0.9)"
+                />
+                <path
+                  d="M7 13l3 3 7-7"
+                  stroke="#0cc0df"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            ) : (
+              // Unchecked icon (empty circle)
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="9"
+                  stroke="rgba(255, 255, 255, 0.8)"
+                  strokeWidth="2"
+                  fill="rgba(255, 255, 255, 0.1)"
+                />
+              </svg>
+            )}
+          </span>
         </button>
         <button
           onClick={() => {

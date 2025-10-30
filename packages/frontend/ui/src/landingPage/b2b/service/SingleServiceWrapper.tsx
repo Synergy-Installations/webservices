@@ -68,20 +68,20 @@ export const SingleServiceWrapper = (props: SingleServiceWrapperProps) => {
               <div
                 className="relative"
                 style={{
-                  // Use a fixed container width that can accommodate any diamond layout
+                  // Use a fixed container width that can accommodate any hexagon layout
                   width: "1000px", // Fixed width for consistent centering
                   height: (() => {
-                    const diamondsPerRow = 4;
-                    const diamondHeight = 160;
-                    const verticalGap = 24;
-                    const overlap = 0.7;
-                    const numDiamonds = DiamondClipsArray.length;
-                    const numRows = Math.ceil(numDiamonds / diamondsPerRow);
+                    const hexagonsPerRow = 3; // Changed to 3 hexagons per row
+                    const hexagonHeight = 240; // Larger hexagon height
+                    const verticalGap = 20; // Small gap between rows
+                    const overlap = 0.75; // Honeycomb overlap
+                    const numHexagons = DiamondClipsArray.length;
+                    const numRows = Math.ceil(numHexagons / hexagonsPerRow);
                     if (numRows === 0) return 0;
 
                     return (
-                      diamondHeight +
-                      (numRows - 1) * (diamondHeight * overlap + verticalGap)
+                      hexagonHeight +
+                      (numRows - 1) * (hexagonHeight * overlap + verticalGap)
                     );
                   })(),
                 }}

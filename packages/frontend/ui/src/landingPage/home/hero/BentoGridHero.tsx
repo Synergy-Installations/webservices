@@ -5,6 +5,10 @@ import {
 } from "@com.synergy/frontend-ui/BentoGridHeroLayout";
 import { AuroraText } from "../../shared/text/AuroraText";
 import { div } from "framer-motion/client";
+import ImageLoader from "../../../shared/utils/image/ImageLoader";
+import Image from "next/image";
+import Link from "next/link";
+import ServicesPopup from "./ServicesPopup";
 
 /* eslint-disable-next-line */
 export interface BentoGridHeroProps {}
@@ -136,15 +140,118 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
 
   return (
     <div className="bg-white">
-      <section className="w-full bg-synergy-light-blue bg-opacity-[0.13]">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-10 pt-32">
-          <header className="mb-10 text-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">
-              Innovative <AuroraText>Synergielösungen</AuroraText> für Ihr
-              Zuhause
+      <section className="w-full">
+        <div className="max-w-7xl mx-auto min-[350px]:px-4 md:px-8 py-10 pt-20 xs:pt-28 md:pt-32">
+          <header className="mb-4 md:mb-10 text-center">
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 leading-normal">
+              Innovative <AuroraText>Synergielösungen</AuroraText>{" "}
+              <div className="block sm:hidden"></div> für Ihr Zuhause
             </h1>
+            <h2 className="text-2xl md:text-3xl text-synergy-dark-grey text-slate-90 font-bold py-4 break-words hyphens-auto">
+              Ihr Anbieter für ganzheitliche Energielösungen
+            </h2>
           </header>
-          <BentoGrid items={items} autoplayDelay={5000} />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Dienstleistungen Box */}
+            <div className="relative flex flex-col">
+              <div
+                className={`absolute inset-0 rounded-t-2xl rounded-br-[100px] mb-0 before:opacity-20 before:rounded-2xl before:absolute before:inset-0  before:bg-gradient-to-b before:from-synergy-light-blue before:to-synergy-light-blue/0 before:to-[100%] pointer-events-none`}
+                aria-hidden="true"
+              />
+              <div className="relative z-10 h-48 m-1 overflow-hidden rounded-t-xl">
+                <Image
+                  src="/frontend/landingPage/Hero/ChatGPT%20Image%20Oct%2031%2C%202025%20at%2010_55_18%20PM.jpg"
+                  alt="Dienstleistungen Symbolbild"
+                  loader={ImageLoader}
+                  className="w-full h-48 object-cover scale-[115%] object-[50%,60%]"
+                  fill
+                />
+              </div>
+              <div className="relative z-10 p-6 flex flex-col flex-1">
+                <h3 className="text-2xl font-bold text-black mb-4">
+                  Dienstleistungen
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+                  <ul className="text-black text-base mb-6 space-y-1 list-disc list-inside">
+                    <li>Beratung</li>
+                    <li>Marketing</li>
+                  </ul>
+                  <ul className="text-black text-base mb-6 space-y-1 list-disc list-inside">
+                    <li>Service</li>
+                    <li>Umsetzung</li>
+                  </ul>
+                </div>
+                <Link
+                  href={"/dienstleistungen"}
+                  className="btn mt-6 md:mt-auto !rounded-[10px] backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue text-white group"
+                >
+                  <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
+                    Details anzeigen
+                    <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
+                      {/* {"->"} */}
+                    </span>
+                  </span>
+                </Link>
+              </div>
+              {/* <div className="absolute inset-0 bg-synergy-light-grey z-0"></div> */}
+            </div>
+            {/* Produkte Box */}
+            <div className="relative flex flex-col">
+              <div
+                className={`absolute inset-0 rounded-2xl mb-0 bg-gradient-to-b from-synergy-light-grey to-synergy-light-grey/0 to-[100%] pointer-events-none`}
+                aria-hidden="true"
+              />
+              <div className="relative z-10 h-48 m-1 overflow-hidden rounded-t-xl">
+                <Image
+                  src="/frontend/landingPage/Hero/handyman_products_v2.jpg"
+                  alt="Produkte Symbolbild"
+                  loader={ImageLoader}
+                  className="w-full h-48 object-cover object-[50%,10%]"
+                  fill
+                />
+              </div>
+              <div className="relative z-10 p-6 flex flex-col flex-1">
+                <h3 className="text-2xl font-bold text-black mb-4">Produkte</h3>
+                <div className="mb-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+                    <ul className="text-black text-base space-y-1 list-disc list-inside">
+                      <li>PV-Anlage &amp; Stromspeicher</li>
+                      <li>Wärmepumpe</li>
+                      <li>Klimaanlage</li>
+                      <li>Energiegemeinschaften</li>
+                      <li>Smart Home</li>
+                      <li>Strom Tankstelle (Wallboxen)</li>
+                    </ul>
+                    <ul className="text-black text-base space-y-1 list-disc list-inside">
+                      <li>Notstromversorgung</li>
+                      <li>Balkonkraftwerk</li>
+                      <li>Energiekostenberatung</li>
+                      <li>Autarke Warmwasser Erzeugung</li>
+                      <li>Wartung &amp; Service</li>
+                    </ul>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  className="btn mt-auto !rounded-[10px] backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue text-white group"
+                  onClick={() => {
+                    const dlg = document.getElementById(
+                      "productsModal"
+                    ) as HTMLDialogElement | null;
+                    dlg?.showModal?.();
+                    // disable page scrolling while modal is open
+                    document.body.style.overflow = "hidden";
+                  }}
+                >
+                  <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
+                    Details anzeigen
+                  </span>
+                </button>
+                <ServicesPopup />
+              </div>
+            </div>
+          </div>
+          {/* <BentoGrid items={items} autoplayDelay={5000} /> */}
         </div>
       </section>
     </div>

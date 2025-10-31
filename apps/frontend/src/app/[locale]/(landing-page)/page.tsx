@@ -30,10 +30,10 @@ export default function Page(): JSX.Element {
     <>
       {/* <TracingBeam> */}
       <BentoGridHero />
-      <HeroFull />
-      <ServiceCatalog />
-      <FeatureAdvantages />
       <FeatureSteps />
+      <FeatureAdvantages />
+      {/* <HeroFull />
+      <ServiceCatalog /> */}
       <TestimonialsCarousel />
       <CtaLoose />
       {/* </TracingBeam> */}

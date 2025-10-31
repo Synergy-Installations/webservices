@@ -77,7 +77,9 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
             ))}
 
             {/* 5th block */}
-            <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
+            <div className="sm:col-span-6 md:col-span-3 lg:col-span-2 flex flex-col items-end">
+              <div className="space-y-2">
+
               <h3 className="text-sm font-medium">Social</h3>
               <ul className="flex gap-1 items-center">
                 {socialKeys.map((socialKey, index) => (
@@ -100,6 +102,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
                   </li>
                 ))}
               </ul>
+              </div>
             </div>
           </div>
         </div>

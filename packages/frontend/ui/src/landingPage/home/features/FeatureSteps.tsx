@@ -17,8 +17,8 @@ export const FeatureSteps = (props: FeatureStepsProps) => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
           {/* Section header */}
-          <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-            <h2 className="h2 text-5xl font-extrabold font-cabinet-grotesk">
+          <div className="max-w-3xlmx-auto text-center pb-12 md:pb-16">
+            <h2 className="h2 text-2xl md:text-3xl font-bold font-cabinet-grotesk">
               <RichText>{(tags) => t.rich("title", tags)}</RichText>
             </h2>
           </div>

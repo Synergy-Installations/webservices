@@ -5,6 +5,7 @@ import Image from "next/image";
 // import Logo from "../../../shared/images/synergy-logo-grid.svg";
 import { useMessages, useTranslations } from "next-intl";
 import ImageLoader from "@com.synergy/frontend-ui/ImageLoader";
+import LocaleSwitcher from "../translation/LocaleSwitcher";
 
 /* eslint-disable-next-line */
 export interface DefaultHeaderProps {}
@@ -48,7 +49,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
             {/* <Logo /> */}
             <Link
               href={t("logo.href")}
-              className="font-semibold pl-5 cursor-pointer w-max"
+              className="font-semibold cursor-pointer w-max"
             >
               <Image
                 loader={ImageLoader}
@@ -176,6 +177,9 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
               </Link>
             </li> */}
 
+            <div className="sm:mr-2 text-synergy-dark-grey">
+              <LocaleSwitcher />
+            </div>
             <li className="hidden sm:block">
               <Link
                 href={t("button.href")}

@@ -45,8 +45,8 @@ export const ServiceWrapper = (props: ServiceWrapperProps) => {
 
   return (
     <div className="">
-      <div className="ml-6 md:ml-12">
-        <ol className="relative border-s-2 border-gray-200 dark:border-gray-700">
+      <div className="">
+        <ol className="relative border-s-0 border-gray-200 dark:border-gray-700">
           {services.map((service, index) => (
             <SingleServiceWrapper key={index} service={service} />
           ))}

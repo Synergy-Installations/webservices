@@ -1,9 +1,10 @@
 import { Link } from "@com.synergy/frontend-shared-internationalization/routing";
 import Image from "next/image";
-import Logo from "../../../shared/images/synergy-logo-grid.svg";
 import { ImageLoader } from "@com.synergy/frontend-ui/ImageLoader";
 import { useMessages, useTranslations } from "next-intl";
 import { RichText } from "@com.synergy/frontend-ui/RichText";
+import Marquee from "../../../shared/marquee/Marquee";
+import isTrueSet from "../../../shared/utils/math/Boolean";
 
 /* eslint-disable-next-line */
 export interface CtaLooseProps {}
@@ -19,7 +20,7 @@ export const CtaLoose = (props: CtaLooseProps) => {
       <div className="py-12 md:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="relative max-w-3xl mx-auto text-center pb-12 md:pb-16">
-            <div className="inline-flex items-center justify-center p-3 bg-white rounded-xl shadow-md mb-8 relative before:absolute before:-top-12 before:w-52 before:h-52 before:bg-synergy-dark-grey before:opacity-[.08] before:rounded-full before:blur-3xl before:-z-10">
+            <div className="inline-flex items-center justify-center p-3 bg-white rounded-xl shadow-md mb-8 relative before:absolute before:-top-12 before:w-52 before:h-52 before:bg-synergy-light-grey before:rounded-full before:blur-3xl before:-z-10">
               <Link href="/">
                 <Image
                   loader={ImageLoader}
@@ -65,31 +66,37 @@ export const CtaLoose = (props: CtaLooseProps) => {
                   </span>
                 </span>
               </Link>
-              <Link
+              {/* <Link
                 className="btn !rounded-xl !text-base text-synergy-dark-grey bg-white hover:text-zinc-900 w-full shadow-xl"
                 href={t("buttons.buttonRight.href")}
               >
                 {t("buttons.buttonRight.text")}
-              </Link>
+              </Link> */}
             </div>
           </div>
           {/* Clients */}
           <div className="text-center">
-            <ul className="inline-flex flex-wrap items-center justify-center -m-2 [mask-image:linear-gradient(to_right,transparent_8px,_theme(colors.white/.7)_64px,_theme(colors.white)_50%,_theme(colors.white/.7)_calc(100%-64px),_transparent_calc(100%-8px))]">
-              {parterKeys.map((parterKey, index) => (
-                <li
-                  key={index}
-                  className="m-2 p-4 relative rounded-lg border border-transparent [background:linear-gradient(theme(colors.zinc.50),theme(colors.zinc.50))_padding-box,linear-gradient(120deg,theme(colors.zinc.300),theme(colors.zinc.100),theme(colors.zinc.300))_border-box]"
-                >
-                  <Image
-                    loader={ImageLoader}
-                    src={t(`partners.${parterKey}.src`)}
-                    width={Number(t(`partners.${parterKey}.width`))}
-                    height={Number(t(`partners.${parterKey}.height`))}
-                    alt={t(`partners.${parterKey}.alt`)}
-                  />
-                </li>
-              ))}
+            <ul className="inline-flex flex-wrap items-center justify-center -m-2 max-w-4xl before:absolute before:inset-0 before:w-32 before:z-10 before:pointer-events-none before:bg-gradient-to-r before:from-slate-50 after:absolute after:inset-0 after:left-auto after:w-32 after:z-10 after:pointer-events-none after:bg-gradient-to-l after:from-slate-50 [mask-image:linear-gradient(to_right,transparent_8px,_theme(colors.white/.7)_64px,_theme(colors.white)_50%,_theme(colors.white/.7)_calc(100%-64px),_transparent_calc(100%-8px))]">
+              <Marquee
+                pauseOnHoverProp={isTrueSet("true")}
+                reverse={isTrueSet("true")}
+                className="![--duration:30s]"
+              >
+                {parterKeys.map((parterKey, index) => (
+                  <li
+                    key={index}
+                    className="p-4 relative h-min rounded-lg border border-transparent [background:linear-gradient(theme(colors.zinc.50),theme(colors.zinc.50))_padding-box,linear-gradient(120deg,theme(colors.zinc.300),theme(colors.zinc.100),theme(colors.zinc.300))_border-box]"
+                  >
+                    <Image
+                      loader={ImageLoader}
+                      src={t(`partners.${parterKey}.src`)}
+                      width={Number(t(`partners.${parterKey}.width`))}
+                      height={Number(t(`partners.${parterKey}.height`))}
+                      alt={t(`partners.${parterKey}.alt`)}
+                    />
+                  </li>
+                ))}
+              </Marquee>
             </ul>
           </div>
         </div>

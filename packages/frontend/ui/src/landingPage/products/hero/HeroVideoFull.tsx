@@ -74,6 +74,7 @@ export const HeroVideoFull = (props: HeroVideoFullProps) => {
                   src: t(`productPreviewSmall.${productPreviewKey}.image.src`),
                   alt: t(`productPreviewSmall.${productPreviewKey}.image.alt`),
                   className: "hidden sm:block",
+                type: "picture",
                 }}
                 className="w-full text-lg p-4 !pr-4 sm:p-1 sm:!pr-6 sm:text-2xl justify-center sm:justify-start min-h-[63px] sm:min-h-min"
                 key={index}

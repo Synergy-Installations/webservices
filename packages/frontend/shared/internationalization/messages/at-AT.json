@@ -2276,11 +2276,11 @@
                       "itemSix": "Follow-up und Präventivempfehlungen"
                     }
                   }
+                },
+                "button": {
+                  "text": "Support starten",
+                  "href": "/kontakt"
                 }
-              },
-              "button": {
-                "text": "Support starten",
-                "href": "/kontakt"
               }
             },
             "konzeptdesign": {

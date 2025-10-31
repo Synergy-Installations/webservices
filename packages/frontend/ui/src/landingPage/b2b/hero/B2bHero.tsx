@@ -14,7 +14,7 @@ export const B2bHero = (props: B2bHeroProps) => {
 
   return (
     <section
-      className="relative min-h-[100svh] pt-48 bg-cover bg-center"
+      className="relative min-h-[100svh] pt-48 pb-12 bg-cover bg-center"
       style={{
         backgroundImage:
           "url('https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/b2b/666b6046a608f39e0d981657_AdobeStock_487289470.webp')",
@@ -37,8 +37,8 @@ export const B2bHero = (props: B2bHeroProps) => {
           Dienstleistungen in der Anlagenerrichtung voranzutreiben als auch Ihre
           derzeitigen Prozesse zu optimieren.
         </p>
-        <div className="flex flex-col sm:flex-col-reverse justify-start items-center xs:items-start">
-          <div className="grid grid-cols-2 sm:mt-12 gap-2 sm:gap-5">
+        <div className="flex flex-col sm:flex-col-reverse justify-start items-center md:items-start w-full sm:w-auto">
+          <div className="grid grid-cols-2 sm:mt-12 gap-2 sm:gap-5 w-full">
             {productPreviewKeys.map((productPreviewKey, index) => (
               <ProductPreviewSmall
                 name={t(`productPreviewSmall.${productPreviewKey}.title`)}
@@ -49,7 +49,7 @@ export const B2bHero = (props: B2bHeroProps) => {
                   className: "hidden sm:block",
                   type: "icon",
                 }}
-                className="w-full text-lg sm:p-1 sm:!pr-0 sm:text-2xl justify-center sm:justify-start min-h-[63px] sm:min-h-min"
+                className="!w-full text-lg sm:p-1 sm:!pr-0 sm:text-2xl justify-center sm:justify-start min-h-[63px] sm:min-h-min"
                 key={index}
               />
             ))}

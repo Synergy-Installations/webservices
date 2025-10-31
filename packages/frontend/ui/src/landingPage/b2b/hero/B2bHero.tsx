@@ -14,7 +14,7 @@ export const B2bHero = (props: B2bHeroProps) => {
 
   return (
     <section
-      className="relative min-h-[100svh] pt-48 pb-12 bg-cover bg-center"
+      className="relative min-h-[100svh] pt-48 pb-12 mb-12 bg-cover bg-center"
       style={{
         backgroundImage:
           "url('https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/b2b/666b6046a608f39e0d981657_AdobeStock_487289470.webp')",

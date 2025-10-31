@@ -27,7 +27,7 @@ export const B2bCompetenciesSection = (props: B2bCompetenciesSectionProps) => {
   return (
     <section id="competencies" className="container mx-auto px-6 lg:px-0 py-20">
       <div className="text-center mb-12" data-aos="fade-up">
-        <p className="text-green-600 font-semibold uppercase">
+        <p className="text-synergy-light-blue font-semibold uppercase">
           Kernkompetenzen
         </p>
         <h2 className="text-3xl md:text-4xl font-bold">

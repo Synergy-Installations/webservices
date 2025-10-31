@@ -1,5 +1,7 @@
 import Image from "next/image";
 import ImageLoader from "../../../shared/utils/image/ImageLoader";
+import Marquee from "../../../shared/marquee/Marquee";
+import isTrueSet from "../../../shared/utils/math/Boolean";
 
 /* eslint-disable-next-line */
 export interface B2bPartnersSectionProps {}
@@ -27,10 +29,16 @@ export const B2bPartnersSection = (props: B2bPartnersSectionProps) => {
           className="flex items-center justify-center space-x-6 overflow-x-auto snap-x snap-mandatory"
           data-aos="fade-right"
         >
+          <Marquee
+                pauseOnHoverProp={isTrueSet("true")}
+                reverse={isTrueSet("true")}
+                className="![--duration:30s]"
+              >
+
           {partnerLogos.map((logo) => (
             <div
-              key={logo}
-              className="snap-center flex-shrink-0 w-40 h-24 flex items-center justify-center bg-gray-100 rounded-lg p-4"
+            key={logo}
+            className="snap-center flex-shrink-0 w-40 h-24 flex items-center justify-center bg-gray-100 rounded-lg p-4"
             >
               <Image
                 loader={ImageLoader}
@@ -39,9 +47,10 @@ export const B2bPartnersSection = (props: B2bPartnersSectionProps) => {
                 src={logo}
                 alt="Partner Logo"
                 className="max-h-full max-w-full object-contain"
-              />
+                />
             </div>
           ))}
+          </Marquee>
         </div>
       </div>
     </section>

@@ -3,6 +3,8 @@ import { RichText } from "@com.synergy/frontend-ui/RichText";
 import { useMessages, useTranslations } from "next-intl";
 import Image from "next/image";
 import { ImageLoader } from "@com.synergy/frontend-ui/ImageLoader";
+import Marquee from "../../../shared/marquee/Marquee";
+import isTrueSet from "../../../shared/utils/math/Boolean";
 
 /* eslint-disable-next-line */
 export interface TestimonialsCarouselProps {}
@@ -18,8 +20,6 @@ export const TestimonialsCarousel = (props: TestimonialsCarouselProps) => {
   const blockKeys = Object.keys(
     messages.LandingPage.Home.TestimonialsCarousel.blocks
   );
-
-  
 
   return (
     <section className="relative bg-synergy-light-grey before:pointer-events-none before:absolute before:inset-0 before:z-10 before:h-[120%] before:bg-gradient-to-b before:from-synergy-light-grey">
@@ -46,75 +46,87 @@ export const TestimonialsCarousel = (props: TestimonialsCarouselProps) => {
           </div> */}
           {/* Row */}
           <div className="group relative z-20 inline-flex w-full flex-nowrap py-12 [mask-image:_linear-gradient(to_right,transparent_0,_black_10%,_black_90%,transparent_100%)] md:py-20">
-            <div className="flex animate-[infinite-scroll_60s_linear_infinite] items-start justify-center group-hover:[animation-play-state:paused] md:justify-start [&>*]:mx-3">
+            <div className="flex items-start justify-center md:justify-start [&>*]:mx-3">
               {/* Items */}
-              {stepKeys.map((testimonial, index) => (
-                <BaseTestimonial
-                  key={index}
-                  testimonial={{
-                    img: t(`testimonials.${testimonial}.profilePicture.src`),
-                    name: t(`testimonials.${testimonial}.name`),
-                    username: t(`testimonials.${testimonial}.username`),
-                    imageAlt: t(
-                      `testimonials.${testimonial}.profilePicture.src`
-                    ),
-                    usernameUrl: t(`testimonials.${testimonial}.usernameUrl`),
-                    date: t(`testimonials.${testimonial}.date`),
-                    channelIconSrc: t(
-                      `testimonials.${testimonial}.channelIcon.src`
-                    ),
-                    channelIconAlt: t(
-                      `testimonials.${testimonial}.channelIcon.alt`
-                    ),
-                    channelIconWidth: Number(
-                      t(`testimonials.${testimonial}.channelIcon.width`)
-                    ),
-                    channelIconHeight: Number(
-                      t(`testimonials.${testimonial}.channelIcon.height`)
-                    ),
-                  }}
-                  className="w-[22rem] transition-transform duration-300 group-hover:rotate-0"
-                >
-                  {t(`testimonials.${testimonial}.content`)}
-                </BaseTestimonial>
-              ))}
+              <Marquee
+                pauseOnHoverProp={isTrueSet("true")}
+                reverse={isTrueSet("true")}
+                className="![--duration:60s] !overflow-visible"
+              >
+                {stepKeys.map((testimonial, index) => (
+                  <BaseTestimonial
+                    key={index}
+                    testimonial={{
+                      img: t(`testimonials.${testimonial}.profilePicture.src`),
+                      name: t(`testimonials.${testimonial}.name`),
+                      username: t(`testimonials.${testimonial}.username`),
+                      imageAlt: t(
+                        `testimonials.${testimonial}.profilePicture.src`
+                      ),
+                      usernameUrl: t(`testimonials.${testimonial}.usernameUrl`),
+                      date: t(`testimonials.${testimonial}.date`),
+                      channelIconSrc: t(
+                        `testimonials.${testimonial}.channelIcon.src`
+                      ),
+                      channelIconAlt: t(
+                        `testimonials.${testimonial}.channelIcon.alt`
+                      ),
+                      channelIconWidth: Number(
+                        t(`testimonials.${testimonial}.channelIcon.width`)
+                      ),
+                      channelIconHeight: Number(
+                        t(`testimonials.${testimonial}.channelIcon.height`)
+                      ),
+                    }}
+                    className="w-[22rem] transition-transform duration-300 group-hover:rotate-0"
+                  >
+                    {t(`testimonials.${testimonial}.content`)}
+                  </BaseTestimonial>
+                ))}
+              </Marquee>
             </div>
             {/* Duplicated element for infinite scroll */}
             <div
-              className="flex animate-[infinite-scroll_60s_linear_infinite] items-start justify-center group-hover:[animation-play-state:paused] md:justify-start [&>*]:mx-3"
+              className="flex items-start justify-center md:justify-start [&>*]:mx-3"
               aria-hidden="true"
             >
-              {/* Items */}
-              {stepKeys.map((testimonial, index) => (
-                <BaseTestimonial
-                  key={index}
-                  testimonial={{
-                    img: t(`testimonials.${testimonial}.profilePicture.src`),
-                    name: t(`testimonials.${testimonial}.name`),
-                    username: t(`testimonials.${testimonial}.username`),
-                    imageAlt: t(
-                      `testimonials.${testimonial}.profilePicture.src`
-                    ),
-                    usernameUrl: t(`testimonials.${testimonial}.usernameUrl`),
-                    date: t(`testimonials.${testimonial}.date`),
-                    channelIconSrc: t(
-                      `testimonials.${testimonial}.channelIcon.src`
-                    ),
-                    channelIconAlt: t(
-                      `testimonials.${testimonial}.channelIcon.alt`
-                    ),
-                    channelIconWidth: Number(
-                      t(`testimonials.${testimonial}.channelIcon.width`)
-                    ),
-                    channelIconHeight: Number(
-                      t(`testimonials.${testimonial}.channelIcon.height`)
-                    ),
-                  }}
-                  className="w-[22rem] transition-transform duration-300 group-hover:rotate-0"
-                >
-                  {t(`testimonials.${testimonial}.content`)}
-                </BaseTestimonial>
-              ))}
+              <Marquee
+                pauseOnHoverProp={isTrueSet("true")}
+                reverse={isTrueSet("true")}
+                className="![--duration:30s]"
+              >
+                {/* Items */}
+                {stepKeys.map((testimonial, index) => (
+                  <BaseTestimonial
+                    key={index}
+                    testimonial={{
+                      img: t(`testimonials.${testimonial}.profilePicture.src`),
+                      name: t(`testimonials.${testimonial}.name`),
+                      username: t(`testimonials.${testimonial}.username`),
+                      imageAlt: t(
+                        `testimonials.${testimonial}.profilePicture.src`
+                      ),
+                      usernameUrl: t(`testimonials.${testimonial}.usernameUrl`),
+                      date: t(`testimonials.${testimonial}.date`),
+                      channelIconSrc: t(
+                        `testimonials.${testimonial}.channelIcon.src`
+                      ),
+                      channelIconAlt: t(
+                        `testimonials.${testimonial}.channelIcon.alt`
+                      ),
+                      channelIconWidth: Number(
+                        t(`testimonials.${testimonial}.channelIcon.width`)
+                      ),
+                      channelIconHeight: Number(
+                        t(`testimonials.${testimonial}.channelIcon.height`)
+                      ),
+                    }}
+                    className="w-[22rem] transition-transform duration-300 group-hover:rotate-0"
+                  >
+                    {t(`testimonials.${testimonial}.content`)}
+                  </BaseTestimonial>
+                ))}
+              </Marquee>
             </div>
           </div>
         </div>

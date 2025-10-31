@@ -79,7 +79,7 @@ export const CtaLoose = (props: CtaLooseProps) => {
             <ul className="inline-flex flex-wrap items-center justify-center -m-2 max-w-4xl before:absolute before:inset-0 before:w-32 before:z-10 before:pointer-events-none before:bg-gradient-to-r before:from-slate-50 after:absolute after:inset-0 after:left-auto after:w-32 after:z-10 after:pointer-events-none after:bg-gradient-to-l after:from-slate-50 [mask-image:linear-gradient(to_right,transparent_8px,_theme(colors.white/.7)_64px,_theme(colors.white)_50%,_theme(colors.white/.7)_calc(100%-64px),_transparent_calc(100%-8px))]">
               <Marquee
                 pauseOnHoverProp={isTrueSet("true")}
-                reverse={isTrueSet("false")}
+                reverse={isTrueSet("true")}
                 className="![--duration:30s]"
               >
                 {parterKeys.map((parterKey, index) => (

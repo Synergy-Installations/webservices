@@ -591,11 +591,11 @@
               "height": "24"
             },
             "image": {
-              "src": "/frontend/landingPage/FeatureAdvantages/Family.jpeg",
+              "src": "/frontend/landingPage/FeatureAdvantages/top-view-teamwork-environment-project.jpeg",
               "alt": "Synergy family",
               "width": "620",
               "height": "620",
-              "objectPosition": "75% 50%"
+              "objectPosition": "50% 50%"
             },
             "imageIcon": {
               "src": "/frontend/landingPage/icons/eco-charging.svg",
@@ -614,11 +614,11 @@
               "height": "24"
             },
             "image": {
-              "src": "/frontend/landingPage/FeatureAdvantages/Money_coins_electronics.jpg",
+              "src": "/frontend/landingPage/FeatureAdvantages/team-work-process-young-business-managers-crew-working-with-new-startup-project-labtop-wood-table-typing-keyboard-texting-message-analyze-graph-plans.jpeg",
               "alt": "Synergy family",
               "width": "800",
               "height": "620",
-              "objectPosition": "center"
+              "objectPosition": "left"
             },
             "imageIcon": {
               "src": "/frontend/landingPage/icons/eco-charging.svg",
@@ -637,11 +637,11 @@
               "height": "24"
             },
             "image": {
-              "src": "/frontend/landingPage/FeatureAdvantages/Together_future_buildings.jpg",
+              "src": "/frontend/landingPage/Hero/ChatGPT%20Image%20Oct%2031%2C%202025%20at%2011_10_23%20PM.jpg",
               "alt": "Synergy family",
               "width": "800",
               "height": "620",
-              "objectPosition": "45% 50%"
+              "objectPosition": "50% 50%"
             },
             "imageIcon": {
               "src": "/frontend/landingPage/icons/eco-charging.svg",
@@ -2000,193 +2000,194 @@
       }
     },
     "B2B": {
-      "Services": {"consulting": {
+      "Services": {
+        "beratung": {
           "title": "Beratung",
           "SubServices": {
             "analysen": {
               "Diamond": {
-              "title": "Analysen",
-              "backgroundImage": {
-                "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                "alt": "Analysen"
-              }
+                "title": "Analysen",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Analysen"
+                }
               },
               "Components": {
-              "titleOne": "Warum sind Analysen wichtig?",
-              "descriptionOne": "Fundierte Analysen schaffen Klarheit: sie zeigen technische Machbarkeit, prognostizieren Erträge und decken wirtschaftliche & regulatorische Risiken auf. So treffen Sie sichere Entscheidungen für Ihr Projekt.",
-              "titleTwo": "Warum wir?",
-              "descriptionTwo": "Unser interdisziplinäres Team kombiniert technische Simulationen, Marktkenntnis und Erfahrung mit lokalen Vorschriften, um Ihnen belastbare Handlungsempfehlungen zu liefern.",
-              "button": {
-                "text": "Analyse anfragen",
-                "href": "/kontakt"
-              },
-              "boxes": {
-                "standortanalyse": {
-                "title": "Standortanalyse",
-                "description": "Prüfung von Ausrichtung, Verschattung, Dachstruktur und Netzanbindung für optimale Systemauslegung.",
-                "image": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Standortanalyse"
+                "titleOne": "Warum sind Analysen wichtig?",
+                "descriptionOne": "Fundierte Analysen schaffen Klarheit: sie zeigen technische Machbarkeit, prognostizieren Erträge und decken wirtschaftliche & regulatorische Risiken auf. So treffen Sie sichere Entscheidungen für Ihr Projekt.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Unser interdisziplinäres Team kombiniert technische Simulationen, Marktkenntnis und Erfahrung mit lokalen Vorschriften, um Ihnen belastbare Handlungsempfehlungen zu liefern.",
+                "button": {
+                  "text": "Analyse anfragen",
+                  "href": "/kontakt"
                 },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Standort",
-                  "width": "32",
-                  "height": "32"
+                "boxes": {
+                  "standortanalyse": {
+                    "title": "Standortanalyse",
+                    "description": "Prüfung von Ausrichtung, Verschattung, Dachstruktur und Netzanbindung für optimale Systemauslegung.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Standortanalyse"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Standort",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "ertragsprognose": {
+                    "title": "Ertragsprognose",
+                    "description": "Simulation erwarteter Energieerträge über Lebensdauer unter Berücksichtigung lokaler Wetterdaten.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Ertragsprognose"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Ertrag",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "risikoanalyse": {
+                    "title": "Risiko- & Sensitivitätsanalyse",
+                    "description": "Bewertung von Unsicherheiten (Preis, Ertrag, Förderungen) und Darstellung von Szenarien für Entscheidungsstärkung.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Risikoanalyse"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Risiko",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
                 }
-                },
-                "ertragsprognose": {
-                "title": "Ertragsprognose",
-                "description": "Simulation erwarteter Energieerträge über Lebensdauer unter Berücksichtigung lokaler Wetterdaten.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                  "alt": "Ertragsprognose"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Ertrag",
-                  "width": "32",
-                  "height": "32"
-                }
-                },
-                "risikoanalyse": {
-                "title": "Risiko- & Sensitivitätsanalyse",
-                "description": "Bewertung von Unsicherheiten (Preis, Ertrag, Förderungen) und Darstellung von Szenarien für Entscheidungsstärkung.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                  "alt": "Risikoanalyse"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Risiko",
-                  "width": "32",
-                  "height": "32"
-                }
-                }
-              }
               },
               "Background": {
-              "boxes": {
-                "boxLeft": {
-                "title": "Ihre Vorteile durch professionelle Analysen:",
-                "list": {
-                  "itemOne": "Verlässliche Entscheidungsgrundlage",
-                  "itemTwo": "Optimierte Systemauslegung",
-                  "itemThree": "Kostentransparenz & Förderprüfung",
-                  "itemFour": "Frühzeitiges Erkennen von Risiken",
-                  "itemFive": "Szenarien für Planungs- und Budgetsicherheit",
-                  "itemSix": "Dokumentation für Genehmigungen und Förderanträge"
-                }
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch professionelle Analysen:",
+                    "list": {
+                      "itemOne": "Verlässliche Entscheidungsgrundlage",
+                      "itemTwo": "Optimierte Systemauslegung",
+                      "itemThree": "Kostentransparenz & Förderprüfung",
+                      "itemFour": "Frühzeitiges Erkennen von Risiken",
+                      "itemFive": "Szenarien für Planungs- und Budgetsicherheit",
+                      "itemSix": "Dokumentation für Genehmigungen und Förderanträge"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft die Analyse ab:",
+                    "list": {
+                      "itemOne": "Erstgespräch zur Zieldefinition",
+                      "itemTwo": "Datensammlung (Pläne, Verbrauch, Standortdaten)",
+                      "itemThree": "Technische Simulationen und Wirtschaftlichkeitsprüfung",
+                      "itemFour": "Szenario- und Risikoanalyse",
+                      "itemFive": "Präsentation der Ergebnisse mit Handlungsempfehlung",
+                      "itemSix": "Unterstützung bei nächsten Schritten (Planung/Förderung)"
+                    }
+                  }
                 },
-                "boxRight": {
-                "title": "So läuft die Analyse ab:",
-                "list": {
-                  "itemOne": "Erstgespräch zur Zieldefinition",
-                  "itemTwo": "Datensammlung (Pläne, Verbrauch, Standortdaten)",
-                  "itemThree": "Technische Simulationen und Wirtschaftlichkeitsprüfung",
-                  "itemFour": "Szenario- und Risikoanalyse",
-                  "itemFive": "Präsentation der Ergebnisse mit Handlungsempfehlung",
-                  "itemSix": "Unterstützung bei nächsten Schritten (Planung/Förderung)"
+                "button": {
+                  "text": "Jetzt Analyse starten",
+                  "href": "/kontakt"
                 }
-                }
-              },
-              "button": {
-                "text": "Jetzt Analyse starten",
-                "href": "/kontakt"
-              }
               }
             },
             "machbarkeitsstudien": {
               "Diamond": {
-              "title": "Machbarkeitsstudien",
-              "backgroundImage": {
-                "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                "alt": "Machbarkeitsstudie"
-              }
+                "title": "Machbarkeitsstudien",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Machbarkeitsstudie"
+                }
               },
               "Components": {
-              "titleOne": "Warum sind Machbarkeitsstudien wichtig?",
-              "descriptionOne": "Eine Machbarkeitsstudie prüft, ob ein Projekt technisch, wirtschaftlich und rechtlich realisierbar ist. Wir analysieren Standort, Anbindung, Genehmigungsbedarf und Risiken, damit Sie eine belastbare Entscheidung treffen können.",
-              "titleTwo": "Warum wir?",
-              "descriptionTwo": "Unser interdisziplinäres Team verbindet technische Expertise, lokale Kenntnisse und Erfahrung in Genehmigungsverfahren. Wir liefern klare Handlungsempfehlungen und konkrete Umsetzungsschritte.",
-              "button": {
-                "text": "Machbarkeitsstudie anfragen",
-                "href": "/kontakt"
-              },
-              "boxes": {
-                "standortanalyse": {
-                "title": "Standort- & Bestandsaufnahme",
-                "description": "Prüfung von Dach-, Freiflächen- oder Gebäudeeigenschaften, Verschattung und Zugang.",
-                "image": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Standortanalyse"
+                "titleOne": "Warum sind Machbarkeitsstudien wichtig?",
+                "descriptionOne": "Eine Machbarkeitsstudie prüft, ob ein Projekt technisch, wirtschaftlich und rechtlich realisierbar ist. Wir analysieren Standort, Anbindung, Genehmigungsbedarf und Risiken, damit Sie eine belastbare Entscheidung treffen können.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Unser interdisziplinäres Team verbindet technische Expertise, lokale Kenntnisse und Erfahrung in Genehmigungsverfahren. Wir liefern klare Handlungsempfehlungen und konkrete Umsetzungsschritte.",
+                "button": {
+                  "text": "Machbarkeitsstudie anfragen",
+                  "href": "/kontakt"
                 },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Standort",
-                  "width": "32",
-                  "height": "32"
+                "boxes": {
+                  "standortanalyse": {
+                    "title": "Standort- & Bestandsaufnahme",
+                    "description": "Prüfung von Dach-, Freiflächen- oder Gebäudeeigenschaften, Verschattung und Zugang.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Standortanalyse"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Standort",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "technische-pruefung": {
+                    "title": "Technische Machbarkeit",
+                    "description": "Bewertung der Tauglichkeit von Modulen, Wechselrichtern, Speichern und Struktur.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Technische Prüfung"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Technik",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "netzanbindung": {
+                    "title": "Netzanschluss & Genehmigungen",
+                    "description": "Prüfung der Netzkapazität, Anschlussbedingungen und erforderlicher behördlicher Schritte.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
+                      "alt": "Netzanbindung"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Netz",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
                 }
-                },
-                "technische-pruefung": {
-                "title": "Technische Machbarkeit",
-                "description": "Bewertung der Tauglichkeit von Modulen, Wechselrichtern, Speichern und Struktur.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                  "alt": "Technische Prüfung"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Technik",
-                  "width": "32",
-                  "height": "32"
-                }
-                },
-                "netzanbindung": {
-                "title": "Netzanschluss & Genehmigungen",
-                "description": "Prüfung der Netzkapazität, Anschlussbedingungen und erforderlicher behördlicher Schritte.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                  "alt": "Netzanbindung"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Netz",
-                  "width": "32",
-                  "height": "32"
-                }
-                }
-              }
               },
               "Background": {
-              "boxes": {
-                "boxLeft": {
-                "title": "Ihre Vorteile durch eine Machbarkeitsstudie:",
-                "list": {
-                  "itemOne": "Klare Entscheidungsgrundlage",
-                  "itemTwo": "Frühzeitiges Erkennen technischer Hürden",
-                  "itemThree": "Schätzung von Aufwand und Kosten",
-                  "itemFour": "Identifikation behördlicher Vorgaben",
-                  "itemFive": "Risikominimierung vor Projektstart",
-                  "itemSix": "Konkrete Umsetzungs- und Zeitplanung"
-                }
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch eine Machbarkeitsstudie:",
+                    "list": {
+                      "itemOne": "Klare Entscheidungsgrundlage",
+                      "itemTwo": "Frühzeitiges Erkennen technischer Hürden",
+                      "itemThree": "Schätzung von Aufwand und Kosten",
+                      "itemFour": "Identifikation behördlicher Vorgaben",
+                      "itemFive": "Risikominimierung vor Projektstart",
+                      "itemSix": "Konkrete Umsetzungs- und Zeitplanung"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "Ablauf einer Machbarkeitsstudie:",
+                    "list": {
+                      "itemOne": "Erstgespräch und Zieldefinition",
+                      "itemTwo": "Datensammlung (Pläne, Verbrauch, Standortdaten)",
+                      "itemThree": "Vor-Ort-Inspektion und Messungen",
+                      "itemFour": "Technische und rechtliche Bewertung",
+                      "itemFive": "Risiko- und Kostenanalyse",
+                      "itemSix": "Abschlussbericht mit Empfehlung und nächsten Schritten"
+                    }
+                  }
                 },
-                "boxRight": {
-                "title": "Ablauf einer Machbarkeitsstudie:",
-                "list": {
-                  "itemOne": "Erstgespräch und Zieldefinition",
-                  "itemTwo": "Datensammlung (Pläne, Verbrauch, Standortdaten)",
-                  "itemThree": "Vor-Ort-Inspektion und Messungen",
-                  "itemFour": "Technische und rechtliche Bewertung",
-                  "itemFive": "Risiko- und Kostenanalyse",
-                  "itemSix": "Abschlussbericht mit Empfehlung und nächsten Schritten"
+                "button": {
+                  "text": "Studie starten",
+                  "href": "/kontakt"
                 }
-                }
-              },
-              "button": {
-                "text": "Studie starten",
-                "href": "/kontakt"
-              }
               }
             },
             "technische-unterstuetzung": {
@@ -2284,95 +2285,95 @@
             },
             "konzeptdesign": {
               "Diamond": {
-              "title": "Konzeptdesign",
-              "backgroundImage": {
-                "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                "alt": "Konzeptdesign"
-              }
+                "title": "Konzeptdesign",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Konzeptdesign"
+                }
               },
               "Components": {
-              "titleOne": "Warum ist Konzeptdesign wichtig?",
-              "descriptionOne": "Ein gutes Konzeptdesign verbindet technische Machbarkeit und Nutzeranforderungen zu einem umsetzbaren Plan. Es legt Komponenten, Schnittstellen und Ablauf fest, sodass Umsetzung, Kosten und Nutzen klar definiert sind.",
-              "titleTwo": "Warum wir?",
-              "descriptionTwo": "Unser interdisziplinäres Team erstellt praxisnahe, skalierbare Konzepte basierend auf Erfahrung, lokalem Wissen und ingenieurwissenschaftlicher Präzision.",
-              "button": {
-                "text": "Konzept anfragen",
-                "href": "/kontakt"
-              },
-              "boxes": {
-                "standortanalyse": {
-                "title": "Standort- & Bestandsaufnahme",
-                "description": "Prüfung von Ausrichtung, Verschattung, Dachstruktur und Netzanbindung zur optimalen Systemauslegung.",
-                "image": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Standortanalyse"
+                "titleOne": "Warum ist Konzeptdesign wichtig?",
+                "descriptionOne": "Ein gutes Konzeptdesign verbindet technische Machbarkeit und Nutzeranforderungen zu einem umsetzbaren Plan. Es legt Komponenten, Schnittstellen und Ablauf fest, sodass Umsetzung, Kosten und Nutzen klar definiert sind.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Unser interdisziplinäres Team erstellt praxisnahe, skalierbare Konzepte basierend auf Erfahrung, lokalem Wissen und ingenieurwissenschaftlicher Präzision.",
+                "button": {
+                  "text": "Konzept anfragen",
+                  "href": "/kontakt"
                 },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Standort",
-                  "width": "32",
-                  "height": "32"
+                "boxes": {
+                  "standortanalyse": {
+                    "title": "Standort- & Bestandsaufnahme",
+                    "description": "Prüfung von Ausrichtung, Verschattung, Dachstruktur und Netzanbindung zur optimalen Systemauslegung.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Standortanalyse"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Standort",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "technische-pruefung": {
+                    "title": "Technische Prüfung",
+                    "description": "Bewertung von Modulen, Wechselrichtern, Speichern und Tragwerksanforderungen für ein robustes Konzept.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Technische Prüfung"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Technik",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "netzanbindung": {
+                    "title": "Netzanschluss & Genehmigungen",
+                    "description": "Prüfung der Netzkapazität, Anschlussbedingungen und erforderlicher behördlicher Schritte für das Konzept.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
+                      "alt": "Netzanbindung"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Netz",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
                 }
-                },
-                "technische-pruefung": {
-                "title": "Technische Prüfung",
-                "description": "Bewertung von Modulen, Wechselrichtern, Speichern und Tragwerksanforderungen für ein robustes Konzept.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                  "alt": "Technische Prüfung"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Technik",
-                  "width": "32",
-                  "height": "32"
-                }
-                },
-                "netzanbindung": {
-                "title": "Netzanschluss & Genehmigungen",
-                "description": "Prüfung der Netzkapazität, Anschlussbedingungen und erforderlicher behördlicher Schritte für das Konzept.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                  "alt": "Netzanbindung"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Netz",
-                  "width": "32",
-                  "height": "32"
-                }
-                }
-              }
               },
               "Background": {
-              "boxes": {
-                "boxLeft": {
-                "title": "Ihre Vorteile durch professionelles Konzeptdesign:",
-                "list": {
-                  "itemOne": "Klare Umsetzungsstrategie",
-                  "itemTwo": "Optimierte Systemauslegung",
-                  "itemThree": "Kosten- und Zeitplanung",
-                  "itemFour": "Berücksichtigung behördlicher Vorgaben",
-                  "itemFive": "Risikominimierung vor Beginn",
-                  "itemSix": "Fundierte Entscheidungsgrundlage"
-                }
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch professionelles Konzeptdesign:",
+                    "list": {
+                      "itemOne": "Klare Umsetzungsstrategie",
+                      "itemTwo": "Optimierte Systemauslegung",
+                      "itemThree": "Kosten- und Zeitplanung",
+                      "itemFour": "Berücksichtigung behördlicher Vorgaben",
+                      "itemFive": "Risikominimierung vor Beginn",
+                      "itemSix": "Fundierte Entscheidungsgrundlage"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "Ablauf des Konzeptdesigns:",
+                    "list": {
+                      "itemOne": "Erstgespräch und Zieldefinition",
+                      "itemTwo": "Datensammlung (Pläne, Verbrauch, Standortdaten)",
+                      "itemThree": "Konzeptionelle Auslegung und Varianten",
+                      "itemFour": "Wirtschaftlichkeits- und Risikoanalyse",
+                      "itemFive": "Präsentation des Konzepts mit Empfehlungen",
+                      "itemSix": "Planung der nächsten Umsetzungsschritte"
+                    }
+                  }
                 },
-                "boxRight": {
-                "title": "Ablauf des Konzeptdesigns:",
-                "list": {
-                  "itemOne": "Erstgespräch und Zieldefinition",
-                  "itemTwo": "Datensammlung (Pläne, Verbrauch, Standortdaten)",
-                  "itemThree": "Konzeptionelle Auslegung und Varianten",
-                  "itemFour": "Wirtschaftlichkeits- und Risikoanalyse",
-                  "itemFive": "Präsentation des Konzepts mit Empfehlungen",
-                  "itemSix": "Planung der nächsten Umsetzungsschritte"
+                "button": {
+                  "text": "Konzept starten",
+                  "href": "/kontakt"
                 }
-                }
-              },
-              "button": {
-                "text": "Konzept starten",
-                "href": "/kontakt"
-              }
               }
             },
             "Energieausweis": {
@@ -2661,281 +2662,281 @@
             },
             "mediation": {
               "Diamond": {
-              "title": "Mediation",
-              "backgroundImage": {
-                "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                "alt": "Mediation"
-              }
+                "title": "Mediation",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Mediation"
+                }
               },
               "Components": {
-              "titleOne": "Warum ist Mediation wichtig?",
-              "descriptionOne": "Mediation löst Konflikte konstruktiv, spart Zeit und Kosten und bewahrt Geschäftsbeziehungen. Durch moderierte Gespräche werden Interessen sichtbar und tragfähige Lösungen erarbeitet.",
-              "titleTwo": "Warum wir?",
-              "descriptionTwo": "Unsere Mediatoren bringen Erfahrung, Neutralität und Fingerspitzengefühl mit. Wir begleiten Parteien durch den gesamten Prozess und sorgen für nachhaltige, faire Vereinbarungen.",
-              "button": {
-                "text": "Jetzt Mediation anfragen",
-                "href": "/kontakt"
-              },
-              "boxes": {
-                "solar-panels": {
-                "title": "Konfliktprävention",
-                "description": "Frühzeitiges Erkennen und Entschärfen von Konflikten verhindert Eskalationen und Verzögerungen.",
-                "image": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Konfliktprävention"
+                "titleOne": "Warum ist Mediation wichtig?",
+                "descriptionOne": "Mediation löst Konflikte konstruktiv, spart Zeit und Kosten und bewahrt Geschäftsbeziehungen. Durch moderierte Gespräche werden Interessen sichtbar und tragfähige Lösungen erarbeitet.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Unsere Mediatoren bringen Erfahrung, Neutralität und Fingerspitzengefühl mit. Wir begleiten Parteien durch den gesamten Prozess und sorgen für nachhaltige, faire Vereinbarungen.",
+                "button": {
+                  "text": "Jetzt Mediation anfragen",
+                  "href": "/kontakt"
                 },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Prävention",
-                  "width": "32",
-                  "height": "32"
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Konfliktprävention",
+                    "description": "Frühzeitiges Erkennen und Entschärfen von Konflikten verhindert Eskalationen und Verzögerungen.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Konfliktprävention"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Prävention",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Moderation & Vermittlung",
+                    "description": "Strukturierte Moderation sorgt für klare Kommunikation und lösungsorientierte Verhandlungen.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Moderation"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Moderation",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Nachhaltige Einigungen",
+                    "description": "Wir begleiten die Umsetzung der Vereinbarungen und sichern damit langfristige, tragfähige Lösungen.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Einigungen"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Einigung",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
                 }
-                },
-                "inverters": {
-                "title": "Moderation & Vermittlung",
-                "description": "Strukturierte Moderation sorgt für klare Kommunikation und lösungsorientierte Verhandlungen.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                  "alt": "Moderation"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Moderation",
-                  "width": "32",
-                  "height": "32"
-                }
-                },
-                "batteries": {
-                "title": "Nachhaltige Einigungen",
-                "description": "Wir begleiten die Umsetzung der Vereinbarungen und sichern damit langfristige, tragfähige Lösungen.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                  "alt": "Einigungen"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Einigung",
-                  "width": "32",
-                  "height": "32"
-                }
-                }
-              }
               },
               "Background": {
-              "boxes": {
-                "boxLeft": {
-                "title": "Ihre Vorteile durch Mediation:",
-                "list": {
-                  "itemOne": "Schnelle und vertrauliche Konfliktlösung",
-                  "itemTwo": "Kosteneffiziente Alternative zu Gerichtsverfahren",
-                  "itemThree": "Erhalt von Geschäfts- und Kundenbeziehungen",
-                  "itemFour": "Transparente und faire Gesprächsführung",
-                  "itemFive": "Individuell abgestimmte Vereinbarungen",
-                  "itemSix": "Umsetzbare Lösungen statt Prozesstragödien"
-                }
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch Mediation:",
+                    "list": {
+                      "itemOne": "Schnelle und vertrauliche Konfliktlösung",
+                      "itemTwo": "Kosteneffiziente Alternative zu Gerichtsverfahren",
+                      "itemThree": "Erhalt von Geschäfts- und Kundenbeziehungen",
+                      "itemFour": "Transparente und faire Gesprächsführung",
+                      "itemFive": "Individuell abgestimmte Vereinbarungen",
+                      "itemSix": "Umsetzbare Lösungen statt Prozesstragödien"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft eine Mediation ab:",
+                    "list": {
+                      "itemOne": "Kontaktaufnahme und Erstklärung",
+                      "itemTwo": "Unabhängige Bestandsaufnahme der Sachlage",
+                      "itemThree": "Moderierte Gesprächsrunden mit allen Parteien",
+                      "itemFour": "Erarbeitung von Lösungsvorschlägen",
+                      "itemFive": "Vereinbarung, Dokumentation und Umsetzungsbegleitung",
+                      "itemSix": "Nachbetreuung und Evaluation"
+                    }
+                  }
                 },
-                "boxRight": {
-                "title": "So läuft eine Mediation ab:",
-                "list": {
-                  "itemOne": "Kontaktaufnahme und Erstklärung",
-                  "itemTwo": "Unabhängige Bestandsaufnahme der Sachlage",
-                  "itemThree": "Moderierte Gesprächsrunden mit allen Parteien",
-                  "itemFour": "Erarbeitung von Lösungsvorschlägen",
-                  "itemFive": "Vereinbarung, Dokumentation und Umsetzungsbegleitung",
-                  "itemSix": "Nachbetreuung und Evaluation"
+                "button": {
+                  "text": "Mediation starten",
+                  "href": "/kontakt"
                 }
-                }
-              },
-              "button": {
-                "text": "Mediation starten",
-                "href": "/kontakt"
-              }
               }
             },
             "verhandlungsunterstützung": {
               "Diamond": {
-              "title": "Verhandlungsunterstützung",
-              "backgroundImage": {
-                "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                "alt": "Photovoltaik"
-              }
+                "title": "Verhandlungsunterstützung",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaik"
+                }
               },
               "Components": {
-              "titleOne": "Warum ist Verhandlungsunterstützung wichtig?",
-              "descriptionOne": "Professionelle Begleitung bei Verhandlungen sorgt für faire, transparente und erfolgreiche Ergebnisse. Wir unterstützen Sie bei der Vorbereitung, Durchführung und Nachbereitung von Verhandlungen.",
-              "titleTwo": "Warum wir?",
-              "descriptionTwo": "Unsere Experten bringen Erfahrung, Neutralität und Fingerspitzengefühl mit, um Ihre Interessen optimal zu vertreten.",
-              "button": {
-                "text": "Jetzt Verhandlungsunterstützung anfragen",
-                "href": "/kontakt"
-              },
-              "boxes": {
-                "solar-panels": {
-                "title": "Vorbereitung",
-                "description": "Wir analysieren Ihre Ziele und bereiten die Verhandlung strategisch vor.",
-                "image": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Solarmodule"
+                "titleOne": "Warum ist Verhandlungsunterstützung wichtig?",
+                "descriptionOne": "Professionelle Begleitung bei Verhandlungen sorgt für faire, transparente und erfolgreiche Ergebnisse. Wir unterstützen Sie bei der Vorbereitung, Durchführung und Nachbereitung von Verhandlungen.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Unsere Experten bringen Erfahrung, Neutralität und Fingerspitzengefühl mit, um Ihre Interessen optimal zu vertreten.",
+                "button": {
+                  "text": "Jetzt Verhandlungsunterstützung anfragen",
+                  "href": "/kontakt"
                 },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Solarmodule",
-                  "width": "32",
-                  "height": "32"
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Vorbereitung",
+                    "description": "Wir analysieren Ihre Ziele und bereiten die Verhandlung strategisch vor.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Moderation",
+                    "description": "Wir moderieren die Gespräche und sorgen für einen strukturierten Ablauf.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Wechselrichter"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Ergebnisdokumentation",
+                    "description": "Wir dokumentieren die Ergebnisse und unterstützen bei der Umsetzung.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Batteriespeicher"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
                 }
-                },
-                "inverters": {
-                "title": "Moderation",
-                "description": "Wir moderieren die Gespräche und sorgen für einen strukturierten Ablauf.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                  "alt": "Wechselrichter"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Solarmodule",
-                  "width": "32",
-                  "height": "32"
-                }
-                },
-                "batteries": {
-                "title": "Ergebnisdokumentation",
-                "description": "Wir dokumentieren die Ergebnisse und unterstützen bei der Umsetzung.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                  "alt": "Batteriespeicher"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Solarmodule",
-                  "width": "32",
-                  "height": "32"
-                }
-                }
-              }
               },
               "Background": {
-              "boxes": {
-                "boxLeft": {
-                "title": "Ihre Vorteile durch Verhandlungsunterstützung:",
-                "list": {
-                  "itemOne": "Bessere Verhandlungsergebnisse",
-                  "itemTwo": "Transparente Kommunikation",
-                  "itemThree": "Neutralität und Objektivität",
-                  "itemFour": "Schnelle Einigung",
-                  "itemFive": "Dokumentation der Ergebnisse",
-                  "itemSix": "Nachhaltige Umsetzung"
-                }
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch Verhandlungsunterstützung:",
+                    "list": {
+                      "itemOne": "Bessere Verhandlungsergebnisse",
+                      "itemTwo": "Transparente Kommunikation",
+                      "itemThree": "Neutralität und Objektivität",
+                      "itemFour": "Schnelle Einigung",
+                      "itemFive": "Dokumentation der Ergebnisse",
+                      "itemSix": "Nachhaltige Umsetzung"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft die Verhandlungsunterstützung ab:",
+                    "list": {
+                      "itemOne": "Analyse und Zieldefinition",
+                      "itemTwo": "Strategische Vorbereitung",
+                      "itemThree": "Moderation der Verhandlung",
+                      "itemFour": "Dokumentation der Ergebnisse",
+                      "itemFive": "Unterstützung bei der Umsetzung",
+                      "itemSix": "Nachbereitung und Feedback"
+                    }
+                  }
                 },
-                "boxRight": {
-                "title": "So läuft die Verhandlungsunterstützung ab:",
-                "list": {
-                  "itemOne": "Analyse und Zieldefinition",
-                  "itemTwo": "Strategische Vorbereitung",
-                  "itemThree": "Moderation der Verhandlung",
-                  "itemFour": "Dokumentation der Ergebnisse",
-                  "itemFive": "Unterstützung bei der Umsetzung",
-                  "itemSix": "Nachbereitung und Feedback"
+                "button": {
+                  "text": "Verhandlungsunterstützung starten",
+                  "href": "/kontakt"
                 }
-                }
-              },
-              "button": {
-                "text": "Verhandlungsunterstützung starten",
-                "href": "/kontakt"
-              }
               }
             },
             "smvideo": {
               "Diamond": {
-              "title": "SM & Video",
-              "backgroundImage": {
-                "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                "alt": "SM & Video"
-              }
+                "title": "SM & Video",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "SM & Video"
+                }
               },
               "Components": {
-              "titleOne": "Warum sind Social Media & Video wichtig?",
-              "descriptionOne": "Gezielte Social-Media-Strategien und professionelle Videoinhalte steigern Reichweite, Vertrauen und Leads für Ihr Projekt. Wir verbinden technisches Know‑how mit ansprechender Kommunikation.",
-              "titleTwo": "Warum wir?",
-              "descriptionTwo": "Unser Team erstellt zielgruppengerechte Kampagnen, produziert hochwertige Videos und sorgt für messbare Ergebnisse — von Awareness bis Konversion.",
-              "button": {
-                "text": "Jetzt SM & Video anfragen",
-                "href": "/kontakt"
-              },
-              "boxes": {
-                "social-media": {
-                "title": "Strategie & Management",
-                "description": "Konzeption, Community‑Aufbau und kanalübergreifendes Management für nachhaltiges Wachstum.",
-                "image": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Social Media"
+                "titleOne": "Warum sind Social Media & Video wichtig?",
+                "descriptionOne": "Gezielte Social-Media-Strategien und professionelle Videoinhalte steigern Reichweite, Vertrauen und Leads für Ihr Projekt. Wir verbinden technisches Know‑how mit ansprechender Kommunikation.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Unser Team erstellt zielgruppengerechte Kampagnen, produziert hochwertige Videos und sorgt für messbare Ergebnisse — von Awareness bis Konversion.",
+                "button": {
+                  "text": "Jetzt SM & Video anfragen",
+                  "href": "/kontakt"
                 },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Social Media",
-                  "width": "32",
-                  "height": "32"
+                "boxes": {
+                  "social-media": {
+                    "title": "Strategie & Management",
+                    "description": "Konzeption, Community‑Aufbau und kanalübergreifendes Management für nachhaltiges Wachstum.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Social Media"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Social Media",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "video-production": {
+                    "title": "Video Produktion",
+                    "description": "Vom Konzept über Dreh bis Postproduktion: emotionale Videos, die Ihre Botschaft transportieren.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Video Produktion"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Video",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "analytics": {
+                    "title": "Tracking & Optimierung",
+                    "description": "Kontinuierliche Auswertung, A/B‑Tests und Optimierung für maximale Kampagnenperformance.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
+                      "alt": "Analytics"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Analytics",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
                 }
-                },
-                "video-production": {
-                "title": "Video Produktion",
-                "description": "Vom Konzept über Dreh bis Postproduktion: emotionale Videos, die Ihre Botschaft transportieren.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                  "alt": "Video Produktion"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Video",
-                  "width": "32",
-                  "height": "32"
-                }
-                },
-                "analytics": {
-                "title": "Tracking & Optimierung",
-                "description": "Kontinuierliche Auswertung, A/B‑Tests und Optimierung für maximale Kampagnenperformance.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                  "alt": "Analytics"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Analytics",
-                  "width": "32",
-                  "height": "32"
-                }
-                }
-              }
               },
               "Background": {
-              "boxes": {
-                "boxLeft": {
-                "title": "Ihre Vorteile durch SM & Video:",
-                "list": {
-                  "itemOne": "Mehr Sichtbarkeit und Markenbekanntheit",
-                  "itemTwo": "Höhere Kundenbindung durch emotionale Inhalte",
-                  "itemThree": "Qualifizierte Leads und Umsatzsteigerung",
-                  "itemFour": "Konsistente Markenkommunikation",
-                  "itemFive": "Effiziente Nutzung von Werbebudgets",
-                  "itemSix": "Messbare Kampagnenergebnisse"
-                }
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch SM & Video:",
+                    "list": {
+                      "itemOne": "Mehr Sichtbarkeit und Markenbekanntheit",
+                      "itemTwo": "Höhere Kundenbindung durch emotionale Inhalte",
+                      "itemThree": "Qualifizierte Leads und Umsatzsteigerung",
+                      "itemFour": "Konsistente Markenkommunikation",
+                      "itemFive": "Effiziente Nutzung von Werbebudgets",
+                      "itemSix": "Messbare Kampagnenergebnisse"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft unser SM & Video Service ab:",
+                    "list": {
+                      "itemOne": "Briefing & Zieldefinition",
+                      "itemTwo": "Konzeptentwicklung (Content- & Mediaplan)",
+                      "itemThree": "Produktion: Dreh & Postproduktion",
+                      "itemFour": "Ausspielung auf relevanten Kanälen",
+                      "itemFive": "Monitoring & Optimierung",
+                      "itemSix": "Reporting mit klaren KPIs"
+                    }
+                  }
                 },
-                "boxRight": {
-                "title": "So läuft unser SM & Video Service ab:",
-                "list": {
-                  "itemOne": "Briefing & Zieldefinition",
-                  "itemTwo": "Konzeptentwicklung (Content- & Mediaplan)",
-                  "itemThree": "Produktion: Dreh & Postproduktion",
-                  "itemFour": "Ausspielung auf relevanten Kanälen",
-                  "itemFive": "Monitoring & Optimierung",
-                  "itemSix": "Reporting mit klaren KPIs"
+                "button": {
+                  "text": "SM & Video starten",
+                  "href": "/kontakt"
                 }
-                }
-              },
-              "button": {
-                "text": "SM & Video starten",
-                "href": "/kontakt"
-              }
               }
             }
           }
@@ -2945,95 +2946,95 @@
           "SubServices": {
             "Kundendienst": {
               "Diamond": {
-              "title": "Kundendienst",
-              "backgroundImage": {
-                "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                "alt": "Photovoltaik"
-              }
+                "title": "Kundendienst",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaik"
+                }
               },
               "Components": {
-              "titleOne": "Warum ist Kundendienst wichtig?",
-              "descriptionOne": "Ein zuverlässiger Kundendienst sichert die langfristige Zufriedenheit Ihrer Kunden. Wir begleiten Sie auch nach Projektabschluss, stehen für Fragen bereit und sorgen für die nachhaltige Funktion Ihrer Anlage.",
-              "titleTwo": "Warum wir?",
-              "descriptionTwo": "Wir bieten persönliche Betreuung, schnelle Reaktionszeiten und dauerhafte Lösungen – für maximale Kundenzufriedenheit und eine langfristige Partnerschaft.",
-              "button": {
-                "text": "Jetzt Kundendienst anfragen",
-                "href": "/kontakt"
-              },
-              "boxes": {
-                "solar-panels": {
-                "title": "Kundenbetreuung",
-                "description": "Wir sind auch nach Projektabschluss für Sie da und beantworten alle Fragen.",
-                "image": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Solarmodule"
+                "titleOne": "Warum ist Kundendienst wichtig?",
+                "descriptionOne": "Ein zuverlässiger Kundendienst sichert die langfristige Zufriedenheit Ihrer Kunden. Wir begleiten Sie auch nach Projektabschluss, stehen für Fragen bereit und sorgen für die nachhaltige Funktion Ihrer Anlage.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Wir bieten persönliche Betreuung, schnelle Reaktionszeiten und dauerhafte Lösungen – für maximale Kundenzufriedenheit und eine langfristige Partnerschaft.",
+                "button": {
+                  "text": "Jetzt Kundendienst anfragen",
+                  "href": "/kontakt"
                 },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Solarmodule",
-                  "width": "32",
-                  "height": "32"
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Kundenbetreuung",
+                    "description": "Wir sind auch nach Projektabschluss für Sie da und beantworten alle Fragen.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Schnelle Hilfe",
+                    "description": "Im Störungsfall reagieren wir schnell und zuverlässig.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Wechselrichter"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Langfristige Partnerschaft",
+                    "description": "Wir begleiten Sie über die gesamte Lebensdauer Ihrer Anlage.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Batteriespeicher"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
                 }
-                },
-                "inverters": {
-                "title": "Schnelle Hilfe",
-                "description": "Im Störungsfall reagieren wir schnell und zuverlässig.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                  "alt": "Wechselrichter"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Solarmodule",
-                  "width": "32",
-                  "height": "32"
-                }
-                },
-                "batteries": {
-                "title": "Langfristige Partnerschaft",
-                "description": "Wir begleiten Sie über die gesamte Lebensdauer Ihrer Anlage.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                  "alt": "Batteriespeicher"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Solarmodule",
-                  "width": "32",
-                  "height": "32"
-                }
-                }
-              }
               },
               "Background": {
-              "boxes": {
-                "boxLeft": {
-                "title": "Ihre Vorteile durch den Kundendienst:",
-                "list": {
-                  "itemOne": "Langfristige Betreuung und Beratung",
-                  "itemTwo": "Schnelle Hilfe bei Problemen",
-                  "itemThree": "Maximale Anlagenverfügbarkeit",
-                  "itemFour": "Transparente Kommunikation",
-                  "itemFive": "Zufriedene Kunden und Empfehlungen",
-                  "itemSix": "Nachhaltige Partnerschaft"
-                }
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch den Kundendienst:",
+                    "list": {
+                      "itemOne": "Langfristige Betreuung und Beratung",
+                      "itemTwo": "Schnelle Hilfe bei Problemen",
+                      "itemThree": "Maximale Anlagenverfügbarkeit",
+                      "itemFour": "Transparente Kommunikation",
+                      "itemFive": "Zufriedene Kunden und Empfehlungen",
+                      "itemSix": "Nachhaltige Partnerschaft"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft der Kundendienst ab:",
+                    "list": {
+                      "itemOne": "Kontaktaufnahme nach Projektabschluss",
+                      "itemTwo": "Regelmäßige Nachfragen zur Zufriedenheit",
+                      "itemThree": "Schnelle Reaktion bei Anliegen",
+                      "itemFour": "Lösung von Problemen und Optimierung",
+                      "itemFive": "Dokumentation und Feedback",
+                      "itemSix": "Langfristige Begleitung"
+                    }
+                  }
                 },
-                "boxRight": {
-                "title": "So läuft der Kundendienst ab:",
-                "list": {
-                  "itemOne": "Kontaktaufnahme nach Projektabschluss",
-                  "itemTwo": "Regelmäßige Nachfragen zur Zufriedenheit",
-                  "itemThree": "Schnelle Reaktion bei Anliegen",
-                  "itemFour": "Lösung von Problemen und Optimierung",
-                  "itemFive": "Dokumentation und Feedback",
-                  "itemSix": "Langfristige Begleitung"
+                "button": {
+                  "text": "Kundendienst anfragen",
+                  "href": "/kontakt"
                 }
-                }
-              },
-              "button": {
-                "text": "Kundendienst nutzen",
-                "href": "/kontakt"
-              }
               }
             },
             "Wartung": {
@@ -3131,95 +3132,95 @@
             },
             "Fehlerbehebung": {
               "Diamond": {
-              "title": "Fehlerbehebung",
-              "backgroundImage": {
-                "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                "alt": "Photovoltaik"
-              }
+                "title": "Fehlerbehebung",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaik"
+                }
               },
               "Components": {
-              "titleOne": "Warum ist professionelle Fehlerbehebung wichtig?",
-              "descriptionOne": "Störungen können die Leistung Ihrer Anlage erheblich beeinträchtigen. Wir finden die Ursache schnell und effizient, damit Ihre Systeme wieder optimal laufen.",
-              "titleTwo": "Warum wir?",
-              "descriptionTwo": "Unsere erfahrenen Techniker nutzen moderne Diagnosemethoden und beheben Fehler nachhaltig.",
-              "button": {
-                "text": "Jetzt Fehlerbehebung anfragen",
-                "href": "/kontakt"
-              },
-              "boxes": {
-                "solar-panels": {
-                "title": "Schnelle Diagnose",
-                "description": "Wir analysieren Ihre Anlage und finden die Fehlerquelle.",
-                "image": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Solarmodule"
+                "titleOne": "Warum ist professionelle Fehlerbehebung wichtig?",
+                "descriptionOne": "Störungen können die Leistung Ihrer Anlage erheblich beeinträchtigen. Wir finden die Ursache schnell und effizient, damit Ihre Systeme wieder optimal laufen.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Unsere erfahrenen Techniker nutzen moderne Diagnosemethoden und beheben Fehler nachhaltig.",
+                "button": {
+                  "text": "Jetzt Fehlerbehebung anfragen",
+                  "href": "/kontakt"
                 },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Solarmodule",
-                  "width": "32",
-                  "height": "32"
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Schnelle Diagnose",
+                    "description": "Wir analysieren Ihre Anlage und finden die Fehlerquelle.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Effiziente Reparatur",
+                    "description": "Wir beheben Störungen schnell und zuverlässig.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Wechselrichter"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Nachhaltige Lösung",
+                    "description": "Wir sorgen dafür, dass Ihre Anlage dauerhaft störungsfrei läuft.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Batteriespeicher"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
                 }
-                },
-                "inverters": {
-                "title": "Effiziente Reparatur",
-                "description": "Wir beheben Störungen schnell und zuverlässig.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                  "alt": "Wechselrichter"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Solarmodule",
-                  "width": "32",
-                  "height": "32"
-                }
-                },
-                "batteries": {
-                "title": "Nachhaltige Lösung",
-                "description": "Wir sorgen dafür, dass Ihre Anlage dauerhaft störungsfrei läuft.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                  "alt": "Batteriespeicher"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Solarmodule",
-                  "width": "32",
-                  "height": "32"
-                }
-                }
-              }
               },
               "Background": {
-              "boxes": {
-                "boxLeft": {
-                "title": "Ihre Vorteile durch Fehlerbehebung:",
-                "list": {
-                  "itemOne": "Schnelle Wiederherstellung der Funktion",
-                  "itemTwo": "Minimierung von Ausfallzeiten",
-                  "itemThree": "Vermeidung von Folgeschäden",
-                  "itemFour": "Transparente Fehleranalyse",
-                  "itemFive": "Nachhaltige Reparatur",
-                  "itemSix": "Kompetente Ansprechpartner"
-                }
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch Fehlerbehebung:",
+                    "list": {
+                      "itemOne": "Schnelle Wiederherstellung der Funktion",
+                      "itemTwo": "Minimierung von Ausfallzeiten",
+                      "itemThree": "Vermeidung von Folgeschäden",
+                      "itemFour": "Transparente Fehleranalyse",
+                      "itemFive": "Nachhaltige Reparatur",
+                      "itemSix": "Kompetente Ansprechpartner"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft die Fehlerbehebung ab:",
+                    "list": {
+                      "itemOne": "Kontaktaufnahme und Termin",
+                      "itemTwo": "Analyse der Störung",
+                      "itemThree": "Identifikation der Fehlerquelle",
+                      "itemFour": "Behebung des Fehlers",
+                      "itemFive": "Funktionsprüfung",
+                      "itemSix": "Abschlussbericht und Empfehlung"
+                    }
+                  }
                 },
-                "boxRight": {
-                "title": "So läuft die Fehlerbehebung ab:",
-                "list": {
-                  "itemOne": "Kontaktaufnahme und Termin",
-                  "itemTwo": "Analyse der Störung",
-                  "itemThree": "Identifikation der Fehlerquelle",
-                  "itemFour": "Behebung des Fehlers",
-                  "itemFive": "Funktionsprüfung",
-                  "itemSix": "Abschlussbericht und Empfehlung"
+                "button": {
+                  "text": "Fehlerbehebung starten",
+                  "href": "/kontakt"
                 }
-                }
-              },
-              "button": {
-                "text": "Fehlerbehebung starten",
-                "href": "/kontakt"
-              }
               }
             },
             "Reinigung": {
@@ -3317,95 +3318,95 @@
             },
             "HydraulischerAbgleich": {
               "Diamond": {
-              "title": "Hydraulischer Abgleich",
-              "backgroundImage": {
-                "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                "alt": "Hydraulischer Abgleich"
-              }
+                "title": "Hydraulischer Abgleich",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Hydraulischer Abgleich"
+                }
               },
               "Components": {
-              "titleOne": "Warum ist ein hydraulischer Abgleich wichtig?",
-              "descriptionOne": "Der hydraulische Abgleich sorgt dafür, dass alle Heizkörper und Wärmeabnehmer im Gebäude gleichmäßig mit Wärme versorgt werden. Das reduziert Energieverluste, senkt die Heizkosten und erhöht den Wohnkomfort.",
-              "titleTwo": "Warum wir?",
-              "descriptionTwo": "Unsere erfahrenen Techniker führen den Abgleich nach aktuellen Normen durch, messen Durchflüsse, stellen Ventile ein und dokumentieren alle Einstellungen für maximale Betriebssicherheit und Nachvollziehbarkeit.",
-              "button": {
-                "text": "Hydraulischen Abgleich anfragen",
-                "href": "/kontakt"
-              },
-              "boxes": {
-                "systemanalyse": {
-                "title": "Systemanalyse",
-                "description": "Erfassung der Heizkreise, Pumpenleistung und vorhandener Regelung zur Bestimmung des Optimierungsbedarfs.",
-                "image": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Systemanalyse"
+                "titleOne": "Warum ist ein hydraulischer Abgleich wichtig?",
+                "descriptionOne": "Der hydraulische Abgleich sorgt dafür, dass alle Heizkörper und Wärmeabnehmer im Gebäude gleichmäßig mit Wärme versorgt werden. Das reduziert Energieverluste, senkt die Heizkosten und erhöht den Wohnkomfort.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Unsere erfahrenen Techniker führen den Abgleich nach aktuellen Normen durch, messen Durchflüsse, stellen Ventile ein und dokumentieren alle Einstellungen für maximale Betriebssicherheit und Nachvollziehbarkeit.",
+                "button": {
+                  "text": "Hydraulischen Abgleich anfragen",
+                  "href": "/kontakt"
                 },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Analyse",
-                  "width": "32",
-                  "height": "32"
+                "boxes": {
+                  "systemanalyse": {
+                    "title": "Systemanalyse",
+                    "description": "Erfassung der Heizkreise, Pumpenleistung und vorhandener Regelung zur Bestimmung des Optimierungsbedarfs.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Systemanalyse"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Analyse",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "durchflussmessung": {
+                    "title": "Durchflussmessung",
+                    "description": "Präzise Messung der Volumenströme und Ermittlung der optimalen Einstellwerte für alle Heizkreise.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Durchflussmessung"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Messung",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "einstellung-und-protokoll": {
+                    "title": "Einstellung & Protokoll",
+                    "description": "Fachgerechte Einstellung der Thermostat- und Rücklaufventile sowie Erstellung eines Protokolls mit allen vorgenommenen Werten.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
+                      "alt": "Einstellung"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Protokoll",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
                 }
-                },
-                "durchflussmessung": {
-                "title": "Durchflussmessung",
-                "description": "Präzise Messung der Volumenströme und Ermittlung der optimalen Einstellwerte für alle Heizkreise.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                  "alt": "Durchflussmessung"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Messung",
-                  "width": "32",
-                  "height": "32"
-                }
-                },
-                "einstellung-und-protokoll": {
-                "title": "Einstellung & Protokoll",
-                "description": "Fachgerechte Einstellung der Thermostat- und Rücklaufventile sowie Erstellung eines Protokolls mit allen vorgenommenen Werten.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                  "alt": "Einstellung"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Protokoll",
-                  "width": "32",
-                  "height": "32"
-                }
-                }
-              }
               },
               "Background": {
-              "boxes": {
-                "boxLeft": {
-                "title": "Ihre Vorteile durch hydraulischen Abgleich:",
-                "list": {
-                  "itemOne": "Gleichmäßige Wärmeverteilung",
-                  "itemTwo": "Reduzierte Heizkosten",
-                  "itemThree": "Weniger Pumpenergieverbrauch",
-                  "itemFour": "Verbesserter Wohnkomfort",
-                  "itemFive": "Erfüllung von Förderbedingungen",
-                  "itemSix": "Dokumentation für Betrieb und Förderung"
-                }
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch hydraulischen Abgleich:",
+                    "list": {
+                      "itemOne": "Gleichmäßige Wärmeverteilung",
+                      "itemTwo": "Reduzierte Heizkosten",
+                      "itemThree": "Weniger Pumpenergieverbrauch",
+                      "itemFour": "Verbesserter Wohnkomfort",
+                      "itemFive": "Erfüllung von Förderbedingungen",
+                      "itemSix": "Dokumentation für Betrieb und Förderung"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft der Abgleich ab:",
+                    "list": {
+                      "itemOne": "Terminvereinbarung und Bestandsaufnahme",
+                      "itemTwo": "Messung der Durchflüsse und Heizleistung",
+                      "itemThree": "Berechnung der Soll-Werte",
+                      "itemFour": "Einstellung der Ventile und Pumpen",
+                      "itemFive": "Funktionsprüfung und Feinabstimmung",
+                      "itemSix": "Übergabe des Protokolls und Empfehlungen"
+                    }
+                  }
                 },
-                "boxRight": {
-                "title": "So läuft der Abgleich ab:",
-                "list": {
-                  "itemOne": "Terminvereinbarung und Bestandsaufnahme",
-                  "itemTwo": "Messung der Durchflüsse und Heizleistung",
-                  "itemThree": "Berechnung der Soll-Werte",
-                  "itemFour": "Einstellung der Ventile und Pumpen",
-                  "itemFive": "Funktionsprüfung und Feinabstimmung",
-                  "itemSix": "Übergabe des Protokolls und Empfehlungen"
+                "button": {
+                  "text": "Abgleich starten",
+                  "href": "/kontakt"
                 }
-                }
-              },
-              "button": {
-                "text": "Abgleich starten",
-                "href": "/kontakt"
-              }
               }
             }
           }
@@ -3413,8 +3414,7 @@
         "umsetzung": {
           "title": "Umsetzung",
           "SubServices": {
-
-"Projektkoordination": {
+            "Projektkoordination": {
               "Diamond": {
                 "title": "Projektkoordination",
                 "backgroundImage": {
@@ -3602,95 +3602,95 @@
             },
             "Projektkoordination & Projektüberwachung": {
               "Diamond": {
-              "title": "Projektkoordination & Projektüberwachung",
-              "backgroundImage": {
-                "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                "alt": "Photovoltaik"
-              }
+                "title": "Projektkoordination & Projektüberwachung",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaik"
+                }
               },
               "Components": {
-              "titleOne": "Warum ist Projektkoordination & Projektüberwachung wichtig?",
-              "descriptionOne": "Eine professionelle Projektkoordination und -überwachung stellt sicher, dass alle Gewerke und Beteiligten optimal zusammenarbeiten. So werden Zeit, Kosten und Qualität im Griff behalten und Abweichungen frühzeitig erkannt.",
-              "titleTwo": "Warum wir?",
-              "descriptionTwo": "Wir übernehmen die zentrale Steuerung und Überwachung Ihres Projekts, sorgen für klare Kommunikation und koordinieren alle Abläufe effizient.",
-              "button": {
-                "text": "Jetzt Projektkoordination & Projektüberwachung anfragen",
-                "href": "/kontakt"
-              },
-              "boxes": {
-                "solar-panels": {
-                "title": "Zentrale Steuerung",
-                "description": "Wir koordinieren alle Gewerke und Dienstleister.",
-                "image": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Solarmodule"
+                "titleOne": "Warum ist Projektkoordination & Projektüberwachung wichtig?",
+                "descriptionOne": "Eine professionelle Projektkoordination und -überwachung stellt sicher, dass alle Gewerke und Beteiligten optimal zusammenarbeiten. So werden Zeit, Kosten und Qualität im Griff behalten und Abweichungen frühzeitig erkannt.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Wir übernehmen die zentrale Steuerung und Überwachung Ihres Projekts, sorgen für klare Kommunikation und koordinieren alle Abläufe effizient.",
+                "button": {
+                  "text": "Jetzt Projektkoordination & Projektüberwachung anfragen",
+                  "href": "/kontakt"
                 },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Solarmodule",
-                  "width": "32",
-                  "height": "32"
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Zentrale Steuerung",
+                    "description": "Wir koordinieren alle Gewerke und Dienstleister.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Effiziente Abläufe",
+                    "description": "Wir sorgen für einen reibungslosen Ablauf und schnelle Problemlösung.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Wechselrichter"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Klare Kommunikation",
+                    "description": "Alle Beteiligten werden regelmäßig informiert.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Batteriespeicher"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
                 }
-                },
-                "inverters": {
-                "title": "Effiziente Abläufe",
-                "description": "Wir sorgen für einen reibungslosen Ablauf und schnelle Problemlösung.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                  "alt": "Wechselrichter"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Solarmodule",
-                  "width": "32",
-                  "height": "32"
-                }
-                },
-                "batteries": {
-                "title": "Klare Kommunikation",
-                "description": "Alle Beteiligten werden regelmäßig informiert.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                  "alt": "Batteriespeicher"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Solarmodule",
-                  "width": "32",
-                  "height": "32"
-                }
-                }
-              }
               },
               "Background": {
-              "boxes": {
-                "boxLeft": {
-                "title": "Ihre Vorteile durch Projektkoordination & Projektüberwachung:",
-                "list": {
-                  "itemOne": "Zentrale Ansprechperson",
-                  "itemTwo": "Effiziente Steuerung aller Abläufe",
-                  "itemThree": "Schnelle Problemlösung",
-                  "itemFour": "Transparente Kommunikation",
-                  "itemFive": "Termintreue",
-                  "itemSix": "Kostenkontrolle"
-                }
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch Projektkoordination & Projektüberwachung:",
+                    "list": {
+                      "itemOne": "Zentrale Ansprechperson",
+                      "itemTwo": "Effiziente Steuerung aller Abläufe",
+                      "itemThree": "Schnelle Problemlösung",
+                      "itemFour": "Transparente Kommunikation",
+                      "itemFive": "Termintreue",
+                      "itemSix": "Kostenkontrolle"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft die Projektkoordination & Projektüberwachung ab:",
+                    "list": {
+                      "itemOne": "Projektstart und Zieldefinition",
+                      "itemTwo": "Abstimmung aller Beteiligten",
+                      "itemThree": "Laufende Koordination und Monitoring",
+                      "itemFour": "Überwachung der Fortschritte",
+                      "itemFive": "Kommunikation und Reporting",
+                      "itemSix": "Projektabschluss"
+                    }
+                  }
                 },
-                "boxRight": {
-                "title": "So läuft die Projektkoordination & Projektüberwachung ab:",
-                "list": {
-                  "itemOne": "Projektstart und Zieldefinition",
-                  "itemTwo": "Abstimmung aller Beteiligten",
-                  "itemThree": "Laufende Koordination und Monitoring",
-                  "itemFour": "Überwachung der Fortschritte",
-                  "itemFive": "Kommunikation und Reporting",
-                  "itemSix": "Projektabschluss"
+                "button": {
+                  "text": "Projektkoordination & Projektüberwachung starten",
+                  "href": "/kontakt"
                 }
-                }
-              },
-              "button": {
-                "text": "Projektkoordination & Projektüberwachung starten",
-                "href": "/kontakt"
-              }
               }
             },
             "Örtliche Bauaufsicht": {
@@ -4067,7 +4067,40 @@
             }
           }
         }
-        
+      },
+      "productPreviewSmall": {
+        "photovoltaic": {
+          "title": "Beratung",
+          "href": "#beratung",
+          "image": {
+            "src": "/frontend/landingPage/icons/co_present_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+            "alt": "Photovoltaic"
+          }
+        },
+        "heatpump": {
+          "title": "Marketing",
+          "href": "#marketing",
+          "image": {
+            "src": "/frontend/landingPage/icons/campaign_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+            "alt": "Photovoltaic"
+          }
+        },
+        "photovoltaic2": {
+          "title": "Service",
+          "href": "#service",
+          "image": {
+            "src": "/frontend/landingPage/icons/home_repair_service_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+            "alt": "Photovoltaic"
+          }
+        },
+        "heatpump2": {
+          "title": "Umsetzung",
+          "href": "#umsetzung",
+          "image": {
+            "src": "/frontend/landingPage/icons/build_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+            "alt": "Photovoltaic"
+          }
+        }
       }
     },
     "ContactUs": {
@@ -4180,7 +4213,7 @@
         },
         "Powerful-search": {
           "title": "Oder kommen Sie vorbei und lassen Sie sich beraten",
-          "description": "Wagenseilgasse 14, Stock 5<br></br>c/o andys coworking company<br></br>‍1120 Wien",
+          "description": "Wagenseilgasse 14, Stock 5 andys.cc, EURO PLAZA 1120 Wien",
           "href": "https://g.co/kgs/zvtKtWc",
           "icon": {
             "src": "/frontend/landingPage/icons/storefront_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg",

@@ -43,7 +43,7 @@ export const ServiceComponents = (props: ServiceComponentsProps) => {
         <h1 className="text-3xl font-bold mb-4">{t("titleTwo")}</h1>
         <div className="w-24 h-1 bg-teal-500 mx-auto mb-4"></div>
       </section> */}
-      <section className="py-12 px-4">
+      <section className="pt-12 px-4">
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
           {benefits.map((benefit, index) => (
             <div
@@ -70,7 +70,7 @@ export const ServiceComponents = (props: ServiceComponentsProps) => {
             </div>
           ))}
         </div>
-        <div className="relative mx-auto max-w-xs sm:flex sm:max-w-none w-fit sm:justify-center">
+        {/* <div className="relative mx-auto max-w-xs sm:flex sm:max-w-none w-fit sm:justify-center">
           <Link
             className="btn group mb-0 !py-4 !px-5 !text-lg w-full before:opacity-100 before:absolute before:inset-0 before:rounded-xl before:backdrop-blur-md before:bg-gradient-to-t before:from-synergy-light-blue/70 before:via-synergy-light-blue before:to-synergy-light-blue/70 hover:before:from-synergy-light-blue hover:before:to-synergy-light-blue before:shadow-xl text-white shadow sm:w-auto break-words whitespace-pre-line"
             href={t("Components.button.href")}
@@ -82,7 +82,7 @@ export const ServiceComponents = (props: ServiceComponentsProps) => {
               </div>
             </span>
           </Link>
-        </div>
+        </div> */}
       </section>
     </>
   );

@@ -22,7 +22,7 @@ export const B2bTestimonialSection = (props: B2bTestimonialSectionProps) => {
       data-aos="fade-up"
     >
       <div className="text-center mb-6">
-        <p className="uppercase text-gray-500">Begleiter</p>
+        {/* <p className="uppercase text-gray-500">Begleiter</p> */}
         <h2 className="text-3xl md:text-4xl font-bold">
           After-Sales & Support
         </h2>

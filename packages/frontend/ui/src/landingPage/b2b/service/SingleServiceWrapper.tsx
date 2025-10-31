@@ -34,10 +34,10 @@ export const SingleServiceWrapper = (props: SingleServiceWrapperProps) => {
 
   return (
     <li className="mx-4 relative">
-      <section className="scroll-mt-20" id={service}>
-        <div className=" z-10 top-[3.5rem] pt-2 xs:pt-[4rem] grid gap-2 max-w-6xl mx-auto px-2 lg:px-0 rounded-b-xl bg-slate-50/90 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-none">
+      <section className="scroll-mt-10" id={service}>
+        <div className="z-10 top-[3.5rem] pt-2 xs:pt-[4rem] grid gap-2 max-w-6xl mx-auto px-2 lg:px-0 rounded-b-xl bg-slate-50/90 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-none">
           <div className="min-w-40 mb-4 lg:mb-12 w-full flex justify-center">
-            <h3 className="flex items-center mb-1 text-4xl text-center font-bold text-gray-900 dark:text-white">
+            <h3 className="flex items-center mb-1 text-5xl text-center font-bold text-gray-900 dark:text-white">
               <AuroraText>{t(`title`)}</AuroraText>
             </h3>
           </div>

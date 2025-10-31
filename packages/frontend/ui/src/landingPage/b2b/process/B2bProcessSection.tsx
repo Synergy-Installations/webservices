@@ -10,12 +10,12 @@ export const B2bProcessSection = (props: B2bProcessSectinoProps) => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           {/* <p className="uppercase text-green-600 font-semibold">Prozess</p> */}
-          <h2 className="text-3xl font-bold">Digitaler Synergie-Prozess</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">Digitaler Synergie-Prozess</h2>
         </div>
         <div className="relative">
           <Image
             loader={ImageLoader}
-            src="/frontend/landingPage/b2b/SYNERGIE_KONZEPT_%20v2_f9fafb.jpg"
+            src="/frontend/landingPage/b2b/Synergie_Digiversum_Website_v3.jpg"
             alt="Digitalprozess"
             width={1200}
             height={600}

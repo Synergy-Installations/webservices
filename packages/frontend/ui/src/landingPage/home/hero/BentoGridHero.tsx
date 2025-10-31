@@ -155,15 +155,15 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
             {/* Dienstleistungen Box */}
             <div className="relative flex flex-col">
               <div
-                className={`absolute inset-0 rounded-t-2xl rounded-br-[100px] mb-0 before:opacity-20 before:rounded-2xl before:absolute before:inset-0  before:bg-gradient-to-b before:from-synergy-light-blue before:to-synergy-light-blue/0 before:to-[110%] pointer-events-none`}
+                className={`absolute inset-0 rounded-t-2xl rounded-br-[100px] mb-0 before:opacity-20 before:rounded-2xl before:absolute before:inset-0  before:bg-gradient-to-b before:from-synergy-light-blue before:to-synergy-light-blue/0 before:to-[100%] pointer-events-none`}
                 aria-hidden="true"
               />
               <div className="relative z-10 h-48 m-1 overflow-hidden rounded-t-xl">
                 <Image
-                  src="/frontend/landingPage/Hero/services_people_shaking_hands_v4.jpeg"
+                  src="/frontend/landingPage/Hero/ChatGPT%20Image%20Oct%2031%2C%202025%20at%2010_55_18%20PM.jpg"
                   alt="Dienstleistungen Symbolbild"
                   loader={ImageLoader}
-                  className="w-full h-48 object-cover scale-[115%] object-[50%,50%]"
+                  className="w-full h-48 object-cover scale-[115%] object-[50%,60%]"
                   fill
                 />
               </div>
@@ -174,11 +174,9 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
                   <ul className="text-black text-base mb-6 space-y-1 list-disc list-inside">
                     <li>Beratung</li>
-                    <li>Mediation</li>
                     <li>Marketing</li>
                   </ul>
                   <ul className="text-black text-base mb-6 space-y-1 list-disc list-inside">
-                    <li>Planung</li>
                     <li>Service</li>
                     <li>Umsetzung</li>
                   </ul>
@@ -200,7 +198,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
             {/* Produkte Box */}
             <div className="relative flex flex-col">
               <div
-                className={`absolute inset-0 rounded-2xl mb-0 bg-gradient-to-b from-synergy-light-grey to-transparent to-[100%] pointer-events-none`}
+                className={`absolute inset-0 rounded-2xl mb-0 bg-gradient-to-b from-synergy-light-grey to-synergy-light-grey/0 to-[100%] pointer-events-none`}
                 aria-hidden="true"
               />
               <div className="relative z-10 h-48 m-1 overflow-hidden rounded-t-xl">

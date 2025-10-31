@@ -1,4 +1,4 @@
-export const locales: string[] = ["at-AT", "en"];
+export const locales: string[] = ["at-AT"];
 export const defaultLocale: string = "at-AT";
 // The user locale is responsible for storing the user's preferred locale.
 export const userCookieLocale: string = "x-synergy-user-locale";

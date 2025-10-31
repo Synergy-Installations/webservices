@@ -27,17 +27,17 @@ export const ServiceComponents = (props: ServiceComponentsProps) => {
     <>
       <section className="pt-12 text-center">
         <h1 className="text-3xl font-bold mb-4">{t("Components.titleOne")}</h1>
-        <p className=" max-w-2xl mx-auto text-lg">
+        <div className=" max-w-2xl mx-auto text-lg">
           <RichText>
             {(tags) => t.rich("Components.descriptionOne", tags)}
           </RichText>
-        </p>
+        </div>
         <div className="w-24 h-1 bg-teal-500 mx-auto my-4"></div>
-        <p className=" max-w-2xl mx-auto text-lg">
+        <div className=" max-w-2xl mx-auto text-lg">
           <RichText>
             {(tags) => t.rich("Components.descriptionTwo", tags)}
           </RichText>
-        </p>
+        </div>
       </section>
       {/* <section className="p-12 text-center px-4">
         <h1 className="text-3xl font-bold mb-4">{t("titleTwo")}</h1>

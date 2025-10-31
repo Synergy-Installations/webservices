@@ -73,16 +73,18 @@ export const ServiceBackground = (props: ServiceBackgroundProps) => {
           <h3 className="text-xl font-bold text-center text-teal-800 mb-4">
             {t("boxes.boxRight.title")}
           </h3>
-          <ol className="list-decimal list-inside space-y-2 text-teal-900">
-            {boxesRightKeys.map((key) => (
-              <li key={key}>
-                <RichText>
-                  {(tags) => t.rich(`boxes.boxRight.list.${key}`, tags)}
-                </RichText>
-                {/* {t(`boxes.boxRight.list.${key}`)} */}
-              </li>
-            ))}
-          </ol>
+            <ol className="list-none space-y-2 text-teal-900">
+              {boxesRightKeys.map((key, idx) => (
+                <li key={key} className="flex">
+                  <span className="flex-none w-3 text-right text-teal-800 font-semibold">
+                    {idx + 1}.
+                  </span>
+                  <div className="flex-1 ml-3">
+                    <RichText>{(tags) => t.rich(`boxes.boxRight.list.${key}`, tags)}</RichText>
+                  </div>
+                </li>
+              ))}
+            </ol>
         </div>
       </div>
       <div className="relative mx-auto max-w-xs sm:flex sm:max-w-none w-fit sm:justify-center">

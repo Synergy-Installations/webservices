@@ -46,9 +46,9 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
                 <h3 className="font-inter-tight text-3xl text-center font-bold text-synergy-dark-grey mb-4">
                   {t("title")}
                 </h3>
-                <p className="text-lg text-center text-synergy-dark-grey">
+                <div className="text-lg text-center text-synergy-dark-grey">
                   <RichText>{(tags) => t.rich("description", tags)}</RichText>
-                </p>
+                </div>
               </div>
 
               {/* Tabs buttons - keep these inside the left column */}

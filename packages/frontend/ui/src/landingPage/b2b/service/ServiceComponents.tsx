@@ -25,7 +25,7 @@ export const ServiceComponents = (props: ServiceComponentsProps) => {
 
   return (
     <>
-      <section className="pt-12 text-center">
+      <section className="pt-6 lg:pt-12 text-center">
         <h1 className="text-3xl font-bold mb-4">{t("Components.titleOne")}</h1>
         <div className=" max-w-2xl mx-auto text-lg">
           <RichText>

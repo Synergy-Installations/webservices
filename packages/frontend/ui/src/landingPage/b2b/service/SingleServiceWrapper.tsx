@@ -34,7 +34,7 @@ export const SingleServiceWrapper = (props: SingleServiceWrapperProps) => {
 
   return (
     <li className="mx-4 relative">
-      <section className="scroll-mt-10 pb-20 xs:pb-24" id={service}>
+      <section className="scroll-mt-20 lg:scroll-mt-16 pb-20 xs:pb-24" id={service}>
         <div className="z-10 top-[3.5rem] pt-1 xs:pt-12 grid gap-2 max-w-6xl mx-auto px-2 lg:px-0 rounded-b-xl bg-slate-50/90 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-none">
           <div className="min-w-40 mb-6 lg:mb-12 w-full flex justify-center">
             <span className="flex items-center mb-1 text-5xl text-center font-bold text-gray-900 dark:text-white">

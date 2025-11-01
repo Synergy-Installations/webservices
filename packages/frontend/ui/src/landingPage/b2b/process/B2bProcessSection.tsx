@@ -6,7 +6,7 @@ export interface B2bProcessSectinoProps {}
 
 export const B2bProcessSection = (props: B2bProcessSectinoProps) => {
   return (
-    <section className="bg-gray-50 py-20">
+    <section className="bg-gray-50 pb-20 pt-16">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           {/* <p className="uppercase text-green-600 font-semibold">Prozess</p> */}

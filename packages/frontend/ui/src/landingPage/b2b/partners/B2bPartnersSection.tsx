@@ -30,7 +30,7 @@ export const B2bPartnersSection = (props: B2bPartnersSectionProps) => {
       </div>
       <div className="container mx-auto px-6 lg:px-0">
         <ul
-          className="flex items-center justify-center space-x-6 overflow-x-auto "
+          className="flex items-center justify-center space-x-6 overflow-x-auto [mask-image:_linear-gradient(to_right,transparent_0,_black_10%,_black_90%,transparent_100%)]"
           data-aos="fade-right"
         >
           <Marquee

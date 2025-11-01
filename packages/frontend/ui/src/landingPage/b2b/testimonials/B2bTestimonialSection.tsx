@@ -18,7 +18,7 @@ export const B2bTestimonialSection = (props: B2bTestimonialSectionProps) => {
   const next = () => setIndex((index + 1) % testimonials.length);
   return (
     <section
-      className="container mx-auto px-6 lg:px-0 py-20 relative"
+      className="container mx-auto px-6 lg:px-0 pb-20 pt-16 relative"
       data-aos="fade-up"
     >
       <div className="text-center mb-6">

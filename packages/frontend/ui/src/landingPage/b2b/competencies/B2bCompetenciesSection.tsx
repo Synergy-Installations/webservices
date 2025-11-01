@@ -25,7 +25,7 @@ export const B2bCompetenciesSection = (props: B2bCompetenciesSectionProps) => {
   ];
 
   return (
-    <section id="competencies" className="container mx-auto px-6 lg:px-0 py-20">
+    <section id="competencies" className="container mx-auto px-6 lg:px-0 pb-20 pt-12">
       <div className="text-center mb-12" data-aos="fade-up">
         <p className="text-synergy-light-blue font-semibold uppercase">
           Kernkompetenzen

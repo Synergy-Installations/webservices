@@ -3424,7 +3424,7 @@
               },
               "Components": {
                 "titleOne": "Warum ist Projektkoordination wichtig?",
-                "descriptionOne": "Eine professionelle Projektkoordination stellt sicher, dass alle Gewerke und Beteiligten optimal zusammenarbeiten. So werden Zeit, Kosten und Qualität im Griff behalten.",
+                "descriptionOne": "Eine professionelle Projektkoordination stellt sicher, dass alle Gewerke und Beteiligten optimal zusammenarbeiten. So werden Zeit, Kosten und Qualität im Griff behalten und ihr Projekt erfolgreich abgeschlossen.",
                 "titleTwo": "Warum wir?",
                 "descriptionTwo": "Wir übernehmen die zentrale Steuerung Ihres Projekts, sorgen für klare Kommunikation und koordinieren alle Abläufe effizient.",
                 "button": {
@@ -3507,190 +3507,97 @@
                 }
               }
             },
-            "Prozessüberwachung": {
+            "Projektüberwachung": {
               "Diamond": {
-                "title": "Prozessüberwachung",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaik"
-                }
+              "title": "Projektüberwachung",
+              "backgroundImage": {
+                "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                "alt": "Photovoltaik"
+              }
               },
               "Components": {
-                "titleOne": "Warum ist Prozessüberwachung wichtig?",
-                "descriptionOne": "Durch kontinuierliche Überwachung der Prozesse werden Fehler frühzeitig erkannt und behoben. So bleibt Ihr Projekt auf Kurs.",
-                "titleTwo": "Warum wir?",
-                "descriptionTwo": "Wir setzen moderne Tools zur Prozessüberwachung ein und reagieren schnell auf Abweichungen.",
-                "button": {
-                  "text": "Jetzt Prozessüberwachung anfragen",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "Kontinuierliches Monitoring",
-                    "description": "Wir überwachen alle Projektphasen digital und vor Ort.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Früherkennung von Problemen",
-                    "description": "Abweichungen werden sofort erkannt und gemeldet.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Wechselrichter"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Schnelle Korrekturmaßnahmen",
-                    "description": "Wir greifen sofort ein, um Verzögerungen zu vermeiden.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Batteriespeicher"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
+              "titleOne": "Warum ist Projektüberwachung wichtig?",
+              "descriptionOne": "Das Projekt wird von Anfang an fortlaufend überwacht, indem Fortschritt, Kosten, Zeitpläne und Ressourcen systematisch erfasst, analysiert und kontrolliert werden.",
+              "titleTwo": "Warum wir?",
+              "descriptionTwo": "Dadurch wird sicher gestellt, dass die Projektziele pünktlich, im Budget und mit den gewünschten Ergebnissen erreicht werden.",
+              "button": {
+                "text": "Jetzt Projektüberwachung anfragen",
+                "href": "/kontakt"
               },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Ihre Vorteile durch Prozessüberwachung:",
-                    "list": {
-                      "itemOne": "Frühzeitige Fehlererkennung",
-                      "itemTwo": "Schnelle Reaktion auf Abweichungen",
-                      "itemThree": "Höhere Qualitätssicherung",
-                      "itemFour": "Transparente Abläufe",
-                      "itemFive": "Minimierung von Verzögerungen",
-                      "itemSix": "Effizienter Projektverlauf"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "So läuft die Prozessüberwachung ab:",
-                    "list": {
-                      "itemOne": "Einrichtung digitaler Überwachung",
-                      "itemTwo": "Laufende Kontrolle aller Prozesse",
-                      "itemThree": "Meldung von Abweichungen",
-                      "itemFour": "Korrekturmaßnahmen einleiten",
-                      "itemFive": "Dokumentation",
-                      "itemSix": "Abschlussbericht"
-                    }
-                  }
+              "boxes": {
+                "solar-panels": {
+                "title": "Kontinuierliches Monitoring",
+                "description": "Laufende Prüfung der Arbeiten und zeitnahe Meldung von Abweichungen.",
+                "image": {
+                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                  "alt": "Monitoring"
                 },
-                "button": {
-                  "text": "Prozessüberwachung starten",
-                  "href": "/kontakt"
+                "icon": {
+                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                  "alt": "Monitoring",
+                  "width": "32",
+                  "height": "32"
+                }
+                },
+                "inverters": {
+                "title": "Schnelle Problemerkennung",
+                "description": "Frühe Identifikation von Risiken und Einleitung von Gegenmaßnahmen.",
+                "image": {
+                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                  "alt": "Problemerkennung"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/icon-plan.svg",
+                  "alt": "Problemerkennung",
+                  "width": "32",
+                  "height": "32"
+                }
+                },
+                "batteries": {
+                "title": "Detaillierte Dokumentation",
+                "description": "Lückenlose Aufzeichnung des Projektfortschritts und der Maßnahmen.",
+                "image": {
+                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                  "alt": "Dokumentation"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/icon-plan.svg",
+                  "alt": "Dokumentation",
+                  "width": "32",
+                  "height": "32"
+                }
                 }
               }
-            },
-            "Projektkoordination & Projektüberwachung": {
-              "Diamond": {
-                "title": "Projektkoordination & Projektüberwachung",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaik"
-                }
-              },
-              "Components": {
-                "titleOne": "Warum ist Projektkoordination & Projektüberwachung wichtig?",
-                "descriptionOne": "Eine professionelle Projektkoordination und -überwachung stellt sicher, dass alle Gewerke und Beteiligten optimal zusammenarbeiten. So werden Zeit, Kosten und Qualität im Griff behalten und Abweichungen frühzeitig erkannt.",
-                "titleTwo": "Warum wir?",
-                "descriptionTwo": "Wir übernehmen die zentrale Steuerung und Überwachung Ihres Projekts, sorgen für klare Kommunikation und koordinieren alle Abläufe effizient.",
-                "button": {
-                  "text": "Jetzt Projektkoordination & Projektüberwachung anfragen",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "Zentrale Steuerung",
-                    "description": "Wir koordinieren alle Gewerke und Dienstleister.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Effiziente Abläufe",
-                    "description": "Wir sorgen für einen reibungslosen Ablauf und schnelle Problemlösung.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Wechselrichter"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Klare Kommunikation",
-                    "description": "Alle Beteiligten werden regelmäßig informiert.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Batteriespeicher"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
               },
               "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Ihre Vorteile durch Projektkoordination & Projektüberwachung:",
-                    "list": {
-                      "itemOne": "Zentrale Ansprechperson",
-                      "itemTwo": "Effiziente Steuerung aller Abläufe",
-                      "itemThree": "Schnelle Problemlösung",
-                      "itemFour": "Transparente Kommunikation",
-                      "itemFive": "Termintreue",
-                      "itemSix": "Kostenkontrolle"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "So läuft die Projektkoordination & Projektüberwachung ab:",
-                    "list": {
-                      "itemOne": "Projektstart und Zieldefinition",
-                      "itemTwo": "Abstimmung aller Beteiligten",
-                      "itemThree": "Laufende Koordination und Monitoring",
-                      "itemFour": "Überwachung der Fortschritte",
-                      "itemFive": "Kommunikation und Reporting",
-                      "itemSix": "Projektabschluss"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Projektkoordination & Projektüberwachung starten",
-                  "href": "/kontakt"
+              "boxes": {
+                "boxLeft": {
+                "title": "Ihre Vorteile durch Projektüberwachung:",
+                "list": {
+                  "itemOne": "Frühe Risikoerkennung",
+                  "itemTwo": "Sichere Einhaltung von Zeitplänen",
+                  "itemThree": "Qualitätssicherung",
+                  "itemFour": "Transparente Berichterstattung",
+                  "itemFive": "Geringere Nacharbeiten",
+                  "itemSix": "Kostenkontrolle"
                 }
+                },
+                "boxRight": {
+                "title": "So läuft die Projektüberwachung ab:",
+                "list": {
+                  "itemOne": "Einrichtung des Monitorings und Reporting-Prozesses",
+                  "itemTwo": "Regelmäßige Baustellen- und Ablaufkontrollen",
+                  "itemThree": "Dokumentation von Fortschritt und Abweichungen",
+                  "itemFour": "Kommunikation mit allen Beteiligten",
+                  "itemFive": "Einleitung und Nachverfolgung von Korrekturmaßnahmen",
+                  "itemSix": "Abschlussbericht und Lessons Learned"
+                }
+                }
+              },
+              "button": {
+                "text": "Projektüberwachung starten",
+                "href": "/kontakt"
+              }
               }
             },
             "Örtliche Bauaufsicht": {

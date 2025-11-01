@@ -25,7 +25,7 @@ export const ServiceBackground = (props: ServiceBackgroundProps) => {
   );
 
   return (
-    <section className="bg-gray-50 pb-16">
+    <section className="bg-gray-50">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 mb-12">
         <div className="bg-yellow-200 p-6 rounded-lg shadow-lg transform">
           <svg

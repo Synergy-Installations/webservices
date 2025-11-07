@@ -78,30 +78,60 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
 
             {/* 5th block */}
             <div className="sm:col-span-6 md:col-span-3 lg:col-span-2 flex flex-col items-end">
-              <div className="space-y-2">
+              <div className="space-y-4">
+                <h3 className="text-sm font-medium">Social</h3>
+                <ul className="flex gap-1 items-center">
+                  {socialKeys.map((socialKey, index) => (
+                    <li key={index}>
+                      <Link
+                        className="flex items-center justify-center text-synergy-light-blue transition hover:text-blue-600"
+                        href={t(`socials.${socialKey}.href`)}
+                        aria-label={t(`socials.${socialKey}.icon.alt`)}
+                        target="_blank"
+                      >
+                        <Image
+                          className="shrink-0 fill-synergy-light-blue opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
+                          loader={ImageLoader}
+                          width={Number(t(`socials.${socialKey}.icon.width`))}
+                          height={Number(t(`socials.${socialKey}.icon.height`))}
+                          src={t(`socials.${socialKey}.icon.src`)}
+                          alt={t(`socials.${socialKey}.icon.alt`)}
+                        />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
 
-              <h3 className="text-sm font-medium">Social</h3>
-              <ul className="flex gap-1 items-center">
-                {socialKeys.map((socialKey, index) => (
-                  <li key={index}>
-                    <Link
-                      className="flex items-center justify-center text-synergy-light-blue transition hover:text-blue-600"
-                      href={t(`socials.${socialKey}.href`)}
-                      aria-label={t(`socials.${socialKey}.icon.alt`)}
-                      target="_blank"
-                    >
-                      <Image
-                        className="shrink-0 fill-synergy-light-blue opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-                        loader={ImageLoader}
-                        width={Number(t(`socials.${socialKey}.icon.width`))}
-                        height={Number(t(`socials.${socialKey}.icon.height`))}
-                        src={t(`socials.${socialKey}.icon.src`)}
-                        alt={t(`socials.${socialKey}.icon.alt`)}
-                      />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+          {/* Partners Section - Modern Strip */}
+          <div className="mt-12 pt-8 border-t border-gray-200/50">
+            <div className="text-center">
+              <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-6">
+                Mitglied bei
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12">
+                <div className="group cursor-pointer">
+                  <Image
+                    loader={ImageLoader}
+                    src="/frontend/landingPage/icons/OVE_Logo.png"
+                    width={200}
+                    height={80}
+                    alt="OVE - Österreichischer Verband für Elektrotechnik"
+                    className="opacity-70 group-hover:opacity-100 transition-all duration-300 max-w-[110px] w-auto h-auto grayscale hover:grayscale-0"
+                  />
+                </div>
+                <div className="group cursor-pointer">
+                  <Image
+                    loader={ImageLoader}
+                    src="/frontend/landingPage/icons/PV_Logo_Hoch_RGB-scaled.jpg"
+                    width={80}
+                    height={40}
+                    alt="PV Austria - Photovoltaic Austria"
+                    className="opacity-70 group-hover:opacity-100 transition-all duration-300 max-w-[80px] w-auto h-auto grayscale hover:grayscale-0"
+                  />
+                </div>
               </div>
             </div>
           </div>

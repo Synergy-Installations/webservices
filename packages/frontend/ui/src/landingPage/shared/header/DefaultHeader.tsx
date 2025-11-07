@@ -108,7 +108,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
                           className={`absolute left-1/2 -translate-x-1/2 top-8 mt-2 w-screen ${hasImages ? "max-w-md md:max-w-lg lg:max-w-lg" : "max-w-min"} bg-white rounded-2xl shadow-lg ring-1 ring-black ring-opacity-5`}
                         >
                           <div className="p-4 max-h-[calc(100vh-8rem)] overflow-y-auto">
-                            <h3 className="text-lg font-semibold underline text-gray-800 mb-4 whitespace-nowrap">
+                            <h3 className="text-lg font-semibold text-gray-800 mb-4 whitespace-nowrap">
                               {t(`nav.${navKey}.children.title`)}
                             </h3>
                             <ul className={ulClass}>

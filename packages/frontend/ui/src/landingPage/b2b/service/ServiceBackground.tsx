@@ -56,7 +56,7 @@ export const ServiceBackground = (props: ServiceBackgroundProps) => {
             ))}
           </ul>
         </div>
-        <div className="bg-teal-200 p-6 rounded-xl shadow-lg transform">
+        <div className="bg-synergy-light-blue p-6 rounded-xl shadow-lg transform">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
@@ -73,18 +73,20 @@ export const ServiceBackground = (props: ServiceBackgroundProps) => {
           <h3 className="text-xl font-bold text-center text-teal-800 mb-4">
             {t("boxes.boxRight.title")}
           </h3>
-            <ol className="list-none space-y-2 text-teal-900">
-              {boxesRightKeys.map((key, idx) => (
-                <li key={key} className="flex">
-                  <span className="flex-none w-3 text-right text-teal-800 font-semibold">
-                    {idx + 1}.
-                  </span>
-                  <div className="flex-1 ml-3">
-                    <RichText>{(tags) => t.rich(`boxes.boxRight.list.${key}`, tags)}</RichText>
-                  </div>
-                </li>
-              ))}
-            </ol>
+          <ol className="list-none space-y-2 text-teal-900">
+            {boxesRightKeys.map((key, idx) => (
+              <li key={key} className="flex">
+                <span className="flex-none w-3 text-right text-teal-800 font-semibold">
+                  {idx + 1}.
+                </span>
+                <div className="flex-1 ml-3">
+                  <RichText>
+                    {(tags) => t.rich(`boxes.boxRight.list.${key}`, tags)}
+                  </RichText>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
       <div className="relative mx-auto max-w-xs sm:flex sm:max-w-none w-fit sm:justify-center">

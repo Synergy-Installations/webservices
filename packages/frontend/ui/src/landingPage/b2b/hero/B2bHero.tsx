@@ -21,7 +21,7 @@ export const B2bHero = (props: B2bHeroProps) => {
       }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-60" />
-      <div className="relative container mx-auto px-6 lg:px-0 flex flex-col justify-end items-start h-full text-white space-y-4">
+      <div className="relative container mx-auto px-6 lg:px-8 flex flex-col justify-end items-start h-full text-white space-y-4">
         <p className="uppercase tracking-widest font-semibold text-sm lg:text-base">
           Leistungen
         </p>
@@ -33,9 +33,9 @@ export const B2bHero = (props: B2bHeroProps) => {
         </h2>
         <p className="max-w-2xl text-sm md:text-base">
           Mit der Expertise unserer firmeninternen Fachkräfte aus den
-          unterschiedlichsten Gewerken helfen wir Ihnen dabei, Ihre
-          Leistungen in der Anlagenerrichtung voranzutreiben als auch Ihre
-          derzeitigen Prozesse zu optimieren.
+          unterschiedlichsten Gewerken helfen wir Ihnen dabei, Ihre Leistungen
+          in der Anlagenerrichtung voranzutreiben als auch Ihre derzeitigen
+          Prozesse zu optimieren.
         </p>
         <div className="flex flex-col sm:flex-col-reverse justify-start items-center md:items-start w-full sm:w-auto">
           <div className="grid grid-cols-2 sm:mt-12 gap-2 sm:gap-5 w-full">

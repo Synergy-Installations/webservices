@@ -2001,8 +2001,478 @@
     },
     "B2B": {
       "Services": {
+        "marketing": {
+          "title": "Marketing",
+          "SubServices": {
+            "projektakquise": {
+              "Diamond": {
+                "title": "Projektakquise",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaik"
+                }
+              },
+              "Components": {
+                "titleOne": "Warum ist professionelle Projektakquise entscheidend?",
+                "descriptionOne": "Mit gezielter Projektakquise sichern Sie sich frühzeitig die besten Chancen am Markt. Wir identifizieren passende Projekte, analysieren Potenziale und begleiten Sie von der ersten Idee bis zum erfolgreichen Abschluss.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Profitieren Sie von unserem Netzwerk, unserer Erfahrung und unserer Handschlagqualität. Wir bringen Sie mit den richtigen Partnern zusammen und sorgen für eine reibungslose Umsetzung.",
+                "button": {
+                  "text": "Jetzt Projektchancen sichern",
+                  "href": "/kontakt"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Gezielte Marktanalyse",
+                    "description": "Wir finden für Sie die passenden Projekte und Partner.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Effiziente Kontaktaufnahme",
+                    "description": "Wir übernehmen die Ansprache und Koordination mit allen Beteiligten.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Wechselrichter"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Schneller Projektstart",
+                    "description": "Durch strukturierte Prozesse bringen wir Ihr Projekt zügig auf den Weg.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Batteriespeicher"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch professionelle Projektakquise:",
+                    "list": {
+                      "itemOne": "Frühzeitige Identifikation von Chancen",
+                      "itemTwo": "Gezielte Ansprache potenzieller Kunden",
+                      "itemThree": "Effiziente Projektkoordination",
+                      "itemFour": "Schneller Zugang zu relevanten Netzwerken",
+                      "itemFive": "Höhere Erfolgsquote bei der Projektumsetzung",
+                      "itemSix": "Transparente Kommunikation und Betreuung"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft die Projektakquise ab:",
+                    "list": {
+                      "itemOne": "Erstgespräch und Zieldefinition",
+                      "itemTwo": "Marktanalyse und Projektidentifikation",
+                      "itemThree": "Kontaktaufnahme und Qualifizierung",
+                      "itemFour": "Vorstellung und Vermittlung passender Projekte",
+                      "itemFive": "Begleitung bis zum Vertragsabschluss",
+                      "itemSix": "Nachbetreuung und Feedback"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Projektchancen nutzen",
+                  "href": "/kontakt"
+                }
+              }
+            },
+            "energievertrieb": {
+              "Diamond": {
+                "title": "Energievertrieb",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaik"
+                }
+              },
+              "Components": {
+                "titleOne": "Warum ist professioneller Energievertrieb wichtig?",
+                "descriptionOne": "Ein strukturierter Energievertrieb erschließt neue Märkte und Kunden. Wir unterstützen Sie bei der Vermarktung Ihrer Energieprodukte und sorgen für nachhaltigen Absatz.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Wir verfügen über Erfahrung im Energiemarkt, ein breites Netzwerk und setzen moderne Vertriebsmethoden ein.",
+                "button": {
+                  "text": "Jetzt Energievertrieb starten",
+                  "href": "/kontakt"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Marktzugang",
+                    "description": "Wir bringen Ihre Energieprodukte zu den richtigen Kunden.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Vertriebsstrategie",
+                    "description": "Wir entwickeln und realisieren individuelle Vertriebskonzepte.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Wechselrichter"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Kundenbindung",
+                    "description": "Wir begleiten Sie von der Akquise bis zur langfristigen Kundenbeziehung.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Batteriespeicher"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch Energievertrieb:",
+                    "list": {
+                      "itemOne": "Neukundengewinnung",
+                      "itemTwo": "Erweiterung Ihres Marktanteils",
+                      "itemThree": "Professionelle Vermarktung",
+                      "itemFour": "Langfristige Kundenbindung",
+                      "itemFive": "Effiziente Vertriebsprozesse",
+                      "itemSix": "Transparente Kommunikation"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft der Energievertrieb ab:",
+                    "list": {
+                      "itemOne": "Analyse Ihrer Produkte",
+                      "itemTwo": "Entwicklung einer Vertriebsstrategie",
+                      "itemThree": "Kundenansprache und Akquise",
+                      "itemFour": "Vertragsabschluss",
+                      "itemFive": "Kundenbetreuung",
+                      "itemSix": "Feedback und Optimierung"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Energievertrieb starten",
+                  "href": "/kontakt"
+                }
+              }
+            },
+            "mediation": {
+              "Diamond": {
+                "title": "Mediation",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Mediation"
+                }
+              },
+              "Components": {
+                "titleOne": "Warum ist Mediation wichtig?",
+                "descriptionOne": "Mediation löst Konflikte konstruktiv, spart Zeit und Kosten und bewahrt Geschäftsbeziehungen. Durch moderierte Gespräche werden Interessen sichtbar und tragfähige Lösungen erarbeitet.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Unsere Mediatoren bringen Erfahrung, Neutralität und Fingerspitzengefühl mit. Wir begleiten Parteien durch den gesamten Prozess und sorgen für nachhaltige, faire Vereinbarungen.",
+                "button": {
+                  "text": "Jetzt Mediation anfragen",
+                  "href": "/kontakt"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Konfliktprävention",
+                    "description": "Frühzeitiges Erkennen und Entschärfen von Konflikten verhindert Eskalationen und Verzögerungen.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Konfliktprävention"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Prävention",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Moderation & Vermittlung",
+                    "description": "Strukturierte Moderation sorgt für klare Kommunikation und lösungsorientierte Verhandlungen.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Moderation"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Moderation",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Nachhaltige Einigungen",
+                    "description": "Wir begleiten die Umsetzung der Vereinbarungen und sichern damit langfristige, tragfähige Lösungen.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Einigungen"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Einigung",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch Mediation:",
+                    "list": {
+                      "itemOne": "Schnelle und vertrauliche Konfliktlösung",
+                      "itemTwo": "Kosteneffiziente Alternative zu Gerichtsverfahren",
+                      "itemThree": "Erhalt von Geschäfts- und Kundenbeziehungen",
+                      "itemFour": "Transparente und faire Gesprächsführung",
+                      "itemFive": "Individuell abgestimmte Vereinbarungen",
+                      "itemSix": "Umsetzbare Lösungen statt Prozesstragödien"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft eine Mediation ab:",
+                    "list": {
+                      "itemOne": "Kontaktaufnahme und Erstklärung",
+                      "itemTwo": "Unabhängige Bestandsaufnahme der Sachlage",
+                      "itemThree": "Moderierte Gesprächsrunden mit allen Parteien",
+                      "itemFour": "Erarbeitung von Lösungsvorschlägen",
+                      "itemFive": "Vereinbarung, Dokumentation und Umsetzungsbegleitung",
+                      "itemSix": "Nachbetreuung und Evaluation"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Mediation starten",
+                  "href": "/kontakt"
+                }
+              }
+            },
+            "verhandlungsunterstützung": {
+              "Diamond": {
+                "title": "Verhandlungsunterstützung",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaik"
+                }
+              },
+              "Components": {
+                "titleOne": "Warum ist Verhandlungsunterstützung wichtig?",
+                "descriptionOne": "Professionelle Begleitung bei Verhandlungen sorgt für faire, transparente und erfolgreiche Ergebnisse. Wir unterstützen Sie bei der Vorbereitung, Durchführung und Nachbereitung von Verhandlungen.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Unsere Experten bringen Erfahrung, Neutralität und Fingerspitzengefühl mit, um Ihre Interessen optimal zu vertreten.",
+                "button": {
+                  "text": "Jetzt Verhandlungsunterstützung anfragen",
+                  "href": "/kontakt"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Vorbereitung",
+                    "description": "Wir analysieren Ihre Ziele und bereiten die Verhandlung strategisch vor.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Moderation",
+                    "description": "Wir moderieren die Gespräche und sorgen für einen strukturierten Ablauf.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Wechselrichter"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Ergebnisdokumentation",
+                    "description": "Wir dokumentieren die Ergebnisse und unterstützen bei der Umsetzung.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Batteriespeicher"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch Verhandlungsunterstützung:",
+                    "list": {
+                      "itemOne": "Bessere Verhandlungsergebnisse",
+                      "itemTwo": "Transparente Kommunikation",
+                      "itemThree": "Neutralität und Objektivität",
+                      "itemFour": "Schnelle Einigung",
+                      "itemFive": "Dokumentation der Ergebnisse",
+                      "itemSix": "Nachhaltige Umsetzung"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft die Verhandlungsunterstützung ab:",
+                    "list": {
+                      "itemOne": "Analyse und Zieldefinition",
+                      "itemTwo": "Strategische Vorbereitung",
+                      "itemThree": "Moderation der Verhandlung",
+                      "itemFour": "Dokumentation der Ergebnisse",
+                      "itemFive": "Unterstützung bei der Umsetzung",
+                      "itemSix": "Nachbereitung und Feedback"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Verhandlungsunterstützung starten",
+                  "href": "/kontakt"
+                }
+              }
+            },
+            "smvideo": {
+              "Diamond": {
+                "title": "Social Media & Video",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Social Media & Video"
+                }
+              },
+              "Components": {
+                "titleOne": "Warum sind Social Media & Video wichtig?",
+                "descriptionOne": "Gezielte Social-Media-Strategien und professionelle Videoinhalte steigern Reichweite, Vertrauen und Leads für Ihr Projekt. Wir verbinden technisches Know‑how mit ansprechender Kommunikation.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Unser Team erstellt zielgruppengerechte Kampagnen, produziert hochwertige Videos und sorgt für messbare Ergebnisse — von Awareness bis Konversion.",
+                "button": {
+                  "text": "Jetzt Social Media & Video anfragen",
+                  "href": "/kontakt"
+                },
+                "boxes": {
+                  "social-media": {
+                    "title": "Strategie & Management",
+                    "description": "Konzeption, Community‑Aufbau und kanalübergreifendes Management für nachhaltiges Wachstum.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Social Media"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Social Media",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "video-production": {
+                    "title": "Video Produktion",
+                    "description": "Vom Konzept über Dreh bis Postproduktion: emotionale Videos, die Ihre Botschaft transportieren.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Video Produktion"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Video",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "analytics": {
+                    "title": "Tracking & Optimierung",
+                    "description": "Kontinuierliche Auswertung, A/B‑Tests und Optimierung für maximale Kampagnenperformance.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
+                      "alt": "Analytics"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Analytics",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch Social Media & Video:",
+                    "list": {
+                      "itemOne": "Mehr Sichtbarkeit und Markenbekanntheit",
+                      "itemTwo": "Höhere Kundenbindung durch emotionale Inhalte",
+                      "itemThree": "Qualifizierte Leads und Umsatzsteigerung",
+                      "itemFour": "Konsistente Markenkommunikation",
+                      "itemFive": "Effiziente Nutzung von Werbebudgets",
+                      "itemSix": "Messbare Kampagnenergebnisse"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft unser Social Media & Video Service ab:",
+                    "list": {
+                      "itemOne": "Briefing & Zieldefinition",
+                      "itemTwo": "Konzeptentwicklung (Content- & Mediaplan)",
+                      "itemThree": "Produktion: Dreh & Postproduktion",
+                      "itemFour": "Ausspielung auf relevanten Kanälen",
+                      "itemFive": "Monitoring & Optimierung",
+                      "itemSix": "Reporting mit klaren KPIs"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Social Media & Video starten",
+                  "href": "/kontakt"
+                }
+              }
+            }
+          }
+        },
         "beratung": {
-          "title": "Beratung",
+          "title": "Beratung & Engineering",
           "SubServices": {
             "analysen": {
               "Diamond": {
@@ -2468,68 +2938,63 @@
                   "href": "/kontakt"
                 }
               }
-            }
-          }
-        },
-        "marketing": {
-          "title": "Marketing",
-          "SubServices": {
-            "projektakquise": {
+            },
+            "behoerdeverfahren": {
               "Diamond": {
-                "title": "Projektakquise",
+                "title": "Behördenverfahren",
                 "backgroundImage": {
                   "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaik"
+                  "alt": "Behördenverfahren"
                 }
               },
               "Components": {
-                "titleOne": "Warum ist professionelle Projektakquise entscheidend?",
-                "descriptionOne": "Mit gezielter Projektakquise sichern Sie sich frühzeitig die besten Chancen am Markt. Wir identifizieren passende Projekte, analysieren Potenziale und begleiten Sie von der ersten Idee bis zum erfolgreichen Abschluss.",
+                "titleOne": "Warum sind Behördenverfahren wichtig?",
+                "descriptionOne": "Behördenverfahren sichern die Rechtssicherheit Ihres Projekts: Genehmigungen, Meldepflichten und Auflagen werden geprüft und korrekt umgesetzt, damit Ihr Vorhaben rechtskonform und fristgerecht realisiert werden kann.",
                 "titleTwo": "Warum wir?",
-                "descriptionTwo": "Profitieren Sie von unserem Netzwerk, unserer Erfahrung und unserer Handschlagqualität. Wir bringen Sie mit den richtigen Partnern zusammen und sorgen für eine reibungslose Umsetzung.",
+                "descriptionTwo": "Wir übernehmen die komplette Kommunikation mit Behörden, bereiten Einreichunterlagen vor und begleiten Sie durch Bewilligungsverfahren, Einsprüche und Nachforderungsprozesse.",
                 "button": {
-                  "text": "Jetzt Projektchancen sichern",
+                  "text": "Verfahren anfragen",
                   "href": "/kontakt"
                 },
                 "boxes": {
-                  "solar-panels": {
-                    "title": "Gezielte Marktanalyse",
-                    "description": "Wir finden für Sie die passenden Projekte und Partner.",
+                  "genehmigungsPrüfung": {
+                    "title": "Genehmigungsprüfung",
+                    "description": "Prüfung, ob Ihr Vorhaben genehmigungspflichtig ist und welche Unterlagen (Pläne, Stellungnahmen) erforderlich sind.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule"
+                      "alt": "Genehmigungsprüfung"
                     },
                     "icon": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule",
+                      "alt": "Prüfung",
                       "width": "32",
                       "height": "32"
                     }
                   },
-                  "inverters": {
-                    "title": "Effiziente Kontaktaufnahme",
-                    "description": "Wir übernehmen die Ansprache und Koordination mit allen Beteiligten.",
+                  "einreichungUnterlagen": {
+                    "title": "Einreichung & Fristenmanagement",
+                    "description": "Erstellung und fristgerechte Einreichung aller erforderlichen Dokumente sowie Nachverfolgung von Verfahrensschritten.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Wechselrichter"
+                      "alt": "Einreichung"
                     },
                     "icon": {
                       "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
+                      "alt": "Einreichung",
                       "width": "32",
                       "height": "32"
                     }
                   },
-                  "batteries": {
-                    "title": "Schneller Projektstart",
-                    "description": "Durch strukturierte Prozesse bringen wir Ihr Projekt zügig auf den Weg.",
+                  "behördenkommunikation": {
+                    "title": "Behördenkommunikation",
+                    "description": "Koordination und Abstimmung mit Bau- und Umweltbehörden, Netzbetreibern und sonstigen Stellen – inkl. Klärung offener Fragen und Einholung notwendiger Bescheide.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Batteriespeicher"
+                      "alt": "Behördenkommunikation"
                     },
                     "icon": {
                       "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
+                      "alt": "Kommunikation",
                       "width": "32",
                       "height": "32"
                     }
@@ -2539,90 +3004,90 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Ihre Vorteile durch professionelle Projektakquise:",
+                    "title": "Ihre Vorteile durch fachkundige Behördenbetreuung:",
                     "list": {
-                      "itemOne": "Frühzeitige Identifikation von Chancen",
-                      "itemTwo": "Gezielte Ansprache potenzieller Kunden",
-                      "itemThree": "Effiziente Projektkoordination",
-                      "itemFour": "Schneller Zugang zu relevanten Netzwerken",
-                      "itemFive": "Höhere Erfolgsquote bei der Projektumsetzung",
-                      "itemSix": "Transparente Kommunikation und Betreuung"
+                      "itemOne": "Rechtssichere Projektabwicklung",
+                      "itemTwo": "Minimierung von Verzögerungen",
+                      "itemThree": "Professionelle Einreichunterlagen",
+                      "itemFour": "Klärung technischer & rechtlicher Fragen",
+                      "itemFive": "Optimierte Chancen auf Bewilligung",
+                      "itemSix": "Entlastung für Auftraggeber"
                     }
                   },
                   "boxRight": {
-                    "title": "So läuft die Projektakquise ab:",
+                    "title": "So läuft ein Behördenverfahren ab:",
                     "list": {
-                      "itemOne": "Erstgespräch und Zieldefinition",
-                      "itemTwo": "Marktanalyse und Projektidentifikation",
-                      "itemThree": "Kontaktaufnahme und Qualifizierung",
-                      "itemFour": "Vorstellung und Vermittlung passender Projekte",
-                      "itemFive": "Begleitung bis zum Vertragsabschluss",
-                      "itemSix": "Nachbetreuung und Feedback"
+                      "itemOne": "Erstgespräch & Bestandsaufnahme",
+                      "itemTwo": "Prüfung der Genehmigungspflicht und Dokumentenliste",
+                      "itemThree": "Erstellung und Vervollständigung der Einreichunterlagen",
+                      "itemFour": "Formelle Einreichung und Fristenmanagement",
+                      "itemFive": "Abstimmung mit Behörden & Durchführung von Nachreichungen",
+                      "itemSix": "Erhalt des Bescheids und Vorbereitung der Umsetzung"
                     }
                   }
                 },
                 "button": {
-                  "text": "Projektchancen nutzen",
+                  "text": "Jetzt Verfahren starten",
                   "href": "/kontakt"
                 }
               }
             },
-            "energievertrieb": {
+            "planung": {
               "Diamond": {
-                "title": "Energievertrieb",
+                "title": "Planung",
                 "backgroundImage": {
                   "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaik"
+                  "alt": "Planung"
                 }
               },
               "Components": {
-                "titleOne": "Warum ist professioneller Energievertrieb wichtig?",
-                "descriptionOne": "Ein strukturierter Energievertrieb erschließt neue Märkte und Kunden. Wir unterstützen Sie bei der Vermarktung Ihrer Energieprodukte und sorgen für nachhaltigen Absatz.",
+                "titleOne": "Warum ist sorgfältige Planung wichtig?",
+                "descriptionOne": "Eine fundierte Planung legt den Grundstein für effiziente, termingerechte und kostensichere Projekte. Sie minimiert Risiken und schafft klare Umsetzungsschritte.",
                 "titleTwo": "Warum wir?",
-                "descriptionTwo": "Wir verfügen über Erfahrung im Energiemarkt, ein breites Netzwerk und setzen moderne Vertriebsmethoden ein.",
+                "descriptionTwo": "Unser Team erstellt detaillierte Planungsunterlagen, berücksichtigt lokale Vorschriften und erstellt praktikable Umsetzungspläne für Ihr Vorhaben.",
                 "button": {
-                  "text": "Jetzt Energievertrieb starten",
+                  "text": "Planung anfragen",
                   "href": "/kontakt"
                 },
                 "boxes": {
-                  "solar-panels": {
-                    "title": "Marktzugang",
-                    "description": "Wir bringen Ihre Energieprodukte zu den richtigen Kunden.",
+                  "projektplanung": {
+                    "title": "Projektplanung",
+                    "description": "Konzept, Meilensteine und Zeitplan für die reibungslose Umsetzung Ihres Projekts.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule"
+                      "alt": "Projektplanung"
                     },
                     "icon": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule",
+                      "alt": "Planung",
                       "width": "32",
                       "height": "32"
                     }
                   },
-                  "inverters": {
-                    "title": "Vertriebsstrategie",
-                    "description": "Wir entwickeln und realisieren individuelle Vertriebskonzepte.",
+                  "technischeplanung": {
+                    "title": "Technische Planung",
+                    "description": "Auslegung von Modulen, Wechselrichtern, Speicher und Schnittstellen für maximale Effizienz.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Wechselrichter"
+                      "alt": "Technische Planung"
                     },
                     "icon": {
                       "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
+                      "alt": "Technik",
                       "width": "32",
                       "height": "32"
                     }
                   },
-                  "batteries": {
-                    "title": "Kundenbindung",
-                    "description": "Wir begleiten Sie von der Akquise bis zur langfristigen Kundenbeziehung.",
+                  "genehmigungsplanung": {
+                    "title": "Genehmigungsplanung",
+                    "description": "Erstellung der Einreichunterlagen und Koordination mit Behörden für rechtssichere Umsetzung.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Batteriespeicher"
+                      "alt": "Genehmigungsplanung"
                     },
                     "icon": {
                       "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
+                      "alt": "Genehmigung",
                       "width": "32",
                       "height": "32"
                     }
@@ -2632,315 +3097,37 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Ihre Vorteile durch Energievertrieb:",
+                    "title": "Ihre Vorteile durch professionelle Planung:",
                     "list": {
-                      "itemOne": "Neukundengewinnung",
-                      "itemTwo": "Erweiterung Ihres Marktanteils",
-                      "itemThree": "Professionelle Vermarktung",
-                      "itemFour": "Langfristige Kundenbindung",
-                      "itemFive": "Effiziente Vertriebsprozesse",
-                      "itemSix": "Transparente Kommunikation"
+                      "itemOne": "Klarer Projektfahrplan und Verantwortlichkeiten",
+                      "itemTwo": "Reduzierte Kosten durch vorausschauende Planung",
+                      "itemThree": "Verlässliche Termine und Ressourcenplanung",
+                      "itemFour": "Rechtssichere Unterlagen für Genehmigungen und Förderungen",
+                      "itemFive": "Früherkennung von Risiken und passende Gegenmaßnahmen",
+                      "itemSix": "Transparente Dokumentation für alle Projektphasen"
                     }
                   },
                   "boxRight": {
-                    "title": "So läuft der Energievertrieb ab:",
+                    "title": "So läuft die Planung ab:",
                     "list": {
-                      "itemOne": "Analyse Ihrer Produkte",
-                      "itemTwo": "Entwicklung einer Vertriebsstrategie",
-                      "itemThree": "Kundenansprache und Akquise",
-                      "itemFour": "Vertragsabschluss",
-                      "itemFive": "Kundenbetreuung",
-                      "itemSix": "Feedback und Optimierung"
+                      "itemOne": "Erstgespräch zur Zieldefinition",
+                      "itemTwo": "Bestandsaufnahme und Datensammlung",
+                      "itemThree": "Technische Auslegung und Variantenprüfung",
+                      "itemFour": "Kosten- und Zeitplanung",
+                      "itemFive": "Erstellung der Einreich- und Ausführungsunterlagen",
+                      "itemSix": "Abstimmung mit Behörden und Projektpartnern"
                     }
                   }
                 },
                 "button": {
-                  "text": "Energievertrieb starten",
-                  "href": "/kontakt"
-                }
-              }
-            },
-            "mediation": {
-              "Diamond": {
-                "title": "Mediation",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Mediation"
-                }
-              },
-              "Components": {
-                "titleOne": "Warum ist Mediation wichtig?",
-                "descriptionOne": "Mediation löst Konflikte konstruktiv, spart Zeit und Kosten und bewahrt Geschäftsbeziehungen. Durch moderierte Gespräche werden Interessen sichtbar und tragfähige Lösungen erarbeitet.",
-                "titleTwo": "Warum wir?",
-                "descriptionTwo": "Unsere Mediatoren bringen Erfahrung, Neutralität und Fingerspitzengefühl mit. Wir begleiten Parteien durch den gesamten Prozess und sorgen für nachhaltige, faire Vereinbarungen.",
-                "button": {
-                  "text": "Jetzt Mediation anfragen",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "Konfliktprävention",
-                    "description": "Frühzeitiges Erkennen und Entschärfen von Konflikten verhindert Eskalationen und Verzögerungen.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Konfliktprävention"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Prävention",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Moderation & Vermittlung",
-                    "description": "Strukturierte Moderation sorgt für klare Kommunikation und lösungsorientierte Verhandlungen.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Moderation"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Moderation",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Nachhaltige Einigungen",
-                    "description": "Wir begleiten die Umsetzung der Vereinbarungen und sichern damit langfristige, tragfähige Lösungen.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Einigungen"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Einigung",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Ihre Vorteile durch Mediation:",
-                    "list": {
-                      "itemOne": "Schnelle und vertrauliche Konfliktlösung",
-                      "itemTwo": "Kosteneffiziente Alternative zu Gerichtsverfahren",
-                      "itemThree": "Erhalt von Geschäfts- und Kundenbeziehungen",
-                      "itemFour": "Transparente und faire Gesprächsführung",
-                      "itemFive": "Individuell abgestimmte Vereinbarungen",
-                      "itemSix": "Umsetzbare Lösungen statt Prozesstragödien"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "So läuft eine Mediation ab:",
-                    "list": {
-                      "itemOne": "Kontaktaufnahme und Erstklärung",
-                      "itemTwo": "Unabhängige Bestandsaufnahme der Sachlage",
-                      "itemThree": "Moderierte Gesprächsrunden mit allen Parteien",
-                      "itemFour": "Erarbeitung von Lösungsvorschlägen",
-                      "itemFive": "Vereinbarung, Dokumentation und Umsetzungsbegleitung",
-                      "itemSix": "Nachbetreuung und Evaluation"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Mediation starten",
-                  "href": "/kontakt"
-                }
-              }
-            },
-            "verhandlungsunterstützung": {
-              "Diamond": {
-                "title": "Verhandlungsunterstützung",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaik"
-                }
-              },
-              "Components": {
-                "titleOne": "Warum ist Verhandlungsunterstützung wichtig?",
-                "descriptionOne": "Professionelle Begleitung bei Verhandlungen sorgt für faire, transparente und erfolgreiche Ergebnisse. Wir unterstützen Sie bei der Vorbereitung, Durchführung und Nachbereitung von Verhandlungen.",
-                "titleTwo": "Warum wir?",
-                "descriptionTwo": "Unsere Experten bringen Erfahrung, Neutralität und Fingerspitzengefühl mit, um Ihre Interessen optimal zu vertreten.",
-                "button": {
-                  "text": "Jetzt Verhandlungsunterstützung anfragen",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "Vorbereitung",
-                    "description": "Wir analysieren Ihre Ziele und bereiten die Verhandlung strategisch vor.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Moderation",
-                    "description": "Wir moderieren die Gespräche und sorgen für einen strukturierten Ablauf.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Wechselrichter"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Ergebnisdokumentation",
-                    "description": "Wir dokumentieren die Ergebnisse und unterstützen bei der Umsetzung.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Batteriespeicher"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Ihre Vorteile durch Verhandlungsunterstützung:",
-                    "list": {
-                      "itemOne": "Bessere Verhandlungsergebnisse",
-                      "itemTwo": "Transparente Kommunikation",
-                      "itemThree": "Neutralität und Objektivität",
-                      "itemFour": "Schnelle Einigung",
-                      "itemFive": "Dokumentation der Ergebnisse",
-                      "itemSix": "Nachhaltige Umsetzung"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "So läuft die Verhandlungsunterstützung ab:",
-                    "list": {
-                      "itemOne": "Analyse und Zieldefinition",
-                      "itemTwo": "Strategische Vorbereitung",
-                      "itemThree": "Moderation der Verhandlung",
-                      "itemFour": "Dokumentation der Ergebnisse",
-                      "itemFive": "Unterstützung bei der Umsetzung",
-                      "itemSix": "Nachbereitung und Feedback"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Verhandlungsunterstützung starten",
-                  "href": "/kontakt"
-                }
-              }
-            },
-            "smvideo": {
-              "Diamond": {
-                "title": "SM & Video",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "SM & Video"
-                }
-              },
-              "Components": {
-                "titleOne": "Warum sind Social Media & Video wichtig?",
-                "descriptionOne": "Gezielte Social-Media-Strategien und professionelle Videoinhalte steigern Reichweite, Vertrauen und Leads für Ihr Projekt. Wir verbinden technisches Know‑how mit ansprechender Kommunikation.",
-                "titleTwo": "Warum wir?",
-                "descriptionTwo": "Unser Team erstellt zielgruppengerechte Kampagnen, produziert hochwertige Videos und sorgt für messbare Ergebnisse — von Awareness bis Konversion.",
-                "button": {
-                  "text": "Jetzt SM & Video anfragen",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "social-media": {
-                    "title": "Strategie & Management",
-                    "description": "Konzeption, Community‑Aufbau und kanalübergreifendes Management für nachhaltiges Wachstum.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Social Media"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Social Media",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "video-production": {
-                    "title": "Video Produktion",
-                    "description": "Vom Konzept über Dreh bis Postproduktion: emotionale Videos, die Ihre Botschaft transportieren.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Video Produktion"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Video",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "analytics": {
-                    "title": "Tracking & Optimierung",
-                    "description": "Kontinuierliche Auswertung, A/B‑Tests und Optimierung für maximale Kampagnenperformance.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                      "alt": "Analytics"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Analytics",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Ihre Vorteile durch SM & Video:",
-                    "list": {
-                      "itemOne": "Mehr Sichtbarkeit und Markenbekanntheit",
-                      "itemTwo": "Höhere Kundenbindung durch emotionale Inhalte",
-                      "itemThree": "Qualifizierte Leads und Umsatzsteigerung",
-                      "itemFour": "Konsistente Markenkommunikation",
-                      "itemFive": "Effiziente Nutzung von Werbebudgets",
-                      "itemSix": "Messbare Kampagnenergebnisse"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "So läuft unser SM & Video Service ab:",
-                    "list": {
-                      "itemOne": "Briefing & Zieldefinition",
-                      "itemTwo": "Konzeptentwicklung (Content- & Mediaplan)",
-                      "itemThree": "Produktion: Dreh & Postproduktion",
-                      "itemFour": "Ausspielung auf relevanten Kanälen",
-                      "itemFive": "Monitoring & Optimierung",
-                      "itemSix": "Reporting mit klaren KPIs"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "SM & Video starten",
+                  "text": "Jetzt Planung starten",
                   "href": "/kontakt"
                 }
               }
             }
           }
         },
+
         "service": {
           "title": "Service",
           "SubServices": {
@@ -3126,6 +3313,99 @@
                 },
                 "button": {
                   "text": "Wartung starten",
+                  "href": "/kontakt"
+                }
+              }
+            },
+            "Monitoring": {
+              "Diamond": {
+                "title": "Monitoring",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaik"
+                }
+              },
+              "Components": {
+                "titleOne": "Warum ist Monitoring wichtig?",
+                "descriptionOne": "Echtzeit‑Monitoring ermöglicht die kontinuierliche Überwachung Ihrer Anlage und erkennt Auffälligkeiten, bevor sie zu Ausfällen oder Ertragsverlusten führen.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Unsere Experten setzen moderne Monitoring‑Tools ein, analysieren Daten automatisiert und leiten bei Abweichungen umgehend Maßnahmen ein.",
+                "button": {
+                  "text": "Jetzt Monitoring anfragen",
+                  "href": "/kontakt"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "24/7 Anlagenüberwachung",
+                    "description": "Laufende Prüfung der Ertragsdaten und Performance‑Indikatoren Ihrer Solarmodule.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Überwachung",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Fehlererkennung & Alarmierung",
+                    "description": "Automatische Erkennung von Wechselrichter‑Abweichungen und sofortige Benachrichtigung an unser Service‑Team.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Wechselrichter"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Alarm",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Batterie‑Status & Lebensdaueranalyse",
+                    "description": "Kontinuierliche Überwachung von Ladezustand, Zyklen und Temperatur zur Optimierung der Betriebsdauer.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Batteriespeicher"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Batterie Monitoring",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch Monitoring:",
+                    "list": {
+                      "itemOne": "Echtzeit‑Erkennungen statt reaktiver Reparaturen",
+                      "itemTwo": "Schnelle Störfallreaktion durch automatische Alarme",
+                      "itemThree": "Höhere Anlagenverfügbarkeit und Stabilität",
+                      "itemFour": "Optimierte Betriebskosten durch gezielte Eingriffe",
+                      "itemFive": "Langfristige Leistungsanalyse und Trendauswertung",
+                      "itemSix": "Transparente Berichte für Betreiber und Versicherungen"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft das Monitoring ab:",
+                    "list": {
+                      "itemOne": "Anbindung Ihrer Anlage an unser Monitoring‑System",
+                      "itemTwo": "Kontinuierliche Datenerfassung und -speicherung",
+                      "itemThree": "Automatisierte Analyse und Erkennung von Auffälligkeiten",
+                      "itemFour": "Sofortige Alarmierung und Priorisierung durch unser Team",
+                      "itemFive": "Einleitung von Maßnahmen oder Vor-Ort‑Einsätzen bei Bedarf",
+                      "itemSix": "Regelmäßige Berichte und Handlungsempfehlungen"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Monitoring starten",
                   "href": "/kontakt"
                 }
               }
@@ -3507,148 +3787,55 @@
                 }
               }
             },
-            "Prozessüberwachung": {
+            "Projektmanagement": {
               "Diamond": {
-                "title": "Prozessüberwachung",
+                "title": "Projektmanagement",
                 "backgroundImage": {
                   "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
                   "alt": "Photovoltaik"
                 }
               },
               "Components": {
-                "titleOne": "Warum ist Prozessüberwachung wichtig?",
-                "descriptionOne": "Durch kontinuierliche Überwachung der Prozesse werden Fehler frühzeitig erkannt und behoben. So bleibt Ihr Projekt auf Kurs.",
+                "titleOne": "Warum ist professionelles Projektmanagement wichtig?",
+                "descriptionOne": "Ein zentrales Projektmanagement vereint Prozess- und Projektüberwachung: Fortschritt, Kosten, Zeitpläne und Qualität werden kontinuierlich überwacht, Abweichungen frühzeitig erkannt und Korrekturmaßnahmen schnell eingeleitet.",
                 "titleTwo": "Warum wir?",
-                "descriptionTwo": "Wir setzen moderne Tools zur Prozessüberwachung ein und reagieren schnell auf Abweichungen.",
+                "descriptionTwo": "Wir kombinieren digitale Monitoring-Tools mit erfahrener Projektsteuerung, um Termine, Budget und Qualität sicherzustellen und transparente Berichte für alle Beteiligten zu liefern.",
                 "button": {
-                  "text": "Jetzt Prozessüberwachung anfragen",
+                  "text": "Jetzt Projektmanagement anfragen",
                   "href": "/kontakt"
                 },
                 "boxes": {
-                  "solar-panels": {
-                    "title": "Kontinuierliches Monitoring",
-                    "description": "Wir überwachen alle Projektphasen digital und vor Ort.",
+                  "planung": {
+                    "title": "Zentrale Planung & Steuerung",
+                    "description": "Wir koordinieren Ressourcen, Zeitpläne und Abläufe für einen reibungslosen Projektverlauf.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule"
+                      "alt": "Planung"
                     },
                     "icon": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule",
+                      "alt": "Planung",
                       "width": "32",
                       "height": "32"
                     }
                   },
-                  "inverters": {
-                    "title": "Früherkennung von Problemen",
-                    "description": "Abweichungen werden sofort erkannt und gemeldet.",
+                  "monitoring": {
+                    "title": "Kontinuierliches Monitoring",
+                    "description": "Digitales und vor-Ort-Monitoring stellt sicher, dass Abweichungen sofort erkannt und kommuniziert werden.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Wechselrichter"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Schnelle Korrekturmaßnahmen",
-                    "description": "Wir greifen sofort ein, um Verzögerungen zu vermeiden.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Batteriespeicher"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Ihre Vorteile durch Prozessüberwachung:",
-                    "list": {
-                      "itemOne": "Frühzeitige Fehlererkennung",
-                      "itemTwo": "Schnelle Reaktion auf Abweichungen",
-                      "itemThree": "Höhere Qualitätssicherung",
-                      "itemFour": "Transparente Abläufe",
-                      "itemFive": "Minimierung von Verzögerungen",
-                      "itemSix": "Effizienter Projektverlauf"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "So läuft die Prozessüberwachung ab:",
-                    "list": {
-                      "itemOne": "Einrichtung digitaler Überwachung",
-                      "itemTwo": "Laufende Kontrolle aller Prozesse",
-                      "itemThree": "Meldung von Abweichungen",
-                      "itemFour": "Korrekturmaßnahmen einleiten",
-                      "itemFive": "Dokumentation",
-                      "itemSix": "Abschlussbericht"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Prozessüberwachung starten",
-                  "href": "/kontakt"
-                }
-              }
-            },
-            "Projektüberwachung": {
-              "Diamond": {
-                "title": "Projektüberwachung",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaik"
-                }
-              },
-              "Components": {
-                "titleOne": "Warum ist Projektüberwachung wichtig?",
-                "descriptionOne": "Das Projekt wird von Anfang an fortlaufend überwacht, indem Fortschritt, Kosten, Zeitpläne und Ressourcen systematisch erfasst, analysiert und kontrolliert werden.",
-                "titleTwo": "Warum wir?",
-                "descriptionTwo": "Dadurch wird sicher gestellt, dass die Projektziele pünktlich, im Budget und mit den gewünschten Ergebnissen erreicht werden.",
-                "button": {
-                  "text": "Jetzt Projektüberwachung anfragen",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "Kontinuierliches Monitoring",
-                    "description": "Laufende Prüfung der Arbeiten und zeitnahe Meldung von Abweichungen.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Monitoring"
                     },
                     "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
                       "alt": "Monitoring",
                       "width": "32",
                       "height": "32"
                     }
                   },
-                  "inverters": {
-                    "title": "Schnelle Problemerkennung",
-                    "description": "Frühe Identifikation von Risiken und Einleitung von Gegenmaßnahmen.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Problemerkennung"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Problemerkennung",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
+                  "dokumentation": {
                     "title": "Detaillierte Dokumentation",
-                    "description": "Lückenlose Aufzeichnung des Projektfortschritts und der Maßnahmen.",
+                    "description": "Lückenlose Aufzeichnung von Fortschritt, Maßnahmen und Ergebnissen für Nachverfolgbarkeit und Lessons Learned.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Dokumentation"
@@ -3665,30 +3852,30 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Ihre Vorteile durch Projektüberwachung:",
+                    "title": "Ihre Vorteile durch unser Projektmanagement:",
                     "list": {
-                      "itemOne": "Frühe Risikoerkennung",
-                      "itemTwo": "Sichere Einhaltung von Zeitplänen",
-                      "itemThree": "Qualitätssicherung",
-                      "itemFour": "Transparente Berichterstattung",
-                      "itemFive": "Geringere Nacharbeiten",
-                      "itemSix": "Kostenkontrolle"
+                      "itemOne": "Frühzeitige Risiko- und Fehlererkennung",
+                      "itemTwo": "Einhaltung von Zeitplänen und Budget",
+                      "itemThree": "Höhere Qualitätssicherung",
+                      "itemFour": "Transparente und regelmäßige Berichterstattung",
+                      "itemFive": "Minimierung von Nacharbeiten",
+                      "itemSix": "Effizienter, planbarer Projektverlauf"
                     }
                   },
                   "boxRight": {
-                    "title": "So läuft die Projektüberwachung ab:",
+                    "title": "So läuft unser Projektmanagement ab:",
                     "list": {
-                      "itemOne": "Einrichtung des Monitorings und Reporting-Prozesses",
-                      "itemTwo": "Regelmäßige Baustellen- und Ablaufkontrollen",
-                      "itemThree": "Dokumentation von Fortschritt und Abweichungen",
-                      "itemFour": "Kommunikation mit allen Beteiligten",
-                      "itemFive": "Einleitung und Nachverfolgung von Korrekturmaßnahmen",
+                      "itemOne": "Einrichtung von Monitoring- und Reporting-Prozessen",
+                      "itemTwo": "Regelmäßige Kontrolle von Fortschritt, Kosten und Ressourcen",
+                      "itemThree": "Sofortige Meldung und Analyse von Abweichungen",
+                      "itemFour": "Einleitung und Nachverfolgung von Korrekturmaßnahmen",
+                      "itemFive": "Fortlaufende Dokumentation",
                       "itemSix": "Abschlussbericht und Lessons Learned"
                     }
                   }
                 },
                 "button": {
-                  "text": "Projektüberwachung starten",
+                  "text": "Projektmanagement starten",
                   "href": "/kontakt"
                 }
               }
@@ -3782,6 +3969,99 @@
                 },
                 "button": {
                   "text": "Bauaufsicht starten",
+                  "href": "/kontakt"
+                }
+              }
+            },
+            "Bauausfuehrung": {
+              "Diamond": {
+                "title": "Bauausführung",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaik"
+                }
+              },
+              "Components": {
+                "titleOne": "Warum ist eine professionelle Bauausführung wichtig?",
+                "descriptionOne": "Eine fachgerechte Bauausführung stellt sicher, dass Planung in zuverlässige Umsetzung übergeht, Termine eingehalten werden und die Qualität der Arbeiten dauerhaft gewährleistet ist.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Unsere Teams koordinieren Gewerke, führen Arbeiten nach technischen Vorgaben aus und sorgen für eine saubere, termingerechte Abwicklung bis zur Abnahme.",
+                "button": {
+                  "text": "Jetzt Bauausführung anfragen",
+                  "href": "/kontakt"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Fachgerechte Ausführung",
+                    "description": "Wir führen alle Arbeiten nach aktuellen Standards und Vorgaben professionell und sicher aus.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Baufortschritt dokumentieren",
+                    "description": "Wir dokumentieren Meilensteine und Arbeitsergebnisse transparent für Sie.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Wechselrichter"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Schnelle Problemlösung",
+                    "description": "Bei Abweichungen oder Herausforderungen greifen wir sofort ein und sorgen für praktikable Lösungen.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Batteriespeicher"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch professionelle Bauausführung:",
+                    "list": {
+                      "itemOne": "Fachgerechte Umsetzung gemäß Planung",
+                      "itemTwo": "Lückenlose Dokumentation aller Arbeitsschritte",
+                      "itemThree": "Schnelle und pragmatische Problemlösung",
+                      "itemFour": "Qualitätssicherung und Prüfungen",
+                      "itemFive": "Transparente Kommunikation für Bauherren",
+                      "itemSix": "Termintreue und verlässliche Abnahme"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft die Bauausführung ab:",
+                    "list": {
+                      "itemOne": "Koordination und Terminplanung der Gewerke",
+                      "itemTwo": "Vorbereitung und Materialbereitstellung",
+                      "itemThree": "Fachgerechte Montage und Ausführung",
+                      "itemFour": "Fortlaufende Dokumentation und Qualitätstests",
+                      "itemFive": "Abstimmung mit Auftraggebern und Partnern",
+                      "itemSix": "Endabnahme und Übergabe"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Bauausführung starten",
                   "href": "/kontakt"
                 }
               }
@@ -7328,7 +7608,7 @@
           "titleLower": "<p>Maximal unabhängig, versorgungssicher & zukunftsorientiert</p>",
           "description": "Schluss mit verschenktem Sonnenstrom – nutzen Sie Ihre eigene, saubere Energie, wann immer Sie es wollen.",
           "backgroundImage": {
-            "src": "https://synergy-webservices-assets.b-cdn.net//frontend/landingPage/products/AA%2520Wallbox%2520AdobeStock_762399295.jpeg",
+            "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/products/Strompeicher_large.jpg",
             "alt": "Photovoltaik"
           },
           "button": {
@@ -8727,17 +9007,17 @@
             "children": {
               "title": "Alle Produkte",
               "list": {
-                "productAll": {
-                  "title": "Alle Produkte",
+                "productOne": {
+                  "title": "Photovoltaik",
                   "imageSrc": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                   "alt": "Photovoltaik Module mit Speicher",
                   "href": "/focus/photovoltaik"
                 },
-                "productOne": {
-                  "title": "Photovoltaik & Stromspeicher",
-                  "imageSrc": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                "productStromspeicher": {
+                  "title": "Stromspeicher",
+                  "imageSrc": "/frontend/landingPage/products/stromspeicher.jpg",
                   "alt": "Photovoltaik Module mit Speicher",
-                  "href": "/focus/photovoltaik"
+                  "href": "/focus/stromspeicher"
                 },
                 "productTwo": {
                   "title": "Wärmepumpen",

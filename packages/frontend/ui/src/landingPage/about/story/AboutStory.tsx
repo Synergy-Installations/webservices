@@ -12,29 +12,26 @@ export const AboutStory = (props: AboutStoryProps) => {
           <div className="max-w-3xl mx-auto">
             <div className="text-lg text-slate-500">
               <h2 className="h3 text-4xl font-bold font-inter text-slate-800 mb-4">
-                Unsere Geschichte
+                Wer sind wir und was machen wir?
               </h2>
               <p className="mb-4">
-                Synergie.cc ergab sich aus einer Chance das Projektmanagement
-                der Errichtung von Photovoltaikanlagen zu revolutionieren. Da
-                eigentlich die gesamtheitliche Betrachtung von Energiesystemen
-                und -gemeinschaften ein Herzensprojekt ist, Ortschaften
-                unabhängig sich selbst mit Energie versorgen zu können. Da
-                großes Interesse am Anlagenbau an sich besteht und durch
-                wachsende Partnerschaften, IT und Marketing stetig an Bedeutung
-                gewinnen, entwickelt sich nun dadurch das neuartige Firmenmodell
-                mit den Divisions Anlagen, Management und Gemeinschaften.
+                Wir als SYNERGIE MONTAGEN schaffen Unabhängigkeit, indem wir
+                Ihre Projektabwicklung und das Prozessmanagement mit
+                Preisstabilität begleiten.
               </p>
               <p className="mb-4">
-                Somit arbeiten wir mit unseren Partnern und gemeinsames
-                Engagement daran, sämtliche Produkte und Leistungen aus
-                dem Energie Sektor aus einer Hand mit Begeisterung und
-                Leidenschaft anbieten zu können.
-                <br />
+                Gemeinsam mit unseren Partnern unterstützen wir Sie bei der
+                Auftragsgewinnung, Planung, Beratung, Materialbeschaffung,
+                Montage, örtliche Bauaufsicht, Projektmanagement sowie bei
+                Wartung und Service. Unsere Zielgruppe liegt flächendeckend am
+                Energiemarkt mit den drei Schwerpunkten Anlagen, Management und
+                Gemeinschaften. In den letzten 2,5 Jahren konnten wir mit mehr
+                als 30 Kunden und Partner über 500 Projekte erfolgreich
+                realisieren.
               </p>
               <p className="mb-8">
-                Wir spielen mit offenen Karten – Transparenz gilt als wichtiger
-                Treiber und bildet eine stabile Geschäfts- und Kundenbeziehung.
+                Wir übernehmen Verantwortung – mit Kundenfokus &
+                Handschlagqualität.
               </p>
               <p className="mb-4">Das Synergie Montagen Team</p>
               <Image

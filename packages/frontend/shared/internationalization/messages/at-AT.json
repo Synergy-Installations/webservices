@@ -4410,8 +4410,8 @@
             "required": "false"
           },
           "productSelection": {
-            "type": "selection",
-            "label": "Für welches Produkt interessieren Sie sich?",
+            "type": "multipleSelection",
+            "label": "Für welche Produkte interessieren Sie sich?",
             "options": {
               "optionGoogle": {
                 "text": "Wärmepumpen & Heizsysteme"
@@ -4453,10 +4453,64 @@
             },
             "required": "false"
           },
+          "servicesSelection": {
+            "type": "multipleSelection",
+            "label": "Für welche Leistungen interessieren Sie sich?",
+            "options": {
+              "optionGoogle": {
+                "text": "Projektaquise"
+              },
+              "optionTwitter": {
+                "text": "Energievertrieb"
+              },
+              "optionMouthToMouth": {
+                "text": "Mediation"
+              },
+              "optionsOne": {
+                "text": "Verhandlungsunterstützung"
+              },
+              "optionsTwo": {
+                "text": "Social Media & Video"
+              },
+              "optionGoogle2": {
+                "text": "Analysen"
+              },
+              "optionTwitter2": {
+                "text": "Machbarkeitsstudien"
+              },
+              "optionMouthToMouth2": {
+                "text": "Technische Unterstützung"
+              },
+              "optionsOne2": {
+                "text": "Konzeptdesign"
+              },
+              "optionsTwo2": {
+                "text": "Energieausweis"
+              },
+              "optionGoogle3": {
+                "text": "Behördverfahren"
+              },
+              "optionTwitter3": {
+                "text": "Planung"
+              }
+            },
+            "required": "false"
+          },
+          "fileUpload": {
+            "type": "fileUpload",
+            "label": "Teilen Sie uns Ihre Unterlagen mit",
+            "required": "false",
+            "region": "",
+            "hostname": "storage.bunnycdn.com",
+            "storageZoneName": "synergy-webservices-assets",
+            "maxFileSize": 500000000,
+            "allowedTypes": ["image/*", "application/pdf", ".doc,.docx"],
+            "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+          },
           "message": {
             "type": "textarea",
             "label": "Projektdetails",
-            "placeholder": "Teilen Sie Ihre Anforderungen",
+            "placeholder": "Teilen Sie Ihre Anforderungen und ihre Kundenwünsche mit",
             "defaultValue": "",
             "required": "true"
           }
@@ -9085,11 +9139,6 @@
           "changelog": {
             "text": "Über uns",
             "href": "/about-us",
-            "children": ""
-          },
-          "Kontakt": {
-            "text": "Kontakt",
-            "href": "/kontakt",
             "children": ""
           }
         },

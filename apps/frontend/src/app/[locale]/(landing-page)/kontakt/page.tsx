@@ -45,7 +45,9 @@ export default function Page(): JSX.Element {
             </div>
 
             {/* Form */}
-            <Form />
+            <Form
+              STORAGE_ZONE_ACCESS_KEY={process.env.STORAGE_ZONE_ACCESS_KEY}
+            />
           </div>
         </div>
       </section>

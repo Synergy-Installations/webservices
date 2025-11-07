@@ -27,7 +27,7 @@ export const AboutStory = (props: AboutStoryProps) => {
               </p>
               <p className="mb-4">
                 Somit arbeiten wir mit unseren Partnern und gemeinsames
-                Engagement daran, sämtliche Produkte und Dienstleistungen aus
+                Engagement daran, sämtliche Produkte und Leistungen aus
                 dem Energie Sektor aus einer Hand mit Begeisterung und
                 Leidenschaft anbieten zu können.
                 <br />

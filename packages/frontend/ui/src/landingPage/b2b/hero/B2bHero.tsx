@@ -23,7 +23,7 @@ export const B2bHero = (props: B2bHeroProps) => {
       <div className="absolute inset-0 bg-black bg-opacity-60" />
       <div className="relative container mx-auto px-6 lg:px-0 flex flex-col justify-end items-start h-full text-white space-y-4">
         <p className="uppercase tracking-widest font-semibold text-sm lg:text-base">
-          Dienstleistungen
+          Leistungen
         </p>
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
           Services für Betriebe aus dem Energiesektor
@@ -34,7 +34,7 @@ export const B2bHero = (props: B2bHeroProps) => {
         <p className="max-w-2xl text-sm md:text-base">
           Mit der Expertise unserer firmeninternen Fachkräfte aus den
           unterschiedlichsten Gewerken helfen wir Ihnen dabei, Ihre
-          Dienstleistungen in der Anlagenerrichtung voranzutreiben als auch Ihre
+          Leistungen in der Anlagenerrichtung voranzutreiben als auch Ihre
           derzeitigen Prozesse zu optimieren.
         </p>
         <div className="flex flex-col sm:flex-col-reverse justify-start items-center md:items-start w-full sm:w-auto">

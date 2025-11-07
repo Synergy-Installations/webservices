@@ -11,7 +11,7 @@ import ServiceWrapper from "@com.synergy/frontend-ui/ServiceWrapper";
 
 export const metadata = {
   alternates: {
-    canonical: "https://synergie.cc/dienstleistungen",
+    canonical: "https://synergie.cc/leistungen",
   },
 };
 

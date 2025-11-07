@@ -228,21 +228,23 @@ export const DiamondClips = (props: DiamondClipsProps) => {
           />
 
           {/* Content Container */}
-          <div className="absolute inset-0 flex items-center justify-center p-4">
+          <div className="absolute inset-0 flex items-center justify-center p-2">
             <span
               lang="en"
               className="text-white text-sm md:text-base lg:text-lg font-bold text-center leading-tight"
               style={{
-                display: "-webkit-box",
-                WebkitLineClamp: 2,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
+                display: "block",
                 whiteSpace: "normal",
-                wordBreak: "normal",
+                wordBreak: "break-word",
                 hyphens: "auto",
                 WebkitHyphens: "auto",
+                MozHyphens: "auto",
                 msHyphens: "auto",
+                overflowWrap: "break-word",
+                wordWrap: "break-word",
+                maxWidth: "100%",
+                maxHeight: "100%",
+                overflow: "visible",
               }}
             >
               {text}

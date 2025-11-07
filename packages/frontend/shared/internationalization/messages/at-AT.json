@@ -3602,95 +3602,95 @@
             },
             "Projektüberwachung": {
               "Diamond": {
-              "title": "Projektüberwachung",
-              "backgroundImage": {
-                "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                "alt": "Photovoltaik"
-              }
+                "title": "Projektüberwachung",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaik"
+                }
               },
               "Components": {
-              "titleOne": "Warum ist Projektüberwachung wichtig?",
-              "descriptionOne": "Das Projekt wird von Anfang an fortlaufend überwacht, indem Fortschritt, Kosten, Zeitpläne und Ressourcen systematisch erfasst, analysiert und kontrolliert werden.",
-              "titleTwo": "Warum wir?",
-              "descriptionTwo": "Dadurch wird sicher gestellt, dass die Projektziele pünktlich, im Budget und mit den gewünschten Ergebnissen erreicht werden.",
-              "button": {
-                "text": "Jetzt Projektüberwachung anfragen",
-                "href": "/kontakt"
-              },
-              "boxes": {
-                "solar-panels": {
-                "title": "Kontinuierliches Monitoring",
-                "description": "Laufende Prüfung der Arbeiten und zeitnahe Meldung von Abweichungen.",
-                "image": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Monitoring"
+                "titleOne": "Warum ist Projektüberwachung wichtig?",
+                "descriptionOne": "Das Projekt wird von Anfang an fortlaufend überwacht, indem Fortschritt, Kosten, Zeitpläne und Ressourcen systematisch erfasst, analysiert und kontrolliert werden.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Dadurch wird sicher gestellt, dass die Projektziele pünktlich, im Budget und mit den gewünschten Ergebnissen erreicht werden.",
+                "button": {
+                  "text": "Jetzt Projektüberwachung anfragen",
+                  "href": "/kontakt"
                 },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                  "alt": "Monitoring",
-                  "width": "32",
-                  "height": "32"
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Kontinuierliches Monitoring",
+                    "description": "Laufende Prüfung der Arbeiten und zeitnahe Meldung von Abweichungen.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Monitoring"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Monitoring",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Schnelle Problemerkennung",
+                    "description": "Frühe Identifikation von Risiken und Einleitung von Gegenmaßnahmen.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Problemerkennung"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Problemerkennung",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Detaillierte Dokumentation",
+                    "description": "Lückenlose Aufzeichnung des Projektfortschritts und der Maßnahmen.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Dokumentation"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Dokumentation",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
                 }
-                },
-                "inverters": {
-                "title": "Schnelle Problemerkennung",
-                "description": "Frühe Identifikation von Risiken und Einleitung von Gegenmaßnahmen.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                  "alt": "Problemerkennung"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Problemerkennung",
-                  "width": "32",
-                  "height": "32"
-                }
-                },
-                "batteries": {
-                "title": "Detaillierte Dokumentation",
-                "description": "Lückenlose Aufzeichnung des Projektfortschritts und der Maßnahmen.",
-                "image": {
-                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                  "alt": "Dokumentation"
-                },
-                "icon": {
-                  "src": "/frontend/landingPage/icons/icon-plan.svg",
-                  "alt": "Dokumentation",
-                  "width": "32",
-                  "height": "32"
-                }
-                }
-              }
               },
               "Background": {
-              "boxes": {
-                "boxLeft": {
-                "title": "Ihre Vorteile durch Projektüberwachung:",
-                "list": {
-                  "itemOne": "Frühe Risikoerkennung",
-                  "itemTwo": "Sichere Einhaltung von Zeitplänen",
-                  "itemThree": "Qualitätssicherung",
-                  "itemFour": "Transparente Berichterstattung",
-                  "itemFive": "Geringere Nacharbeiten",
-                  "itemSix": "Kostenkontrolle"
-                }
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch Projektüberwachung:",
+                    "list": {
+                      "itemOne": "Frühe Risikoerkennung",
+                      "itemTwo": "Sichere Einhaltung von Zeitplänen",
+                      "itemThree": "Qualitätssicherung",
+                      "itemFour": "Transparente Berichterstattung",
+                      "itemFive": "Geringere Nacharbeiten",
+                      "itemSix": "Kostenkontrolle"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft die Projektüberwachung ab:",
+                    "list": {
+                      "itemOne": "Einrichtung des Monitorings und Reporting-Prozesses",
+                      "itemTwo": "Regelmäßige Baustellen- und Ablaufkontrollen",
+                      "itemThree": "Dokumentation von Fortschritt und Abweichungen",
+                      "itemFour": "Kommunikation mit allen Beteiligten",
+                      "itemFive": "Einleitung und Nachverfolgung von Korrekturmaßnahmen",
+                      "itemSix": "Abschlussbericht und Lessons Learned"
+                    }
+                  }
                 },
-                "boxRight": {
-                "title": "So läuft die Projektüberwachung ab:",
-                "list": {
-                  "itemOne": "Einrichtung des Monitorings und Reporting-Prozesses",
-                  "itemTwo": "Regelmäßige Baustellen- und Ablaufkontrollen",
-                  "itemThree": "Dokumentation von Fortschritt und Abweichungen",
-                  "itemFour": "Kommunikation mit allen Beteiligten",
-                  "itemFive": "Einleitung und Nachverfolgung von Korrekturmaßnahmen",
-                  "itemSix": "Abschlussbericht und Lessons Learned"
+                "button": {
+                  "text": "Projektüberwachung starten",
+                  "href": "/kontakt"
                 }
-                }
-              },
-              "button": {
-                "text": "Projektüberwachung starten",
-                "href": "/kontakt"
-              }
               }
             },
             "Örtliche Bauaufsicht": {
@@ -4113,12 +4113,12 @@
         "elements": {
           "name": {
             "type": "text",
-            "label": "Name *",
+            "label": "Name",
             "placeholder": "Patrick Rossi",
             "required": "false"
           },
           "email": {
-            "label": "Email *",
+            "label": "Email",
             "type": "text",
             "placeholder": "patrick.rossi@icloud.com",
             "required": "true"
@@ -4175,9 +4175,9 @@
           },
           "message": {
             "type": "textarea",
-            "label": "Projektdetails *",
+            "label": "Projektdetails",
             "placeholder": "Teilen Sie Ihre Anforderungen",
-            "defaultValue": "Stromverbrauch: \nSpeicher: Ja/Nein \nMontageort: \nSonstige Wünsche: \nAddresse Bauvorhaben: ",
+            "defaultValue": "",
             "required": "true"
           }
         },
@@ -8721,29 +8721,35 @@
             "href": "/dienstleistungen",
             "children": ""
           },
-          "products": {
+          "produkte": {
             "text": "Produkte",
-            "href": "/products",
+            "href": "/produkte",
             "children": {
-              "title": "Unsere Produkte",
+              "title": "Alle Produkte",
               "list": {
+                "productAll": {
+                  "title": "Alle Produkte",
+                  "imageSrc": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                  "alt": "Photovoltaik Module mit Speicher",
+                  "href": "/focus/photovoltaik"
+                },
                 "productOne": {
                   "title": "Photovoltaik & Stromspeicher",
                   "imageSrc": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                   "alt": "Photovoltaik Module mit Speicher",
-                  "href": "/products#photovoltaic"
+                  "href": "/focus/photovoltaik"
                 },
                 "productTwo": {
                   "title": "Wärmepumpen",
                   "imageSrc": "/frontend/landingPage/products/heat-pump-orange.jpg",
                   "alt": "Wärmepumpe Gerät",
-                  "href": "/products#heat-pump"
+                  "href": "/focus/waermepumpe"
                 },
                 "productThree": {
                   "title": "Klimasysteme",
                   "imageSrc": "/frontend/landingPage/products/close-up-shot-of-air-conditioner-hanging-on-white-2024-11-19-02-00-43-utc.jpeg",
                   "alt": "Klimaanlage",
-                  "href": "/products#air-conditioning"
+                  "href": "/focus/klimasysteme"
                 },
                 "productFive": {
                   "title": "Energiegemeinschaften",
@@ -8755,13 +8761,13 @@
                   "title": "Smart Home",
                   "imageSrc": "/frontend/landingPage/products/AA%2520Smart%2520Home.jpeg",
                   "alt": "Smart Home System",
-                  "href": "/products#smart-home"
+                  "href": "/focus/smart-home"
                 },
                 "productSix": {
                   "title": "Stromtankstelle",
                   "imageSrc": "/frontend/landingPage/products/AA%2520Wallbox%2520AdobeStock_762399295.jpeg",
                   "alt": "Stromtankstelle",
-                  "href": "/products#wallbox"
+                  "href": "/focus/stromtankstelle"
                 },
                 "productSeven": {
                   "title": "Notstrom Versorgung",
@@ -8799,6 +8805,11 @@
           "changelog": {
             "text": "Über uns",
             "href": "/about-us",
+            "children": ""
+          },
+          "Kontakt": {
+            "text": "Kontakt",
+            "href": "/kontakt",
             "children": ""
           }
         },

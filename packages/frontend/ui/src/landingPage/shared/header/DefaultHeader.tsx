@@ -24,11 +24,15 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
     );
   };
 
+  const isDropdownALink = (navKey: string): boolean => {
+    return messages.LandingPage.Shared.Header.nav[navKey].href !== undefined;
+  };
+
   return (
     <header className="fixed top-2 xs:top-1 z-50 w-full">
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="hidden xs:flex justify-center xs:justify-end xs:mb-1">
-          <div className="grid xs:flex gap-8 justify-center w-full xs:w-max backdrop-blur-sm bg-white/70 px-2 py-[2px] rounded-lg">
+        <div className="hidden xs:flex justify-center gap-4 xs:justify-end xs:mb-1">
+          <div className="grid xs:flex gap-4 justify-center w-full xs:w-max backdrop-blur-sm bg-white/70 px-2 py-[2px] rounded-lg">
             <a
               href={`mailto:office@synergie.cc?subject=Neue Anfrage&body=Guten Tag,%0D%0A%0D%0Ahiermit gebe ich meine Anforderungen und Wünsche bekannt:%0D%0A%0D%0ALeistungsgröße: %0D%0AVerbrauch: %0D%0ASpeicher: Ja/Nein %0D%0AInstallationsort: %0D%0ASonstige Wünsche: %0D%0A%0D%0AMeine Kontaktdaten sind: %0D%0AName: %0D%0ATelefonnummer: %0D%0A%0D%0AFG`}
               className="text-synergy-dark-grey hover:underline text-center hidden xs:block"
@@ -41,6 +45,14 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
             >
               +43 664 244 87 42
             </a>
+          </div>
+          <div className="grid xs:flex gap-8 justify-center w-full xs:w-max backdrop-blur-sm bg-white/70 px-2 py-[2px] rounded-lg">
+            <Link
+              href="/dashboard"
+              className="text-synergy-dark-grey hover:underline text-center hidden xs:block"
+            >
+              Member login
+            </Link>
           </div>
         </div>
         <div className="relative flex h-14 items-center justify-between gap-3 rounded-2xl bg-white/90 pl-3 pr-[6px] shadow-lg shadow-black/[0.03] backdrop-blur-sm before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(theme(colors.gray.100),theme(colors.gray.200))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]">
@@ -86,16 +98,17 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
                             .children.list[childKey].imageSrc !== undefined
                       );
                       const ulClass = hasImages
-                        ? "grid grid-cols-1 md:grid-cols-3 gap-4"
+                        ? "grid grid-cols-1 md:grid-cols-3 gap-2"
                         : "flex flex-col gap-2";
                       return (
                         <DefaultDropdown
                           key={index}
                           title={t(`nav.${navKey}.text`)}
+                          href={isDropdownALink(navKey) ? t(`nav.${navKey}.href`) : undefined}
                           className={`absolute left-1/2 -translate-x-1/2 top-8 mt-2 w-screen ${hasImages ? "max-w-md md:max-w-lg lg:max-w-lg" : "max-w-min"} bg-white rounded-2xl shadow-lg ring-1 ring-black ring-opacity-5`}
                         >
-                          <div className="p-4">
-                            <h3 className="text-lg font-semibold text-gray-800 mb-4 whitespace-nowrap">
+                          <div className="p-4 max-h-[calc(100vh-8rem)] overflow-y-auto">
+                            <h3 className="text-lg font-semibold underline text-gray-800 mb-4 whitespace-nowrap">
                               {t(`nav.${navKey}.children.title`)}
                             </h3>
                             <ul className={ulClass}>
@@ -113,7 +126,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
                                       href={t(
                                         `nav.${navKey}.children.list.${childKey}.href`
                                       )}
-                                      className="flex flex-col items-center p-3 hover:bg-green-50 rounded-lg transition"
+                                      className="flex flex-col items-center p-4 hover:bg-green-50 rounded-lg transition"
                                     >
                                       <div className="relative w-16 h-16 mb-2">
                                         <Image
@@ -193,7 +206,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
                 </span>
               </Link>
             </li>
-            <li className="hidden sm:block md:hidden lg:block">
+            {/* <li className="hidden sm:block md:hidden lg:block">
               <Link
                 href={"/dashboard"}
                 className="btn !rounded-[10px] backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue text-white group"
@@ -201,11 +214,11 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
                 <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
                   Member Login
                   <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
-                    {/* {"->"} */}
+                     {"->"}
                   </span>
                 </span>
               </Link>
-            </li>
+            </li> */}
           </ul>
 
           <MobileMenu />

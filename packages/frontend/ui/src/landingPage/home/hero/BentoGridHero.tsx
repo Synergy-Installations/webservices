@@ -145,7 +145,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
           <header className="mb-4 md:mb-10 text-center">
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 leading-normal">
               Innovative <AuroraText>Synergielösungen</AuroraText>{" "}
-              <div className="block sm:hidden"></div> für Ihr Zuhause
+              <div className="block sm:hidden"></div> für Ihr Energiesystem
             </h1>
             <h2 className="text-2xl md:text-3xl text-synergy-dark-grey text-slate-90 font-bold py-4 break-words hyphens-auto">
               Ihr Anbieter für ganzheitliche Energielösungen

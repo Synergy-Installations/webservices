@@ -174,46 +174,84 @@ export const Form = (props: FormProps) => {
   };
 
   return (
-    <div className="max-w-[25rem] mx-auto p-6 rounded-lg shadow-2xl bg-gradient-to-b from-slate-100 to-slate-50/.7 relative before:absolute before:-top-12 before:-left-16 before:w-96 before:h-96 before:bg-slate-900 before:opacity-[.15] before:rounded-full before:blur-3xl before:-z-10">
-      <form>
-        <div className="space-y-4">
+    <div className="max-w-lg mx-auto">
+      <form className="space-y-8">
+        {/* Optional subtle header without container */}
+        <div className="text-center mb-8">
+          <div className="flex items-center justify-center space-x-3 mb-4">
+            <div className="w-2 h-2 rounded-full bg-synergy-light-blue"></div>
+            <h3 className="text-2xl font-semibold text-synergy-dark-grey">
+              Kontakt aufnehmen
+            </h3>
+            <div className="w-2 h-2 rounded-full bg-synergy-light-blue"></div>
+          </div>
+          <p className="text-base text-gray-600 max-w-md mx-auto">
+            Wir freuen uns auf Ihre Anfrage und melden uns schnellstmöglich bei
+            Ihnen.
+          </p>
+        </div>
+
+        <div className="space-y-6">
           {formElementKeys.map((elementKey, index) => {
             const element = formElements[elementKey];
             if (element.type === "selection") {
               return (
-                <div key={index}>
+                <div key={index} className="group">
                   <label
-                    className="block text-sm font-medium mb-2"
+                    className="block text-sm font-semibold text-synergy-dark-grey mb-3 transition-colors group-focus-within:text-synergy-light-blue"
                     htmlFor={elementKey}
                   >
                     {element.label}
+                    {element.required && (
+                      <span className="text-synergy-light-blue ml-1">*</span>
+                    )}
                   </label>
-                  <select
-                    id={elementKey}
-                    className="form-select w-full font-inter"
-                    required={element.required}
-                    onChange={(e) => handleChange(e, elementKey, element)}
-                  >
-                    {Object.keys(element.options).map((optionKey, index) => (
-                      <option key={index} className="font-inter">
-                        {element.options[optionKey].text}
-                      </option>
-                    ))}
-                  </select>
+                  <div className="relative">
+                    <select
+                      id={elementKey}
+                      className="w-full px-4 py-4 bg-white border-2 border-synergy-light-grey rounded-xl text-synergy-dark-grey font-medium transition-all duration-200 focus:border-synergy-light-blue focus:outline-none focus:ring-4 focus:ring-synergy-light-blue/20 hover:border-synergy-light-blue/50 appearance-none cursor-pointer shadow-sm"
+                      required={element.required}
+                      onChange={(e) => handleChange(e, elementKey, element)}
+                    >
+                      {Object.keys(element.options).map((optionKey, index) => (
+                        <option key={index} className="font-medium py-2">
+                          {element.options[optionKey].text}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                      <svg
+                        className="w-5 h-5 text-synergy-dark-grey"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
               );
             } else if (element.type === "textarea") {
               return (
-                <div key={index}>
+                <div key={index} className="group">
                   <label
-                    className="block text-sm font-medium mb-2"
+                    className="block text-sm font-semibold text-synergy-dark-grey mb-3 transition-colors group-focus-within:text-synergy-light-blue"
                     htmlFor={elementKey}
                   >
                     {element.label}
+                    {element.required && (
+                      <span className="text-synergy-light-blue ml-1">*</span>
+                    )}
                   </label>
                   <textarea
                     id={elementKey}
-                    className="form-textarea text-sm w-full"
+                    className="w-full px-4 py-4 bg-white border-2 border-synergy-light-grey rounded-xl text-synergy-dark-grey placeholder-gray-400 transition-all duration-200 focus:border-synergy-light-blue focus:outline-none focus:ring-4 focus:ring-synergy-light-blue/20 hover:border-synergy-light-blue/50 resize-none shadow-sm"
                     rows={5}
                     value={element.value}
                     onChange={(e) => handleChange(e, elementKey, element, 0)}
@@ -224,16 +262,19 @@ export const Form = (props: FormProps) => {
               );
             } else {
               return (
-                <div key={index}>
+                <div key={index} className="group">
                   <label
-                    className="block text-sm text-slate-800 font-medium mb-2"
+                    className="block text-sm font-semibold text-synergy-dark-grey mb-3 transition-colors group-focus-within:text-synergy-light-blue"
                     htmlFor={elementKey}
                   >
                     {element.label}
+                    {element.required && (
+                      <span className="text-synergy-light-blue ml-1">*</span>
+                    )}
                   </label>
                   <input
                     id={elementKey}
-                    className="form-input text-sm w-full"
+                    className="w-full px-4 py-4 bg-white border-2 border-synergy-light-grey rounded-xl text-synergy-dark-grey placeholder-gray-400 transition-all duration-200 focus:border-synergy-light-blue focus:outline-none focus:ring-4 focus:ring-synergy-light-blue/20 hover:border-synergy-light-blue/50 shadow-sm"
                     type="text"
                     onChange={(e) => handleChange(e, elementKey, element)}
                     placeholder={element.placeholder}
@@ -244,32 +285,61 @@ export const Form = (props: FormProps) => {
             }
           })}
         </div>
-        <div className="mt-5">
+
+        <div className="space-y-2 pt-4">
           <button
             type="submit"
             onClick={(e) => sendEmail(e)}
-            className="btn text-slate-100 bg-slate-900 hover:bg-slate-800 w-full shadow disabled:cursor-not-allowed"
+            className="w-full !rounded-[10px] backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue text-white font-semibold py-4 px-6 transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-synergy-light-blue/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:hover:scale-100 shadow-lg"
             disabled={buttonStatusText.disabled}
           >
-            {t("button.text")}
+            <span className="flex items-center justify-center space-x-2">
+              <span>{t("button.text")}</span>
+              {!buttonStatusText.disabled && (
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                  />
+                </svg>
+              )}
+            </span>
           </button>
-          <div
-            className={`${buttonStatusText.fatal ? "text-red-500" : "text-green-500"} text-center mt-2`}
-          >
-            {buttonStatusText.text}
+
+          {buttonStatusText.text && (
+            <div
+              className={`p-4 rounded-xl text-sm font-medium text-center shadow-sm ${
+                buttonStatusText.fatal
+                  ? "bg-red-50 text-red-700 border border-red-200"
+                  : "bg-green-50 text-green-700 border border-green-200"
+              }`}
+            >
+              {buttonStatusText.text}
+            </div>
+          )}
+        </div>
+
+        {/* Footer without background container */}
+        <div className="text-center">
+          <div className="text-xs text-gray-500">
+            Mit dem Absenden stimmen Sie unseren{" "}
+            <Link
+              className="text-synergy-light-blue hover:text-synergy-light-blue/80 font-medium transition-colors"
+              href="/datenschutz"
+            >
+              Datenschutzrichtlinien
+            </Link>{" "}
+            zu.
           </div>
         </div>
       </form>
-
-      <div className="text-center mt-6">
-        <div className="text-xs text-slate-500">
-          Mit dem Absenden stimmen Sie unseren{" "}
-          <Link className="underline hover:no-underline" href="/datenschutz">
-            Datenschutzrichtlinien
-          </Link>{" "}
-          zu.
-        </div>
-      </div>
     </div>
   );
 };

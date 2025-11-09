@@ -351,23 +351,35 @@
             "description": "Our solar power plant turns you into a self-reliant climate champion.",
             "image": {
               "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-              "alt": "Photovoltaic"
+              "alt": "Photovoltaic modules with memory"
             },
             "button": {
               "text": "Learn more",
-              "href": "/products#photovoltaic"
+              "href": "/focus/photovoltaics"
+            }
+          },
+          "power-storage": {
+            "title": "Power Storage",
+            "description": "Store surplus solar power safely and access it whenever you need energy.",
+            "image": {
+              "src": "/frontend/landingPage/products/stromspeicher.jpg",
+              "alt": "Photovoltaic modules with memory"
+            },
+            "button": {
+              "text": "Learn more",
+              "href": "/focus/power-storage"
             }
           },
           "heatpump": {
-            "title": "Heat Systems",
-            "description": "Rely on our heat systems for a cozy home powered by your own energy.",
+            "title": "Heat pumps",
+            "description": "Harness ambient energy for efficient heating and cooling all year long.",
             "image": {
-              "src": "/frontend/landingPage/products/AA%2520W%25C3%25A4rmepumpe%2520AdobeStock_622637179.jpeg",
-              "alt": "Photovoltaic"
+              "src": "/frontend/landingPage/products/heat-pump-orange.jpg",
+              "alt": "Heat pump device"
             },
             "button": {
               "text": "Learn more",
-              "href": "/products#heat-pump"
+              "href": "/focus/heat-pump"
             }
           },
           "heat-exchange": {
@@ -375,11 +387,23 @@
             "description": "Enjoy perfectly balanced indoor comfort tailored to your needs.",
             "image": {
               "src": "/frontend/landingPage/products/close-up-shot-of-air-conditioner-hanging-on-white-2024-11-19-02-00-43-utc.jpeg",
-              "alt": "Photovoltaic"
+              "alt": "Air Conditioning"
             },
             "button": {
               "text": "Learn more",
-              "href": "/products#air-conditioning"
+              "href": "/focus/climate-systems"
+            }
+          },
+          "energy-communities": {
+            "title": "Energy Communities",
+            "description": "Share and trade clean electricity within a transparent community.",
+            "image": {
+              "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
+              "alt": "Energy Communities"
+            },
+            "button": {
+              "text": "Learn more",
+              "href": "/focus/energy-community"
             }
           },
           "smart-home": {
@@ -387,35 +411,83 @@
             "description": "Indulge in intuitive controls that are effortless to use and fully automated.",
             "image": {
               "src": "/frontend/landingPage/products/AA%2520Smart%2520Home.jpeg",
-              "alt": "Photovoltaic"
+              "alt": "Smart Home System"
             },
             "button": {
               "text": "Learn more",
-              "href": "/products#smart-home"
+              "href": "/focus/smart-home"
             }
           },
-          "battery": {
-            "title": "Energy Management",
-            "description": "Keep production and consumption perfectly in sync.",
-            "image": {
-              "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-              "alt": "Photovoltaic"
-            },
-            "button": {
-              "text": "Learn more",
-              "href": "/products#energy-management"
-            }
-          },
-          "wallbox": {
-            "title": "Wallbox",
-            "description": "Step up to effortless mobility with a wallbox tailored to you.",
+          "charging-station": {
+            "title": "Charging Station",
+            "description": "Step up to effortless mobility with a charging solution tailored to you.",
             "image": {
               "src": "/frontend/landingPage/products/AA%2520Wallbox%2520AdobeStock_762399295.jpeg",
-              "alt": "Photovoltaic"
+              "alt": "Charging Station"
             },
             "button": {
               "text": "Learn more",
-              "href": "/products#wallbox"
+              "href": "/focus/charging-station"
+            }
+          },
+          "emergency-power": {
+            "title": "Emergency Power Supply",
+            "description": "Keep critical loads online with resilient backup power concepts.",
+            "image": {
+              "src": "/frontend/landingPage/products/notstromversorgung.svg",
+              "alt": "Emergency Power Supply"
+            },
+            "button": {
+              "text": "Learn more",
+              "href": "/focus/emergency-power"
+            }
+          },
+          "balcony-power-plant": {
+            "title": "Balcony power plant",
+            "description": "Generate solar energy even in compact spaces with plug-and-play balcony kits.",
+            "image": {
+              "src": "/frontend/landingPage/focus/Heat-Pump/Balkonkraftwerk.jpg",
+              "alt": "Balcony power plant"
+            },
+            "button": {
+              "text": "Learn more",
+              "href": "/focus/balkonkraftwerk"
+            }
+          },
+          "energy-cost-advisory": {
+            "title": "Energy costs -Consultation",
+            "description": "Get data-driven insights that uncover savings on tariffs and consumption.",
+            "image": {
+              "src": "/frontend/landingPage/products/a-hand-holding-the-electricity-bill-and-euro-bankn-2025-03-13-01-30-07-utc.jpeg",
+              "alt": "Complete System Package"
+            },
+            "button": {
+              "text": "Learn more",
+              "href": "/focus/energy-cost-advisory"
+            }
+          },
+          "hot-water": {
+            "title": "Autarke hot water production",
+            "description": "Produce hot water independently by combining solar power and smart controls.",
+            "image": {
+              "src": "/frontend/landingPage/products/boiling-water-splash-with-steam-on-black-backgroun-2025-03-13-11-28-22-utc.jpeg",
+              "alt": "Energy costs consulting"
+            },
+            "button": {
+              "text": "Learn more",
+              "href": "/focus/autarke-warmwasser-erzeugung"
+            }
+          },
+          "maintenance-service": {
+            "title": "Maintenance & Service",
+            "description": "Protect your investment with proactive inspections and rapid on-site service.",
+            "image": {
+              "src": "/frontend/landingPage/products/certified-male-electrician-installing-home-ev-char-2024-10-18-05-46-25-utc.jpeg",
+              "alt": "Maintenance & Service"
+            },
+            "button": {
+              "text": "Learn more",
+              "href": "/focus/wartung-service"
             }
           }
         },
@@ -1203,6 +1275,202 @@
             "alt": "Client 06",
             "width": "100",
             "height": "40"
+          },
+          "Aerocompact": {
+            "src": "/frontend/landingPage/clients/aerocompact%20logo.png",
+            "alt": "Client 01",
+            "width": "200",
+            "height": "50",
+            "href": "https://www.aerocompact.com"
+          },
+          "Energy3000": {
+            "src": "/frontend/landingPage/clients/energy3000%20CMYK%20transparent.png",
+            "alt": "Client 02",
+            "width": "100",
+            "height": "50",
+            "href": "https://energy3000.com"
+          },
+          "Wuerth": {
+            "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
+            "alt": "Client 03",
+            "width": "200",
+            "height": "50",
+            "href": "https://www.wuerth.at"
+          },
+          "EandB": {
+            "src": "/frontend/landingPage/clients/logo_eb.png",
+            "alt": "Client 04",
+            "width": "200",
+            "height": "13",
+            "href": "https://www.eb-haustechnik.at"
+          },
+          "Fronius": {
+            "src": "/frontend/landingPage/clients/LOGO_Fronius_RGB_high_300dpi.jpg",
+            "alt": "Client 05",
+            "width": "200",
+            "height": "18",
+            "href": "https://www.fronius.at"
+          },
+          "SHT": {
+            "src": "/frontend/landingPage/clients/SHT_logo_4C.png",
+            "alt": "Client 06",
+            "width": "100",
+            "height": "50",
+            "href": "https://www.sht-gruppe.at"
+          },
+          "Sonepar": {
+            "src": "/frontend/landingPage/clients/Sonepar%20logo%20RGB_Tagline.svg",
+            "alt": "Client 07",
+            "width": "200",
+            "height": "50",
+            "href": "https://www.sonepar.at"
+          },
+          "Partner08": {
+            "src": "/frontend/landingPage/clients/00-Sigenergy-Logo.png.webp",
+            "alt": "Client 08",
+            "width": "200",
+            "height": "34",
+            "href": "https://www.sigenergy.com"
+          },
+          "Partner09": {
+            "src": "/frontend/landingPage/clients/0x0.png",
+            "alt": "Client 09",
+            "width": "200",
+            "height": "44",
+            "href": "https://de.growatt.com"
+          },
+          "Partner11": {
+            "src": "/frontend/landingPage/clients/989_Category.png",
+            "alt": "Client 10",
+            "width": "200",
+            "height": "40",
+            "href": "https://www.solaxpower.com"
+          },
+          "Partner12": {
+            "src": "/frontend/landingPage/clients/Altamira_2_color_stacked_large.png",
+            "alt": "Client 10",
+            "width": "200",
+            "height": "40",
+            "href": "https://e-altamira.at"
+          },
+          "Partner13": {
+            "src": "/frontend/landingPage/clients/Bosch-logo.svg",
+            "alt": "Client 10",
+            "width": "200",
+            "height": "40",
+            "href": "https://www.bosch.at"
+          },
+          "Partner14": {
+            "src": "/frontend/landingPage/clients/Buderus-logo.svg",
+            "alt": "Client 10",
+            "width": "200",
+            "height": "40",
+            "href": "https://www.buderus.at"
+          },
+          "Partner15": {
+            "src": "/frontend/landingPage/clients/BYD_Company%2C_Ltd._-_Logo.svg",
+            "alt": "Client 10",
+            "width": "200",
+            "height": "40",
+            "href": "https://www.bydauto.at"
+          },
+          "Partner16": {
+            "src": "/frontend/landingPage/clients/DAIKIN_Logo_rgb.png",
+            "alt": "Client 10",
+            "width": "200",
+            "height": "40",
+            "href": "https://www.daikin.at"
+          },
+          "Partner17": {
+            "src": "/frontend/landingPage/clients/FE_S_Blau_Horiz_RGB-1.png",
+            "alt": "Client 10",
+            "width": "200",
+            "height": "40",
+            "href": "https://fenecon.de"
+          },
+          "Partner18": {
+            "src": "/frontend/landingPage/clients/hargassner-logo-neg-entzerrt-vereinfacht-ohne-claim3farbig-dunkelgrau.svg",
+            "alt": "Client 10",
+            "width": "200",
+            "height": "40",
+            "href": "https://www.hargassner.com"
+          },
+          "Partner19": {
+            "src": "/frontend/landingPage/clients/Hoval_Logo.svg",
+            "alt": "Client 10",
+            "width": "200",
+            "height": "40",
+            "href": "https://www.hoval.at"
+          },
+          "Partner20": {
+            "src": "/frontend/landingPage/clients/Huawei_Standard_logo.svg",
+            "alt": "Client 10",
+            "width": "100",
+            "height": "40",
+            "href": "https://www.huawei.com"
+          },
+          "Partner21": {
+            "src": "/frontend/landingPage/clients/logo_idm_waermepumpen-scaled-e1610953520283.jpg",
+            "alt": "Client 10",
+            "width": "100",
+            "height": "40",
+            "href": "https://www.idm-energie.at"
+          },
+          "Partner22": {
+            "src": "/frontend/landingPage/clients/images.png",
+            "alt": "Client 10",
+            "width": "200",
+            "height": "40",
+            "href": "https://www.ochsner.com"
+          },
+          "Partner23": {
+            "src": "/frontend/landingPage/clients/logo-2.svg",
+            "alt": "Client 10",
+            "width": "100",
+            "height": "40",
+            "href": "https://k2-systems.com"
+          },
+          "Partner24": {
+            "src": "/frontend/landingPage/clients/KNX_logo.svg",
+            "alt": "Client 10",
+            "width": "200",
+            "height": "40",
+            "href": "https://www.knxaustria.at"
+          },
+          "Partner25": {
+            "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
+            "alt": "Client 10",
+            "width": "200",
+            "height": "40",
+            "href": "https://www.wuerth.at"
+          },
+          "Partner26": {
+            "src": "/frontend/landingPage/clients/logo_eb.png",
+            "alt": "Client 10",
+            "width": "200",
+            "height": "40",
+            "href": "https://www.eb-kantteile.at"
+          },
+          "Partner27": {
+            "src": "/frontend/landingPage/clients/Logo_Fro%CC%88ling.JPG",
+            "alt": "Client 10",
+            "width": "200",
+            "height": "40",
+            "href": "https://www.froeling.com"
+          },
+          "Partner28": {
+            "src": "/frontend/landingPage/clients/Logo_SMA.svg",
+            "alt": "Client 10",
+            "width": "200",
+            "height": "40",
+            "href": "https://www.sma.de"
+          },
+          "Partner29": {
+            "src": "/frontend/landingPage/clients/LOGO-LAMBDA-1.png",
+            "alt": "Client 10",
+            "width": "200",
+            "height": "40",
+            "href": "https://lambda-wp.at"
           }
         }
       }

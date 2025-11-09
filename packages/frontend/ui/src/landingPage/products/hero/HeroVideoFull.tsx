@@ -65,7 +65,7 @@ export const HeroVideoFull = (props: HeroVideoFullProps) => {
           {t("title")}
         </h1>
         <div className="flex flex-col sm:flex-col-reverse justify-start items-center sm:items-start">
-          <div className="grid grid-cols-2 sm:mt-12 gap-2 sm:gap-5">
+          {/* <div className="grid grid-cols-2 sm:mt-12 gap-2 sm:gap-5">
             {productPreviewKeys.map((productPreviewKey, index) => (
               <ProductPreviewSmall
                 name={t(`productPreviewSmall.${productPreviewKey}.title`)}
@@ -80,8 +80,8 @@ export const HeroVideoFull = (props: HeroVideoFullProps) => {
                 key={index}
               />
             ))}
-          </div>
-          <div className="relative mx-auto grid xs:flex gap-4 lg:mx-0 sm:w-fit mt-12 sm:mt-0 before:hidden before:absolute before:inset-0 before:border-y before:[border-image:linear-gradient(to_right,transparent,theme(colors.slate.300/.8),transparent)1]">
+          </div> */}
+          <div className="relative mx-auto grid xs:flex gap-4 lg:mx-0 sm:w-fit mt-32 sm:mt-0 before:hidden before:absolute before:inset-0 before:border-y before:[border-image:linear-gradient(to_right,transparent,theme(colors.slate.300/.8),transparent)1]">
             <div className="relative mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center items-center">
               <Link
                 className="btn group mb-0 !py-4 !px-5 !text-lg w-full before:opacity-100 before:absolute before:inset-0 before:rounded-xl before:backdrop-blur-md before:bg-gradient-to-t before:from-synergy-light-blue/70 before:via-synergy-light-blue before:to-synergy-light-blue/70 hover:before:from-synergy-light-blue hover:before:to-synergy-light-blue before:shadow-xl text-white shadow sm:w-auto break-words whitespace-pre-line flex items-center justify-center h-full"

@@ -1,9 +1,4 @@
 import Image from "next/image";
-import Icon01 from "../../../shared/images/icon-01.svg";
-import Icon02 from "../../../shared/images/icon-02.svg";
-import Icon03 from "../../../shared/images/icon-03.svg";
-import Icon04 from "../../../shared/images/icon-04.svg";
-import Family from "../../../shared/images/Family.jpeg";
 import { useMessages, useTranslations } from "next-intl";
 import ImageLoader from "@com.synergy/frontend-ui/ImageLoader";
 

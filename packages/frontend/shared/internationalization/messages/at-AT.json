@@ -1,5 +1,88 @@
 {
   "LandingPage": {
+    "About": {
+      "Hero": {
+        "title": "Wir gestalten die Zukunft der Installationstechnik",
+        "background": {
+          "src": "/frontend/landingPage/about/about-hero.jpg",
+          "alt": "Team bei der Arbeit"
+        },
+        "image": {
+          "src": "/frontend/landingPage/about/IMG_0398_compressed_cropped.jpeg",
+          "alt": "Synergie-Team"
+        }
+      },
+      "Stats": {
+        "items": {
+          "projects": {
+            "value": 500,
+            "suffix": "+",
+            "label": "Sonnenkraftprojekte realisiert"
+          },
+          "capacity": {
+            "value": 10000,
+            "suffix": "+",
+            "label": "kW installierte Gesamtleistung"
+          },
+          "experience": {
+            "value": 20,
+            "suffix": "+",
+            "label": "Jahre Branchenerfahrung"
+          }
+        }
+      },
+      "Story": {
+        "title": "Wer sind wir und was machen wir?",
+        "paragraphs": [
+          "Wir als Synergie Montagen schaffen Unabhängigkeit, indem wir Ihre Projektabwicklung und das Prozessmanagement mit Preisstabilität begleiten.",
+          "Gemeinsam mit unseren Partnern unterstützen wir Sie bei Auftragsgewinnung, Planung, Beratung, Materialbeschaffung, Montage, örtlicher Bauaufsicht, Projektmanagement sowie bei Wartung und Service. Unsere Zielgruppe liegt flächendeckend am Energiemarkt mit den drei Schwerpunkten Anlagen, Management und Gemeinschaften. In den letzten 2,5 Jahren konnten wir mit mehr als 30 Kunden und Partner über 500 Projekte erfolgreich realisieren.",
+          "Wir übernehmen Verantwortung – mit Kundenfokus & Handschlagqualität.",
+          "Das Synergie Montagen Team"
+        ],
+        "signature": {
+          "src": "/frontend/landingPage/about/synergiemontagen_stamp.png",
+          "alt": "Synergie Montagen Stempel"
+        }
+      },
+      "Team": {
+        "title": "Unser Team stellt sich vor",
+        "members": [
+          {
+            "name": "Michael Riegler",
+            "role": "Gründer",
+            "image": "/frontend/landingPage/about/IMG_0398_Micheal.jpg"
+          },
+          {
+            "name": "Samuel Knechtl",
+            "role": "Projektmanager Innendienst",
+            "image": "/frontend/landingPage/about/IMG_0398_Samuel_2.jpeg"
+          },
+          {
+            "name": "Filip Marencin",
+            "role": "Projektmanager Außendienst",
+            "image": "/frontend/landingPage/about/IMG_0398_Filip.jpeg"
+          },
+          {
+            "name": "Karin Rosenberger",
+            "role": "Kundenservice & Marketing Agent",
+            "image": "/frontend/landingPage/about/1537447145969.jpeg"
+          },
+          {
+            "name": "Elias Cerne",
+            "role": "Partner, IT Operator",
+            "image": "/frontend/landingPage/about/IMG_0398_Elias_2.jpeg"
+          }
+        ]
+      },
+      "CTA": {
+        "title": "Möchtest du Teil unserer Reise sein?",
+        "body": "Wir sind immer offen für Gespräche mit großartigen Menschen, die gemeinsam mit uns die Zukunft der Arbeit gestalten wollen. Wir haben weltweit offene Stellen.",
+        "button": {
+          "text": "Kontakt",
+          "href": "/kontakt"
+        }
+      }
+    },
     "Home": {
       "Hero": {
         "image": {
@@ -110,6 +193,145 @@
           }
         },
         "banner": "Einfach Geld Sparen * Endlich Unabhängig * Leistbar * Transparent * Auf Augenhöhe * Einfach Geld Sparen * Endlich Unabhängig * Leistbar * Transparent * Auf Augenhöhe * Einfach Geld Sparen * Endlich Unabhängig * Leistbar * Transparent * Auf Augenhöhe * Einfach Geld Sparen * Endlich Unabhängig * Leistbar * Transparent * Auf Augenhöhe * Einfach Geld Sparen * Endlich Unabhängig * Leistbar * Transparent * Auf Augenhöhe *"
+      },
+      "BentoGridHero": {
+        "title": {
+          "prefix": "Innovative",
+          "highlight": "Synergielösungen",
+          "suffix": "für Ihr Energiesystem"
+        },
+        "subtitle": "Ihr Anbieter für ganzheitliche Energielösungen",
+        "servicesCard": {
+          "imageAlt": "Leistungen Symbolbild",
+          "title": "Leistungen",
+          "lists": [
+            ["Beratung", "Marketing"],
+            ["Service", "Umsetzung"]
+          ],
+          "button": {
+            "text": "Details anzeigen",
+            "href": "/leistungen"
+          }
+        },
+        "productsCard": {
+          "imageAlt": "Produkte Symbolbild",
+          "title": "Produkte",
+          "lists": [
+            [
+              "PV-Anlage",
+              "Stromspeicher",
+              "Wärmepumpe",
+              "Klimaanlage",
+              "Energiegemeinschaft",
+              "Smart Home"
+            ],
+            [
+              "Stromtankstelle (Wallbox)",
+              "Notstromversorgung",
+              "Balkonkraftwerk",
+              "Energiekostenberatung",
+              "Autarke Warmwasser-Erzeugung",
+              "Wartung & Service"
+            ]
+          ],
+          "button": {
+            "text": "Details anzeigen"
+          }
+        },
+        "items": {
+          "pv": {
+            "title": "Photovoltaik & Stromspeicher",
+            "description": "Strom direkt vom Dach",
+            "image": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+            "rowSpan": 3,
+            "button": {
+              "link": "/products#photovoltaic",
+              "text": "Hier Photovoltaik sichern"
+            }
+          },
+          "heat": {
+            "title": "Wärmepumpen",
+            "image": "/frontend/landingPage/products/heat-pump-orange.jpg",
+            "rowSpanSm": 2,
+            "button": {
+              "link": "/products#heat-pump",
+              "text": "Hier Wärmepumpe sichern"
+            }
+          },
+          "ac": {
+            "title": "Klimasysteme",
+            "image": "/frontend/landingPage/products/close-up-shot-of-air-conditioner-hanging-on-white-2024-11-19-02-00-43-utc.jpeg",
+            "rowSpanSm": 2,
+            "button": {
+              "link": "/products#air-conditioning",
+              "text": "Hier Klimasystem sichern"
+            }
+          },
+          "smart-home": {
+            "title": "Smart Home",
+            "image": "/frontend/landingPage/products/AA%20Smart%20Home.jpeg",
+            "button": {
+              "link": "/products#smart-home",
+              "text": "Mehr erfahren"
+            }
+          },
+          "energiegemeinschaften": {
+            "title": "Energiegemeinschaften",
+            "image": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
+            "button": {
+              "link": "/focus/energiegemeinschaft",
+              "text": "Mehr erfahren"
+            }
+          },
+          "stromtankstelle": {
+            "title": "Stromtankstelle",
+            "image": "/frontend/landingPage/products/AA%20Wallbox%20AdobeStock_762399295.jpeg",
+            "button": {
+              "link": "/products#wallbox",
+              "text": "Mehr erfahren"
+            }
+          },
+          "notstrom": {
+            "title": "Notstrom Versorgung",
+            "image": "/frontend/landingPage/products/notstromversorgung.svg",
+            "button": {
+              "link": "/focus/notstromversorgung",
+              "text": "Mehr erfahren"
+            }
+          },
+          "balkonkraftwerk": {
+            "title": "Balkonkraftwerk",
+            "image": "/frontend/landingPage/focus/Heat-Pump/Balkonkraftwerk.jpg",
+            "button": {
+              "link": "/focus/balkonkraftwerk",
+              "text": "Mehr erfahren"
+            }
+          },
+          "energiekosten-beratung": {
+            "title": "Energiekosten-Beratung",
+            "image": "/frontend/landingPage/products/a-hand-holding-the-electricity-bill-and-euro-bankn-2025-03-13-01-30-07-utc.jpeg",
+            "button": {
+              "link": "/focus/energiekostenberatung",
+              "text": "Mehr erfahren"
+            }
+          },
+          "warmwasser": {
+            "title": "Autarke Warmwasser-Erzeugung",
+            "image": "/frontend/landingPage/products/boiling-water-splash-with-steam-on-black-backgroun-2025-03-13-11-28-22-utc.jpeg",
+            "button": {
+              "link": "/focus/autarke-warmwasser-erzeugung",
+              "text": "Mehr erfahren"
+            }
+          },
+          "wartung-service": {
+            "title": "Wartung & Service",
+            "image": "/frontend/landingPage/products/certified-male-electrician-installing-home-ev-char-2024-10-18-05-46-25-utc.jpeg",
+            "button": {
+              "link": "/focus/wartung-service",
+              "text": "Mehr erfahren"
+            }
+          }
+        }
       },
       "ServiceCatalog": {
         "title": "Moderne Haustechnik <br></br> zum Wohlfühlen",
@@ -2000,6 +2222,104 @@
       }
     },
     "B2B": {
+      "Hero": {
+        "eyebrow": "Leistungen",
+        "title": "Services für Betriebe aus dem Energiesektor",
+        "subtitle": "Seien Sie ein Vorreiter in der Anlagenerrichtung",
+        "body": "Mit der Expertise unserer firmeninternen Fachkräfte aus unterschiedlichen Gewerken bringen wir Ihre Leistungen in der Anlagenerrichtung voran und optimieren bestehende Prozesse.",
+        "buttons": {
+          "primary": {
+            "text": "Kontakt",
+            "href": "/kontakt"
+          },
+          "secondary": {
+            "text": "Buchen Sie Ihre PV Montage",
+            "href": "/contact-us-funnel"
+          }
+        }
+      },
+      "Competencies": {
+        "eyebrow": "Kernkompetenzen",
+        "title": "Unser Leistungsportfolio im Überblick",
+        "items": {
+          "planning": {
+            "title": "Planung, Beratung und Kundenservice",
+            "icon": "/frontend/landingPage/icons/clinical_notes_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+          },
+          "installation": {
+            "title": "Installation, Montage und Materialbeschaffung",
+            "icon": "/frontend/landingPage/icons/build_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+          },
+          "projectManagement": {
+            "title": "Projektmanagement, Qualitätssicherung",
+            "icon": "/frontend/landingPage/icons/view_timeline_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+          },
+          "afterSales": {
+            "title": "After-Sales-Services",
+            "icon": "/frontend/landingPage/icons/concierge_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+          }
+        }
+      },
+      "Process": {
+        "title": "Digitaler Synergie-Prozess",
+        "image": {
+          "src": "/frontend/landingPage/b2b/Synergie_Digiversum_Website_v3.jpg",
+          "alt": "Illustration des Synergie-Prozesses"
+        }
+      },
+      "Testimonials": {
+        "title": "After-Sales & Support",
+        "nextLabel": "Nächste Referenz",
+        "items": {
+          "arkai": {
+            "quote": "Hat alles bestens funktioniert, perfekte Umsetzung. Hilft auch bei Förderabwicklung.",
+            "author": "Alexander Arkai, REICHEL Haustechnik GesmbH"
+          }
+        }
+      },
+      "Partners": {
+        "title": "Einige unserer Partner",
+        "logoAlt": "Partnerlogo",
+        "logos": [
+          "/frontend/landingPage/clients/Loxone_Logo.png",
+          "/frontend/landingPage/clients/KNX_logo.svg",
+          "/frontend/landingPage/clients/LOGO_Fronius_RGB_high_300dpi.jpg",
+          "/frontend/landingPage/clients/Bosch-logo.svg",
+          "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
+          "/frontend/landingPage/clients/DAIKIN_Logo_rgb.png"
+        ]
+      },
+      "FAQ": {
+        "title": "Häufige Fragen",
+        "items": {
+          "projectFlow": {
+            "question": "Wie läuft die Projektabwicklung ab?",
+            "answer": "Von der Analyse über Planung und Installation bis zum After-Sales nutzen wir digitale Tools, um transparente Prozesse zu gewährleisten."
+          },
+          "certifications": {
+            "question": "Welche Zertifizierungen haben Sie?",
+            "answer": "Wir sind ISO-zertifiziert und arbeiten mit Herstellern nach höchsten Qualitätsstandards zusammen."
+          },
+          "customSolutions": {
+            "question": "Sind Sonderanfertigungen möglich?",
+            "answer": "Ja, wir bieten individuelle Lösungen und maßgeschneiderte Komponenten für Ihr Projekt."
+          }
+        }
+      },
+      "CTA": {
+        "title": "Bereit für Ihr nächstes Energieprojekt?",
+        "body": "Kontaktieren Sie uns jetzt für eine maßgeschneiderte Lösung, die Ihr Unternehmen nachhaltig stärkt.",
+        "buttons": {
+          "primary": {
+            "text": "Kontakt",
+            "href": "/kontakt"
+          },
+          "secondary": {
+            "text": "Buchen Sie Ihre PV Montage",
+            "href": "/contact-us-funnel"
+          }
+        }
+      },
       "Services": {
         "marketing": {
           "title": "Marketing",
@@ -4385,7 +4705,7 @@
     },
     "ContactUs": {
       "Header": {
-        "title": "Starten Sie in die Energieunabhängikeit!",
+        "title": "Ihre <highlight>Energieautarkie</highlight><lineBreak></lineBreak> wir machen es einfach.",
         "smallTitle": "Wir übernehmen Verantwortung.",
         "description": "Innerhalb von 24 Stunden nehmen wir mit Ihnen Kontakt auf."
       },
@@ -4515,11 +4835,33 @@
             "required": "true"
           }
         },
+        "copy": {
+          "section": {
+            "title": "Kontakt aufnehmen",
+            "description": "Wir freuen uns auf Ihre Anfrage und melden uns schnellstmöglich bei Ihnen."
+          },
+          "upload": {
+            "cta": "<strong>Klicken Sie zum Hochladen</strong> oder ziehen Sie Dateien hierher",
+            "allowedTypes": "Erlaubte Dateitypen: {types}",
+            "maxSize": "Max. Dateigröße: {size} MB"
+          },
+          "fileStatus": {
+            "uploading": "Wird hochgeladen...",
+            "uploaded": "Erfolgreich hochgeladen",
+            "error": "Fehler beim Hochladen"
+          },
+          "messages": {
+            "missingRequired": "Bitte füllen Sie alle erforderlichen Felder aus.",
+            "success": "Danke für Ihre Anfrage. Bitte überprüfen Sie Ihre Inbox. Falls die Nachricht nicht angekommen ist, benutzen Sie bitte die unten angegebene E-Mail.",
+            "error": "Es konnte nicht abgeschickt werden, bitte benutzen Sie die E-Mail unten."
+          }
+        },
         "button": {
           "text": "Abschicken"
         },
         "legal": {
-          "text": "By submitting this form, you agree with our Terms."
+          "text": "Mit dem Absenden stimmen Sie unseren <link>Datenschutzrichtlinien</link> zu.",
+          "href": "/datenschutz"
         }
       },
       "ContactBlocks": {
@@ -8962,6 +9304,25 @@
           "height": "200"
         },
         "disclamer": "© Synergie.cc - Alle rechte Vorbehalten.",
+        "socialTitle": "Social",
+        "membership": {
+          "title": "Mitglied bei",
+          "logos": {
+            "ove": {
+              "src": "/frontend/landingPage/icons/OVE_Logo.png",
+              "alt": "OVE – Österreichischer Verband für Elektrotechnik",
+              "width": "200",
+              "height": "80"
+            },
+            "pv-austria": {
+              "src": "/frontend/landingPage/icons/PV_Logo_Hoch_RGB-scaled.jpg",
+              "alt": "PV Austria – Photovoltaic Austria",
+              "width": "80",
+              "height": "40"
+            }
+          }
+        },
+        "backgroundText": "Synergie",
         "boxes": {
           "boxLeft": {
             "title": "Leistungen",

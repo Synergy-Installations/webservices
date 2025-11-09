@@ -8,6 +8,7 @@
     "dist"
   ],
   "exports": {
+    "./PageContainer": "./src/landingPage/contact/container/PageContainer.tsx",
     "./ServicesPopup": "./src/landingPage/home/hero/ServicesPopup.tsx",
     "./LocaleSwitcherSelect": "./src/landingPage/shared/translation/LocaleSwitcherSelect.tsx",
     "./LocaleSwitcher": "./src/landingPage/shared/translation/LocaleSwitcher.tsx",

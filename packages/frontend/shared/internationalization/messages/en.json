@@ -1,5 +1,88 @@
 {
   "LandingPage": {
+    "About": {
+      "Hero": {
+        "title": "We shape the future of installation technology",
+        "background": {
+          "src": "/frontend/landingPage/about/about-hero.jpg",
+          "alt": "Team at work"
+        },
+        "image": {
+          "src": "/frontend/landingPage/about/IMG_0398_compressed_cropped.jpeg",
+          "alt": "About Synergy team"
+        }
+      },
+      "Stats": {
+        "items": {
+          "projects": {
+            "value": 500,
+            "suffix": "+",
+            "label": "Solar projects completed"
+          },
+          "capacity": {
+            "value": 10000,
+            "suffix": "+",
+            "label": "kW total installed capacity"
+          },
+          "experience": {
+            "value": 20,
+            "suffix": "+",
+            "label": "Years in the industry"
+          }
+        }
+      },
+      "Story": {
+        "title": "Who are we and what do we do?",
+        "paragraphs": [
+          "As Synergie Montagen we create independence by guiding your project execution and process management with stable pricing.",
+          "Together with our partners we support you during acquisition, planning, consulting, procurement, installation, site supervision, project management, and after-sales service. Across the energy market we focus on systems, management, and communities. Over the past 2.5 years, more than 30 clients and partners have trusted us with 500+ successful projects.",
+          "We take responsibility—with customer focus and handshake quality.",
+          "The Synergie Montagen Team"
+        ],
+        "signature": {
+          "src": "/frontend/landingPage/about/synergiemontagen_stamp.png",
+          "alt": "Synergie Montagen stamp"
+        }
+      },
+      "Team": {
+        "title": "Meet our team",
+        "members": [
+          {
+            "name": "Michael Riegler",
+            "role": "Founder",
+            "image": "/frontend/landingPage/about/IMG_0398_Micheal.jpg"
+          },
+          {
+            "name": "Samuel Knechtl",
+            "role": "Project Manager (Back Office)",
+            "image": "/frontend/landingPage/about/IMG_0398_Samuel_2.jpeg"
+          },
+          {
+            "name": "Filip Marencin",
+            "role": "Project Manager (Field)",
+            "image": "/frontend/landingPage/about/IMG_0398_Filip.jpeg"
+          },
+          {
+            "name": "Karin Rosenberger",
+            "role": "Customer Service & Marketing Agent",
+            "image": "/frontend/landingPage/about/1537447145969.jpeg"
+          },
+          {
+            "name": "Elias Cerne",
+            "role": "Partner, IT Operator",
+            "image": "/frontend/landingPage/about/IMG_0398_Elias_2.jpeg"
+          }
+        ]
+      },
+      "CTA": {
+        "title": "Want to be part of our journey?",
+        "body": "We’re always up for conversations with great people who want to shape the future of work with us. We have open roles worldwide.",
+        "button": {
+          "text": "Contact",
+          "href": "/kontakt"
+        }
+      }
+    },
     "Home": {
       "Hero": {
         "image": {
@@ -110,6 +193,145 @@
           }
         },
         "banner": "Simple Money Save * Finally Independent * Available * Transparent * Transparent * On Eye Height * Easy Money Save * Finally Independent * Available * Transparent * On Eye Height * Easy Money Save * Finally Independent * Transparent * On Eye Height * Simple Money Save * Definitely Independent * Transparent * On Eye Height * Easy Money Save * Finally Independent * Available * Transparent * On Eye Height * Easy Save * Easy Money * Finally Independent * Transparent * Transparent * On Eye Height *"
+      },
+      "BentoGridHero": {
+        "title": {
+          "prefix": "Innovative",
+          "highlight": "Synergy solutions",
+          "suffix": "for your energy system"
+        },
+        "subtitle": "Your provider for holistic energy solutions",
+        "servicesCard": {
+          "imageAlt": "Services Symbol image",
+          "title": "Services",
+          "lists": [
+            ["Consulting", "Marketing"],
+            ["Service", "Implementation"]
+          ],
+          "button": {
+            "text": "View details",
+            "href": "/services"
+          }
+        },
+        "productsCard": {
+          "imageAlt": "Products teaser image",
+          "title": "Products",
+          "lists": [
+            [
+              "PV system",
+              "Power Storage",
+              "Heat pump",
+              "Air Conditioning",
+              "Energy Community",
+              "Smart Home"
+            ],
+            [
+              "Charging station (wallbox)",
+              "Backup power supply",
+              "Balcony power plant",
+              "Energy Cost Advisory",
+              "Autarke hot water production",
+              "Maintenance & service"
+            ]
+          ],
+          "button": {
+            "text": "View details"
+          }
+        },
+        "items": {
+          "pv": {
+            "title": "Photovoltaics & Power Storage",
+            "description": "Electricity directly from the roof",
+            "image": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+            "rowSpan": 3,
+            "button": {
+              "link": "/products#photovoltaic",
+              "text": "Ensure photovoltaics"
+            }
+          },
+          "heat": {
+            "title": "Heat Pumps",
+            "image": "/frontend/landingPage/products/heat-pump-orange.jpg",
+            "rowSpanSm": 2,
+            "button": {
+              "link": "/products#heat-pump",
+              "text": "Save heat pump here"
+            }
+          },
+          "ac": {
+            "title": "Climate Systems",
+            "image": "/frontend/landingPage/products/close-up-shot-of-air-conditioner-hanging-on-white-2024-11-19-02-00-43-utc.jpeg",
+            "rowSpanSm": 2,
+            "button": {
+              "link": "/products#air-conditioning",
+              "text": "Ensure climate system"
+            }
+          },
+          "smart-home": {
+            "title": "Smart Home",
+            "image": "/frontend/landingPage/products/AA%20Smart%20Home.jpeg",
+            "button": {
+              "link": "/products#smart-home",
+              "text": "Learn more"
+            }
+          },
+          "energiegemeinschaften": {
+            "title": "Energy Communities",
+            "image": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
+            "button": {
+              "link": "/focus/energy-community",
+              "text": "Learn more"
+            }
+          },
+          "stromtankstelle": {
+            "title": "Charging Station",
+            "image": "/frontend/landingPage/products/AA%20Wallbox%20AdobeStock_762399295.jpeg",
+            "button": {
+              "link": "/products#wallbox",
+              "text": "Learn more"
+            }
+          },
+          "notstrom": {
+            "title": "Emergency Power Supply",
+            "image": "/frontend/landingPage/products/notstromversorgung.svg",
+            "button": {
+              "link": "/focus/emergency-power",
+              "text": "Learn more"
+            }
+          },
+          "balkonkraftwerk": {
+            "title": "Balcony Power Plant",
+            "image": "/frontend/landingPage/focus/Heat-Pump/Balkonkraftwerk.jpg",
+            "button": {
+              "link": "/focus/balkonkraftwerk",
+              "text": "Learn more"
+            }
+          },
+          "energiekosten-beratung": {
+            "title": "Energy costs -Consultation",
+            "image": "/frontend/landingPage/products/a-hand-holding-the-electricity-bill-and-euro-bankn-2025-03-13-01-30-07-utc.jpeg",
+            "button": {
+              "link": "/focus/energy-cost-advisory",
+              "text": "Learn more"
+            }
+          },
+          "warmwasser": {
+            "title": "Autarke hot water production",
+            "image": "/frontend/landingPage/products/boiling-water-splash-with-steam-on-black-backgroun-2025-03-13-11-28-22-utc.jpeg",
+            "button": {
+              "link": "/focus/autarke-warmwasser-erzeugung",
+              "text": "Learn more"
+            }
+          },
+          "wartung-service": {
+            "title": "Maintenance & Service",
+            "image": "/frontend/landingPage/products/certified-male-electrician-installing-home-ev-char-2024-10-18-05-46-25-utc.jpeg",
+            "button": {
+              "link": "/focus/wartung-service",
+              "text": "Learn more"
+            }
+          }
+        }
       },
       "ServiceCatalog": {
         "title": "Modern Home Technology <br></br> that Feels Exceptional",
@@ -579,7 +801,7 @@
       "FeatureAdvantages": {
         "pill": "First Class",
         "title": "Your expert with handling quality and customer focus.",
-        "description": "Our specialists offer you not only advice, installation and maintenance, but local proximity, accessibility and care, as if it were our own facility. HTML TAG 0 HTML TAG 1 HTML TAG 2 HTML TAG 3 Every customer is individually received, our customers are supported as they want, you can contribute as much or as little as you want and receive the amount of information and advice they need – “We will find the best solution together.”",
+        "description": "Our specialists offer you not only advice, installation and maintenance, but local proximity, accessibility and care, as if it were our own facility. <br> </br> <br> </br> Every customer is individually received, our customers are supported as they want, you can contribute as much or as little as you want and receive the amount of information and advice they need – “We will find the best solution together.”",
         "buttons": {
           "Button1": {
             "text": "Client Priorities",
@@ -933,8 +1155,8 @@
           "width": "250",
           "height": "200"
         },
-        "title": "HTML TAG 0 Next HTML TAG 1",
-        "description": "Don't stick, we move! HTML TAG 0 HTML TAG 1 With us you are on the overhaul track and comfortably on the go.",
+        "title": "<underscore> Next </underscore>",
+        "description": "Don't stick, we move! <br> </br> With us you are on the overhaul track and comfortably on the go.",
         "buttons": {
           "buttonLeft": {
             "text": "Request a Consultation",
@@ -1081,7 +1303,7 @@
           "sectionIdentifier": "Member State",
           "productIdentifier": "Photovoltaics",
           "title": "Save and be independent of the electricity price",
-          "description": "With PV-System & Stromspeicher HTML TAG 0 HTML TAG 1 Attractive market developments, the appropriate HTML TAG 2 HTML TAG 3 acquisition HTML TAG 4 HT HTML TAG 5 Solarmodule prices have fallen by up to 40 percent since the end of 2022.",
+          "description": "With PV-System & Stromspeicher <br> </br> Attractive market developments, the appropriate <br> </br> acquisition <br> HT </br> Solarmodule prices have fallen by up to 40 percent since the end of 2022.",
           "buttonLeft": {
             "text": "Request a Consultation",
             "href": "/contact-us"
@@ -1245,7 +1467,7 @@
           "sectionIdentifier": "air conditioning",
           "productIdentifier": "Air Conditioning",
           "title": "Comfortable living with increasing heat days",
-          "description": "We often experience a clear trend towards hotter summers and more frequent heat waves. HTML TAG 0 HTML TAG 1 To optimize the effects of heat on daily life and health, air conditioning is useful.",
+          "description": "We often experience a clear trend towards hotter summers and more frequent heat waves. <br> </br> To optimize the effects of heat on daily life and health, air conditioning is useful.",
           "buttonLeft": {
             "text": "Request a Consultation",
             "href": "/contact-us"
@@ -1607,7 +1829,7 @@
       },
       "PackagesCard": {
         "cardIdentifier": "Save",
-        "title": "Frequently combined products in HTML TAG 0 HTML TAG 1 Packages",
+        "title": "Frequently combined products in <br> </br> Packages",
         "description": "Save smart with our product packages! We have bundled popular items for you so you can benefit from attractive discounts.",
         "pricingTables": {
           "pricingTableOne": {
@@ -2000,6 +2222,104 @@
       }
     },
     "B2B": {
+      "Hero": {
+        "eyebrow": "Services",
+        "title": "Services for companies in the energy sector",
+        "subtitle": "Be a pioneer in system installation",
+        "body": "With the expertise of our in-house specialists across multiple trades, we help you scale your installation services and streamline every process step.",
+        "buttons": {
+          "primary": {
+            "text": "Contact",
+            "href": "/kontakt"
+          },
+          "secondary": {
+            "text": "Book your PV installation",
+            "href": "/contact-us-funnel"
+          }
+        }
+      },
+      "Competencies": {
+        "eyebrow": "Core competencies",
+        "title": "Our service portfolio at a glance",
+        "items": {
+          "planning": {
+            "title": "Planning, consulting, and customer service",
+            "icon": "/frontend/landingPage/icons/clinical_notes_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+          },
+          "installation": {
+            "title": "Installation, assembly, and material sourcing",
+            "icon": "/frontend/landingPage/icons/build_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+          },
+          "projectManagement": {
+            "title": "Project management and quality assurance",
+            "icon": "/frontend/landingPage/icons/view_timeline_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+          },
+          "afterSales": {
+            "title": "After-sales services",
+            "icon": "/frontend/landingPage/icons/concierge_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+          }
+        }
+      },
+      "Process": {
+        "title": "Digital Synergy Process",
+        "image": {
+          "src": "/frontend/landingPage/b2b/Synergie_Digiversum_Website_v3.jpg",
+          "alt": "Illustration of the Synergy process"
+        }
+      },
+      "Testimonials": {
+        "title": "After-sales & support",
+        "nextLabel": "Next testimonial",
+        "items": {
+          "arkai": {
+            "quote": "Everything worked flawlessly—perfect execution. They even assist with subsidy processing.",
+            "author": "Alexander Arkai, REICHEL Haustechnik GesmbH"
+          }
+        }
+      },
+      "Partners": {
+        "title": "Some of our partners",
+        "logoAlt": "Partner logo",
+        "logos": [
+          "/frontend/landingPage/clients/Loxone_Logo.png",
+          "/frontend/landingPage/clients/KNX_logo.svg",
+          "/frontend/landingPage/clients/LOGO_Fronius_RGB_high_300dpi.jpg",
+          "/frontend/landingPage/clients/Bosch-logo.svg",
+          "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
+          "/frontend/landingPage/clients/DAIKIN_Logo_rgb.png"
+        ]
+      },
+      "FAQ": {
+        "title": "Frequently asked questions",
+        "items": {
+          "projectFlow": {
+            "question": "How does project execution work?",
+            "answer": "From analysis and planning to installation and after-sales, we use digital tools to keep every step transparent."
+          },
+          "certifications": {
+            "question": "Which certifications do you have?",
+            "answer": "We are ISO certified and cooperate with manufacturers that work to the highest quality standards."
+          },
+          "customSolutions": {
+            "question": "Are custom solutions possible?",
+            "answer": "Yes, we deliver individual concepts and tailor-made components for your project."
+          }
+        }
+      },
+      "CTA": {
+        "title": "Ready for your next energy project?",
+        "body": "Get in touch now for a tailored solution that strengthens your company sustainably.",
+        "buttons": {
+          "primary": {
+            "text": "Contact",
+            "href": "/kontakt"
+          },
+          "secondary": {
+            "text": "Book your PV installation",
+            "href": "/contact-us-funnel"
+          }
+        }
+      },
       "Services": {
         "marketing": {
           "title": "Marketing",
@@ -2378,10 +2698,10 @@
             },
             "smvideo": {
               "Diamond": {
-                "title": "Social Media &amp; Video",
+                "title": "Social Media & Video",
                 "backgroundImage": {
                   "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Social Media &amp; Video"
+                  "alt": "Social Media & Video"
                 }
               },
               "Components": {
@@ -2395,7 +2715,7 @@
                 },
                 "boxes": {
                   "social-media": {
-                    "title": "Strategy &amp; Management",
+                    "title": "Strategy & Management",
                     "description": "Conception, community building and cross-channel management for sustainable growth.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
@@ -2423,7 +2743,7 @@
                     }
                   },
                   "analytics": {
-                    "title": "Tracking &amp; Optimization",
+                    "title": "Tracking & Optimization",
                     "description": "Continuous evaluation, A/B tests and optimization for maximum campaign performance.",
                     "image": {
                       "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
@@ -2452,19 +2772,19 @@
                     }
                   },
                   "boxRight": {
-                    "title": "This is how our social media &amp; video service runs:",
+                    "title": "This is how our social media & video service runs:",
                     "list": {
                       "itemOne": "Briefing & target definition",
                       "itemTwo": "Concept development (Content- & Mediaplan)",
                       "itemThree": "Production: Turning & Post Production",
                       "itemFour": "playout on relevant channels",
-                      "itemFive": "Monitoring &amp; optimization",
+                      "itemFive": "Monitoring & optimization",
                       "itemSix": "Reporting with clear KPIs"
                     }
                   }
                 },
                 "button": {
-                  "text": "Start Social Media &amp; Video",
+                  "text": "Start Social Media & Video",
                   "href": "/contact"
                 }
               }
@@ -2472,7 +2792,7 @@
           }
         },
         "beratung": {
-          "title": "Consulting &amp; Engineering",
+          "title": "Consulting & Engineering",
           "SubServices": {
             "analysen": {
               "Diamond": {
@@ -2893,7 +3213,7 @@
                     }
                   },
                   "ausstellungBeratung": {
-                    "title": "Exhibition &amp; Consulting",
+                    "title": "Exhibition & Consulting",
                     "description": "You will receive the energy pass including concrete proposals for measures to improve energy efficiency.",
                     "image": {
                       "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
@@ -3642,7 +3962,7 @@
                     }
                   },
                   "einstellung-und-protokoll": {
-                    "title": "Setting &amp; Protocol",
+                    "title": "Setting & Protocol",
                     "description": "Professional adjustment of thermostat and return valves as well as preparation of a protocol with all the values performed.",
                     "image": {
                       "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
@@ -4384,7 +4704,7 @@
     },
     "ContactUs": {
       "Header": {
-        "title": "Start the energy independence!",
+        "title": "Your <highlight>energy independence</highlight><lineBreak></lineBreak> made simple.",
         "smallTitle": "We take responsibility.",
         "description": "We will contact you within 24 hours."
       },
@@ -4413,7 +4733,7 @@
             "label": "Which products are you interested in?",
             "options": {
               "optionGoogle": {
-                "text": "Heat pumps &amp; heating systems"
+                "text": "Heat pumps & heating systems"
               },
               "optionTwitter": {
                 "text": "Climate Systems"
@@ -4446,7 +4766,7 @@
                 "text": "Balconies and micropower plants"
               },
               "optionWallbox": {
-                "text": "Maintenance &amp; Service"
+                "text": "Maintenance & Service"
               }
             },
             "required": "false"
@@ -4468,7 +4788,7 @@
                 "text": "Negotiating support"
               },
               "optionsTwo": {
-                "text": "Social Media &amp; Video"
+                "text": "Social Media & Video"
               },
               "optionGoogle2": {
                 "text": "Analysis"
@@ -4502,11 +4822,7 @@
             "hostname": "storage.bunnycdn.com",
             "storageZoneName": "synergy-webservices-assets",
             "maxFileSize": 500000000,
-            "allowedTypes": [
-              "image and *",
-              "application/pdf",
-              ".doc,.docx"
-            ],
+            "allowedTypes": ["image and *", "application/pdf", ".doc,.docx"],
             "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
           },
           "message": {
@@ -4517,11 +4833,33 @@
             "required": "true"
           }
         },
+        "copy": {
+          "section": {
+            "title": "Get in touch",
+            "description": "We look forward to your enquiry and will get back to you as quickly as possible."
+          },
+          "upload": {
+            "cta": "<strong>Click to upload</strong> or drag files here",
+            "allowedTypes": "Allowed file types: {types}",
+            "maxSize": "Max. file size: {size} MB"
+          },
+          "fileStatus": {
+            "uploading": "Uploading…",
+            "uploaded": "Uploaded successfully",
+            "error": "Upload failed"
+          },
+          "messages": {
+            "missingRequired": "Please fill out all required fields.",
+            "success": "Thank you for your request. Please check your inbox. If the email did not arrive, use the address listed below.",
+            "error": "We couldn't send your message. Please use the email below."
+          }
+        },
         "button": {
           "text": "Send Request"
         },
         "legal": {
-          "text": "By submitting this form, you agree with our terms."
+          "text": "By submitting this form, you agree to our <link>privacy policy</link>.",
+          "href": "/data protection"
         }
       },
       "ContactBlocks": {
@@ -7026,9 +7364,7 @@
                 "defaultVisible": "true",
                 "title": "",
                 "description": "",
-                "defaultValue": [
-                  "Please select"
-                ],
+                "defaultValue": ["Please select"],
                 "label": "How did you hear about us?",
                 "localStorage": "true",
                 "span": "2",
@@ -7113,9 +7449,7 @@
                 "defaultVisible": "false",
                 "title": "",
                 "description": "",
-                "defaultValue": [
-                  ""
-                ],
+                "defaultValue": [""],
                 "label": "How did you hear about us? (Multiple)",
                 "localStorage": "true",
                 "span": "2",
@@ -7311,8 +7645,8 @@
     "Focus": {
       "Photovoltaic": {
         "Hero": {
-          "titleUpper": "HTML TAG 0 Your future begins with solar energy: HTML TAG 1",
-          "titleLower": "HTML TAG 0 independent, price-proof & qualitatively carefree HTML TAG 1",
+          "titleUpper": "<p> Your future begins with solar energy: </p>",
+          "titleLower": "<p> independent, price-proof & qualitatively carefree </p>",
           "description": "End with high electricity bills – now start your energy transition with solar power.",
           "backgroundImage": {
             "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
@@ -7428,7 +7762,7 @@
       },
       "Heat-Pump": {
         "Hero": {
-          "titleUpper": "HTML TAG 0 Intelligent and smart heat with heat pumps HTML TAG 1",
+          "titleUpper": "<p> Intelligent and smart heat with heat pumps </p>",
           "titleLower": "",
           "description": "Finally with exploding gas and oil prices – start your personal heat transfer now.",
           "backgroundImage": {
@@ -7482,23 +7816,23 @@
               "title": "What you can expect from an intelligent heat pump:",
               "list": {
                 "itemOne": "<b>Drastic reduction of your heating costs</b> guaranteed",
-                "itemTwo": "HTML TAG 0 Active climate protection HTML TAG 1 due to CO2-free heat from the environment",
-                "itemThree": "HTML TAG 0 Speakable value upgrade HTML TAG 1 of your property",
-                "itemFour": "HTML TAG 0 Feeling climate in summer HTML TAG 1 through integrated cooling function",
-                "itemFive": "HTML TAG 0 Measuring & efficient heating systems HTML TAG 1 for your home",
-                "itemSix": "HTML TAG 0 Continue-safe technology HTML TAG 1 by the expert",
-                "itemSeven": "HTML TAG 0 Personal customer service HTML TAG 1 that will not let you stand in cold"
+                "itemTwo": "<b> Active climate protection </b> due to CO2-free heat from the environment",
+                "itemThree": "<b> Speakable value upgrade </b> of your property",
+                "itemFour": "<b> Wohlfühlklima im Sommer </b> through integrated cooling function",
+                "itemFive": "<b> Measuring & efficient heating systems </b> for your home",
+                "itemSix": "<b> Continue-safe technology </b> by the expert",
+                "itemSeven": "<b> Personal customer service </b> that will not let you stand in cold"
               }
             },
             "boxRight": {
               "title": "In 6 simple steps to your heat pump system:",
               "list": {
-                "itemOne": "HTML TAG 0 Your request & First contact HTML TAG 1 – We will contact you within a working day.",
-                "itemTwo": "HTML TAG 0 On-site analysis & demand determination HTML TAG 1 – We analyze your circumstances and understand your goals.",
-                "itemThree": "HTML TAG 0 Dispensated system planning & delivery check HTML TAG 1 – You will get an individual concept incl. Cost efficiency calculation for the heat pump.",
-                "itemFour": "HTML TAG 0 Transparent offer & support for applications HTML TAG 1 – We secure your promotions and guarantee full cost transparency.",
-                "itemFive": "HTML TAG 0 Customized assembly from one hand HTML TAG 1 – Our teams work fast, clean and professional.",
-                "itemSix": "HTML TAG 0 In Operation & Personal Instruction HTML TAG 1 – Your system will run after a few days and we will explain everything in detail."
+                "itemOne": "<b> Your request & First contact </b> – We will contact you within a working day.",
+                "itemTwo": "<b> On-site analysis & demand determination </b> – We analyze your circumstances and understand your goals.",
+                "itemThree": "<b> Dispensated system planning & delivery check </b> – You will get an individual concept incl. Cost efficiency calculation for the heat pump.",
+                "itemFour": "<b> Transparent offer & support for applications </b> – We secure your promotions and guarantee full cost transparency.",
+                "itemFive": "<b> Customized assembly from one hand </b> – Our teams work fast, clean and professional.",
+                "itemSix": "<b> In Operation & Personal Instruction </b> – Your system will run after a few days and we will explain everything in detail."
               }
             }
           },
@@ -7536,8 +7870,8 @@
           }
         },
         "Cta": {
-          "title": "Do not wait for the next heating cost billing – HTML TAG 0 HTML TAG 1 Get your future-proof heating system now.",
-          "description": "Do you want independence from rising heating costs, want to actively protect the climate and increase the value of your property sustainably? HTML TAG 0 HTML TAG 1 And are there values for personal, honest advice, reliable procedures and a fast, clean implementation by experienced professionals? HTML TAG 2 HTML TAG 3 You are right with us. Convince yourself of your new heat solution without obligation.",
+          "title": "Do not wait for the next heating cost billing – <br> </br> Get your future-proof heating system now.",
+          "description": "Do you want independence from rising heating costs, want to actively protect the climate and increase the value of your property sustainably? <br> </br> And are there values for personal, honest advice, reliable procedures and a fast, clean implementation by experienced professionals? <br> </br> You are right with us. Convince yourself of your new heat solution without obligation.",
           "button": {
             "text": "Secure free on-site consultation now",
             "href": "%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%"
@@ -7546,9 +7880,9 @@
       },
       "Air-Conditioning": {
         "Hero": {
-          "titleUpper": "HTML TAG 0 Climate systems - Comfortable living with increasing heat days HTML TAG 1",
+          "titleUpper": "<p> Climate systems - Comfortable living with increasing heat days </p>",
           "titleLower": "",
-          "description": "HTML TAG 0 Cool in summer, warm in winter & qualitatively carefree. HTML TAG 1 HTML TAG 2 Slide with unbearable summer heat and nitrogenous air – start your personal feel-good home now. HTML TAG 3",
+          "description": "<li> Cool in summer, warm in winter & qualitatively carefree. </li> <li> Slide with unbearable summer heat and nitrogenous air – start your personal feel-good home now. </li>",
           "backgroundImage": {
             "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/white-air-conditioner-in-modern-room-2025-02-10-11-34-18-utc-compressed.jpeg",
             "alt": "Photovoltaics"
@@ -7599,24 +7933,24 @@
             "boxLeft": {
               "title": "What you can expect:",
               "list": {
-                "itemOne": "HTML TAG 0 Perfect feel-good climate HTML TAG 1 in summer and winter",
-                "itemTwo": "HTML TAG 0 healthier & purer air HTML TAG 1 using the latest filter technology",
-                "itemThree": "HTML TAG 0 Speakable value upgrade HTML TAG 1 of your property",
-                "itemFour": "HTML TAG 0 Easy operation HTML TAG 1 for an undisturbed sleep and everyday life",
-                "itemFive": "HTML TAG 0 Use-tailored solutions HTML TAG 1 for your home or office",
-                "itemSix": "HTML TAG 0 Future-proof & energy-efficient HTML TAG 1 Methods and technologies",
+                "itemOne": "<b> Perfect feel-good climate </b> in summer and winter",
+                "itemTwo": "<b> healthier & purer air </b> using the latest filter technology",
+                "itemThree": "<b> Speakable value upgrade </b> of your property",
+                "itemFour": "<b> Easy operation </b> for an undisturbed sleep and everyday life",
+                "itemFive": "<b> Use-tailored solutions </b> for your home or office",
+                "itemSix": "<b> Future-proof & energy-efficient </b> Methods and technologies",
                 "itemSeven": "<b>Unbeatable customer service</b> end to end"
               }
             },
             "boxRight": {
               "title": "Your perfect indoor climate in 6 easy steps:",
               "list": {
-                "itemOne": "HTML TAG 0 Re-registration within a working day HTML TAG 1 HTML TAG 2 HTML TAG 3 – We contact you for a first non-binding conversation.",
-                "itemTwo": "HTML TAG 0 Personal analysis of your circumstances and goals HTML TAG 1 HTML TAG 2 HTML TAG 3 We come to you and determine the optimal solution for your rooms.",
-                "itemThree": "HTML TAG 0 Individual planning & device selection HTML TAG 1 HTML TAG 2 HTML TAG 3 – You will get a tailor-made concept that suits your needs.",
-                "itemFour": "HTML TAG 0 Costentransparency and clear offer HTML TAG 1 HTML TAG 2 HTML TAG 3 – We provide all costs in detail and understandable for you.",
-                "itemFive": "HTML TAG 0 Quick & clean installation from one hand HTML TAG 1 HTML TAG 2 HTML TAG 3 – Our certified technicians install your system professionally and cleanly.",
-                "itemSix": "HTML TAG 0 In Operation & Instruction HTML TAG 1 HTML TAG 2 HTML TAG 3 – Your system is operational after a short time and we will explain all the functions."
+                "itemOne": "<b> Re-registration within a working day </b> <br> </br> – We contact you for a first non-binding conversation.",
+                "itemTwo": "<b> Personal analysis of your circumstances and goals </b> <br> </br> We come to you and determine the optimal solution for your rooms.",
+                "itemThree": "<b> Individual planning & device selection </b> <br> </br> – You will get a tailor-made concept that suits your needs.",
+                "itemFour": "<b> Costentransparency and clear offer </b> <br> </br> – We provide all costs in detail and understandable for you.",
+                "itemFive": "<b> Quick & clean installation from one hand </b> <br> </br> – Our certified technicians install your system professionally and cleanly.",
+                "itemSix": "<b> In Operation & Instruction </b> <br> </br> – Your system is operational after a short time and we will explain all the functions."
               }
             }
           },
@@ -7655,7 +7989,7 @@
         },
         "Cta": {
           "title": "Do not wait for the next heat wave – get your concrete climate offer now.",
-          "description": "Would you like to enjoy a pleasant room climate at any time and increase the value of your property? HTML TAG 0 HTML TAG 1 And value for personal, honest advice, clear procedures and quick implementation without surprises? HTML TAG 2 HTML TAG 3 Dann you are right with us. Convince yourself of your new climate solution without obligation.  ",
+          "description": "Would you like to enjoy a pleasant room climate at any time and increase the value of your property? <br> </br> And value for personal, honest advice, clear procedures and quick implementation without surprises? <br> </br> Dann you are right with us. Convince yourself of your new climate solution without obligation.  ",
           "button": {
             "text": "Secure free offer now",
             "href": "%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%"
@@ -7664,8 +7998,8 @@
       },
       "Power-Storage": {
         "Hero": {
-          "titleUpper": "HTML TAG 0 With current storage more own consumption and higher independence HTML TAG 1",
-          "titleLower": "HTML TAG 0 Maximum independent, secure & future oriented HTML TAG 1",
+          "titleUpper": "<p> With current storage more own consumption and higher independence </p>",
+          "titleLower": "<p> Maximum independent, secure & future oriented </p>",
           "description": "End with sunflowered – use your own clean energy whenever you want it.",
           "backgroundImage": {
             "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/products/Strompeicher_large.jpg",
@@ -7728,12 +8062,12 @@
             "boxRight": {
               "title": "Your own power storage in 6 easy steps:",
               "list": {
-                "itemOne": "HTML TAG 0 Re-registration within a working day HTML TAG 1 HTML TAG 2 HTML TAG 3 We will contact you for a non-binding initial call.",
-                "itemTwo": "HTML TAG 0 Personal analysis of your PV system and objectives HTML TAG 1 HTML TAG 2 HTML TAG 3 We check your conditions and energy requirements on site.",
-                "itemThree": "HTML TAG 0 Individual planning with cost-effectiveness check HTML TAG 1 HTML TAG 2 HTML TAG 3 You get a concept that shows the profitability of your memory.",
-                "itemFour": "HTML TAG 0 Costentransparency and support for all applications HTML TAG 1 HTML TAG 2 HTML TAG 3 We help you secure promotions and disclose all costs.",
-                "itemFive": "HTML TAG 0 Quick & clean installation from one hand HTML TAG 1 HTML TAG 2 HTML TAG 3 Our experts integrate the memory into your system professionally.",
-                "itemSix": "HTML TAG 0 Ready to operate after a few hours HTML TAG 1 HTML TAG 2 HTML TAG 3 Your system will immediately store sunflow and we will explain everything in detail."
+                "itemOne": "<b> Re-registration within a working day </b> <br> </br> We will contact you for a non-binding initial call.",
+                "itemTwo": "<b> Personal analysis of your PV system and objectives </b> <br> </br> We check your conditions and energy requirements on site.",
+                "itemThree": "<b> Individual planning with cost-effectiveness check </b> <br> </br> You get a concept that shows the profitability of your memory.",
+                "itemFour": "<b> Costentransparency and support for all applications </b> <br> </br> We help you secure promotions and disclose all costs.",
+                "itemFive": "<b> Quick & clean installation from one hand </b> <br> </br> Our experts integrate the memory into your system professionally.",
+                "itemSix": "<b> Ready to operate after a few hours </b> <br> </br> Your system will immediately store sunflow and we will explain everything in detail."
               }
             }
           },
@@ -7772,7 +8106,7 @@
         },
         "Cta": {
           "title": "Waiting was yesterday – get the maximum from your solar system.",
-          "description": "Do you wish to be independent of power providers, would you like to use your own solar power optimally and do not sit in the dark even in the event of a power failure? HTML TAG 0 HTML TAG 1 And do you value personal, honest advice, reliable procedures and quick implementation without surprises? HTML TAG 2 HTML TAG 3 You are right with us. Convince yourself as you can get even more out of your sun.  ",
+          "description": "Do you wish to be independent of power providers, would you like to use your own solar power optimally and do not sit in the dark even in the event of a power failure? <br> </br> And do you value personal, honest advice, reliable procedures and quick implementation without surprises? <br> </br> You are right with us. Convince yourself as you can get even more out of your sun.  ",
           "button": {
             "text": "Secure free advice now ",
             "href": "%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%"
@@ -7781,9 +8115,9 @@
       },
       "Energy-Community": {
         "Hero": {
-          "titleUpper": "HTML TAG 0 Your cost savings with an energy community: HTML TAG 1",
-          "titleLower": "HTML TAG 0 We accompany and implement COMMON HTML TAG 1",
-          "description": "Your energy future begins now: Be part of a strong energy community! HTML TAG 0 HTML TAG 1 Independent, sustainable &amp; strong together. HTML TAG 2 HTML TAG 3 Slides with rising electricity prices and uncertainty – make your energy future actively with your local energy community! ",
+          "titleUpper": "<p> Your cost savings with an energy community: </p>",
+          "titleLower": "<p> We accompany and implement COMMON </p>",
+          "description": "Your energy future begins now: Be part of a strong energy community! <br> </br> Independent, sustainable & strong together. <br> </br> Slides with rising electricity prices and uncertainty – make your energy future actively with your local energy community! ",
           "backgroundImage": {
             "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/energy-community-poor-quality.png",
             "alt": "Photovoltaics"
@@ -7795,7 +8129,7 @@
         },
         "Components": {
           "titleOne": "Why now? Why us?",
-          "descriptionOne": "Electricity prices increase, funding is available and every kilowatt hour from the Community saves cash. HTML TAG 0 Now is your time! HTML TAG 1",
+          "descriptionOne": "Electricity prices increase, funding is available and every kilowatt hour from the Community saves cash. <b> Now is your time! </b>",
           "titleTwo": "Why us?",
           "descriptionTwo": "We offer you a tailor-made solution for integration into an energy community, personal advice and implementation that holds what it promises.",
           "boxes": {
@@ -7835,22 +8169,22 @@
               "title": "What you can expect:",
               "list": {
                 "itemOne": "<b>Effective electricity cost savings guaranteed</b> via local energy exchange",
-                "itemTwo": "HTML TAG 0 Active environmental protection HTML TAG 1 by using and promoting renewable energies locally",
-                "itemThree": "HTML TAG 0 Speakable value increase of your property HTML TAG 1 through sustainable energy supply",
-                "itemFour": "HTML TAG 0 Ensembled solutions HTML TAG 1 for your home or company within the community",
-                "itemFive": "HTML TAG 0 Future-proof methods and technologies HTML TAG 1 for decentralised energy supply",
-                "itemSix": "HTML TAG 0 Unbeatable customer service HTML TAG 1 and a strong community that supports you"
+                "itemTwo": "<b> Active environmental protection </b> by using and promoting renewable energies locally",
+                "itemThree": "<b> Speakable value increase of your property </b> through sustainable energy supply",
+                "itemFour": "<b> Ensembled solutions </b> for your home or company within the community",
+                "itemFive": "<b> Future-proof methods and technologies </b> for decentralised energy supply",
+                "itemSix": "<b> Unbeatable customer service </b> and a strong community that supports you"
               }
             },
             "boxRight": {
               "title": "In 6 simple steps to your own energy community:",
               "list": {
-                "itemOne": "HTML TAG 0 Report HTML TAG 1 within a working day",
-                "itemTwo": "HTML TAG 0 Personal analysis HTML TAG 1 of your circumstances and objectives for the Community",
-                "itemThree": "HTML TAG 0 Individual planning HTML TAG 1 Your participation with cost-effectiveness check",
-                "itemFour": "HTML TAG 0 Kostentransparenz HTML TAG 1 and support in all applications and formalities",
-                "itemFive": "HTML TAG 0 Quick, clean, all from one hand HTML TAG 1 – your integration into the community",
-                "itemSix": "HTML TAG 0 Ready to operate HTML TAG 1 and active in your local energy community"
+                "itemOne": "<b> Report </b> within a working day",
+                "itemTwo": "<b> Personal analysis </b> of your circumstances and objectives for the Community",
+                "itemThree": "<b> Individual planning </b> Your participation with cost-effectiveness check",
+                "itemFour": "<b> Kostentransparenz </b> and support in all applications and formalities",
+                "itemFive": "<b> Quick, clean, all from one hand </b> – your integration into the community",
+                "itemSix": "<b> Ready to operate </b> and active in your local energy community"
               }
             }
           },
@@ -7889,7 +8223,7 @@
         },
         "Cta": {
           "title": "Waiting was yesterday – get your concrete offer for the energy community now.",
-          "description": "Do you want independence from rising electricity prices, want to actively protect the environment and increase the value of your property by becoming part of a strong energy community? HTML TAG 0 HTML TAG 1 And place value on personal advice, clear processes and fast implementation without surprises? HTML TAG 2 HTML TAG 3 Dann are right with us. Convince yourself now without obligation.",
+          "description": "Do you want independence from rising electricity prices, want to actively protect the environment and increase the value of your property by becoming part of a strong energy community? <br> </br> And place value on personal advice, clear processes and fast implementation without surprises? <br> </br> Dann are right with us. Convince yourself now without obligation.",
           "button": {
             "text": "Secure free first consultation & become a member now!",
             "href": "%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%"
@@ -7898,9 +8232,9 @@
       },
       "Community-Generation-Plant": {
         "Hero": {
-          "titleUpper": "HTML TAG 0 Smart save. Green. Together: With Community production plant (GEA) for independent energy supply HTML TAG 1",
-          "titleLower": "HTML TAG 0 Recover the benefits of joint production facilities for your multi-party home HTML TAG 1",
-          "description": "HTML TAG 0 What is a Community production plant (GEA)? HTML TAG 1 HTML TAG 2 HTML TAG 3 HTML TAG 4 HTML TAG 5 A Community production plant (GEA) is an innovative and uncomplicated solution for buildings with several parties, such as It enables the joint use of an energy production plant, typically a photovoltaic plant on the roof, to produce and consume environmentally friendly electricity directly on site. It is primarily a technical solution for the joint use of a plant that offers you and your neighbours more independence and sustainability. ",
+          "titleUpper": "<p> Smart save. Green. Together: With Community production plant (GEA) for independent energy supply </p>",
+          "titleLower": "<p> Recover the benefits of joint production facilities for your multi-party home </p>",
+          "description": "<b> What is a Community production plant (GEA)? </b> <br> </br> <br> </br> A Community production plant (GEA) is an innovative and uncomplicated solution for buildings with several parties, such as It enables the joint use of an energy production plant, typically a photovoltaic plant on the roof, to produce and consume environmentally friendly electricity directly on site. It is primarily a technical solution for the joint use of a plant that offers you and your neighbours more independence and sustainability. ",
           "backgroundImage": {
             "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/newly-build-houses-with-solar-panels-attached-on-t-2025-01-10-03-55-24-utc.jpg",
             "alt": "Photovoltaics"
@@ -7912,9 +8246,9 @@
         },
         "Components": {
           "titleOne": "Why now? Why us?",
-          "descriptionOne": "HTML TAG 0 HTML TAG 1 Competence and experience: HTML TAG 2 We are your reliable partner for planning, installation and operation of your GEA. HTML TAG 3 HTML TAG 4 HTML TAG 5 Rundum-Sorglos package: HTML TAG TAG TAG",
+          "descriptionOne": "<li><b>Expertise & experience:</b> We are your reliable partner for planning, installing and operating your CGP.</li><li><b>All-inclusive service package:</b> From the very first consultation to ongoing support—we take care of everything.</li>",
           "titleTwo": "Why us?",
-          "descriptionTwo": "HTML TAG 0 HTML TAG 1 Individual solutions: HTML TAG 2 We develop tailor-made concepts that fit perfectly to the needs of your building. HTML TAG 3",
+          "descriptionTwo": "<li> <b> Individual solutions: </b> We develop tailor-made concepts that fit perfectly to the needs of your building. </li>",
           "boxes": {
             "solar-panels": {
               "title": "What is a Community Generation Plant (CGP)?",
@@ -7951,20 +8285,20 @@
             "boxLeft": {
               "title": "Your advantages with a GEA:",
               "list": {
-                "itemOne": "HTML TAG 0 Slow your energy costs sustainably: HTML TAG 1 Benefit favorable, self-produced solar power directly from the roof of your building and reduce your dependence on rising electricity prices. For the electricity used within the GEA, network charges and charges are often eliminated, which leads to significant savings.",
-                "itemTwo": "HTML TAG 0 Leists Make an active contribution to climate protection: HTML TAG 1 Produce clean, renewable energy and reduce the carbon footprint of your building. Be part of the energy transition!",
-                "itemThree": "HTML TAG 0 Steigern You the value of your property: HTML TAG 1 A building with a GEA becomes more attractive for tenants and buyers. It signals modernity, environmental awareness and long-term cost savings.",
-                "itemFour": "HTML TAG 0 More Independence and Autarkie: HTML TAG 1 Make yourself more independent of external energy suppliers and benefit from a stable and reliable power supply directly in your home.",
-                "itemFive": "HTML TAG 0 Easy and fair billing: HTML TAG 1 Thanks to smart counters and transparent division keys, the generated and consumed current is distributed to all participating parties."
+                "itemOne": "<b> Slow your energy costs sustainably: </b> Benefit favorable, self-produced solar power directly from the roof of your building and reduce your dependence on rising electricity prices. For the electricity used within the GEA, network charges and charges are often eliminated, which leads to significant savings.",
+                "itemTwo": "<b> Leists Make an active contribution to climate protection: </b> Produce clean, renewable energy and reduce the carbon footprint of your building. Be part of the energy transition!",
+                "itemThree": "<b> Steigern You the value of your property: </b> A building with a GEA becomes more attractive for tenants and buyers. It signals modernity, environmental awareness and long-term cost savings.",
+                "itemFour": "<b> More Independence and Autarkie: </b> Make yourself more independent of external energy suppliers and benefit from a stable and reliable power supply directly in your home.",
+                "itemFive": "<b> Easy and fair billing: </b> Thanks to smart counters and transparent division keys, the generated and consumed current is distributed to all participating parties."
               }
             },
             "boxRight": {
               "title": "How your GEA works (simplified):",
               "list": {
                 "itemOne": "<b>Planning & Installation:</b> A PV system is installed on the roof of your multi-unit property.",
-                "itemTwo": "HTML TAG 0 Joint use: HTML TAG 1 The generated solar power is used directly in the building to meet the needs of the participating parties.",
-                "itemThree": "HTML TAG 0 Intelligent distribution: HTML TAG 1 Modern measuring systems capture production and consumption in real time and enable fair allocation of electricity.",
-                "itemFour": "HTML TAG 0 Aboutput & Reference: HTML TAG 1 Not immediately consumed electricity can be fed into the public network. If demand is higher, electricity is also supplied from the public network."
+                "itemTwo": "<b> Joint use: </b> The generated solar power is used directly in the building to meet the needs of the participating parties.",
+                "itemThree": "<b> Intelligent distribution: </b> Modern measuring systems capture production and consumption in real time and enable fair allocation of electricity.",
+                "itemFour": "<b> Aboutput & Reference: </b> Not immediately consumed electricity can be fed into the public network. If demand is higher, electricity is also supplied from the public network."
               }
             }
           },
@@ -8003,7 +8337,7 @@
         },
         "Cta": {
           "title": "Ready for your own GEA?",
-          "description": "Community production facilities are already established in Austria. For further information on this subject, please refer to the websites of experts and energy suppliers: HTML TAG 0 Community production plants - in all cases - Energy communities HTML TAG 1 HTML TAG 2 Community production plants - TINETZ – Secure supply for Tyrol HTML TAG 3 HTML TAG TAG 4 Grund",
+          "description": "Community generation plants are already well established in Austria. Explore more insights from leading experts and utilities: <li>Community generation plants – in brief – Energy Communities</li><li>Community generation plants – TINETZ: Secure supply for Tyrol</li><li>Fundamentals of community generation plants – energie-noe.at</li><li>Community generation plants: all information – neoom</li><li>Energy communities – LINZ Netz</li><li>Share electricity | Energy communities – eww Gruppe</li><li>Energiegemeinsam – Energie AG</li>",
           "button": {
             "text": "Contact us today for a non-binding consultation!",
             "href": "%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%"
@@ -8012,7 +8346,7 @@
       },
       "Smart-Home": {
         "Hero": {
-          "titleUpper": "HTML TAG 0 Experience A new feeling of living – with intelligent Smart Home solutions. HTML TAG 1",
+          "titleUpper": "<p> Experience A new feeling of living – with intelligent Smart Home solutions. </p>",
           "titleLower": "",
           "description": "Comfortable, efficient & secure",
           "backgroundImage": {
@@ -8065,13 +8399,13 @@
             "boxLeft": {
               "title": "What you can expect:",
               "list": {
-                "itemOne": "HTML TAG 0 More comfort and quality of life: HTML TAG 1 Control light, heating and devices conveniently by app or automate routines.",
-                "itemTwo": "HTML TAG 0 Efficient energy management: HTML TAG 1 Reduce your consumption by intelligent control and predictive adjustment, for appreciable cost savings.",
-                "itemThree": "HTML TAG 0 Increased security: HTML TAG 1 Monitor your home from anywhere and get notifications in case of irregularities.",
-                "itemFour": "HTML TAG 0 Slip value increase of your property: HTML TAG 1 A Smart Home is attractive to potential buyers and tenants.",
-                "itemFive": "HTML TAG 0 Use-tailored solutions for your home: HTML TAG 1 We adapt the system perfectly to your individual needs.",
-                "itemSix": "HTML TAG 0 Future-proof methods and technologies: HTML TAG 1 Invest in a system that grows with your requirements.",
-                "itemSeven": "HTML TAG 0 Unbeatable customer service all around: HTML TAG 1 We will accompany you from consultation to installation and beyond."
+                "itemOne": "<b> More comfort and quality of life: </b> Control light, heating and devices conveniently by app or automate routines.",
+                "itemTwo": "<b> Efficient energy management: </b> Reduce your consumption by intelligent control and predictive adjustment, for appreciable cost savings.",
+                "itemThree": "<b> Increased security: </b> Monitor your home from anywhere and get notifications in case of irregularities.",
+                "itemFour": "<b> Slip value increase of your property: </b> A Smart Home is attractive to potential buyers and tenants.",
+                "itemFive": "<b> Use-tailored solutions for your home: </b> We adapt the system perfectly to your individual needs.",
+                "itemSix": "<b> Future-proof methods and technologies: </b> Invest in a system that grows with your requirements.",
+                "itemSeven": "<b> Unbeatable customer service all around: </b> We will accompany you from consultation to installation and beyond."
               }
             },
             "boxRight": {
@@ -8130,8 +8464,8 @@
       },
       "Energy-Management": {
         "Hero": {
-          "titleUpper": "HTML TAG 0 Your energy flow through HTML TAG 1",
-          "titleLower": "HTML TAG 0 intelligent, efficient & independent HTML TAG 1",
+          "titleUpper": "<p> Your energy flow through </p>",
+          "titleLower": "<p> intelligent, efficient & independent </p>",
           "description": "Maximize your own consumption – start your intelligent energy management now.",
           "backgroundImage": {
             "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/a-hand-holding-the-electricity-bill-and-euro-bankn-2025-03-13-01-30-07-utc-compressed.jpeg",
@@ -8183,13 +8517,13 @@
             "boxLeft": {
               "title": "What you can expect:",
               "list": {
-                "itemOne": "HTML TAG 0 Maximum cost savings: HTML TAG 1 Optimize your energy flow for lower electricity bills.",
-                "itemTwo": "HTML TAG 0 Increased own consumption: HTML TAG 1 Use up to 98% of your self-generated energy.",
-                "itemThree": "HTML TAG 0 Active climate protection: HTML TAG 1 Optimization of your PV system to support the environment.",
-                "itemFour": "HTML TAG 0 Slipable value increase of your property: HTML TAG 1 Modern energy management systems make your home safe for the future.",
-                "itemFive": "HTML TAG 0 Use-tailored solutions for your home: HTML TAG 1 Perfectly adapted to your needs.",
-                "itemSix": "HTML TAG 0 Future-proof methods and technologies: HTML TAG 1 Benefit from Intelligence & AI for predictive control.",
-                "itemSeven": "HTML TAG 0 Unbeatable customer service all around: HTML TAG 1 We are here for you, from consultation to installation."
+                "itemOne": "<b> Maximum cost savings: </b> Optimize your energy flow for lower electricity bills.",
+                "itemTwo": "<b> Increased own consumption: </b> Use up to 98% of your self-generated energy.",
+                "itemThree": "<b> Active climate protection: </b> Optimization of your PV system to support the environment.",
+                "itemFour": "<b> Slipable value increase of your property: </b> Modern energy management systems make your home safe for the future.",
+                "itemFive": "<b> Use-tailored solutions for your home: </b> Perfectly adapted to your needs.",
+                "itemSix": "<b> Future-proof methods and technologies: </b> Benefit from Intelligence & AI for predictive control.",
+                "itemSeven": "<b> Unbeatable customer service all around: </b> We are here for you, from consultation to installation."
               }
             },
             "boxRight": {
@@ -8239,7 +8573,7 @@
         },
         "Cta": {
           "title": "Waiting was yesterday – get your concrete energy management offer now.",
-          "description": "Do you want full control over your energy consumption, maximum independence of electricity prices and actively support the environment? You place value on personal advice, clear procedures and quick implementation without surprises? HTML TAG 0 HTML TAG 1 Convince yourself now without obligation.  ",
+          "description": "Do you want full control over your energy consumption, maximum independence of electricity prices and actively support the environment? You place value on personal advice, clear procedures and quick implementation without surprises? <br> </br> Convince yourself now without obligation.  ",
           "button": {
             "text": "Secure free advice now",
             "href": "%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%"
@@ -8248,8 +8582,8 @@
       },
       "Wallbox": {
         "Hero": {
-          "titleUpper": "HTML TAG 0 Your private power station: HTML TAG 1",
-          "titleLower": "HTML TAG 0 bequem, cheap & autark charging HTML TAG 1",
+          "titleUpper": "<p> Your private power station: </p>",
+          "titleLower": "<p> bequem, cheap & autark charging </p>",
           "description": "Never refuel – load your electric car smart at home.",
           "backgroundImage": {
             "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/a-hand-holding-the-electricity-bill-and-euro-bankn-2025-03-13-01-30-07-utc-compressed.jpeg",
@@ -8301,14 +8635,14 @@
             "boxLeft": {
               "title": "What you can expect:",
               "list": {
-                "itemOne": "HTML TAG 0 Signifiedge Cost savings: HTML TAG 1 Load your E-car comfortably at home and drive significantly cheaper.",
-                "itemTwo": "HTML TAG 0 Quick and efficient charging: HTML TAG 1 Significantly shorter charging times compared to the household socket.",
-                "itemThree": "HTML TAG 0 Comfort and convenience: HTML TAG 1 Easy charging directly at your home.",
-                "itemFour": "HTML TAG 0 Maximum Independence: HTML TAG 1 Become almost completely self-sufficient with E-Auto and PV from the oil industry.",
-                "itemFive": "HTML TAG 0 Active environmental protection: HTML TAG 1 Use generated solar power for your electric car.",
-                "itemSix": "HTML TAG 0 Spring value increase of your property: HTML TAG 1 An integrated charging infrastructure makes your home more attractive.",
-                "itemSeven": "HTML TAG 0 Dispensed solutions for your home: HTML TAG 1 We find the right wallbox for your needs.",
-                "itemEight": "HTML TAG 0 Unbeatable customer service all around: HTML TAG 1 From consulting to installation – we are here for you."
+                "itemOne": "<b> Signifiedge Cost savings: </b> Load your E-car comfortably at home and drive significantly cheaper.",
+                "itemTwo": "<b> Quick and efficient charging: </b> Significantly shorter charging times compared to the household socket.",
+                "itemThree": "<b> Comfort and convenience: </b> Easy charging directly at your home.",
+                "itemFour": "<b> Maximum Independence: </b> Become almost completely self-sufficient with E-Auto and PV from the oil industry.",
+                "itemFive": "<b> Active environmental protection: </b> Use generated solar power for your electric car.",
+                "itemSix": "<b> Spring value increase of your property: </b> An integrated charging infrastructure makes your home more attractive.",
+                "itemSeven": "<b> Dispensed solutions for your home: </b> We find the right wallbox for your needs.",
+                "itemEight": "<b> Unbeatable customer service all around: </b> From consulting to installation – we are here for you."
               }
             },
             "boxRight": {
@@ -8358,7 +8692,7 @@
         },
         "Cta": {
           "title": "Waiting was yesterday – get your concrete Wallbox offer now.",
-          "description": "Do you want independence from petrol stations, want to load your electric car comfortably and conveniently and increase the value of your property? And place value on personal advice, clear procedures and quick implementation without surprises? HTML TAG 0 HTML TAG 1 You are right with us. Convince yourself now without obligation.",
+          "description": "Do you want independence from petrol stations, want to load your electric car comfortably and conveniently and increase the value of your property? And place value on personal advice, clear procedures and quick implementation without surprises? <br> </br> You are right with us. Convince yourself now without obligation.",
           "button": {
             "text": "Secure free advice now",
             "href": "%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%"
@@ -8367,7 +8701,7 @@
       },
       "Emergency-Power-Supply": {
         "Hero": {
-          "titleUpper": "HTML TAG 0 You are safe, independent & uninterrupted HTML TAG 1",
+          "titleUpper": "<p> You are safe, independent & uninterrupted </p>",
           "titleLower": "",
           "description": "Stop power failures – secure your home now reliably.",
           "backgroundImage": {
@@ -8420,13 +8754,13 @@
             "boxLeft": {
               "title": "What you can expect:",
               "list": {
-                "itemOne": "HTML TAG 0 Reliable backup: HTML TAG 1 Protection from power failures for your home or business.",
-                "itemTwo": "HTML TAG 0 Uninterrupted comfort: HTML TAG 1 Heating, light, Internet and important devices remain functional.",
-                "itemThree": "HTML TAG 0 Safety for critical systems: HTML TAG 1 Protection against data loss and damage to sensitive electronics.",
-                "itemFour": "HTML TAG 0 Quality in case of emergency: HTML TAG 1 Know that you are prepared, no matter what happens.",
-                "itemFive": "HTML TAG 0 Customized solutions: HTML TAG 1 Customized to your needs and property.",
-                "itemSix": "HTML TAG 0 Future-proof technologies: HTML TAG 1 Modern systems for maximum performance and durability.",
-                "itemSeven": "HTML TAG 0 Unbeatable customer service all around: HTML TAG 1 From consulting to maintenance we are your reliable partner."
+                "itemOne": "<br> Reliable backup: </br> Protection from power failures for your home or business.",
+                "itemTwo": "<br> Uninterrupted comfort: </br> Heating, light, Internet and important devices remain functional.",
+                "itemThree": "<br> Safety for critical systems: </br> Protection against data loss and damage to sensitive electronics.",
+                "itemFour": "<br> Quality in case of emergency: </br> Know that you are prepared, no matter what happens.",
+                "itemFive": "<br> Customized solutions: </br> Customized to your needs and property.",
+                "itemSix": "<br> Future-proof technologies: </br> Modern systems for maximum performance and durability.",
+                "itemSeven": "<br> Unbeatable customer service all around: </br> From consulting to maintenance we are your reliable partner."
               }
             },
             "boxRight": {
@@ -8476,7 +8810,7 @@
         },
         "Cta": {
           "title": "Waiting was yesterday – get your concrete emergency power offer now.",
-          "description": "Do you want reliable protection from power failures, would you like to secure your important systems and trust in a stable energy supply at any time? And place value on personal advice, clear procedures and quick implementation without surprises? HTML TAG 0 HTML TAG 1 You are right with us. Convince yourself now without obligation.",
+          "description": "Do you want reliable protection from power failures, would you like to secure your important systems and trust in a stable energy supply at any time? And place value on personal advice, clear procedures and quick implementation without surprises? <br> </br> You are right with us. Convince yourself now without obligation.",
           "button": {
             "text": "Secure free advice now",
             "href": "%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%"
@@ -8485,8 +8819,8 @@
       },
       "Balcony-Power-Supply": {
         "Hero": {
-          "titleUpper": "HTML TAG 0 Your personal energy transition: How to calculate a balcony power plant with memory HTML TAG 1",
-          "titleLower": "HTML TAG 0 Easy & effective immediately HTML TAG 1",
+          "titleUpper": "<p> Your personal energy transition: How to calculate a balcony power plant with memory </p>",
+          "titleLower": "<p> Easy & effective immediately </p>",
           "description": "End with high electricity bills – start now with your balcony power plant.",
           "backgroundImage": {
             "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/Balkonkraftwerk.jpg",
@@ -8538,13 +8872,13 @@
             "boxLeft": {
               "title": "What you can expect:",
               "list": {
-                "itemOne": "HTML TAG 0 Immediate saving of electricity costs: HTML TAG 1 Reduce your monthly expenditure directly with self-produced solar power.",
-                "itemTwo": "HTML TAG 0 Active environmental protection: HTML TAG 1 Make a direct contribution to the energy transition and reduce your carbon footprint.",
-                "itemThree": "HTML TAG 0 Easy installation & use: HTML TAG 1 \"Plug & Play\" solution for the quick start into solar energy.",
-                "itemFour": "HTML TAG 0 Flexibility by storage option: HTML TAG 1 Use your solar power after sunset and significantly increase your own consumption.",
-                "itemFive": "HTML TAG 0 Measure-tailored advice: HTML TAG 1 We find the suitable balcony power plant for your needs, with or without storage.",
-                "itemSix": "HTML TAG 0 Future-proof technology: HTML TAG 1 Invest in a sustainable and expandable energy solution.",
-                "itemSeven": "HTML TAG 0 Unbeatable customer service all around: HTML TAG 1 We support you from selection to commissioning."
+                "itemOne": "<b> Immediate saving of electricity costs: </b> Reduce your monthly expenditure directly with self-produced solar power.",
+                "itemTwo": "<b> Active environmental protection: </b> Make a direct contribution to the energy transition and reduce your carbon footprint.",
+                "itemThree": "<b> Easy installation & use: </b> \"Plug & Play\" solution for the quick start into solar energy.",
+                "itemFour": "<b> Flexibility by storage option: </b> Use your solar power after sunset and significantly increase your own consumption.",
+                "itemFive": "<b> Measure-tailored advice: </b> We find the suitable balcony power plant for your needs, with or without storage.",
+                "itemSix": "<b> Future-proof technology: </b> Invest in a sustainable and expandable energy solution.",
+                "itemSeven": "<b> Unbeatable customer service all around: </b> We support you from selection to commissioning."
               }
             },
             "boxRight": {
@@ -8594,7 +8928,7 @@
         },
         "Cta": {
           "title": "Waiting was yesterday – get your concrete balcony power plant offer now.",
-          "description": "Do you want easy independence from rising electricity prices, want to actively protect the environment and maximize your own consumption? And place value on personal advice, clear procedures and quick implementation without surprises? HTML TAG 0 HTML TAG 1 You are right with us. Convince yourself now without obligation.  ",
+          "description": "Do you want easy independence from rising electricity prices, want to actively protect the environment and maximize your own consumption? And place value on personal advice, clear procedures and quick implementation without surprises? <br> </br> You are right with us. Convince yourself now without obligation.  ",
           "button": {
             "text": "Secure free advice now",
             "href": "%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%"
@@ -8603,8 +8937,8 @@
       },
       "Energy-Cost-Advice": {
         "Hero": {
-          "titleUpper": "HTML TAG 0 With energy cost advice your costs are under control: Simply find energy saving potentials HTML TAG 1",
-          "titleLower": "HTML TAG 0 Clever save, live sustainably & profit HTML TAG 1",
+          "titleUpper": "<p> With energy cost advice your costs are under control: Simply find energy saving potentials </p>",
+          "titleLower": "<p> Clever save, live sustainably & profit </p>",
           "description": "Save energy costs – start with your personal energy consulting.",
           "backgroundImage": {
             "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/saving-electricity-led-lamp-wire-with-plug-and-l-2025-02-12-19-13-32-utc-compressed.jpeg",
@@ -8656,14 +8990,14 @@
             "boxLeft": {
               "title": "What you can expect:",
               "list": {
-                "itemOne": "HTML TAG 0 Signifiedge Cost reduction: HTML TAG 1 We develop tailor-made strategies to reduce your energy costs based on your specific needs and goals.",
-                "itemTwo": "HTML TAG 0 Budgetoptimization: HTML TAG 1 Your home or industrial operation is raised to an energetic and lucrative maximum.",
-                "itemThree": "HTML TAG 0 Quality & annual advice: HTML TAG 1 Our team of energy consultants will assist you every year with advice and action.",
-                "itemFour": "HTML TAG 0 Personal strategies: HTML TAG 1 Customized strategies for reducing costs.",
-                "itemFive": "HTML TAG 0 Facilitation: HTML TAG 1 We help you get your production plant amortized faster.",
-                "itemSix": "HTML TAG 0 Continuous adaptation: HTML TAG 1 Benefit from ongoing market research and adaptation of your energy strategy.",
-                "itemSeven": "HTML TAG 0 Comprehensive solutions: HTML TAG 1 We build renewable energy plants (photovoltaics).",
-                "itemEight": "HTML TAG 0 Unbeatable customer service all around: HTML TAG 1 We are your reliable partner for all questions about your energy costs."
+                "itemOne": "<b> Signifiedge Cost reduction: </b> We develop tailor-made strategies to reduce your energy costs based on your specific needs and goals.",
+                "itemTwo": "<b> Budgetoptimization: </b> Your home or industrial operation is raised to an energetic and lucrative maximum.",
+                "itemThree": "<b> Quality & annual advice: </b> Our team of energy consultants will assist you every year with advice and action.",
+                "itemFour": "<b> Personal strategies: </b> Customized strategies for reducing costs.",
+                "itemFive": "<b> Facilitation: </b> We help you get your production plant amortized faster.",
+                "itemSix": "<b> Continuous adaptation: </b> Benefit from ongoing market research and adaptation of your energy strategy.",
+                "itemSeven": "<b> Comprehensive solutions: </b> We build renewable energy plants (photovoltaics).",
+                "itemEight": "<b> Unbeatable customer service all around: </b> We are your reliable partner for all questions about your energy costs."
               }
             },
             "boxRight": {
@@ -8713,7 +9047,7 @@
         },
         "Cta": {
           "title": "Waiting was yesterday – get your concrete energy cost advice offer now.",
-          "description": "Do you wish to effectively reduce your energy costs, optimize your budget and benefit from a sustainable energy supply? And place value on personal advice, clear procedures and quick implementation without surprises? HTML TAG 0 HTML TAG 1 You are right with us. Convince yourself now without obligation.",
+          "description": "Do you wish to effectively reduce your energy costs, optimize your budget and benefit from a sustainable energy supply? And place value on personal advice, clear procedures and quick implementation without surprises? <br> </br> You are right with us. Convince yourself now without obligation.",
           "button": {
             "text": "Secure free advice now",
             "href": "%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%"
@@ -8722,8 +9056,8 @@
       },
       "Self-Sufficient-Hot-Water-Production": {
         "Hero": {
-          "titleUpper": "HTML TAG 0 Your hot water from solar power: HTML TAG 1",
-          "titleLower": "HTML TAG 0 autark, efficient & environmentally friendly HTML TAG 1",
+          "titleUpper": "<p> Your hot water from solar power: </p>",
+          "titleLower": "<p> autark, efficient & environmentally friendly </p>",
           "description": "End with high heating costs – generate your hot water now yourself.",
           "backgroundImage": {
             "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/boiling-water-splash-with-steam-on-black-backgroun-2025-03-13-11-28-22-utc-compressed.jpeg",
@@ -8775,14 +9109,14 @@
             "boxLeft": {
               "title": "What you can expect:",
               "list": {
-                "itemOne": "HTML TAG 0 Required heating cost savings: HTML TAG 1 Create your hot water with solar power at low cost.",
-                "itemTwo": "HTML TAG 0 Environment-friendly & sustainable: HTML TAG 1 Shower mainly with self-generated solar power and reduce CO2.",
-                "itemThree": "HTML TAG 0 Easy retrofit: HTML TAG 1 Your system can be integrated into most existing hot water systems.",
-                "itemFour": "HTML TAG 0 Maximum Autarkie: HTML TAG 1 Be independent of external energy suppliers and rising prices.",
-                "itemFive": "HTML TAG 0 Safety by hybrid operation: HTML TAG 1 Additional heating with mains current is possible at any time if necessary.",
-                "itemSix": "HTML TAG 0 Customized solutions: HTML TAG 1 Individual adjustment to your needs and your home.",
-                "itemSeven": "HTML TAG 0 Future-proof technology: HTML TAG 1 Invest in an innovative and durable solution for your hot water.",
-                "itemEight": "HTML TAG 0 Unbeatable customer service all around: HTML TAG 1 We accompany you from planning to commissioning."
+                "itemOne": "<b> Required heating cost savings: </b> Create your hot water with solar power at low cost.",
+                "itemTwo": "<b> Environment-friendly & sustainable: </b> Shower mainly with self-generated solar power and reduce CO2.",
+                "itemThree": "<b> Easy retrofit: </b> Your system can be integrated into most existing hot water systems.",
+                "itemFour": "<b> Maximum Autarkie: </b> Be independent of external energy suppliers and rising prices.",
+                "itemFive": "<b> Safety by hybrid operation: </b> Additional heating with mains current is possible at any time if necessary.",
+                "itemSix": "<b> Customized solutions: </b> Individual adjustment to your needs and your home.",
+                "itemSeven": "<b> Future-proof technology: </b> Invest in an innovative and durable solution for your hot water.",
+                "itemEight": "<b> Unbeatable customer service all around: </b> We accompany you from planning to commissioning."
               }
             },
             "boxRight": {
@@ -8832,7 +9166,7 @@
         },
         "Cta": {
           "title": "Waiting was yesterday – pick up your specific offer for autonomous hot water production.",
-          "description": "Do you want to be independent of high heating costs, want to generate your warm water in an environmentally friendly way and benefit from a future-proof solution? And place value on personal advice, clear procedures and quick implementation without surprises? HTML TAG 0 HTML TAG 1 You are right with us. Convince yourself now without obligation. ",
+          "description": "Do you want to be independent of high heating costs, want to generate your warm water in an environmentally friendly way and benefit from a future-proof solution? And place value on personal advice, clear procedures and quick implementation without surprises? <br> </br> You are right with us. Convince yourself now without obligation. ",
           "button": {
             "text": "Secure free advice now",
             "href": "%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%"
@@ -8841,8 +9175,8 @@
       },
       "Maintenance-Service": {
         "Hero": {
-          "titleUpper": "HTML TAG 0 Maintenance & Service for Solar and Home Technology HTML TAG 1",
-          "titleLower": "HTML TAG 0 Maximum efficiency, long service life & worry-free HTML TAG 1",
+          "titleUpper": "<p> Maintenance & Service for Solar and Home Technology </p>",
+          "titleLower": "<p> Maximum efficiency, long service life & worry-free </p>",
           "description": "Secure the performance of your facility – start now with professional service.",
           "backgroundImage": {
             "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/focus/Heat-Pump/solar-panel-maintenance-tools-and-outdoor-with-en-2025-04-06-07-27-43-utc-compressed.jpg",
@@ -8894,14 +9228,14 @@
             "boxLeft": {
               "title": "What you can expect:",
               "list": {
-                "itemOne": "HTML TAG 0 Optimal efficiency & yields: HTML TAG 1 Your systems always work at the maximum of their performance.",
-                "itemTwo": "HTML TAG 0 Preventing damage: HTML TAG 1 Minimizing the risk of expensive repairs due to early detection of problems.",
-                "itemThree": "HTML TAG 0 Extended service life: HTML TAG 1 Maximize the service life of your solar and domestic systems.",
-                "itemFour": "HTML TAG 0 Conservation of warranty conditions: HTML TAG 1 Professional maintenance secures your manufacturer's warranty.",
-                "itemFive": "HTML TAG 0 Quick emergency service: HTML TAG 1 In case of malfunction, we are quickly in place.",
-                "itemSix": "HTML TAG 0 Transparente Maintenance logs: HTML TAG 1 You will receive detailed reports on the state of your plant.",
-                "itemSeven": "HTML TAG 0 Certified experts: HTML TAG 1 Your system is in the best hands of our trained staff.",
-                "itemEight": "HTML TAG 0 Unbeatable customer service all around: HTML TAG 1 We are your reliable partner for all service questions."
+                "itemOne": "<b> Optimal efficiency & yields: </b> Your systems always work at the maximum of their performance.",
+                "itemTwo": "<b> Preventing damage: </b> Minimizing the risk of expensive repairs due to early detection of problems.",
+                "itemThree": "<b> Extended service life: </b> Maximize the service life of your solar and domestic systems.",
+                "itemFour": "<b> Conservation of warranty conditions: </b> Professional maintenance secures your manufacturer's warranty.",
+                "itemFive": "<b> Quick emergency service: </b> In case of malfunction, we are quickly in place.",
+                "itemSix": "<b> Transparente Maintenance logs: </b> You will receive detailed reports on the state of your plant.",
+                "itemSeven": "<b> Certified experts: </b> Your system is in the best hands of our trained staff.",
+                "itemEight": "<b> Unbeatable customer service all around: </b> We are your reliable partner for all service questions."
               }
             },
             "boxRight": {
@@ -8950,8 +9284,8 @@
           }
         },
         "Cta": {
-          "title": "Waiting was yesterday – get your concrete maintenance &amp; service offer now.",
-          "description": "You want maximum efficiency, a long service life and carefree operation of your solar and home technology? And place value on personal advice, clear procedures and quick implementation without surprises? HTML TAG 0 HTML TAG 1 You are right with us. Convince yourself now without obligation. ",
+          "title": "Waiting was yesterday – get your concrete maintenance & service offer now.",
+          "description": "You want maximum efficiency, a long service life and carefree operation of your solar and home technology? And place value on personal advice, clear procedures and quick implementation without surprises? <br> </br> You are right with us. Convince yourself now without obligation. ",
           "button": {
             "text": "Secure free advice now",
             "href": "%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%0D%"
@@ -8968,6 +9302,25 @@
           "height": "200"
         },
         "disclamer": "© Synergie.cc – All rights reserved.",
+        "socialTitle": "Social",
+        "membership": {
+          "title": "Member of",
+          "logos": {
+            "ove": {
+              "src": "/frontend/landingPage/icons/OVE_Logo.png",
+              "alt": "OVE – Austrian Electrotechnical Association",
+              "width": "200",
+              "height": "80"
+            },
+            "pv-austria": {
+              "src": "/frontend/landingPage/icons/PV_Logo_Hoch_RGB-scaled.jpg",
+              "alt": "PV Austria – Photovoltaic Austria",
+              "width": "80",
+              "height": "40"
+            }
+          }
+        },
+        "backgroundText": "Synergie",
         "boxes": {
           "boxLeft": {
             "title": "Services",
@@ -9134,9 +9487,9 @@
                   "href": "/focus/autarke-warmwasser-erzeugung"
                 },
                 "productTwelve": {
-                  "title": "Maintenance &amp; Service",
+                  "title": "Maintenance & Service",
                   "imageSrc": "/frontend/landingPage/products/certified-male-electrician-installing-home-ev-char-2024-10-18-05-46-25-utc.jpeg",
-                  "alt": "Maintenance &amp; Service",
+                  "alt": "Maintenance & Service",
                   "href": "/focus/wartung-service"
                 }
               }
@@ -9155,7 +9508,7 @@
       },
       "LocaleSwitcher": {
         "label": "Change language",
-        "locale": "{locale, select, atAT {🇦🇹 English} other {Unknown}}"
+        "locale": "{locale, select, atAT {🇦🇹 Deutsch} en {🇬🇧 English} other {Unknown}}"
       }
     }
   }

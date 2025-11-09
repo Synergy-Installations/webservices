@@ -253,6 +253,7 @@ GERMAN_KEYWORDS = {
 }
 
 TAG_PATTERN = re.compile(r"</?[^>]+?>")
+PLACEHOLDER_TEMPLATE = "«HTMLTAG{}»"
 NON_TRANSLATABLE_PREFIXES = (
     "http",
     "/frontend",
@@ -288,7 +289,7 @@ def protect_tags(text: str):
     placeholders = {}
 
     def _replace(match):
-        key = f"__HTML_TAG_{len(placeholders)}__"
+        key = PLACEHOLDER_TEMPLATE.format(len(placeholders))
         placeholders[key] = match.group(0)
         return key
 
@@ -365,7 +366,10 @@ def translate_string(value_en: str, value_de: str | None, translator) -> str:
     needs_translation = False
     source_text = value_en
 
-    if value_de is not None and value_en == value_de and looks_like_text(value_en):
+    if "HTML TAG" in value_en and value_de:
+        needs_translation = True
+        source_text = value_de
+    elif value_de is not None and value_en == value_de and looks_like_text(value_en):
         if contains_german(value_en) or seems_german_by_detection(value_en):
             needs_translation = True
             source_text = value_de

@@ -95,7 +95,9 @@ export const Form = (props: FormProps) => {
       {}
     )
   );
-  console.log(formElements);
+  const sectionTitle = t("copy.section.title");
+  const sectionDescription = t("copy.section.description");
+  const privacyHref = t("legal.href");
 
   const formElementKeys = Object.keys(formElements);
 
@@ -294,7 +296,7 @@ export const Form = (props: FormProps) => {
       setButtonStatusText({
         fatal: true,
         disabled: false,
-        text: "Bitte füllen Sie alle erforderlichen Felder aus.",
+        text: t("copy.messages.missingRequired"),
       });
       return;
     }
@@ -325,13 +327,13 @@ export const Form = (props: FormProps) => {
           setButtonStatusText({
             fatal: false,
             disabled: true,
-            text: "Danke für Ihre Anfrage. Bitte überprüfen Sie Ihre Inbox. Falls die Nachricht nicht angekommen ist, benutzen Sie bitte die unten angegebene E-Mail.",
+            text: t("copy.messages.success"),
           });
         } else {
           setButtonStatusText({
             fatal: true,
             disabled: true,
-            text: "Es konnte nicht abgeschickt werden, bitte benutzen Sie die E-Mail unten.",
+            text: t("copy.messages.error"),
           });
         }
         // setButtonStatusText({
@@ -351,11 +353,11 @@ export const Form = (props: FormProps) => {
       })
       .catch((error) => {
         console.error("Error sending email", error);
-        // setButtonStatusText({
-        //   fatal: true,
-        //   disabled: true,
-        //   text: "Es konnte nicht abgeschickt werden, bitte benutzen Sie die E-Mail unten.",
-        // });
+        setButtonStatusText({
+          fatal: true,
+          disabled: true,
+          text: t("copy.messages.error"),
+        });
       });
     // You can handle res as you want
   };
@@ -368,13 +370,12 @@ export const Form = (props: FormProps) => {
           <div className="flex items-center justify-center space-x-3 mb-4">
             <div className="w-2 h-2 rounded-full bg-synergy-light-blue"></div>
             <h3 className="text-2xl font-semibold text-synergy-dark-grey">
-              Kontakt aufnehmen
+              {sectionTitle}
             </h3>
             <div className="w-2 h-2 rounded-full bg-synergy-light-blue"></div>
           </div>
           <p className="text-base text-gray-600 max-w-md mx-auto">
-            Wir freuen uns auf Ihre Anfrage und melden uns schnellstmöglich bei
-            Ihnen.
+            {sectionDescription}
           </p>
         </div>
 
@@ -548,22 +549,24 @@ export const Form = (props: FormProps) => {
                           d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
                         />
                       </svg>
-                      <p className="mb-2 text-sm text-gray-500 group-hover/upload:text-synergy-light-blue transition-colors">
-                        <span className="font-semibold">
-                          Klicken Sie zum Hochladen
-                        </span>{" "}
-                        oder ziehen Sie Dateien hierher
+                      <p className="mb-2 text-sm text-gray-500 group-hover/upload:text-synergy-light-blue transition-colors text-center">
+                        {t.rich("copy.upload.cta", {
+                          strong: (chunks) => (
+                            <span className="font-semibold">{chunks}</span>
+                          ),
+                        })}
                       </p>
                       <p className="text-xs text-gray-500">
-                        Erlaubte Dateitypen:{" "}
-                        {element.uploadConfig.allowedTypes.join(", ")}
+                        {t("copy.upload.allowedTypes", {
+                          types: element.uploadConfig.allowedTypes.join(", "),
+                        })}
                       </p>
                       <p className="text-xs text-gray-500">
-                        Max. Dateigröße:{" "}
-                        {(element.uploadConfig.maxFileSize / 1048576).toFixed(
-                          1
-                        )}{" "}
-                        MB
+                        {t("copy.upload.maxSize", {
+                          size: (
+                            element.uploadConfig.maxFileSize / 1048576
+                          ).toFixed(1),
+                        })}
                       </p>
                     </div>
                   </div>
@@ -621,10 +624,10 @@ export const Form = (props: FormProps) => {
                                 }`}
                               >
                                 {file.status === "uploading"
-                                  ? "Wird hochgeladen..."
+                                  ? t("copy.fileStatus.uploading")
                                   : file.status === "uploaded"
-                                    ? "Erfolgreich hochgeladen"
-                                    : "Fehler beim Hochladen"}
+                                    ? t("copy.fileStatus.uploaded")
+                                    : t("copy.fileStatus.error")}
                               </span>
                             </div>
                             <button
@@ -747,14 +750,16 @@ export const Form = (props: FormProps) => {
         {/* Footer without background container */}
         <div className="text-center">
           <div className="text-xs text-gray-500">
-            Mit dem Absenden stimmen Sie unseren{" "}
-            <Link
-              className="text-synergy-light-blue hover:text-synergy-light-blue/80 font-medium transition-colors"
-              href="/datenschutz"
-            >
-              Datenschutzrichtlinien
-            </Link>{" "}
-            zu.
+            {t.rich("legal.text", {
+              link: (chunks) => (
+                <Link
+                  className="text-synergy-light-blue hover:text-synergy-light-blue/80 font-medium transition-colors"
+                  href={privacyHref}
+                >
+                  {chunks}
+                </Link>
+              ),
+            })}
           </div>
         </div>
       </form>

@@ -4999,6 +4999,657 @@
                   "href": "/contact"
                 }
               }
+            },
+            "Energiegemeinschaften": {
+              "Diamond": {
+              "title": "Energy\nCommunities",
+              "backgroundImage": {
+                "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                "alt": "Energy Community"
+              }
+              },
+              "Components": {
+              "titleOne": "Why Energy Communities?",
+              "descriptionOne": "Electricity produced together creates independence, reduces costs and promotes local resilience. With an energy community, several households or businesses share clean energy and benefit from economies of scale.",
+              "titleTwo": "Why us?",
+              "descriptionTwo": "We accompany you from planning through technical implementation to transparent billing. We solve legal and technical questions in a practical way — so your community runs smoothly.",
+              "button": {
+                "text": "Start a community now",
+                "href": "/kontakt"
+              },
+              "boxes": {
+                "gemeinsame-erzeugung": {
+                "title": "Joint generation",
+                "description": "Photovoltaics on the roof or open space is used collectively and saves costs for each party.",
+                "image": {
+                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                  "alt": "Joint generation"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/solar-panel-sun_15865230%20blau.svg",
+                  "alt": "Solar modules",
+                  "width": "32",
+                  "height": "32"
+                }
+                },
+                "intelligente-verteilung": {
+                "title": "Intelligent distribution",
+                "description": "Modern metering and control technology ensures fair and efficient distribution of production and consumption.",
+                "image": {
+                  "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
+                  "alt": "Intelligent distribution"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/function.svg",
+                  "alt": "Control",
+                  "width": "32",
+                  "height": "32"
+                }
+                },
+                "gemeinschaftlicher-speicher": {
+                "title": "Community storage",
+                "description": "A central storage increases self-consumption, provides backup power functions, and smooths out fluctuations.",
+                "image": {
+                  "src": "/frontend/landingPage/products/stromspeicher.jpg",
+                  "alt": "Storage"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/Stromspeicher_9236322%20blau.svg",
+                  "alt": "Storage",
+                  "width": "32",
+                  "height": "32"
+                }
+                }
+              }
+              },
+              "Background": {
+              "boxes": {
+                "boxLeft": {
+                "title": "Advantages of an energy community:",
+                "list": {
+                  "itemOne": "Cost reduction through shared self-consumption",
+                  "itemTwo": "More supply security and resilience",
+                  "itemThree": "Regional value creation and cooperation",
+                  "itemFour": "Better subsidy and financing options",
+                  "itemFive": "Transparent distribution thanks to modern metering technology",
+                  "itemSix": "Contribution to local climate protection"
+                }
+                },
+                "boxRight": {
+                "title": "How we implement your community:",
+                "list": {
+                  "itemOne": "Consulting & initial concept",
+                  "itemTwo": "Profitability and subsidy review",
+                  "itemThree": "Technical planning & grid integration",
+                  "itemFour": "Installation of generation & storage",
+                  "itemFive": "Metering concept and billing solution",
+                  "itemSix": "Operation, maintenance and community support"
+                }
+                }
+              },
+              "button": {
+                "text": "Request consultation now",
+                "href": "/kontakt"
+              }
+              }
+            },
+            "Betriebsführung": {
+              "Diamond": {
+              "title": "Operations Management",
+              "backgroundImage": {
+                "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                "alt": "Operations Management"
+              }
+              },
+              "Components": {
+              "titleOne": "Why is professional operations management important?",
+              "descriptionOne": "With continuous operations management we ensure optimal availability, efficiency and safety of your system. We take over monitoring, troubleshooting and regular optimization of operations.",
+              "titleTwo": "Why us?",
+              "descriptionTwo": "Our team combines technical know‑how, monitoring tools and practical experience to operate systems reliably, quickly resolve faults and optimize operational processes.",
+              "button": {
+                "text": "Request operations management",
+                "href": "/kontakt"
+              },
+              "boxes": {
+                "betriebsueberwachung": {
+                "title": "Operations monitoring",
+                "description": "24/7 monitoring of performance, yields and system status including alerts for deviations.",
+                "image": {
+                  "src": "/frontend/landingPage/icons/icon-plan.svg",
+                  "alt": "Operations monitoring"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                  "alt": "Monitoring",
+                  "width": "32",
+                  "height": "32"
+                }
+                },
+                "fernwartung": {
+                "title": "Remote maintenance & control",
+                "description": "Remote analysis, configuration adjustments and rapid interventions to minimize downtime.",
+                "image": {
+                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                  "alt": "Remote maintenance"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/icon-plan.svg",
+                  "alt": "Remote maintenance",
+                  "width": "32",
+                  "height": "32"
+                }
+                },
+                "protokoll-und-reporting": {
+                "title": "Protocol & Reporting",
+                "description": "Regular operational reports, performance analyses and recommendations for action for sustainable optimization.",
+                "image": {
+                  "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
+                  "alt": "Reporting"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                  "alt": "Reporting",
+                  "width": "32",
+                  "height": "32"
+                }
+                }
+              }
+              },
+              "Background": {
+              "boxes": {
+                "boxLeft": {
+                "title": "Your advantages through operations management:",
+                "list": {
+                  "itemOne": "Maximum system availability",
+                  "itemTwo": "Early detection of faults",
+                  "itemThree": "Optimized yields through continuous adjustment",
+                  "itemFour": "Reduced operating costs",
+                  "itemFive": "Documentation & traceability",
+                  "itemSix": "Reliable service partner"
+                }
+                },
+                "boxRight": {
+                "title": "How operations management runs:",
+                "list": {
+                  "itemOne": "Connection to monitoring system and initial check",
+                  "itemTwo": "Continuous analysis and alerting",
+                  "itemThree": "Remote maintenance or on-site intervention if needed",
+                  "itemFour": "Regular reports and optimization measures",
+                  "itemFive": "Incident management & escalation processes",
+                  "itemSix": "Continuous improvement and documentation"
+                }
+                }
+              },
+              "button": {
+                "text": "Start operations management",
+                "href": "/kontakt"
+              }
+              }
+            },
+            "Versicherung": {
+              "Diamond": {
+              "title": "Insurance",
+              "backgroundImage": {
+                "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/insurance-background.jpg",
+                "alt": "Insurance coverage"
+              }
+              },
+              "Components": {
+              "titleOne": "Why is insurance important?",
+              "descriptionOne": "Protect your system and your investment against damage, loss of yield and liability risks. With the right insurance coverage you avoid unexpected costs and secure your operational capability.",
+              "titleTwo": "Why us?",
+              "descriptionTwo": "We help you with risk analysis, selection of suitable policies and provide fast, competent support in the event of a claim — from filing to reimbursement.",
+              "button": {
+                "text": "Request insurance now",
+                "href": "/kontakt"
+              },
+              "boxes": {
+                "haftpflicht": {
+                "title": "Business liability",
+                "description": "Protects you against personal injury and property damage arising from operations.",
+                "image": {
+                  "src": "/frontend/landingPage/icons/insurance_liability.svg",
+                  "alt": "Liability"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/shield_check.svg",
+                  "alt": "Liability Icon",
+                  "width": "32",
+                  "height": "32"
+                }
+                },
+                "ertragsausfall": {
+                "title": "Loss of yield insurance",
+                "description": "Covers lost revenue if your system cannot produce due to an insured damage.",
+                "image": {
+                  "src": "/frontend/landingPage/icons/insurance_loss.svg",
+                  "alt": "Loss of yield"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/chart_decline.svg",
+                  "alt": "Loss of yield Icon",
+                  "width": "32",
+                  "height": "32"
+                }
+                },
+                "allrisk": {
+                "title": "All-Risk / Component protection",
+                "description": "Coverage for damage to modules, inverters and infrastructure caused by external influences or accidents.",
+                "image": {
+                  "src": "/frontend/landingPage/icons/insurance_components.svg",
+                  "alt": "All-Risk"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/tools_shield.svg",
+                  "alt": "All-Risk Icon",
+                  "width": "32",
+                  "height": "32"
+                }
+                }
+              }
+              },
+              "Background": {
+              "boxes": {
+                "boxLeft": {
+                "title": "Your advantages through suitable insurance coverage:",
+                "list": {
+                  "itemOne": "Financial protection in case of damage",
+                  "itemTwo": "Quick restoration of the system",
+                  "itemThree": "Coverage of revenue losses",
+                  "itemFour": "Protection against liability claims",
+                  "itemFive": "Transparent policy selection",
+                  "itemSix": "Support in the event of a claim"
+                }
+                },
+                "boxRight": {
+                "title": "How the coverage process works:",
+                "list": {
+                  "itemOne": "Initial consultation and risk analysis",
+                  "itemTwo": "Offer preparation and policy selection",
+                  "itemThree": "Contract signing and documentation",
+                  "itemFour": "Regular coverage review",
+                  "itemFive": "Quick claim reporting in case of emergency",
+                  "itemSix": "Support with processing and expert reports"
+                }
+                }
+              },
+              "button": {
+                "text": "Start insurance",
+                "href": "/kontakt"
+              }
+              }
+            },
+            "Finanzierung": {
+              "Diamond": {
+              "title": "Financing",
+              "backgroundImage": {
+                "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                "alt": "Financing"
+              }
+              },
+              "Components": {
+              "titleOne": "Why financing?",
+              "descriptionOne": "With appropriate financing you can make your energy transition possible now—without a large upfront payment. Use government subsidies, favorable installments and still keep full control over your project.",
+              "titleTwo": "Why us?",
+              "descriptionTwo": "We broker transparent financing options, check grant possibilities and support you with application and disbursement. Our partners offer flexible terms that fit your project and budget.",
+              "button": {
+                "text": "Request financing advice",
+                "href": "/kontakt"
+              },
+              "boxes": {
+                "raten": {
+                "title": "Flexible installments",
+                "description": "Monthly installments, terms and special repayments tailored to your needs.",
+                "image": {
+                  "src": "/frontend/landingPage/icons/finance_chart.svg",
+                  "alt": "Flexible installments"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/function.svg",
+                  "alt": "Installments Icon",
+                  "width": "32",
+                  "height": "32"
+                }
+                },
+                "foerderberatung": {
+                "title": "Subsidy advisory",
+                "description": "We check available state and regional subsidies and support with the application.",
+                "image": {
+                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                  "alt": "Subsidy advisory"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                  "alt": "Subsidy Icon",
+                  "width": "32",
+                  "height": "32"
+                }
+                },
+                "transparenz": {
+                "title": "Transparent terms",
+                "description": "No hidden costs—we disclose interest, terms and fees clearly.",
+                "image": {
+                  "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
+                  "alt": "Transparent terms"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/eco-charging.svg",
+                  "alt": "Transparency Icon",
+                  "width": "32",
+                  "height": "32"
+                }
+                }
+              }
+              },
+              "Background": {
+              "boxes": {
+                "boxLeft": {
+                "title": "Your advantages of financing:",
+                "list": {
+                  "itemOne": "Immediate implementation without a large initial investment",
+                  "itemTwo": "Plannable monthly expenses",
+                  "itemThree": "Combination with subsidies possible",
+                  "itemFour": "Preserve liquidity for other investments",
+                  "itemFive": "Attractive conditions through partner banks",
+                  "itemSix": "Complete cost overview before contract conclusion"
+                }
+                },
+                "boxRight": {
+                "title": "How financing works:",
+                "list": {
+                  "itemOne": "Consultation and needs analysis",
+                  "itemTwo": "Review of subsidy and financing options",
+                  "itemThree": "Offer comparison and terms clarification",
+                  "itemFour": "Application and credit check",
+                  "itemFive": "Contract signing and disbursement",
+                  "itemSix": "Support until commissioning and follow-up"
+                }
+                }
+              },
+              "button": {
+                "text": "Start financing",
+                "href": "/kontakt"
+              }
+              }
+            },
+            "Anlagenverwaltung": {
+              "Diamond": {
+              "title": "Asset Management",
+              "backgroundImage": {
+                "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                "alt": "Asset Management"
+              }
+              },
+              "Components": {
+              "titleOne": "Why is asset management important?",
+              "descriptionOne": "Professional asset management secures availability, optimizes yields and reduces downtime. This keeps your investment profitable in the long term.",
+              "titleTwo": "Why us?",
+              "descriptionTwo": "We offer holistic management: monitoring, maintenance, incident management and regular reporting — all from a single source.",
+              "button": {
+                "text": "Request asset management now",
+                "href": "/kontakt"
+              },
+              "boxes": {
+                "monitoring": {
+                "title": "24/7 Monitoring",
+                "description": "Continuous monitoring of performance data detects deviations early and enables proactive intervention.",
+                "image": {
+                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                  "alt": "Monitoring"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                  "alt": "Monitoring Icon",
+                  "width": "32",
+                  "height": "32"
+                }
+                },
+                "wartung": {
+                "title": "Scheduled maintenance",
+                "description": "Planned inspections and preventive measures extend component lifespan.",
+                "image": {
+                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                  "alt": "Maintenance"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/icon-plan.svg",
+                  "alt": "Maintenance Icon",
+                  "width": "32",
+                  "height": "32"
+                }
+                },
+                "reporting": {
+                "title": "Transparent reports",
+                "description": "Regular performance and cost reports as well as recommendations for action for maximum transparency.",
+                "image": {
+                  "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
+                  "alt": "Reporting"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/function.svg",
+                  "alt": "Reporting Icon",
+                  "width": "32",
+                  "height": "32"
+                }
+                }
+              }
+              },
+              "Background": {
+              "boxes": {
+                "boxLeft": {
+                "title": "Your advantages of professional asset management:",
+                "list": {
+                  "itemOne": "Maximum system availability",
+                  "itemTwo": "Higher yields through optimized operations",
+                  "itemThree": "Reduced operating costs through proactive maintenance",
+                  "itemFour": "Fast response times for incidents",
+                  "itemFive": "Transparent documentation and reports",
+                  "itemSix": "One central contact for all concerns"
+                }
+                },
+                "boxRight": {
+                "title": "How asset management works:",
+                "list": {
+                  "itemOne": "Connection to our monitoring and initial check",
+                  "itemTwo": "Frequent evaluations and automatic alerting",
+                  "itemThree": "Scheduled maintenance and inspections",
+                  "itemFour": "Fast on-site interventions for critical incidents",
+                  "itemFive": "Regular reporting and optimization suggestions",
+                  "itemSix": "Continuous development of the operational strategy"
+                }
+                }
+              },
+              "button": {
+                "text": "Start asset management",
+                "href": "/kontakt"
+              }
+              }
+            },
+            "Operate": {
+              "Diamond": {
+              "title": "Operate",
+              "backgroundImage": {
+                "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                "alt": "Operate"
+              }
+              },
+              "Components": {
+              "titleOne": "Why Operate?",
+              "descriptionOne": "Operate ensures systems run reliably and efficiently through continuous monitoring and expert adjustments.",
+              "titleTwo": "Why we?",
+              "descriptionTwo": "Our specialists deliver operational excellence with proven processes, precise measurements and clear documentation.",
+              "button": {
+                "text": "Request Operate",
+                "href": "/kontakt"
+              },
+              "boxes": {
+                "systemanalyse": {
+                "title": "System analysis",
+                "description": "Comprehensive inspection of system topology, performance and control strategy to identify optimization needs.",
+                "image": {
+                  "src": "/frontend/landingPage/icons/icon-plan.svg",
+                  "alt": "System analysis"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/icon-plan.svg",
+                  "alt": "Analysis",
+                  "width": "32",
+                  "height": "32"
+                }
+                },
+                "durchflussmessung": {
+                "title": "Flow measurement",
+                "description": "Accurate measurement and verification of operational flows and setpoints to ensure optimal performance.",
+                "image": {
+                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                  "alt": "Flow measurement"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                  "alt": "Measurement",
+                  "width": "32",
+                  "height": "32"
+                }
+                },
+                "einstellung-und-protokoll": {
+                "title": "Adjustment & report",
+                "description": "Professional configuration of controls and delivery of a clear operational protocol with all values recorded.",
+                "image": {
+                  "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
+                  "alt": "Adjustment"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                  "alt": "Report",
+                  "width": "32",
+                  "height": "32"
+                }
+                }
+              }
+              },
+              "Background": {
+              "boxes": {
+                "boxLeft": {
+                "title": "Benefits of Operate:",
+                "list": {
+                  "itemOne": "Consistent system performance",
+                  "itemTwo": "Lower operating costs",
+                  "itemThree": "Reduced energy consumption",
+                  "itemFour": "Improved comfort and reliability",
+                  "itemFive": "Compliance and documentation",
+                  "itemSix": "Actionable operational insights"
+                }
+                },
+                "boxRight": {
+                "title": "How Operate works:",
+                "list": {
+                  "itemOne": "Schedule and initial site assessment",
+                  "itemTwo": "Measurement and diagnostics",
+                  "itemThree": "Define target settings",
+                  "itemFour": "Implement adjustments and calibrations",
+                  "itemFive": "Verification and fine-tuning",
+                  "itemSix": "Handover of operational report and recommendations"
+                }
+                }
+              },
+              "button": {
+                "text": "Start Operate",
+                "href": "/kontakt"
+              }
+              }
+            },
+            "Optimize": {
+              "Diamond": {
+              "title": "Optimization of electricity contracts",
+              "backgroundImage": {
+                "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                "alt": "Optimization of electricity contracts"
+              }
+              },
+              "Components": {
+              "titleOne": "Why optimize electricity contracts?",
+              "descriptionOne": "We optimize your electricity contracts to achieve better terms, lower costs and more supply security.",
+              "titleTwo": "Why us?",
+              "descriptionTwo": "Our experts analyze contracts, negotiate with providers and implement smart tariff strategies.",
+              "button": {
+                "text": "Contact for optimization",
+                "href": "/kontakt"
+              },
+              "boxes": {
+                "systemanalyse": {
+                "title": "Contract analysis",
+                "description": "Detailed review of existing tariff conditions, terms and hidden costs.",
+                "image": {
+                  "src": "/frontend/landingPage/icons/icon-plan.svg",
+                  "alt": "Contract analysis"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/icon-plan.svg",
+                  "alt": "Analysis",
+                  "width": "32",
+                  "height": "32"
+                }
+                },
+                "durchflussmessung": {
+                "title": "Load profile & consumption",
+                "description": "Determine your consumption behavior to select optimal tariffs and time windows.",
+                "image": {
+                  "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                  "alt": "Load profile"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                  "alt": "Measurement",
+                  "width": "32",
+                  "height": "32"
+                }
+                },
+                "einstellung-und-protokoll": {
+                "title": "Implementation & Reporting",
+                "description": "Contractual adjustments, tariff changes and ongoing reporting for cost control.",
+                "image": {
+                  "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
+                  "alt": "Implementation"
+                },
+                "icon": {
+                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                  "alt": "Report",
+                  "width": "32",
+                  "height": "32"
+                }
+                }
+              }
+              },
+              "Background": {
+              "boxes": {
+                "boxLeft": {
+                "title": "Advantages of optimization:",
+                "list": {
+                  "itemOne": "Lower energy costs",
+                  "itemTwo": "Transparent tariff conditions",
+                  "itemThree": "Better budget planning",
+                  "itemFour": "Offers tailored to the load profile",
+                  "itemFive": "Reduction of hidden fees",
+                  "itemSix": "Ongoing monitoring and readjustment"
+                }
+                },
+                "boxRight": {
+                "title": "How optimization works:",
+                "list": {
+                  "itemOne": "Analysis of current contracts and consumption data",
+                  "itemTwo": "Identification of savings potentials",
+                  "itemThree": "Negotiation with providers and tariff change",
+                  "itemFour": "Implementation and monitoring",
+                  "itemFive": "Regular reporting",
+                  "itemSix": "Continuous adjustment to market changes"
+                }
+                }
+              },
+              "button": {
+                "text": "Start optimization now",
+                "href": "/kontakt"
+              }
+              }
             }
           }
         }

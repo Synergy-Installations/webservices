@@ -81,7 +81,7 @@ export async function POST(req: NextRequest) {
   try {
     const { data, error } = await resend.emails.send({
       from: "office@synergie.cc",
-      to: [to],
+      to: [to, "office@synergie.cc", "admin@synergie.cc"],
       subject: "Ihre Anfrage von Synergiemontagen",
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">

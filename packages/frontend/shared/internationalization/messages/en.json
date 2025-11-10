@@ -1228,7 +1228,7 @@
           "width": "250",
           "height": "200"
         },
-        "title": "<underscore> Request a quote nowf </underscore>",
+        "title": "<underscore> Request a quote now </underscore>",
         "description": "Don't stick, we move! <br> </br> With us you are on the overhaul track and comfortably on the go.",
         "buttons": {
           "buttonLeft": {
@@ -5655,14 +5655,6 @@
         }
       },
       "productPreviewSmall": {
-        "photovoltaic": {
-          "title": "Consultation",
-          "href": "#beratung",
-          "image": {
-            "src": "/frontend/landingPage/icons/co_present_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
-            "alt": "Photovoltaic"
-          }
-        },
         "heatpump": {
           "title": "Marketing",
           "href": "#marketing",
@@ -5671,11 +5663,11 @@
             "alt": "Photovoltaic"
           }
         },
-        "photovoltaic2": {
-          "title": "Service",
-          "href": "#service",
+        "photovoltaic": {
+          "title": "Consultation",
+          "href": "#beratung",
           "image": {
-            "src": "/frontend/landingPage/icons/home_repair_service_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+            "src": "/frontend/landingPage/icons/co_present_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
             "alt": "Photovoltaic"
           }
         },
@@ -5684,6 +5676,14 @@
           "href": "#umsetzung",
           "image": {
             "src": "/frontend/landingPage/icons/build_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+            "alt": "Photovoltaic"
+          }
+        },
+        "photovoltaic2": {
+          "title": "Service",
+          "href": "#service",
+          "image": {
+            "src": "/frontend/landingPage/icons/home_repair_service_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
             "alt": "Photovoltaic"
           }
         }

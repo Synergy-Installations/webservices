@@ -9,6 +9,7 @@ import {
 } from "@com.synergy/frontend-ui/Icons";
 import { useTranslations } from "next-intl";
 import RichText from "../../../shared/internationalization/text/RichText";
+import { Link } from "@com.synergy/frontend-shared-internationalization/routing";
 
 /* eslint-disable-next-line */
 export interface PhotovoltaicComponentsProps {
@@ -60,7 +61,7 @@ export const PhotovoltaicComponents = (props: PhotovoltaicComponentsProps) => {
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="p-8 shadow-lg rounded-xl bg-white hover:shadow-xl transition-shadow duration-300"
+              className="p-8 shadow-lg rounded-2xl bg-white hover:shadow-xl transition-shadow duration-300"
             >
               <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-synergy-light-blue text-white rounded-full">
                 <benefit.Icon className="w-8 h-8" />
@@ -73,17 +74,17 @@ export const PhotovoltaicComponents = (props: PhotovoltaicComponentsProps) => {
           ))}
         </div>
         <div className="relative mx-auto max-w-xs sm:flex sm:max-w-none w-fit sm:justify-center">
-          <a
-            className="btn group mb-0 !py-4 !px-5 !text-lg w-full before:opacity-100 before:absolute before:inset-0 before:rounded-xl before:backdrop-blur-md before:bg-gradient-to-t before:from-synergy-light-blue/70 before:via-synergy-light-blue before:to-synergy-light-blue/70 hover:before:from-synergy-light-blue hover:before:to-synergy-light-blue before:shadow-xl text-white shadow sm:w-auto break-words whitespace-pre-line"
-            href={`/kontakt`}
+          <Link
+            className="btn group mb-0 !py-4 !px-5 !text-lg !rounded-2xl w-full before:opacity-100 before:absolute before:inset-0 before:rounded-2xl before:backdrop-blur-md before:bg-gradient-to-t before:from-synergy-light-blue/70 before:via-synergy-light-blue before:to-synergy-light-blue/70 hover:before:from-synergy-light-blue hover:before:to-synergy-light-blue before:shadow-xl text-white shadow sm:w-auto break-words whitespace-pre-line"
+            href={t("button.href")}
           >
             <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5 break-words whitespace-pre-line">
               {t("button.text")}
               <div className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
-                <div className=" whitespace-nowrap">{"->"}</div>
+                <div className="whitespace-nowrap">{"->"}</div>
               </div>
             </span>
-          </a>
+          </Link>
         </div>
       </section>
     </>

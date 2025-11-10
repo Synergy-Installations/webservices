@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useMessages, useTranslations } from "next-intl";
 import ImageLoader from "@com.synergy/frontend-ui/ImageLoader";
 import RichText from "../../../shared/internationalization/text/RichText";
+import { Link } from "@com.synergy/frontend-shared-internationalization/routing";
 
 /* eslint-disable-next-line */
 export interface PhotovoltaicBackgroundProps {
@@ -21,16 +22,16 @@ export const PhotovoltaicBackground = (props: PhotovoltaicBackgroundProps) => {
     messages.LandingPage.Focus[translationProduct].Background.boxes.boxRight
       .list
   );
-  const boxesBottomKeys =
-    messages.LandingPage.Focus[translationProduct].Background.boxesBottom
-      ? Object.keys(
-          messages.LandingPage.Focus[translationProduct].Background.boxesBottom
-        )
-      : [];
+  const boxesBottomKeys = messages.LandingPage.Focus[translationProduct]
+    .Background.boxesBottom
+    ? Object.keys(
+        messages.LandingPage.Focus[translationProduct].Background.boxesBottom
+      )
+    : [];
   return (
     <section className="bg-gray-50 pb-12 px-4">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 mb-12">
-        <div className="bg-yellow-200 p-6 rounded-lg shadow-lg transform">
+        <div className="bg-yellow-200 p-6 rounded-2xl shadow-lg transform">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
@@ -59,7 +60,7 @@ export const PhotovoltaicBackground = (props: PhotovoltaicBackgroundProps) => {
             ))}
           </ul>
         </div>
-        <div className="bg-teal-200 p-6 rounded-xl shadow-lg transform">
+        <div className="bg-teal-200 p-6 rounded-2xl shadow-lg transform">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
@@ -125,9 +126,9 @@ export const PhotovoltaicBackground = (props: PhotovoltaicBackgroundProps) => {
         </div>
       )}
       <div className="relative mx-auto max-w-xs sm:flex sm:max-w-none w-fit sm:justify-center">
-        <a
-          className="btn group mb-0 !py-4 !px-5 !text-lg w-full before:opacity-100 before:absolute before:inset-0 before:rounded-xl before:backdrop-blur-md before:bg-gradient-to-t before:from-synergy-light-blue/70 before:via-synergy-light-blue before:to-synergy-light-blue/70 hover:before:from-synergy-light-blue hover:before:to-synergy-light-blue before:shadow-xl text-white shadow sm:w-auto break-words whitespace-pre-line"
-          href={`/kontakt`}
+        <Link
+          className="btn group mb-0 !py-4 !px-5 !text-lg w-full !rounded-2xl before:opacity-100 before:absolute before:inset-0 before:rounded-2xl before:backdrop-blur-md before:bg-gradient-to-t before:from-synergy-light-blue/70 before:via-synergy-light-blue before:to-synergy-light-blue/70 hover:before:from-synergy-light-blue hover:before:to-synergy-light-blue before:shadow-xl text-white shadow sm:w-auto break-words whitespace-pre-line"
+          href={t("button.href")}
         >
           <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5 break-words whitespace-pre-line">
             {/* {t("button.text")} */}
@@ -136,7 +137,7 @@ export const PhotovoltaicBackground = (props: PhotovoltaicBackgroundProps) => {
               <div className=" whitespace-nowrap">{"->"}</div>
             </div>
           </span>
-        </a>
+        </Link>
       </div>
     </section>
   );

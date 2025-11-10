@@ -1,4 +1,3 @@
-import { link } from "framer-motion/client";
 import { useTranslations } from "next-intl";
 
 /* eslint-disable-next-line */
@@ -47,7 +46,7 @@ export const PhotovoltaicTestimonials = (
         {testimonials.map((testimonial, i) => (
           <div
             key={i}
-            className="p-6 border rounded-lg shadow-lg bg-gray-50 hover:shadow-xl transition-shadow duration-300"
+            className="p-6 border rounded-2xl shadow-lg bg-gray-50 hover:shadow-xl transition-shadow duration-300"
           >
             <div className="flex items-center mb-4">
               {[...Array(5)].map((_, starIndex) => (

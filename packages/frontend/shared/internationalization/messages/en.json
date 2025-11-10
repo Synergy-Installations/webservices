@@ -2680,7 +2680,71 @@
                     }
                   }
                 },
-                "button": {
+                "boxesBottom": {
+            "boxOne": {
+              "title": "All-careless package",
+              "description": "From conveyor consulting to maintenance – we take care of everything.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxTwo": {
+              "title": "Safety guaranteed",
+              "description": "No surprises: your offer remains stable even in market price fluctuations.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxThree": {
+              "title": "From concept to turnkey system in 3 months",
+              "description": "Fast, efficient, professional – with recorded processes and experienced partners.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            }
+          },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "Intelligent energy management:",
+              "description": "Optimize your consumption with predictive online weather control that intelligently adjusts the heating and cooling performance. If a sunny day is before, the heating operation is lowered in time. And in an expectation of a creeping frost night, the heating power is increased early enough.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxTwo": {
+              "title": "Automation of daily routines:",
+              "description": "Save time in everyday life and impress your guests with cool Smart Home features that automatically control processes. Apps on the smartphone or tablet can also be used to control devices on the go.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxThree": {
+              "title": "Maximum flexibility & expandability:",
+              "description": "Start cheaply and expand your system at any time easily and flexibly according to your needs – including energy management and power storage integration.  ",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            }
+          },
+          "button": {
                   "text": "Making use of project opportunities",
                   "href": "/contact"
                 }
@@ -7987,6 +8051,38 @@
               }
             }
           },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "High-performance modules",
+              "description": "Powerful premium modules with integrated shading management.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/solar-panel-sun_15865230%20blau.svg",
+                "alt": "Eco Charging",
+                "width": "24",
+                "height": "24"
+              }
+            },
+            "boxTwo": {
+              "title": "Tailor-made PV system",
+              "description": "Fits every roof type.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/solar-panel-sun_15865230%20blau.svg",
+                "alt": "Eco Charging",
+                "width": "24",
+                "height": "24"
+              }
+            },
+            "boxThree": {
+              "title": "Appealing aesthetics",
+              "description": "Full-black modules for a sleek, all-black design.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/solar-panel-sun_15865230%20blau.svg",
+                "alt": "Eco Charging",
+                "width": "24",
+                "height": "24"
+              }
+            }
+          },
           "button": {
             "text": "Free consultation",
             "href": "/contact"
@@ -8102,6 +8198,38 @@
                 "itemFour": "<b> Transparent offer & support for applications </b> – We secure your promotions and guarantee full cost transparency.",
                 "itemFive": "<b> Customized assembly from one hand </b> – Our teams work fast, clean and professional.",
                 "itemSix": "<b> In Operation & Personal Instruction </b> – Your system will run after a few days and we will explain everything in detail."
+              }
+            }
+          },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "All-careless package",
+              "description": "From support advice to planning to final commissioning – we take care of everything. ",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxTwo": {
+              "title": "Price safety guaranteed for air heat pump and air water heat pump",
+              "description": "No hidden costs: Your offer price is fixed and protects you from unpopular surprises.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxThree": {
+              "title": "A new heating system within weeks",
+              "description": "Thanks to well-established processes and clear planning, your path to efficient heat is short and easy.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
               }
             }
           },
@@ -8223,6 +8351,38 @@
               }
             }
           },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "Higher comfort level",
+              "description": "Cool, dehumidify and filter allergens and fine dust with advanced filtration for better well-being.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxTwo": {
+              "title": "Ultra-quiet operation",
+              "description": "Silent mode is only about 20–40 dB(A) – roughly as quiet as a soft whisper.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxThree": {
+              "title": "Modern air conditioners",
+              "description": "Today’s systems are far more energy efficient than older units.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            }
+          },
           "button": {
             "text": "Use free advice now",
             "href": "/contact"
@@ -8337,6 +8497,38 @@
                 "itemFour": "<b> Costentransparency and support for all applications </b> <br> </br> We help you secure promotions and disclose all costs.",
                 "itemFive": "<b> Quick & clean installation from one hand </b> <br> </br> Our experts integrate the memory into your system professionally.",
                 "itemSix": "<b> Ready to operate after a few hours </b> <br> </br> Your system will immediately store sunflow and we will explain everything in detail."
+              }
+            }
+          },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "Boost self-consumption",
+              "description": "Raise your own-use share from roughly 30% to up to 98%.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxTwo": {
+              "title": "Greater independence",
+              "description": "Stay less reliant on the public grid and volatile electricity prices.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxThree": {
+              "title": "Full storage in no time",
+              "description": "Thanks to established processes, your path to energy independence stays short and straightforward.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
               }
             }
           },
@@ -8457,6 +8649,38 @@
               }
             }
           },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "Intelligence & AI",
+              "description": "Combine weather data and dynamic electricity tariffs for smarter dispatch.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxTwo": {
+              "title": "Manufacturer-independent control",
+              "description": "Compatible with diverse consumers such as immersion heaters, heat pumps and wallboxes.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxThree": {
+              "title": "Climate friendliness",
+              "description": "Optimize the PV system to protect the environment together.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            }
+          },
           "button": {
             "text": "Secure free first consultation & become a member now!",
             "href": "/contact"
@@ -8568,6 +8792,38 @@
                 "itemTwo": "<b> Joint use: </b> The generated solar power is used directly in the building to meet the needs of the participating parties.",
                 "itemThree": "<b> Intelligent distribution: </b> Modern measuring systems capture production and consumption in real time and enable fair allocation of electricity.",
                 "itemFour": "<b> Aboutput & Reference: </b> Not immediately consumed electricity can be fed into the public network. If demand is higher, electricity is also supplied from the public network."
+              }
+            }
+          },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "What is a Community Generation Plant (CGP)?",
+              "description": "A Community production plant (GEA) is an innovative and uncomplicated solution for buildings with several parties, such as multi-party houses.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxTwo": {
+              "title": "How does a community generation plant work?",
+              "description": "It enables the joint use of an energy production plant, typically a photovoltaic plant on the roof, to produce and consume environmentally friendly electricity directly on site.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxThree": {
+              "title": "What are the benefits of a community generation plant?",
+              "description": "It is primarily a technical solution for the joint use of a plant that offers you and your neighbours more independence and sustainability.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
               }
             }
           },
@@ -8689,6 +8945,38 @@
               }
             }
           },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "Intelligent energy management",
+              "description": "Predictive weather control adjusts heating and cooling automatically so you always consume energy at the perfect time.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxTwo": {
+              "title": "Automation of daily routines",
+              "description": "Save time and impress guests with smart scenes that automate lighting, shading, climate and more – even via app while you are away.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxThree": {
+              "title": "Maximum flexibility & expandability",
+              "description": "Start lean and extend the system whenever you need – including energy management, storage control and future smart devices.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            }
+          },
           "button": {
             "text": "Secure free advice now",
             "href": "/contact"
@@ -8804,6 +9092,38 @@
                 "itemFour": "Cost transparency and support in all applications",
                 "itemFive": "Quick, clean, everything from one hand",
                 "itemSix": "Your energy management system is operational after a few days"
+              }
+            }
+          },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "Climate friendliness",
+              "description": "Optimize your PV system to actively support the environment.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxTwo": {
+              "title": "Intelligence & AI",
+              "description": "Our system combines weather data and dynamic electricity tariffs to steer your energy flow proactively.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxThree": {
+              "title": "Greater independence",
+              "description": "Reduce your dependency on the public power grid and fluctuating power prices.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
               }
             }
           },
@@ -8926,6 +9246,38 @@
               }
             }
           },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "Compatible with renewable energy",
+              "description": "Combine wallboxes with PV systems and batteries to use self-generated solar power.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxTwo": {
+              "title": "Charge EVs with PV power",
+              "description": "Driving 30,000 km per year saves roughly €3,600 — about 85% compared to petrol.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxThree": {
+              "title": "Four times cheaper than petrol",
+              "description": "Charge conveniently at home and drive up to four times cheaper than with gasoline.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            }
+          },
           "button": {
             "text": "Secure free advice now",
             "href": "/contact"
@@ -9044,6 +9396,38 @@
               }
             }
           },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "Absolute security of supply:",
+              "description": "With a power failure, your system switches automatically and seamlessly to emergency power.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxTwo": {
+              "title": "Protection for your home & business:",
+              "description": "Avoid damage to devices, data loss and interruptions of everyday life or operation.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxThree": {
+              "title": "Independence from the power grid:",
+              "description": "Be immune to fluctuations and failures of the public power grid.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            }
+          },
           "button": {
             "text": "Secure free advice now",
             "href": "/contact"
@@ -9159,6 +9543,38 @@
                 "itemFour": "Cost transparency and support for registration/promotion",
                 "itemFive": "Fast, clean delivery and easy assembly",
                 "itemSix": "Your balcony power plant is ready for operation after a few days"
+              }
+            }
+          },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "Easy installation & immediate savings:",
+              "description": "Easy to install and quickly, start producing your own electricity and lowering your electricity bill immediately.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxTwo": {
+              "title": "Flexibility with and without memory:",
+              "description": "Start cheaply and extend a power store if needed to maximize your own consumption even at night.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxThree": {
+              "title": "Ideal for tenants & home owners:",
+              "description": "The perfect solution to actively contribute to the energy transition with limited space.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
               }
             }
           },
@@ -9281,6 +9697,38 @@
               }
             }
           },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "Optimizing budget – this is how it works:",
+              "description": "It is simple – both the energy market and the legal situation as well as technical aspects offer a wide range of possibilities. We give possibilities to raise the home and the industrial plant to an energetic and lucrative maximum.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxTwo": {
+              "title": "Current market knowledge & adaptation:",
+              "description": "We take over the current market research and the continuous adaptation.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxThree": {
+              "title": "Experts with As in the sleeve:",
+              "description": "Our experts are at your side. We are experts in the field and have an as in the sleeve for you in most cases. Especially if you are both customers and feeders, we can help you get your production facility amortised faster.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            }
+          },
           "button": {
             "text": "Secure free advice now",
             "href": "/contact"
@@ -9400,6 +9848,38 @@
               }
             }
           },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "Cost-effective & efficient:",
+              "description": "Create hot water easily and inexpensively with direct current from photovoltaic modules. Use solar energy optimally for your hot water.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxTwo": {
+              "title": "Flexibility & compatibility:",
+              "description": "Can be retrofitted in most existing systems. Additional heating with power supply is still possible if necessary to ensure your supply at any time.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxThree": {
+              "title": "Environmentally friendly & future-proof:",
+              "description": "Generate your hot water for showering mainly with solar power and thus reduce your ecological footprint and your dependence on fossil fuels.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            }
+          },
           "button": {
             "text": "Secure free advice now",
             "href": "/contact"
@@ -9516,6 +9996,38 @@
                 "itemFour": "Transparent schedule and voting",
                 "itemFive": "Professional performance of maintenance/repair on site",
                 "itemSix": "Detailed protocol and recommendations for the future"
+              }
+            }
+          },
+          "boxesBottom": {
+            "boxOne": {
+              "title": "Maximum output & dependable returns:",
+              "description": "Regular maintenance ensures that your solar and home technology systems always work in the optimal range and achieve maximum yield. ",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxTwo": {
+              "title": "Longer life of your investment:",
+              "description": "Preventive maintenance prevents expensive repairs and significantly extends the service life of your equipment.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
+              }
+            },
+            "boxThree": {
+              "title": "Safety & reliability:",
+              "description": "Minimise the risk of unexpected failures and enjoy the certainty of a reliable energy supply.",
+              "icon": {
+                "src": "/frontend/landingPage/icons/function.svg",
+                "alt": "Focus highlight icon",
+                "width": "32",
+                "height": "32"
               }
             }
           },

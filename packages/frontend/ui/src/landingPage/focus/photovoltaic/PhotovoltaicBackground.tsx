@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { useMessages, useTranslations } from "next-intl";
+import ImageLoader from "@com.synergy/frontend-ui/ImageLoader";
 import RichText from "../../../shared/internationalization/text/RichText";
 
 /* eslint-disable-next-line */
@@ -19,6 +21,12 @@ export const PhotovoltaicBackground = (props: PhotovoltaicBackgroundProps) => {
     messages.LandingPage.Focus[translationProduct].Background.boxes.boxRight
       .list
   );
+  const boxesBottomKeys =
+    messages.LandingPage.Focus[translationProduct].Background.boxesBottom
+      ? Object.keys(
+          messages.LandingPage.Focus[translationProduct].Background.boxesBottom
+        )
+      : [];
   return (
     <section className="bg-gray-50 pb-12 px-4">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 mb-12">
@@ -84,7 +92,38 @@ export const PhotovoltaicBackground = (props: PhotovoltaicBackgroundProps) => {
           </ol>
         </div>
       </div>
-      {/* Move the items here */}
+      {/* Grid boxesBottom */}
+      {boxesBottomKeys.length > 0 && (
+        <div
+          className={`mt-10 mb-10 grid w-full items-start gap-6 px-4 max-w-6xl mx-auto sm:grid-cols-2 ${
+            boxesBottomKeys.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4"
+          }`}
+        >
+          {boxesBottomKeys.map((boxKey) => (
+            <div
+              key={boxKey}
+              className="relative w-full p-5 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out"
+            >
+              <Image
+                className="shrink-0 fill-synergy-light-blue mb-3 opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
+                loader={ImageLoader}
+                width={Number(t(`boxesBottom.${boxKey}.icon.width`))}
+                height={Number(t(`boxesBottom.${boxKey}.icon.height`))}
+                src={t(`boxesBottom.${boxKey}.icon.src`)}
+                alt={t(`boxesBottom.${boxKey}.icon.alt`)}
+              />
+              <h3 className="font-cabinet-grotesk font-bold text-lg pb-1 text-slate-800">
+                {t(`boxesBottom.${boxKey}.title`)}
+              </h3>
+              <div className="text-slate-800 text-opacity-80">
+                <RichText>
+                  {(tags) => t.rich(`boxesBottom.${boxKey}.description`, tags)}
+                </RichText>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
       <div className="relative mx-auto max-w-xs sm:flex sm:max-w-none w-fit sm:justify-center">
         <a
           className="btn group mb-0 !py-4 !px-5 !text-lg w-full before:opacity-100 before:absolute before:inset-0 before:rounded-xl before:backdrop-blur-md before:bg-gradient-to-t before:from-synergy-light-blue/70 before:via-synergy-light-blue before:to-synergy-light-blue/70 hover:before:from-synergy-light-blue hover:before:to-synergy-light-blue before:shadow-xl text-white shadow sm:w-auto break-words whitespace-pre-line"

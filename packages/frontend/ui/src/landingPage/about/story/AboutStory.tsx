@@ -1,10 +1,19 @@
 import Image from "next/image";
+import { useMessages, useTranslations } from "next-intl";
 import ImageLoader from "../../../shared/utils/image/ImageLoader";
 
 /* eslint-disable-next-line */
 export interface AboutStoryProps {}
 
 export const AboutStory = (props: AboutStoryProps) => {
+  const t = useTranslations("LandingPage.About.Story");
+  const messages = useMessages();
+  const paragraphs =
+    ((messages as any)?.LandingPage?.About?.Story?.paragraphs as string[]) ||
+    [];
+  const signature =
+    (messages as any)?.LandingPage?.About?.Story?.signature || {};
+
   return (
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -12,39 +21,29 @@ export const AboutStory = (props: AboutStoryProps) => {
           <div className="max-w-3xl mx-auto">
             <div className="text-lg text-slate-500">
               <h2 className="h3 text-4xl font-bold font-inter text-slate-800 mb-4">
-                Unsere Geschichte
+                {t("title")}
               </h2>
-              <p className="mb-4">
-                Synergie.cc ergab sich aus einer Chance das Projektmanagement
-                der Errichtung von Photovoltaikanlagen zu revolutionieren. Da
-                eigentlich die gesamtheitliche Betrachtung von Energiesystemen
-                und -gemeinschaften ein Herzensprojekt ist, Ortschaften
-                unabhängig sich selbst mit Energie versorgen zu können. Da
-                großes Interesse am Anlagenbau an sich besteht und durch
-                wachsende Partnerschaften, IT und Marketing stetig an Bedeutung
-                gewinnen, entwickelt sich nun dadurch das neuartige Firmenmodell
-                mit den Divisions Anlagen, Management und Gemeinschaften.
-              </p>
-              <p className="mb-4">
-                Somit arbeiten wir mit unseren Partnern und gemeinsames
-                Engagement daran, sämtliche Produkte und Dienstleistungen aus
-                dem Energie Sektor aus einer Hand mit Begeisterung und
-                Leidenschaft anbieten zu können.
-                <br />
-              </p>
-              <p className="mb-8">
-                Wir spielen mit offenen Karten – Transparenz gilt als wichtiger
-                Treiber und bildet eine stabile Geschäfts- und Kundenbeziehung.
-              </p>
-              <p className="mb-4">Das Synergie Montagen Team</p>
-              <Image
-                loader={ImageLoader}
-                src={"/frontend/landingPage/about/synergiemontagen_stamp.png"}
-                width={120}
-                height={32}
-                alt="Synergiemontagen Stamp"
-                className=""
-              />
+              {paragraphs.map((paragraph: string, index: number) => {
+                const isLast = index === paragraphs.length - 1;
+                return (
+                  <p
+                    key={`story-paragraph-${index}`}
+                    className={isLast ? "mb-4 font-semibold" : "mb-4"}
+                  >
+                    {paragraph}
+                  </p>
+                );
+              })}
+              {signature?.src && (
+                <Image
+                  loader={ImageLoader}
+                  src={signature.src}
+                  width={120}
+                  height={32}
+                  alt={signature.alt || "Signature"}
+                  className=""
+                />
+              )}
               {/* <svg
                 className="fill-slate-800"
                 width="90"

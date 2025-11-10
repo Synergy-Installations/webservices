@@ -80,7 +80,7 @@ export const CtaLoose = (props: CtaLooseProps) => {
               <Marquee
                 pauseOnHoverProp={isTrueSet("true")}
                 reverse={isTrueSet("true")}
-                className="![--duration:30s]"
+                className="![--duration:150s]"
               >
                 {parterKeys.map((parterKey, index) => (
                   <li

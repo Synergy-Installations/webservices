@@ -69,12 +69,12 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
 
   return (
     <section className="relative" id="products">
-      <HeroHomeIllustration />
-      <div className="mx-auto pb-12 pt-20 md:pt-40">
+      {/* <HeroHomeIllustration /> */}
+      <div className="mx-auto pb-8 pt-20 md:pt-20">
         {/* Hero content */}
-        <div className="pb-12 pt-0 md:pb-20 md:pt-0">
+        <div className="pb-0 pt-0 md:pb-0 md:pt-0">
           {/* Section header */}
-          <div className="pb-12 px-4 sm:px-6 mx-auto max-w-6xl text-center md:pb-16 relative z-10">
+          {/* <div className="pb-12 px-4 sm:px-6 mx-auto max-w-6xl text-center md:pb-16 relative z-10">
             <h1
               className="mb-6 border-y text-5xl font-bold [border-image:linear-gradient(to_right,transparent,theme(colors.slate.300/.8),transparent)1] md:text-6xl"
               data-aos="zoom-y-out"
@@ -83,13 +83,6 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
               <RichText>{(tags) => t.rich("title", tags)}</RichText>
             </h1>
             <div className="mx-auto max-w-3xl">
-              {/* <p
-                className="mb-8 text-lg text-gray-700"
-                data-aos="zoom-y-out"
-                data-aos-delay={300}
-              >
-                {t("body")}
-              </p> */}
               <div className="relative">
                 <div
                   className="relative mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center"
@@ -101,13 +94,6 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
                     href={t("buttons.buttonLeft.href")}
                   >
                     <span className="relative inline-flex items-center tracking-normal">
-                      {/* {t.rich("buttons.buttonLeft.value", {
-                        arrow: (chunks) => (
-                          <span className="ml-1 tracking-normal text-blue-300 transition-transform group-hover:translate-x-0.5">
-                            {chunks}
-                          </span>
-                        ),
-                      })} */}
                       <span className="ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
                         <span className="inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
                           {t("buttons.buttonLeft.text")}
@@ -127,10 +113,11 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="pb-12 px-4 sm:px-6 mx-auto max-w-6xl text-center relative z-10 md:pb-16">
             <BentoGrid className="md:grid-rows-3">
               <ServiceCard
+                alwaysShowContent
                 services={serviceKeys.map(
                   (key) =>
                     messages.LandingPage.Home.ServiceCatalog.servicesGrid[key]
@@ -138,11 +125,11 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
               />
             </BentoGrid>
           </div>
-          <div className="py-12 md:py-20">
-            {/* Clients carousel */}
+          {/* <div className="py-12 md:py-20">
+            Clients carousel
             <div className="relative z-10 before:absolute before:inset-0 before:w-32 before:z-10 before:pointer-events-none before:bg-gradient-to-r before:from-slate-50 after:absolute after:inset-0 after:left-auto after:w-32 after:z-10 after:pointer-events-none after:bg-gradient-to-l after:from-slate-50">
               <div className="!ease-linear select-none">
-                {/* Carousel items */}
+                Carousel items
                 {partnerCarouselKeys.map((partnerCarouselKey, index) => (
                   <Marquee
                     pauseOnHoverProp={isTrueSet(
@@ -190,7 +177,7 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
                 ))}
               </div>
             </div>
-          </div>
+          </div> */}
           {/* <DotPattern className="[mask-image:linear-gradient(0deg,transparent_0%,white_20%,white_50%,transparent_100%)] mt-20 fill-slate-400/60" /> */}
         </div>
         {/* <LargeTestimonial /> */}

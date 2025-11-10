@@ -1,11 +1,13 @@
 "use client";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { useRef } from "react";
 
 /* eslint-disable-next-line */
 export interface AboutCtaProps {}
 
 export const AboutCta = (props: AboutCtaProps) => {
+  const t = useTranslations("LandingPage.About.CTA");
   const testRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -24,18 +26,14 @@ export const AboutCta = (props: AboutCtaProps) => {
 
             <div className="relative">
               <h2 className="h2 text-4xl font-bold -tracking-[0.01em] font-inter text-slate-800 mb-4">
-                Möchtest du Teil unserer Reise sein?
+                {t("title")}
               </h2>
-              <p className="text-xl text-slate-500 mb-8">
-                Wir sind immer offen für Gespräche mit großartigen Menschen, die
-                mit uns die Zukunft der Arbeit gestalten möchten. Wir haben
-                weltweit offene Stellen.
-              </p>
+              <p className="text-xl text-slate-500 mb-8">{t("body")}</p>
               <div className="relative mx-auto grid xs:flex gap-4 sm:w-fit mt-12 sm:mt-6 before:hidden before:absolute before:inset-0 before:border-y before:[border-image:linear-gradient(to_right,transparent,theme(colors.slate.300/.8),transparent)1]">
                 <div className="relative mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center items-center">
                   <Link
                     className="btn group mb-0 !py-4 !px-5 !text-lg w-full before:opacity-100 before:absolute before:inset-0 before:rounded-xl before:backdrop-blur-md before:bg-gradient-to-t before:from-synergy-light-blue/70 before:via-synergy-light-blue before:to-synergy-light-blue/70 hover:before:from-synergy-light-blue hover:before:to-synergy-light-blue before:shadow-xl text-white shadow sm:w-auto break-words whitespace-pre-line flex items-center justify-center h-full"
-                    href={"/kontakt"}
+                    href={t("button.href")}
                     style={{
                       display: "flex",
                       alignItems: "center",
@@ -44,7 +42,7 @@ export const AboutCta = (props: AboutCtaProps) => {
                     }}
                   >
                     <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5 break-words whitespace-pre-line justify-center">
-                      Kontakt
+                      {t("button.text")}
                       <div className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                         <div className=" whitespace-nowrap">{"->"}</div>
                       </div>

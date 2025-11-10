@@ -1,5 +1,8 @@
+import Image from "next/image";
 import { useMessages, useTranslations } from "next-intl";
+import ImageLoader from "@com.synergy/frontend-ui/ImageLoader";
 import RichText from "../../../shared/internationalization/text/RichText";
+import { Link } from "@com.synergy/frontend-shared-internationalization/routing";
 
 /* eslint-disable-next-line */
 export interface PhotovoltaicBackgroundProps {
@@ -19,10 +22,16 @@ export const PhotovoltaicBackground = (props: PhotovoltaicBackgroundProps) => {
     messages.LandingPage.Focus[translationProduct].Background.boxes.boxRight
       .list
   );
+  const boxesBottomKeys = messages.LandingPage.Focus[translationProduct]
+    .Background.boxesBottom
+    ? Object.keys(
+        messages.LandingPage.Focus[translationProduct].Background.boxesBottom
+      )
+    : [];
   return (
     <section className="bg-gray-50 pb-12 px-4">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 mb-12">
-        <div className="bg-yellow-200 p-6 rounded-lg shadow-lg transform">
+        <div className="bg-yellow-200 p-6 rounded-2xl shadow-lg transform">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
@@ -36,10 +45,10 @@ export const PhotovoltaicBackground = (props: PhotovoltaicBackgroundProps) => {
               d="m387-412 35-114-92-74h114l36-112 36 112h114l-93 74 35 114-92-71-93 71ZM240-40v-309q-38-42-59-96t-21-115q0-134 93-227t227-93q134 0 227 93t93 227q0 61-21 115t-59 96v309l-240-80-240 80Zm240-280q100 0 170-70t70-170q0-100-70-170t-170-70q-100 0-170 70t-70 170q0 100 70 170t170 70ZM320-159l160-41 160 41v-124q-35 20-75.5 31.5T480-240q-44 0-84.5-11.5T320-283v124Zm160-62Z"
             />
           </svg>
-          <h3 className="text-xl font-bold text-center text-yellow-800 mb-4">
+          <h3 className="text-xl font-bold text-left text-yellow-800 mb-4">
             {t("boxes.boxLeft.title")}
           </h3>
-          <ul className="list-none list-inside space-y-2 text-yellow-900">
+          <ul className="list-none list-inside space-y-2 ml-2 text-yellow-900">
             {boxesLeftKeys.map((key) => (
               <li key={key} className="flex items-center">
                 <span className="mr-2">★</span>
@@ -51,7 +60,7 @@ export const PhotovoltaicBackground = (props: PhotovoltaicBackgroundProps) => {
             ))}
           </ul>
         </div>
-        <div className="bg-teal-200 p-6 rounded-xl shadow-lg transform">
+        <div className="bg-synergy-light-blue p-6 rounded-2xl shadow-lg transform">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
@@ -65,25 +74,61 @@ export const PhotovoltaicBackground = (props: PhotovoltaicBackgroundProps) => {
               d="M240-280h240v-80H240v80Zm120-160h240v-80H360v80Zm120-160h240v-80H480v80ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"
             />
           </svg>
-          <h3 className="text-xl font-bold text-center text-teal-800 mb-4">
+          <h3 className="text-xl font-bold text-left text-teal-800 mb-4">
             {t("boxes.boxRight.title")}
           </h3>
-          <ol className="list-decimal list-inside space-y-2 text-teal-900">
-            {boxesRightKeys.map((key) => (
-              <li key={key}>
-                <RichText>
-                  {(tags) => t.rich(`boxes.boxRight.list.${key}`, tags)}
-                </RichText>
-                {/* {t(`boxes.boxRight.list.${key}`)} */}
+          <ol className="list-none space-y-2 ml-2 text-teal-900">
+            {boxesRightKeys.map((key, idx) => (
+              <li key={key} className="flex">
+                <span className="flex-none w-3 text-right text-teal-800 font-semibold">
+                  {idx + 1}.
+                </span>
+                <div className="flex-1 ml-3">
+                  <RichText>
+                    {(tags) => t.rich(`boxes.boxRight.list.${key}`, tags)}
+                  </RichText>
+                </div>
               </li>
             ))}
           </ol>
         </div>
       </div>
+      {/* Grid boxesBottom */}
+      {boxesBottomKeys.length > 0 && (
+        <div
+          className={`mt-10 mb-10 grid w-full items-start gap-6 px-4 max-w-6xl mx-auto sm:grid-cols-2 ${
+            boxesBottomKeys.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4"
+          }`}
+        >
+          {boxesBottomKeys.map((boxKey) => (
+            <div
+              key={boxKey}
+              className="relative w-full p-5 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:bg-gradient-to-tr before:rounded-2xl before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out"
+            >
+              <Image
+                className="shrink-0 fill-synergy-light-blue mb-3 opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
+                loader={ImageLoader}
+                width={Number(t(`boxesBottom.${boxKey}.icon.width`))}
+                height={Number(t(`boxesBottom.${boxKey}.icon.height`))}
+                src={t(`boxesBottom.${boxKey}.icon.src`)}
+                alt={t(`boxesBottom.${boxKey}.icon.alt`)}
+              />
+              <h3 className="font-cabinet-grotesk font-bold text-lg pb-1 text-slate-800">
+                {t(`boxesBottom.${boxKey}.title`)}
+              </h3>
+              <div className="text-slate-800 text-opacity-80">
+                <RichText>
+                  {(tags) => t.rich(`boxesBottom.${boxKey}.description`, tags)}
+                </RichText>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
       <div className="relative mx-auto max-w-xs sm:flex sm:max-w-none w-fit sm:justify-center">
-        <a
-          className="btn group mb-0 !py-4 !px-5 !text-lg w-full before:opacity-100 before:absolute before:inset-0 before:rounded-xl before:backdrop-blur-md before:bg-gradient-to-t before:from-synergy-light-blue/70 before:via-synergy-light-blue before:to-synergy-light-blue/70 hover:before:from-synergy-light-blue hover:before:to-synergy-light-blue before:shadow-xl text-white shadow sm:w-auto break-words whitespace-pre-line"
-          href={`/kontakt`}
+        <Link
+          className="btn group mb-0 !py-4 !px-5 !text-lg w-full !rounded-2xl before:opacity-100 before:absolute before:inset-0 before:rounded-2xl before:backdrop-blur-md before:bg-gradient-to-t before:from-synergy-light-blue/70 before:via-synergy-light-blue before:to-synergy-light-blue/70 hover:before:from-synergy-light-blue hover:before:to-synergy-light-blue before:shadow-xl text-white shadow sm:w-auto break-words whitespace-pre-line"
+          href={t("button.href")}
         >
           <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5 break-words whitespace-pre-line">
             {/* {t("button.text")} */}
@@ -92,7 +137,7 @@ export const PhotovoltaicBackground = (props: PhotovoltaicBackgroundProps) => {
               <div className=" whitespace-nowrap">{"->"}</div>
             </div>
           </span>
-        </a>
+        </Link>
       </div>
     </section>
   );

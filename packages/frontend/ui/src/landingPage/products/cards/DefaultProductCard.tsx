@@ -198,7 +198,7 @@ export const DefaultProductCard = (props: DefaultProductCardProps) => {
                 </div>
               </div>
             </div>
-            {/* Grid */}
+            {/* Grid boxesBottom */}
             <div
               className={`max-w-sm mx-auto md:px-16 grid mt-10 sm:grid-cols-2 sm:max-w-3xl ${getProductBoxKeyLength("boxesBottom") == 3 ? "lg:grid-cols-3" : "lg:grid-cols-4"} lg:max-w-none items-start`}
             >

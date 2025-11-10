@@ -9,7 +9,7 @@ export const B2bHero = (props: B2bHeroProps) => {
   const t = useTranslations("LandingPage.B2B");
   const messages: any = useMessages();
   const productPreviewKeys = Object.keys(
-    messages.LandingPage.B2B.productPreviewSmall
+    messages?.LandingPage?.B2B?.productPreviewSmall || {}
   );
 
   return (
@@ -21,21 +21,18 @@ export const B2bHero = (props: B2bHeroProps) => {
       }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-60" />
-      <div className="relative container mx-auto px-6 lg:px-0 flex flex-col justify-end items-start h-full text-white space-y-4">
+      <div className="relative container mx-auto px-6 lg:px-8 flex flex-col justify-end items-start h-full text-white space-y-4">
         <p className="uppercase tracking-widest font-semibold text-sm lg:text-base">
-          Dienstleistungen
+          {t("Hero.eyebrow")}
         </p>
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
-          Services für Betriebe aus dem Energiesektor
+          {t("Hero.title")}
         </h1>
         <h2 className="text-lg md:text-2xl font-medium">
-          Seien Sie ein Vorreiter in der Anlagenerrichtung
+          {t("Hero.subtitle")}
         </h2>
         <p className="max-w-2xl text-sm md:text-base">
-          Mit der Expertise unserer firmeninternen Fachkräfte aus den
-          unterschiedlichsten Gewerken helfen wir Ihnen dabei, Ihre
-          Dienstleistungen in der Anlagenerrichtung voranzutreiben als auch Ihre
-          derzeitigen Prozesse zu optimieren.
+          {t("Hero.body")}
         </p>
         <div className="flex flex-col sm:flex-col-reverse justify-start items-center md:items-start w-full sm:w-auto">
           <div className="grid grid-cols-2 sm:mt-12 gap-2 sm:gap-5 w-full">
@@ -58,7 +55,7 @@ export const B2bHero = (props: B2bHeroProps) => {
             <div className="relative mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center items-center">
               <Link
                 className="btn group mb-0 !py-4 !px-5 !text-lg w-full before:opacity-100 before:absolute before:inset-0 before:rounded-xl before:backdrop-blur-md before:bg-gradient-to-t before:from-synergy-light-blue/70 before:via-synergy-light-blue before:to-synergy-light-blue/70 hover:before:from-synergy-light-blue hover:before:to-synergy-light-blue before:shadow-xl text-white shadow sm:w-auto break-words whitespace-pre-line flex items-center justify-center h-full"
-                href={"/kontakt"}
+                href={t("Hero.buttons.primary.href")}
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -67,7 +64,7 @@ export const B2bHero = (props: B2bHeroProps) => {
                 }}
               >
                 <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5 break-words whitespace-pre-line justify-center">
-                  Kontakt
+                  {t("Hero.buttons.primary.text")}
                   <div className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                     <div className=" whitespace-nowrap">{"->"}</div>
                   </div>
@@ -77,10 +74,10 @@ export const B2bHero = (props: B2bHeroProps) => {
             <div className="relative mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center">
               <Link
                 className="btn group mb-0 !py-4 !px-5 !text-lg w-full before:opacity-100 before:absolute before:inset-0 before:rounded-xl before:backdrop-blur-md before:bg-gradient-to-t before:from-synergy-light-blue/70 before:via-synergy-light-blue before:to-synergy-light-blue/70 hover:before:from-synergy-light-blue hover:before:to-synergy-light-blue before:shadow-xl text-white shadow sm:w-auto break-words whitespace-pre-line"
-                href={"/contact-us-funnel"}
+                href={t("Hero.buttons.secondary.href")}
               >
                 <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5 break-words whitespace-pre-line">
-                  Buchen Sie Ihre PV Montage
+                  {t("Hero.buttons.secondary.text")}
                   <div className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                     <div className=" whitespace-nowrap">{"->"}</div>
                   </div>

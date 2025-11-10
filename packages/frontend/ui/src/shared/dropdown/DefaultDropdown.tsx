@@ -2,16 +2,18 @@
 
 import { useRef, useState } from "react";
 import { Transition } from "@headlessui/react";
+import Link from "next/link";
 
 /* eslint-disable-next-line */
 export interface DefaultDropdownProps {
   children: React.ReactNode;
   title: string;
   className?: string;
+  href?: string;
 }
 
 export const DefaultDropdown = (props: DefaultDropdownProps) => {
-  const { children, title, className } = props;
+  const { children, title, className, href } = props;
 
   const dropdownRef = useRef<HTMLUListElement | null>(null);
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
@@ -36,9 +38,18 @@ export const DefaultDropdown = (props: DefaultDropdownProps) => {
       onMouseEnter={() => setDropdownOpen(true)}
       onMouseLeave={() => setDropdownOpen(false)}
     >
-      <span className="flex cursor-pointer items-center text-gray-700 transition hover:text-gray-900">
-        {title}
-      </span>
+      {href ? (
+        <Link
+          href={href}
+          className="flex cursor-pointer items-center text-gray-700 transition hover:text-gray-900"
+        >
+          {title}
+        </Link>
+      ) : (
+        <span className="flex cursor-pointer items-center text-gray-700 transition hover:text-gray-900">
+          {title}
+        </span>
+      )}
       <button
         className="shrink-0 p-1"
         aria-expanded={dropdownOpen}

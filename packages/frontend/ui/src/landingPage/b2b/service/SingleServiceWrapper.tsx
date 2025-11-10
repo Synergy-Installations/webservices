@@ -16,17 +16,22 @@ export const SingleServiceWrapper = (props: SingleServiceWrapperProps) => {
   const { service } = props;
   const t = useTranslations(`LandingPage.B2B.Services.${service}`);
   const messages: any = useMessages();
-  const subServices = Object.keys(
-    messages.LandingPage.B2B.Services[service].SubServices
-  );
-  const DiamondClipsArray = Object.keys(
-    messages.LandingPage.B2B.Services[service].SubServices
-  ).map((key) => ({
-    subServiceId: key,
-    src: t(`SubServices.${key}.Diamond.backgroundImage.src`),
-    alt: t(`SubServices.${key}.Diamond.backgroundImage.alt`),
-    text: t(`SubServices.${key}.Diamond.title`),
-  }));
+  const subServicesData =
+    messages.LandingPage.B2B.Services[service].SubServices;
+  const subServices = Object.keys(subServicesData);
+  const DiamondClipsArray = subServices.map((key) => {
+    const hasCustomText = Boolean(subServicesData?.[key]?.Diamond?.text);
+    const textKey = hasCustomText
+      ? `SubServices.${key}.Diamond.text`
+      : `SubServices.${key}.Diamond.title`;
+
+    return {
+      subServiceId: key,
+      src: t(`SubServices.${key}.Diamond.backgroundImage.src`),
+      alt: t(`SubServices.${key}.Diamond.backgroundImage.alt`),
+      text: t(textKey),
+    };
+  });
 
   const [selectedSubService, setSelectedSubService] = useState(subServices[0]);
 

@@ -1,32 +1,27 @@
 "use client";
 
 import Image from "next/image";
-import {ImageLoader} from "../../../shared/utils/image/ImageLoader";
-import {Marquee} from "../../../shared/marquee/Marquee";
-import {isTrueSet} from "../../../shared/utils/math/Boolean";
+import { useMessages, useTranslations } from "next-intl";
+import { ImageLoader } from "../../../shared/utils/image/ImageLoader";
+import { Marquee } from "../../../shared/marquee/Marquee";
+import { isTrueSet } from "../../../shared/utils/math/Boolean";
 
 /* eslint-disable-next-line */
 export interface B2bPartnersSectionProps {}
 
-const partnerLogos = [
-  "/frontend/landingPage/clients/Loxone_Logo.png",
-  "/frontend/landingPage/clients/KNX_logo.svg",
-  "/frontend/landingPage/clients/LOGO_Fronius_RGB_high_300dpi.jpg",
-  "/frontend/landingPage/clients/Bosch-logo.svg",
-  "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
-  "/frontend/landingPage/clients/DAIKIN_Logo_rgb.png",
-];
-
 export const B2bPartnersSection = (props: B2bPartnersSectionProps) => {
+  const t = useTranslations("LandingPage.B2B.Partners");
+  const messages = useMessages();
+  const partnerLogos =
+    ((messages as any)?.LandingPage?.B2B?.Partners?.logos as string[]) || [];
+
   return (
     <section className="bg-white py-20 w-full">
       <div
         className="container mx-auto px-6 lg:px-0 text-center mb-8"
         data-aos="fade-up"
       >
-        <h2 className="text-3xl md:text-4xl font-bold">
-          Einige unserer Partner
-        </h2>
+        <h2 className="text-3xl md:text-4xl font-bold">{t("title")}</h2>
       </div>
       <div className="container mx-auto px-6 lg:px-0">
         <ul
@@ -48,7 +43,7 @@ export const B2bPartnersSection = (props: B2bPartnersSectionProps) => {
                   width={160}
                   height={80}
                   src={logo}
-                  alt="Partner Logo"
+                  alt={t("logoAlt")}
                   className="max-h-full max-w-full object-contain"
                 />
               </li>

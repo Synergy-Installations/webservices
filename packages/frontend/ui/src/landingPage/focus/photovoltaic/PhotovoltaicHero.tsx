@@ -23,7 +23,7 @@ export const PhotovoltaicHero = (props: PhotovoltaicHeroProps) => {
         <div className="max-w-3xl">
           <h2 className="text-4xl font-bold mb-3">
             <span className="w-max">
-              <RichText className="bg-black px-2 py-1 rounded-2xl">
+              <RichText className="bg-synergy-light-blue/40 backdrop-blur-md px-2 py-1 rounded-2xl">
                 {(tags) => t.rich("titleUpper", tags)}
               </RichText>
             </span>
@@ -32,7 +32,7 @@ export const PhotovoltaicHero = (props: PhotovoltaicHeroProps) => {
             .titleLower && (
             <h2 className="text-4xl font-bold">
               <span className="w-max">
-                <RichText className="bg-black px-2 py-1 rounded-2xl">
+                <RichText className="bg-synergy-light-blue/40 backdrop-blur-md px-2 py-1 rounded-2xl">
                   {(tags) => t.rich("titleLower", tags)}
                 </RichText>
               </span>

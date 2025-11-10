@@ -1,22 +1,29 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import ImageLoader from "../../../shared/utils/image/ImageLoader";
 
 /* eslint-disable-next-line */
 export interface B2bProcessSectinoProps {}
 
 export const B2bProcessSection = (props: B2bProcessSectinoProps) => {
+  const t = useTranslations("LandingPage.B2B.Process");
+  const processImage = {
+    src: t("image.src"),
+    alt: t("image.alt"),
+  };
+
   return (
     <section className="bg-gray-50 pb-20 pt-16">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           {/* <p className="uppercase text-green-600 font-semibold">Prozess</p> */}
-          <h2 className="text-3xl md:text-4xl font-bold">Digitaler Synergie-Prozess</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">{t("title")}</h2>
         </div>
         <div className="relative">
           <Image
             loader={ImageLoader}
-            src="/frontend/landingPage/b2b/Synergie_Digiversum_Website_v3.jpg"
-            alt="Digitalprozess"
+            src={processImage.src}
+            alt={processImage.alt}
             width={1200}
             height={600}
             className="mx-auto rounded-2xl"

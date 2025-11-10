@@ -8,6 +8,7 @@ import { ProductCards } from "@com.synergy/frontend-ui/ProductCards";
 import { useTranslations } from "next-intl";
 import CtaLoose from "@com.synergy/frontend-ui/CtaLoose";
 import { Metadata } from "next";
+import ServiceCatalog from "@com.synergy/frontend-ui/ServiceCatalog";
 
 export const metadata: Metadata = {
   title: "Produkte – Photovoltaik, Speicher & Wallbox | Synergie Montagen",
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     "Wallbox",
   ],
   alternates: {
-    canonical: "https://synergie.cc/products",
+    canonical: "https://synergie.cc/produkte",
   },
 };
 
@@ -33,7 +34,7 @@ export default function Page(): JSX.Element {
     <>
       {/* <TracingBeam> */}
       <HeroVideoFull />
-      <ProductCards />
+      <ServiceCatalog />
       {/* <DefaultProductCard />
         <DefaultProductCard orientation="left" />
         <DefaultProductCard />

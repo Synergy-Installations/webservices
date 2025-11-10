@@ -31,6 +31,9 @@ export const DiamondClips = (props: DiamondClipsProps) => {
   } = props;
 
   const router = useRouter();
+  const formattedText = (text || "")
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<\/br>/gi, "\n");
 
   // Set hexagons per row (adjust as needed)
   const hexagonsPerRow = 4; // Reduced from 4 to accommodate larger hexagons
@@ -128,9 +131,10 @@ export const DiamondClips = (props: DiamondClipsProps) => {
             console.log(`Navigating to #${service}`);
             router.push(`#${service}`);
           }}
-          className="text-synergy-dark-grey text-base md:text-lg lg:text-xl font-bold text-center truncate"
+          className="text-synergy-dark-grey text-base md:text-lg lg:text-xl font-bold text-center"
+          style={{ whiteSpace: "pre-line" }}
         >
-          {text}
+          {formattedText}
         </button>
       </div>
       <div
@@ -228,24 +232,26 @@ export const DiamondClips = (props: DiamondClipsProps) => {
           />
 
           {/* Content Container */}
-          <div className="absolute inset-0 flex items-center justify-center p-4">
+          <div className="absolute inset-0 flex items-center justify-center p-2">
             <span
               lang="en"
               className="text-white text-sm md:text-base lg:text-lg font-bold text-center leading-tight"
               style={{
-                display: "-webkit-box",
-                WebkitLineClamp: 2,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                whiteSpace: "normal",
-                wordBreak: "normal",
+                display: "block",
+                whiteSpace: "pre-line",
+                wordBreak: "break-word",
                 hyphens: "auto",
                 WebkitHyphens: "auto",
+                MozHyphens: "auto",
                 msHyphens: "auto",
+                overflowWrap: "break-word",
+                wordWrap: "break-word",
+                maxWidth: "100%",
+                maxHeight: "100%",
+                overflow: "visible",
               }}
             >
-              {text}
+              {formattedText}
             </span>
           </div>
 
@@ -290,8 +296,9 @@ export const DiamondClips = (props: DiamondClipsProps) => {
             router.push(`#${service}`);
           }}
           className="block md:hidden bg-slate-50 text-synergy-dark-grey text-sm md:text-lg lg:text-xl font-bold text-center"
+          style={{ whiteSpace: "pre-line" }}
         >
-          {text}
+          {formattedText}
         </button>
       </div>
     </>

@@ -31,6 +31,9 @@ export const DiamondClips = (props: DiamondClipsProps) => {
   } = props;
 
   const router = useRouter();
+  const formattedText = (text || "")
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<\/br>/gi, "\n");
 
   // Set hexagons per row (adjust as needed)
   const hexagonsPerRow = 4; // Reduced from 4 to accommodate larger hexagons
@@ -128,9 +131,10 @@ export const DiamondClips = (props: DiamondClipsProps) => {
             console.log(`Navigating to #${service}`);
             router.push(`#${service}`);
           }}
-          className="text-synergy-dark-grey text-base md:text-lg lg:text-xl font-bold text-center truncate"
+          className="text-synergy-dark-grey text-base md:text-lg lg:text-xl font-bold text-center"
+          style={{ whiteSpace: "pre-line" }}
         >
-          {text}
+          {formattedText}
         </button>
       </div>
       <div
@@ -234,7 +238,7 @@ export const DiamondClips = (props: DiamondClipsProps) => {
               className="text-white text-sm md:text-base lg:text-lg font-bold text-center leading-tight"
               style={{
                 display: "block",
-                whiteSpace: "normal",
+                whiteSpace: "pre-line",
                 wordBreak: "break-word",
                 hyphens: "auto",
                 WebkitHyphens: "auto",
@@ -247,7 +251,7 @@ export const DiamondClips = (props: DiamondClipsProps) => {
                 overflow: "visible",
               }}
             >
-              {text}
+              {formattedText}
             </span>
           </div>
 
@@ -292,8 +296,9 @@ export const DiamondClips = (props: DiamondClipsProps) => {
             router.push(`#${service}`);
           }}
           className="block md:hidden bg-slate-50 text-synergy-dark-grey text-sm md:text-lg lg:text-xl font-bold text-center"
+          style={{ whiteSpace: "pre-line" }}
         >
-          {text}
+          {formattedText}
         </button>
       </div>
     </>

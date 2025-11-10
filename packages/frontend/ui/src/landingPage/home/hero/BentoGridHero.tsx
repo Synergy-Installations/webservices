@@ -135,7 +135,18 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                     ))}
                   </div>
                 </div>
-                <button
+                <Link
+                  href={t("productsCard.button.href")}
+                  className="btn mt-6 md:mt-auto !rounded-[10px] backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue text-white group"
+                >
+                  <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
+                    {t("productsCard.button.text")}
+                    <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
+                      {/* {"->"} */}
+                    </span>
+                  </span>
+                </Link>
+                {/* <button
                   type="button"
                   className="btn mt-auto !rounded-[10px] backdrop-blur-md bg-gradient-to-t from-synergy-light-blue/70 via-synergy-light-blue to-synergy-light-blue/70 hover:from-synergy-light-blue hover:to-synergy-light-blue text-white group"
                   onClick={() => {
@@ -151,7 +162,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                     {t("productsCard.button.text")}
                   </span>
                 </button>
-                <ServicesPopup />
+                <ServicesPopup /> */}
               </div>
             </div>
           </div>

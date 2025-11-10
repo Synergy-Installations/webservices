@@ -68,20 +68,23 @@ export const PhotovoltaicBackground = (props: PhotovoltaicBackgroundProps) => {
           <h3 className="text-xl font-bold text-left text-teal-800 mb-4">
             {t("boxes.boxRight.title")}
           </h3>
-         <ol className="list-none space-y-2 ml-2 text-teal-900">
-              {boxesRightKeys.map((key, idx) => (
-                <li key={key} className="flex">
-                  <span className="flex-none w-3 text-right text-teal-800 font-semibold">
-                    {idx + 1}.
-                  </span>
-                  <div className="flex-1 ml-3">
-                    <RichText>{(tags) => t.rich(`boxes.boxRight.list.${key}`, tags)}</RichText>
-                  </div>
-                </li>
-              ))}
-            </ol>
+          <ol className="list-none space-y-2 ml-2 text-teal-900">
+            {boxesRightKeys.map((key, idx) => (
+              <li key={key} className="flex">
+                <span className="flex-none w-3 text-right text-teal-800 font-semibold">
+                  {idx + 1}.
+                </span>
+                <div className="flex-1 ml-3">
+                  <RichText>
+                    {(tags) => t.rich(`boxes.boxRight.list.${key}`, tags)}
+                  </RichText>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
+      {/* Move the items here */}
       <div className="relative mx-auto max-w-xs sm:flex sm:max-w-none w-fit sm:justify-center">
         <a
           className="btn group mb-0 !py-4 !px-5 !text-lg w-full before:opacity-100 before:absolute before:inset-0 before:rounded-xl before:backdrop-blur-md before:bg-gradient-to-t before:from-synergy-light-blue/70 before:via-synergy-light-blue before:to-synergy-light-blue/70 hover:before:from-synergy-light-blue hover:before:to-synergy-light-blue before:shadow-xl text-white shadow sm:w-auto break-words whitespace-pre-line"

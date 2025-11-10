@@ -235,7 +235,8 @@
             ]
           ],
           "button": {
-            "text": "Details anzeigen"
+            "text": "Details anzeigen",
+            "href": "/produkte"
           }
         },
         "items": {
@@ -1243,7 +1244,7 @@
           "Partner01": {
             "src": "/frontend/landingPage/clients/Loxone_Logo.png",
             "alt": "Client 01",
-            "width": "150",
+            "width": "100",
             "height": "21"
           },
           "Partner02": {
@@ -1293,21 +1294,21 @@
           "Wuerth": {
             "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
             "alt": "Client 03",
-            "width": "200",
+            "width": "100",
             "height": "50",
             "href": "https://www.wuerth.at"
           },
           "EandB": {
             "src": "/frontend/landingPage/clients/logo_eb.png",
             "alt": "Client 04",
-            "width": "200",
+            "width": "100",
             "height": "13",
             "href": "https://www.eb-haustechnik.at"
           },
           "Fronius": {
             "src": "/frontend/landingPage/clients/LOGO_Fronius_RGB_high_300dpi.jpg",
             "alt": "Client 05",
-            "width": "200",
+            "width": "100",
             "height": "18",
             "href": "https://www.fronius.at"
           },
@@ -1321,84 +1322,84 @@
           "Sonepar": {
             "src": "/frontend/landingPage/clients/Sonepar%20logo%20RGB_Tagline.svg",
             "alt": "Client 07",
-            "width": "200",
+            "width": "100",
             "height": "50",
             "href": "https://www.sonepar.at"
           },
           "Partner08": {
             "src": "/frontend/landingPage/clients/00-Sigenergy-Logo.png.webp",
             "alt": "Client 08",
-            "width": "200",
+            "width": "100",
             "height": "34",
             "href": "https://www.sigenergy.com"
           },
           "Partner09": {
             "src": "/frontend/landingPage/clients/0x0.png",
             "alt": "Client 09",
-            "width": "200",
+            "width": "100",
             "height": "44",
             "href": "https://de.growatt.com"
           },
           "Partner11": {
             "src": "/frontend/landingPage/clients/989_Category.png",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://www.solaxpower.com"
           },
           "Partner12": {
             "src": "/frontend/landingPage/clients/Altamira_2_color_stacked_large.png",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://e-altamira.at"
           },
           "Partner13": {
             "src": "/frontend/landingPage/clients/Bosch-logo.svg",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://www.bosch.at"
           },
           "Partner14": {
             "src": "/frontend/landingPage/clients/Buderus-logo.svg",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://www.buderus.at"
           },
           "Partner15": {
             "src": "/frontend/landingPage/clients/BYD_Company%2C_Ltd._-_Logo.svg",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://www.bydauto.at"
           },
           "Partner16": {
             "src": "/frontend/landingPage/clients/DAIKIN_Logo_rgb.png",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://www.daikin.at"
           },
           "Partner17": {
             "src": "/frontend/landingPage/clients/FE_S_Blau_Horiz_RGB-1.png",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://fenecon.de"
           },
           "Partner18": {
             "src": "/frontend/landingPage/clients/hargassner-logo-neg-entzerrt-vereinfacht-ohne-claim3farbig-dunkelgrau.svg",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://www.hargassner.com"
           },
           "Partner19": {
             "src": "/frontend/landingPage/clients/Hoval_Logo.svg",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://www.hoval.at"
           },
@@ -1419,7 +1420,7 @@
           "Partner22": {
             "src": "/frontend/landingPage/clients/images.png",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://www.ochsner.com"
           },
@@ -1433,42 +1434,42 @@
           "Partner24": {
             "src": "/frontend/landingPage/clients/KNX_logo.svg",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://www.knxaustria.at"
           },
           "Partner25": {
             "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://www.wuerth.at"
           },
           "Partner26": {
             "src": "/frontend/landingPage/clients/logo_eb.png",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://www.eb-kantteile.at"
           },
           "Partner27": {
             "src": "/frontend/landingPage/clients/Logo_Fro%CC%88ling.JPG",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://www.froeling.com"
           },
           "Partner28": {
             "src": "/frontend/landingPage/clients/Logo_SMA.svg",
             "alt": "Client 10",
-            "width": "200",
+            "width": "60",
             "height": "40",
             "href": "https://www.sma.de"
           },
           "Partner29": {
             "src": "/frontend/landingPage/clients/LOGO-LAMBDA-1.png",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://lambda-wp.at"
           }
@@ -2874,6 +2875,7 @@
             "verhandlungsunterstützung": {
               "Diamond": {
                 "title": "Verhandlungsunterstützung",
+                "text": "Verhandlungs-\nunterstützung",
                 "backgroundImage": {
                   "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
                   "alt": "Photovoltaik"

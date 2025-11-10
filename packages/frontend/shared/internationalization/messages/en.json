@@ -235,7 +235,8 @@
             ]
           ],
           "button": {
-            "text": "View details"
+            "text": "View details",
+            "href": "/products"
           }
         },
         "items": {

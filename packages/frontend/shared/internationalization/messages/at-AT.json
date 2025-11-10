@@ -5221,7 +5221,7 @@
                       "alt": "Gemeinsame Erzeugung"
                     },
                     "icon": {
-                      "src": "/frontend/landingPage/icons/solar-panel-sun_15865230%20blau.svg",
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
                       "alt": "Solarmodule",
                       "width": "32",
                       "height": "32"
@@ -5235,7 +5235,7 @@
                       "alt": "Intelligente Verteilung"
                     },
                     "icon": {
-                      "src": "/frontend/landingPage/icons/function.svg",
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Steuerung",
                       "width": "32",
                       "height": "32"
@@ -5249,7 +5249,7 @@
                       "alt": "Speicher"
                     },
                     "icon": {
-                      "src": "/frontend/landingPage/icons/Stromspeicher_9236322%20blau.svg",
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Speicher",
                       "width": "32",
                       "height": "32"
@@ -5407,7 +5407,7 @@
                       "alt": "Haftpflicht"
                     },
                     "icon": {
-                      "src": "/frontend/landingPage/icons/shield_check.svg",
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Haftpflicht Icon",
                       "width": "32",
                       "height": "32"
@@ -5421,7 +5421,7 @@
                       "alt": "Ertragsausfall"
                     },
                     "icon": {
-                      "src": "/frontend/landingPage/icons/chart_decline.svg",
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
                       "alt": "Ertragsausfall Icon",
                       "width": "32",
                       "height": "32"
@@ -5435,7 +5435,7 @@
                       "alt": "All-Risk"
                     },
                     "icon": {
-                      "src": "/frontend/landingPage/icons/tools_shield.svg",
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "All-Risk Icon",
                       "width": "32",
                       "height": "32"
@@ -5500,7 +5500,7 @@
                       "alt": "Flexible Raten"
                     },
                     "icon": {
-                      "src": "/frontend/landingPage/icons/function.svg",
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Raten Icon",
                       "width": "32",
                       "height": "32"
@@ -5528,7 +5528,7 @@
                       "alt": "Transparente Konditionen"
                     },
                     "icon": {
-                      "src": "/frontend/landingPage/icons/eco-charging.svg",
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Transparenz Icon",
                       "width": "32",
                       "height": "32"
@@ -5621,7 +5621,7 @@
                       "alt": "Reporting"
                     },
                     "icon": {
-                      "src": "/frontend/landingPage/icons/function.svg",
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Reporting Icon",
                       "width": "32",
                       "height": "32"
@@ -9057,7 +9057,7 @@
               "title": "Rundum-Sorglos-Paket",
               "description": "Von der Förderberatung über die Planung bis zur finalen Inbetriebnahme – wir kümmern uns um alles. ",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/heat_pump_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -9067,7 +9067,7 @@
               "title": "Preissicherheit garantiert für Luft-Luft Wärmepumpe und Luft-Wasser Wärmepumpe",
               "description": "Keine versteckten Kosten: Ihr Angebotspreis ist fix und schützt Sie vor unliebsamen Überraschungen.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/heat_pump_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -9077,7 +9077,7 @@
               "title": "In wenigen Wochen zur neuen Heizung",
               "description": "Dank eingespielter Prozesse und klarer Planung ist Ihr Weg zu effizienter Wärme kurz und unkompliziert.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/heat_pump_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -9207,7 +9207,7 @@
               "title": "Höheres Komfortniveau",
               "description": "Kühlen, entfeuchten und Luft reinigen von Allergenen und Feinstaub durch fortschrittliche Filtersysteme für besseres Wohlbefinden.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/climate_mini_split_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -9217,7 +9217,7 @@
               "title": "Sehr leiser Betrieb",
               "description": "Im leisen Modus ca. 20-40 dB(A) so laut wie sehr leises Flüstern",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/climate_mini_split_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -9227,7 +9227,7 @@
               "title": "Moderne Klimaanlagen",
               "description": "sind deutlich energieeffizienter geworden",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/climate_mini_split_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -9356,7 +9356,7 @@
               "title": "Erhöht Ihren Energie Eigenverbrauch",
               "description": "von ca. 30 % auf bis zu 98%.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/blanket_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -9366,7 +9366,7 @@
               "title": "Größere Unabhängigkeit",
               "description": "vom öffentlichen Stromnetz und schwankenden Strompreisen.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/blanket_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -9376,7 +9376,7 @@
               "title": "In kürzester Zeit zum vollen Speicher",
               "description": "Dank eingespielter Prozesse ist Ihr Weg zur Energieunabhängigkeit kurz und unkompliziert.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/blanket_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -9505,7 +9505,7 @@
               "title": "Intelligenz & KI",
               "description": "Wetterdaten und dynamische Stromtarife kombinieren",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/crowdsource_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -9515,7 +9515,7 @@
               "title": "Herstellerunabhängige Steuerung",
               "description": "Kompatibilität mit verschiedenen Verbrauchern wie Elektroheizstäben, Wärmepumpen und Wallboxen",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/crowdsource_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -9525,7 +9525,7 @@
               "title": "Klimafreundlichkeit",
               "description": "Optimierung der PV-Anlage zur Unterstützung der Umwelt",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/crowdsource_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -9651,7 +9651,7 @@
               "title": "Was ist eine Gemeinschaftliche Erzeugungsanlage (GEA)?",
               "description": "Eine Gemeinschaftliche Erzeugungsanlage (GEA) ist eine innovative und unkomplizierte Lösung für Gebäude mit mehreren Parteien, wie z.B. Mehrparteienhäuser.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/partner_exchange_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -9661,7 +9661,7 @@
               "title": "Wie funktioniert eine gemeinschaftliche Erzeugungsanlage?",
               "description": "Sie ermöglicht die gemeinsame Nutzung einer Energieerzeugungsanlage, typischerweise einer Photovoltaikanlage auf dem Dach, um umweltfreundlichen Strom direkt vor Ort zu produzieren und zu verbrauchen.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/partner_exchange_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -9671,7 +9671,7 @@
               "title": "Was bringt eine gemeinschaftliche Erzeugungsanlage?",
               "description": "Es ist primär eine technische Lösung zur gemeinsamen Nutzung einer Anlage, die Ihnen und Ihren Nachbarn mehr Unabhängigkeit und Nachhaltigkeit bietet.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/partner_exchange_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -9801,7 +9801,7 @@
               "title": "Intelligentes Energiemanagement:",
               "description": "Optimieren Sie Ihren Verbrauch mit vorausschauender Online Wettersteuerung, die die Heiz- und Kühlleistung intelligent anpasst.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/Smart%20Home%20house-signal_11270047%20blau.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -9811,7 +9811,7 @@
               "title": "Automatisierung von Alltagsabläufen:",
               "description": "Sparen Sie Zeit im Alltag und beeindrucken Sie Ihre Gäste mit coolen Smart Home Features, die Abläufe automatisch steuern.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/Smart%20Home%20house-signal_11270047%20blau.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -9821,7 +9821,7 @@
               "title": "Maximale Flexibilität & Erweiterbarkeit:",
               "description": "Starten Sie günstig und erweitern Sie Ihr System jederzeit einfach und flexibel nach Ihren Bedürfnissen – inklusive Energiemanagement und Stromspeicher-Integration.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/Smart%20Home%20house-signal_11270047%20blau.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -9951,7 +9951,7 @@
               "title": "Klimafreundlichkeit",
               "description": "Optimierung der PV-Anlage zur Unterstützung der Umwelt",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/energy_program_time_used_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -9961,7 +9961,7 @@
               "title": "Intelligenz & KI:",
               "description": "Unser System kombiniert Wetterdaten und dynamische Stromtarife, um Ihren Energiefluss vorausschauend zu steuern.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/energy_program_time_used_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -9971,7 +9971,7 @@
               "title": "Größere Unabhängigkeit:",
               "description": "Reduzieren Sie Ihre Abhängigkeit vom öffentlichen Stromnetz und schwankenden Strompreisen.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/energy_program_time_used_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -10102,7 +10102,7 @@
               "title": "Kompatibilität mit erneuerbaren Energien",
               "description": "Wallboxen lassen sich mit Photovoltaikanlagen und Stromspeichern kombinieren, was die Nutzung von selbst erzeugtem Solarstrom ermöglicht.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/electric_car_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -10112,7 +10112,7 @@
               "title": "Elektroautos mit PV Strom laden",
               "description": "Bei 30.000 km pro Jahr sparen Sie etwa 3.600 € pro Jahr - eine Kostenreduktion von rund 85%",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/electric_car_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -10122,7 +10122,7 @@
               "title": "4x günstiger als Benzin",
               "description": "Mit einer Wallbox laden Sie Ihr Elektroauto bequem zu Hause auf und fahren so bis zu viermal günstiger als mit Benzin.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/electric_car_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -10252,7 +10252,7 @@
               "title": "Absolute Versorgungssicherheit:",
               "description": "Bei einem Netzausfall schaltet Ihr System automatisch und nahtlos auf Notstrom um.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/crisis_alert_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -10262,7 +10262,7 @@
               "title": "Schutz für Ihr Zuhause & Geschäft:",
               "description": "Vermeiden Sie Schäden an Geräten, Datenverlust und Unterbrechungen des Alltags oder Betriebs.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/crisis_alert_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -10272,7 +10272,7 @@
               "title": "Unabhängigkeit vom Stromnetz:",
               "description": "Werden Sie immun gegen Schwankungen und Ausfälle des öffentlichen Stromnetzes.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/crisis_alert_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -10402,7 +10402,7 @@
               "title": "Einfache Installation & sofortige Ersparnis:",
               "description": "Unkompliziert und schnell installiert, fangen Sie sofort an, Ihren eigenen Strom zu produzieren und Ihre Stromrechnung zu senken.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/balcony_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -10412,7 +10412,7 @@
               "title": "Flexibilität mit und ohne Speicher:",
               "description": "Starten Sie günstig und erweitern Sie bei Bedarf um einen Stromspeicher, um Ihren Eigenverbrauch auch nachts zu maximieren.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/balcony_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -10422,7 +10422,7 @@
               "title": "Ideal für Mieter & Eigenheimbesitzer:",
               "description": "Die perfekte Lösung, um auch mit begrenztem Platz aktiv zur Energiewende beizutragen.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/balcony_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -10553,7 +10553,7 @@
               "title": "Budget optimieren – so geht's:",
               "description": "Wir geben Möglichkeiten, das Eigenheim sowie den Industriebetrieb auf ein energetisch und lukratives Maximum zu heben.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/lightbulb_2_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -10563,7 +10563,7 @@
               "title": "Laufende Marktkenntnis & Anpassung:",
               "description": "Wir übernehmen die laufende Marktrecherche und die kontinuierliche Anpassung.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/lightbulb_2_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -10573,7 +10573,7 @@
               "title": "Experten mit As im Ärmel:",
               "description": "Unsere Experten stehen Ihnen zur Seite, wenn Sie sowohl Abnehmer als auch Einspeiser sind, können wir Ihnen dabei helfen, dass sich Ihre Erzeugungsanlage schneller amortisiert.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/lightbulb_2_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -10704,7 +10704,7 @@
               "title": "Kostengünstig & effizient:",
               "description": "Erzeugen Sie Warmwasser einfach und kostengünstig mit Gleichstrom aus Photovoltaik-Modulen. Nutzen Sie die Sonnenenergie optimal für Ihr Warmwasser.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/water_voc_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -10714,7 +10714,7 @@
               "title": "Flexibilität & Kompatibilität:",
               "description": "Kann in die meisten bestehenden Systeme nachgerüstet werden. Zusätzliches Heizen mit Netzstrom ist bei Bedarf weiterhin möglich, um Ihre Versorgung jederzeit zu gewährleisten.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/water_voc_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -10724,7 +10724,7 @@
               "title": "Umweltschonend & zukunftssicher:",
               "description": "Erzeugen Sie Ihr Warmwasser zum Duschen hauptsächlich mit Solarstrom und reduzieren Sie so Ihren ökologischen Fußabdruck und Ihre Abhängigkeit von fossilen Brennstoffen.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/water_voc_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -10855,7 +10855,7 @@
               "title": "Maximale Leistung & Ertragssicherheit:",
               "description": "Regelmäßige Wartung sorgt dafür, dass Ihre Solar- und Haustechniksysteme stets im optimalen Bereich arbeiten und Sie den maximalen Ertrag erzielen. ",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/build_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -10865,7 +10865,7 @@
               "title": "Längere Lebensdauer Ihrer Investition:",
               "description": "Vorbeugende Wartung verhindert teure Reparaturen und verlängert die Lebensdauer Ihrer Anlagen erheblich.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/build_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"
@@ -10875,7 +10875,7 @@
               "title": "Sicherheit & Zuverlässigkeit:",
               "description": "Minimieren Sie das Risiko unerwarteter Ausfälle und genießen Sie die Gewissheit einer zuverlässigen Energieversorgung.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/build_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Fokus-Highlight-Icon",
                 "width": "32",
                 "height": "32"

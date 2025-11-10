@@ -65,7 +65,7 @@ function getFieldLabel(key: string): string {
     phone: "Telefon",
     productSelection: "Produktauswahl",
     message: "Nachricht",
-    multipleServices: "Ausgewählte Services",
+    servicesSelection: "Ausgewählte Services",
     documents: "Hochgeladene Dokumente",
     funnel: "Aufmerksam durch",
   };

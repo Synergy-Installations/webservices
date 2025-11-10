@@ -5026,7 +5026,7 @@
                   "alt": "Joint generation"
                 },
                 "icon": {
-                  "src": "/frontend/landingPage/icons/solar-panel-sun_15865230%20blau.svg",
+                  "src": "/frontend/landingPage/icons/icon-plan.svg",
                   "alt": "Solar modules",
                   "width": "32",
                   "height": "32"
@@ -5040,7 +5040,7 @@
                   "alt": "Intelligent distribution"
                 },
                 "icon": {
-                  "src": "/frontend/landingPage/icons/function.svg",
+                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                   "alt": "Control",
                   "width": "32",
                   "height": "32"
@@ -5054,7 +5054,7 @@
                   "alt": "Storage"
                 },
                 "icon": {
-                  "src": "/frontend/landingPage/icons/Stromspeicher_9236322%20blau.svg",
+                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                   "alt": "Storage",
                   "width": "32",
                   "height": "32"
@@ -5212,7 +5212,7 @@
                   "alt": "Liability"
                 },
                 "icon": {
-                  "src": "/frontend/landingPage/icons/shield_check.svg",
+                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                   "alt": "Liability Icon",
                   "width": "32",
                   "height": "32"
@@ -5226,7 +5226,7 @@
                   "alt": "Loss of yield"
                 },
                 "icon": {
-                  "src": "/frontend/landingPage/icons/chart_decline.svg",
+                  "src": "/frontend/landingPage/icons/icon-plan.svg",
                   "alt": "Loss of yield Icon",
                   "width": "32",
                   "height": "32"
@@ -5240,7 +5240,7 @@
                   "alt": "All-Risk"
                 },
                 "icon": {
-                  "src": "/frontend/landingPage/icons/tools_shield.svg",
+                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                   "alt": "All-Risk Icon",
                   "width": "32",
                   "height": "32"
@@ -5305,7 +5305,7 @@
                   "alt": "Flexible installments"
                 },
                 "icon": {
-                  "src": "/frontend/landingPage/icons/function.svg",
+                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                   "alt": "Installments Icon",
                   "width": "32",
                   "height": "32"
@@ -5333,7 +5333,7 @@
                   "alt": "Transparent terms"
                 },
                 "icon": {
-                  "src": "/frontend/landingPage/icons/eco-charging.svg",
+                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                   "alt": "Transparency Icon",
                   "width": "32",
                   "height": "32"
@@ -5426,7 +5426,7 @@
                   "alt": "Reporting"
                 },
                 "icon": {
-                  "src": "/frontend/landingPage/icons/function.svg",
+                  "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                   "alt": "Reporting Icon",
                   "width": "32",
                   "height": "32"
@@ -8861,7 +8861,7 @@
               "title": "All-careless package",
               "description": "From support advice to planning to final commissioning – we take care of everything. ",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/heat_pump_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -8871,7 +8871,7 @@
               "title": "Price safety guaranteed for air heat pump and air water heat pump",
               "description": "No hidden costs: Your offer price is fixed and protects you from unpopular surprises.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/heat_pump_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -8881,7 +8881,7 @@
               "title": "A new heating system within weeks",
               "description": "Thanks to well-established processes and clear planning, your path to efficient heat is short and easy.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/heat_pump_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9011,7 +9011,7 @@
               "title": "Higher comfort level",
               "description": "Cool, dehumidify and filter allergens and fine dust with advanced filtration for better well-being.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/climate_mini_split_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9021,7 +9021,7 @@
               "title": "Ultra-quiet operation",
               "description": "Silent mode is only about 20–40 dB(A) – roughly as quiet as a soft whisper.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/climate_mini_split_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9031,7 +9031,7 @@
               "title": "Modern air conditioners",
               "description": "Today’s systems are far more energy efficient than older units.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/climate_mini_split_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9160,7 +9160,7 @@
               "title": "Boost self-consumption",
               "description": "Raise your own-use share from roughly 30% to up to 98%.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/blanket_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9170,7 +9170,7 @@
               "title": "Greater independence",
               "description": "Stay less reliant on the public grid and volatile electricity prices.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/blanket_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9180,7 +9180,7 @@
               "title": "Full storage in no time",
               "description": "Thanks to established processes, your path to energy independence stays short and straightforward.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/blanket_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9309,7 +9309,7 @@
               "title": "Intelligence & AI",
               "description": "Combine weather data and dynamic electricity tariffs for smarter dispatch.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/crowdsource_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9319,7 +9319,7 @@
               "title": "Manufacturer-independent control",
               "description": "Compatible with diverse consumers such as immersion heaters, heat pumps and wallboxes.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/crowdsource_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9329,7 +9329,7 @@
               "title": "Climate friendliness",
               "description": "Optimize the PV system to protect the environment together.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/crowdsource_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9455,7 +9455,7 @@
               "title": "What is a Community Generation Plant (CGP)?",
               "description": "A Community production plant (GEA) is an innovative and uncomplicated solution for buildings with several parties, such as multi-party houses.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/partner_exchange_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9465,7 +9465,7 @@
               "title": "How does a community generation plant work?",
               "description": "It enables the joint use of an energy production plant, typically a photovoltaic plant on the roof, to produce and consume environmentally friendly electricity directly on site.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/partner_exchange_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9475,7 +9475,7 @@
               "title": "What are the benefits of a community generation plant?",
               "description": "It is primarily a technical solution for the joint use of a plant that offers you and your neighbours more independence and sustainability.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/partner_exchange_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9605,7 +9605,7 @@
               "title": "Intelligent energy management",
               "description": "Predictive weather control adjusts heating and cooling automatically so you always consume energy at the perfect time.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/Smart%20Home%20house-signal_11270047%20blau.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9615,7 +9615,7 @@
               "title": "Automation of daily routines",
               "description": "Save time and impress guests with smart scenes that automate lighting, shading, climate and more – even via app while you are away.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/Smart%20Home%20house-signal_11270047%20blau.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9625,7 +9625,7 @@
               "title": "Maximum flexibility & expandability",
               "description": "Start lean and extend the system whenever you need – including energy management, storage control and future smart devices.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/Smart%20Home%20house-signal_11270047%20blau.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9755,7 +9755,7 @@
               "title": "Climate friendliness",
               "description": "Optimize your PV system to actively support the environment.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/energy_program_time_used_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9765,7 +9765,7 @@
               "title": "Intelligence & AI",
               "description": "Our system combines weather data and dynamic electricity tariffs to steer your energy flow proactively.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/energy_program_time_used_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9775,7 +9775,7 @@
               "title": "Greater independence",
               "description": "Reduce your dependency on the public power grid and fluctuating power prices.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/energy_program_time_used_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9906,7 +9906,7 @@
               "title": "Compatible with renewable energy",
               "description": "Combine wallboxes with PV systems and batteries to use self-generated solar power.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/electric_car_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9916,7 +9916,7 @@
               "title": "Charge EVs with PV power",
               "description": "Driving 30,000 km per year saves roughly €3,600 — about 85% compared to petrol.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/electric_car_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -9926,7 +9926,7 @@
               "title": "Four times cheaper than petrol",
               "description": "Charge conveniently at home and drive up to four times cheaper than with gasoline.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/electric_car_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -10056,7 +10056,7 @@
               "title": "Absolute security of supply:",
               "description": "With a power failure, your system switches automatically and seamlessly to emergency power.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/crisis_alert_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -10066,7 +10066,7 @@
               "title": "Protection for your home & business:",
               "description": "Avoid damage to devices, data loss and interruptions of everyday life or operation.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/crisis_alert_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -10076,7 +10076,7 @@
               "title": "Independence from the power grid:",
               "description": "Be immune to fluctuations and failures of the public power grid.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/crisis_alert_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -10206,7 +10206,7 @@
               "title": "Easy installation & immediate savings:",
               "description": "Easy to install and quickly, start producing your own electricity and lowering your electricity bill immediately.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/balcony_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -10216,7 +10216,7 @@
               "title": "Flexibility with and without memory:",
               "description": "Start cheaply and extend a power store if needed to maximize your own consumption even at night.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/balcony_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -10226,7 +10226,7 @@
               "title": "Ideal for tenants & home owners:",
               "description": "The perfect solution to actively contribute to the energy transition with limited space.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/balcony_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -10357,7 +10357,7 @@
               "title": "Optimizing budget – this is how it works:",
               "description": "It is simple – both the energy market and the legal situation as well as technical aspects offer a wide range of possibilities. We give possibilities to raise the home and the industrial plant to an energetic and lucrative maximum.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/lightbulb_2_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -10367,7 +10367,7 @@
               "title": "Current market knowledge & adaptation:",
               "description": "We take over the current market research and the continuous adaptation.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/lightbulb_2_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -10377,7 +10377,7 @@
               "title": "Experts with As in the sleeve:",
               "description": "Our experts are at your side. We are experts in the field and have an as in the sleeve for you in most cases. Especially if you are both customers and feeders, we can help you get your production facility amortised faster.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/lightbulb_2_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -10508,7 +10508,7 @@
               "title": "Cost-effective & efficient:",
               "description": "Create hot water easily and inexpensively with direct current from photovoltaic modules. Use solar energy optimally for your hot water.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/water_voc_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -10518,7 +10518,7 @@
               "title": "Flexibility & compatibility:",
               "description": "Can be retrofitted in most existing systems. Additional heating with power supply is still possible if necessary to ensure your supply at any time.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/water_voc_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -10528,7 +10528,7 @@
               "title": "Environmentally friendly & future-proof:",
               "description": "Generate your hot water for showering mainly with solar power and thus reduce your ecological footprint and your dependence on fossil fuels.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/water_voc_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -10659,7 +10659,7 @@
               "title": "Maximum output & dependable returns:",
               "description": "Regular maintenance ensures that your solar and home technology systems always work in the optimal range and achieve maximum yield. ",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/build_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -10669,7 +10669,7 @@
               "title": "Longer life of your investment:",
               "description": "Preventive maintenance prevents expensive repairs and significantly extends the service life of your equipment.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/build_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"
@@ -10679,7 +10679,7 @@
               "title": "Safety & reliability:",
               "description": "Minimise the risk of unexpected failures and enjoy the certainty of a reliable energy supply.",
               "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
+                "src": "/frontend/landingPage/icons/build_24dp_0CC0DF_FILL0_wght400_GRAD0_opsz24.svg",
                 "alt": "Focus highlight icon",
                 "width": "32",
                 "height": "32"

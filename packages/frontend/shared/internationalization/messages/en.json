@@ -1478,7 +1478,10 @@
     },
     "Products": {
       "HeroVideo": {
+        "eyebrow": "Products",
         "title": "Our Products",
+        "subtitle": "for your holistic energy solutions",
+        "body": "Through our products we design tailored synergy solutions for your energy system, fully aligned with your customers' needs.",
         "buttonLeft": {
           "text": "Request a Consultation",
           "href": "/contact-us"

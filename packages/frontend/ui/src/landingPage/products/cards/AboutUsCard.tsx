@@ -14,14 +14,14 @@ export const AboutUsCard = (props: AboutUsCardProps) => {
   );
 
   return (
-    <section>
-      <div className="relative max-w-7xl mx-auto">
-        {/* Bg */}
-        <div
-          className="absolute inset-0 rounded-tr-[100px] bg-gradient-to-b from-synergy-light-grey pointer-events-none"
-          aria-hidden="true"
-        />
+    <section className="relative">
+      {/* Bg */}
+      <div
+        className="absolute inset-0 rounded-tr-[100px] bg-gradient-to-b from-synergy-light-grey pointer-events-none"
+        aria-hidden="true"
+      />
 
+      <div className="relative max-w-7xl mx-auto z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="py-12 md:py-20 md:pt-12">
             {/* Section content */}

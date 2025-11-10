@@ -117,6 +117,7 @@ export const ServiceCatalog = (props: ServiceCatalogProps) => {
           <div className="pb-12 px-4 sm:px-6 mx-auto max-w-6xl text-center relative z-10 md:pb-16">
             <BentoGrid className="md:grid-rows-3">
               <ServiceCard
+                alwaysShowContent
                 services={serviceKeys.map(
                   (key) =>
                     messages.LandingPage.Home.ServiceCatalog.servicesGrid[key]

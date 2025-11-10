@@ -1403,33 +1403,12 @@
             "height": "40",
             "href": "https://www.hoval.at"
           },
-          "Partner20": {
-            "src": "/frontend/landingPage/clients/Huawei_Standard_logo.svg",
-            "alt": "Client 10",
-            "width": "100",
-            "height": "40",
-            "href": "https://www.huawei.com"
-          },
-          "Partner21": {
-            "src": "/frontend/landingPage/clients/logo_idm_waermepumpen-scaled-e1610953520283.jpg",
-            "alt": "Client 10",
-            "width": "100",
-            "height": "40",
-            "href": "https://www.idm-energie.at"
-          },
           "Partner22": {
             "src": "/frontend/landingPage/clients/images.png",
             "alt": "Client 10",
             "width": "100",
             "height": "40",
             "href": "https://www.ochsner.com"
-          },
-          "Partner23": {
-            "src": "/frontend/landingPage/clients/logo-2.svg",
-            "alt": "Client 10",
-            "width": "100",
-            "height": "40",
-            "href": "https://k2-systems.com"
           },
           "Partner24": {
             "src": "/frontend/landingPage/clients/KNX_logo.svg",
@@ -1478,7 +1457,10 @@
     },
     "Products": {
       "HeroVideo": {
+        "eyebrow": "Produkte",
         "title": "Unsere Produkte",
+        "subtitle": "für ihre ganzheitlichen Energielösungen",
+        "body": "Wir entwerfen durch unsere Produkte maßgeschneiderte Synergielösungen für ihr Energiesystem, ganz auf ihre Kundenbedürfnisse abgestimmt.",
         "buttonLeft": {
           "text": "Jetzt Anfragen",
           "href": "/contact-us"

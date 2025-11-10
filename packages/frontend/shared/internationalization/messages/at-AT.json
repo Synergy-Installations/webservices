@@ -3699,570 +3699,6 @@
             }
           }
         },
-
-        "service": {
-          "title": "Service",
-          "SubServices": {
-            "Kundendienst": {
-              "Diamond": {
-                "title": "Kundendienst",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaik"
-                }
-              },
-              "Components": {
-                "titleOne": "Warum ist Kundendienst wichtig?",
-                "descriptionOne": "Ein zuverlässiger Kundendienst sichert die langfristige Zufriedenheit Ihrer Kunden. Wir begleiten Sie auch nach Projektabschluss, stehen für Fragen bereit und sorgen für die nachhaltige Funktion Ihrer Anlage.",
-                "titleTwo": "Warum wir?",
-                "descriptionTwo": "Wir bieten persönliche Betreuung, schnelle Reaktionszeiten und dauerhafte Lösungen – für maximale Kundenzufriedenheit und eine langfristige Partnerschaft.",
-                "button": {
-                  "text": "Jetzt Kundendienst anfragen",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "Kundenbetreuung",
-                    "description": "Wir sind auch nach Projektabschluss für Sie da und beantworten alle Fragen.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Schnelle Hilfe",
-                    "description": "Im Störungsfall reagieren wir schnell und zuverlässig.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Wechselrichter"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Langfristige Partnerschaft",
-                    "description": "Wir begleiten Sie über die gesamte Lebensdauer Ihrer Anlage.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Batteriespeicher"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Ihre Vorteile durch den Kundendienst:",
-                    "list": {
-                      "itemOne": "Langfristige Betreuung und Beratung",
-                      "itemTwo": "Schnelle Hilfe bei Problemen",
-                      "itemThree": "Maximale Anlagenverfügbarkeit",
-                      "itemFour": "Transparente Kommunikation",
-                      "itemFive": "Zufriedene Kunden und Empfehlungen",
-                      "itemSix": "Nachhaltige Partnerschaft"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "So läuft der Kundendienst ab:",
-                    "list": {
-                      "itemOne": "Kontaktaufnahme nach Projektabschluss",
-                      "itemTwo": "Regelmäßige Nachfragen zur Zufriedenheit",
-                      "itemThree": "Schnelle Reaktion bei Anliegen",
-                      "itemFour": "Lösung von Problemen und Optimierung",
-                      "itemFive": "Dokumentation und Feedback",
-                      "itemSix": "Langfristige Begleitung"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Kundendienst anfragen",
-                  "href": "/kontakt"
-                }
-              }
-            },
-            "Wartung": {
-              "Diamond": {
-                "title": "Wartung",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaik"
-                }
-              },
-              "Components": {
-                "titleOne": "Warum ist Wartung wichtig?",
-                "descriptionOne": "Regelmäßige Wartung sichert die Effizienz und Langlebigkeit Ihrer Anlage. Wir erkennen frühzeitig Verschleiß oder Störungen und verhindern teure Ausfälle.",
-                "titleTwo": "Warum wir?",
-                "descriptionTwo": "Unsere Experten prüfen Ihre Systeme gründlich, dokumentieren alle Ergebnisse und sorgen für einen reibungslosen Betrieb.",
-                "button": {
-                  "text": "Jetzt Wartung anfragen",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "Regelmäßige Kontrolle",
-                    "description": "Wir prüfen Ihre Anlage auf Funktion und Sicherheit.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Verschleiß erkennen",
-                    "description": "Wir entdecken frühzeitig Schwachstellen und beheben sie.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Wechselrichter"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Dokumentation",
-                    "description": "Sie erhalten einen detaillierten Wartungsbericht.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Batteriespeicher"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Ihre Vorteile durch Wartung:",
-                    "list": {
-                      "itemOne": "Vermeidung von Ausfällen",
-                      "itemTwo": "Längere Lebensdauer der Anlage",
-                      "itemThree": "Erhalt der Garantie",
-                      "itemFour": "Maximale Effizienz",
-                      "itemFive": "Transparente Wartungsprotokolle",
-                      "itemSix": "Sicherheit für Betreiber"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "So läuft die Wartung ab:",
-                    "list": {
-                      "itemOne": "Terminvereinbarung",
-                      "itemTwo": "Vor-Ort-Prüfung durch Experten",
-                      "itemThree": "Funktions- und Sicherheitscheck",
-                      "itemFour": "Behebung kleinerer Mängel",
-                      "itemFive": "Detaillierter Wartungsbericht",
-                      "itemSix": "Empfehlungen für die Zukunft"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Wartung starten",
-                  "href": "/kontakt"
-                }
-              }
-            },
-            "Monitoring": {
-              "Diamond": {
-                "title": "Monitoring",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaik"
-                }
-              },
-              "Components": {
-                "titleOne": "Warum ist Monitoring wichtig?",
-                "descriptionOne": "Echtzeit‑Monitoring ermöglicht die kontinuierliche Überwachung Ihrer Anlage und erkennt Auffälligkeiten, bevor sie zu Ausfällen oder Ertragsverlusten führen.",
-                "titleTwo": "Warum wir?",
-                "descriptionTwo": "Unsere Experten setzen moderne Monitoring‑Tools ein, analysieren Daten automatisiert und leiten bei Abweichungen umgehend Maßnahmen ein.",
-                "button": {
-                  "text": "Jetzt Monitoring anfragen",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "24/7 Anlagenüberwachung",
-                    "description": "Laufende Prüfung der Ertragsdaten und Performance‑Indikatoren Ihrer Solarmodule.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Überwachung",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Fehlererkennung & Alarmierung",
-                    "description": "Automatische Erkennung von Wechselrichter‑Abweichungen und sofortige Benachrichtigung an unser Service‑Team.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Wechselrichter"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Alarm",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Batterie‑Status & Lebensdaueranalyse",
-                    "description": "Kontinuierliche Überwachung von Ladezustand, Zyklen und Temperatur zur Optimierung der Betriebsdauer.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Batteriespeicher"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Batterie Monitoring",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Ihre Vorteile durch Monitoring:",
-                    "list": {
-                      "itemOne": "Echtzeit‑Erkennungen statt reaktiver Reparaturen",
-                      "itemTwo": "Schnelle Störfallreaktion durch automatische Alarme",
-                      "itemThree": "Höhere Anlagenverfügbarkeit und Stabilität",
-                      "itemFour": "Optimierte Betriebskosten durch gezielte Eingriffe",
-                      "itemFive": "Langfristige Leistungsanalyse und Trendauswertung",
-                      "itemSix": "Transparente Berichte für Betreiber und Versicherungen"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "So läuft das Monitoring ab:",
-                    "list": {
-                      "itemOne": "Anbindung Ihrer Anlage an unser Monitoring‑System",
-                      "itemTwo": "Kontinuierliche Datenerfassung und -speicherung",
-                      "itemThree": "Automatisierte Analyse und Erkennung von Auffälligkeiten",
-                      "itemFour": "Sofortige Alarmierung und Priorisierung durch unser Team",
-                      "itemFive": "Einleitung von Maßnahmen oder Vor-Ort‑Einsätzen bei Bedarf",
-                      "itemSix": "Regelmäßige Berichte und Handlungsempfehlungen"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Monitoring starten",
-                  "href": "/kontakt"
-                }
-              }
-            },
-            "Fehlerbehebung": {
-              "Diamond": {
-                "title": "Fehlerbehebung",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaik"
-                }
-              },
-              "Components": {
-                "titleOne": "Warum ist professionelle Fehlerbehebung wichtig?",
-                "descriptionOne": "Störungen können die Leistung Ihrer Anlage erheblich beeinträchtigen. Wir finden die Ursache schnell und effizient, damit Ihre Systeme wieder optimal laufen.",
-                "titleTwo": "Warum wir?",
-                "descriptionTwo": "Unsere erfahrenen Techniker nutzen moderne Diagnosemethoden und beheben Fehler nachhaltig.",
-                "button": {
-                  "text": "Jetzt Fehlerbehebung anfragen",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "Schnelle Diagnose",
-                    "description": "Wir analysieren Ihre Anlage und finden die Fehlerquelle.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Effiziente Reparatur",
-                    "description": "Wir beheben Störungen schnell und zuverlässig.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Wechselrichter"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Nachhaltige Lösung",
-                    "description": "Wir sorgen dafür, dass Ihre Anlage dauerhaft störungsfrei läuft.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Batteriespeicher"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Ihre Vorteile durch Fehlerbehebung:",
-                    "list": {
-                      "itemOne": "Schnelle Wiederherstellung der Funktion",
-                      "itemTwo": "Minimierung von Ausfallzeiten",
-                      "itemThree": "Vermeidung von Folgeschäden",
-                      "itemFour": "Transparente Fehleranalyse",
-                      "itemFive": "Nachhaltige Reparatur",
-                      "itemSix": "Kompetente Ansprechpartner"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "So läuft die Fehlerbehebung ab:",
-                    "list": {
-                      "itemOne": "Kontaktaufnahme und Termin",
-                      "itemTwo": "Analyse der Störung",
-                      "itemThree": "Identifikation der Fehlerquelle",
-                      "itemFour": "Behebung des Fehlers",
-                      "itemFive": "Funktionsprüfung",
-                      "itemSix": "Abschlussbericht und Empfehlung"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Fehlerbehebung starten",
-                  "href": "/kontakt"
-                }
-              }
-            },
-            "Reinigung": {
-              "Diamond": {
-                "title": "Reinigung",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaik"
-                }
-              },
-              "Components": {
-                "titleOne": "Warum ist Reinigung wichtig?",
-                "descriptionOne": "Saubere Anlagen arbeiten effizienter und haben eine längere Lebensdauer. Wir entfernen Verschmutzungen und sorgen für optimale Leistung.",
-                "titleTwo": "Warum wir?",
-                "descriptionTwo": "Unsere Fachkräfte reinigen Ihre Anlage professionell, schonend und dokumentieren das Ergebnis.",
-                "button": {
-                  "text": "Jetzt Reinigung anfragen",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "Effiziente Reinigung",
-                    "description": "Wir reinigen Ihre Solarmodule und Technikflächen gründlich.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Schonende Verfahren",
-                    "description": "Wir nutzen spezielle Reinigungsmittel und Methoden für maximale Sicherheit.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Wechselrichter"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Leistungsnachweis",
-                    "description": "Sie erhalten eine Dokumentation der Reinigung und Empfehlungen für die Zukunft.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Batteriespeicher"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Ihre Vorteile durch Reinigung:",
-                    "list": {
-                      "itemOne": "Höhere Effizienz der Anlage",
-                      "itemTwo": "Längere Lebensdauer",
-                      "itemThree": "Vermeidung von Ertragsverlusten",
-                      "itemFour": "Schonende Reinigung",
-                      "itemFive": "Transparente Dokumentation",
-                      "itemSix": "Empfehlungen für Wartungsintervalle"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "So läuft die Reinigung ab:",
-                    "list": {
-                      "itemOne": "Terminvereinbarung",
-                      "itemTwo": "Vor-Ort-Besichtigung",
-                      "itemThree": "Professionelle Reinigung",
-                      "itemFour": "Funktionsprüfung",
-                      "itemFive": "Dokumentation",
-                      "itemSix": "Empfehlung für weitere Maßnahmen"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Reinigung starten",
-                  "href": "/kontakt"
-                }
-              }
-            },
-            "HydraulischerAbgleich": {
-              "Diamond": {
-                "title": "Hydraulischer Abgleich",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Hydraulischer Abgleich"
-                }
-              },
-              "Components": {
-                "titleOne": "Warum ist ein hydraulischer Abgleich wichtig?",
-                "descriptionOne": "Der hydraulische Abgleich sorgt dafür, dass alle Heizkörper und Wärmeabnehmer im Gebäude gleichmäßig mit Wärme versorgt werden. Das reduziert Energieverluste, senkt die Heizkosten und erhöht den Wohnkomfort.",
-                "titleTwo": "Warum wir?",
-                "descriptionTwo": "Unsere erfahrenen Techniker führen den Abgleich nach aktuellen Normen durch, messen Durchflüsse, stellen Ventile ein und dokumentieren alle Einstellungen für maximale Betriebssicherheit und Nachvollziehbarkeit.",
-                "button": {
-                  "text": "Hydraulischen Abgleich anfragen",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "systemanalyse": {
-                    "title": "Systemanalyse",
-                    "description": "Erfassung der Heizkreise, Pumpenleistung und vorhandener Regelung zur Bestimmung des Optimierungsbedarfs.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Systemanalyse"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Analyse",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "durchflussmessung": {
-                    "title": "Durchflussmessung",
-                    "description": "Präzise Messung der Volumenströme und Ermittlung der optimalen Einstellwerte für alle Heizkreise.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Durchflussmessung"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Messung",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "einstellung-und-protokoll": {
-                    "title": "Einstellung & Protokoll",
-                    "description": "Fachgerechte Einstellung der Thermostat- und Rücklaufventile sowie Erstellung eines Protokolls mit allen vorgenommenen Werten.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                      "alt": "Einstellung"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Protokoll",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Ihre Vorteile durch hydraulischen Abgleich:",
-                    "list": {
-                      "itemOne": "Gleichmäßige Wärmeverteilung",
-                      "itemTwo": "Reduzierte Heizkosten",
-                      "itemThree": "Weniger Pumpenergieverbrauch",
-                      "itemFour": "Verbesserter Wohnkomfort",
-                      "itemFive": "Erfüllung von Förderbedingungen",
-                      "itemSix": "Dokumentation für Betrieb und Förderung"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "So läuft der Abgleich ab:",
-                    "list": {
-                      "itemOne": "Terminvereinbarung und Bestandsaufnahme",
-                      "itemTwo": "Messung der Durchflüsse und Heizleistung",
-                      "itemThree": "Berechnung der Soll-Werte",
-                      "itemFour": "Einstellung der Ventile und Pumpen",
-                      "itemFive": "Funktionsprüfung und Feinabstimmung",
-                      "itemSix": "Übergabe des Protokolls und Empfehlungen"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Abgleich starten",
-                  "href": "/kontakt"
-                }
-              }
-            }
-          }
-        },
         "umsetzung": {
           "title": "Umsetzung",
           "SubServices": {
@@ -4918,6 +4354,569 @@
               }
             }
           }
+        },
+        "service": {
+          "title": "Service",
+          "SubServices": {
+            "Kundendienst": {
+              "Diamond": {
+                "title": "Kundendienst",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaik"
+                }
+              },
+              "Components": {
+                "titleOne": "Warum ist Kundendienst wichtig?",
+                "descriptionOne": "Ein zuverlässiger Kundendienst sichert die langfristige Zufriedenheit Ihrer Kunden. Wir begleiten Sie auch nach Projektabschluss, stehen für Fragen bereit und sorgen für die nachhaltige Funktion Ihrer Anlage.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Wir bieten persönliche Betreuung, schnelle Reaktionszeiten und dauerhafte Lösungen – für maximale Kundenzufriedenheit und eine langfristige Partnerschaft.",
+                "button": {
+                  "text": "Jetzt Kundendienst anfragen",
+                  "href": "/kontakt"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Kundenbetreuung",
+                    "description": "Wir sind auch nach Projektabschluss für Sie da und beantworten alle Fragen.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Schnelle Hilfe",
+                    "description": "Im Störungsfall reagieren wir schnell und zuverlässig.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Wechselrichter"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Langfristige Partnerschaft",
+                    "description": "Wir begleiten Sie über die gesamte Lebensdauer Ihrer Anlage.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Batteriespeicher"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch den Kundendienst:",
+                    "list": {
+                      "itemOne": "Langfristige Betreuung und Beratung",
+                      "itemTwo": "Schnelle Hilfe bei Problemen",
+                      "itemThree": "Maximale Anlagenverfügbarkeit",
+                      "itemFour": "Transparente Kommunikation",
+                      "itemFive": "Zufriedene Kunden und Empfehlungen",
+                      "itemSix": "Nachhaltige Partnerschaft"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft der Kundendienst ab:",
+                    "list": {
+                      "itemOne": "Kontaktaufnahme nach Projektabschluss",
+                      "itemTwo": "Regelmäßige Nachfragen zur Zufriedenheit",
+                      "itemThree": "Schnelle Reaktion bei Anliegen",
+                      "itemFour": "Lösung von Problemen und Optimierung",
+                      "itemFive": "Dokumentation und Feedback",
+                      "itemSix": "Langfristige Begleitung"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Kundendienst anfragen",
+                  "href": "/kontakt"
+                }
+              }
+            },
+            "Wartung": {
+              "Diamond": {
+                "title": "Wartung",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaik"
+                }
+              },
+              "Components": {
+                "titleOne": "Warum ist Wartung wichtig?",
+                "descriptionOne": "Regelmäßige Wartung sichert die Effizienz und Langlebigkeit Ihrer Anlage. Wir erkennen frühzeitig Verschleiß oder Störungen und verhindern teure Ausfälle.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Unsere Experten prüfen Ihre Systeme gründlich, dokumentieren alle Ergebnisse und sorgen für einen reibungslosen Betrieb.",
+                "button": {
+                  "text": "Jetzt Wartung anfragen",
+                  "href": "/kontakt"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Regelmäßige Kontrolle",
+                    "description": "Wir prüfen Ihre Anlage auf Funktion und Sicherheit.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Verschleiß erkennen",
+                    "description": "Wir entdecken frühzeitig Schwachstellen und beheben sie.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Wechselrichter"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Dokumentation",
+                    "description": "Sie erhalten einen detaillierten Wartungsbericht.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Batteriespeicher"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch Wartung:",
+                    "list": {
+                      "itemOne": "Vermeidung von Ausfällen",
+                      "itemTwo": "Längere Lebensdauer der Anlage",
+                      "itemThree": "Erhalt der Garantie",
+                      "itemFour": "Maximale Effizienz",
+                      "itemFive": "Transparente Wartungsprotokolle",
+                      "itemSix": "Sicherheit für Betreiber"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft die Wartung ab:",
+                    "list": {
+                      "itemOne": "Terminvereinbarung",
+                      "itemTwo": "Vor-Ort-Prüfung durch Experten",
+                      "itemThree": "Funktions- und Sicherheitscheck",
+                      "itemFour": "Behebung kleinerer Mängel",
+                      "itemFive": "Detaillierter Wartungsbericht",
+                      "itemSix": "Empfehlungen für die Zukunft"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Wartung starten",
+                  "href": "/kontakt"
+                }
+              }
+            },
+            "Monitoring": {
+              "Diamond": {
+                "title": "Monitoring",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaik"
+                }
+              },
+              "Components": {
+                "titleOne": "Warum ist Monitoring wichtig?",
+                "descriptionOne": "Echtzeit‑Monitoring ermöglicht die kontinuierliche Überwachung Ihrer Anlage und erkennt Auffälligkeiten, bevor sie zu Ausfällen oder Ertragsverlusten führen.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Unsere Experten setzen moderne Monitoring‑Tools ein, analysieren Daten automatisiert und leiten bei Abweichungen umgehend Maßnahmen ein.",
+                "button": {
+                  "text": "Jetzt Monitoring anfragen",
+                  "href": "/kontakt"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "24/7 Anlagenüberwachung",
+                    "description": "Laufende Prüfung der Ertragsdaten und Performance‑Indikatoren Ihrer Solarmodule.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Überwachung",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Fehlererkennung & Alarmierung",
+                    "description": "Automatische Erkennung von Wechselrichter‑Abweichungen und sofortige Benachrichtigung an unser Service‑Team.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Wechselrichter"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Alarm",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Batterie‑Status & Lebensdaueranalyse",
+                    "description": "Kontinuierliche Überwachung von Ladezustand, Zyklen und Temperatur zur Optimierung der Betriebsdauer.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Batteriespeicher"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Batterie Monitoring",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch Monitoring:",
+                    "list": {
+                      "itemOne": "Echtzeit‑Erkennungen statt reaktiver Reparaturen",
+                      "itemTwo": "Schnelle Störfallreaktion durch automatische Alarme",
+                      "itemThree": "Höhere Anlagenverfügbarkeit und Stabilität",
+                      "itemFour": "Optimierte Betriebskosten durch gezielte Eingriffe",
+                      "itemFive": "Langfristige Leistungsanalyse und Trendauswertung",
+                      "itemSix": "Transparente Berichte für Betreiber und Versicherungen"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft das Monitoring ab:",
+                    "list": {
+                      "itemOne": "Anbindung Ihrer Anlage an unser Monitoring‑System",
+                      "itemTwo": "Kontinuierliche Datenerfassung und -speicherung",
+                      "itemThree": "Automatisierte Analyse und Erkennung von Auffälligkeiten",
+                      "itemFour": "Sofortige Alarmierung und Priorisierung durch unser Team",
+                      "itemFive": "Einleitung von Maßnahmen oder Vor-Ort‑Einsätzen bei Bedarf",
+                      "itemSix": "Regelmäßige Berichte und Handlungsempfehlungen"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Monitoring starten",
+                  "href": "/kontakt"
+                }
+              }
+            },
+            "Fehlerbehebung": {
+              "Diamond": {
+                "title": "Fehlerbehebung",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaik"
+                }
+              },
+              "Components": {
+                "titleOne": "Warum ist professionelle Fehlerbehebung wichtig?",
+                "descriptionOne": "Störungen können die Leistung Ihrer Anlage erheblich beeinträchtigen. Wir finden die Ursache schnell und effizient, damit Ihre Systeme wieder optimal laufen.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Unsere erfahrenen Techniker nutzen moderne Diagnosemethoden und beheben Fehler nachhaltig.",
+                "button": {
+                  "text": "Jetzt Fehlerbehebung anfragen",
+                  "href": "/kontakt"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Schnelle Diagnose",
+                    "description": "Wir analysieren Ihre Anlage und finden die Fehlerquelle.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Effiziente Reparatur",
+                    "description": "Wir beheben Störungen schnell und zuverlässig.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Wechselrichter"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Nachhaltige Lösung",
+                    "description": "Wir sorgen dafür, dass Ihre Anlage dauerhaft störungsfrei läuft.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Batteriespeicher"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch Fehlerbehebung:",
+                    "list": {
+                      "itemOne": "Schnelle Wiederherstellung der Funktion",
+                      "itemTwo": "Minimierung von Ausfallzeiten",
+                      "itemThree": "Vermeidung von Folgeschäden",
+                      "itemFour": "Transparente Fehleranalyse",
+                      "itemFive": "Nachhaltige Reparatur",
+                      "itemSix": "Kompetente Ansprechpartner"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft die Fehlerbehebung ab:",
+                    "list": {
+                      "itemOne": "Kontaktaufnahme und Termin",
+                      "itemTwo": "Analyse der Störung",
+                      "itemThree": "Identifikation der Fehlerquelle",
+                      "itemFour": "Behebung des Fehlers",
+                      "itemFive": "Funktionsprüfung",
+                      "itemSix": "Abschlussbericht und Empfehlung"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Fehlerbehebung starten",
+                  "href": "/kontakt"
+                }
+              }
+            },
+            "Reinigung": {
+              "Diamond": {
+                "title": "Reinigung",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaik"
+                }
+              },
+              "Components": {
+                "titleOne": "Warum ist Reinigung wichtig?",
+                "descriptionOne": "Saubere Anlagen arbeiten effizienter und haben eine längere Lebensdauer. Wir entfernen Verschmutzungen und sorgen für optimale Leistung.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Unsere Fachkräfte reinigen Ihre Anlage professionell, schonend und dokumentieren das Ergebnis.",
+                "button": {
+                  "text": "Jetzt Reinigung anfragen",
+                  "href": "/kontakt"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Effiziente Reinigung",
+                    "description": "Wir reinigen Ihre Solarmodule und Technikflächen gründlich.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Schonende Verfahren",
+                    "description": "Wir nutzen spezielle Reinigungsmittel und Methoden für maximale Sicherheit.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Wechselrichter"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Leistungsnachweis",
+                    "description": "Sie erhalten eine Dokumentation der Reinigung und Empfehlungen für die Zukunft.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Batteriespeicher"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solarmodule",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch Reinigung:",
+                    "list": {
+                      "itemOne": "Höhere Effizienz der Anlage",
+                      "itemTwo": "Längere Lebensdauer",
+                      "itemThree": "Vermeidung von Ertragsverlusten",
+                      "itemFour": "Schonende Reinigung",
+                      "itemFive": "Transparente Dokumentation",
+                      "itemSix": "Empfehlungen für Wartungsintervalle"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft die Reinigung ab:",
+                    "list": {
+                      "itemOne": "Terminvereinbarung",
+                      "itemTwo": "Vor-Ort-Besichtigung",
+                      "itemThree": "Professionelle Reinigung",
+                      "itemFour": "Funktionsprüfung",
+                      "itemFive": "Dokumentation",
+                      "itemSix": "Empfehlung für weitere Maßnahmen"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Reinigung starten",
+                  "href": "/kontakt"
+                }
+              }
+            },
+            "HydraulischerAbgleich": {
+              "Diamond": {
+                "title": "Hydraulischer Abgleich",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Hydraulischer Abgleich"
+                }
+              },
+              "Components": {
+                "titleOne": "Warum ist ein hydraulischer Abgleich wichtig?",
+                "descriptionOne": "Der hydraulische Abgleich sorgt dafür, dass alle Heizkörper und Wärmeabnehmer im Gebäude gleichmäßig mit Wärme versorgt werden. Das reduziert Energieverluste, senkt die Heizkosten und erhöht den Wohnkomfort.",
+                "titleTwo": "Warum wir?",
+                "descriptionTwo": "Unsere erfahrenen Techniker führen den Abgleich nach aktuellen Normen durch, messen Durchflüsse, stellen Ventile ein und dokumentieren alle Einstellungen für maximale Betriebssicherheit und Nachvollziehbarkeit.",
+                "button": {
+                  "text": "Hydraulischen Abgleich anfragen",
+                  "href": "/kontakt"
+                },
+                "boxes": {
+                  "systemanalyse": {
+                    "title": "Systemanalyse",
+                    "description": "Erfassung der Heizkreise, Pumpenleistung und vorhandener Regelung zur Bestimmung des Optimierungsbedarfs.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Systemanalyse"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Analyse",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "durchflussmessung": {
+                    "title": "Durchflussmessung",
+                    "description": "Präzise Messung der Volumenströme und Ermittlung der optimalen Einstellwerte für alle Heizkreise.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Durchflussmessung"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Messung",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "einstellung-und-protokoll": {
+                    "title": "Einstellung & Protokoll",
+                    "description": "Fachgerechte Einstellung der Thermostat- und Rücklaufventile sowie Erstellung eines Protokolls mit allen vorgenommenen Werten.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
+                      "alt": "Einstellung"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Protokoll",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Ihre Vorteile durch hydraulischen Abgleich:",
+                    "list": {
+                      "itemOne": "Gleichmäßige Wärmeverteilung",
+                      "itemTwo": "Reduzierte Heizkosten",
+                      "itemThree": "Weniger Pumpenergieverbrauch",
+                      "itemFour": "Verbesserter Wohnkomfort",
+                      "itemFive": "Erfüllung von Förderbedingungen",
+                      "itemSix": "Dokumentation für Betrieb und Förderung"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "So läuft der Abgleich ab:",
+                    "list": {
+                      "itemOne": "Terminvereinbarung und Bestandsaufnahme",
+                      "itemTwo": "Messung der Durchflüsse und Heizleistung",
+                      "itemThree": "Berechnung der Soll-Werte",
+                      "itemFour": "Einstellung der Ventile und Pumpen",
+                      "itemFive": "Funktionsprüfung und Feinabstimmung",
+                      "itemSix": "Übergabe des Protokolls und Empfehlungen"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Abgleich starten",
+                  "href": "/kontakt"
+                }
+              }
+            }
+          }
         }
       },
       "productPreviewSmall": {
@@ -5068,6 +5067,13 @@
             },
             "required": "false"
           },
+          "message": {
+            "type": "textarea",
+            "label": "Projektdetails",
+            "placeholder": "Teilen Sie Ihre Anforderungen und ihre Kundenwünsche mit",
+            "defaultValue": "",
+            "required": "true"
+          },
           "fileUpload": {
             "type": "fileUpload",
             "label": "Teilen Sie uns Ihre Unterlagen mit",
@@ -5078,13 +5084,6 @@
             "maxFileSize": 500000000,
             "allowedTypes": ["image/*", "application/pdf", ".doc,.docx"],
             "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
-          },
-          "message": {
-            "type": "textarea",
-            "label": "Projektdetails",
-            "placeholder": "Teilen Sie Ihre Anforderungen und ihre Kundenwünsche mit",
-            "defaultValue": "",
-            "required": "true"
           }
         },
         "copy": {

@@ -2684,70 +2684,70 @@
                   }
                 },
                 "boxesBottom": {
-            "boxOne": {
-              "title": "All-careless package",
-              "description": "From conveyor consulting to maintenance – we take care of everything.",
-              "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
-                "alt": "Focus highlight icon",
-                "width": "32",
-                "height": "32"
-              }
-            },
-            "boxTwo": {
-              "title": "Safety guaranteed",
-              "description": "No surprises: your offer remains stable even in market price fluctuations.",
-              "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
-                "alt": "Focus highlight icon",
-                "width": "32",
-                "height": "32"
-              }
-            },
-            "boxThree": {
-              "title": "From concept to turnkey system in 3 months",
-              "description": "Fast, efficient, professional – with recorded processes and experienced partners.",
-              "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
-                "alt": "Focus highlight icon",
-                "width": "32",
-                "height": "32"
-              }
-            }
-          },
-          "boxesBottom": {
-            "boxOne": {
-              "title": "Intelligent energy management:",
-              "description": "Optimize your consumption with predictive online weather control that intelligently adjusts the heating and cooling performance. If a sunny day is before, the heating operation is lowered in time. And in an expectation of a creeping frost night, the heating power is increased early enough.",
-              "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
-                "alt": "Focus highlight icon",
-                "width": "32",
-                "height": "32"
-              }
-            },
-            "boxTwo": {
-              "title": "Automation of daily routines:",
-              "description": "Save time in everyday life and impress your guests with cool Smart Home features that automatically control processes. Apps on the smartphone or tablet can also be used to control devices on the go.",
-              "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
-                "alt": "Focus highlight icon",
-                "width": "32",
-                "height": "32"
-              }
-            },
-            "boxThree": {
-              "title": "Maximum flexibility & expandability:",
-              "description": "Start cheaply and expand your system at any time easily and flexibly according to your needs – including energy management and power storage integration.  ",
-              "icon": {
-                "src": "/frontend/landingPage/icons/function.svg",
-                "alt": "Focus highlight icon",
-                "width": "32",
-                "height": "32"
-              }
-            }
-          },
-          "button": {
+                  "boxOne": {
+                    "title": "All-careless package",
+                    "description": "From conveyor consulting to maintenance – we take care of everything.",
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/function.svg",
+                      "alt": "Focus highlight icon",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "boxTwo": {
+                    "title": "Safety guaranteed",
+                    "description": "No surprises: your offer remains stable even in market price fluctuations.",
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/function.svg",
+                      "alt": "Focus highlight icon",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "boxThree": {
+                    "title": "From concept to turnkey system in 3 months",
+                    "description": "Fast, efficient, professional – with recorded processes and experienced partners.",
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/function.svg",
+                      "alt": "Focus highlight icon",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                },
+                "boxesBottom": {
+                  "boxOne": {
+                    "title": "Intelligent energy management:",
+                    "description": "Optimize your consumption with predictive online weather control that intelligently adjusts the heating and cooling performance. If a sunny day is before, the heating operation is lowered in time. And in an expectation of a creeping frost night, the heating power is increased early enough.",
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/function.svg",
+                      "alt": "Focus highlight icon",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "boxTwo": {
+                    "title": "Automation of daily routines:",
+                    "description": "Save time in everyday life and impress your guests with cool Smart Home features that automatically control processes. Apps on the smartphone or tablet can also be used to control devices on the go.",
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/function.svg",
+                      "alt": "Focus highlight icon",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "boxThree": {
+                    "title": "Maximum flexibility & expandability:",
+                    "description": "Start cheaply and expand your system at any time easily and flexibly according to your needs – including energy management and power storage integration.  ",
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/function.svg",
+                      "alt": "Focus highlight icon",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                },
+                "button": {
                   "text": "Making use of project opportunities",
                   "href": "/contact"
                 }
@@ -3783,569 +3783,6 @@
             }
           }
         },
-        "service": {
-          "title": "Service",
-          "SubServices": {
-            "Kundendienst": {
-              "Diamond": {
-                "title": "Customer Service",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaics"
-                }
-              },
-              "Components": {
-                "titleOne": "Why is customer service important?",
-                "descriptionOne": "A reliable customer service ensures the long-term satisfaction of your customers. We also accompany you after completion of the project, are ready for questions and ensure the sustainable functioning of your plant.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "We offer personal care, fast response times and lasting solutions – for maximum customer satisfaction and a long-term partnership.",
-                "button": {
-                  "text": "Request customer service now",
-                  "href": "/contact"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "Client Care",
-                    "description": "We are also here for you after completing the project and answer all questions.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Quick help",
-                    "description": "In the event of a malfunction, we react quickly and reliably.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Inverters"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Long-term partnership",
-                    "description": "We accompany you over the entire service life of your facility.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Battery storage"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages through customer service:",
-                    "list": {
-                      "itemOne": "Long-term care and advice",
-                      "itemTwo": "Quick help with problems",
-                      "itemThree": "Maximum plant availability",
-                      "itemFour": "Transparent communication",
-                      "itemFive": "Satisfied customers and recommendations",
-                      "itemSix": "Sustainable partnership"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "This is how the customer service runs:",
-                    "list": {
-                      "itemOne": "Contact after project completion",
-                      "itemTwo": "Regular demand for satisfaction",
-                      "itemThree": "Quick response to concerns",
-                      "itemFour": "Solution of problems and optimization",
-                      "itemFive": "Documentation and feedback",
-                      "itemSix": "Long-term support"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Request Customer Service",
-                  "href": "/contact"
-                }
-              }
-            },
-            "Wartung": {
-              "Diamond": {
-                "title": "Maintenance",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaics"
-                }
-              },
-              "Components": {
-                "titleOne": "Why is maintenance important?",
-                "descriptionOne": "Regular maintenance ensures the efficiency and durability of your system. We recognize wear and tear at an early stage and prevent expensive failures.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "Our experts thoroughly check your systems, document all results and ensure smooth operation.",
-                "button": {
-                  "text": "Request maintenance now",
-                  "href": "/contact"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "Regular control",
-                    "description": "We check your plant for function and safety.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Detecting wear",
-                    "description": "We discover weaknesses and fix them early.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Inverters"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Documentation",
-                    "description": "You will receive a detailed maintenance report.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Battery storage"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages through maintenance:",
-                    "list": {
-                      "itemOne": "avoidance of failures",
-                      "itemTwo": "Longer life of the system",
-                      "itemThree": "Preservation of manufacturer warranties",
-                      "itemFour": "Maximum efficiency",
-                      "itemFive": "Transparent maintenance protocols",
-                      "itemSix": "Security for operators"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "This is how maintenance works:",
-                    "list": {
-                      "itemOne": "Agreement",
-                      "itemTwo": "On-site testing by experts",
-                      "itemThree": "Functional and safety check",
-                      "itemFour": "Correction of minor deficiencies",
-                      "itemFive": "Detailed maintenance report",
-                      "itemSix": "Recommendations for the future"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Start maintenance",
-                  "href": "/contact"
-                }
-              }
-            },
-            "Monitoring": {
-              "Diamond": {
-                "title": "Monitoring",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaics"
-                }
-              },
-              "Components": {
-                "titleOne": "Why is monitoring important?",
-                "descriptionOne": "Real-time monitoring allows continuous monitoring of your system and detects vulnerabilities before they lead to failures or loss of earnings.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "Our experts use modern monitoring tools, analyse data automatically and promptly initiate measures in case of deviations.",
-                "button": {
-                  "text": "Request Monitoring now",
-                  "href": "/contact"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "24/7 plant monitoring",
-                    "description": "Continuous testing of the yield data and performance indicators of your solar modules.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Monitoring",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Error detection & alarm",
-                    "description": "Automatic detection of inverter deviations and immediate notification to our service team.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Inverters"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Alarm",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Battery status & life analysis",
-                    "description": "Continuous monitoring of charging state, cycles and temperature to optimize operating time.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Battery storage"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Battery monitoring",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages through monitoring:",
-                    "list": {
-                      "itemOne": "Real-time recognition instead of reactive repairs",
-                      "itemTwo": "Fast interference response by automatic alarms",
-                      "itemThree": "Higher plant availability and stability",
-                      "itemFour": "Optimised operating costs through targeted interventions",
-                      "itemFive": "Long-term performance analysis and trend evaluation",
-                      "itemSix": "Transparent reports for operators and insurance companies"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "This is how the monitoring takes place:",
-                    "list": {
-                      "itemOne": "Connection of your system to our monitoring system",
-                      "itemTwo": "Continuous data acquisition and storage",
-                      "itemThree": "Automated analysis and detection of vulnerabilities",
-                      "itemFour": "Immediate alerting and prioritization by our team",
-                      "itemFive": "Introduction of measures or on-site operations if necessary",
-                      "itemSix": "Regular reports and recommendations for action"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Start monitoring",
-                  "href": "/contact"
-                }
-              }
-            },
-            "Fehlerbehebung": {
-              "Diamond": {
-                "title": "Fixing errors",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaics"
-                }
-              },
-              "Components": {
-                "titleOne": "Why is professional troubleshooting important?",
-                "descriptionOne": "Disorders can significantly affect the performance of your plant. We find the cause quickly and efficiently so that your systems run optimally again.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "Our experienced technicians use modern diagnostic methods and fix errors sustainably.",
-                "button": {
-                  "text": "Request troubleshooting now",
-                  "href": "/contact"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "Fast diagnosis",
-                    "description": "We analyze your system and find the source of error.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Efficient repair",
-                    "description": "We fix faults quickly and reliably.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Inverters"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Sustainable solution",
-                    "description": "We ensure that your plant is permanently trouble-free.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Battery storage"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages through troubleshooting:",
-                    "list": {
-                      "itemOne": "Rapid restoration of functionality",
-                      "itemTwo": "Minimizing downtime",
-                      "itemThree": "Prevention of consequential damage",
-                      "itemFour": "Transparent error analysis",
-                      "itemFive": "Sustainable repair",
-                      "itemSix": "Competent contact persons"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "This is how the bug fixes:",
-                    "list": {
-                      "itemOne": "Contact and appointment",
-                      "itemTwo": "Analysis of fault",
-                      "itemThree": "Identification of the root cause",
-                      "itemFour": "Fixing the error",
-                      "itemFive": "Functional testing",
-                      "itemSix": "Final report and recommendation"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Start bug fix",
-                  "href": "/contact"
-                }
-              }
-            },
-            "Reinigung": {
-              "Diamond": {
-                "title": "Cleaning",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaics"
-                }
-              },
-              "Components": {
-                "titleOne": "Why is cleaning important?",
-                "descriptionOne": "Clean plants work more efficiently and have a longer service life. We remove dirt and ensure optimal performance.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "Our specialists clean your system professionally, gently and document the result.",
-                "button": {
-                  "text": "Request cleaning now",
-                  "href": "/contact"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "Efficient cleaning",
-                    "description": "We thoroughly clean your solar modules and technical surfaces.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Gentle procedures",
-                    "description": "We use special cleaning agents and methods for maximum safety.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Inverters"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Performance verification",
-                    "description": "You will receive documentation of cleaning and recommendations for the future.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Battery storage"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages by cleaning:",
-                    "list": {
-                      "itemOne": "Higher efficiency of the plant",
-                      "itemTwo": "Longevity",
-                      "itemThree": "Prevention of loss of earnings",
-                      "itemFour": "Gentle cleaning",
-                      "itemFive": "Transparent documentation",
-                      "itemSix": "Recommendations for maintenance intervals"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "This is how the cleaning works:",
-                    "list": {
-                      "itemOne": "Agreement",
-                      "itemTwo": "On-site visit",
-                      "itemThree": "Professional cleaning",
-                      "itemFour": "Functional testing",
-                      "itemFive": "Documentation",
-                      "itemSix": "Recommendation for further measures"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Start cleaning",
-                  "href": "/contact"
-                }
-              }
-            },
-            "HydraulischerAbgleich": {
-              "Diamond": {
-                "title": "Hydraulic compensation",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Hydraulic compensation"
-                }
-              },
-              "Components": {
-                "titleOne": "Why is a hydraulic balance important?",
-                "descriptionOne": "The hydraulic balance ensures that all heaters and heat collectors are supplied uniformly with heat in the building. This reduces energy losses, reduces heating costs and increases living comfort.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "Our experienced technicians perform the balancing according to current standards, measure flow rates, adjust valves and document all settings for maximum operational reliability and traceability.",
-                "button": {
-                  "text": "Request Hydraulic Balance",
-                  "href": "/contact"
-                },
-                "boxes": {
-                  "systemanalyse": {
-                    "title": "System analysis",
-                    "description": "detection of heating circuits, pump power and existing control for determining the optimization requirement.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "System analysis"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Analysis",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "durchflussmessung": {
-                    "title": "Flow measurement",
-                    "description": "Precise measurement of the volume flows and determination of the optimal setting values for all heating circuits.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Flow measurement"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Measurement",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "einstellung-und-protokoll": {
-                    "title": "Setting & Protocol",
-                    "description": "Professional adjustment of thermostat and return valves as well as preparation of a protocol with all the values performed.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                      "alt": "Adjustment"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Protocol",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages through hydraulic balancing:",
-                    "list": {
-                      "itemOne": "Uniform heat distribution",
-                      "itemTwo": "Reduced heating costs",
-                      "itemThree": "Lower pump energy consumption",
-                      "itemFour": "Improved living comfort",
-                      "itemFive": "Compliance with funding conditions",
-                      "itemSix": "Documentation for operation and promotion"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "This is how the balance expires:",
-                    "list": {
-                      "itemOne": "Date agreement and inventory",
-                      "itemTwo": "Measurement of flow and heating power",
-                      "itemThree": "Calculation of target values",
-                      "itemFour": "adjustment of valves and pumps",
-                      "itemFive": "Functional testing and fine tuning",
-                      "itemSix": "Transfer of protocol and recommendations"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Start balance",
-                  "href": "/contact"
-                }
-              }
-            }
-          }
-        },
         "umsetzung": {
           "title": "Implementation",
           "SubServices": {
@@ -5001,6 +4438,569 @@
               }
             }
           }
+        },
+        "service": {
+          "title": "Service",
+          "SubServices": {
+            "Kundendienst": {
+              "Diamond": {
+                "title": "Customer Service",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaics"
+                }
+              },
+              "Components": {
+                "titleOne": "Why is customer service important?",
+                "descriptionOne": "A reliable customer service ensures the long-term satisfaction of your customers. We also accompany you after completion of the project, are ready for questions and ensure the sustainable functioning of your plant.",
+                "titleTwo": "Why us?",
+                "descriptionTwo": "We offer personal care, fast response times and lasting solutions – for maximum customer satisfaction and a long-term partnership.",
+                "button": {
+                  "text": "Request customer service now",
+                  "href": "/contact"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Client Care",
+                    "description": "We are also here for you after completing the project and answer all questions.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solar modules"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solar modules",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Quick help",
+                    "description": "In the event of a malfunction, we react quickly and reliably.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Inverters"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solar modules",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Long-term partnership",
+                    "description": "We accompany you over the entire service life of your facility.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Battery storage"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solar modules",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Your advantages through customer service:",
+                    "list": {
+                      "itemOne": "Long-term care and advice",
+                      "itemTwo": "Quick help with problems",
+                      "itemThree": "Maximum plant availability",
+                      "itemFour": "Transparent communication",
+                      "itemFive": "Satisfied customers and recommendations",
+                      "itemSix": "Sustainable partnership"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "This is how the customer service runs:",
+                    "list": {
+                      "itemOne": "Contact after project completion",
+                      "itemTwo": "Regular demand for satisfaction",
+                      "itemThree": "Quick response to concerns",
+                      "itemFour": "Solution of problems and optimization",
+                      "itemFive": "Documentation and feedback",
+                      "itemSix": "Long-term support"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Request Customer Service",
+                  "href": "/contact"
+                }
+              }
+            },
+            "Wartung": {
+              "Diamond": {
+                "title": "Maintenance",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaics"
+                }
+              },
+              "Components": {
+                "titleOne": "Why is maintenance important?",
+                "descriptionOne": "Regular maintenance ensures the efficiency and durability of your system. We recognize wear and tear at an early stage and prevent expensive failures.",
+                "titleTwo": "Why us?",
+                "descriptionTwo": "Our experts thoroughly check your systems, document all results and ensure smooth operation.",
+                "button": {
+                  "text": "Request maintenance now",
+                  "href": "/contact"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Regular control",
+                    "description": "We check your plant for function and safety.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solar modules"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solar modules",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Detecting wear",
+                    "description": "We discover weaknesses and fix them early.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Inverters"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solar modules",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Documentation",
+                    "description": "You will receive a detailed maintenance report.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Battery storage"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solar modules",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Your advantages through maintenance:",
+                    "list": {
+                      "itemOne": "avoidance of failures",
+                      "itemTwo": "Longer life of the system",
+                      "itemThree": "Preservation of manufacturer warranties",
+                      "itemFour": "Maximum efficiency",
+                      "itemFive": "Transparent maintenance protocols",
+                      "itemSix": "Security for operators"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "This is how maintenance works:",
+                    "list": {
+                      "itemOne": "Agreement",
+                      "itemTwo": "On-site testing by experts",
+                      "itemThree": "Functional and safety check",
+                      "itemFour": "Correction of minor deficiencies",
+                      "itemFive": "Detailed maintenance report",
+                      "itemSix": "Recommendations for the future"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Start maintenance",
+                  "href": "/contact"
+                }
+              }
+            },
+            "Monitoring": {
+              "Diamond": {
+                "title": "Monitoring",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaics"
+                }
+              },
+              "Components": {
+                "titleOne": "Why is monitoring important?",
+                "descriptionOne": "Real-time monitoring allows continuous monitoring of your system and detects vulnerabilities before they lead to failures or loss of earnings.",
+                "titleTwo": "Why us?",
+                "descriptionTwo": "Our experts use modern monitoring tools, analyse data automatically and promptly initiate measures in case of deviations.",
+                "button": {
+                  "text": "Request Monitoring now",
+                  "href": "/contact"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "24/7 plant monitoring",
+                    "description": "Continuous testing of the yield data and performance indicators of your solar modules.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solar modules"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Monitoring",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Error detection & alarm",
+                    "description": "Automatic detection of inverter deviations and immediate notification to our service team.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Inverters"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Alarm",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Battery status & life analysis",
+                    "description": "Continuous monitoring of charging state, cycles and temperature to optimize operating time.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Battery storage"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Battery monitoring",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Your advantages through monitoring:",
+                    "list": {
+                      "itemOne": "Real-time recognition instead of reactive repairs",
+                      "itemTwo": "Fast interference response by automatic alarms",
+                      "itemThree": "Higher plant availability and stability",
+                      "itemFour": "Optimised operating costs through targeted interventions",
+                      "itemFive": "Long-term performance analysis and trend evaluation",
+                      "itemSix": "Transparent reports for operators and insurance companies"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "This is how the monitoring takes place:",
+                    "list": {
+                      "itemOne": "Connection of your system to our monitoring system",
+                      "itemTwo": "Continuous data acquisition and storage",
+                      "itemThree": "Automated analysis and detection of vulnerabilities",
+                      "itemFour": "Immediate alerting and prioritization by our team",
+                      "itemFive": "Introduction of measures or on-site operations if necessary",
+                      "itemSix": "Regular reports and recommendations for action"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Start monitoring",
+                  "href": "/contact"
+                }
+              }
+            },
+            "Fehlerbehebung": {
+              "Diamond": {
+                "title": "Fixing errors",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaics"
+                }
+              },
+              "Components": {
+                "titleOne": "Why is professional troubleshooting important?",
+                "descriptionOne": "Disorders can significantly affect the performance of your plant. We find the cause quickly and efficiently so that your systems run optimally again.",
+                "titleTwo": "Why us?",
+                "descriptionTwo": "Our experienced technicians use modern diagnostic methods and fix errors sustainably.",
+                "button": {
+                  "text": "Request troubleshooting now",
+                  "href": "/contact"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Fast diagnosis",
+                    "description": "We analyze your system and find the source of error.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solar modules"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solar modules",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Efficient repair",
+                    "description": "We fix faults quickly and reliably.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Inverters"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solar modules",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Sustainable solution",
+                    "description": "We ensure that your plant is permanently trouble-free.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Battery storage"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solar modules",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Your advantages through troubleshooting:",
+                    "list": {
+                      "itemOne": "Rapid restoration of functionality",
+                      "itemTwo": "Minimizing downtime",
+                      "itemThree": "Prevention of consequential damage",
+                      "itemFour": "Transparent error analysis",
+                      "itemFive": "Sustainable repair",
+                      "itemSix": "Competent contact persons"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "This is how the bug fixes:",
+                    "list": {
+                      "itemOne": "Contact and appointment",
+                      "itemTwo": "Analysis of fault",
+                      "itemThree": "Identification of the root cause",
+                      "itemFour": "Fixing the error",
+                      "itemFive": "Functional testing",
+                      "itemSix": "Final report and recommendation"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Start bug fix",
+                  "href": "/contact"
+                }
+              }
+            },
+            "Reinigung": {
+              "Diamond": {
+                "title": "Cleaning",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Photovoltaics"
+                }
+              },
+              "Components": {
+                "titleOne": "Why is cleaning important?",
+                "descriptionOne": "Clean plants work more efficiently and have a longer service life. We remove dirt and ensure optimal performance.",
+                "titleTwo": "Why us?",
+                "descriptionTwo": "Our specialists clean your system professionally, gently and document the result.",
+                "button": {
+                  "text": "Request cleaning now",
+                  "href": "/contact"
+                },
+                "boxes": {
+                  "solar-panels": {
+                    "title": "Efficient cleaning",
+                    "description": "We thoroughly clean your solar modules and technical surfaces.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solar modules"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Solar modules",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "inverters": {
+                    "title": "Gentle procedures",
+                    "description": "We use special cleaning agents and methods for maximum safety.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Inverters"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solar modules",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "batteries": {
+                    "title": "Performance verification",
+                    "description": "You will receive documentation of cleaning and recommendations for the future.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Battery storage"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Solar modules",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Your advantages by cleaning:",
+                    "list": {
+                      "itemOne": "Higher efficiency of the plant",
+                      "itemTwo": "Longevity",
+                      "itemThree": "Prevention of loss of earnings",
+                      "itemFour": "Gentle cleaning",
+                      "itemFive": "Transparent documentation",
+                      "itemSix": "Recommendations for maintenance intervals"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "This is how the cleaning works:",
+                    "list": {
+                      "itemOne": "Agreement",
+                      "itemTwo": "On-site visit",
+                      "itemThree": "Professional cleaning",
+                      "itemFour": "Functional testing",
+                      "itemFive": "Documentation",
+                      "itemSix": "Recommendation for further measures"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Start cleaning",
+                  "href": "/contact"
+                }
+              }
+            },
+            "HydraulischerAbgleich": {
+              "Diamond": {
+                "title": "Hydraulic compensation",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Hydraulic compensation"
+                }
+              },
+              "Components": {
+                "titleOne": "Why is a hydraulic balance important?",
+                "descriptionOne": "The hydraulic balance ensures that all heaters and heat collectors are supplied uniformly with heat in the building. This reduces energy losses, reduces heating costs and increases living comfort.",
+                "titleTwo": "Why us?",
+                "descriptionTwo": "Our experienced technicians perform the balancing according to current standards, measure flow rates, adjust valves and document all settings for maximum operational reliability and traceability.",
+                "button": {
+                  "text": "Request Hydraulic Balance",
+                  "href": "/contact"
+                },
+                "boxes": {
+                  "systemanalyse": {
+                    "title": "System analysis",
+                    "description": "detection of heating circuits, pump power and existing control for determining the optimization requirement.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "System analysis"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Analysis",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "durchflussmessung": {
+                    "title": "Flow measurement",
+                    "description": "Precise measurement of the volume flows and determination of the optimal setting values for all heating circuits.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Flow measurement"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Measurement",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "einstellung-und-protokoll": {
+                    "title": "Setting & Protocol",
+                    "description": "Professional adjustment of thermostat and return valves as well as preparation of a protocol with all the values performed.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
+                      "alt": "Adjustment"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Protocol",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Your advantages through hydraulic balancing:",
+                    "list": {
+                      "itemOne": "Uniform heat distribution",
+                      "itemTwo": "Reduced heating costs",
+                      "itemThree": "Lower pump energy consumption",
+                      "itemFour": "Improved living comfort",
+                      "itemFive": "Compliance with funding conditions",
+                      "itemSix": "Documentation for operation and promotion"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "This is how the balance expires:",
+                    "list": {
+                      "itemOne": "Date agreement and inventory",
+                      "itemTwo": "Measurement of flow and heating power",
+                      "itemThree": "Calculation of target values",
+                      "itemFour": "adjustment of valves and pumps",
+                      "itemFive": "Functional testing and fine tuning",
+                      "itemSix": "Transfer of protocol and recommendations"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Start balance",
+                  "href": "/contact"
+                }
+              }
+            }
+          }
         }
       },
       "productPreviewSmall": {
@@ -5150,6 +5150,13 @@
             },
             "required": "false"
           },
+          "message": {
+            "type": "textarea",
+            "label": "Project details",
+            "placeholder": "Share your requirements and customer requests",
+            "defaultValue": "",
+            "required": "true"
+          },
           "fileUpload": {
             "type": "fileUpload",
             "label": "Share your documents with us",
@@ -5160,13 +5167,6 @@
             "maxFileSize": 500000000,
             "allowedTypes": ["image and *", "application/pdf", ".doc,.docx"],
             "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
-          },
-          "message": {
-            "type": "textbook",
-            "label": "Project details",
-            "placeholder": "Share your requirements and customer requests",
-            "defaultValue": "",
-            "required": "true"
           }
         },
         "copy": {

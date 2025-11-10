@@ -17,7 +17,7 @@ export const AboutUsCard = (props: AboutUsCardProps) => {
     <section className="relative">
       {/* Bg */}
       <div
-        className="absolute inset-0 rounded-tr-[100px] bg-gradient-to-b from-synergy-light-grey pointer-events-none"
+        className="absolute inset-0 h-[300rem] rounded-t-[100px] bg-gradient-to-b from-synergy-light-grey pointer-events-none"
         aria-hidden="true"
       />
 

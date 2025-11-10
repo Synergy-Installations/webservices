@@ -1459,7 +1459,7 @@
       "HeroVideo": {
         "eyebrow": "Produkte",
         "title": "Unsere Produkte",
-        "subtitle": "für ihre ganzheitlichen Energielösungen",
+        "subtitle": "für Ihre ganzheitliche Energielösung",
         "body": "Wir entwerfen durch unsere Produkte maßgeschneiderte Synergielösungen für ihr Energiesystem, ganz auf ihre Kundenbedürfnisse abgestimmt.",
         "buttonLeft": {
           "text": "Jetzt Anfragen",
@@ -6012,7 +6012,7 @@
             "hostname": "storage.bunnycdn.com",
             "storageZoneName": "synergy-webservices-assets",
             "maxFileSize": 500000000,
-            "allowedTypes": ["image/*", "application/pdf", ".doc,.docx"],
+            "allowedTypes": [],
             "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
           }
         },
@@ -6024,6 +6024,7 @@
           "upload": {
             "cta": "<strong>Klicken Sie zum Hochladen</strong> oder ziehen Sie Dateien hierher",
             "allowedTypes": "Erlaubte Dateitypen: {types}",
+            "allowedTypesAll": "Alle Dateiformate sind erlaubt.",
             "maxSize": "Max. Dateigröße: {size} MB"
           },
           "fileStatus": {
@@ -9749,7 +9750,7 @@
             },
             "inverters": {
               "title": "Automatisierung von Alltagsabläufen:",
-              "description": "Sparen Sie Zeit im Alltag und beeindrucken Sie Ihre Gäste mit coolen Smart Home Features, die Abläufe automatisch steuern. Über eine App auf dem Smartphone oder Tablet lassen sich Geräte im Haus auch von unterwegs steuern.",
+              "description": "Sparen Sie Zeit im Alltag und beeindrucken Sie Ihre Gäste mit coolen Smart Home Features, die Abläufe automatisch steuern.",
               "image": {
                 "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                 "alt": "Wechselrichter"
@@ -9798,7 +9799,7 @@
           "boxesBottom": {
             "boxOne": {
               "title": "Intelligentes Energiemanagement:",
-              "description": "Optimieren Sie Ihren Verbrauch mit vorausschauender Online Wettersteuerung, die die Heiz- und Kühlleistung intelligent anpasst. Steht ein sonniger Tag bevor, wird der Heizbetrieb rechtzeitig gesenkt. Und in Erwartung einer klirrenden Frostnacht wird die Heizleistung früh genug erhöht.",
+              "description": "Optimieren Sie Ihren Verbrauch mit vorausschauender Online Wettersteuerung, die die Heiz- und Kühlleistung intelligent anpasst.",
               "icon": {
                 "src": "/frontend/landingPage/icons/function.svg",
                 "alt": "Fokus-Highlight-Icon",
@@ -9808,7 +9809,7 @@
             },
             "boxTwo": {
               "title": "Automatisierung von Alltagsabläufen:",
-              "description": "Sparen Sie Zeit im Alltag und beeindrucken Sie Ihre Gäste mit coolen Smart Home Features, die Abläufe automatisch steuern. Über eine App auf dem Smartphone oder Tablet lassen sich Geräte im Haus auch von unterwegs steuern.",
+              "description": "Sparen Sie Zeit im Alltag und beeindrucken Sie Ihre Gäste mit coolen Smart Home Features, die Abläufe automatisch steuern.",
               "icon": {
                 "src": "/frontend/landingPage/icons/function.svg",
                 "alt": "Fokus-Highlight-Icon",
@@ -10492,7 +10493,7 @@
           "boxes": {
             "solar-panels": {
               "title": "Budget optimieren – so geht's:",
-              "description": "Es ist ganz einfach – sowohl der Energiemarkt und die Gesetzeslage als auch technische Aspekte bieten ein umfangreiches Spektrum an Möglichkeiten. Wir geben Möglichkeiten, das Eigenheim sowie den Industriebetrieb auf ein energetisch und lukratives Maximum zu heben.",
+              "description": "Wir geben Möglichkeiten, das Eigenheim sowie den Industriebetrieb auf ein energetisch und lukratives Maximum zu heben.",
               "image": {
                 "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                 "alt": "Solarmodule"
@@ -10508,7 +10509,7 @@
             },
             "batteries": {
               "title": "Experten mit As im Ärmel:",
-              "description": "Unsere Experten stehen Ihnen zur Seite. Wir sind Experten auf dem Gebiet und haben für Sie in den meisten Fällen ein As im Ärmel. Insbesondere, wenn Sie sowohl Abnehmer als auch Einspeiser sind, können wir Ihnen dabei helfen, dass sich Ihre Erzeugungsanlage schneller amortisiert.",
+              "description": "Unsere Experten stehen Ihnen zur Seite, wenn Sie sowohl Abnehmer als auch Einspeiser sind, können wir Ihnen dabei helfen, dass sich Ihre Erzeugungsanlage schneller amortisiert.",
               "image": {
                 "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                 "alt": "Batteriespeicher"
@@ -10550,7 +10551,7 @@
           "boxesBottom": {
             "boxOne": {
               "title": "Budget optimieren – so geht's:",
-              "description": "Es ist ganz einfach – sowohl der Energiemarkt und die Gesetzeslage als auch technische Aspekte bieten ein umfangreiches Spektrum an Möglichkeiten. Wir geben Möglichkeiten, das Eigenheim sowie den Industriebetrieb auf ein energetisch und lukratives Maximum zu heben.",
+              "description": "Wir geben Möglichkeiten, das Eigenheim sowie den Industriebetrieb auf ein energetisch und lukratives Maximum zu heben.",
               "icon": {
                 "src": "/frontend/landingPage/icons/function.svg",
                 "alt": "Fokus-Highlight-Icon",
@@ -10570,7 +10571,7 @@
             },
             "boxThree": {
               "title": "Experten mit As im Ärmel:",
-              "description": "Unsere Experten stehen Ihnen zur Seite. Wir sind Experten auf dem Gebiet und haben für Sie in den meisten Fällen ein As im Ärmel. Insbesondere, wenn Sie sowohl Abnehmer als auch Einspeiser sind, können wir Ihnen dabei helfen, dass sich Ihre Erzeugungsanlage schneller amortisiert.",
+              "description": "Unsere Experten stehen Ihnen zur Seite, wenn Sie sowohl Abnehmer als auch Einspeiser sind, können wir Ihnen dabei helfen, dass sich Ihre Erzeugungsanlage schneller amortisiert.",
               "icon": {
                 "src": "/frontend/landingPage/icons/function.svg",
                 "alt": "Fokus-Highlight-Icon",

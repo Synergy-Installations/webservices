@@ -25,18 +25,18 @@ export const PackagesCard = (props: PackagesCardProps) => {
     );
 
   return (
-    <section className="relative">
-      {/* Bg */}
-      <div
-        className="absolute inset-0 rounded-tr-[100px] mb-24 md:mb-0 border-none border-slate-100 pointer-events-none"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute inset-0 rounded-tr-[100px] mb-24 md:mb-0 bg-gradient-to-b from-synergy-light-grey pointer-events-none"
-        aria-hidden="true"
-      />
+    <section>
+      <div className="relative max-w-7xl mx-auto">
+        {/* Bg */}
+        {/* <div
+          className="absolute inset-0 rounded-tr-[100px] mb-24 md:mb-0 border-none border-slate-100 pointer-events-none"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 rounded-tr-[100px] mb-24 md:mb-0 bg-gradient-to-b from-synergy-light-grey pointer-events-none"
+          aria-hidden="true"
+        /> */}
 
-      <div className="relative max-w-7xl mx-auto z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="py-12 md:py-20 md:pt-12">
             {/* Section content */}
@@ -59,7 +59,7 @@ export const PackagesCard = (props: PackagesCardProps) => {
                 {/* Pricing tables */}
                 {pricingTablesKeys.map((pricingTableKey, index) => (
                   <div
-                    className={`relative flex flex-col h-full ${t(`pricingTables.${pricingTableKey}.featured`) === "true" && "before:opacity-20 before:absolute before:inset-0 before:rounded-br-[100px] before:bg-gradient-to-tr before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl"}  py-5 px-6`}
+                    className={`relative flex flex-col h-full ${t(`pricingTables.${pricingTableKey}.featured`) === "true" && "before:opacity-20 before:absolute before:inset-0 before:bg-gradient-to-tr before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl before:rounded-2xl"}  py-5 px-6`}
                     key={index}
                   >
                     {t(`pricingTables.${pricingTableKey}.label`) !== "" && (

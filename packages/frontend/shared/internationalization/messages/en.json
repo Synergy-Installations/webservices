@@ -5816,7 +5816,7 @@
             "hostname": "storage.bunnycdn.com",
             "storageZoneName": "synergy-webservices-assets",
             "maxFileSize": 500000000,
-            "allowedTypes": ["image and *", "application/pdf", ".doc,.docx"],
+            "allowedTypes": [],
             "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
           }
         },
@@ -5828,6 +5828,7 @@
           "upload": {
             "cta": "<strong>Click to upload</strong> or drag files here",
             "allowedTypes": "Allowed file types: {types}",
+            "allowedTypesAll": "All file types are allowed.",
             "maxSize": "Max. file size: {size} MB"
           },
           "fileStatus": {

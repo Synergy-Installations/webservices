@@ -52,7 +52,7 @@ export const AboutTeamMembers = (props: AboutTeamMembersProps) => {
                 <h4 className="h4 text-2xl font-bold -tracking-[0.01em] font-inter text-slate-800 mb-1">
                   {member.name}
                 </h4>
-                <div className="font-medium text-base text-blue-600">
+                <div className="font-medium text-base text-synergy-light-blue">
                   {member.role}
                 </div>
               </div>

@@ -12,12 +12,12 @@ export const AboutHero = (props: AboutHeroProps) => {
     <section className="relative">
       {/* Dark background */}
       <div
-        className="absolute inset-0 bg-slate-900 pointer-events-none mb-48 lg:mb-0 lg:h-[30rem]"
+        className="absolute inset-0 bg-synergy-light-blue pointer-events-none mb-48 lg:mb-0 lg:h-[30rem]"
         aria-hidden="true"
       >
         <div className="w-full h-full" data-aos="fade">
           <Image
-            className="opacity-10 w-full h-full object-cover"
+            className="opacity-20 w-full h-full object-cover"
             loader={ImageLoader}
             src={t("background.src")}
             width={1440}

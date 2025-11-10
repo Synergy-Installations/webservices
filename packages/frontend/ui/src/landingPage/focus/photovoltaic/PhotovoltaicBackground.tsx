@@ -60,7 +60,7 @@ export const PhotovoltaicBackground = (props: PhotovoltaicBackgroundProps) => {
             ))}
           </ul>
         </div>
-        <div className="bg-teal-200 p-6 rounded-2xl shadow-lg transform">
+        <div className="bg-synergy-light-blue p-6 rounded-2xl shadow-lg transform">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
@@ -103,7 +103,7 @@ export const PhotovoltaicBackground = (props: PhotovoltaicBackgroundProps) => {
           {boxesBottomKeys.map((boxKey) => (
             <div
               key={boxKey}
-              className="relative w-full p-5 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out"
+              className="relative w-full p-5 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:bg-gradient-to-tr before:rounded-2xl before:from-synergy-light-blue before:to-synergy-light-blue/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out"
             >
               <Image
                 className="shrink-0 fill-synergy-light-blue mb-3 opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"

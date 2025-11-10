@@ -73,11 +73,9 @@ export const Form = (props: FormProps) => {
               storageZoneName: element.storageZoneName || "",
               accessKey: STORAGE_ZONE_ACCESS_KEY || "",
               maxFileSize: element.maxFileSize || 10485760, // 10MB default
-              allowedTypes: element.allowedTypes || [
-                "image/*",
-                "application/pdf",
-                ".doc,.docx",
-              ],
+              allowedTypes: Array.isArray(element.allowedTypes)
+                ? element.allowedTypes
+                : [],
               pullHostName: element.pullHostName || "",
             },
           };
@@ -523,7 +521,9 @@ export const Form = (props: FormProps) => {
                       input.type = "file";
                       input.multiple = true;
                       input.accept =
-                        element.uploadConfig.allowedTypes.join(",");
+                        element.uploadConfig.allowedTypes.length > 0
+                          ? element.uploadConfig.allowedTypes.join(",")
+                          : "";
                       input.onchange = (e: any) => {
                         if (e.target.files) {
                           handleFileUpload(
@@ -557,9 +557,13 @@ export const Form = (props: FormProps) => {
                         })}
                       </p>
                       <p className="text-xs text-gray-500">
-                        {t("copy.upload.allowedTypes", {
-                          types: element.uploadConfig.allowedTypes.join(", "),
-                        })}
+                        {element.uploadConfig.allowedTypes.length > 0
+                          ? t("copy.upload.allowedTypes", {
+                              types: element.uploadConfig.allowedTypes.join(
+                                ", "
+                              ),
+                            })
+                          : t("copy.upload.allowedTypesAll")}
                       </p>
                       <p className="text-xs text-gray-500">
                         {t("copy.upload.maxSize", {

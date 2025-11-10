@@ -29,12 +29,12 @@ export const ServiceCard = ({
     <>
       {services.map((service, index) => {
         const titleClassName = [
-          "relative min-w-[288px] z-10 bottom-0 text-white text-left pl-6 font-semibold text-4xl transition-all",
+          "relative min-w-[288px] z-10 bottom-0 text-white text-left pl-6 font-semibold text-2xl md:text-4xl transition-all",
           alwaysShowContent ? "line-clamp-2" : "truncate",
         ].join(" ");
 
         const descriptionClassName = [
-          "relative bottom-0 z-10 left-0 text-white text-left mx-6 text-md transition-transform",
+          "relative bottom-0 z-10 left-0 text-white text-left mx-6 text-base md:text-md transition-transform",
           alwaysShowContent
             ? "opacity-100 mt-0 pt-1 pb-1 h-auto"
             : "h-0 -m-12 mt-8 opacity-100 group-hover:h-auto group-hover:mt-0 group-hover:pb-12 group-hover:opacity-100",

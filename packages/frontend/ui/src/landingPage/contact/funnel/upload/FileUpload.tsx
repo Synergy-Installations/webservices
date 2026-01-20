@@ -1,6 +1,7 @@
 "use client";
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
+import { useParams } from "next/navigation";
 
 /* eslint-disable-next-line */
 export interface FileUploadProps {
@@ -21,6 +22,9 @@ export const FileUpload = (props: FileUploadProps) => {
     setQuestionElements,
     STORAGE_ZONE_ACCESS_KEY,
   } = props;
+  
+  const params = useParams();
+  const locale = params.locale;
 
   const REGION =
     questionElements[questionKey].form[formKey].options.upload.region; // If German region, set this to an empty string: ''
@@ -184,13 +188,41 @@ export const FileUpload = (props: FileUploadProps) => {
 
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
+  const handleDownload = (url: string, name: string) => {
+    // Use the proxy API to download the file, avoiding CORS and forcing download
+    const proxyUrl = `/${locale}/api/download/file?url=${encodeURIComponent(url)}&name=${encodeURIComponent(name)}`;
+    
+    const link = document.createElement("a");
+    link.href = proxyUrl;
+    // We don't need 'download' attribute strictly if the server sends Content-Disposition, 
+    // but it doesn't hurt.
+    link.download = name; 
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleDownloadAll = async () => {
+    const files =
+      questionElements[questionKey].form[formKey].selected.selectedFiles;
+    for (const file of files) {
+      const url =
+        file.status === "uploaded" ? file.downloadUrl : file.localUrl;
+      if (url) {
+        // Add a small delay to ensure multiple downloads are handled correctly by the browser
+        handleDownload(url, file.name);
+        await new Promise((resolve) => setTimeout(resolve, 500));
+      }
+    }
+  };
+
   return (
     <>
       {/* <div {...getRootProps()}>
         // <input {...getInputProps()} />
         // <p>Drag 'n' drop some files here, or click to select files</p>
         //{" "}
-      </div> */}
+        // </div> */}
       <div
         {...getRootProps()}
         className="flex flex-col items-center justify-center w-full"
@@ -231,12 +263,40 @@ export const FileUpload = (props: FileUploadProps) => {
           />
         </label>
       </div>
-      <div className="relative flex flex-col w-full">
+      {questionElements[questionKey].form[formKey].selected.selectedFiles
+        .length > 0 && (
+        <div className="flex justify-end w-full mt-2">
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              handleDownloadAll();
+            }}
+            className="text-sm text-blue-600 dark:text-blue-500 hover:underline flex items-center gap-1"
+          >
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+              ></path>
+            </svg>
+            Alle herunterladen
+          </button>
+        </div>
+      )}
+      <div className="relative flex flex-col w-full mt-2">
         {questionElements[questionKey].form[formKey].selected.selectedFiles.map(
           (file: any, index: number) => (
             <div
               key={index}
-              className="flex items-center justify-between w-full p-2 bg-gray-100 dark:bg-gray-800"
+              className="flex items-center justify-between w-full p-2 bg-gray-100 dark:bg-gray-800 mb-2 last:mb-0 rounded"
             >
               <div className="grid sm:flex items-center sm:space-x-2">
                 <div className="flex items-center space-x-2">
@@ -248,13 +308,13 @@ export const FileUpload = (props: FileUploadProps) => {
                           : file.localUrl
                       }
                       alt=""
-                      className="h-10"
+                      className="h-10 w-10 object-cover rounded"
                     />
                   ) : (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
-                      className="h-10"
+                      className="h-10 w-10"
                       id="file"
                     >
                       <path
@@ -263,12 +323,12 @@ export const FileUpload = (props: FileUploadProps) => {
                       ></path>
                     </svg>
                   )}
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                  <p className="text-sm text-gray-500 dark:text-gray-400 truncate max-w-[150px] sm:max-w-xs">
                     {file.name}
                   </p>
                 </div>
                 <p
-                  className={`text-sm mt-2 min-h-[1.57rem] ${file.status === "error" ? "text-red-600 dark:text-red-500" : file.status === "warning" ? "text-orange-600 dark:text-orange-500" : "text-green-600 dark:text-green-500"} `}
+                  className={`text-sm mt-2 sm:mt-0 min-h-[1.57rem] ${file.status === "error" ? "text-red-600 dark:text-red-500" : file.status === "warning" ? "text-orange-600 dark:text-orange-500" : "text-green-600 dark:text-green-500"} `}
                 >
                   {file.status === "uploading"
                     ? questionElements[questionKey].form[formKey].options.upload
@@ -281,13 +341,14 @@ export const FileUpload = (props: FileUploadProps) => {
                 </p>
               </div>
               <div className="flex items-center space-x-2">
-                <a
-                  href={file.downloadUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
-                  download={file.name}
-                  onClick={(e) => e.stopPropagation()}
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleDownload(file.downloadUrl, file.name);
+                  }}
+                  className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 focus:outline-none"
+                  title="Download"
                 >
                   <svg
                     className="w-6 h-6"
@@ -303,10 +364,11 @@ export const FileUpload = (props: FileUploadProps) => {
                       d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
                     ></path>
                   </svg>
-                </a>
+                </button>
                 {/** Delete Button */}
                 <button
-                  className=""
+                  className="text-gray-500 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-500 focus:outline-none"
+                  title="Delete"
                   onClick={() => {
                     setQuestionElements((prev: any) => {
                       const updatedElements = { ...prev };
@@ -320,7 +382,7 @@ export const FileUpload = (props: FileUploadProps) => {
                   }}
                 >
                   <svg
-                    className="w-6 h-6 text-gray-500 dark:text-gray-400"
+                    className="w-6 h-6"
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"

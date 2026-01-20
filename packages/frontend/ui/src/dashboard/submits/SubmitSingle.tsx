@@ -466,6 +466,7 @@ export const SubmitSingle = (props: SubmitSingleProps) => {
                     progressContainerBackground: true,
                     sectionContainerClassNames: "mt-10 last:pb-32",
                   }}
+                  questionPresentation="scroll"
                 >
                   {(questionElements) => setQuestionElements(questionElements)}
                 </DefaultFunnel>

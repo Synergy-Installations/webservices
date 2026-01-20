@@ -280,36 +280,62 @@ export const FileUpload = (props: FileUploadProps) => {
                           .upload.uploadError}
                 </p>
               </div>
-              <button
-                className=""
-                onClick={() => {
-                  setQuestionElements((prev: any) => {
-                    const updatedElements = { ...prev };
-                    const form = updatedElements[questionKey].form[formKey];
-                    form.selected.selectedFiles =
-                      form.selected.selectedFiles.filter(
-                        (fileFilter: any) => fileFilter.uid !== file.uid
-                      );
-                    return updatedElements;
-                  });
-                }}
-              >
-                <svg
-                  className="w-6 h-6 text-gray-500 dark:text-gray-400"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
+              <div className="flex items-center space-x-2">
+                <a
+                  href={file.downloadUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+                  download={file.name}
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  <path
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
                     stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                    ></path>
+                  </svg>
+                </a>
+                {/** Delete Button */}
+                <button
+                  className=""
+                  onClick={() => {
+                    setQuestionElements((prev: any) => {
+                      const updatedElements = { ...prev };
+                      const form = updatedElements[questionKey].form[formKey];
+                      form.selected.selectedFiles =
+                        form.selected.selectedFiles.filter(
+                          (fileFilter: any) => fileFilter.uid !== file.uid
+                        );
+                      return updatedElements;
+                    });
+                  }}
+                >
+                  <svg
+                    className="w-6 h-6 text-gray-500 dark:text-gray-400"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
           )
         )}

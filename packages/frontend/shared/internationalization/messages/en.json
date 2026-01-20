@@ -5953,7 +5953,7 @@
             "form": {
               "interested-products-range-2": {
                 "order": "1",
-                "type": "the",
+                "type": "range",
                 "required": "true",
                 "defaultVisible": "true",
                 "title": "How much kWp? *",
@@ -5983,7 +5983,7 @@
                     "value": "kWh",
                     "spaceBetween": "true",
                     "position": "after",
-                    "numberFormat": "De-DE"
+                    "numberFormat": "de-DE"
                   },
                   "labels": {
                     "min": {
@@ -6027,7 +6027,7 @@
             "form": {
               "interested-products-dachtyp": {
                 "order": "1",
-                "type": "radio frequency",
+                "type": "radio",
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "true",
@@ -6050,7 +6050,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form roof type-other textarea",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics"
@@ -6063,7 +6063,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form roof type-other textarea",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics"
@@ -6076,7 +6076,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form roof type-other textarea",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics"
@@ -6089,7 +6089,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form roof type-other textarea",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics"
@@ -6102,7 +6102,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form roof type-other textarea",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics"
@@ -6115,7 +6115,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form roof type-other textarea",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics"
@@ -6128,7 +6128,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form roof type-other textarea",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics"
@@ -6141,7 +6141,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form roof type-other textarea",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics"
@@ -6154,7 +6154,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form roof type-other textarea",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics"
@@ -6167,7 +6167,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form roof type-other textarea",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics"
@@ -6180,7 +6180,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form roof type-other textarea",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics"
@@ -6193,7 +6193,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form roof type-other textarea",
+                    "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics"
@@ -6203,7 +6203,7 @@
               },
               "submit-form-dachtyp-anderes-textarea": {
                 "order": "1",
-                "type": "textbook",
+                "type": "textarea",
                 "required": "false",
                 "defaultVisible": "false",
                 "title": "",
@@ -6323,7 +6323,7 @@
               },
               "submit-form-schnittstelle-anderes-textarea": {
                 "order": "1",
-                "type": "textbook",
+                "type": "textarea",
                 "required": "false",
                 "defaultVisible": "true",
                 "title": "",
@@ -6351,7 +6351,7 @@
                 "form": {
                   "interested-products-range-2": {
                     "order": "1",
-                    "type": "the",
+                    "type": "range",
                     "required": "true",
                     "defaultVisible": "true",
                     "title": "How much kWp? *",
@@ -6381,7 +6381,7 @@
                         "value": "kWh",
                         "spaceBetween": "true",
                         "position": "after",
-                        "numberFormat": "De-DE"
+                        "numberFormat": "de-DE"
                       },
                       "labels": {
                         "min": {
@@ -6417,7 +6417,7 @@
                   },
                   "interested-products-dachtyp": {
                     "order": "1",
-                    "type": "radio frequency",
+                    "type": "radio",
                     "multiple": "true",
                     "required": "true",
                     "defaultVisible": "true",
@@ -6440,7 +6440,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form roof type-other textarea",
+                        "addForm": "submit-form-dachtyp-anderes-textarea",
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6453,7 +6453,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form roof type-other textarea",
+                        "addForm": "submit-form-dachtyp-anderes-textarea",
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6466,7 +6466,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form roof type-other textarea",
+                        "addForm": "submit-form-dachtyp-anderes-textarea",
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6479,7 +6479,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form roof type-other textarea",
+                        "addForm": "submit-form-dachtyp-anderes-textarea",
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6492,7 +6492,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form roof type-other textarea",
+                        "addForm": "submit-form-dachtyp-anderes-textarea",
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6505,7 +6505,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form roof type-other textarea",
+                        "addForm": "submit-form-dachtyp-anderes-textarea",
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6518,7 +6518,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form roof type-other textarea",
+                        "addForm": "submit-form-dachtyp-anderes-textarea",
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6531,7 +6531,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form roof type-other textarea",
+                        "addForm": "submit-form-dachtyp-anderes-textarea",
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6544,7 +6544,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form roof type-other textarea",
+                        "addForm": "submit-form-dachtyp-anderes-textarea",
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6557,7 +6557,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form roof type-other textarea",
+                        "addForm": "submit-form-dachtyp-anderes-textarea",
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6570,7 +6570,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form roof type-other textarea",
+                        "addForm": "submit-form-dachtyp-anderes-textarea",
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6583,7 +6583,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form roof type-other textarea",
+                        "addForm": "submit-form-dachtyp-anderes-textarea",
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6593,7 +6593,7 @@
                   },
                   "submit-form-dachtyp-anderes-textarea": {
                     "order": "1",
-                    "type": "textbook",
+                    "type": "textarea",
                     "required": "false",
                     "defaultVisible": "false",
                     "title": "",
@@ -6713,7 +6713,7 @@
                   },
                   "submit-form-schnittstelle-anderes-textarea": {
                     "order": "1",
-                    "type": "textbook",
+                    "type": "textarea",
                     "required": "false",
                     "defaultVisible": "true",
                     "title": "",
@@ -6735,19 +6735,19 @@
                   },
                   "interested-products-range-height": {
                     "order": "1",
-                    "type": "the",
+                    "type": "range",
                     "required": "true",
                     "defaultVisible": "true",
-                    "title": "What is the installation height?",
-                    "description": "(house, mountain, facade)",
+                    "title": "Wie hoch ist der Montageort?",
+                    "description": "(Haus, Berg, Fassade)",
                     "localStorage": "false",
                     "span": "2",
                     "message": {
                       "text": "",
                       "type": "info",
-                      "requiredMessage": "This input is mandatory",
-                      "successMessage": "Thanks for your input",
-                      "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                      "requiredMessage": "Diese Eingabe ist verpflichtend",
+                      "successMessage": "Danke für Ihre Eingabe",
+                      "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                     },
                     "options": {
                       "buttons": {
@@ -6756,16 +6756,16 @@
                       },
                       "range": {
                         "defaultValue": "0",
-                        "min": "0",
-                        "max": "Other",
-                        "step": "0.5",
-                        "type": "exp"
+                        "min": "9",
+                        "max": "90",
+                        "step": "5",
+                        "type": "linear"
                       },
                       "unit": {
                         "value": "m",
                         "spaceBetween": "true",
                         "position": "after",
-                        "numberFormat": "De-DE"
+                        "numberFormat": "de-DE"
                       },
                       "labels": {
                         "min": {
@@ -6791,7 +6791,7 @@
                         },
                         "max": {
                           "text": "Max (3000 m)",
-                          "value": "Other",
+                          "value": "3000",
                           "align": "end",
                           "offsetX": "0",
                           "correctX": "0%"
@@ -6801,10 +6801,10 @@
                   },
                   "interested-products-range-dachneigung": {
                     "order": "1",
-                    "type": "the",
+                    "type": "range",
                     "required": "true",
                     "defaultVisible": "true",
-                    "title": "inclining mounting support",
+                    "title": "Inclining mounting support height",
                     "description": "(Dach, Hang)",
                     "localStorage": "false",
                     "span": "2",
@@ -6831,7 +6831,73 @@
                         "value": "°C",
                         "spaceBetween": "false",
                         "position": "after",
-                        "numberFormat": "De-DE"
+                        "numberFormat": "de-DE"
+                      },
+                      "labels": {
+                        "min": {
+                          "text": "Min (0°)",
+                          "value": "0",
+                          "align": "start",
+                          "offsetX": "0",
+                          "correctX": "0%"
+                        },
+                        "q1": {
+                          "text": "30°",
+                          "value": "30",
+                          "align": "start",
+                          "offsetX": "1/3",
+                          "correctX": "145%"
+                        },
+                        "q2": {
+                          "text": "60 °C",
+                          "value": "60",
+                          "align": "start",
+                          "offsetX": "2/3",
+                          "correctX": "105%"
+                        },
+                        "max": {
+                          "text": "Max (90°)",
+                          "value": "90",
+                          "align": "end",
+                          "offsetX": "0",
+                          "correctX": "0%"
+                        }
+                      }
+                    }
+                  },
+                  "interested-products-range-dachneigung-2": {
+                    "order": "1",
+                    "type": "range",
+                    "required": "true",
+                    "defaultVisible": "true",
+                    "title": "Inclining mounting support height",
+                    "description": "(Dach, Hang)",
+                    "localStorage": "false",
+                    "span": "2",
+                    "message": {
+                      "text": "",
+                      "type": "info",
+                      "requiredMessage": "This input is mandatory",
+                      "successMessage": "Thanks for your input",
+                      "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                    },
+                    "options": {
+                      "buttons": {
+                        "incrementBy": "10",
+                        "decrementBy": "10"
+                      },
+                      "range": {
+                        "defaultValue": "0",
+                        "min": "0",
+                        "max": "90",
+                        "step": "1",
+                        "type": "linear"
+                      },
+                      "unit": {
+                        "value": "°C",
+                        "spaceBetween": "false",
+                        "position": "after",
+                        "numberFormat": "de-DE"
                       },
                       "labels": {
                         "min": {
@@ -6867,7 +6933,7 @@
                   },
                   "submit-form-textarea-address": {
                     "order": "1",
-                    "type": "textbook",
+                    "type": "textarea",
                     "required": "true",
                     "defaultVisible": "true",
                     "title": "Customer Address",
@@ -7082,7 +7148,7 @@
                   },
                   "interested-products-range": {
                     "order": "1",
-                    "type": "the",
+                    "type": "range",
                     "required": "true",
                     "defaultVisible": "hidden",
                     "title": "How much are you currently paying for electricity?",
@@ -7112,7 +7178,7 @@
                         "value": "$",
                         "spaceBetween": "false",
                         "position": "before",
-                        "numberFormat": "De-DE"
+                        "numberFormat": "de-DE"
                       },
                       "labels": {
                         "min": {
@@ -7148,7 +7214,7 @@
                   },
                   "interested-products-two": {
                     "order": "1",
-                    "type": "radio frequency",
+                    "type": "radio",
                     "multiple": "true",
                     "required": "true",
                     "defaultVisible": "false",
@@ -7246,7 +7312,7 @@
                   },
                   "interested-products-calculation": {
                     "order": "1",
-                    "type": "calculation calculation",
+                    "type": "calculation",
                     "multiple": "true",
                     "required": "false",
                     "defaultVisible": "false",
@@ -7390,7 +7456,7 @@
             "form": {
               "interested-products-range-height": {
                 "order": "1",
-                "type": "the",
+                "type": "range",
                 "required": "true",
                 "defaultVisible": "true",
                 "title": "What is the installation height?",
@@ -7412,7 +7478,7 @@
                   "range": {
                     "defaultValue": "0",
                     "min": "0",
-                    "max": "Other",
+                    "max": "3000",
                     "step": "0.5",
                     "type": "exp"
                   },
@@ -7420,7 +7486,7 @@
                     "value": "m",
                     "spaceBetween": "true",
                     "position": "after",
-                    "numberFormat": "De-DE"
+                    "numberFormat": "de-DE"
                   },
                   "labels": {
                     "min": {
@@ -7456,7 +7522,7 @@
               },
               "interested-products-range-dachneigung": {
                 "order": "1",
-                "type": "the",
+                "type": "range",
                 "required": "true",
                 "defaultVisible": "true",
                 "title": "inclining mounting support",
@@ -7486,7 +7552,7 @@
                     "value": "°C",
                     "spaceBetween": "false",
                     "position": "after",
-                    "numberFormat": "De-DE"
+                    "numberFormat": "de-DE"
                   },
                   "labels": {
                     "min": {
@@ -7530,7 +7596,7 @@
             "form": {
               "submit-form-textarea-address": {
                 "order": "1",
-                "type": "textbook",
+                "type": "textarea",
                 "required": "true",
                 "defaultVisible": "true",
                 "title": "Customer Address",
@@ -7753,7 +7819,7 @@
               },
               "interested-products-range": {
                 "order": "1",
-                "type": "the",
+                "type": "range",
                 "required": "true",
                 "defaultVisible": "hidden",
                 "title": "How much are you currently paying for electricity?",
@@ -7783,7 +7849,7 @@
                     "value": "$",
                     "spaceBetween": "false",
                     "position": "before",
-                    "numberFormat": "De-DE"
+                    "numberFormat": "de-DE"
                   },
                   "labels": {
                     "min": {
@@ -7819,7 +7885,7 @@
               },
               "interested-products-two": {
                 "order": "1",
-                "type": "radio frequency",
+                "type": "radio",
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "false",
@@ -7917,7 +7983,7 @@
               },
               "interested-products-calculation": {
                 "order": "1",
-                "type": "calculation calculation",
+                "type": "calculation",
                 "multiple": "true",
                 "required": "false",
                 "defaultVisible": "false",
@@ -8551,7 +8617,7 @@
               },
               "submit-form-improvements": {
                 "order": "1",
-                "type": "textbook",
+                "type": "textarea",
                 "required": "false",
                 "defaultVisible": "true",
                 "title": "Do you have suggestions for improvement?",

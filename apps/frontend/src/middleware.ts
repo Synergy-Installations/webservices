@@ -1,17 +1,15 @@
 import createMiddleware from "next-intl/middleware";
 import { routing } from "@com.synergy/frontend-shared-internationalization/routing";
-import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { clerkMiddleware } from "@clerk/nextjs/server";
 
 const intlMiddleware = createMiddleware(routing);
 
-const isProtectedRoute = createRouteMatcher([
-  "/:locale([a-z]{2}-[A-Z]{2})/dashboard",
-]);
+const isDashboardRoute = (pathname: string) =>
+  /^\/[^/]+\/dashboard/.test(pathname);
 
 export default clerkMiddleware(
   async (auth, req) => {
-    console.log(isProtectedRoute(req));
-    if (isProtectedRoute(req)) await auth.protect();
+    if (isDashboardRoute(req.nextUrl.pathname)) await auth.protect();
 
     return intlMiddleware(req);
   },

@@ -8,7 +8,7 @@ import ImageLoader from "@com.synergy/frontend-ui/ImageLoader";
 import LocaleSwitcher from "../translation/LocaleSwitcher";
 
 /* eslint-disable-next-line */
-export interface DefaultHeaderProps {}
+export interface DefaultHeaderProps { }
 
 export const DefaultHeader = (props: DefaultHeaderProps) => {
   const t = useTranslations("LandingPage.Shared.Header");

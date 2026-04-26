@@ -15,6 +15,7 @@ import ListItem from "@tiptap/extension-list-item";
 import TextStyle from "@tiptap/extension-text-style";
 import StarterKit from "@tiptap/starter-kit";
 import Bold from "@tiptap/extension-bold";
+import Italic from "@tiptap/extension-italic";
 import Highlight from "@tiptap/extension-highlight";
 import Underline from "@tiptap/extension-underline";
 import Link from "@tiptap/extension-link";
@@ -78,6 +79,7 @@ export const extensions = [
   TextStyle.configure(),
   StarterKit.configure({
     bold: false,
+    italic: false,
     bulletList: {
       keepMarks: true,
       keepAttributes: false, // TODO : Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
@@ -88,6 +90,7 @@ export const extensions = [
     },
   }),
   CustomBold,
+  Italic,
   FontSizeTextStyle,
   TextStyle,
   Color,

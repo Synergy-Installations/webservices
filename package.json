@@ -17,5 +17,10 @@
   "engines": {
     "node": ">=18"
   },
-  "name": "com.synergy"
+  "name": "com.synergy",
+  "pnpm": {
+    "overrides": {
+      "@tiptap/core": "2.11.7"
+    }
+  }
 }

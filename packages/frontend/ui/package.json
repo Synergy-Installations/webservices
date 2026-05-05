@@ -70,6 +70,7 @@
     "./StepAssetsList": "./src/dashboard/steps/assets/StepAssetsList.tsx",
     "./StepSubmitAssets": "./src/dashboard/steps/assets/StepSubmitAssets.tsx",
     "./FileUpload": "./src/landingPage/contact/funnel/upload/FileUpload.tsx",
+    "./llmFileExtraction": "./src/landingPage/contact/funnel/llm-file-extraction/llmFileExtraction.tsx",
     "./StepsSubmitMessages": "./src/dashboard/steps/StepsSubmitMessages.tsx",
     "./EditorMenuBar": "./src/dashboard/steps/editor/EditorMenuBar.tsx",
     "./StepEditor": "./src/dashboard/steps/editor/StepEditor.tsx",

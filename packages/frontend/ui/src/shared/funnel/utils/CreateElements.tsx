@@ -96,7 +96,7 @@ export const createQuestionElement = (
                   title: element.form[formKey].options[optionKey].title,
                   disabled: useStrings
                     ? element.form[formKey].options[optionKey].disabled ===
-                      "true"
+                    "true"
                     : element.form[formKey].options[optionKey].disabled,
                   span: element.form[formKey].options[optionKey].span,
                   description:
@@ -192,8 +192,8 @@ export const createQuestionElement = (
                 ? element.form[formKey].selected.selectedOptions
                 : typeof window !== "undefined"
                   ? localStorage
-                      .getItem(`${questionKey}-${formKey}`)
-                      ?.split(",") || []
+                    .getItem(`${questionKey}-${formKey}`)
+                    ?.split(",") || []
                   : element.form[formKey].defaultValue,
               selectedOptionsUid: useSelected
                 ? element.form[formKey].selected.selectedOptionsUid
@@ -278,8 +278,8 @@ export const createQuestionElement = (
                         : labelKey,
                     value: useStrings
                       ? Number(
-                          element.form[formKey].options.labels[labelKey].value
-                        )
+                        element.form[formKey].options.labels[labelKey].value
+                      )
                       : element.form[formKey].options.labels[labelKey].value,
                     align: element.form[formKey].options.labels[labelKey].align,
                     offsetX:
@@ -469,6 +469,69 @@ export const createQuestionElement = (
             },
           };
         } else if (element.form[formKey].type === "file-upload") {
+          formAcc[
+            useKey
+              ? formKey
+              : `${useUidAsKey ? element.form[formKey].uid : formKey}-${Math.random().toString(36).substring(2, 7)}`
+          ] = {
+            order: useStrings
+              ? Number(element.form[formKey].order)
+              : element.form[formKey].order,
+            uid: useKey || useUidAsKey ? element.form[formKey].uid : formKey,
+            type: element.form[formKey].type,
+            required: useStrings
+              ? element.form[formKey].required === "true"
+              : element.form[formKey].required,
+            defaultVisible: useStrings
+              ? element.form[formKey].defaultVisible === "true"
+              : element.form[formKey].defaultVisible,
+            title: element.form[formKey].title,
+            description: element.form[formKey].description,
+            localStorage: useStrings
+              ? element.form[formKey].localStorage === "true"
+              : element.form[formKey].localStorage,
+            span: element.form[formKey].span,
+            from: useKey ? element.form[formKey].from : from || [],
+            message: {
+              text: element.form[formKey].message.text,
+              type: element.form[formKey].message.type,
+              errorMessage: element.form[formKey].message.errorMessage,
+              successMessage: element.form[formKey].message.successMessage,
+              loadingMessage: element.form[formKey].message.loadingMessage,
+              checkPreviousFormsMessage:
+                element.form[formKey].message.checkPreviousFormsMessage,
+            },
+            options: {
+              upload: {
+                hostname: element.form[formKey].options.upload.hostname,
+                storageZoneName:
+                  element.form[formKey].options.upload.storageZoneName,
+                region: element.form[formKey].options.upload.region,
+                filesAccepted:
+                  element.form[formKey].options.upload.filesAccepted,
+                multipleFiles:
+                  element.form[formKey].options.upload.multipleFiles,
+                uploadingText:
+                  element.form[formKey].options.upload.uploadingText,
+                uploadError: element.form[formKey].options.upload.uploadError,
+                uploadSuccess:
+                  element.form[formKey].options.upload.uploadSuccess,
+              },
+              download: {
+                pullHostName:
+                  element.form[formKey].options.download.pullHostName,
+              },
+            },
+            selected: {
+              questionTitle: useSelected
+                ? element.form[formKey].selected.questionTitle
+                : element.form[formKey].title,
+              selectedFiles: useSelected
+                ? element.form[formKey].selected.selectedFiles
+                : [],
+            },
+          };
+        } else if (element.form[formKey].type === "llm-file-extraction") {
           formAcc[
             useKey
               ? formKey
@@ -749,7 +812,7 @@ export const createFormElement = (
           ? element.selected.selectedOptions
           : typeof window !== "undefined"
             ? localStorage.getItem(`${questionKey}-${formKey}`)?.split(",") ||
-              []
+            []
             : [],
         selectedOptionsUid: useSelected
           ? element.selected.selectedOptionsUid
@@ -999,6 +1062,57 @@ export const createFormElement = (
       },
     };
   } else if (element.type === "file-upload") {
+    return {
+      order: useStrings ? Number(element.order) : element.order,
+      uid: useKey ? element.uid : formKey,
+      type: element.type,
+      required: element.required === "true",
+      defaultVisible:
+        (useStrings
+          ? element.defaultVisible === "false"
+          : element.defaultVisible == false) && convertVisiblityToTrue
+          ? true
+          : useStrings
+            ? element.defaultVisible === "true"
+            : element.defaultVisible,
+      title: element.title,
+      description: element.description,
+      localStorage: useStrings
+        ? element.localStorage === "true"
+        : element.localStorage,
+      span: element.span,
+      from: from || [],
+      message: {
+        text: element.message.text,
+        type: element.message.type,
+        errorMessage: element.message.errorMessage,
+        successMessage: element.message.successMessage,
+        loadingMessage: element.message.loadingMessage,
+        checkPreviousFormsMessage: element.message.checkPreviousFormsMessage,
+      },
+      options: {
+        upload: {
+          hostname: element.options.upload.hostname,
+          storageZoneName: element.options.upload.storageZoneName,
+          region: element.options.upload.region,
+          filesAccepted: element.options.upload.filesAccepted,
+          multipleFiles: element.options.upload.multipleFiles,
+          uploadingText: element.options.upload.uploadingText,
+          uploadError: element.options.upload.uploadError,
+          uploadSuccess: element.options.upload.uploadSuccess,
+        },
+        download: {
+          pullHostName: element.options.download.pullHostName,
+        },
+      },
+      selected: {
+        questionTitle: useSelected
+          ? element.selected.questionTitle
+          : element.title,
+        selectedFiles: useSelected ? element.selected.selectedFiles : [],
+      },
+    };
+  } else if (element.type === "llm-file-extraction") {
     return {
       order: useStrings ? Number(element.order) : element.order,
       uid: useKey ? element.uid : formKey,

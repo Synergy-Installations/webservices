@@ -194,6 +194,7 @@
     "@tiptap/pm": "^2.11.7",
     "@tiptap/react": "^2.11.7",
     "@tiptap/starter-kit": "^2.11.7",
+    "@trigger.dev/react-hooks": "^4.4.5",
     "@types/aos": "^3.0.7",
     "aos": "^2.3.4",
     "clsx": "^2.1.1",

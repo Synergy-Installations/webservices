@@ -1,0 +1,130 @@
+/**
+ * Document normalization layer.
+ *
+ * Anthropic's `document` content block only accepts PDFs natively (and
+ * plain text). PPTX, DOCX, ODT etc. must be converted upstream. We use
+ * Gotenberg (https://gotenberg.dev) — a Docker service wrapping LibreOffice
+ * + Chromium with a clean HTTP API — running on Fly.io, Railway, or as a
+ * sidecar.
+ *
+ * Why not the AI SDK file extractors (mammoth/pptx-parser):
+ *   PV reports often pack critical specs (kWp tables, single-line diagrams,
+ *   datasheets) into slide tables, embedded images, and complex grid layouts.
+ *   Pre-extracted text loses spatial relationships and frequently mangles
+ *   table cells. Rendering to PDF preserves the visual layout that Claude's
+ *   multimodal pipeline can reason over.
+ *
+ * If you can't run Gotenberg, swap in `@vercel/blob` + `convert-api`,
+ * CloudConvert, or LibreOffice on a long-running container. The interface
+ * stays identical.
+ *
+ * Required env:
+ *   GOTENBERG_URL      e.g. "https://gotenberg.synergie.cc"
+ *   GOTENBERG_API_KEY  Bearer token expected by the Caddy auth gate in front
+ *                      of Gotenberg (must equal the GOTENBERG_API_KEY secret
+ *                      set on the Bunny Magic Container)
+ */
+
+const GOTENBERG_URL = process.env.GOTENBERG_URL!;
+const GOTENBERG_API_KEY = process.env.GOTENBERG_API_KEY;
+
+export const SUPPORTED_INPUTS = [
+    "application/pdf",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document", // .docx
+    "application/vnd.openxmlformats-officedocument.presentationml.presentation", // .pptx
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", // .xlsx
+    "application/msword",
+    "application/vnd.ms-powerpoint",
+    "application/vnd.ms-excel",
+    "application/vnd.oasis.opendocument.text", // .odt
+    "application/vnd.oasis.opendocument.presentation", // .odp
+    "application/vnd.oasis.opendocument.spreadsheet", // .ods
+    "application/rtf",
+    "text/plain",
+    "image/jpeg",
+    "image/png",
+] as const;
+
+export type SupportedMime = (typeof SUPPORTED_INPUTS)[number];
+
+export function isSupportedInput(mime: string): mime is SupportedMime {
+    return (SUPPORTED_INPUTS as readonly string[]).includes(mime);
+}
+
+// --------------------------------------------------------------------------
+//  Public API: take any supported input → return a PDF buffer
+// --------------------------------------------------------------------------
+
+export async function normalizeToPdf(opts: {
+    bytes: Buffer;
+    contentType: string;
+    filename: string;
+}): Promise<{ pdf: Buffer; pageCount?: number }> {
+    if (opts.contentType === "application/pdf") {
+        // Already a PDF. Don't re-encode.
+        return { pdf: opts.bytes };
+    }
+
+    if (!isSupportedInput(opts.contentType)) {
+        throw new Error(
+            `Unsupported content type: ${opts.contentType}. Add it to SUPPORTED_INPUTS or pre-convert.`,
+        );
+    }
+
+    return await convertViaGotenberg(opts);
+}
+
+// --------------------------------------------------------------------------
+//  Gotenberg LibreOffice route
+// --------------------------------------------------------------------------
+
+async function convertViaGotenberg(opts: {
+    bytes: Buffer;
+    contentType: string;
+    filename: string;
+}): Promise<{ pdf: Buffer }> {
+    const form = new FormData();
+    // Filename must include the extension — Gotenberg dispatches on it.
+    form.append(
+        "files",
+        new Blob([new Uint8Array(opts.bytes)], { type: opts.contentType }),
+        opts.filename,
+    );
+    // PDF/A-2b is the safest archive format and tends to be the best-rendered
+    // for Claude's multimodal pipeline (proper text layer + page metadata).
+    form.append("pdfa", "PDF/A-2b");
+    // Disable JavaScript-driven layout for deterministic output.
+    form.append("skipNetworkIdleEvent", "true");
+
+    const headers: Record<string, string> = {};
+    if (GOTENBERG_API_KEY) {
+        headers.Authorization = `Bearer ${GOTENBERG_API_KEY}`;
+    }
+
+    const res = await fetch(
+        `${GOTENBERG_URL}/forms/libreoffice/convert`,
+        { method: "POST", headers, body: form },
+    );
+
+    if (!res.ok) {
+        throw new Error(
+            `Gotenberg ${res.status}: ${await res.text().catch(() => "<no body>")}`,
+        );
+    }
+
+    const ab = await res.arrayBuffer();
+    return { pdf: Buffer.from(ab) };
+}
+
+// --------------------------------------------------------------------------
+//  Page-count utility — used to gate Anthropic's 100-page input limit
+// --------------------------------------------------------------------------
+
+export async function pdfPageCount(pdf: Buffer): Promise<number> {
+    // Cheap heuristic that doesn't require pulling pdf-lib into the bundle:
+    // count `/Type /Page` (with whitespace tolerance, excluding `/Pages`).
+    // For exact counts in production, use `pdf-lib` or `pdfjs-dist`.
+    const haystack = pdf.toString("latin1");
+    const matches = haystack.match(/\/Type\s*\/Page(?!s)/g);
+    return matches?.length ?? 0;
+}

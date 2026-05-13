@@ -5,6 +5,8 @@
     "./i18n": "./src/i18n.ts",
     "./routing": "./src/i18n/routing.ts",
     "./variables": "./src/variables.ts",
+    "./messages/at-AT.json": "./messages/at-AT.json",
+    "./messages/en.json": "./messages/en.json",
     "./utils/acceptLanguageLocale": "./src/utils/acceptLanguageLocale.ts",
     "./utils/resolveLocale": "./src/utils/resolveLocale.ts"
   },

@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "jsx": "react"
+    "jsx": "react",
+    "resolveJsonModule": true
   },
   "extends": "@com.synergy/frontend-shared-typescript-config/base.json",
   "compilerConfigs": {
@@ -8,5 +9,5 @@
     "declarationMap": false
   },
   "include": ["src"],
-  "exclude": ["dist", "build", "node_modules"]
+  "exclude": ["dist", "build", "node_modules", "src/storage/edge"]
 }

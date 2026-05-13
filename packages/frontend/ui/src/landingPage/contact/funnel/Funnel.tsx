@@ -353,7 +353,8 @@ export const Funnel = (props: FunnelProps) => {
                               form.type === "tel" ||
                               form.type === "textarea"
                             ? form.selected.inputValue
-                            : form.type === "file-upload"
+                            : form.type === "file-upload" ||
+                                form.type === "llm-file-extraction"
                               ? form.selected.selectedFiles.map(
                                   (file: { downloadUrl: string }) =>
                                     file.downloadUrl

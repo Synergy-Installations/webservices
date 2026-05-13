@@ -521,6 +521,7 @@ export const createQuestionElement = (
                 pullHostName:
                   element.form[formKey].options.download.pullHostName,
               },
+              extraction: element.form[formKey].options.extraction ?? null,
             },
             selected: {
               questionTitle: useSelected
@@ -584,6 +585,7 @@ export const createQuestionElement = (
                 pullHostName:
                   element.form[formKey].options.download.pullHostName,
               },
+              extraction: element.form[formKey].options.extraction ?? null,
             },
             selected: {
               questionTitle: useSelected
@@ -1104,6 +1106,7 @@ export const createFormElement = (
         download: {
           pullHostName: element.options.download.pullHostName,
         },
+        extraction: element.options.extraction ?? null,
       },
       selected: {
         questionTitle: useSelected
@@ -1155,6 +1158,7 @@ export const createFormElement = (
         download: {
           pullHostName: element.options.download.pullHostName,
         },
+        extraction: element.options.extraction ?? null,
       },
       selected: {
         questionTitle: useSelected

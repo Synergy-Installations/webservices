@@ -4,11 +4,13 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { useParams } from "next/navigation";
 import { useRealtimeRun } from "@trigger.dev/react-hooks";
+import { Download, FileText, UploadCloud, X } from "lucide-react";
 
 type UploadTokenResponse = {
   token: string;
   uploadUrl: string;
   path: string;
+  contentType: string;
   expiresAt: number;
 };
 
@@ -46,12 +48,15 @@ type SelectedFile = {
   extractionResult?: unknown;
   prefillResult?: unknown;
   removedPrefill?: string[];
+  manualPrefillChoices?: Record<string, string>;
 };
 
 type ExtractionFieldConfig = {
   label?: string;
   type?: string;
   unit?: string;
+  aliases?: string[];
+  instructions?: string;
   target?: {
     formUid?: string;
   };
@@ -83,6 +88,7 @@ type FunnelPrefillEntry = {
   sourcePage?: number | null;
   fieldKey?: string;
   documentName?: string;
+  fileUid?: string;
   label?: string;
 };
 
@@ -104,12 +110,17 @@ export interface LLMFileExtractionProps {
   setQuestionElements: any;
   STORAGE_ZONE_ACCESS_KEY: string | undefined;
   applyFunnelPrefill?(
-    prefill: Record<string, unknown>,
-    context: { documentName: string; fileUid: string },
+    prefill: Record<string, FunnelPrefillEntry>,
+    context: {
+      documentName: string;
+      fileUid: string;
+      force?: boolean;
+      userReviewed?: boolean;
+    },
   ): FunnelPrefillResult | void;
   removeFunnelPrefill?(
     formUid: string,
-    context: { documentName: string; fileUid: string },
+    context: { documentName: string; fileUid: string; force?: boolean },
   ): void;
 }
 
@@ -139,6 +150,18 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
     mimeTypes.length > 0
       ? Object.fromEntries(mimeTypes.map((mimeType: string) => [mimeType, []]))
       : undefined;
+  const extractionFields = useMemo(
+    () => collectAiExtractionFields(questionElements, extraction.fields ?? {}),
+    [extraction.fields, questionElements],
+  );
+  const extractionThresholds = useMemo(
+    () => ({
+      green: Number(extraction.confidence?.green ?? 0.85),
+      yellow: Number(extraction.confidence?.yellow ?? 0.55),
+    }),
+    [extraction.confidence?.green, extraction.confidence?.yellow],
+  );
+  const lastReconciliationSignatureRef = useRef<string>("");
 
   const updateFile = useCallback(
     (
@@ -231,8 +254,9 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
             );
           }
 
-          const { token, uploadUrl, path } =
+          const { token, uploadUrl, path, contentType } =
             (await tokenResponse.json()) as UploadTokenResponse;
+          const uploadContentType = contentType || file.type;
           const downloadUrl = encodeURI(
             `${pullHostName.replace(/\/$/, "")}/${path}`,
           );
@@ -241,12 +265,14 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
           updateFile(temporaryFileUid, {
             uid: path,
             downloadUrl,
+            type: uploadContentType,
             status: "uploading",
           });
 
           await uploadWithProgress({
             url: buildUploadUrl(uploadUrl, path),
             file,
+            contentType: uploadContentType,
             token,
             onProgress: (percent) =>
               updateFile(path, { uploadProgress: percent }),
@@ -269,7 +295,7 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
                 funnelSessionId,
                 bunnyPath: path,
                 filename: file.name,
-                contentType: file.type,
+                contentType: uploadContentType,
                 extractionQuestionUid: questionElements[questionKey].uid,
                 extractionFormUid: form.uid,
                 options: {
@@ -331,6 +357,54 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
     multiple: form.options.upload.multipleFiles !== "false",
   });
 
+  useEffect(() => {
+    const selectedFiles = (form.selected.selectedFiles ?? []) as SelectedFile[];
+    const plan = buildMultiFilePrefillPlan({
+      files: selectedFiles,
+      greenThreshold: extractionThresholds.green,
+    });
+
+    if (
+      !plan.signature ||
+      plan.signature === lastReconciliationSignatureRef.current
+    ) {
+      return;
+    }
+
+    lastReconciliationSignatureRef.current = plan.signature;
+
+    plan.reviewFormUids.forEach((formUid) => {
+      removeFunnelPrefill?.(formUid, {
+        documentName: "",
+        fileUid: "",
+        force: true,
+      });
+    });
+
+    const autoResult =
+      Object.keys(plan.autoPrefill).length > 0
+        ? applyFunnelPrefill?.(plan.autoPrefill, {
+            documentName: "KI-Auswertung",
+            fileUid: "multi-file-extraction",
+            force: true,
+          })
+        : undefined;
+
+    setQuestionElements((prev: any) =>
+      updateSelectedFilesInElements(prev, questionKey, formKey, (files) =>
+        applyPrefillPlanToFiles(files, plan, autoResult),
+      ),
+    );
+  }, [
+    applyFunnelPrefill,
+    extractionThresholds.green,
+    form.selected.selectedFiles,
+    formKey,
+    questionKey,
+    removeFunnelPrefill,
+    setQuestionElements,
+  ]);
+
   const handleDownload = (url: string, name: string) => {
     const proxyUrl = `/${locale}/api/download/file?url=${encodeURIComponent(url)}&name=${encodeURIComponent(name)}`;
 
@@ -361,27 +435,19 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
       >
         <label
           htmlFor={formKey}
-          className="relative flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500"
+          className="relative flex h-64 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 transition-colors hover:border-synergy-light-blue hover:bg-synergy-light-grey dark:border-gray-600 dark:bg-gray-700 dark:hover:border-synergy-light-blue dark:hover:bg-gray-800"
         >
           <div className="flex flex-col items-center justify-center pt-5 pb-6 px-4 text-center">
-            <svg
-              className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400"
+            <UploadCloud
+              className="mb-4 h-8 w-8 text-synergy-light-blue"
               aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 20 16"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
-              />
-            </svg>
+              strokeWidth={1.8}
+            />
             <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-              <span className="font-semibold">Klicken zum Hochladen</span> oder
-              Drag and Drop
+              <span className="font-semibold text-synergy-dark-grey dark:text-synergy-light-grey">
+                Klicken zum Hochladen
+              </span>{" "}
+              oder Drag and Drop
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-400">
               {extraction.acceptText || form.options.upload.filesAccepted}
@@ -403,22 +469,9 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
               e.preventDefault();
               handleDownloadAll();
             }}
-            className="text-sm text-blue-600 dark:text-blue-500 hover:underline flex items-center gap-1"
+            className="flex items-center gap-1 text-sm text-synergy-light-blue hover:underline focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2"
           >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-              />
-            </svg>
+            <Download className="h-4 w-4" aria-hidden="true" />
             Alle herunterladen
           </button>
         </div>
@@ -440,27 +493,23 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
                       className="h-10 w-10 object-cover rounded"
                     />
                   ) : (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      className="h-10 w-10 flex-none"
-                      id="file"
-                    >
-                      <path
-                        fill="#000000"
-                        d="M20,8.94a1.31,1.31,0,0,0-.06-.27l0-.09a1.07,1.07,0,0,0-.19-.28h0l-6-6h0a1.07,1.07,0,0,0-.28-.19l-.09,0L13.06,2H7A3,3,0,0,0,4,5V19a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V9S20,9,20,8.94ZM14,5.41,16.59,8H14ZM18,19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V5A1,1,0,0,1,7,4h5V9a1,1,0,0,0,1,1h5Z"
-                      />
-                    </svg>
+                    <FileText
+                      className="h-10 w-10 flex-none text-synergy-dark-grey dark:text-synergy-light-grey"
+                      aria-hidden="true"
+                      strokeWidth={1.6}
+                    />
                   )}
                   <p className="text-sm text-gray-500 dark:text-gray-400 truncate max-w-[150px] sm:max-w-xs">
                     {file.name}
                   </p>
                 </div>
-                <p
-                  className={`text-sm mt-2 sm:mt-0 min-h-[1.57rem] ${file.status === "error" ? "text-red-600 dark:text-red-500" : file.status === "queued" || file.status === "extracting" || file.status === "uploading" || file.status === "minting" ? "text-blue-600 dark:text-blue-500" : "text-green-600 dark:text-green-500"}`}
-                >
-                  {fileStatusText(file, form, statusLabels)}
-                </p>
+                {shouldShowInlineFileStatus(file) && (
+                  <p
+                    className={`text-sm mt-2 sm:mt-0 min-h-[1.57rem] ${file.status === "error" ? "text-red-600 dark:text-red-500" : file.status === "uploading" || file.status === "minting" ? "text-synergy-light-blue" : "text-green-600 dark:text-green-500"}`}
+                  >
+                    {fileStatusText(file, form, statusLabels)}
+                  </p>
+                )}
               </div>
               <div className="flex items-center space-x-2">
                 <button
@@ -472,26 +521,13 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
                       file.name,
                     );
                   }}
-                  className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 focus:outline-none"
+                  className="text-gray-500 hover:text-synergy-light-blue focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2 dark:text-gray-400 dark:hover:text-synergy-light-blue"
                   title="Download"
                 >
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                    />
-                  </svg>
+                  <Download className="h-6 w-6" aria-hidden="true" />
                 </button>
                 <button
-                  className="text-gray-500 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-500 focus:outline-none"
+                  className="text-gray-500 hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2 dark:text-gray-400 dark:hover:text-red-500"
                   title="Delete"
                   onClick={() => {
                     setQuestionElements((prev: any) => {
@@ -508,21 +544,7 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
                     });
                   }}
                 >
-                  <svg
-                    className="w-6 h-6"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
+                  <X className="h-6 w-6" aria-hidden="true" />
                 </button>
               </div>
             </div>
@@ -537,7 +559,7 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
                 formKey={formKey}
                 questionKey={questionKey}
                 statusLabels={statusLabels}
-                extractionFields={extraction.fields ?? {}}
+                extractionFields={extractionFields}
                 setQuestionElements={setQuestionElements}
                 applyFunnelPrefill={applyFunnelPrefill}
                 removeFunnelPrefill={removeFunnelPrefill}
@@ -554,13 +576,536 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
       </div>
 
       <p
-        className={`text-sm mt-2 min-h-[1.57rem] ${form.message.type === "error" ? "text-red-600 dark:text-red-500" : form.message.type === "warning" ? "text-orange-600 dark:text-orange-500" : form.message.type === "loading" ? "text-blue-600 dark:text-blue-500" : "text-green-600 dark:text-green-500"}`}
+        className={`mt-2 min-h-[1.57rem] text-sm ${form.message.type === "error" ? "text-red-600 dark:text-red-500" : form.message.type === "warning" ? "text-orange-600 dark:text-orange-500" : form.message.type === "loading" ? "text-synergy-light-blue" : "text-green-600 dark:text-green-500"}`}
       >
         {form.message.text}
       </p>
     </>
   );
 };
+
+function collectAiExtractionFields(
+  questionElements: any,
+  legacyFields: Record<string, ExtractionFieldConfig>,
+): Record<string, ExtractionFieldConfig> {
+  const fields: Record<string, ExtractionFieldConfig> = { ...legacyFields };
+
+  Object.values(questionElements ?? {}).forEach((question: any) => {
+    Object.values(question?.form ?? {}).forEach((form: any) => {
+      const aiExtraction = form?.aiExtraction;
+      if (
+        !isPlainRecord(aiExtraction) ||
+        aiExtraction.enabled === false ||
+        aiExtraction.enabled === "false"
+      ) {
+        return;
+      }
+
+      if (isPlainRecord(aiExtraction.fields)) {
+        Object.entries(aiExtraction.fields).forEach(([fieldKey, field]) => {
+          if (!isPlainRecord(field)) return;
+          fields[fieldKey] = normalizeAiExtractionField(field, fieldKey, form);
+        });
+        return;
+      }
+
+      const fieldKey =
+        typeof aiExtraction.fieldKey === "string" &&
+        aiExtraction.fieldKey.trim()
+          ? aiExtraction.fieldKey
+          : String(form.uid ?? form.title ?? "field");
+      fields[fieldKey] = normalizeAiExtractionField(
+        aiExtraction,
+        fieldKey,
+        form,
+      );
+    });
+  });
+
+  return fields;
+}
+
+function normalizeAiExtractionField(
+  field: Record<string, any>,
+  fieldKey: string,
+  form: any,
+): ExtractionFieldConfig {
+  const type = field.type ?? inferExtractionFieldType(form);
+
+  return {
+    label: field.label ?? form.title ?? form.options?.label ?? fieldKey,
+    type,
+    unit: field.unit ?? form.options?.unit?.value,
+    aliases: Array.isArray(field.aliases) ? field.aliases : undefined,
+    instructions: field.instructions ?? field.extractionInstructions,
+    target: {
+      formUid: field.target?.formUid ?? form.uid,
+    },
+    options:
+      type === "single-option" || type === "multi-option"
+        ? normalizeAiExtractionOptions(field.options, form)
+        : undefined,
+  };
+}
+
+function inferExtractionFieldType(form: any): string {
+  if (form?.type === "range") return "number";
+  if (form?.type === "radio") return "single-option";
+  if (form?.type === "checkbox" || form?.type === "select") {
+    return form.multiple === false ? "single-option" : "multi-option";
+  }
+  return "text";
+}
+
+function normalizeAiExtractionOptions(
+  options: unknown,
+  form: any,
+): ExtractionFieldConfig["options"] {
+  if (isPlainRecord(options)) {
+    return Object.fromEntries(
+      Object.entries(options).map(([optionKey, option]) => {
+        const optionRecord = isPlainRecord(option) ? option : {};
+        return [
+          optionKey,
+          {
+            targetOptionUid: optionRecord.targetOptionUid ?? optionKey,
+            aliases: Array.isArray(optionRecord.aliases)
+              ? optionRecord.aliases
+              : undefined,
+          },
+        ];
+      }),
+    );
+  }
+
+  if (!isPlainRecord(form?.options)) return undefined;
+
+  return Object.fromEntries(
+    Object.entries(form.options)
+      .filter(([, option]) => isPlainRecord(option) && "title" in option)
+      .map(([optionKey, option]) => [
+        optionKey,
+        {
+          targetOptionUid:
+            (option as Record<string, any>).uid ?? String(optionKey),
+          aliases: [(option as Record<string, any>).title ?? String(optionKey)],
+        },
+      ]),
+  );
+}
+
+function isPlainRecord(value: unknown): value is Record<string, any> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+type ExtractionCandidate = {
+  fileIdentity: string;
+  fileUid: string;
+  fileName: string;
+  formUid: string;
+  fieldKey?: string;
+  label?: string;
+  value: unknown;
+  valueKey: string;
+  confidence: number;
+  entry: FunnelPrefillEntry;
+  removed: boolean;
+};
+
+type MultiFilePrefillPlan = {
+  signature: string;
+  autoPrefill: Record<string, FunnelPrefillEntry>;
+  fileResults: Record<string, FunnelPrefillResult>;
+  reviewFormUids: string[];
+};
+
+function buildMultiFilePrefillPlan(opts: {
+  files: SelectedFile[];
+  greenThreshold: number;
+}): MultiFilePrefillPlan {
+  const candidates = collectExtractionCandidates(opts.files);
+  const manualChoices = collectManualPrefillChoices(opts.files);
+  const signature = buildMultiFilePrefillSignature(candidates, manualChoices);
+  const fileResults = Object.fromEntries(
+    opts.files
+      .filter((file) => isExtractionOutput(file.extractionResult))
+      .map((file) => [selectedFileIdentity(file), emptyPrefillResult()]),
+  );
+  const autoPrefill: Record<string, FunnelPrefillEntry> = {};
+  const reviewFormUids = new Set<string>();
+  const byFormUid = groupBy(candidates, (candidate) => candidate.formUid);
+
+  Object.entries(byFormUid).forEach(([formUid, formCandidates]) => {
+    const activeCandidates = formCandidates.filter(
+      (candidate) => !candidate.removed,
+    );
+    if (activeCandidates.length === 0) return;
+
+    const byValue = groupBy(
+      activeCandidates,
+      (candidate) => candidate.valueKey,
+    );
+    const hasConflictingValues = Object.keys(byValue).length > 1;
+
+    if (hasConflictingValues) {
+      const selectedCandidate = selectConflictCandidate(
+        activeCandidates,
+        manualChoices[formUid],
+      );
+
+      if (!selectedCandidate) {
+        reviewFormUids.add(formUid);
+        activeCandidates.forEach((candidate) =>
+          markPrefillSkipped(fileResults, candidate, "conflict"),
+        );
+        return;
+      }
+
+      autoPrefill[formUid] = {
+        ...selectedCandidate.entry,
+        confidence: selectedCandidate.confidence,
+        documentName: selectedCandidate.fileName,
+        fileUid: selectedCandidate.fileUid,
+      };
+      activeCandidates.forEach((candidate) =>
+        candidate.valueKey === selectedCandidate.valueKey
+          ? markPrefillApplied(fileResults, candidate)
+          : markPrefillSkipped(fileResults, candidate, "conflict"),
+      );
+      return;
+    }
+
+    const hasHighConfidence = activeCandidates.some(
+      (candidate) => candidate.confidence >= opts.greenThreshold,
+    );
+    const manualCandidate = selectManualCandidate(
+      activeCandidates,
+      manualChoices[formUid],
+    );
+
+    if (!hasHighConfidence && !manualCandidate) {
+      activeCandidates.forEach((candidate) =>
+        markPrefillSkipped(fileResults, candidate, "low_confidence"),
+      );
+      return;
+    }
+
+    const bestCandidate =
+      manualCandidate ?? highestConfidenceCandidate(activeCandidates);
+    autoPrefill[formUid] = {
+      ...bestCandidate.entry,
+      confidence: bestCandidate.confidence,
+      documentName: bestCandidate.fileName,
+      fileUid: bestCandidate.fileUid,
+    };
+    activeCandidates.forEach((candidate) =>
+      markPrefillApplied(fileResults, candidate),
+    );
+  });
+
+  return {
+    signature,
+    autoPrefill,
+    fileResults,
+    reviewFormUids: Array.from(reviewFormUids),
+  };
+}
+
+function applyPrefillPlanToFiles(
+  files: SelectedFile[],
+  plan: MultiFilePrefillPlan,
+  autoResult?: FunnelPrefillResult | void,
+): SelectedFile[] {
+  const autoSkippedByFormUid = new Map(
+    (autoResult?.skipped ?? []).map((entry) => [entry.formUid, entry]),
+  );
+
+  return files.map((file) => {
+    const identity = selectedFileIdentity(file);
+    const result = plan.fileResults[identity];
+    if (!result) return file;
+
+    const adjusted = {
+      applied: [...result.applied],
+      skipped: result.skipped.map((entry) => ({ ...entry })),
+    };
+
+    adjusted.applied.forEach((formUid) => {
+      const skipped = autoSkippedByFormUid.get(formUid);
+      if (!skipped) return;
+      adjusted.skipped = [
+        ...adjusted.skipped.filter((entry) => entry.formUid !== formUid),
+        skipped,
+      ];
+      adjusted.applied = adjusted.applied.filter((item) => item !== formUid);
+    });
+
+    return {
+      ...file,
+      prefillResult: adjusted,
+    };
+  });
+}
+
+function markManualPrefillChoice(
+  files: SelectedFile[],
+  opts: {
+    formUid: string;
+    valueKey: string;
+    fallbackResult?: FunnelPrefillResult | void;
+  },
+): SelectedFile[] {
+  const applied = opts.fallbackResult?.applied.includes(opts.formUid) === true;
+  const skipped = opts.fallbackResult?.skipped.find(
+    (entry) => entry.formUid === opts.formUid,
+  );
+
+  return files.map((file) => {
+    const output = isExtractionOutput(file.extractionResult)
+      ? file.extractionResult
+      : null;
+    const entry = output?.funnelPrefill?.[opts.formUid];
+    if (!entry) return file;
+
+    const result = isPrefillResult(file.prefillResult)
+      ? {
+          applied: [...file.prefillResult.applied],
+          skipped: file.prefillResult.skipped.map((item) => ({ ...item })),
+        }
+      : emptyPrefillResult();
+    const sameValue = normalizePrefillValue(entry.value) === opts.valueKey;
+
+    if (sameValue && applied) {
+      result.applied = Array.from(new Set([...result.applied, opts.formUid]));
+      result.skipped = result.skipped.filter(
+        (item) => item.formUid !== opts.formUid,
+      );
+    } else {
+      result.applied = result.applied.filter(
+        (formUid) => formUid !== opts.formUid,
+      );
+      result.skipped = [
+        ...result.skipped.filter((item) => item.formUid !== opts.formUid),
+        skipped ?? {
+          formUid: opts.formUid,
+          label: entry.label,
+          reason: sameValue ? "already_filled" : "conflict",
+          value: entry.value,
+        },
+      ];
+    }
+
+    return {
+      ...file,
+      removedPrefill: (file.removedPrefill ?? []).filter(
+        (formUid) => formUid !== opts.formUid,
+      ),
+      manualPrefillChoices: {
+        ...(file.manualPrefillChoices ?? {}),
+        [opts.formUid]: opts.valueKey,
+      },
+      prefillResult: result,
+    };
+  });
+}
+
+function collectManualPrefillChoices(
+  files: SelectedFile[],
+): Record<string, string> {
+  const choices: Record<string, string> = {};
+
+  files.forEach((file) => {
+    Object.entries(file.manualPrefillChoices ?? {}).forEach(
+      ([formUid, valueKey]) => {
+        choices[formUid] = valueKey;
+      },
+    );
+  });
+
+  return choices;
+}
+
+function selectConflictCandidate(
+  candidates: ExtractionCandidate[],
+  manualValueKey?: string,
+): ExtractionCandidate | null {
+  const manualCandidate = selectManualCandidate(candidates, manualValueKey);
+  if (manualCandidate) return manualCandidate;
+
+  const bestByValue = Object.values(
+    groupBy(candidates, (candidate) => candidate.valueKey),
+  ).map(highestConfidenceCandidate);
+  const sorted = bestByValue.sort((a, b) => b.confidence - a.confidence);
+  const best = sorted[0];
+  const secondBest = sorted[1];
+
+  if (!best) return null;
+  if (!secondBest || best.confidence > secondBest.confidence) {
+    return best;
+  }
+
+  return null;
+}
+
+function selectManualCandidate(
+  candidates: ExtractionCandidate[],
+  manualValueKey?: string,
+): ExtractionCandidate | null {
+  if (!manualValueKey) return null;
+  const manualCandidates = candidates.filter(
+    (candidate) => candidate.valueKey === manualValueKey,
+  );
+
+  return manualCandidates.length > 0
+    ? highestConfidenceCandidate(manualCandidates)
+    : null;
+}
+
+function highestConfidenceCandidate(
+  candidates: ExtractionCandidate[],
+): ExtractionCandidate {
+  return [...candidates].sort((a, b) => b.confidence - a.confidence)[0];
+}
+
+function collectExtractionCandidates(
+  files: SelectedFile[],
+): ExtractionCandidate[] {
+  return files.flatMap((file) => {
+    const output = isExtractionOutput(file.extractionResult)
+      ? file.extractionResult
+      : null;
+    if (!output?.funnelPrefill) return [];
+
+    return Object.entries(output.funnelPrefill).map(([formUid, entry]) => ({
+      fileIdentity: selectedFileIdentity(file),
+      fileUid: file.uid,
+      fileName: file.name,
+      formUid,
+      fieldKey: entry.fieldKey,
+      label: entry.label,
+      value: entry.value,
+      valueKey: normalizePrefillValue(entry.value),
+      confidence: Number(entry.confidence ?? 0),
+      entry: {
+        ...entry,
+        documentName: entry.documentName ?? file.name,
+        fileUid: file.uid,
+      },
+      removed: file.removedPrefill?.includes(formUid) === true,
+    }));
+  });
+}
+
+function buildMultiFilePrefillSignature(
+  candidates: ExtractionCandidate[],
+  manualChoices: Record<string, string>,
+): string {
+  if (candidates.length === 0) return "";
+
+  const candidateSignature = candidates
+    .map((candidate) =>
+      [
+        candidate.fileIdentity,
+        candidate.formUid,
+        candidate.valueKey,
+        candidate.confidence,
+        candidate.removed ? "removed" : "active",
+      ].join(":"),
+    )
+    .sort()
+    .join("|");
+  const manualChoiceSignature = Object.entries(manualChoices)
+    .map(([formUid, valueKey]) => `${formUid}:${valueKey}`)
+    .sort()
+    .join("|");
+
+  return `${candidateSignature}::choices:${manualChoiceSignature}`;
+}
+
+function markPrefillApplied(
+  fileResults: Record<string, FunnelPrefillResult>,
+  candidate: ExtractionCandidate,
+) {
+  const result =
+    fileResults[candidate.fileIdentity] ??
+    (fileResults[candidate.fileIdentity] = emptyPrefillResult());
+  result.applied = Array.from(new Set([...result.applied, candidate.formUid]));
+  result.skipped = result.skipped.filter(
+    (entry) => entry.formUid !== candidate.formUid,
+  );
+}
+
+function markPrefillSkipped(
+  fileResults: Record<string, FunnelPrefillResult>,
+  candidate: ExtractionCandidate,
+  reason: string,
+) {
+  const result =
+    fileResults[candidate.fileIdentity] ??
+    (fileResults[candidate.fileIdentity] = emptyPrefillResult());
+  result.applied = result.applied.filter(
+    (formUid) => formUid !== candidate.formUid,
+  );
+  result.skipped = [
+    ...result.skipped.filter((entry) => entry.formUid !== candidate.formUid),
+    {
+      formUid: candidate.formUid,
+      label: candidate.label,
+      reason,
+      value: candidate.value,
+    },
+  ];
+}
+
+function emptyPrefillResult(): FunnelPrefillResult {
+  return { applied: [], skipped: [] };
+}
+
+function groupBy<T>(
+  values: T[],
+  getKey: (value: T) => string,
+): Record<string, T[]> {
+  return values.reduce<Record<string, T[]>>((acc, value) => {
+    const key = getKey(value);
+    acc[key] = [...(acc[key] ?? []), value];
+    return acc;
+  }, {});
+}
+
+function selectedFileIdentity(file: SelectedFile): string {
+  return file.clientId ?? file.uid;
+}
+
+function omitRecordKey<T>(
+  record: Record<string, T> | undefined,
+  keyToOmit: string,
+): Record<string, T> | undefined {
+  if (!record) return undefined;
+  const next = Object.fromEntries(
+    Object.entries(record).filter(([key]) => key !== keyToOmit),
+  ) as Record<string, T>;
+  return Object.keys(next).length > 0 ? next : undefined;
+}
+
+function normalizePrefillValue(value: unknown): string {
+  if (Array.isArray(value)) {
+    return `array:${value.map(normalizePrefillValue).sort().join("|")}`;
+  }
+
+  if (typeof value === "number") {
+    return `number:${Math.round(value * 10000) / 10000}`;
+  }
+
+  if (typeof value === "string") {
+    return `string:${value.trim().toLowerCase().replace(/\s+/g, " ")}`;
+  }
+
+  if (value == null) {
+    return "null";
+  }
+
+  return `json:${JSON.stringify(value)}`;
+}
 
 function updateSelectedFilesInElements(
   elements: any,
@@ -629,6 +1174,10 @@ function buildFileFingerprint(file: File): string {
   return `${file.name}:${file.size}:${file.lastModified}:${file.type}`;
 }
 
+function shouldShowInlineFileStatus(file: SelectedFile): boolean {
+  return !["queued", "extracting", "extracted"].includes(file.status);
+}
+
 type ExtractionRowStatus = "partial" | "applied" | "skipped" | "removed";
 
 type ExtractionDisplayRow = {
@@ -636,12 +1185,15 @@ type ExtractionDisplayRow = {
   formUid?: string;
   label: string;
   displayValue: string;
+  valueKey: string;
   confidence?: number;
   sourceQuote?: string | null;
   sourcePage?: number | null;
   status: ExtractionRowStatus;
   skipReason?: string;
   canRemove: boolean;
+  canApply: boolean;
+  prefillEntry?: FunnelPrefillEntry;
 };
 
 function buildExtractionRows(opts: {
@@ -687,6 +1239,7 @@ function buildExtractionRows(opts: {
         formUid,
         label: field.label ?? funnelValue?.label ?? fieldKey,
         displayValue: formatExtractionValue(extracted.value, field),
+        valueKey: normalizePrefillValue(funnelValue?.value ?? extracted.value),
         confidence:
           output?.confidences?.[fieldKey] ??
           funnelValue?.confidence ??
@@ -696,6 +1249,13 @@ function buildExtractionRows(opts: {
         status,
         skipReason: skipped?.reason,
         canRemove: status === "applied" && Boolean(formUid),
+        canApply:
+          Boolean(formUid && funnelValue) &&
+          (status === "removed" ||
+            (status === "skipped" &&
+              (skipped?.reason === "low_confidence" ||
+                skipped?.reason === "conflict"))),
+        prefillEntry: funnelValue,
       };
     });
 }
@@ -731,12 +1291,14 @@ function formatExtractionValue(
 }
 
 function rowStatusLabel(row: ExtractionDisplayRow): string {
-  if (row.status === "applied") return "Uebernommen";
+  if (row.status === "applied") return "Übernommen";
   if (row.status === "removed") return "Entfernt";
   if (row.status === "skipped") {
-    if (row.skipReason === "low_confidence") return "Bitte pruefen";
+    if (row.skipReason === "low_confidence" || row.skipReason === "conflict") {
+      return "Prüfen";
+    }
     if (row.skipReason === "already_filled") return "Vorhanden";
-    return "Nicht uebernommen";
+    return "Nicht übernommen";
   }
   return "Gefunden";
 }
@@ -751,7 +1313,11 @@ function rowStatusClassName(status: ExtractionRowStatus): string {
   if (status === "skipped") {
     return "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200";
   }
-  return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200";
+  return "bg-synergy-light-blue/15 text-synergy-dark-grey dark:bg-synergy-light-blue/20 dark:text-synergy-light-grey";
+}
+
+function rowActionLabel(row: ExtractionDisplayRow): string {
+  return row.status === "removed" ? "Hinzufügen" : "Übernehmen";
 }
 
 function isExtractionOutput(value: unknown): value is ExtractionOutput {
@@ -860,7 +1426,7 @@ function RotatingExtractionText({ text }: { text: string }) {
     <div
       aria-atomic="true"
       aria-live="polite"
-      className="mt-1 h-4 overflow-hidden text-[11px] text-blue-700 dark:text-blue-300"
+      className="mt-1 h-4 overflow-hidden text-[11px] text-synergy-dark-grey/80 dark:text-synergy-light-grey"
     >
       <span key={text} className="extraction-rotating-text block truncate">
         {text}
@@ -877,15 +1443,15 @@ function ExtractionTimer({
   completed: boolean;
 }) {
   return (
-    <div className="shrink-0 rounded-md border border-blue-200 bg-white/75 px-2 py-1 text-right shadow-sm dark:border-blue-800 dark:bg-gray-900/70">
-      <div className="flex items-baseline justify-end gap-0.5 font-mono text-sm font-semibold text-blue-950 dark:text-blue-100">
+    <div className="shrink-0 rounded-md border border-synergy-light-blue/30 bg-white/80 px-2 py-1 text-right shadow-sm dark:border-synergy-light-blue/40 dark:bg-gray-900/70">
+      <div className="flex items-baseline justify-end gap-0.5 font-mono text-sm font-semibold text-synergy-dark-grey dark:text-synergy-light-grey">
         <AnimatedElapsedSeconds seconds={seconds} />
-        <span className="text-[10px] font-sans font-medium text-blue-700 dark:text-blue-300">
+        <span className="text-[10px] font-sans font-medium text-synergy-light-blue">
           s
         </span>
       </div>
-      <div className="text-[10px] text-blue-600 dark:text-blue-300">
-        {completed ? "Dauer" : "laeuft"}
+      <div className="text-[10px] text-synergy-light-blue">
+        {completed ? "Dauer" : ""}
       </div>
     </div>
   );
@@ -1139,11 +1705,6 @@ function ExtractionRunSubscription(props: {
       (status === "COMPLETED" || status === "SUCCESS")
     ) {
       appliedRef.current = true;
-      const prefillResult = applyFunnelPrefill?.(output.funnelPrefill ?? {}, {
-        documentName: file.name,
-        fileUid: file.uid,
-      });
-
       setQuestionElements((prev: any) => {
         return updateSelectedFilesInElements(
           prev,
@@ -1163,7 +1724,6 @@ function ExtractionRunSubscription(props: {
                   selectedFile.extractionCompletedInSeconds ??
                   getSelectedFileElapsedSeconds(selectedFile),
                 extractionResult: output,
-                prefillResult,
               };
             }),
         );
@@ -1200,7 +1760,6 @@ function ExtractionRunSubscription(props: {
       });
     }
   }, [
-    applyFunnelPrefill,
     file.clientId,
     file.name,
     file.uid,
@@ -1219,12 +1778,21 @@ function ExtractionRunSubscription(props: {
           formKey,
           (selectedFiles) =>
             selectedFiles.map((selectedFile) => {
+              const manualPrefillChoices = omitRecordKey(
+                selectedFile.manualPrefillChoices,
+                formUid,
+              );
+
               if (!isSameSelectedFile(selectedFile, file)) {
-                return selectedFile;
+                return {
+                  ...selectedFile,
+                  manualPrefillChoices,
+                };
               }
 
               return {
                 ...selectedFile,
+                manualPrefillChoices,
                 removedPrefill: Array.from(
                   new Set([...(selectedFile.removedPrefill ?? []), formUid]),
                 ),
@@ -1234,6 +1802,27 @@ function ExtractionRunSubscription(props: {
       });
     },
     [file, formKey, questionKey, setQuestionElements],
+  );
+
+  const markPrefillChoiceAccepted = useCallback(
+    (row: ExtractionDisplayRow, prefillResult?: FunnelPrefillResult | void) => {
+      if (!row.formUid) return;
+
+      setQuestionElements((prev: any) => {
+        return updateSelectedFilesInElements(
+          prev,
+          questionKey,
+          formKey,
+          (selectedFiles) =>
+            markManualPrefillChoice(selectedFiles, {
+              formUid: row.formUid!,
+              valueKey: row.valueKey,
+              fallbackResult: prefillResult,
+            }),
+        );
+      });
+    },
+    [formKey, questionKey, setQuestionElements],
   );
 
   const extractedRows = buildExtractionRows({
@@ -1254,36 +1843,38 @@ function ExtractionRunSubscription(props: {
         "KI-Auswertung laeuft...");
 
   return (
-    <div className="mt-1 rounded border border-blue-100 bg-blue-50 p-2 text-xs text-blue-800 dark:border-blue-900 dark:bg-blue-950 dark:text-blue-200">
+    <div className="mt-1 rounded border border-synergy-light-blue/30 bg-synergy-light-blue/10 p-2 text-xs text-synergy-dark-grey dark:border-synergy-light-blue/40 dark:bg-synergy-light-blue/10 dark:text-synergy-light-grey">
       <ExtractionAnimationStyles />
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2">
             <span
-              className={`inline-block h-2 w-2 rounded-full bg-blue-500 ${extractionIsFinished ? "" : "animate-pulse"}`}
+              className={`inline-block h-2 w-2 rounded-full bg-synergy-light-blue ${extractionIsFinished ? "" : "animate-pulse"}`}
             />
             {extractionProgressLabel}
           </div>
           <RotatingExtractionText text={extractionStatusMessage} />
         </div>
-        <ExtractionTimer
-          seconds={elapsedSeconds}
-          completed={extractionIsFinished}
-        />
+        {extractionIsFinished && (
+          <ExtractionTimer
+            seconds={elapsedSeconds}
+            completed={extractionIsFinished}
+          />
+        )}
       </div>
       {extractedRows.length > 0 && (
         <ul className="mt-2 grid gap-2">
           {extractedRows.map((row) => (
             <li
               key={`${row.fieldKey}-${row.formUid ?? row.label}`}
-              className="extraction-field-reveal rounded border border-blue-100 bg-white/70 p-2 dark:border-blue-900 dark:bg-gray-900/50"
+              className="extraction-field-reveal rounded border border-synergy-light-blue/20 bg-white/80 p-2 dark:border-synergy-light-blue/30 dark:bg-gray-900/50"
             >
               <div className="flex flex-wrap items-start justify-between gap-2">
                 <div className="min-w-0">
-                  <div className="font-medium text-blue-950 dark:text-blue-100">
+                  <div className="font-medium text-synergy-dark-grey dark:text-synergy-light-grey">
                     {row.label}
                   </div>
-                  <div className="break-words font-mono text-[11px] text-blue-900 dark:text-blue-200">
+                  <div className="break-words font-mono text-[11px] text-synergy-dark-grey/80 dark:text-synergy-light-grey">
                     {row.displayValue}
                   </div>
                 </div>
@@ -1310,9 +1901,39 @@ function ExtractionRunSubscription(props: {
                       Entfernen
                     </button>
                   )}
+                  {row.canApply && row.formUid && row.prefillEntry && (
+                    <button
+                      className="rounded border border-synergy-light-blue/40 px-1.5 py-0.5 text-[11px] font-medium text-synergy-dark-grey hover:bg-synergy-light-blue/10 dark:border-synergy-light-blue/50 dark:text-synergy-light-grey dark:hover:bg-synergy-light-blue/10"
+                      onClick={(event) => {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        if (!row.formUid || !row.prefillEntry) return;
+                        const prefillEntry = row.prefillEntry;
+                        const prefillResult = applyFunnelPrefill?.(
+                          {
+                            [row.formUid]: {
+                              ...prefillEntry,
+                              value: prefillEntry.value,
+                              documentName: file.name,
+                              fileUid: file.uid,
+                            },
+                          },
+                          {
+                            documentName: file.name,
+                            fileUid: file.uid,
+                            force: true,
+                            userReviewed: true,
+                          },
+                        );
+                        markPrefillChoiceAccepted(row, prefillResult);
+                      }}
+                    >
+                      {rowActionLabel(row)}
+                    </button>
+                  )}
                 </div>
               </div>
-              <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-blue-700 dark:text-blue-300">
+              <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-synergy-dark-grey/70 dark:text-synergy-light-grey/90">
                 {row.confidence != null && (
                   <span>Konfidenz {Math.round(row.confidence * 100)}%</span>
                 )}
@@ -1329,7 +1950,7 @@ function ExtractionRunSubscription(props: {
       )}
       {isPrefillResult(file.prefillResult) &&
         file.prefillResult.skipped.length > 0 && (
-          <p className="mt-1 text-orange-700 dark:text-orange-300">
+          <p className="mt-1 text-synergy-dark-grey dark:text-synergy-light-grey">
             {file.prefillResult.skipped.length} Wert(e) wurden nicht automatisch
             uebernommen. Bitte pruefen Sie die markierten Eintraege.
           </p>
@@ -1343,7 +1964,7 @@ function UploadProgress({ percent }: { percent: number }) {
     <div className="mt-1">
       <div className="h-1.5 w-full overflow-hidden rounded bg-gray-200 dark:bg-gray-700">
         <div
-          className="h-full bg-blue-500 transition-all"
+          className="h-full bg-synergy-light-blue transition-all"
           style={{ width: `${Math.max(0, Math.min(100, percent))}%` }}
         />
       </div>
@@ -1403,6 +2024,7 @@ function buildUploadUrl(uploadUrl: string, path: string): string {
 function uploadWithProgress(opts: {
   url: string;
   file: File;
+  contentType: string;
   token: string;
   onProgress: (percent: number) => void;
 }): Promise<void> {
@@ -1410,7 +2032,7 @@ function uploadWithProgress(opts: {
     const xhr = new XMLHttpRequest();
     xhr.open("PUT", opts.url);
     xhr.setRequestHeader("X-Upload-Token", opts.token);
-    xhr.setRequestHeader("Content-Type", opts.file.type);
+    xhr.setRequestHeader("Content-Type", opts.contentType);
 
     xhr.upload.addEventListener("progress", (event) => {
       if (event.lengthComputable) {

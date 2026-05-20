@@ -1,6 +1,7 @@
 import { useNumberFormat, format } from "@react-input/number-format";
 import { form } from "framer-motion/client";
 import { formatLocaleNumberToUniNumber } from "@com.synergy/frontend-ui/LocaleNumber";
+import { Minus, Plus } from "lucide-react";
 
 /* eslint-disable-next-line */
 export interface RangeProps {
@@ -37,9 +38,29 @@ export const Range = (props: RangeProps) => {
 
   const min = Math.max(
     0.01,
-    questionElements[questionKey].form[formKey].options.range.min
+    questionElements[questionKey].form[formKey].options.range.min,
   );
   const max = questionElements[questionKey].form[formKey].options.range.max;
+  const sliderMin = Number(
+    questionElements[questionKey].form[formKey].options.range.min ?? 0,
+  );
+  const sliderMax = Number(
+    questionElements[questionKey].form[formKey].options.range.max ?? 100,
+  );
+  const sliderValue = Number(
+    questionElements[questionKey].form[formKey].selected.rangeValue ??
+      sliderMin,
+  );
+  const sliderThumbPercent =
+    sliderMax > sliderMin
+      ? Math.min(
+          100,
+          Math.max(
+            0,
+            ((sliderValue - sliderMin) / (sliderMax - sliderMin)) * 100,
+          ),
+        )
+      : 0;
 
   const convertToExponential = (value: number) => {
     if (!isExponentialScale) return value;
@@ -56,13 +77,14 @@ export const Range = (props: RangeProps) => {
   };
   return (
     <>
+      <RangeInputStyles />
       <div className="relative mb-6">
         <div className="relative flex items-center mx-auto max-w-[11rem]">
           <button
             type="button"
             id="decrement-button"
             data-input-counter-decrement="bedrooms-input"
-            className="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
+            className="h-11 rounded-s-lg border border-gray-300 bg-gray-100 p-3 text-synergy-dark-grey hover:bg-synergy-light-grey focus:outline-none focus:ring-2 focus:ring-synergy-light-blue dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-synergy-light-blue"
             onClick={() => {
               /** Runs twice in dev - not to panic - only evokes change once in prod */
               setQuestionElements((prev: any) => {
@@ -76,12 +98,12 @@ export const Range = (props: RangeProps) => {
                     formatLocaleNumberToUniNumber(
                       questionElements[questionKey].form[formKey].selected
                         .selectedValue,
-                      locale
+                      locale,
                     ) -
                       questionElements[questionKey].form[formKey].options
-                        .buttons.decrementBy
+                        .buttons.decrementBy,
                   ),
-                  options
+                  options,
                 );
                 updatedElements[questionKey].form[formKey].selected.rangeValue =
                   convertToRange(
@@ -90,16 +112,16 @@ export const Range = (props: RangeProps) => {
                       Math.max(
                         0.01,
                         questionElements[questionKey].form[formKey].options
-                          .range.min
+                          .range.min,
                       ),
                       formatLocaleNumberToUniNumber(
                         questionElements[questionKey].form[formKey].selected
                           .selectedValue,
-                        locale
+                        locale,
                       ) -
                         questionElements[questionKey].form[formKey].options
-                          .buttons.decrementBy
-                    )
+                          .buttons.decrementBy,
+                    ),
                   );
                 return updatedElements;
               });
@@ -111,21 +133,7 @@ export const Range = (props: RangeProps) => {
               debouncedCalculateForms(questionKey, formKey);
             }}
           >
-            <svg
-              className="w-3 h-3 text-gray-900 dark:text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 18 2"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 1h16"
-              />
-            </svg>
+            <Minus className="h-3 w-3" aria-hidden="true" strokeWidth={3} />
           </button>
           <input
             // type="text"
@@ -139,7 +147,7 @@ export const Range = (props: RangeProps) => {
             // data-input-counter-min="1"
             // data-input-counter-max="5"
             // aria-describedby="helper-text-explanation"
-            className="bg-gray-50 border-x-0 border-y !border-gray-300 h-11 font-medium text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pb-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="funnel-range-value-input block h-11 w-full border-x-0 border-y border-gray-300 bg-gray-50 pb-6 text-center text-sm font-medium text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
             // placeholder="123,456.12"
             value={
               questionElements[questionKey].form[formKey].selected.selectedValue
@@ -162,10 +170,12 @@ export const Range = (props: RangeProps) => {
                 // Convert the value to the range slider value
                 updatedElements[questionKey].form[formKey].selected.rangeValue =
                   isFinite(
-                    convertToRange(formatLocaleNumberToUniNumber(value, locale))
+                    convertToRange(
+                      formatLocaleNumberToUniNumber(value, locale),
+                    ),
                   )
                     ? convertToRange(
-                        formatLocaleNumberToUniNumber(value, locale)
+                        formatLocaleNumberToUniNumber(value, locale),
                       )
                     : 0.01;
                 return updatedElements;
@@ -206,7 +216,7 @@ export const Range = (props: RangeProps) => {
             type="button"
             id="increment-button"
             data-input-counter-increment="bedrooms-input"
-            className="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
+            className="h-11 rounded-e-lg border border-gray-300 bg-gray-100 p-3 text-synergy-dark-grey hover:bg-synergy-light-grey focus:outline-none focus:ring-2 focus:ring-synergy-light-blue dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-synergy-light-blue"
             onClick={() => {
               /** Runs twice in dev - not to panic - only evokes change once in prod */
               setQuestionElements((prev: any) => {
@@ -217,11 +227,11 @@ export const Range = (props: RangeProps) => {
                   formatLocaleNumberToUniNumber(
                     questionElements[questionKey].form[formKey].selected
                       .selectedValue,
-                    locale
+                    locale,
                   ) +
                     questionElements[questionKey].form[formKey].options.buttons
                       .incrementBy,
-                  options
+                  options,
                 );
 
                 updatedElements[questionKey].form[formKey].selected.rangeValue =
@@ -229,10 +239,10 @@ export const Range = (props: RangeProps) => {
                     formatLocaleNumberToUniNumber(
                       questionElements[questionKey].form[formKey].selected
                         .selectedValue,
-                      locale
+                      locale,
                     ) +
                       questionElements[questionKey].form[formKey].options
-                        .buttons.incrementBy
+                        .buttons.incrementBy,
                   );
                 return updatedElements;
               });
@@ -244,21 +254,7 @@ export const Range = (props: RangeProps) => {
               debouncedCalculateForms(questionKey, formKey);
             }}
           >
-            <svg
-              className="w-3 h-3 text-gray-900 dark:text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 18 18"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M9 1v16M1 9h16"
-              />
-            </svg>
+            <Plus className="h-3 w-3" aria-hidden="true" strokeWidth={3} />
           </button>
         </div>
         {/* <div
@@ -282,42 +278,52 @@ export const Range = (props: RangeProps) => {
         <label htmlFor="labels-range-input" className="sr-only">
           Labels range
         </label>
-        <input
-          id="labels-range-input"
-          type="range"
-          value={
-            questionElements[questionKey].form[formKey].selected.rangeValue
-          }
-          min={questionElements[questionKey].form[formKey].options.range.min}
-          max={questionElements[questionKey].form[formKey].options.range.max}
-          step={questionElements[questionKey].form[formKey].options.range.step}
-          className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-          onChange={(e) => {
-            const { value } = e.target;
-            setQuestionElements((prev: any) => {
-              const updatedElements = { ...prev };
-              const exponentialValue = convertToExponential(Number(value));
-              updatedElements[questionKey].form[
-                formKey
-              ].selected.selectedValue = format(exponentialValue, options);
+        <div className="relative flex h-4 items-center">
+          <input
+            id="labels-range-input"
+            type="range"
+            value={
+              questionElements[questionKey].form[formKey].selected.rangeValue
+            }
+            min={questionElements[questionKey].form[formKey].options.range.min}
+            max={questionElements[questionKey].form[formKey].options.range.max}
+            step={
+              questionElements[questionKey].form[formKey].options.range.step
+            }
+            className="funnel-range-input h-2 w-full cursor-pointer rounded-lg"
+            style={{ accentColor: "var(--synergy-light-blue, #0CC0DF)" }}
+            onChange={(e) => {
+              const { value } = e.target;
+              setQuestionElements((prev: any) => {
+                const updatedElements = { ...prev };
+                const exponentialValue = convertToExponential(Number(value));
+                updatedElements[questionKey].form[
+                  formKey
+                ].selected.selectedValue = format(exponentialValue, options);
 
-              // Convert the exponentialValue back to the range slider value
-              const reverseScale = convertToRange(exponentialValue);
-              updatedElements[questionKey].form[formKey].selected.rangeValue =
-                reverseScale;
-              return updatedElements;
-            });
-          }}
-          onMouseUp={() => {
-            /** Validate input (especially useful if user forgot input at form above)
-             * Need to be debounced as it may happen that state is not updated right away
-             */
-            debouncedGetNextQuestionKey(questionKey, formKey);
-            debouncedCalculateForms(questionKey, formKey);
-          }}
-        />
+                // Convert the exponentialValue back to the range slider value
+                const reverseScale = convertToRange(exponentialValue);
+                updatedElements[questionKey].form[formKey].selected.rangeValue =
+                  reverseScale;
+                return updatedElements;
+              });
+            }}
+            onMouseUp={() => {
+              /** Validate input (especially useful if user forgot input at form above)
+               * Need to be debounced as it may happen that state is not updated right away
+               */
+              debouncedGetNextQuestionKey(questionKey, formKey);
+              debouncedCalculateForms(questionKey, formKey);
+            }}
+          />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-synergy-light-blue shadow-[0_0_0_1px_rgba(51,51,51,0.14)]"
+            style={{ left: `${sliderThumbPercent}%` }}
+          />
+        </div>
         {Object.keys(
-          questionElements[questionKey].form[formKey].options.labels
+          questionElements[questionKey].form[formKey].options.labels,
         ).map((labelKey: any, index: any) => (
           <button
             key={labelKey}
@@ -337,7 +343,7 @@ export const Range = (props: RangeProps) => {
                   questionElements[questionKey].form[formKey].options.labels[
                     labelKey
                   ].value,
-                  options
+                  options,
                 );
 
                 // Convert the value to the range slider value
@@ -349,9 +355,9 @@ export const Range = (props: RangeProps) => {
                         questionElements[questionKey].form[
                           formKey
                         ].options.labels[labelKey].value.toString(),
-                        locale
-                      )
-                    )
+                        locale,
+                      ),
+                    ),
                   );
                 return updatedElements;
               });
@@ -390,5 +396,87 @@ export const Range = (props: RangeProps) => {
     </>
   );
 };
+
+function RangeInputStyles() {
+  return (
+    <style>
+      {`
+        .funnel-range-value-input:focus,
+        .funnel-range-value-input:focus-visible {
+          border-color: var(--synergy-light-blue, #0CC0DF) !important;
+          outline: none !important;
+          box-shadow:
+            0 0 0 1px var(--synergy-light-blue, #0CC0DF),
+            0 0 0 4px rgba(12, 192, 223, 0.18) !important;
+        }
+
+        .funnel-range-input {
+          -webkit-appearance: none;
+          appearance: none;
+          accent-color: var(--synergy-light-blue, #0CC0DF);
+          background: transparent;
+        }
+
+        .funnel-range-input::-webkit-slider-runnable-track {
+          height: 0.5rem;
+          border-radius: 9999px;
+          background: var(--synergy-light-grey, #EFEFEF);
+        }
+
+        .funnel-range-input::-webkit-slider-thumb {
+          -webkit-appearance: none !important;
+          appearance: none !important;
+          width: 1rem;
+          height: 1rem;
+          margin-top: -0.25rem;
+          border: 0 !important;
+          border-radius: 9999px;
+          background: transparent !important;
+          box-shadow: none !important;
+        }
+
+        .funnel-range-input:focus-visible {
+          outline: none;
+        }
+
+        .funnel-range-input:focus-visible::-webkit-slider-thumb {
+          box-shadow: none !important;
+        }
+
+        .funnel-range-input::-moz-range-track {
+          height: 0.5rem;
+          border-radius: 9999px;
+          background: var(--synergy-light-grey, #EFEFEF);
+        }
+
+        .funnel-range-input::-moz-range-progress {
+          height: 0.5rem;
+          border-radius: 9999px;
+          background: var(--synergy-light-blue, #0CC0DF);
+        }
+
+        .funnel-range-input::-moz-range-thumb {
+          width: 1rem;
+          height: 1rem;
+          border: 0 !important;
+          border-radius: 9999px;
+          background: transparent !important;
+          box-shadow: none !important;
+        }
+
+        .funnel-range-input:focus-visible::-moz-range-thumb {
+          box-shadow: none !important;
+        }
+
+        @media (prefers-color-scheme: dark) {
+          .funnel-range-input::-webkit-slider-runnable-track,
+          .funnel-range-input::-moz-range-track {
+            background: var(--synergy-dark-grey, #333333);
+          }
+        }
+      `}
+    </style>
+  );
+}
 
 export default Range;

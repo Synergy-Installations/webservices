@@ -6222,218 +6222,6 @@
                       "persist": "Ergebnis wird übernommen...",
                       "complete": "KI-Auswertung abgeschlossen",
                       "error": "KI-Auswertung fehlgeschlagen"
-                    },
-                    "fields": {
-                      "installed_capacity_kwp": {
-                        "label": "Anlagenleistung",
-                        "type": "number",
-                        "unit": "kWp",
-                        "min": "0.1",
-                        "max": "10000",
-                        "description": "Installierte DC-Spitzenleistung der PV-Anlage in kWp. MWp in kWp und Wp in kWp umrechnen.",
-                        "target": {
-                          "questionUid": "interested-products",
-                          "formUid": "interested-products-range-2"
-                        }
-                      },
-                      "dachtyp": {
-                        "label": "Untergrund",
-                        "type": "multi-option",
-                        "description": "Dach- oder Montageuntergrund. Mehrfachauswahl ist erlaubt.",
-                        "target": {
-                          "questionUid": "interested-products-2",
-                          "formUid": "interested-products-dachtyp"
-                        },
-                        "options": {
-                          "trapez": {
-                            "targetOptionUid": "trapez",
-                            "aliases": [
-                              "Trapez",
-                              "Trapezblech",
-                              "Trapezdach"
-                            ]
-                          },
-                          "falz": {
-                            "targetOptionUid": "falz",
-                            "aliases": [
-                              "Falz",
-                              "Stehfalz",
-                              "Klemmfalz",
-                              "Doppelfalz",
-                              "Falzdach"
-                            ]
-                          },
-                          "flachdach": {
-                            "targetOptionUid": "flachdach",
-                            "aliases": [
-                              "Flachdach",
-                              "Bitumendach",
-                              "Foliendach"
-                            ]
-                          },
-                          "ziegel": {
-                            "targetOptionUid": "wärmepumpe",
-                            "aliases": [
-                              "Ziegel",
-                              "Tonziegel",
-                              "Betondachstein",
-                              "Frankfurter Pfanne"
-                            ]
-                          },
-                          "eternit": {
-                            "targetOptionUid": "eternit",
-                            "aliases": [
-                              "Eternit",
-                              "Faserzement",
-                              "Welleternit"
-                            ]
-                          },
-                          "bramac": {
-                            "targetOptionUid": "bramac",
-                            "aliases": [
-                              "Bramac"
-                            ]
-                          },
-                          "fassade": {
-                            "targetOptionUid": "fassade",
-                            "aliases": [
-                              "Fassade",
-                              "Wand",
-                              "Vorhangfassade"
-                            ]
-                          },
-                          "carport": {
-                            "targetOptionUid": "carport",
-                            "aliases": [
-                              "Carport"
-                            ]
-                          },
-                          "zaun": {
-                            "targetOptionUid": "zaun",
-                            "aliases": [
-                              "Zaun",
-                              "Zaunanlage"
-                            ]
-                          },
-                          "freiflaeche": {
-                            "targetOptionUid": "freilache",
-                            "aliases": [
-                              "Freifläche",
-                              "Freiland",
-                              "Open Space",
-                              "Ground-Mount"
-                            ]
-                          },
-                          "winter-sommergarten": {
-                            "targetOptionUid": "winter-sommergarten",
-                            "aliases": [
-                              "Wintergarten",
-                              "Sommergarten",
-                              "Winter/Sommergarten"
-                            ]
-                          },
-                          "andere": {
-                            "targetOptionUid": "klimasysteme-1",
-                            "aliases": [
-                              "Andere",
-                              "Spezial",
-                              "Sonderkonstruktion"
-                            ]
-                          }
-                        }
-                      },
-                      "schnittstelle": {
-                        "label": "Schnittstelle",
-                        "type": "single-option",
-                        "description": "Umfang der Montageleistung. Den umfassendsten zutreffenden Eintrag wählen.",
-                        "target": {
-                          "questionUid": "interested-products-2",
-                          "formUid": "interested-products-schnittstelle"
-                        },
-                        "options": {
-                          "dachmontage": {
-                            "targetOptionUid": "photovoltaic",
-                            "aliases": [
-                              "Dachmontage",
-                              "PV-Montage",
-                              "Montage"
-                            ]
-                          },
-                          "kabelweg": {
-                            "targetOptionUid": "kabelweg",
-                            "aliases": [
-                              "Dachmontage + Kabelweg",
-                              "Kabelweg",
-                              "Verkabelung",
-                              "Kabelverlegung"
-                            ]
-                          },
-                          "wechselrichter": {
-                            "targetOptionUid": "wärmepumpe",
-                            "aliases": [
-                              "Wechselrichter",
-                              "Dachmontage + Kabelweg + Wechselrichter"
-                            ]
-                          },
-                          "speicher": {
-                            "targetOptionUid": "speicher",
-                            "aliases": [
-                              "Speicher",
-                              "Batteriespeicher",
-                              "Dachmontage + Kabelweg + Wechselrichter + Speicher"
-                            ]
-                          },
-                          "zusatzarbeiten": {
-                            "targetOptionUid": "zusatzarbeiten",
-                            "aliases": [
-                              "Zusatzarbeiten",
-                              "Nebenarbeiten",
-                              "Sonderarbeiten"
-                            ]
-                          },
-                          "ac-installation": {
-                            "targetOptionUid": "ac-installation",
-                            "aliases": [
-                              "AC Installation",
-                              "AC-Installation",
-                              "AC-seitig"
-                            ]
-                          }
-                        }
-                      },
-                      "mounting_height_m": {
-                        "label": "Montagehöhe",
-                        "type": "number",
-                        "unit": "m",
-                        "min": "0",
-                        "max": "3000",
-                        "description": "Höhe des Montageortes in Metern über Grund. Bei Gebäuden Traufhöhe oder höchste Modulhöhe verwenden.",
-                        "target": {
-                          "questionUid": "interested-products-3",
-                          "formUid": "interested-products-range-height"
-                        }
-                      },
-                      "roof_pitch_deg": {
-                        "label": "Neigung",
-                        "type": "number",
-                        "unit": "°",
-                        "min": "0",
-                        "max": "90",
-                        "description": "Dach- oder Montageflächenneigung in Grad. 0° ist flach, 90° ist vertikal.",
-                        "target": {
-                          "questionUid": "interested-products-3",
-                          "formUid": "interested-products-range-dachneigung"
-                        }
-                      },
-                      "end_customer_address": {
-                        "label": "Adresse Endkunde",
-                        "type": "text",
-                        "description": "Adresse des Montageortes bzw. Anlagenstandortes, nicht Rechnungs- oder Auftragnehmeradresse.",
-                        "target": {
-                          "questionUid": "interested-products-4",
-                          "formUid": "submit-form-textarea-address"
-                        }
-                      }
                     }
                   }
                 }
@@ -6510,6 +6298,27 @@
                       "correctX": "0%"
                     }
                   }
+                },
+                "aiExtraction": {
+                  "fieldKey": "installed_capacity_kwp",
+                  "label": "Anlagenleistung",
+                  "type": "number",
+                  "unit": "kWp",
+                  "min": "0.1",
+                  "max": "10000",
+                  "aliases": [
+                    "Anlagenleistung",
+                    "PV-Leistung",
+                    "Generatorleistung",
+                    "DC-Leistung",
+                    "Modulleistung",
+                    "Nennleistung",
+                    "kWp",
+                    "MWp",
+                    "Wp"
+                  ],
+                  "description": "Installierte DC-Spitzenleistung der PV-Anlage in kWp. MWp in kWp und Wp in kWp umrechnen.",
+                  "instructions": "Extrahiere die installierte DC-Spitzenleistung der PV-Anlage. Werte in MWp oder Wp in kWp umrechnen. Nicht mit Wechselrichterleistung, AC-Leistung, Netzanschlussleistung oder Jahresertrag verwechseln."
                 }
               }
             }
@@ -6547,8 +6356,9 @@
                     "addQuestion": "",
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
+                      "name": "Warehouse",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Trapez"
                     }
                   },
                   "falz": {
@@ -6560,8 +6370,9 @@
                     "addQuestion": "",
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
+                      "name": "PanelTop",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Falz"
                     }
                   },
                   "flachdach": {
@@ -6573,8 +6384,9 @@
                     "addQuestion": "",
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
+                      "name": "PanelTopOpen",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Flachdach"
                     }
                   },
                   "wärmepumpe": {
@@ -6586,8 +6398,9 @@
                     "addQuestion": "",
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
+                      "name": "House",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Ziegel"
                     }
                   },
                   "eternit": {
@@ -6599,8 +6412,9 @@
                     "addQuestion": "",
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
+                      "name": "Layers",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Eternit"
                     }
                   },
                   "bramac": {
@@ -6612,8 +6426,9 @@
                     "addQuestion": "",
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
+                      "name": "HousePlug",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Bramac"
                     }
                   },
                   "fassade": {
@@ -6625,8 +6440,9 @@
                     "addQuestion": "",
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
+                      "name": "Building2",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Fassade"
                     }
                   },
                   "carport": {
@@ -6638,8 +6454,9 @@
                     "addQuestion": "",
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
+                      "name": "Car",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Carport"
                     }
                   },
                   "zaun": {
@@ -6651,8 +6468,9 @@
                     "addQuestion": "",
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
+                      "name": "Fence",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Zaun"
                     }
                   },
                   "freilache": {
@@ -6664,8 +6482,9 @@
                     "addQuestion": "",
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
+                      "name": "LandPlot",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Freifläche"
                     }
                   },
                   "winter-sommergarten": {
@@ -6677,8 +6496,9 @@
                     "addQuestion": "",
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
+                      "name": "Sun",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Winter/Sommergarten"
                     }
                   },
                   "klimasysteme-1": {
@@ -6690,8 +6510,122 @@
                     "addQuestion": "",
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
+                      "name": "Wrench",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Andere/Spezial"
+                    }
+                  }
+                },
+                "aiExtraction": {
+                  "fieldKey": "dachtyp",
+                  "label": "Untergrund",
+                  "type": "multi-option",
+                  "aliases": [
+                    "Dachtyp",
+                    "Dachart",
+                    "Untergrund",
+                    "Montageuntergrund",
+                    "Dachdeckung",
+                    "Montagefläche",
+                    "Gebäudehülle"
+                  ],
+                  "description": "Dach- oder Montageuntergrund. Mehrfachauswahl ist erlaubt.",
+                  "instructions": "Wähle alle eindeutig genannten Montageuntergründe. Bei Ziegeln immer die Option ziegeldach/ziegel verwenden, auch wenn der technische Formular-UID anders lautet. Fassade, Zaun, Carport und Freifläche nur auswählen, wenn sie als Montagefläche genannt sind.",
+                  "options": {
+                    "trapez": {
+                      "targetOptionUid": "trapez",
+                      "aliases": [
+                        "Trapez",
+                        "Trapezblech",
+                        "Trapezdach"
+                      ]
+                    },
+                    "falz": {
+                      "targetOptionUid": "falz",
+                      "aliases": [
+                        "Falz",
+                        "Stehfalz",
+                        "Klemmfalz",
+                        "Doppelfalz",
+                        "Falzdach"
+                      ]
+                    },
+                    "flachdach": {
+                      "targetOptionUid": "flachdach",
+                      "aliases": [
+                        "Flachdach",
+                        "Bitumendach",
+                        "Foliendach"
+                      ]
+                    },
+                    "ziegel": {
+                      "targetOptionUid": "wärmepumpe",
+                      "aliases": [
+                        "Ziegel",
+                        "Tonziegel",
+                        "Betondachstein",
+                        "Frankfurter Pfanne"
+                      ]
+                    },
+                    "eternit": {
+                      "targetOptionUid": "eternit",
+                      "aliases": [
+                        "Eternit",
+                        "Faserzement",
+                        "Welleternit"
+                      ]
+                    },
+                    "bramac": {
+                      "targetOptionUid": "bramac",
+                      "aliases": [
+                        "Bramac"
+                      ]
+                    },
+                    "fassade": {
+                      "targetOptionUid": "fassade",
+                      "aliases": [
+                        "Fassade",
+                        "Wand",
+                        "Vorhangfassade"
+                      ]
+                    },
+                    "carport": {
+                      "targetOptionUid": "carport",
+                      "aliases": [
+                        "Carport"
+                      ]
+                    },
+                    "zaun": {
+                      "targetOptionUid": "zaun",
+                      "aliases": [
+                        "Zaun",
+                        "Zaunanlage"
+                      ]
+                    },
+                    "freiflaeche": {
+                      "targetOptionUid": "freilache",
+                      "aliases": [
+                        "Freifläche",
+                        "Freiland",
+                        "Open Space",
+                        "Ground-Mount"
+                      ]
+                    },
+                    "winter-sommergarten": {
+                      "targetOptionUid": "winter-sommergarten",
+                      "aliases": [
+                        "Wintergarten",
+                        "Sommergarten",
+                        "Winter/Sommergarten"
+                      ]
+                    },
+                    "andere": {
+                      "targetOptionUid": "klimasysteme-1",
+                      "aliases": [
+                        "Andere",
+                        "Spezial",
+                        "Sonderkonstruktion"
+                      ]
                     }
                   }
                 }
@@ -6745,8 +6679,9 @@
                     "addQuestion": "",
                     "addForm": "submit-form-schnittstelle-anderes-textarea",
                     "icon": {
+                      "name": "House",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Dachmontage"
                     }
                   },
                   "kabelweg": {
@@ -6758,8 +6693,9 @@
                     "addQuestion": "",
                     "addForm": "submit-form-schnittstelle-anderes-textarea",
                     "icon": {
+                      "name": "Cable",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Dachmontage + Kabelweg"
                     }
                   },
                   "wärmepumpe": {
@@ -6771,8 +6707,9 @@
                     "addQuestion": "submit-form-schnittstelle-anderes-textarea",
                     "addForm": "",
                     "icon": {
+                      "name": "Zap",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Dachmontage + Kabelweg + Wechselrichter"
                     }
                   },
                   "speicher": {
@@ -6784,8 +6721,9 @@
                     "addQuestion": "submit-form-schnittstelle-anderes-textarea",
                     "addForm": "",
                     "icon": {
+                      "name": "BatteryCharging",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Dachmontage + Kabelweg + Wechselrichter + Speicher"
                     }
                   },
                   "zusatzarbeiten": {
@@ -6797,8 +6735,9 @@
                     "addQuestion": "",
                     "addForm": "submit-form-schnittstelle-anderes-textarea",
                     "icon": {
+                      "name": "Wrench",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Zusatzarbeiten"
                     }
                   },
                   "ac-installation": {
@@ -6810,8 +6749,75 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Plug",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "AC Installation"
+                    }
+                  }
+                },
+                "aiExtraction": {
+                  "fieldKey": "schnittstelle",
+                  "label": "Schnittstelle",
+                  "type": "single-option",
+                  "aliases": [
+                    "Schnittstelle",
+                    "Leistungsumfang",
+                    "Montageumfang",
+                    "Gewerk",
+                    "Scope",
+                    "Auftragsumfang",
+                    "Montageleistung"
+                  ],
+                  "description": "Umfang der Montageleistung. Den umfassendsten zutreffenden Eintrag wählen.",
+                  "instructions": "Wenn mehrere Leistungsbestandteile genannt sind, wähle den umfassendsten zutreffenden Eintrag. Dachmontage + Kabelweg + Wechselrichter + Speicher hat Vorrang vor den enthaltenen kleineren Umfängen. AC-Installation nur verwenden, wenn sie ausdrücklich AC-seitig oder Elektroinstallation genannt ist.",
+                  "options": {
+                    "dachmontage": {
+                      "targetOptionUid": "photovoltaic",
+                      "aliases": [
+                        "Dachmontage",
+                        "PV-Montage",
+                        "Montage"
+                      ]
+                    },
+                    "kabelweg": {
+                      "targetOptionUid": "kabelweg",
+                      "aliases": [
+                        "Dachmontage + Kabelweg",
+                        "Kabelweg",
+                        "Verkabelung",
+                        "Kabelverlegung"
+                      ]
+                    },
+                    "wechselrichter": {
+                      "targetOptionUid": "wärmepumpe",
+                      "aliases": [
+                        "Wechselrichter",
+                        "Dachmontage + Kabelweg + Wechselrichter"
+                      ]
+                    },
+                    "speicher": {
+                      "targetOptionUid": "speicher",
+                      "aliases": [
+                        "Speicher",
+                        "Batteriespeicher",
+                        "Dachmontage + Kabelweg + Wechselrichter + Speicher"
+                      ]
+                    },
+                    "zusatzarbeiten": {
+                      "targetOptionUid": "zusatzarbeiten",
+                      "aliases": [
+                        "Zusatzarbeiten",
+                        "Nebenarbeiten",
+                        "Sonderarbeiten"
+                      ]
+                    },
+                    "ac-installation": {
+                      "targetOptionUid": "ac-installation",
+                      "aliases": [
+                        "AC Installation",
+                        "AC-Installation",
+                        "AC-seitig"
+                      ]
                     }
                   }
                 }
@@ -6910,6 +6916,28 @@
                       "correctX": "0%"
                     }
                   }
+                },
+                "aiExtraction": {
+                  "fieldKey": "mounting_height_m",
+                  "label": "Montagehöhe",
+                  "type": "number",
+                  "unit": "m",
+                  "min": "0",
+                  "max": "3000",
+                  "aliases": [
+                    "Montagehöhe",
+                    "Gebäudehöhe",
+                    "Gebäude Höhe",
+                    "Fassadenhöhe",
+                    "Fassade",
+                    "Hanghöhe",
+                    "Traufhöhe",
+                    "Attikahöhe",
+                    "Modulhöhe",
+                    "Höhe über Grund"
+                  ],
+                  "description": "Höhe des Montageortes in Metern über Grund. Bei Gebäuden Traufhöhe oder höchste Modulhöhe verwenden.",
+                  "instructions": "Extrahiere die Höhe des Montageortes über Grund in Metern. Akzeptiere auch Gebäudehöhe, Fassadenhöhe, Hanghöhe, Traufhöhe, Attikahöhe oder höchste Modulhöhe, wenn diese den Montageort beschreibt. Nicht als Seehöhe oder geografische Höhenlage interpretieren."
                 }
               },
               "interested-products-range-dachneigung": {
@@ -6976,6 +7004,26 @@
                       "correctX": "0%"
                     }
                   }
+                },
+                "aiExtraction": {
+                  "fieldKey": "roof_pitch_deg",
+                  "label": "Neigung",
+                  "type": "number",
+                  "unit": "°",
+                  "min": "0",
+                  "max": "90",
+                  "aliases": [
+                    "Dachneigung",
+                    "Neigung",
+                    "Montageneigung",
+                    "Dachwinkel",
+                    "Anstellwinkel",
+                    "Modulneigung",
+                    "Hangneigung",
+                    "Gefälle"
+                  ],
+                  "description": "Dach- oder Montageflächenneigung in Grad. 0° ist flach, 90° ist vertikal.",
+                  "instructions": "Extrahiere die Neigung der Dach- oder Montagefläche in Grad. Prozentangaben nur dann umrechnen, wenn sie eindeutig als Gefälle/Neigung angegeben sind. Nicht mit Azimut, Ausrichtung, Himmelsrichtung oder Koordinaten verwechseln."
                 }
               }
             }
@@ -7006,13 +7054,29 @@
                   "label": "",
                   "placeholder": "Strasse XX, XXXX",
                   "rows": "4"
+                },
+                "aiExtraction": {
+                  "fieldKey": "end_customer_address",
+                  "label": "Adresse Endkunde",
+                  "type": "text",
+                  "aliases": [
+                    "Adresse Endkunde",
+                    "Projektadresse",
+                    "Anlagenstandort",
+                    "Montageort",
+                    "Baustellenadresse",
+                    "Standort",
+                    "Objektadresse"
+                  ],
+                  "description": "Adresse des Montageortes bzw. Anlagenstandortes, nicht Rechnungs- oder Auftragnehmeradresse.",
+                  "instructions": "Extrahiere die vollständige Adresse des Montageortes bzw. Anlagenstandortes. Bevorzuge Projektadresse, Baustellenadresse, Objektadresse oder Anlagenstandort. Keine Rechnungsadresse, Auftragnehmeradresse oder Firmenadresse übernehmen, wenn sie nicht eindeutig der Montageort ist."
                 }
               },
               "submit-form-file-upload": {
                 "order": "1",
                 "type": "file-upload",
                 "required": "false",
-                "defaultVisible": "true",
+                "defaultVisible": "false",
                 "title": "Upload your files",
                 "description": "",
                 "localStorage": "false",
@@ -7117,6 +7181,7 @@
                     "addQuestion": "interested-products",
                     "addForm": "interested-products-range",
                     "icon": {
+                      "name": "Sun",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
                     }
@@ -7130,8 +7195,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Heater",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Wärmepumpe"
                     }
                   },
                   "klimasysteme": {
@@ -7143,8 +7209,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Snowflake",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Klimasysteme"
                     }
                   },
                   "smart-home": {
@@ -7156,8 +7223,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "HousePlug",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Smart Home"
                     }
                   },
                   "Energiemanagement": {
@@ -7169,8 +7237,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Gauge",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Energiemanagement"
                     }
                   },
                   "wallbox": {
@@ -7182,8 +7251,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "PlugZap",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Wallbox"
                     }
                   }
                 }
@@ -7302,6 +7372,7 @@
                     "addQuestion": "main-photovoltaic",
                     "addForm": "",
                     "icon": {
+                      "name": "Sun",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
                     }
@@ -7315,8 +7386,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Heater",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Wärmepumpe"
                     }
                   },
                   "klimasysteme": {
@@ -7328,8 +7400,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Snowflake",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Klimasysteme"
                     }
                   },
                   "smart-home": {
@@ -7341,8 +7414,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "HousePlug",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Smart Home"
                     }
                   },
                   "Energiemanagement": {
@@ -7354,8 +7428,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Gauge",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Energiemanagement"
                     }
                   },
                   "wallbox": {
@@ -7367,8 +7442,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "PlugZap",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Wallbox"
                     }
                   }
                 }
@@ -7435,8 +7511,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "BadgeCheck",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Ja bitte"
                     }
                   }
                 }
@@ -7468,8 +7545,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "BadgeCheck",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Ja bitte"
                     }
                   }
                 }
@@ -7501,8 +7579,9 @@
                     "addQuestion": "interested-products",
                     "addForm": "",
                     "icon": {
+                      "name": "BadgeCheck",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Ja bitte"
                     }
                   }
                 }
@@ -7541,6 +7620,7 @@
                     "addQuestion": "interested-products",
                     "addForm": "interested-products-two",
                     "icon": {
+                      "name": "Sun",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
                     }
@@ -7554,8 +7634,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Heater",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Wärmepumpe"
                     }
                   },
                   "klimasysteme": {
@@ -7567,8 +7648,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Snowflake",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Klimasysteme"
                     }
                   },
                   "smart-home": {
@@ -7580,8 +7662,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "HousePlug",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Smart Home"
                     }
                   },
                   "Energiemanagement": {
@@ -7593,8 +7676,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Gauge",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Energiemanagement"
                     }
                   },
                   "wallbox": {
@@ -7606,8 +7690,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "PlugZap",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Wallbox"
                     }
                   }
                 }
@@ -7638,6 +7723,7 @@
                     "addQuestion": "main-photovoltaic",
                     "addForm": "",
                     "icon": {
+                      "name": "Sun",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
                     }
@@ -7651,8 +7737,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Heater",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Wärmepumpe"
                     }
                   },
                   "klimasysteme": {
@@ -7664,8 +7751,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Snowflake",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Klimasysteme"
                     }
                   },
                   "smart-home": {
@@ -7677,8 +7765,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "HousePlug",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Smart Home"
                     }
                   },
                   "Energiemanagement": {
@@ -7690,8 +7779,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Gauge",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Energiemanagement"
                     }
                   },
                   "wallbox": {
@@ -7703,8 +7793,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "PlugZap",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Wallbox"
                     }
                   }
                 }

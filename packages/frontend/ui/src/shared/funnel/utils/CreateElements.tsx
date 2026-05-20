@@ -1,3 +1,14 @@
+const createIconConfig = (icon: any) =>
+  icon
+    ? {
+        src: icon.src,
+        url: icon.url,
+        name: icon.name,
+        icon: icon.icon,
+        alt: icon.alt,
+      }
+    : null;
+
 export const createQuestionElement = (
   questionKeyRef: string,
   question: any,
@@ -13,7 +24,7 @@ export const createQuestionElement = (
   convertVisiblityToTrue?: boolean,
   // useUidAsKey decides whether the element uid should be used for the uid and the randomly generated key should
   // use the uid to create a unique key; the use case is creating a new question element with the same uid and original key
-  useUidAsKey?: boolean
+  useUidAsKey?: boolean,
 ) => {
   const element = question;
   const questionKey: string = questionKeyRef;
@@ -67,6 +78,7 @@ export const createQuestionElement = (
               : element.form[formKey].defaultVisible,
             title: element.form[formKey].title,
             description: element.form[formKey].description,
+            aiExtraction: element.form[formKey].aiExtraction ?? null,
             from: useKey ? element.form[formKey].from : from || [],
             localStorage: useStrings
               ? element.form[formKey].localStorage === "true"
@@ -96,7 +108,7 @@ export const createQuestionElement = (
                   title: element.form[formKey].options[optionKey].title,
                   disabled: useStrings
                     ? element.form[formKey].options[optionKey].disabled ===
-                    "true"
+                      "true"
                     : element.form[formKey].options[optionKey].disabled,
                   span: element.form[formKey].options[optionKey].span,
                   description:
@@ -104,14 +116,13 @@ export const createQuestionElement = (
                   addQuestion:
                     element.form[formKey].options[optionKey].addQuestion,
                   addForm: element.form[formKey].options[optionKey].addForm,
-                  icon: {
-                    src: element.form[formKey].options[optionKey].icon.src,
-                    alt: element.form[formKey].options[optionKey].icon.alt,
-                  },
+                  icon: createIconConfig(
+                    element.form[formKey].options[optionKey].icon,
+                  ),
                 };
                 return optionsAcc;
               },
-              {}
+              {},
             ),
             selected: {
               questionTitle: useSelected
@@ -147,6 +158,7 @@ export const createQuestionElement = (
               : element.form[formKey].defaultVisible,
             title: element.form[formKey].title,
             description: element.form[formKey].description,
+            aiExtraction: element.form[formKey].aiExtraction ?? null,
             localStorage: useStrings
               ? element.form[formKey].localStorage === "true"
               : element.form[formKey].localStorage,
@@ -179,10 +191,13 @@ export const createQuestionElement = (
                   addQuestion:
                     element.form[formKey].options[optionKey].addQuestion,
                   addForm: element.form[formKey].options[optionKey].addForm,
+                  icon: createIconConfig(
+                    element.form[formKey].options[optionKey].icon,
+                  ),
                 };
                 return optionsAcc;
               },
-              {}
+              {},
             ),
             selected: {
               questionTitle: useSelected
@@ -192,8 +207,8 @@ export const createQuestionElement = (
                 ? element.form[formKey].selected.selectedOptions
                 : typeof window !== "undefined"
                   ? localStorage
-                    .getItem(`${questionKey}-${formKey}`)
-                    ?.split(",") || []
+                      .getItem(`${questionKey}-${formKey}`)
+                      ?.split(",") || []
                   : element.form[formKey].defaultValue,
               selectedOptionsUid: useSelected
                 ? element.form[formKey].selected.selectedOptionsUid
@@ -219,6 +234,7 @@ export const createQuestionElement = (
               : element.form[formKey].defaultVisible,
             title: element.form[formKey].title,
             description: element.form[formKey].description,
+            aiExtraction: element.form[formKey].aiExtraction ?? null,
             localStorage: useStrings
               ? element.form[formKey].localStorage === "true"
               : element.form[formKey].localStorage,
@@ -278,8 +294,8 @@ export const createQuestionElement = (
                         : labelKey,
                     value: useStrings
                       ? Number(
-                        element.form[formKey].options.labels[labelKey].value
-                      )
+                          element.form[formKey].options.labels[labelKey].value,
+                        )
                       : element.form[formKey].options.labels[labelKey].value,
                     align: element.form[formKey].options.labels[labelKey].align,
                     offsetX:
@@ -289,7 +305,7 @@ export const createQuestionElement = (
                   };
                   return lablesAcc;
                 },
-                {}
+                {},
               ),
             },
             selected: {
@@ -328,6 +344,7 @@ export const createQuestionElement = (
               : element.form[formKey].defaultVisible,
             title: element.form[formKey].title,
             description: element.form[formKey].description,
+            aiExtraction: element.form[formKey].aiExtraction ?? null,
             localStorage: useStrings
               ? element.form[formKey].localStorage === "true"
               : element.form[formKey].localStorage,
@@ -656,7 +673,7 @@ export const createQuestionElement = (
         }
         return formAcc;
       },
-      {}
+      {},
     ),
   };
 };
@@ -673,7 +690,7 @@ export const createFormElement = (
   // this is used when we have selected value present and we want to use it
   useSelected: boolean,
   from?: Array<string> | null,
-  convertVisiblityToTrue?: boolean
+  convertVisiblityToTrue?: boolean,
 ) => {
   // console.log(
   //   "createFormElement",
@@ -708,6 +725,7 @@ export const createFormElement = (
             : element.defaultVisible,
       title: element.title,
       description: element.description,
+      aiExtraction: element.aiExtraction ?? null,
       localStorage: useStrings
         ? element.localStorage === "true"
         : element.localeStorage,
@@ -738,14 +756,11 @@ export const createFormElement = (
             description: element.options[optionKey].description,
             addQuestion: element.options[optionKey].addQuestion,
             addForm: element.options[optionKey].addForm,
-            icon: {
-              src: element.options[optionKey].icon.src,
-              alt: element.options[optionKey].icon.alt,
-            },
+            icon: createIconConfig(element.options[optionKey].icon),
           };
           return optionsAcc;
         },
-        {}
+        {},
       ),
       selected: {
         questionTitle: useSelected
@@ -774,6 +789,7 @@ export const createFormElement = (
             : element.defaultVisible,
       title: element.title,
       description: element.description,
+      aiExtraction: element.aiExtraction ?? null,
       localStorage: useStrings
         ? element.localStorage === "true"
         : element.localStorage,
@@ -801,10 +817,11 @@ export const createFormElement = (
             uid: useKey ? element.options[optionKey].uid : optionKey,
             addQuestion: element.options[optionKey].addQuestion,
             addForm: element.options[optionKey].addForm,
+            icon: createIconConfig(element.options[optionKey].icon),
           };
           return optionsAcc;
         },
-        {}
+        {},
       ),
       selected: {
         questionTitle: useSelected
@@ -814,7 +831,7 @@ export const createFormElement = (
           ? element.selected.selectedOptions
           : typeof window !== "undefined"
             ? localStorage.getItem(`${questionKey}-${formKey}`)?.split(",") ||
-            []
+              []
             : [],
         selectedOptionsUid: useSelected
           ? element.selected.selectedOptionsUid
@@ -837,6 +854,7 @@ export const createFormElement = (
             : element.defaultVisible,
       title: element.title,
       description: element.description,
+      aiExtraction: element.aiExtraction ?? null,
       localStorage: useStrings
         ? element.localStorage === "true"
         : element.localStorage,
@@ -897,7 +915,7 @@ export const createFormElement = (
             };
             return lablesAcc;
           },
-          {}
+          {},
         ),
       },
       selected: {
@@ -935,6 +953,7 @@ export const createFormElement = (
             : element.defaultVisible,
       title: element.title,
       description: element.description,
+      aiExtraction: element.aiExtraction ?? null,
       localStorage: useStrings
         ? element.localStorage === "true"
         : element.localStorage,

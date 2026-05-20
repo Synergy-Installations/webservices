@@ -1,6 +1,10 @@
 import crypto from "node:crypto";
 import { metadata, task } from "@trigger.dev/sdk/v3";
-import { normalizeToPdf, pdfPageCount } from "../shared/converter/converter";
+import {
+  normalizeInputContentType,
+  normalizeToPdf,
+  pdfPageCount,
+} from "../shared/converter/converter";
 import { downloadFromBunny } from "../storage/bunny";
 import {
   MAX_PDF_PAGES,
@@ -44,13 +48,17 @@ export const extractFromDocument = task({
 
     const { bytes: rawBytes, contentType: serverContentType } =
       await downloadFromBunny(payload.bunnyPath);
-    const contentType = serverContentType || payload.contentType;
+    const contentType =
+      normalizeInputContentType(serverContentType, payload.filename) ??
+      normalizeInputContentType(payload.contentType, payload.filename) ??
+      payload.contentType;
     const documentHash = crypto
       .createHash("sha256")
       .update(rawBytes)
       .digest("hex");
 
     metadata.set("documentHash", documentHash);
+    metadata.set("contentType", contentType);
     metadata.set("step", "normalize");
 
     const { pdf } = await normalizeToPdf({

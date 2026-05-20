@@ -16,6 +16,8 @@ export type ExtractionFieldConfig = {
   label: string;
   type: ExtractionFieldType;
   description: string;
+  aliases?: string[];
+  instructions?: string;
   unit?: string;
   min?: string;
   max?: string;
@@ -306,6 +308,7 @@ function buildToolInputSchema(
         fieldKey,
         {
           type: "object",
+          description: buildFieldSchemaDescription(field),
           additionalProperties: false,
           required: ["value", "source_quote", "source_page", "reasoning"],
           properties: {
@@ -323,9 +326,12 @@ function buildToolInputSchema(
 function valueSchemaForField(
   field: ExtractionFieldConfig,
 ): Record<string, unknown> {
+  const description = buildValueSchemaDescription(field);
+
   if (field.type === "number") {
     return nullable({
       type: "number",
+      description,
       minimum: field.min == null ? undefined : Number(field.min),
       maximum: field.max == null ? undefined : Number(field.max),
     });
@@ -334,6 +340,7 @@ function valueSchemaForField(
   if (field.type === "single-option") {
     return nullable({
       type: "string",
+      description,
       enum: Object.keys(field.options ?? {}),
     });
   }
@@ -341,6 +348,7 @@ function valueSchemaForField(
   if (field.type === "multi-option") {
     return nullable({
       type: "array",
+      description,
       items: {
         type: "string",
         enum: Object.keys(field.options ?? {}),
@@ -348,7 +356,7 @@ function valueSchemaForField(
     });
   }
 
-  return nullable({ type: "string" });
+  return nullable({ type: "string", description });
 }
 
 function nullable(schema: Record<string, unknown>): Record<string, unknown> {
@@ -365,6 +373,13 @@ function nullable(schema: Record<string, unknown>): Record<string, unknown> {
 function buildSystemPrompt(config: ExtractionConfig): string {
   const fieldLines = Object.entries(config.fields)
     .map(([fieldKey, field]) => {
+      const aliasLine =
+        field.aliases && field.aliases.length > 0
+          ? `  Aliase/Suchbegriffe: ${field.aliases.join(", ")}`
+          : "";
+      const instructionLine = field.instructions
+        ? `  Spezielle Extraktionsregel: ${field.instructions}`
+        : "";
       const optionLines =
         field.options == null
           ? ""
@@ -377,6 +392,8 @@ function buildSystemPrompt(config: ExtractionConfig): string {
 
       return [
         `- ${fieldKey} (${field.label}, ${field.type}${field.unit ? `, ${field.unit}` : ""}): ${field.description}`,
+        aliasLine,
+        instructionLine,
         optionLines,
       ]
         .filter(Boolean)
@@ -400,6 +417,26 @@ Regeln:
 
 Konfigurierte Felder:
 ${fieldLines}`;
+}
+
+function buildFieldSchemaDescription(field: ExtractionFieldConfig): string {
+  return [
+    field.description,
+    field.aliases?.length ? `Aliases: ${field.aliases.join(", ")}` : "",
+    field.instructions ? `Instructions: ${field.instructions}` : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+}
+
+function buildValueSchemaDescription(field: ExtractionFieldConfig): string {
+  return [
+    `Extracted value for ${field.label}.`,
+    field.unit ? `Return the value in ${field.unit}.` : "",
+    field.instructions ?? "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 }
 
 function normalizeExtraction(

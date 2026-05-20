@@ -31,6 +31,31 @@ import {
   createQuestionElement,
   createFormElement,
 } from "@com.synergy/frontend-ui/CreateElements";
+import {
+  BadgeCheck,
+  BatteryCharging,
+  Building2,
+  Cable,
+  Car,
+  CircleHelp,
+  Fence,
+  Gauge,
+  Heater,
+  House,
+  HousePlug,
+  LandPlot,
+  Layers,
+  PanelTop,
+  PanelTopOpen,
+  Plug,
+  PlugZap,
+  Snowflake,
+  Sun,
+  Warehouse,
+  Wrench,
+  Zap,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 type FunnelPrefillEntry = {
   value: unknown;
@@ -39,6 +64,7 @@ type FunnelPrefillEntry = {
   sourcePage?: number | null;
   fieldKey?: string;
   documentName?: string;
+  fileUid?: string;
   label?: string;
 };
 
@@ -188,7 +214,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     width: "20px",
     height: "10px",
     perspective: "500px",
-    colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
+    colors: ["#0CC0DF", "#333333", "#EFEFEF"],
   };
 
   const confettiConfigLow = {
@@ -202,7 +228,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     width: "10px",
     height: "10px",
     perspective: "500px",
-    colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
+    colors: ["#0CC0DF", "#333333", "#EFEFEF"],
   };
 
   /** Flush server state - This is dirty and should be handled better
@@ -1038,7 +1064,12 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
   const applyFunnelPrefill = useCallback(
     (
       prefill: Record<string, FunnelPrefillEntry>,
-      context: { documentName: string; fileUid: string },
+      context: {
+        documentName: string;
+        fileUid: string;
+        force?: boolean;
+        userReviewed?: boolean;
+      },
     ): FunnelPrefillResult => {
       const thresholds = getExtractionThresholds(questionElements);
       const preview = cloneQuestionElements(questionElements);
@@ -1068,7 +1099,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
   const removeFunnelPrefill = useCallback(
     (
       formUid: string,
-      context: { documentName: string; fileUid: string },
+      context: { documentName: string; fileUid: string; force?: boolean },
     ): void => {
       setQuestionElements((prev) => {
         const elements = cloneQuestionElements(prev);
@@ -1079,6 +1110,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
         }
 
         if (
+          !context.force &&
           context.fileUid &&
           resolved.form.extraction.fileUid &&
           resolved.form.extraction.fileUid !== context.fileUid
@@ -1549,18 +1581,14 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                 />
                                 <label
                                   htmlFor={optionKey}
-                                  className="inline-flex items-center justify-between peer-disabled:cursor-not-allowed w-full p-5 text-synergy-dark-grey bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 dark:peer-checked:border-blue-600 hover:text-gray-600 peer-disabled:hover:text-synergy-dark-grey peer-disabled:hover:bg-white dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                                  className="inline-flex w-full cursor-pointer items-center justify-between rounded-lg border-2 border-gray-200 bg-white p-5 text-synergy-dark-grey transition-colors hover:border-synergy-light-blue/50 hover:bg-synergy-light-grey hover:text-synergy-dark-grey peer-checked:border-synergy-light-blue peer-checked:text-synergy-dark-grey peer-focus-visible:ring-2 peer-focus-visible:ring-synergy-light-blue peer-focus-visible:ring-offset-2 peer-disabled:cursor-not-allowed peer-disabled:hover:bg-white peer-disabled:hover:text-synergy-dark-grey dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:peer-checked:border-synergy-light-blue dark:peer-checked:text-synergy-light-grey"
                                 >
                                   <div className="block">
-                                    <svg
-                                      className="mb-2 w-7 h-7 text-sky-500"
-                                      fill="currentColor"
-                                      aria-hidden="true"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      viewBox="0 0 512 512"
-                                    >
-                                      <path d="M418.2 177.2c-5.4-1.8-10.8-3.5-16.2-5.1.9-3.7 1.7-7.4 2.5-11.1 12.3-59.6 4.2-107.5-23.1-123.3-26.3-15.1-69.2.6-112.6 38.4-4.3 3.7-8.5 7.6-12.5 11.5-2.7-2.6-5.5-5.2-8.3-7.7-45.5-40.4-91.1-57.4-118.4-41.5-26.2 15.2-34 60.3-23 116.7 1.1 5.6 2.3 11.1 3.7 16.7-6.4 1.8-12.7 3.8-18.6 5.9C38.3 196.2 0 225.4 0 255.6c0 31.2 40.8 62.5 96.3 81.5 4.5 1.5 9 3 13.6 4.3-1.5 6-2.8 11.9-4 18-10.5 55.5-2.3 99.5 23.9 114.6 27 15.6 72.4-.4 116.6-39.1 3.5-3.1 7-6.3 10.5-9.7 4.4 4.3 9 8.4 13.6 12.4 42.8 36.8 85.1 51.7 111.2 36.6 27-15.6 35.8-62.9 24.4-120.5-.9-4.4-1.9-8.9-3-13.5 3.2-.9 6.3-1.9 9.4-2.9 57.7-19.1 99.5-50 99.5-81.7 0-30.3-39.4-59.7-93.8-78.4zM282.9 92.3c37.2-32.4 71.9-45.1 87.7-36 16.9 9.7 23.4 48.9 12.8 100.4-.7 3.4-1.4 6.7-2.3 10-22.2-5-44.7-8.6-67.3-10.6-13-18.6-27.2-36.4-42.6-53.1 3.9-3.7 7.7-7.2 11.7-10.7zM167.2 307.5c5.1 8.7 10.3 17.4 15.8 25.9-15.6-1.7-31.1-4.2-46.4-7.5 4.4-14.4 9.9-29.3 16.3-44.5 4.6 8.8 9.3 17.5 14.3 26.1zm-30.3-120.3c14.4-3.2 29.7-5.8 45.6-7.8-5.3 8.3-10.5 16.8-15.4 25.4-4.9 8.5-9.7 17.2-14.2 26-6.3-14.9-11.6-29.5-16-43.6zm27.4 68.9c6.6-13.8 13.8-27.3 21.4-40.6s15.8-26.2 24.4-38.9c15-1.1 30.3-1.7 45.9-1.7s31 .6 45.9 1.7c8.5 12.6 16.6 25.5 24.3 38.7s14.9 26.7 21.7 40.4c-6.7 13.8-13.9 27.4-21.6 40.8-7.6 13.3-15.7 26.2-24.2 39-14.9 1.1-30.4 1.6-46.1 1.6s-30.9-.5-45.6-1.4c-8.7-12.7-16.9-25.7-24.6-39s-14.8-26.8-21.5-40.6zm180.6 51.2c5.1-8.8 9.9-17.7 14.6-26.7 6.4 14.5 12 29.2 16.9 44.3-15.5 3.5-31.2 6.2-47 8 5.4-8.4 10.5-17 15.5-25.6zm14.4-76.5c-4.7-8.8-9.5-17.6-14.5-26.2-4.9-8.5-10-16.9-15.3-25.2 16.1 2 31.5 4.7 45.9 8-4.6 14.8-10 29.2-16.1 43.4zM256.2 118.3c10.5 11.4 20.4 23.4 29.6 35.8-19.8-.9-39.7-.9-59.5 0 9.8-12.9 19.9-24.9 29.9-35.8zM140.2 57c16.8-9.8 54.1 4.2 93.4 39 2.5 2.2 5 4.6 7.6 7-15.5 16.7-29.8 34.5-42.9 53.1-22.6 2-45 5.5-67.2 10.4-1.3-5.1-2.4-10.3-3.5-15.5-9.4-48.4-3.2-84.9 12.6-94zm-24.5 263.6c-4.2-1.2-8.3-2.5-12.4-3.9-21.3-6.7-45.5-17.3-63-31.2-10.1-7-16.9-17.8-18.8-29.9 0-18.3 31.6-41.7 77.2-57.6 5.7-2 11.5-3.8 17.3-5.5 6.8 21.7 15 43 24.5 63.6-9.6 20.9-17.9 42.5-24.8 64.5zm116.6 98c-16.5 15.1-35.6 27.1-56.4 35.3-11.1 5.3-23.9 5.8-35.3 1.3-15.9-9.2-22.5-44.5-13.5-92 1.1-5.6 2.3-11.2 3.7-16.7 22.4 4.8 45 8.1 67.9 9.8 13.2 18.7 27.7 36.6 43.2 53.4-3.2 3.1-6.4 6.1-9.6 8.9zm24.5-24.3c-10.2-11-20.4-23.2-30.3-36.3 9.6.4 19.5.6 29.5.6 10.3 0 20.4-.2 30.4-.7-9.2 12.7-19.1 24.8-29.6 36.4zm130.7 30c-.9 12.2-6.9 23.6-16.5 31.3-15.9 9.2-49.8-2.8-86.4-34.2-4.2-3.6-8.4-7.5-12.7-11.5 15.3-16.9 29.4-34.8 42.2-53.6 22.9-1.9 45.7-5.4 68.2-10.5 1 4.1 1.9 8.2 2.7 12.2 4.9 21.6 5.7 44.1 2.5 66.3zm18.2-107.5c-2.8.9-5.6 1.8-8.5 2.6-7-21.8-15.6-43.1-25.5-63.8 9.6-20.4 17.7-41.4 24.5-62.9 5.2 1.5 10.2 3.1 15 4.7 46.6 16 79.3 39.8 79.3 58 0 19.6-34.9 44.9-84.8 61.4zm-149.7-15c25.3 0 45.8-20.5 45.8-45.8s-20.5-45.8-45.8-45.8c-25.3 0-45.8 20.5-45.8 45.8s20.5 45.8 45.8 45.8z" />
-                                    </svg>
+                                    {renderFunnelOptionIcon(
+                                      questionElements[questionKey].form[
+                                        formKey
+                                      ].options[optionKey],
+                                    )}
                                     <div className="w-full text-lg font-semibold">
                                       {
                                         questionElements[questionKey].form[
@@ -1623,7 +1651,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                 questionElements[questionKey].form[formKey]
                                   .multiple
                               }
-                              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                              className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-synergy-light-blue focus:ring-synergy-light-blue dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-synergy-light-blue dark:focus:ring-synergy-light-blue"
                               onChange={(e) => {
                                 const { selectedOptions } = e.target;
                                 const selectedOptionValues = Array.from(
@@ -1878,7 +1906,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                   questionElements[questionKey].form[formKey]
                                     .options.rows
                                 }
-                                className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-synergy-light-blue focus:ring-synergy-light-blue dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-synergy-light-blue dark:focus:ring-synergy-light-blue"
                                 placeholder={
                                   questionElements[questionKey].form[formKey]
                                     .options.placeholder
@@ -1926,7 +1954,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                     .type
                                 }
                                 id={formKey}
-                                className={`bg-gray-50 block w-full p-2.5 text-sm rounded-lg border ${questionElements[questionKey].form[formKey].message.type === "success" ? "border-green-500 text-green-900 dark:text-green-400 placeholder-green-700 dark:placeholder-green-500 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-green-500" : "border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"} `}
+                                className={`block w-full rounded-lg border bg-gray-50 p-2.5 text-sm ${questionElements[questionKey].form[formKey].message.type === "success" ? "border-green-500 text-green-900 placeholder-green-700 focus:border-green-500 focus:ring-green-500 dark:border-green-500 dark:bg-gray-700 dark:text-green-400 dark:placeholder-green-500" : "border-gray-300 text-gray-900 focus:border-synergy-light-blue focus:ring-synergy-light-blue dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-synergy-light-blue dark:focus:ring-synergy-light-blue"} `}
                                 placeholder={
                                   questionElements[questionKey].form[formKey]
                                     .options.placeholder
@@ -1994,14 +2022,14 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                     "previous",
                                   );
                                 }}
-                                className="px-3 py-1 rounded-md bg-synergy-light-blue text-white "
+                                className="rounded-md bg-synergy-light-blue px-3 py-1 text-white transition-colors hover:bg-synergy-light-blue/90 focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2"
                               >
                                 Vorherige
                               </button>
                             )}
                           </div>
                           <p
-                            className={`text-sm mt-2 min-h-[1.57rem] ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : questionElements[questionKey].form[formKey].message.type === "warning" ? "text-orange-600 dark:text-orange-500" : questionElements[questionKey].form[formKey].message.type === "loading" ? "text-blue-600 dark:text-blue-500" : "text-green-600 dark:text-green-500"} `}
+                            className={`mt-2 min-h-[1.57rem] text-sm ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : questionElements[questionKey].form[formKey].message.type === "warning" ? "text-orange-600 dark:text-orange-500" : questionElements[questionKey].form[formKey].message.type === "loading" ? "text-synergy-light-blue" : "text-green-600 dark:text-green-500"} `}
                           >
                             {
                               questionElements[questionKey].form[formKey]
@@ -2019,7 +2047,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                   getNextQuestionKey,
                                 );
                             }}
-                            className="px-3 py-1 inline-flex items-center rounded-md bg-synergy-light-blue text-white"
+                            className="inline-flex items-center rounded-md bg-synergy-light-blue px-3 py-1 text-white transition-colors hover:bg-synergy-light-blue/90 focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
                             disabled={
                               questionElements[questionKey].form[formKey]
                                 .message.type !== "info" &&
@@ -2179,7 +2207,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                       "previous",
                                     );
                                   }}
-                                  className="px-3 py-1 rounded-md bg-synergy-light-blue text-white "
+                                  className="rounded-md bg-synergy-light-blue px-3 py-1 text-white transition-colors hover:bg-synergy-light-blue/90 focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2"
                                 >
                                   Vorherige
                                 </button>
@@ -2194,7 +2222,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                     "next",
                                   );
                                 }}
-                                className="px-3 py-1 rounded-md bg-synergy-light-blue text-white "
+                                className="rounded-md bg-synergy-light-blue px-3 py-1 text-white transition-colors hover:bg-synergy-light-blue/90 focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2"
                               >
                                 {isQuestionSkippable(questionKey)
                                   ? "Überspringen"
@@ -2247,7 +2275,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                         type="text"
                         maxLength={1}
                         id={`code-${index + 1}`}
-                        className="block w-9 h-9 py-3 text-sm font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        className="block h-9 w-9 rounded-lg border border-gray-300 bg-white py-3 text-center text-sm font-extrabold text-gray-900 focus:border-synergy-light-blue focus:ring-synergy-light-blue dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-synergy-light-blue dark:focus:ring-synergy-light-blue"
                         required
                         onKeyUp={(e) => handleKeyUpCode(index, e)}
                         onPaste={handlePasteCode}
@@ -2271,7 +2299,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                     handleVerification &&
                       handleVerification(getVerificationCode());
                   }}
-                  className="inline-flex items-center gap-1 mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg"
+                  className="mt-4 inline-flex items-center gap-1 rounded-lg bg-synergy-light-blue px-4 py-2 text-white transition-colors hover:bg-synergy-light-blue/90 focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2"
                   disabled={verificationButtonClicked}
                 >
                   Verify
@@ -2400,6 +2428,74 @@ function FunnelQuestionTransitionStyles() {
         }
       `}
     </style>
+  );
+}
+
+type FunnelIconConfig = {
+  name?: string;
+  icon?: string;
+  src?: string;
+  url?: string;
+  alt?: string;
+};
+
+const funnelIconComponents: Record<string, LucideIcon> = {
+  BadgeCheck,
+  BatteryCharging,
+  Building2,
+  Cable,
+  Car,
+  CircleHelp,
+  Fence,
+  Gauge,
+  Heater,
+  House,
+  HousePlug,
+  LandPlot,
+  Layers,
+  PanelTop,
+  PanelTopOpen,
+  Plug,
+  PlugZap,
+  Snowflake,
+  Sun,
+  Warehouse,
+  Wrench,
+  Zap,
+};
+
+function renderFunnelOptionIcon(option: any): JSX.Element {
+  const icon = (option?.icon ?? {}) as FunnelIconConfig;
+  const iconName = icon.name ?? icon.icon;
+  const Icon = iconName ? funnelIconComponents[iconName] : undefined;
+
+  if (Icon) {
+    return (
+      <Icon
+        aria-hidden="true"
+        className="mb-2 h-7 w-7 text-synergy-light-blue"
+        strokeWidth={1.8}
+      />
+    );
+  }
+
+  const iconSrc = icon.src ?? icon.url;
+  if (iconSrc) {
+    return (
+      <img
+        src={iconSrc}
+        alt={icon.alt ?? option?.title ?? ""}
+        className="mb-2 h-8 w-8 rounded object-cover"
+      />
+    );
+  }
+
+  return (
+    <CircleHelp
+      aria-hidden="true"
+      className="mb-2 h-7 w-7 text-synergy-light-blue"
+      strokeWidth={1.8}
+    />
   );
 }
 
@@ -2573,7 +2669,12 @@ function markExtractionReviewed(form: any) {
 function applyPrefillToQuestionElements(opts: {
   elements: Record<string, any>;
   prefill: Record<string, FunnelPrefillEntry>;
-  context: { documentName: string; fileUid: string };
+  context: {
+    documentName: string;
+    fileUid: string;
+    force?: boolean;
+    userReviewed?: boolean;
+  };
   thresholds: { green: number; yellow: number };
 }): { elements: Record<string, any>; result: FunnelPrefillResult } {
   const result: FunnelPrefillResult = { applied: [], skipped: [] };
@@ -2592,7 +2693,7 @@ function applyPrefillToQuestionElements(opts: {
 
     const confidence = Number(entry.confidence ?? 0);
     const tier = confidenceTier(confidence, opts.thresholds);
-    if (tier === "red") {
+    if (tier === "red" && !opts.context.force) {
       result.skipped.push({
         formUid,
         label: entry.label,
@@ -2600,6 +2701,28 @@ function applyPrefillToQuestionElements(opts: {
         value: entry.value,
       });
       return;
+    }
+
+    if (formHasUserValue(resolved.form)) {
+      if (
+        resolved.form.extraction?.source === "llm" &&
+        formValueMatchesPrefill(resolved.form, entry.value)
+      ) {
+        result.applied.push(formUid);
+        return;
+      }
+
+      if (opts.context.force && resolved.form.extraction?.source === "llm") {
+        clearFormValue(resolved.form);
+      } else {
+        result.skipped.push({
+          formUid,
+          label: entry.label,
+          reason: "already_filled",
+          value: entry.value,
+        });
+        return;
+      }
     }
 
     if (formHasUserValue(resolved.form)) {
@@ -2637,9 +2760,10 @@ function applyPrefillToQuestionElements(opts: {
       sourcePage: entry.sourcePage ?? null,
       fieldKey: entry.fieldKey,
       documentName: entry.documentName ?? opts.context.documentName,
-      fileUid: opts.context.fileUid,
+      fileUid: entry.fileUid ?? opts.context.fileUid,
       label: entry.label,
       userModified: false,
+      userReviewed: opts.context.userReviewed === true,
     };
     resolved.form.message.type = tier === "green" ? "success" : "warning";
     resolved.form.message.text =
@@ -2749,6 +2873,62 @@ function applyValueToForm(form: any, value: unknown): boolean {
       (optionKey) => form.options[optionKey].title,
     );
     return true;
+  }
+
+  return false;
+}
+
+function formValueMatchesPrefill(form: any, value: unknown): boolean {
+  if (form.type === "range") {
+    const locale = form.options?.unit?.numberFormat ?? "de-DE";
+    const current = formatLocaleNumberToUniNumber(
+      String(form.selected?.selectedValue ?? "0"),
+      locale,
+    );
+    const next = typeof value === "number" ? value : Number(value);
+    return (
+      Number.isFinite(current) &&
+      Number.isFinite(next) &&
+      Math.abs(current - next) <= Math.max(0.0001, Math.abs(next) * 0.0001)
+    );
+  }
+
+  if (
+    form.type === "text" ||
+    form.type === "email" ||
+    form.type === "tel" ||
+    form.type === "textarea"
+  ) {
+    return (
+      String(form.selected?.inputValue ?? "")
+        .trim()
+        .toLowerCase() ===
+      String(value ?? "")
+        .trim()
+        .toLowerCase()
+    );
+  }
+
+  if (
+    form.type === "checkbox" ||
+    form.type === "radio" ||
+    form.type === "select"
+  ) {
+    const selected = (form.selected?.selectedOptionsUid ?? [])
+      .map(String)
+      .sort();
+    const targetOptionUids = (Array.isArray(value) ? value : [value])
+      .filter((item): item is string => typeof item === "string")
+      .map((targetOptionUid) => findRuntimeOptionKey(form, targetOptionUid))
+      .filter((item): item is string => Boolean(item))
+      .sort();
+
+    return (
+      selected.length === targetOptionUids.length &&
+      selected.every(
+        (item: string, index: number) => item === targetOptionUids[index],
+      )
+    );
   }
 
   return false;

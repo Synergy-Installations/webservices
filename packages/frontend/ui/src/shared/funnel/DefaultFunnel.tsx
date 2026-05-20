@@ -80,13 +80,13 @@ type FunnelPrefillResult = {
 
 type QuestionTransitionDirection = "next" | "previous";
 type QuestionTransitionState = {
-  phase: "idle" | "exiting" | "entering";
+  phase: "idle" | "rotating";
   direction: QuestionTransitionDirection;
+  currentQuestionKey?: string;
   targetQuestionKey?: string;
 };
 
-const QUESTION_TRANSITION_EXIT_MS = 220;
-const QUESTION_TRANSITION_ENTER_MS = 420;
+const QUESTION_TRANSITION_ROTATE_MS = 560;
 
 /* eslint-disable-next-line */
 export interface DefaultFunnelProps {
@@ -160,6 +160,9 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
       phase: "idle",
       direction: "next",
     });
+  const [questionTransitionHeight, setQuestionTransitionHeight] = useState<
+    number | null
+  >(null);
 
   const [verificationButtonClicked, setVerificationButtonClicked] =
     useState<boolean>(false);
@@ -319,54 +322,36 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     referencingFirstQuestionElementKey,
   );
 
-  const countForms = (): { totalForms: number; successForms: number } => {
-    let totalForms = 0;
-    let successForms = 0;
+  const countQuestions = (): {
+    totalQuestions: number;
+    completedQuestions: number;
+  } => {
+    const visibleQuestionKeys = Object.keys(questionElements ?? {}).filter(
+      (questionKey) => isVisibleEntity(questionElements[questionKey]),
+    );
 
-    Object.keys(questionElements ?? {}).forEach((questionKey) => {
-      if (questionElements[questionKey].defaultVisible == false) {
-        return;
-      }
-      console.log("addToCount", questionKey);
-      const forms = questionElements[questionKey].form;
-      console.log("add", Object.keys(forms).length);
-      /** Remove the submit button form as it is not user input
-       */
-      totalForms += Object.keys(forms).filter(
-        (formKey) =>
-          forms[formKey].defaultVisible == true &&
-          forms[formKey].type !== "submit-button",
-      ).length;
-      successForms += Object.keys(forms).filter(
-        (formKey) =>
-          /** Make sure that the form is visible to the user */
-          forms[formKey].defaultVisible == true &&
-          /** Make sure not to count the submit button as it is not user input */
-          forms[formKey].type !== "submit-button" &&
-          (forms[formKey].message.type === "success" ||
-            /** Forms with a warning are correct, however, something else (like the form above) is
-             * incorrect which gives an error message but not the form itself.
-             */
-            forms[formKey].message.type === "warning"),
-      ).length;
-    });
-    return { totalForms, successForms };
+    return {
+      totalQuestions: visibleQuestionKeys.length,
+      completedQuestions: visibleQuestionKeys.filter((questionKey) =>
+        isQuestionComplete(questionElements[questionKey]),
+      ).length,
+    };
   };
 
-  const [formCounts, setFormCounts] = useState(() => countForms());
+  const [questionCounts, setQuestionCounts] = useState(() => countQuestions());
 
-  const countFormsAndSet = () => {
-    setFormCounts(countForms());
+  const countQuestionsAndSet = () => {
+    setQuestionCounts(countQuestions());
   };
 
-  const debouncedCountFormsAndSet = debounce(countFormsAndSet, 100);
+  const debouncedCountQuestionsAndSet = debounce(countQuestionsAndSet, 100);
 
-  /** Used for initial client render and is needed as countForms
+  /** Used for initial client render and is needed as countQuestions
    * does not recognize a newly created question when evoked
    * from the button click or on new question creation
    */
   useEffect(() => {
-    debouncedCountFormsAndSet();
+    debouncedCountQuestionsAndSet();
   }, [Object.keys(questionElements ?? {}).length]);
 
   const clearQuestionTransitionTimers = useCallback(() => {
@@ -378,27 +363,38 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     return () => clearQuestionTransitionTimers();
   }, [clearQuestionTransitionTimers]);
 
-  const getScrollBehavior = useCallback((): ScrollBehavior => {
+  const prefersReducedMotion = useCallback((): boolean => {
     if (
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {
+      return true;
+    }
+
+    return false;
+  }, []);
+
+  const getScrollBehavior = useCallback((): ScrollBehavior => {
+    if (prefersReducedMotion()) {
       return "auto";
     }
 
     return "smooth";
-  }, []);
+  }, [prefersReducedMotion]);
 
-  const scrollToFunnelQuestionTop = useCallback(() => {
-    if (typeof window === "undefined") return;
+  const scrollToFunnelQuestionTop = useCallback(
+    (behavior?: ScrollBehavior) => {
+      if (typeof window === "undefined") return;
 
-    window.requestAnimationFrame(() => {
-      funnelQuestionViewportRef.current?.scrollIntoView({
-        behavior: getScrollBehavior(),
-        block: "start",
+      window.requestAnimationFrame(() => {
+        funnelQuestionViewportRef.current?.scrollIntoView({
+          behavior: behavior ?? getScrollBehavior(),
+          block: "start",
+        });
       });
-    });
-  }, [getScrollBehavior]);
+    },
+    [getScrollBehavior],
+  );
 
   const scrollToFunnelElement = useCallback(
     (elementId: string) => {
@@ -427,6 +423,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     (
       targetQuestionKey: string | undefined,
       direction: QuestionTransitionDirection,
+      currentQuestionKey?: string,
     ) => {
       if (!targetQuestionKey) return;
 
@@ -435,48 +432,59 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
         return;
       }
 
-      if (typeof window !== "undefined") {
-        const currentQuestionId = new URL(
-          window.location.href,
-        ).searchParams.get("currentQuestionId");
-        if (currentQuestionId === targetQuestionKey) {
-          scrollToFunnelQuestionTop();
-          return;
-        }
+      const activeQuestionKey =
+        currentQuestionKey ??
+        (typeof window !== "undefined"
+          ? (new URL(window.location.href).searchParams.get(
+              "currentQuestionId",
+            ) ?? undefined)
+          : undefined);
+
+      if (activeQuestionKey === targetQuestionKey) {
+        scrollToFunnelQuestionTop();
+        return;
+      }
+
+      if (prefersReducedMotion()) {
+        clearQuestionTransitionTimers();
+        setQuestionTransitionHeight(null);
+        setWindowQuestionId(targetQuestionKey);
+        setQuestionTransition({
+          phase: "idle",
+          direction,
+        });
+        scrollToFunnelQuestionTop();
+        return;
       }
 
       clearQuestionTransitionTimers();
+      setQuestionTransitionHeight(
+        funnelQuestionViewportRef.current?.getBoundingClientRect().height ??
+          null,
+      );
       setQuestionTransition({
-        phase: "exiting",
+        phase: "rotating",
         direction,
+        currentQuestionKey: activeQuestionKey,
         targetQuestionKey,
       });
-      scrollToFunnelQuestionTop();
+      scrollToFunnelQuestionTop("auto");
 
-      const exitTimer = setTimeout(() => {
+      const rotateTimer = setTimeout(() => {
         setWindowQuestionId(targetQuestionKey);
         setQuestionTransition({
-          phase: "entering",
+          phase: "idle",
           direction,
-          targetQuestionKey,
         });
-        scrollToFunnelQuestionTop();
+        setQuestionTransitionHeight(null);
+      }, QUESTION_TRANSITION_ROTATE_MS);
 
-        const enterTimer = setTimeout(() => {
-          setQuestionTransition({
-            phase: "idle",
-            direction,
-          });
-        }, QUESTION_TRANSITION_ENTER_MS);
-
-        questionTransitionTimersRef.current.push(enterTimer);
-      }, QUESTION_TRANSITION_EXIT_MS);
-
-      questionTransitionTimersRef.current.push(exitTimer);
+      questionTransitionTimersRef.current.push(rotateTimer);
     },
     [
       clearQuestionTransitionTimers,
       questionPresentation,
+      prefersReducedMotion,
       scrollToFunnelElement,
       scrollToFunnelQuestionTop,
       setWindowQuestionId,
@@ -669,7 +677,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
       },
     );
 
-    debouncedCountFormsAndSet();
+    debouncedCountQuestionsAndSet();
 
     // Check if there is an error in the form if we redirect forward,
     // if so, return error status
@@ -791,6 +799,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
       transitionToQuestion(
         visibleQuestionKeys[currentVisibleQuestionIndex + 1],
         "next",
+        currentQuestionKey,
       );
     } else if (redirect === "previous") {
       transitionToQuestion(
@@ -800,6 +809,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
             : 0
         ],
         "previous",
+        currentQuestionKey,
       );
     }
     return { status: "success" };
@@ -1090,10 +1100,10 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
         return elements;
       });
 
-      debouncedCountFormsAndSet();
+      debouncedCountQuestionsAndSet();
       return result;
     },
-    [debouncedCountFormsAndSet, questionElements],
+    [debouncedCountQuestionsAndSet, questionElements],
   );
 
   const removeFunnelPrefill = useCallback(
@@ -1132,9 +1142,9 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
         return elements;
       });
 
-      debouncedCountFormsAndSet();
+      debouncedCountQuestionsAndSet();
     },
-    [debouncedCountFormsAndSet],
+    [debouncedCountQuestionsAndSet],
   );
 
   const isQuestionSkippable = (questionKey: string): boolean => {
@@ -1217,19 +1227,20 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     if (questionPresentation === "window" && typeof window !== "undefined") {
       const url = new URL(window.location.href);
       const currentQuestionId = url.searchParams.get("currentQuestionId");
-      if (
-        questionTransition.phase === "exiting" &&
-        currentQuestionId &&
-        visibleQuestionKeys.includes(currentQuestionId)
-      ) {
-        return [currentQuestionId];
-      }
-      if (
-        questionTransition.phase === "entering" &&
-        questionTransition.targetQuestionKey &&
-        visibleQuestionKeys.includes(questionTransition.targetQuestionKey)
-      ) {
-        return [questionTransition.targetQuestionKey];
+      if (questionTransition.phase === "rotating") {
+        const transitionQuestionKeys = [
+          questionTransition.currentQuestionKey ?? currentQuestionId,
+          questionTransition.targetQuestionKey,
+        ].filter(
+          (questionKey, index, questionKeys): questionKey is string =>
+            Boolean(questionKey) &&
+            visibleQuestionKeys.includes(questionKey as string) &&
+            questionKeys.indexOf(questionKey) === index,
+        );
+
+        if (transitionQuestionKeys.length > 0) {
+          return transitionQuestionKeys;
+        }
       }
       console.log("currentQuestionId", currentQuestionId, filteredQuestionKeys);
       if (
@@ -1255,17 +1266,61 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
   };
 
   const renderedQuestionKeys = questionElementsToBeRendered();
-  const questionTransitionClassName =
-    questionTransition.phase === "idle"
-      ? "funnel-question-idle"
-      : `funnel-question-${questionTransition.phase}-${questionTransition.direction}`;
+  const isQuestionTransitionActive = questionTransition.phase === "rotating";
+  const overviewQuestionKeys = Object.keys(questionElements ?? {}).filter(
+    (questionKey) => isVisibleEntity(questionElements[questionKey]),
+  );
+  const currentWindowQuestionKey =
+    typeof window !== "undefined"
+      ? (new URL(window.location.href).searchParams.get("currentQuestionId") ??
+        undefined)
+      : undefined;
+  const activeOverviewQuestionKey =
+    questionTransition.phase === "rotating"
+      ? (questionTransition.targetQuestionKey ?? currentWindowQuestionKey)
+      : currentWindowQuestionKey;
+  const activeOverviewQuestionIndex = Math.max(
+    overviewQuestionKeys.indexOf(activeOverviewQuestionKey ?? ""),
+    0,
+  );
+  const getQuestionTransitionClassName = (questionKey: string): string => {
+    if (!isQuestionTransitionActive) {
+      return "funnel-question-idle";
+    }
+
+    if (questionKey === questionTransition.targetQuestionKey) {
+      return `funnel-question-entering-${questionTransition.direction}`;
+    }
+
+    return `funnel-question-exiting-${questionTransition.direction}`;
+  };
+  const questionProgressPercentage =
+    questionCounts.totalQuestions === 0
+      ? 0
+      : Math.round(
+          (questionCounts.completedQuestions / questionCounts.totalQuestions) *
+            100,
+        );
+  const questionTrackFillPercentage =
+    questionCounts.totalQuestions <= 1
+      ? questionCounts.completedQuestions > 0
+        ? 100
+        : 0
+      : Math.min(
+          100,
+          (questionCounts.completedQuestions /
+            (questionCounts.totalQuestions - 1)) *
+            100,
+        );
 
   return (
     <>
       {topBar && topBar(questionElements)}
       <div className="relative flex flex-col justify-center max-w-3xl mx-auto">
         <FunnelQuestionTransitionStyles />
-        <div className={`${progressContainerClassNames}`}>
+        <div
+          className={`funnel-progress-container ${progressContainerClassNames}`}
+        >
           {progressContainerBackground && (
             <div className="absolute inset-0 bg-white -top-80"></div>
           )}
@@ -1275,38 +1330,101 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
             </span>
             <span className="text-sm font-medium text-synergy-light-blue dark:text-white">
               <Confetti
-                active={formCounts.successForms === formCounts.totalForms}
+                active={
+                  questionCounts.totalQuestions > 0 &&
+                  questionCounts.completedQuestions ===
+                    questionCounts.totalQuestions
+                }
                 config={confettiConfigLow}
               />
-              {formCounts.successForms}{" "}
-              {t(`progress.labels.topRightDeliminator`)} {formCounts.totalForms}{" "}
+              {questionCounts.completedQuestions}{" "}
+              {t(`progress.labels.topRightDeliminator`)}{" "}
+              {questionCounts.totalQuestions}{" "}
               {t(`progress.labels.topRightPostfix`)}{" "}
-              {formCounts.totalForms === 0
-                ? 0
-                : Math.round(
-                    (formCounts.successForms / formCounts.totalForms) * 100,
-                  )}
-              %
+              {questionProgressPercentage}%
             </span>
           </div>
           <div className="relative w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
             <div
               className="bg-synergy-light-blue h-2.5 rounded-full"
               style={{
-                width: `${formCounts.totalForms === 0 ? 0 : (formCounts.successForms / formCounts.totalForms) * 100}%`,
+                width: `${questionTrackFillPercentage}%`,
               }}
             ></div>
+            {overviewQuestionKeys.length > 0 && (
+              <div
+                className="funnel-progress-map"
+                aria-label="Funnel question overview"
+                role="list"
+              >
+                {overviewQuestionKeys.map((questionKey, index) => {
+                  const question = questionElements[questionKey];
+                  const markerPosition =
+                    overviewQuestionKeys.length === 1
+                      ? 50
+                      : (index / (overviewQuestionKeys.length - 1)) * 100;
+                  const isCurrent =
+                    questionKey === activeOverviewQuestionKey ||
+                    (!activeOverviewQuestionKey &&
+                      index === activeOverviewQuestionIndex);
+                  const isComplete = isQuestionComplete(question);
+                  const markerStateClassName = isCurrent
+                    ? "funnel-progress-marker-current"
+                    : isComplete
+                      ? "funnel-progress-marker-complete"
+                      : "funnel-progress-marker-upcoming";
+                  const tooltipAlignmentClassName =
+                    index === 0
+                      ? "funnel-progress-tooltip-start"
+                      : index === overviewQuestionKeys.length - 1
+                        ? "funnel-progress-tooltip-end"
+                        : "funnel-progress-tooltip-center";
+
+                  return (
+                    <span
+                      key={questionKey}
+                      className="funnel-progress-marker"
+                      style={{ left: `${markerPosition}%` }}
+                      role="listitem"
+                      tabIndex={0}
+                      aria-label={`${index + 1}/${overviewQuestionKeys.length}: ${question?.title ?? ""}`}
+                    >
+                      <span
+                        className={`funnel-progress-marker-dot ${markerStateClassName}`}
+                      ></span>
+                      <span
+                        className={`funnel-progress-tooltip ${tooltipAlignmentClassName}`}
+                      >
+                        <span className="funnel-progress-tooltip-index">
+                          {index + 1}/{overviewQuestionKeys.length}
+                        </span>
+                        <span className="funnel-progress-tooltip-title">
+                          {question?.title}
+                        </span>
+                      </span>
+                    </span>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </div>
         <div
           ref={funnelQuestionViewportRef}
-          className={`scroll-mt-40 ${props.ui?.sectionContainerClassNames ?? ""}`}
+          className={`scroll-mt-40 funnel-question-stage ${
+            isQuestionTransitionActive ? "funnel-question-stage-rotating" : ""
+          } ${props.ui?.sectionContainerClassNames ?? ""}`}
+          style={
+            isQuestionTransitionActive && questionTransitionHeight !== null
+              ? { height: `${questionTransitionHeight}px` }
+              : undefined
+          }
         >
           {renderedQuestionKeys.map((questionKey: any, index: any) => (
             <section
               id={questionKey}
               key={questionKey}
-              className={`scroll-mt-40 funnel-question-transition ${questionTransitionClassName}`}
+              className={`scroll-mt-40 funnel-question-transition ${getQuestionTransitionClassName(questionKey)}`}
             >
               {/** Title and description of question */}
               <div className="text-center">
@@ -1574,7 +1692,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                     );
 
                                     /** Update Progress count */
-                                    debouncedCountFormsAndSet();
+                                    debouncedCountQuestionsAndSet();
                                   }}
                                   className="hidden peer"
                                   required={true}
@@ -1836,7 +1954,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                 );
 
                                 /** Update Progress count */
-                                debouncedCountFormsAndSet();
+                                debouncedCountQuestionsAndSet();
                               }}
                             >
                               {Object.keys(
@@ -2175,7 +2293,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                             questionElements={questionElements}
                             setQuestionElements={setQuestionElements}
                             debouncedCountFormsAndSet={
-                              debouncedCountFormsAndSet
+                              debouncedCountQuestionsAndSet
                             }
                           />
                         )
@@ -2341,88 +2459,257 @@ function FunnelQuestionTransitionStyles() {
     <style>
       {`
         @keyframes funnelQuestionExitNext {
-          from {
+          0% {
             opacity: 1;
-            filter: blur(0);
-            transform: translateY(0) scale(1);
+            transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
           }
-          to {
+          44% {
             opacity: 0;
-            filter: blur(5px);
-            transform: translateY(-18px) scale(0.985);
+            transform: translate3d(0, 0, 0) rotate(22deg) scale(0.96);
+          }
+          100% {
+            opacity: 0;
+            transform: translate3d(0, 0, 0) rotate(28deg) scale(0.94);
           }
         }
 
         @keyframes funnelQuestionEnterNext {
-          from {
+          0% {
             opacity: 0;
-            filter: blur(7px);
-            transform: translateY(22px) scale(0.99);
+            transform: translate3d(0, 0, 0) rotate(-28deg) scale(0.94);
           }
-          to {
+          44% {
+            opacity: 0;
+            transform: translate3d(0, 0, 0) rotate(-22deg) scale(0.96);
+          }
+          100% {
             opacity: 1;
-            filter: blur(0);
-            transform: translateY(0) scale(1);
+            transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
           }
         }
 
         @keyframes funnelQuestionExitPrevious {
-          from {
+          0% {
             opacity: 1;
-            filter: blur(0);
-            transform: translateY(0) scale(1);
+            transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
           }
-          to {
+          44% {
             opacity: 0;
-            filter: blur(5px);
-            transform: translateY(18px) scale(0.985);
+            transform: translate3d(0, 0, 0) rotate(-22deg) scale(0.96);
+          }
+          100% {
+            opacity: 0;
+            transform: translate3d(0, 0, 0) rotate(-28deg) scale(0.94);
           }
         }
 
         @keyframes funnelQuestionEnterPrevious {
-          from {
+          0% {
             opacity: 0;
-            filter: blur(7px);
-            transform: translateY(-22px) scale(0.99);
+            transform: translate3d(0, 0, 0) rotate(28deg) scale(0.94);
           }
-          to {
+          44% {
+            opacity: 0;
+            transform: translate3d(0, 0, 0) rotate(22deg) scale(0.96);
+          }
+          100% {
             opacity: 1;
-            filter: blur(0);
-            transform: translateY(0) scale(1);
+            transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
           }
+        }
+
+        .funnel-question-stage {
+          position: relative;
+          overflow: visible;
+          perspective: 1400px;
+          transform: translateZ(0);
+          z-index: 1;
+        }
+
+        .funnel-question-stage-rotating {
+          display: grid;
+          isolation: isolate;
+        }
+
+        .funnel-question-stage-rotating > .funnel-question-transition {
+          grid-area: 1 / 1;
+          pointer-events: none;
         }
 
         .funnel-question-transition {
-          transform-origin: 50% 0%;
-          will-change: opacity, filter, transform;
+          backface-visibility: hidden;
+          transform-origin: 50% 50%;
+          transform-style: preserve-3d;
+          will-change: opacity, transform;
         }
 
         .funnel-question-exiting-next {
-          pointer-events: none;
-          animation: funnelQuestionExitNext ${QUESTION_TRANSITION_EXIT_MS}ms cubic-bezier(0.55, 0, 1, 0.45) both;
+          transform-origin: -18% 145%;
+          z-index: 1;
+          animation: funnelQuestionExitNext ${QUESTION_TRANSITION_ROTATE_MS}ms cubic-bezier(0.4, 0, 0.2, 1) both;
         }
 
         .funnel-question-entering-next {
-          animation: funnelQuestionEnterNext ${QUESTION_TRANSITION_ENTER_MS}ms cubic-bezier(0.22, 1, 0.36, 1) both;
+          transform-origin: 118% 145%;
+          z-index: 2;
+          animation: funnelQuestionEnterNext ${QUESTION_TRANSITION_ROTATE_MS}ms cubic-bezier(0.4, 0, 0.2, 1) both;
         }
 
         .funnel-question-exiting-previous {
-          pointer-events: none;
-          animation: funnelQuestionExitPrevious ${QUESTION_TRANSITION_EXIT_MS}ms cubic-bezier(0.55, 0, 1, 0.45) both;
+          transform-origin: 118% 145%;
+          z-index: 1;
+          animation: funnelQuestionExitPrevious ${QUESTION_TRANSITION_ROTATE_MS}ms cubic-bezier(0.4, 0, 0.2, 1) both;
         }
 
         .funnel-question-entering-previous {
-          animation: funnelQuestionEnterPrevious ${QUESTION_TRANSITION_ENTER_MS}ms cubic-bezier(0.22, 1, 0.36, 1) both;
+          transform-origin: -18% 145%;
+          z-index: 2;
+          animation: funnelQuestionEnterPrevious ${QUESTION_TRANSITION_ROTATE_MS}ms cubic-bezier(0.4, 0, 0.2, 1) both;
+        }
+
+        .funnel-progress-container {
+          position: relative;
+          z-index: 30;
+        }
+
+        .funnel-progress-marker {
+          align-items: center;
+          display: flex;
+          justify-content: center;
+          left: 0;
+          outline: none;
+          position: absolute;
+          top: 50%;
+          transform: translate3d(-50%, -50%, 0);
+        }
+
+        .funnel-progress-map {
+          height: 0;
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          z-index: 10;
+        }
+
+        .funnel-progress-marker-dot {
+          border-radius: 9999px;
+          box-shadow: 0 1px 3px rgb(15 23 42 / 0.18);
+          display: block;
+          height: 0.75rem;
+          transition:
+            box-shadow 150ms ease,
+            transform 150ms ease;
+          width: 0.75rem;
+        }
+
+        .funnel-progress-marker:hover .funnel-progress-marker-dot,
+        .funnel-progress-marker:focus .funnel-progress-marker-dot,
+        .funnel-progress-marker:focus-visible .funnel-progress-marker-dot {
+          transform: scale(1.22);
+        }
+
+        .funnel-progress-marker:focus-visible .funnel-progress-marker-dot {
+          outline: 2px solid rgb(12 192 223 / 0.45);
+          outline-offset: 4px;
+        }
+
+        .funnel-progress-marker-current {
+          background: white;
+          border: 2px solid #0cc0df;
+          box-shadow:
+            0 0 0 4px rgb(12 192 223 / 0.18),
+            0 2px 6px rgb(15 23 42 / 0.18);
+          height: 1rem;
+          width: 1rem;
+        }
+
+        .funnel-progress-marker-complete {
+          background: #0cc0df;
+          border: 2px solid white;
+        }
+
+        .funnel-progress-marker-upcoming {
+          background: white;
+          border: 2px solid #d1d5db;
+        }
+
+        .funnel-progress-tooltip {
+          background: #111827;
+          border-radius: 0.375rem;
+          box-shadow: 0 12px 24px rgb(15 23 42 / 0.2);
+          color: white;
+          display: block;
+          font-size: 0.75rem;
+          font-weight: 500;
+          line-height: 1.35;
+          max-width: 14rem;
+          opacity: 0;
+          padding: 0.5rem 0.75rem;
+          pointer-events: none;
+          position: absolute;
+          text-align: left;
+          top: 1rem;
+          transform: translate3d(0, -0.25rem, 0);
+          transition:
+            opacity 120ms ease,
+            transform 120ms ease,
+            visibility 120ms ease;
+          visibility: hidden;
+          width: max-content;
+          z-index: 20;
+        }
+
+        .funnel-progress-marker:hover .funnel-progress-tooltip,
+        .funnel-progress-marker:focus .funnel-progress-tooltip,
+        .funnel-progress-marker:focus-visible .funnel-progress-tooltip {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+          visibility: visible;
+        }
+
+        .funnel-progress-tooltip-center {
+          left: 50%;
+          transform: translate3d(-50%, -0.25rem, 0);
+        }
+
+        .funnel-progress-marker:hover .funnel-progress-tooltip-center,
+        .funnel-progress-marker:focus .funnel-progress-tooltip-center,
+        .funnel-progress-marker:focus-visible .funnel-progress-tooltip-center {
+          transform: translate3d(-50%, 0, 0);
+        }
+
+        .funnel-progress-tooltip-start {
+          left: 0;
+        }
+
+        .funnel-progress-tooltip-end {
+          right: 0;
+        }
+
+        .funnel-progress-tooltip-index {
+          color: #d1d5db;
+          display: block;
+          font-size: 0.6875rem;
+          white-space: nowrap;
+        }
+
+        .funnel-progress-tooltip-title {
+          display: block;
+          white-space: normal;
         }
 
         @media (prefers-reduced-motion: reduce) {
+          .funnel-question-stage-rotating {
+            display: block;
+          }
+
           .funnel-question-transition,
           .funnel-question-exiting-next,
           .funnel-question-entering-next,
           .funnel-question-exiting-previous,
           .funnel-question-entering-previous {
             animation: none;
-            filter: none;
             transform: none;
           }
         }
@@ -2505,6 +2792,23 @@ function isVisibleEntity(entity: any): boolean {
 
 function isRequiredForm(form: any): boolean {
   return form?.required === true || form?.required === "true";
+}
+
+function isQuestionComplete(question: any): boolean {
+  const forms = question?.form ?? {};
+  const visibleInputFormKeys = Object.keys(forms).filter(
+    (formKey) =>
+      isVisibleEntity(forms[formKey]) &&
+      forms[formKey].type !== "submit-button",
+  );
+
+  if (visibleInputFormKeys.length === 0) return false;
+
+  return visibleInputFormKeys.every(
+    (formKey) =>
+      forms[formKey].message?.type === "success" ||
+      forms[formKey].message?.type === "warning",
+  );
 }
 
 function getRenderableQuestionKeys(elements: Record<string, any>): string[] {

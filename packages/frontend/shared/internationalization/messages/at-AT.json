@@ -6704,8 +6704,8 @@
                     "disabled": "false",
                     "span": "3",
                     "description": "",
-                    "addQuestion": "submit-form-schnittstelle-anderes-textarea",
-                    "addForm": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-schnittstelle-anderes-textarea",
                     "icon": {
                       "name": "Zap",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
@@ -6718,8 +6718,8 @@
                     "disabled": "false",
                     "span": "3",
                     "description": "",
-                    "addQuestion": "submit-form-schnittstelle-anderes-textarea",
-                    "addForm": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-schnittstelle-anderes-textarea",
                     "icon": {
                       "name": "BatteryCharging",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
@@ -6747,7 +6747,7 @@
                     "span": "3",
                     "description": "Kommt in Kürze",
                     "addQuestion": "",
-                    "addForm": "",
+                    "addForm": "submit-form-schnittstelle-anderes-textarea",
                     "icon": {
                       "name": "Plug",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",

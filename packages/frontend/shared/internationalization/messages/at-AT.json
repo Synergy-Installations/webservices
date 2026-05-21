@@ -6140,9 +6140,32 @@
         },
         "progress": {
           "labels": {
-            "topLeft": "Synergie Anfrage Progress",
+            "topLeft": "Synergie Anfragefortschritt",
             "topRightDeliminator": "von",
             "topRightPostfix": "Fragen"
+          }
+        },
+        "ui": {
+          "accessibility": {
+            "questionOverviewAriaLabel": "Fragenübersicht im Funnel",
+            "questionProgressMarkerAriaLabel": "{current}/{total}: {title}"
+          },
+          "navigation": {
+            "previous": "Zurück",
+            "next": "Weiter",
+            "skip": "Überspringen"
+          },
+          "verification": {
+            "title": "E-Mail-Verifizierung",
+            "description": "Geben Sie den Code ein, den Sie per E-Mail erhalten haben, um zum Dashboard zu gelangen.",
+            "details": "Mit dem Dashboard können Sie weitere Projekte eintragen, Ihre Formulare verwalten und Ihre Einstellungen anpassen.",
+            "codeLabel": "Code {index}",
+            "helperText": "Bitte geben Sie den 6-stelligen Code ein, den wir Ihnen per E-Mail gesendet haben.",
+            "verifyButton": "Verifizieren"
+          },
+          "aiPrefill": {
+            "defaultLabel": "Wert",
+            "warning": "{label} wurde von der KI vorausgefüllt. Bitte prüfen."
           }
         },
         "questions": {
@@ -6164,9 +6187,9 @@
                 "message": {
                   "text": "Mit dem Hochladen Ihrer Dateien stimmen Sie unseren Datenschutzbestimmungen zu.",
                   "type": "info",
-                  "successMessage": "Thank you for your upload",
+                  "successMessage": "Vielen Dank für Ihren Upload",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Thank your for your input. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                  "checkPreviousFormsMessage": "Vielen Dank für Ihre Eingabe. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "upload": {
@@ -6175,9 +6198,9 @@
                     "region": "",
                     "filesAccepted": "",
                     "multipleFiles": "true",
-                    "uploadingText": "Uploading...",
-                    "uploadError": "Upload failed, we are currently working on fixing it, please try again later",
-                    "uploadSuccess": "Upload successful, thank you!"
+                    "uploadingText": "Datei wird hochgeladen...",
+                    "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                    "uploadSuccess": "Upload erfolgreich, vielen Dank!"
                   },
                   "download": {
                     "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
@@ -6648,7 +6671,7 @@
                 },
                 "options": {
                   "label": "Kurze Beschreibung",
-                  "placeholder": "Write your thoughts here...",
+                  "placeholder": "Schreiben Sie hier Ihre Angaben...",
                   "rows": "4"
                 }
               },
@@ -6840,7 +6863,7 @@
                 },
                 "options": {
                   "label": "Kurze Beschreibung",
-                  "placeholder": "Write your thoughts here...",
+                  "placeholder": "Schreiben Sie hier Ihre Angaben...",
                   "rows": "4"
                 }
               }
@@ -7052,7 +7075,7 @@
                 },
                 "options": {
                   "label": "",
-                  "placeholder": "Strasse XX, XXXX",
+                  "placeholder": "Straße XX, XXXX",
                   "rows": "4"
                 },
                 "aiExtraction": {
@@ -7077,16 +7100,16 @@
                 "type": "file-upload",
                 "required": "false",
                 "defaultVisible": "false",
-                "title": "Upload your files",
+                "title": "Dateien hochladen",
                 "description": "",
                 "localStorage": "false",
                 "span": "2",
                 "message": {
                   "text": "Mit dem Hochladen Ihrer Dateien stimmen Sie unseren Datenschutzbestimmungen zu.",
                   "type": "info",
-                  "successMessage": "Thank you for your upload",
+                  "successMessage": "Vielen Dank für Ihren Upload",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Thank your for your input. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                  "checkPreviousFormsMessage": "Vielen Dank für Ihre Eingabe. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "upload": {
@@ -7095,9 +7118,9 @@
                     "region": "",
                     "filesAccepted": "",
                     "multipleFiles": "true",
-                    "uploadingText": "Uploading...",
-                    "uploadError": "Upload failed, we are currently working on fixing it, please try again later",
-                    "uploadSuccess": "Upload successful, thank you!"
+                    "uploadingText": "Datei wird hochgeladen...",
+                    "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                    "uploadSuccess": "Upload erfolgreich, vielen Dank!"
                   },
                   "download": {
                     "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
@@ -7122,7 +7145,7 @@
                 "localStorage": "false",
                 "span": "2",
                 "message": {
-                  "text": "Only valid Names are allowed",
+                  "text": "Nur gültige Namen sind zulässig",
                   "type": "info",
                   "successMessage": "Danke für Ihre Eingabe",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
@@ -7165,7 +7188,7 @@
                 "localStorage": "false",
                 "span": "2",
                 "message": {
-                  "text": "Only valid Names are allowed",
+                  "text": "Nur gültige Namen sind zulässig",
                   "type": "info",
                   "successMessage": "Danke für Ihre Eingabe",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
@@ -7289,7 +7312,7 @@
                 "localStorage": "false",
                 "span": "2",
                 "message": {
-                  "text": "Only valid Names are allowed",
+                  "text": "Nur gültige Namen sind zulässig",
                   "type": "info",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
                   "successMessage": "Danke für Ihre Eingabe",
@@ -7356,7 +7379,7 @@
                 "localStorage": "false",
                 "span": "2",
                 "message": {
-                  "text": "Only valid Names are allowed",
+                  "text": "Nur gültige Namen sind zulässig",
                   "type": "info",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
                   "successMessage": "Danke für Ihre Eingabe",
@@ -7604,7 +7627,7 @@
                 "description": "",
                 "span": "2",
                 "message": {
-                  "text": "Only valid Names are allowed",
+                  "text": "Nur gültige Namen sind zulässig",
                   "type": "info",
                   "successMessage": "Danke für Ihre Eingabe",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
@@ -7707,7 +7730,7 @@
                 "description": "",
                 "span": "2",
                 "message": {
-                  "text": "Only valid Names are allowed",
+                  "text": "Nur gültige Namen sind zulässig",
                   "type": "info",
                   "successMessage": "Danke für Ihre Eingabe",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
@@ -7888,8 +7911,8 @@
                   "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
-                  "label": "Provide your project details",
-                  "placeholder": "Write your thoughts here...",
+                  "label": "Geben Sie Ihre Projektdetails an",
+                  "placeholder": "Schreiben Sie hier Ihre Angaben...",
                   "rows": "4"
                 }
               },
@@ -7902,13 +7925,13 @@
                 "title": "",
                 "description": "",
                 "defaultValue": [
-                  "Please select"
+                  "Bitte auswählen"
                 ],
-                "label": "How did you hear about us?",
+                "label": "Wie haben Sie von uns erfahren?",
                 "localStorage": "true",
                 "span": "2",
                 "message": {
-                  "text": "If none apply, select \"Other\"",
+                  "text": "Falls nichts zutrifft, wählen Sie \"Sonstiges\"",
                   "type": "info",
                   "successMessage": "Danke für Ihre Eingabe",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
@@ -7917,63 +7940,63 @@
                 "options": {
                   "please-select": {
                     "type": "select",
-                    "title": "Please select",
+                    "title": "Bitte auswählen",
                     "value": "please-select",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Search-Engine": {
                     "type": "select",
-                    "title": "Search Engine (Google, Bing, etc.)",
+                    "title": "Suchmaschine (Google, Bing usw.)",
                     "value": "",
                     "addQuestion": "",
                     "addForm": "submit-form-search-engine"
                   },
                   "Social-media": {
                     "type": "select",
-                    "title": "Social Media",
+                    "title": "Soziale Medien",
                     "value": "social-media",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Television": {
                     "type": "select",
-                    "title": "Television",
+                    "title": "Fernsehen",
                     "value": "television",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Billboard": {
                     "type": "select",
-                    "title": "Billboard",
+                    "title": "Plakatwerbung",
                     "value": "billboard",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Convention": {
                     "type": "select",
-                    "title": "Convention",
+                    "title": "Messe",
                     "value": "convention",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Word-of-Mouth": {
                     "type": "select",
-                    "title": "Word of Mouth",
+                    "title": "Mundpropaganda",
                     "value": "word-of-mouth",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Referral": {
                     "type": "select",
-                    "title": "Referral",
+                    "title": "Empfehlung",
                     "value": "referral",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Other": {
                     "type": "select",
-                    "title": "Other",
+                    "title": "Sonstiges",
                     "value": "other",
                     "addQuestion": "",
                     "addForm": ""
@@ -7991,11 +8014,11 @@
                 "defaultValue": [
                   ""
                 ],
-                "label": "How did you hear about us? (Multiple)",
+                "label": "Wie haben Sie von uns erfahren? (Mehrfachauswahl)",
                 "localStorage": "true",
                 "span": "2",
                 "message": {
-                  "text": "If none apply, select \"Other\"",
+                  "text": "Falls nichts zutrifft, wählen Sie \"Sonstiges\"",
                   "type": "info",
                   "successMessage": "Danke für Ihre Eingabe",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
@@ -8004,56 +8027,56 @@
                 "options": {
                   "Search-Engine": {
                     "type": "select",
-                    "title": "Search Engine (Google, Bing, etc.)",
+                    "title": "Suchmaschine (Google, Bing usw.)",
                     "value": "search-engine",
                     "addQuestion": "",
                     "addForm": "submit-form-search-engine"
                   },
                   "Social Media": {
                     "type": "select",
-                    "title": "Social Media",
+                    "title": "Soziale Medien",
                     "value": "social-media",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Television": {
                     "type": "select",
-                    "title": "Television",
+                    "title": "Fernsehen",
                     "value": "television",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Billboard": {
                     "type": "select",
-                    "title": "Billboard",
+                    "title": "Plakatwerbung",
                     "value": "billboard",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Convention": {
                     "type": "select",
-                    "title": "Convention",
+                    "title": "Messe",
                     "value": "convention",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Word-of-Mouth": {
                     "type": "select",
-                    "title": "Word of Mouth",
+                    "title": "Mundpropaganda",
                     "value": "word-of-mouth",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Referral": {
                     "type": "select",
-                    "title": "Referral",
+                    "title": "Empfehlung",
                     "value": "referral",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Other": {
                     "type": "select",
-                    "title": "Other",
+                    "title": "Sonstiges",
                     "value": "other",
                     "addQuestion": "",
                     "addForm": "submit-form-search-engine"
@@ -8070,14 +8093,14 @@
                 "localStorage": "true",
                 "span": "2",
                 "message": {
-                  "text": "Only valid Search Engines are allowed",
+                  "text": "Es sind nur gültige Suchmaschinen zulässig",
                   "type": "info",
                   "successMessage": "Danke für Ihre Eingabe",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
                   "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
-                  "label": "Enter the Search Engine",
+                  "label": "Suchmaschine eingeben",
                   "placeholder": "Google, Bing, etc."
                 }
               },
@@ -8133,7 +8156,7 @@
                 "description": "",
                 "span": "2",
                 "message": {
-                  "text": "Only book an appointment if you already know the date and time",
+                  "text": "Buchen Sie nur dann einen Termin, wenn Sie Datum und Uhrzeit bereits kennen",
                   "type": "info",
                   "successMessage": "Danke für Ihre Eingabe",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
@@ -8167,10 +8190,10 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "errorMessage": "Die E-Mail konnte nicht abgesendet werden. Wir arbeiten derzeit daran, das Problem zu beheben. Bitte benutzten Sie die unten angegebene E-Mail.",
-                  "successMessage": "Thank you for your submit",
-                  "loadingMessage": "Please wait while we process your request",
-                  "checkPreviousFormsMessage": "Please resolve all errors from previous forms"
+                  "errorMessage": "Die E-Mail konnte nicht abgesendet werden. Wir arbeiten derzeit daran, das Problem zu beheben. Bitte benutzen Sie die unten angegebene E-Mail.",
+                  "successMessage": "Vielen Dank für Ihre Anfrage",
+                  "loadingMessage": "Bitte warten Sie, während wir Ihre Anfrage verarbeiten",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "button": {
@@ -10422,6 +10445,420 @@
       "LocaleSwitcher": {
         "label": "Change language",
         "locale": "{locale, select, atAT {🇦🇹 Deutsch} en {🇺🇸 English} other {Unknown}}"
+      }
+    },
+    "Legal": {
+      "Impressum": {
+        "title": "Impressum",
+        "updatedAt": "Stand: 01.09.2025",
+        "sections": {
+          "companyInformation": {
+            "title": "Firmeninformationen",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Informationspflicht laut §5 E-Commerce Gesetz, §14 Unternehmensgesetzbuch, §63 Gewerbeordnung und Offenlegungspflicht laut §25 Mediengesetz."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "<b>Synergie Montagen Riegler GmbH</b><br></br>EURO PLAZA<br></br>Wagenseilgasse 14<br></br>1120 Wien<br></br>Österreich"
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "<b>UID-Nummer:</b> ATU78880338<br></br><b>GLN:</b> 9110032870340<br></br><b>GISA:</b> 35484653<br></br><b>Firmenbuchnummer:</b> FN 593978 y<br></br><b>Firmenbuchgericht:</b> Landesgericht Wiener Neustadt"
+              },
+              "block04": {
+                "type": "paragraph",
+                "text": "<b>Tel.:</b> +43 664 2448742<br></br><b>E-Mail:</b> office@synergiemontagen.eco"
+              },
+              "block05": {
+                "type": "paragraph",
+                "text": "<b>Mitglied bei:</b> WKO, Landesinnung<br></br><b>Berufsrecht:</b> Gewerbeordnung: www.ris.bka.gv.at"
+              },
+              "block06": {
+                "type": "paragraph",
+                "text": "<b>Aufsichtsbehörde/Gewerbebehörde:</b> Bezirkshauptmannschaft Baden"
+              },
+              "block07": {
+                "type": "paragraph",
+                "text": "<b>Unternehmensgegenstand:</b> Montage von Photovoltaikmodulen, Energiekostenberatung, Handelsgewerbe, Elektrotechnik<br></br><b>Berufsbezeichnung:</b> Elektro-,Audio-,Video-u.Alarmanlagentechniker<br></br><b>Verleihungsstaat:</b> Österreich"
+              },
+              "block08": {
+                "type": "paragraph",
+                "text": "<b>Geschäftsführer:</b> Michael Riegler"
+              }
+            }
+          },
+          "euSettlement": {
+            "title": "EU-Streitschlichtung",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Gemäß Verordnung über Online-Streitbeilegung in Verbraucherangelegenheiten (ODR-Verordnung) möchten wir Sie über die Online-Streitbeilegungsplattform (OS-Plattform) informieren.<br></br>Verbraucher haben die Möglichkeit, Beschwerden an die Online-Streitbeilegungsplattform der Europäischen Kommission unter http://ec.europa.eu/odr?tid=121890425 zu richten. Die dafür notwendigen Kontaktdaten finden Sie oberhalb in unserem Impressum."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "Wir möchten Sie jedoch darauf hinweisen, dass wir nicht bereit oder verpflichtet sind, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+              }
+            }
+          },
+          "liabilityForContent": {
+            "title": "Haftung für Inhalte dieser Website",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Wir entwickeln die Inhalte dieser Website ständig weiter und bemühen uns, korrekte und aktuelle Informationen bereitzustellen. Leider können wir keine Haftung für die Korrektheit aller Inhalte auf dieser Website übernehmen, speziell für jene, die seitens Dritter bereitgestellt wurden."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "Als Diensteanbieter sind wir nicht verpflichtet, die von ihnen übermittelten oder gespeicherten Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen."
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "Unsere Verpflichtungen zur Entfernung von Informationen oder zur Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen aufgrund von gerichtlichen oder behördlichen Anordnungen bleiben auch im Falle unserer Nichtverantwortlichkeit davon unberührt."
+              },
+              "block04": {
+                "type": "paragraph",
+                "text": "Sollten Ihnen problematische oder rechtswidrige Inhalte auffallen, bitten wir Sie, uns umgehend zu kontaktieren, damit wir die rechtswidrigen Inhalte entfernen können. Sie finden die Kontaktdaten im Impressum."
+              }
+            }
+          },
+          "liabilityForLinks": {
+            "title": "Haftung für Links auf dieser Website",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Unsere Website enthält Links zu anderen Websites, für deren Inhalt wir nicht verantwortlich sind. Haftung für verlinkte Websites besteht für uns nicht, da wir keine Kenntnis rechtswidriger Tätigkeiten hatten und haben, uns solche Rechtswidrigkeiten auch bisher nicht aufgefallen sind und wir Links sofort entfernen würden, wenn uns Rechtswidrigkeiten bekannt werden."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "Wenn Ihnen rechtswidrige Links auf unserer Website auffallen, bitten wir Sie, uns zu kontaktieren. Sie finden die Kontaktdaten im Impressum."
+              }
+            }
+          },
+          "copyrightNotice": {
+            "title": "Urheberrechtshinweis",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Alle Inhalte dieser Webseite (Bilder, Fotos, Texte, Videos) unterliegen dem Urheberrecht. Bitte fragen Sie uns, bevor Sie die Inhalte dieser Website verbreiten, vervielfältigen oder verwerten, wie zum Beispiel auf anderen Websites erneut veröffentlichen. Falls notwendig, werden wir die unerlaubte Nutzung von Teilen der Inhalte unserer Seite rechtlich verfolgen."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "Sollten Sie auf dieser Webseite Inhalte finden, die das Urheberrecht verletzen, bitten wir Sie, uns zu kontaktieren."
+              }
+            }
+          },
+          "copyright": {
+            "title": "Urheberrecht",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Die Bilder, Fotos und Grafiken auf dieser Webseite sind urheberrechtlich geschützt."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "Alle Texte sind urheberrechtlich geschützt."
+              }
+            }
+          }
+        }
+      },
+      "Datenschutz": {
+        "title": "Datenschutzerklärung",
+        "updatedAt": "Stand: 21.05.2026",
+        "sections": {
+          "controller": {
+            "title": "1. Name und Kontaktdaten des Verantwortlichen",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "<b>Verantwortlicher für die Datenverarbeitung:</b>"
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "Michael Riegler<br></br>Anton Krenn-Straße 28, 2540, Bad Vöslau, AT<br></br>office@synergiemontagen.at<br></br>+43 664 2448742"
+              }
+            }
+          },
+          "dataTypes": {
+            "title": "2. Art der verarbeiteten Daten",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Wir verarbeiten folgende personenbezogene Daten:"
+              },
+              "block02": {
+                "type": "list",
+                "items": {
+                  "item01": "Name",
+                  "item02": "E-Mail-Adresse",
+                  "item03": "IP-Adresse",
+                  "item04": "Nutzungsdaten (z.B. besuchte Seiten, Verweildauer)",
+                  "item05": "ggf. weitere durch das Kontaktformular übermittelte Daten"
+                }
+              }
+            }
+          },
+          "processingPurpose": {
+            "title": "3. Zweck der Datenverarbeitung",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Die Verarbeitung Ihrer Daten erfolgt zu folgenden Zwecken:"
+              },
+              "block02": {
+                "type": "list",
+                "items": {
+                  "item01": "Beantwortung von Kontaktanfragen",
+                  "item02": "Analyse der Nutzung unserer Website",
+                  "item03": "Verbesserung unseres Online-Angebots",
+                  "item04": "Erfüllung gesetzlicher Verpflichtungen"
+                }
+              }
+            }
+          },
+          "aiAssistant": {
+            "title": "KI-gestützte Auswertung hochgeladener Dateien (Fragebogen-Assistent)",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Auf unserer Website bieten wir Ihnen einen Fragebogen-Assistenten an, mit dem Sie eigene Projektdateien (z. B. Stromrechnungen, Lastprofile, Pläne, Angebote, Datenblätter, Fotos) hochladen können. Ein Sprachmodell (Large Language Model, kurz „LLM“) extrahiert aus diesen Dateien Informationen und befüllt damit die Antwortfelder des Fragebogens vor. Sie können die vorgeschlagenen Antworten anschließend prüfen, ändern, ergänzen oder verwerfen."
+              },
+              "block02": {
+                "type": "subheading",
+                "text": "1. Verantwortlicher"
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "Verantwortlicher im Sinne des Art. 4 Z 7 DSGVO ist:<br></br>Synergie Montagen Riegler GmbH<br></br>EURO PLAZA, Wagenseilgasse 14, 1120 Wien, Österreich<br></br>FN 593978 y, Landesgericht Wiener Neustadt, UID ATU78880338<br></br>Geschäftsführer: Michael Riegler<br></br>E-Mail: [Kontakt-E-Mail einsetzen]"
+              },
+              "block04": {
+                "type": "subheading",
+                "text": "2. Verarbeitete Daten"
+              },
+              "block05": {
+                "type": "paragraph",
+                "text": "Wir verarbeiten in diesem Zusammenhang insbesondere:"
+              },
+              "block06": {
+                "type": "list",
+                "items": {
+                  "item01": "Inhalte der von Ihnen hochgeladenen Dateien (PDFs, Bilder, Office-Dokumente und vergleichbare Formate); diese können personenbezogene Daten enthalten (z. B. Name, Adresse, Zählpunkt, Verbrauchsdaten, Vertragsdaten, Bankdaten, Fotos von Gebäuden, ggf. Daten Dritter);",
+                  "item02": "die aus den Dateien durch das KI-Modell extrahierten Datenpunkte und die daraus erzeugten Vorschläge für die Fragebogen-Antworten;",
+                  "item03": "Ihre Eingaben im Fragebogen, Ihre Kontaktdaten und die Kommunikation mit uns;",
+                  "item04": "technische Verbindungsdaten (IP-Adresse, Zeitstempel, User-Agent), Datei-Metadaten sowie Verarbeitungs-Protokolle (Logs) zu Zwecken der Sicherheit und Fehleranalyse."
+                }
+              },
+              "block07": {
+                "type": "subheading",
+                "text": "3. Zweck der Verarbeitung"
+              },
+              "block08": {
+                "type": "paragraph",
+                "text": "Zweck ist die Erbringung des kostenlos angebotenen Fragebogen-Assistenten, konkret das automatisierte Auslesen relevanter Informationen aus Ihren Dateien, das Vorausfüllen der Fragebogen-Felder, die anschließende individuelle Beratung sowie die Erstellung von Angeboten im Bereich Photovoltaik, Energiekostenberatung und Elektrotechnik."
+              },
+              "block09": {
+                "type": "subheading",
+                "text": "4. Rechtsgrundlagen"
+              },
+              "block10": {
+                "type": "list",
+                "items": {
+                  "item01": "Art. 6 Abs. 1 lit. b DSGVO (Durchführung vorvertraglicher Maßnahmen bzw. Vertragserfüllung) für die Bearbeitung Ihrer Anfrage und die Vorbereitung eines Angebots;",
+                  "item02": "Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) für den Upload und die KI-gestützte Auswertung Ihrer Dateien einschließlich der damit verbundenen Übermittlung an Anthropic, PBC in die USA;",
+                  "item03": "Art. 49 Abs. 1 lit. a DSGVO (ausdrückliche Einwilligung in den Drittlandtransfer) für die Übermittlung an Anthropic, PBC, soweit die Standardvertragsklauseln gemäß Art. 46 Abs. 2 lit. c DSGVO im Einzelfall nicht ausreichen sollten;",
+                  "item04": "Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Betrieb, Sicherheit und Missbrauchsabwehr unserer IT-Systeme) für technische Logs."
+                }
+              },
+              "block11": {
+                "type": "paragraph",
+                "text": "Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, ohne dass die Rechtmäßigkeit der bis dahin erfolgten Verarbeitung berührt wird. Den Widerruf können Sie formlos per E-Mail an uns richten."
+              },
+              "block12": {
+                "type": "subheading",
+                "text": "5. Hochgeladene Dateien können Daten Dritter enthalten"
+              },
+              "block13": {
+                "type": "paragraph",
+                "text": "Bitte beachten Sie: Hochgeladene Dateien (z. B. Rechnungen, Verträge, Pläne) können personenbezogene Daten Dritter enthalten (etwa Daten anderer Vertragspartner, Mitbewohner, Familienangehöriger, Lieferantenmitarbeiter). Sie sichern uns mit dem Upload zu, zur Verarbeitung dieser Daten berechtigt zu sein und – soweit erforderlich – die betroffenen Personen über die Verarbeitung informiert zu haben. Bitte laden Sie keine Dokumente hoch, deren Inhalt einem Berufs- oder Amtsgeheimnis unterliegt oder die besondere Kategorien personenbezogener Daten (Art. 9 DSGVO, z. B. Gesundheitsdaten) enthalten, sofern dies nicht für die Anfrage zwingend erforderlich ist."
+              },
+              "block14": {
+                "type": "subheading",
+                "text": "6. Empfänger / Auftragsverarbeiter"
+              },
+              "block15": {
+                "type": "paragraph",
+                "text": "Für den Betrieb des Fragebogen-Assistenten setzen wir folgende Auftragsverarbeiter ein:"
+              },
+              "block16": {
+                "type": "list",
+                "items": {
+                  "item01": "Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA (Hosting/Betrieb der Web-Anwendung; EU-Region Frankfurt);",
+                  "item02": "BunnyWay d.o.o., Dunajska cesta 165, 1000 Ljubljana, Slowenien (Datei-Speicherung und Auslieferung, ausschließlich in EU-Regionen);",
+                  "item03": "Trigger.dev Ltd. (Hintergrundverarbeitung / Job-Queue);",
+                  "item04": "Anthropic, PBC, 548 Market Street, PMB 90375, San Francisco, CA 94104, USA (Bereitstellung des Sprachmodells „Claude“ über die Anthropic-API zur Extraktion der Inhalte)."
+                }
+              },
+              "block17": {
+                "type": "subheading",
+                "text": "7. Übermittlung in Drittländer (USA)"
+              },
+              "block18": {
+                "type": "paragraph",
+                "text": "Beim Aufruf des Sprachmodells werden die Inhalte Ihrer Dateien an Anthropic, PBC in die Vereinigten Staaten von Amerika übermittelt und dort verarbeitet. Die USA gelten nicht durchgängig als sicheres Drittland im Sinne der DSGVO; insbesondere besteht das Risiko des Zugriffs durch US-Behörden auf Grundlage US-amerikanischer Überwachungsgesetze (z. B. FISA 702, CLOUD Act)."
+              },
+              "block19": {
+                "type": "paragraph",
+                "text": "Der Transfer wird gestützt auf:"
+              },
+              "block20": {
+                "type": "list",
+                "items": {
+                  "item01": "Standardvertragsklauseln der EU-Kommission gemäß Art. 46 Abs. 2 lit. c DSGVO (Module 2 und 3), die fester Bestandteil des Data Processing Addendums von Anthropic sind (https://www.anthropic.com/legal/data-processing-addendum), sowie",
+                  "item02": "Ihre ausdrückliche Einwilligung gemäß Art. 49 Abs. 1 lit. a DSGVO, die Sie am Upload-Schritt erteilen."
+                }
+              },
+              "block21": {
+                "type": "paragraph",
+                "text": "Anthropic verarbeitet Inhaltsdaten der API nach eigenen Angaben nicht zum Training eigener Modelle. Eingaben und Ausgaben werden gemäß Anthropic Privacy Center („How long do you store my organization's data?\", Stand 16. März 2026, https://privacy.claude.com/) standardmäßig innerhalb von 30 Tagen automatisch gelöscht. Für regulierte Anwendungen ist eine Zero-Data-Retention-Vereinbarung möglich."
+              },
+              "block22": {
+                "type": "subheading",
+                "text": "8. Speicherdauer"
+              },
+              "block23": {
+                "type": "list",
+                "items": {
+                  "item01": "Hochgeladene Dateien speichern wir auf unserer EU-Infrastruktur (Bunny.net Storage, EU-Region) für maximal 30 Tage ab Upload und löschen sie danach automatisiert; auf Ihren Wunsch löschen wir sie früher.",
+                  "item02": "Die durch das KI-Modell extrahierten Antworten sowie Ihre Fragebogeneingaben bewahren wir auf, solange dies für die Bearbeitung Ihrer Anfrage bzw. – bei Zustandekommen eines Vertrags – für die Vertragsabwicklung und die Erfüllung gesetzlicher Aufbewahrungspflichten (insb. § 132 BAO, § 212 UGB: 7 Jahre) erforderlich ist.",
+                  "item03": "Technische Logs werden nach maximal 90 Tagen anonymisiert oder gelöscht."
+                }
+              },
+              "block24": {
+                "type": "subheading",
+                "text": "9. Ihre Rechte"
+              },
+              "block25": {
+                "type": "paragraph",
+                "text": "Es bleiben Ihnen sämtliche datenschutzrechtlichen Rechte aus Art. 15 bis Art. 22 DSGVO unberührt (Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerspruch). Sie haben das Recht, sich bei der österreichischen Datenschutzbehörde (www.dsb.gv.at) zu beschweren."
+              }
+            }
+          },
+          "processors": {
+            "title": "Drittanbieter / Auftragsverarbeiter",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Wir geben Ihre Daten an folgende Drittanbieter und Auftragsverarbeiter weiter:"
+              },
+              "block02": {
+                "type": "list",
+                "items": {
+                  "item01": "Webflow, Inc. (Website-Hosting und Content-Management)",
+                  "item02": "Google LLC (Google Analytics)",
+                  "item03": "Yandex LLC (Analytics)",
+                  "item04": "Vercel, Inc. (Website-Hosting)",
+                  "item05": "BunnyWay d.o.o., Dunajska cesta 165, 1000 Ljubljana, Slowenien (Bunny.net) — Datei-Speicherung und Auslieferung. Datenresidenz ausschließlich in EU-Rechenzentren (Routing Filters „EU only“ aktiviert).",
+                  "item06": "Anthropic, PBC, 548 Market Street, PMB 90375, San Francisco, CA 94104, USA — Bereitstellung des Sprachmodells „Claude“ über die Anthropic-API zur Inhaltsanalyse hochgeladener Dateien. Datenverarbeitung in den USA. Rechtsgrundlage für den Drittlandtransfer: Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO) gemäß Anthropic Data Processing Addendum (https://www.anthropic.com/legal/data-processing-addendum) sowie ausdrückliche Einwilligung der betroffenen Person (Art. 49 Abs. 1 lit. a DSGVO). Anthropic Subprocessor-Liste: https://www.anthropic.com/subprocessors.",
+                  "item07": "Trigger.dev Ltd., Vereinigtes Königreich — asynchrone Hintergrund-Verarbeitung der Datei-Extraktionsaufträge (Job-Orchestrierung). Verarbeitung auf Basis eines Auftragsverarbeitungsvertrags (Bestandteil der Trigger.dev Terms of Service, https://trigger.dev/legal; SOC 2 Type II- und GDPR-konforme Sicherheitsorganisation laut https://trigger.dev/security). Datenresidenz: EU-Region, soweit konfigurierbar."
+                }
+              }
+            }
+          },
+          "thirdCountries": {
+            "title": "Datenübermittlung in Drittländer",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Ihre Daten können in Länder außerhalb der EU (insbesondere die USA) übertragen werden. In diesen Fällen stellen wir sicher, dass ein angemessenes Datenschutzniveau gewährleistet ist, z.B. durch den Abschluss von Standardvertragsklauseln der EU-Kommission."
+              }
+            }
+          },
+          "retention": {
+            "title": "Dauer der Speicherung",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Ihre personenbezogenen Daten werden nur so lange gespeichert, wie es für die Erfüllung der oben genannten Zwecke erforderlich ist oder wie es gesetzliche Aufbewahrungspflichten vorsehen."
+              }
+            }
+          },
+          "rights": {
+            "title": "Rechte der Betroffenen",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Sie haben das Recht:"
+              },
+              "block02": {
+                "type": "list",
+                "items": {
+                  "item01": "Auskunft über Ihre bei uns gespeicherten Daten zu verlangen",
+                  "item02": "Berichtigung unrichtiger Daten zu verlangen",
+                  "item03": "Löschung Ihrer Daten zu verlangen",
+                  "item04": "Einschränkung der Verarbeitung Ihrer Daten zu verlangen",
+                  "item05": "Widerspruch gegen die Verarbeitung Ihrer Daten einzulegen",
+                  "item06": "Ihre Einwilligung zur Datenverarbeitung jederzeit zu widerrufen",
+                  "item07": "Datenübertragbarkeit zu verlangen"
+                }
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "Zur Ausübung dieser Rechte können Sie uns jederzeit unter den oben angegebenen Kontaktdaten erreichen."
+              }
+            }
+          },
+          "automatedDecision": {
+            "title": "Automatisierte Entscheidungsfindung und Profiling",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Wir treffen keine ausschließlich auf einer automatisierten Verarbeitung beruhenden Entscheidungen im Sinne des Art. 22 Abs. 1 DSGVO, die Ihnen gegenüber rechtliche Wirkung entfalten oder Sie in ähnlicher Weise erheblich beeinträchtigen."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "Hinweis zum Fragebogen-Assistenten: Beim Einsatz des KI-gestützten Fragebogen-Assistenten (siehe gesonderter Abschnitt „KI-gestützte Auswertung hochgeladener Dateien\") werden Inhalte aus den von Ihnen hochgeladenen Dateien automatisiert ausgelesen und als Vorschlag in den Fragebogen eingetragen. Diese Vorschläge stellen keine Entscheidung über Sie dar, sondern dienen ausschließlich der Vorbereitung Ihrer Anfrage und werden vor einer etwaigen Angebotslegung stets durch einen Menschen geprüft. Eine abschließende Beurteilung Ihrer Anfrage und allfällige Vertragsentscheidungen erfolgen ausschließlich durch unsere Mitarbeiter."
+              }
+            }
+          },
+          "cookies": {
+            "title": "Cookies und Tracking-Technologien",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Wir verwenden Cookies und ähnliche Technologien, um die Nutzung unserer Website zu analysieren und unser Angebot zu verbessern. Sie können die Speicherung von Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern."
+              }
+            }
+          },
+          "googleAnalytics": {
+            "title": "Google Analytics",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Diese Website benutzt Google Analytics, einen Webanalysedienst der Google LLC (\"Google\"). Google Analytics verwendet Cookies, die eine Analyse der Benutzung der Website durch Sie ermöglichen. Die durch das Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Wir haben auf dieser Website die IP-Anonymisierung aktiviert. Dadurch wird Ihre IP-Adresse von Google innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum zuvor gekürzt. Nur in Ausnahmefällen wird die volle IP-Adresse an einen Server von Google in den USA übertragen und dort gekürzt. Im Auftrag des Betreibers dieser Website wird Google diese Informationen benutzen, um Ihre Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen gegenüber dem Websitebetreiber zu erbringen. Die im Rahmen von Google Analytics von Ihrem Browser übermittelte IP-Adresse wird nicht mit anderen Daten von Google zusammengeführt. Sie können die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website vollumfänglich werden nutzen können. Sie können darüber hinaus die Erfassung der durch das Cookie erzeugten und auf Ihre Nutzung der Website bezogenen Daten (inkl. Ihrer IP-Adresse) an Google sowie die Verarbeitung dieser Daten durch Google verhindern, indem Sie das Browser-Plugin unter tools.google.com/dlpage/gaoptout herunterladen und installieren."
+              }
+            }
+          },
+          "webflow": {
+            "title": "Webflow",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Diese Website wird auf der Plattform Webflow betrieben, die von Webflow, Inc. bereitgestellt wird. Webflow bietet eine Plattform zum Erstellen und Hosten von Websites. Webflow kann personenbezogene Daten wie IP-Adressen und Nutzungsdaten erheben und speichern. Webflow verarbeitet diese Daten in unserem Auftrag und auf Grundlage eines Auftragsverarbeitungsvertrags gemäß Art. 28 DSGVO. Weitere Informationen finden Sie unter webflow.com/legal/privacy."
+              }
+            }
+          },
+          "informationObligation": {
+            "title": "Informationspflicht",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Informationspflicht laut §5 E-Commerce Gesetz, §14 Unternehmensgesetzbuch, §63 Gewerbeordnung und Offenlegungspflicht laut §25 Mediengesetz."
+              }
+            }
+          }
+        }
       }
     }
   }

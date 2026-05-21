@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { useParams } from "next/navigation";
 import { useRealtimeRun } from "@trigger.dev/react-hooks";
-import { Download, FileText, UploadCloud, X } from "lucide-react";
+import { CircleHelp, Download, FileText, UploadCloud, X } from "lucide-react";
 
 type UploadTokenResponse = {
   token: string;
@@ -43,7 +43,10 @@ type SelectedFile = {
   extractionStep?: string;
   extractionStartedAt?: number;
   extractionCompletedInSeconds?: number;
-  partialExtraction?: Record<string, { value?: unknown }>;
+  partialExtraction?: Record<
+    string,
+    { value?: unknown; reasoning?: string | null }
+  >;
   extractionError?: string;
   extractionResult?: unknown;
   prefillResult?: unknown;
@@ -73,6 +76,7 @@ type GroundedExtractionValue = {
   value?: unknown;
   source_quote?: string | null;
   source_page?: number | null;
+  reasoning?: string | null;
 };
 
 type ExtractionOutput = {
@@ -1196,6 +1200,20 @@ type ExtractionDisplayRow = {
   prefillEntry?: FunnelPrefillEntry;
 };
 
+type ExtractionSummaryItem = {
+  fieldKey: string;
+  label: string;
+  hasValue: boolean;
+  displayValue: string | null;
+  reasoning: string;
+};
+
+type ExtractionCompletionSummary = {
+  filled: number;
+  total: number;
+  items: ExtractionSummaryItem[];
+};
+
 function buildExtractionRows(opts: {
   file: SelectedFile;
   extractionFields: Record<string, ExtractionFieldConfig>;
@@ -1203,7 +1221,10 @@ function buildExtractionRows(opts: {
   const output = isExtractionOutput(opts.file.extractionResult)
     ? opts.file.extractionResult
     : null;
-  const extraction = output?.extraction ?? opts.file.partialExtraction ?? {};
+  const extraction: Record<
+    string,
+    Partial<GroundedExtractionValue>
+  > = output?.extraction ?? opts.file.partialExtraction ?? {};
   const prefillResult = isPrefillResult(opts.file.prefillResult)
     ? opts.file.prefillResult
     : null;
@@ -1260,11 +1281,59 @@ function buildExtractionRows(opts: {
     });
 }
 
+function buildExtractionCompletionSummary(opts: {
+  file: SelectedFile;
+  extractionFields: Record<string, ExtractionFieldConfig>;
+}): ExtractionCompletionSummary {
+  const output = isExtractionOutput(opts.file.extractionResult)
+    ? opts.file.extractionResult
+    : null;
+  const extraction: Record<
+    string,
+    Partial<GroundedExtractionValue>
+  > = output?.extraction ?? opts.file.partialExtraction ?? {};
+  const fieldEntries =
+    Object.keys(opts.extractionFields).length > 0
+      ? Object.entries(opts.extractionFields)
+      : Object.keys(extraction).map(
+          (fieldKey) =>
+            [fieldKey, { label: fieldKey }] as [string, ExtractionFieldConfig],
+        );
+
+  const items = fieldEntries.map(([fieldKey, field]) => {
+    const extracted = isPlainRecord(extraction[fieldKey])
+      ? (extraction[fieldKey] as GroundedExtractionValue)
+      : undefined;
+    const hasValue = hasDisplayableExtractionValue(extracted?.value);
+
+    return {
+      fieldKey,
+      label: field.label ?? fieldKey,
+      hasValue,
+      displayValue: hasValue
+        ? formatExtractionValue(extracted?.value, field)
+        : null,
+      reasoning: formatExtractionReasoning(extracted?.reasoning),
+    };
+  });
+
+  return {
+    filled: items.filter((item) => item.hasValue).length,
+    total: items.length,
+    items,
+  };
+}
+
 function hasDisplayableExtractionValue(value: unknown): boolean {
   if (value == null) return false;
   if (Array.isArray(value)) return value.length > 0;
   if (typeof value === "string") return value.trim().length > 0;
   return true;
+}
+
+function formatExtractionReasoning(reasoning: unknown): string {
+  const text = String(reasoning ?? "").trim();
+  return text || "Keine Begründung vorhanden.";
 }
 
 function formatExtractionValue(
@@ -1373,38 +1442,6 @@ function useRotatingExtractionMessage(
   );
 }
 
-function useExtractionElapsedSeconds(file: SelectedFile): number {
-  const [seconds, setSeconds] = useState(() =>
-    getSelectedFileElapsedSeconds(file),
-  );
-
-  useEffect(() => {
-    const updateElapsedSeconds = () => {
-      setSeconds(getSelectedFileElapsedSeconds(file));
-    };
-
-    updateElapsedSeconds();
-
-    if (
-      file.extractionCompletedInSeconds != null ||
-      file.status === "extracted" ||
-      file.status === "error"
-    ) {
-      return undefined;
-    }
-
-    const interval = window.setInterval(updateElapsedSeconds, 1000);
-
-    return () => window.clearInterval(interval);
-  }, [
-    file.extractionCompletedInSeconds,
-    file.extractionStartedAt,
-    file.status,
-  ]);
-
-  return seconds;
-}
-
 function getSelectedFileElapsedSeconds(file: SelectedFile): number {
   if (typeof file.extractionCompletedInSeconds === "number") {
     return Math.max(0, file.extractionCompletedInSeconds);
@@ -1435,89 +1472,78 @@ function RotatingExtractionText({ text }: { text: string }) {
   );
 }
 
-function ExtractionTimer({
-  seconds,
-  completed,
+function ExtractionCompletionBadge({
+  summary,
 }: {
-  seconds: number;
-  completed: boolean;
+  summary: ExtractionCompletionSummary;
 }) {
+  const summaryLabel = `${summary.filled} von ${summary.total} Feldern ausgefüllt`;
+
   return (
-    <div className="shrink-0 rounded-md border border-synergy-light-blue/30 bg-white/80 px-2 py-1 text-right shadow-sm dark:border-synergy-light-blue/40 dark:bg-gray-900/70">
-      <div className="flex items-baseline justify-end gap-0.5 font-mono text-sm font-semibold text-synergy-dark-grey dark:text-synergy-light-grey">
-        <AnimatedElapsedSeconds seconds={seconds} />
-        <span className="text-[10px] font-sans font-medium text-synergy-light-blue">
-          s
-        </span>
-      </div>
-      <div className="text-[10px] text-synergy-light-blue">
-        {completed ? "Dauer" : ""}
+    <div className="group relative shrink-0">
+      <button
+        type="button"
+        className="rounded-md border border-synergy-light-blue/30 bg-white/80 px-2 py-1 text-right shadow-sm outline-none transition hover:border-synergy-light-blue/60 focus-visible:ring-2 focus-visible:ring-synergy-light-blue/40 dark:border-synergy-light-blue/40 dark:bg-gray-900/70"
+        aria-label={summaryLabel}
+      >
+        <div className="flex items-baseline justify-end gap-1 font-mono text-sm font-semibold text-synergy-dark-grey dark:text-synergy-light-grey">
+          <span>{summary.filled}</span>
+          <span className="text-[10px] font-sans font-medium text-synergy-light-blue">
+            /
+          </span>
+          <span>{summary.total}</span>
+          <CircleHelp
+            aria-hidden="true"
+            className="ml-0.5 h-3 w-3 text-synergy-light-blue"
+          />
+        </div>
+        <div className="text-[10px] text-synergy-light-blue">Felder</div>
+      </button>
+      <div
+        className="absolute right-0 top-full z-30 hidden pt-2 text-left group-hover:block group-focus-within:block"
+        role="tooltip"
+      >
+        <div className="w-80 max-w-[calc(100vw-2rem)] rounded-md border border-synergy-light-blue/25 bg-white p-3 text-xs text-synergy-dark-grey shadow-lg dark:border-synergy-light-blue/40 dark:bg-gray-950 dark:text-synergy-light-grey">
+          <div className="font-semibold">{summaryLabel}</div>
+          {summary.items.length > 0 ? (
+            <ul className="mt-2 max-h-80 overflow-y-auto pr-1">
+              {summary.items.map((item) => (
+                <li
+                  key={item.fieldKey}
+                  className="border-t border-synergy-light-blue/15 py-2 first:border-t-0 first:pt-0 last:pb-0"
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <span className="font-medium">{item.label}</span>
+                    <span
+                      className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-medium ${
+                        item.hasValue
+                          ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                          : "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300"
+                      }`}
+                    >
+                      {item.hasValue ? "Ausgefüllt" : "Kein Ergebnis"}
+                    </span>
+                  </div>
+                  {item.hasValue && item.displayValue && (
+                    <div className="mt-1 break-words font-mono text-[11px] text-synergy-dark-grey/80 dark:text-synergy-light-grey">
+                      {item.displayValue}
+                    </div>
+                  )}
+                  <div className="mt-1 break-words text-[11px] text-synergy-dark-grey/70 dark:text-synergy-light-grey/90">
+                    <span className="font-medium">Begründung:</span>{" "}
+                    {item.reasoning}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="mt-2 text-[11px] text-synergy-dark-grey/70 dark:text-synergy-light-grey/90">
+              Keine Felder konfiguriert.
+            </p>
+          )}
+        </div>
       </div>
     </div>
-  );
-}
-
-function AnimatedElapsedSeconds({ seconds }: { seconds: number }) {
-  const digits = Math.max(0, Math.floor(seconds)).toString().padStart(2, "0");
-
-  return (
-    <span className="flex items-center justify-end">
-      {digits.split("").map((digit, index) => (
-        <AnimatedDigit key={digits.length - index} value={digit} />
-      ))}
-    </span>
-  );
-}
-
-function AnimatedDigit({ value }: { value: string }) {
-  const currentRef = useRef(value);
-  const [digitState, setDigitState] = useState({
-    previous: value,
-    current: value,
-    animating: false,
-  });
-
-  useEffect(() => {
-    if (currentRef.current === value) {
-      return undefined;
-    }
-
-    const previous = currentRef.current;
-    currentRef.current = value;
-    setDigitState({
-      previous,
-      current: value,
-      animating: true,
-    });
-
-    const timeout = window.setTimeout(() => {
-      setDigitState({
-        previous: value,
-        current: value,
-        animating: false,
-      });
-    }, 460);
-
-    return () => window.clearTimeout(timeout);
-  }, [value]);
-
-  if (!digitState.animating) {
-    return (
-      <span className="inline-flex h-5 w-[0.68em] items-center justify-center tabular-nums">
-        {digitState.current}
-      </span>
-    );
-  }
-
-  return (
-    <span className="relative inline-block h-5 w-[0.68em] overflow-hidden tabular-nums">
-      <span className="extraction-digit-old absolute inset-0 flex items-center justify-center">
-        {digitState.previous}
-      </span>
-      <span className="extraction-digit-new absolute inset-0 flex items-center justify-center">
-        {digitState.current}
-      </span>
-    </span>
   );
 }
 
@@ -1529,28 +1555,6 @@ function ExtractionAnimationStyles() {
           0% {
             opacity: 0;
             transform: translateY(95%);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes extractionDigitOldUp {
-          0% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-          100% {
-            opacity: 0;
-            transform: translateY(-105%);
-          }
-        }
-
-        @keyframes extractionDigitNewUp {
-          0% {
-            opacity: 0;
-            transform: translateY(105%);
           }
           100% {
             opacity: 1;
@@ -1578,14 +1582,6 @@ function ExtractionAnimationStyles() {
           animation: extractionTextShiftUp 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
         }
 
-        .extraction-digit-old {
-          animation: extractionDigitOldUp 440ms cubic-bezier(0.22, 1, 0.36, 1) both;
-        }
-
-        .extraction-digit-new {
-          animation: extractionDigitNewUp 440ms cubic-bezier(0.22, 1, 0.36, 1) both;
-        }
-
         .extraction-field-reveal {
           animation: extractionFieldReveal 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
           will-change: filter, opacity, transform;
@@ -1593,8 +1589,6 @@ function ExtractionAnimationStyles() {
 
         @media (prefers-reduced-motion: reduce) {
           .extraction-rotating-text,
-          .extraction-digit-old,
-          .extraction-digit-new,
           .extraction-field-reveal {
             animation: none;
             filter: none;
@@ -1642,7 +1636,6 @@ function ExtractionRunSubscription(props: {
     extractionMessages,
     extractionIsActive,
   );
-  const elapsedSeconds = useExtractionElapsedSeconds(file);
   const extractionIsFinished =
     file.status === "extracted" || file.status === "error";
 
@@ -1653,7 +1646,10 @@ function ExtractionRunSubscription(props: {
     const metadata = run?.metadata as
       | {
           step?: string;
-          partialExtraction?: Record<string, { value?: unknown }>;
+          partialExtraction?: Record<
+            string,
+            { value?: unknown; reasoning?: string | null }
+          >;
         }
       | undefined;
 
@@ -1829,6 +1825,10 @@ function ExtractionRunSubscription(props: {
     file,
     extractionFields,
   });
+  const extractionSummary = buildExtractionCompletionSummary({
+    file,
+    extractionFields,
+  });
   const extractionStatusMessage = extractionIsFinished
     ? file.status === "error"
       ? "KI-Auswertung gestoppt"
@@ -1856,10 +1856,7 @@ function ExtractionRunSubscription(props: {
           <RotatingExtractionText text={extractionStatusMessage} />
         </div>
         {extractionIsFinished && (
-          <ExtractionTimer
-            seconds={elapsedSeconds}
-            completed={extractionIsFinished}
-          />
+          <ExtractionCompletionBadge summary={extractionSummary} />
         )}
       </div>
       {extractedRows.length > 0 && (

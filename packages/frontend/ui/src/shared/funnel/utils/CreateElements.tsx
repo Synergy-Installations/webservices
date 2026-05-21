@@ -9,6 +9,9 @@ const createIconConfig = (icon: any) =>
       }
     : null;
 
+const createExtractionState = (form: any) =>
+  form?.extraction ? { ...form.extraction } : null;
+
 export const createQuestionElement = (
   questionKeyRef: string,
   question: any,
@@ -79,6 +82,7 @@ export const createQuestionElement = (
             title: element.form[formKey].title,
             description: element.form[formKey].description,
             aiExtraction: element.form[formKey].aiExtraction ?? null,
+            extraction: createExtractionState(element.form[formKey]),
             from: useKey ? element.form[formKey].from : from || [],
             localStorage: useStrings
               ? element.form[formKey].localStorage === "true"
@@ -159,6 +163,7 @@ export const createQuestionElement = (
             title: element.form[formKey].title,
             description: element.form[formKey].description,
             aiExtraction: element.form[formKey].aiExtraction ?? null,
+            extraction: createExtractionState(element.form[formKey]),
             localStorage: useStrings
               ? element.form[formKey].localStorage === "true"
               : element.form[formKey].localStorage,
@@ -235,6 +240,7 @@ export const createQuestionElement = (
             title: element.form[formKey].title,
             description: element.form[formKey].description,
             aiExtraction: element.form[formKey].aiExtraction ?? null,
+            extraction: createExtractionState(element.form[formKey]),
             localStorage: useStrings
               ? element.form[formKey].localStorage === "true"
               : element.form[formKey].localStorage,
@@ -345,6 +351,7 @@ export const createQuestionElement = (
             title: element.form[formKey].title,
             description: element.form[formKey].description,
             aiExtraction: element.form[formKey].aiExtraction ?? null,
+            extraction: createExtractionState(element.form[formKey]),
             localStorage: useStrings
               ? element.form[formKey].localStorage === "true"
               : element.form[formKey].localStorage,
@@ -726,6 +733,7 @@ export const createFormElement = (
       title: element.title,
       description: element.description,
       aiExtraction: element.aiExtraction ?? null,
+      extraction: createExtractionState(element),
       localStorage: useStrings
         ? element.localStorage === "true"
         : element.localeStorage,
@@ -790,6 +798,7 @@ export const createFormElement = (
       title: element.title,
       description: element.description,
       aiExtraction: element.aiExtraction ?? null,
+      extraction: createExtractionState(element),
       localStorage: useStrings
         ? element.localStorage === "true"
         : element.localStorage,
@@ -855,6 +864,7 @@ export const createFormElement = (
       title: element.title,
       description: element.description,
       aiExtraction: element.aiExtraction ?? null,
+      extraction: createExtractionState(element),
       localStorage: useStrings
         ? element.localStorage === "true"
         : element.localStorage,
@@ -954,6 +964,7 @@ export const createFormElement = (
       title: element.title,
       description: element.description,
       aiExtraction: element.aiExtraction ?? null,
+      extraction: createExtractionState(element),
       localStorage: useStrings
         ? element.localStorage === "true"
         : element.localStorage,

@@ -27,6 +27,20 @@ interface Message {
   loadingMessage?: string;
 }
 
+interface ExtractionMetadata {
+  source?: string;
+  confidence?: number;
+  tier?: string;
+  sourceQuote?: string | null;
+  sourcePage?: number | null;
+  fieldKey?: string;
+  documentName?: string;
+  fileUid?: string;
+  label?: string;
+  userModified?: boolean;
+  userReviewed?: boolean;
+}
+
 export interface Form {
   order: number;
   uid: string;
@@ -41,6 +55,7 @@ export interface Form {
   span: number;
   message: Message;
   options?: Record<string, Option>;
+  extraction?: ExtractionMetadata | null;
   selected?: {
     questionTitle: string;
     selectedOptions?: string[];
@@ -141,6 +156,7 @@ const FormSchema = new Schema<Form>({
   span: { type: Number, required: true },
   message: { type: MessageSchema, required: true },
   options: { type: Map, of: OptionSchema },
+  extraction: { type: Schema.Types.Mixed },
   selected: {
     questionTitle: { type: String },
     selectedOptions: { type: [String] },

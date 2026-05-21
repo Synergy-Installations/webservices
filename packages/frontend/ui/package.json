@@ -101,6 +101,8 @@
     "./ImageLoader": "./src/shared/utils/image/ImageLoader.tsx",
     "./ServiceCard": "./src/landingPage/shared/bentoGrid/serviceCard/ServiceCard.tsx",
     "./RichText": "./src/shared/internationalization/text/RichText.tsx",
+    "./ImpressumPage": "./src/landingPage/legal/ImpressumPage.tsx",
+    "./DatenschutzPage": "./src/landingPage/legal/DatenschutzPage.tsx",
     "./ProductPreviewSmallTransition": "./src/landingPage/shared/ui/productPreviewSmallTransition/ProductPreviewSmallTransition.tsx",
     "./TracingBeam": "./src/shared/animations/tracingBeam/TracingBeam.tsx",
     "./cn": "./src/shared/utils/cn/Cn.tsx",

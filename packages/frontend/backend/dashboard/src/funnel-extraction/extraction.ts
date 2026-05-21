@@ -123,7 +123,7 @@ export async function extractFromPdf(opts: {
           },
           {
             type: "text",
-            text: `Dokument: ${opts.filename}\n\nExtrahiere alle konfigurierten Felder. Gib null zurueck, wenn ein Feld nicht eindeutig im Dokument vorhanden ist.`,
+            text: `Dokument: ${opts.filename}\n\nExtrahiere alle konfigurierten Felder. Gib fuer value null zurueck, wenn ein Feld nicht eindeutig im Dokument vorhanden ist, und begruende kurz warum.`,
           },
         ],
       },
@@ -407,10 +407,10 @@ Extrahiere strukturierte Werte fuer ein Montage-Onboarding-Funnel. Fuer jedes Fe
 - value: der Wert im konfigurierten Format
 - source_quote: ein woertliches Zitat aus dem Dokument, das den Wert stuetzt
 - source_page: die 1-indexierte Seite des Zitats
-- reasoning: ein kurzer deutscher Satz zur Ableitung
+- reasoning: ein kurzer deutscher Satz zur Ableitung oder dazu, warum kein eindeutiger Wert gefunden wurde
 
 Regeln:
-1. Wenn ein Feld nicht eindeutig im Dokument steht, setze value, source_quote, source_page und reasoning auf null.
+1. Wenn ein Feld nicht eindeutig im Dokument steht, setze value, source_quote und source_page auf null und erklaere in reasoning kurz, warum kein eindeutiger Wert gefunden wurde.
 2. Erfinde keine plausiblen Werte.
 3. source_quote muss aus dem Dokument stammen und darf nicht paraphrasiert werden.
 4. Werte mit Einheiten muessen in die angegebene Zieleinheit umgerechnet werden.

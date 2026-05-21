@@ -205,8 +205,14 @@
           "imageAlt": "Services Symbol image",
           "title": "Services",
           "lists": [
-            ["Consulting", "Marketing"],
-            ["Service", "Implementation"]
+            [
+              "Consulting",
+              "Marketing"
+            ],
+            [
+              "Service",
+              "Implementation"
+            ]
           ],
           "button": {
             "text": "View details",
@@ -2680,38 +2686,6 @@
                       "itemFour": "Presentation and mediation of suitable projects",
                       "itemFive": "Support through to contract signature",
                       "itemSix": "Aftercare and feedback"
-                    }
-                  }
-                },
-                "boxesBottom": {
-                  "boxOne": {
-                    "title": "All-careless package",
-                    "description": "From conveyor consulting to maintenance – we take care of everything.",
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/function.svg",
-                      "alt": "Focus highlight icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "boxTwo": {
-                    "title": "Safety guaranteed",
-                    "description": "No surprises: your offer remains stable even in market price fluctuations.",
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/function.svg",
-                      "alt": "Focus highlight icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "boxThree": {
-                    "title": "From concept to turnkey system in 3 months",
-                    "description": "Fast, efficient, professional – with recorded processes and experienced partners.",
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/function.svg",
-                      "alt": "Focus highlight icon",
-                      "width": "32",
-                      "height": "32"
                     }
                   }
                 },
@@ -5847,7 +5821,7 @@
         },
         "legal": {
           "text": "By submitting this form, you agree to our <link>privacy policy</link>.",
-          "href": "/data protection"
+          "href": "/datenschutz"
         }
       },
       "ContactBlocks": {
@@ -5944,7 +5918,112 @@
             "topRightPostfix": "Questions"
           }
         },
+        "ui": {
+          "accessibility": {
+            "questionOverviewAriaLabel": "Funnel question overview",
+            "questionProgressMarkerAriaLabel": "{current}/{total}: {title}"
+          },
+          "navigation": {
+            "previous": "Previous",
+            "next": "Next",
+            "skip": "Skip"
+          },
+          "verification": {
+            "title": "Email Verification",
+            "description": "Enter the code you received via email to access the dashboard.",
+            "details": "From the dashboard, you can add more projects, manage your forms, and update your settings.",
+            "codeLabel": "Code {index}",
+            "helperText": "Please enter the 6-digit code we sent you by email.",
+            "verifyButton": "Verify"
+          },
+          "aiPrefill": {
+            "defaultLabel": "Value",
+            "warning": "{label} was prefilled by AI. Please review."
+          }
+        },
         "questions": {
+          "project-files-llm-extraction": {
+            "title": "AI-assisted prefill",
+            "description": "",
+            "version": "0.1.0",
+            "defaultVisible": "true",
+            "form": {
+              "llm-file-extraction": {
+                "order": "1",
+                "type": "llm-file-extraction",
+                "required": "false",
+                "defaultVisible": "true",
+                "title": "Upload the project report, project data, and photos, or skip this step to enter the data manually.",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "By uploading your files, you agree to our privacy policy.",
+                  "type": "info",
+                  "successMessage": "Thank you for your upload",
+                  "requiredMessage": "This input is mandatory",
+                  "checkPreviousFormsMessage": "Thank you for your input. Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "upload": {
+                    "hostname": "storage.bunnycdn.com",
+                    "storageZoneName": "synergy-webservices-assets",
+                    "region": "",
+                    "filesAccepted": "",
+                    "multipleFiles": "true",
+                    "uploadingText": "Uploading...",
+                    "uploadError": "Upload failed. We are currently working on fixing the issue, please try again later.",
+                    "uploadSuccess": "Upload successful, thank you!"
+                  },
+                  "download": {
+                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                  },
+                  "extraction": {
+                    "endpoint": "/api/funnel/extract",
+                    "acceptText": "PDF, DOCX, PPTX, XLSX, TXT, JPG or PNG (max. 100 MB)",
+                    "mimeTypes": [
+                      "application/pdf",
+                      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                      "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+                      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                      "application/msword",
+                      "application/vnd.ms-powerpoint",
+                      "application/vnd.ms-excel",
+                      "application/vnd.oasis.opendocument.text",
+                      "application/vnd.oasis.opendocument.presentation",
+                      "application/vnd.oasis.opendocument.spreadsheet",
+                      "application/rtf",
+                      "text/plain",
+                      "image/jpeg",
+                      "image/png"
+                    ],
+                    "confidence": {
+                      "green": "0.85",
+                      "yellow": "0.55"
+                    },
+                    "options": {
+                      "selfConsistencySamples": "0",
+                      "runVerifier": "false"
+                    },
+                    "statusLabels": {
+                      "minting": "Preparing security token...",
+                      "uploading": "Uploading file...",
+                      "uploaded": "Upload completed",
+                      "queued": "AI extraction has started...",
+                      "download": "Retrieving file...",
+                      "normalize": "Preparing document...",
+                      "extract": "Extracting project details...",
+                      "text_index": "Reviewing sources...",
+                      "score": "Calculating confidence...",
+                      "persist": "Applying result...",
+                      "complete": "AI analysis complete",
+                      "error": "AI analysis failed"
+                    }
+                  }
+                }
+              }
+            }
+          },
           "interested-products": {
             "title": "Project details",
             "description": "",
@@ -5980,7 +6059,7 @@
                     "type": "exp"
                   },
                   "unit": {
-                    "value": "kWh",
+                    "value": "kWp",
                     "spaceBetween": "true",
                     "position": "after",
                     "numberFormat": "de-DE"
@@ -6015,6 +6094,27 @@
                       "correctX": "0%"
                     }
                   }
+                },
+                "aiExtraction": {
+                  "fieldKey": "installed_capacity_kwp",
+                  "label": "System capacity",
+                  "type": "number",
+                  "unit": "kWp",
+                  "min": "0.1",
+                  "max": "10000",
+                  "aliases": [
+                    "System capacity",
+                    "PV capacity",
+                    "Generator capacity",
+                    "DC capacity",
+                    "Module capacity",
+                    "Rated capacity",
+                    "kWp",
+                    "MWp",
+                    "Wp"
+                  ],
+                  "description": "Installed DC peak output of the PV system in kWp. Convert MWp and Wp into kWp.",
+                  "instructions": "Extract the installed DC peak output of the PV system. Convert values in MWp or Wp to kWp. Do not confuse with inverter capacity, AC capacity, grid connection capacity, or annual yield."
                 }
               }
             }
@@ -6031,7 +6131,7 @@
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "true",
-                "title": "Choose the underground? *",
+                "title": "Choose the mounting surface? *",
                 "description": "",
                 "localStorage": "false",
                 "span": "2",
@@ -6045,7 +6145,7 @@
                 "options": {
                   "trapez": {
                     "type": "checkbox",
-                    "title": "Trapeze",
+                    "title": "Trapezoidal sheet",
                     "disabled": "false",
                     "span": "2",
                     "description": "",
@@ -6053,12 +6153,13 @@
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Warehouse"
                     }
                   },
                   "falz": {
                     "type": "checkbox",
-                    "title": "Folder",
+                    "title": "Standing seam",
                     "disabled": "false",
                     "span": "2",
                     "description": "",
@@ -6066,7 +6167,8 @@
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "PanelTop"
                     }
                   },
                   "flachdach": {
@@ -6079,12 +6181,13 @@
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "PanelTopOpen"
                     }
                   },
                   "wärmepumpe": {
                     "type": "checkbox",
-                    "title": "Bricks",
+                    "title": "Tile roof",
                     "disabled": "false",
                     "span": "2",
                     "description": "",
@@ -6092,12 +6195,13 @@
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "House"
                     }
                   },
                   "eternit": {
                     "type": "checkbox",
-                    "title": "ternite",
+                    "title": "Eternit",
                     "disabled": "false",
                     "span": "2",
                     "description": "",
@@ -6105,7 +6209,8 @@
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Layers"
                     }
                   },
                   "bramac": {
@@ -6118,7 +6223,8 @@
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "HousePlug"
                     }
                   },
                   "fassade": {
@@ -6131,7 +6237,8 @@
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Building2"
                     }
                   },
                   "carport": {
@@ -6144,12 +6251,13 @@
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Car"
                     }
                   },
                   "zaun": {
                     "type": "checkbox",
-                    "title": "Zan",
+                    "title": "Fence",
                     "disabled": "false",
                     "span": "2",
                     "description": "",
@@ -6157,12 +6265,13 @@
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Fence"
                     }
                   },
                   "freilache": {
                     "type": "checkbox",
-                    "title": "Area",
+                    "title": "Open area",
                     "disabled": "false",
                     "span": "2",
                     "description": "",
@@ -6170,7 +6279,8 @@
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "LandPlot"
                     }
                   },
                   "winter-sommergarten": {
@@ -6183,12 +6293,13 @@
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Sun"
                     }
                   },
                   "klimasysteme-1": {
                     "type": "checkbox",
-                    "title": "Other/special",
+                    "title": "Other/Special",
                     "disabled": "false",
                     "span": "2",
                     "description": "",
@@ -6196,8 +6307,75 @@
                     "addForm": "submit-form-dachtyp-anderes-textarea",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Wrench"
                     }
+                  }
+                }
+              },
+              "aiExtraction": {
+                "fieldKey": "schnittstelle",
+                "label": "Scope",
+                "type": "single-option",
+                "aliases": [
+                  "Interface",
+                  "Scope",
+                  "Installation scope",
+                  "Trade",
+                  "Work package",
+                  "Order scope",
+                  "Assembly scope"
+                ],
+                "description": "Extent of installation services. Select the most comprehensive matching option.",
+                "instructions": "If multiple service components are mentioned, select the most comprehensive matching option. Roof assembly + cable route + inverter + storage takes priority over smaller contained scopes. Use AC installation only if AC-side or electrical installation is explicitly stated.",
+                "options": {
+                  "dachmontage": {
+                    "targetOptionUid": "photovoltaic",
+                    "aliases": [
+                      "Roof assembly",
+                      "PV installation",
+                      "Assembly"
+                    ]
+                  },
+                  "kabelweg": {
+                    "targetOptionUid": "kabelweg",
+                    "aliases": [
+                      "Roof assembly + cable route",
+                      "Cable route",
+                      "Wiring",
+                      "Cable laying"
+                    ]
+                  },
+                  "wechselrichter": {
+                    "targetOptionUid": "wärmepumpe",
+                    "aliases": [
+                      "Inverter",
+                      "Roof assembly + cable route + inverter"
+                    ]
+                  },
+                  "speicher": {
+                    "targetOptionUid": "speicher",
+                    "aliases": [
+                      "Storage",
+                      "Battery storage",
+                      "Roof assembly + cable route + inverter + storage"
+                    ]
+                  },
+                  "zusatzarbeiten": {
+                    "targetOptionUid": "zusatzarbeiten",
+                    "aliases": [
+                      "Additional work",
+                      "Ancillary work",
+                      "Special work"
+                    ]
+                  },
+                  "ac-installation": {
+                    "targetOptionUid": "ac-installation",
+                    "aliases": [
+                      "AC installation",
+                      "AC-side",
+                      "Electrical installation"
+                    ]
                   }
                 }
               },
@@ -6229,7 +6407,7 @@
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "true",
-                "title": "Interface? *",
+                "title": "Scope of installation? *",
                 "description": "Select all that apply",
                 "localStorage": "false",
                 "span": "2",
@@ -6251,7 +6429,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "House"
                     }
                   },
                   "kabelweg": {
@@ -6264,12 +6443,13 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Cable"
                     }
                   },
                   "wärmepumpe": {
                     "type": "checkbox",
-                    "title": "roof assembly + cable path + inverter",
+                    "title": "Roof assembly + cable route + inverter",
                     "disabled": "false",
                     "span": "3",
                     "description": "",
@@ -6277,12 +6457,13 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Zap"
                     }
                   },
                   "speicher": {
                     "type": "checkbox",
-                    "title": "roof assembly + cable path + inverter + storage",
+                    "title": "Roof assembly + cable route + inverter + storage",
                     "disabled": "false",
                     "span": "3",
                     "description": "",
@@ -6290,7 +6471,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "BatteryCharging"
                     }
                   },
                   "zusatzarbeiten": {
@@ -6303,7 +6485,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Wrench"
                     }
                   },
                   "ac-installation": {
@@ -6316,7 +6499,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Plug"
                     }
                   }
                 }
@@ -6325,7 +6509,7 @@
                 "order": "1",
                 "type": "textarea",
                 "required": "false",
-                "defaultVisible": "true",
+                "defaultVisible": "false",
                 "title": "",
                 "description": "",
                 "localStorage": "false",
@@ -6378,7 +6562,7 @@
                         "type": "exp"
                       },
                       "unit": {
-                        "value": "kWh",
+                        "value": "kWp",
                         "spaceBetween": "true",
                         "position": "after",
                         "numberFormat": "de-DE"
@@ -6738,16 +6922,16 @@
                     "type": "range",
                     "required": "true",
                     "defaultVisible": "true",
-                    "title": "Wie hoch ist der Montageort?",
-                    "description": "(Haus, Berg, Fassade)",
+                    "title": "What is the installation height?",
+                    "description": "(house, mountain, facade)",
                     "localStorage": "false",
                     "span": "2",
                     "message": {
                       "text": "",
                       "type": "info",
-                      "requiredMessage": "Diese Eingabe ist verpflichtend",
-                      "successMessage": "Danke für Ihre Eingabe",
-                      "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                      "requiredMessage": "This input is mandatory",
+                      "successMessage": "Thanks for your input",
+                      "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
                     },
                     "options": {
                       "buttons": {
@@ -7512,12 +7696,32 @@
                     },
                     "max": {
                       "text": "Max (3000 m)",
-                      "value": "Other",
+                      "value": "3000",
                       "align": "end",
                       "offsetX": "0",
                       "correctX": "0%"
                     }
                   }
+                },
+                "aiExtraction": {
+                  "fieldKey": "mounting_height_m",
+                  "label": "Mounting height",
+                  "type": "number",
+                  "unit": "m",
+                  "min": "0",
+                  "max": "3000",
+                  "aliases": [
+                    "Mounting height",
+                    "Building height",
+                    "Facade height",
+                    "Slope height",
+                    "Eaves height",
+                    "Attic height",
+                    "Module height",
+                    "Height above ground"
+                  ],
+                  "description": "Height of the mounting location in meters above ground. For buildings, use eaves height or highest module height.",
+                  "instructions": "Extract the height of the mounting location above ground in meters. Also accept building height, facade height, slope height, eaves height, attic height, or highest module height if it describes the installation location. Do not interpret as altitude above sea level or geographic elevation."
                 }
               },
               "interested-products-range-dachneigung": {
@@ -7525,8 +7729,8 @@
                 "type": "range",
                 "required": "true",
                 "defaultVisible": "true",
-                "title": "inclining mounting support",
-                "description": "(Dach, Hang)",
+                "title": "Mounting surface pitch",
+                "description": "(Roof, slope)",
                 "localStorage": "false",
                 "span": "2",
                 "message": {
@@ -7549,7 +7753,7 @@
                     "type": "linear"
                   },
                   "unit": {
-                    "value": "°C",
+                    "value": "°",
                     "spaceBetween": "false",
                     "position": "after",
                     "numberFormat": "de-DE"
@@ -7570,7 +7774,7 @@
                       "correctX": "145%"
                     },
                     "q2": {
-                      "text": "60 °C",
+                      "text": "60°",
                       "value": "60",
                       "align": "start",
                       "offsetX": "2/3",
@@ -7584,6 +7788,25 @@
                       "correctX": "0%"
                     }
                   }
+                },
+                "aiExtraction": {
+                  "fieldKey": "roof_pitch_deg",
+                  "label": "Pitch",
+                  "type": "number",
+                  "unit": "°",
+                  "min": "0",
+                  "max": "90",
+                  "aliases": [
+                    "Roof pitch",
+                    "Pitch",
+                    "Mounting pitch",
+                    "Roof angle",
+                    "Tilt angle",
+                    "Module tilt",
+                    "Slope"
+                  ],
+                  "description": "Roof or mounting surface pitch in degrees. 0° is flat, 90° is vertical.",
+                  "instructions": "Extract the pitch of the roof or mounting surface in degrees. Convert percentage values only if they are clearly stated as slope/pitch. Do not confuse with azimuth, orientation, cardinal direction, or coordinates."
                 }
               }
             }
@@ -7612,15 +7835,31 @@
                 },
                 "options": {
                   "label": "",
-                  "placeholder": "Streets XX, XXXX",
+                  "placeholder": "Street XX, XXXX",
                   "rows": "4"
+                },
+                "aiExtraction": {
+                  "fieldKey": "end_customer_address",
+                  "label": "End customer address",
+                  "type": "text",
+                  "aliases": [
+                    "End customer address",
+                    "Project address",
+                    "System location",
+                    "Installation location",
+                    "Site address",
+                    "Location",
+                    "Object address"
+                  ],
+                  "description": "Address of the installation location or system site, not billing or contractor address.",
+                  "instructions": "Extract the full address of the installation location or system site. Prefer project address, site address, object address, or system location. Do not use billing address, contractor address, or company address unless they clearly refer to the installation site."
                 }
               },
               "submit-form-file-upload": {
                 "order": "1",
                 "type": "file-upload",
                 "required": "false",
-                "defaultVisible": "true",
+                "defaultVisible": "false",
                 "title": "Upload your files",
                 "description": "",
                 "localStorage": "false",
@@ -7630,7 +7869,7 @@
                   "type": "info",
                   "successMessage": "Thank you for your upload",
                   "requiredMessage": "This input is mandatory",
-                  "checkPreviousFormsMessage": "Thank your input. Please fix all errors in the previous forms"
+                  "checkPreviousFormsMessage": "Thank you for your input. Please fix all errors in the previous forms"
                 },
                 "options": {
                   "upload": {
@@ -7726,7 +7965,8 @@
                     "addForm": "Interest-products-range",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Sun"
                     }
                   },
                   "wärmepumpe": {
@@ -7739,7 +7979,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Heater"
                     }
                   },
                   "klimasysteme": {
@@ -7752,7 +7993,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Snowflake"
                     }
                   },
                   "smart-home": {
@@ -7765,7 +8007,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "HousePlug"
                     }
                   },
                   "Energiemanagement": {
@@ -7778,7 +8021,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Gauge"
                     }
                   },
                   "wallbox": {
@@ -7791,7 +8035,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "PlugZap"
                     }
                   }
                 }
@@ -7911,7 +8156,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Sun"
                     }
                   },
                   "wärmepumpe": {
@@ -7924,7 +8170,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Heater"
                     }
                   },
                   "klimasysteme": {
@@ -7937,7 +8184,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Snowflake"
                     }
                   },
                   "smart-home": {
@@ -7950,7 +8198,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "HousePlug"
                     }
                   },
                   "Energiemanagement": {
@@ -7963,7 +8212,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Gauge"
                     }
                   },
                   "wallbox": {
@@ -7976,7 +8226,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "PlugZap"
                     }
                   }
                 }
@@ -8044,7 +8295,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "BadgeCheck"
                     }
                   }
                 }
@@ -8077,7 +8329,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "BadgeCheck"
                     }
                   }
                 }
@@ -8110,7 +8363,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "BadgeCheck"
                     }
                   }
                 }
@@ -8150,7 +8404,8 @@
                     "addForm": "Interest-products-two",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Sun"
                     }
                   },
                   "wärmepumpe": {
@@ -8163,7 +8418,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Heater"
                     }
                   },
                   "klimasysteme": {
@@ -8176,7 +8432,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Snowflake"
                     }
                   },
                   "smart-home": {
@@ -8189,7 +8446,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "HousePlug"
                     }
                   },
                   "Energiemanagement": {
@@ -8202,7 +8460,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Gauge"
                     }
                   },
                   "wallbox": {
@@ -8215,7 +8474,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "PlugZap"
                     }
                   }
                 }
@@ -8247,7 +8507,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Sun"
                     }
                   },
                   "wärmepumpe": {
@@ -8260,7 +8521,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Heater"
                     }
                   },
                   "klimasysteme": {
@@ -8273,7 +8535,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Snowflake"
                     }
                   },
                   "smart-home": {
@@ -8286,7 +8549,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "HousePlug"
                     }
                   },
                   "Energiemanagement": {
@@ -8299,7 +8563,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "Gauge"
                     }
                   },
                   "wallbox": {
@@ -8312,7 +8577,8 @@
                     "addForm": "",
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics"
+                      "alt": "Photovoltaics",
+                      "name": "PlugZap"
                     }
                   }
                 }
@@ -8418,7 +8684,9 @@
                 "defaultVisible": "true",
                 "title": "",
                 "description": "",
-                "defaultValue": ["Please select"],
+                "defaultValue": [
+                  "Please select"
+                ],
                 "label": "How did you hear about us?",
                 "localStorage": "true",
                 "span": "2",
@@ -8503,7 +8771,9 @@
                 "defaultVisible": "false",
                 "title": "",
                 "description": "",
-                "defaultValue": [""],
+                "defaultValue": [
+                  ""
+                ],
                 "label": "How did you hear about us? (Multiple)",
                 "localStorage": "true",
                 "span": "2",
@@ -10867,7 +11137,7 @@
               },
               "integrations": {
                 "text": "Data protection",
-                "href": "/data protection"
+                "href": "/datenschutz"
               }
             }
           }
@@ -10935,6 +11205,420 @@
       "LocaleSwitcher": {
         "label": "Change language",
         "locale": "{locale, select, atAT {🇦🇹 Deutsch} en {🇬🇧 English} other {Unknown}}"
+      }
+    },
+    "Legal": {
+      "Impressum": {
+        "title": "Legal Notice",
+        "updatedAt": "Last updated: September 1, 2025",
+        "sections": {
+          "companyInformation": {
+            "title": "Company Information",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Information obligation according to §5 E-Commerce Act, §14 Company Code, §63 Trade Regulation Act and disclosure obligation according to §25 Media Act."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "<b>Synergie Montagen Riegler GmbH</b><br></br>EURO PLAZA<br></br>Wagenseilgasse 14<br></br>1120 Vienna<br></br>Austria"
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "<b>VAT number:</b> ATU78880338<br></br><b>GLN:</b> 9110032870340<br></br><b>GISA:</b> 35484653<br></br><b>Commercial register number:</b> FN 593978 y<br></br><b>Commercial register court:</b> Regional Court Wiener Neustadt"
+              },
+              "block04": {
+                "type": "paragraph",
+                "text": "<b>Phone:</b> +43 664 2448742<br></br><b>Email:</b> office@synergiemontagen.eco"
+              },
+              "block05": {
+                "type": "paragraph",
+                "text": "<b>Member of:</b> WKO, State Guild<br></br><b>Professional regulations:</b> Trade Regulation Act: www.ris.bka.gv.at"
+              },
+              "block06": {
+                "type": "paragraph",
+                "text": "<b>Supervisory authority / trade authority:</b> District Authority Baden"
+              },
+              "block07": {
+                "type": "paragraph",
+                "text": "<b>Business purpose:</b> Installation of photovoltaic modules, energy cost advisory, commercial trade, electrical engineering<br></br><b>Professional title:</b> Electrical, audio, video and alarm systems technician<br></br><b>Country of award:</b> Austria"
+              },
+              "block08": {
+                "type": "paragraph",
+                "text": "<b>Managing Director:</b> Michael Riegler"
+              }
+            }
+          },
+          "euSettlement": {
+            "title": "EU Online Dispute Resolution",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "In accordance with the Regulation on Online Dispute Resolution in Consumer Matters (ODR Regulation), we would like to inform you about the Online Dispute Resolution platform (ODR platform).<br></br>Consumers can submit complaints to the European Commission's ODR platform at http://ec.europa.eu/odr?tid=121890425. You can find the required contact details above in our legal notice."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "However, we would like to point out that we are not willing or obliged to participate in dispute settlement proceedings before a consumer arbitration board."
+              }
+            }
+          },
+          "liabilityForContent": {
+            "title": "Liability for Website Content",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "We continuously develop the content of this website and strive to provide correct and up-to-date information. Unfortunately, we cannot accept liability for the accuracy of all content on this website, especially for content provided by third parties."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "As a service provider, we are not obliged to monitor transmitted or stored information or to investigate circumstances that indicate illegal activity."
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "Our obligations to remove information or to block the use of information under general laws due to court or official orders remain unaffected, even in the event of our non-responsibility."
+              },
+              "block04": {
+                "type": "paragraph",
+                "text": "If you notice problematic or unlawful content, please contact us immediately so that we can remove such content. You can find our contact details in this legal notice."
+              }
+            }
+          },
+          "liabilityForLinks": {
+            "title": "Liability for Links on This Website",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Our website contains links to other websites for whose content we are not responsible. We assume no liability for linked websites, as we had and have no knowledge of unlawful activities, such unlawful activities have not been apparent to us so far, and we would remove links immediately if we became aware of any legal violations."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "If you notice unlawful links on our website, please contact us. You can find our contact details in this legal notice."
+              }
+            }
+          },
+          "copyrightNotice": {
+            "title": "Copyright Notice",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "All content on this website (images, photos, text, videos) is subject to copyright. Please ask us before distributing, reproducing or exploiting the content of this website, for example by republishing it on other websites. If necessary, we will legally prosecute unauthorized use of parts of our content."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "If you find content on this website that infringes copyright, please contact us."
+              }
+            }
+          },
+          "copyright": {
+            "title": "Copyright",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "The images, photos and graphics on this website are protected by copyright."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "All texts are protected by copyright."
+              }
+            }
+          }
+        }
+      },
+      "Datenschutz": {
+        "title": "Datenschutzerklärung",
+        "updatedAt": "Stand: 21.05.2026",
+        "sections": {
+          "controller": {
+            "title": "1. Name und Kontaktdaten des Verantwortlichen",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "<b>Verantwortlicher für die Datenverarbeitung:</b>"
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "Michael Riegler<br></br>Anton Krenn-Straße 28, 2540, Bad Vöslau, AT<br></br>office@synergiemontagen.at<br></br>+43 664 2448742"
+              }
+            }
+          },
+          "dataTypes": {
+            "title": "2. Art der verarbeiteten Daten",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Wir verarbeiten folgende personenbezogene Daten:"
+              },
+              "block02": {
+                "type": "list",
+                "items": {
+                  "item01": "Name",
+                  "item02": "E-Mail-Adresse",
+                  "item03": "IP-Adresse",
+                  "item04": "Nutzungsdaten (z.B. besuchte Seiten, Verweildauer)",
+                  "item05": "ggf. weitere durch das Kontaktformular übermittelte Daten"
+                }
+              }
+            }
+          },
+          "processingPurpose": {
+            "title": "3. Zweck der Datenverarbeitung",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Die Verarbeitung Ihrer Daten erfolgt zu folgenden Zwecken:"
+              },
+              "block02": {
+                "type": "list",
+                "items": {
+                  "item01": "Beantwortung von Kontaktanfragen",
+                  "item02": "Analyse der Nutzung unserer Website",
+                  "item03": "Verbesserung unseres Online-Angebots",
+                  "item04": "Erfüllung gesetzlicher Verpflichtungen"
+                }
+              }
+            }
+          },
+          "aiAssistant": {
+            "title": "KI-gestützte Auswertung hochgeladener Dateien (Fragebogen-Assistent)",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Auf unserer Website bieten wir Ihnen einen Fragebogen-Assistenten an, mit dem Sie eigene Projektdateien (z. B. Stromrechnungen, Lastprofile, Pläne, Angebote, Datenblätter, Fotos) hochladen können. Ein Sprachmodell (Large Language Model, kurz „LLM“) extrahiert aus diesen Dateien Informationen und befüllt damit die Antwortfelder des Fragebogens vor. Sie können die vorgeschlagenen Antworten anschließend prüfen, ändern, ergänzen oder verwerfen."
+              },
+              "block02": {
+                "type": "subheading",
+                "text": "1. Verantwortlicher"
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "Verantwortlicher im Sinne des Art. 4 Z 7 DSGVO ist:<br></br>Synergie Montagen Riegler GmbH<br></br>EURO PLAZA, Wagenseilgasse 14, 1120 Wien, Österreich<br></br>FN 593978 y, Landesgericht Wiener Neustadt, UID ATU78880338<br></br>Geschäftsführer: Michael Riegler<br></br>E-Mail: [Kontakt-E-Mail einsetzen]"
+              },
+              "block04": {
+                "type": "subheading",
+                "text": "2. Verarbeitete Daten"
+              },
+              "block05": {
+                "type": "paragraph",
+                "text": "Wir verarbeiten in diesem Zusammenhang insbesondere:"
+              },
+              "block06": {
+                "type": "list",
+                "items": {
+                  "item01": "Inhalte der von Ihnen hochgeladenen Dateien (PDFs, Bilder, Office-Dokumente und vergleichbare Formate); diese können personenbezogene Daten enthalten (z. B. Name, Adresse, Zählpunkt, Verbrauchsdaten, Vertragsdaten, Bankdaten, Fotos von Gebäuden, ggf. Daten Dritter);",
+                  "item02": "die aus den Dateien durch das KI-Modell extrahierten Datenpunkte und die daraus erzeugten Vorschläge für die Fragebogen-Antworten;",
+                  "item03": "Ihre Eingaben im Fragebogen, Ihre Kontaktdaten und die Kommunikation mit uns;",
+                  "item04": "technische Verbindungsdaten (IP-Adresse, Zeitstempel, User-Agent), Datei-Metadaten sowie Verarbeitungs-Protokolle (Logs) zu Zwecken der Sicherheit und Fehleranalyse."
+                }
+              },
+              "block07": {
+                "type": "subheading",
+                "text": "3. Zweck der Verarbeitung"
+              },
+              "block08": {
+                "type": "paragraph",
+                "text": "Zweck ist die Erbringung des kostenlos angebotenen Fragebogen-Assistenten, konkret das automatisierte Auslesen relevanter Informationen aus Ihren Dateien, das Vorausfüllen der Fragebogen-Felder, die anschließende individuelle Beratung sowie die Erstellung von Angeboten im Bereich Photovoltaik, Energiekostenberatung und Elektrotechnik."
+              },
+              "block09": {
+                "type": "subheading",
+                "text": "4. Rechtsgrundlagen"
+              },
+              "block10": {
+                "type": "list",
+                "items": {
+                  "item01": "Art. 6 Abs. 1 lit. b DSGVO (Durchführung vorvertraglicher Maßnahmen bzw. Vertragserfüllung) für die Bearbeitung Ihrer Anfrage und die Vorbereitung eines Angebots;",
+                  "item02": "Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) für den Upload und die KI-gestützte Auswertung Ihrer Dateien einschließlich der damit verbundenen Übermittlung an Anthropic, PBC in die USA;",
+                  "item03": "Art. 49 Abs. 1 lit. a DSGVO (ausdrückliche Einwilligung in den Drittlandtransfer) für die Übermittlung an Anthropic, PBC, soweit die Standardvertragsklauseln gemäß Art. 46 Abs. 2 lit. c DSGVO im Einzelfall nicht ausreichen sollten;",
+                  "item04": "Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Betrieb, Sicherheit und Missbrauchsabwehr unserer IT-Systeme) für technische Logs."
+                }
+              },
+              "block11": {
+                "type": "paragraph",
+                "text": "Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, ohne dass die Rechtmäßigkeit der bis dahin erfolgten Verarbeitung berührt wird. Den Widerruf können Sie formlos per E-Mail an uns richten."
+              },
+              "block12": {
+                "type": "subheading",
+                "text": "5. Hochgeladene Dateien können Daten Dritter enthalten"
+              },
+              "block13": {
+                "type": "paragraph",
+                "text": "Bitte beachten Sie: Hochgeladene Dateien (z. B. Rechnungen, Verträge, Pläne) können personenbezogene Daten Dritter enthalten (etwa Daten anderer Vertragspartner, Mitbewohner, Familienangehöriger, Lieferantenmitarbeiter). Sie sichern uns mit dem Upload zu, zur Verarbeitung dieser Daten berechtigt zu sein und – soweit erforderlich – die betroffenen Personen über die Verarbeitung informiert zu haben. Bitte laden Sie keine Dokumente hoch, deren Inhalt einem Berufs- oder Amtsgeheimnis unterliegt oder die besondere Kategorien personenbezogener Daten (Art. 9 DSGVO, z. B. Gesundheitsdaten) enthalten, sofern dies nicht für die Anfrage zwingend erforderlich ist."
+              },
+              "block14": {
+                "type": "subheading",
+                "text": "6. Empfänger / Auftragsverarbeiter"
+              },
+              "block15": {
+                "type": "paragraph",
+                "text": "Für den Betrieb des Fragebogen-Assistenten setzen wir folgende Auftragsverarbeiter ein:"
+              },
+              "block16": {
+                "type": "list",
+                "items": {
+                  "item01": "Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA (Hosting/Betrieb der Web-Anwendung; EU-Region Frankfurt);",
+                  "item02": "BunnyWay d.o.o., Dunajska cesta 165, 1000 Ljubljana, Slowenien (Datei-Speicherung und Auslieferung, ausschließlich in EU-Regionen);",
+                  "item03": "Trigger.dev Ltd. (Hintergrundverarbeitung / Job-Queue);",
+                  "item04": "Anthropic, PBC, 548 Market Street, PMB 90375, San Francisco, CA 94104, USA (Bereitstellung des Sprachmodells „Claude“ über die Anthropic-API zur Extraktion der Inhalte)."
+                }
+              },
+              "block17": {
+                "type": "subheading",
+                "text": "7. Übermittlung in Drittländer (USA)"
+              },
+              "block18": {
+                "type": "paragraph",
+                "text": "Beim Aufruf des Sprachmodells werden die Inhalte Ihrer Dateien an Anthropic, PBC in die Vereinigten Staaten von Amerika übermittelt und dort verarbeitet. Die USA gelten nicht durchgängig als sicheres Drittland im Sinne der DSGVO; insbesondere besteht das Risiko des Zugriffs durch US-Behörden auf Grundlage US-amerikanischer Überwachungsgesetze (z. B. FISA 702, CLOUD Act)."
+              },
+              "block19": {
+                "type": "paragraph",
+                "text": "Der Transfer wird gestützt auf:"
+              },
+              "block20": {
+                "type": "list",
+                "items": {
+                  "item01": "Standardvertragsklauseln der EU-Kommission gemäß Art. 46 Abs. 2 lit. c DSGVO (Module 2 und 3), die fester Bestandteil des Data Processing Addendums von Anthropic sind (https://www.anthropic.com/legal/data-processing-addendum), sowie",
+                  "item02": "Ihre ausdrückliche Einwilligung gemäß Art. 49 Abs. 1 lit. a DSGVO, die Sie am Upload-Schritt erteilen."
+                }
+              },
+              "block21": {
+                "type": "paragraph",
+                "text": "Anthropic verarbeitet Inhaltsdaten der API nach eigenen Angaben nicht zum Training eigener Modelle. Eingaben und Ausgaben werden gemäß Anthropic Privacy Center („How long do you store my organization's data?\", Stand 16. März 2026, https://privacy.claude.com/) standardmäßig innerhalb von 30 Tagen automatisch gelöscht. Für regulierte Anwendungen ist eine Zero-Data-Retention-Vereinbarung möglich."
+              },
+              "block22": {
+                "type": "subheading",
+                "text": "8. Speicherdauer"
+              },
+              "block23": {
+                "type": "list",
+                "items": {
+                  "item01": "Hochgeladene Dateien speichern wir auf unserer EU-Infrastruktur (Bunny.net Storage, EU-Region) für maximal 30 Tage ab Upload und löschen sie danach automatisiert; auf Ihren Wunsch löschen wir sie früher.",
+                  "item02": "Die durch das KI-Modell extrahierten Antworten sowie Ihre Fragebogeneingaben bewahren wir auf, solange dies für die Bearbeitung Ihrer Anfrage bzw. – bei Zustandekommen eines Vertrags – für die Vertragsabwicklung und die Erfüllung gesetzlicher Aufbewahrungspflichten (insb. § 132 BAO, § 212 UGB: 7 Jahre) erforderlich ist.",
+                  "item03": "Technische Logs werden nach maximal 90 Tagen anonymisiert oder gelöscht."
+                }
+              },
+              "block24": {
+                "type": "subheading",
+                "text": "9. Ihre Rechte"
+              },
+              "block25": {
+                "type": "paragraph",
+                "text": "Es bleiben Ihnen sämtliche datenschutzrechtlichen Rechte aus Art. 15 bis Art. 22 DSGVO unberührt (Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerspruch). Sie haben das Recht, sich bei der österreichischen Datenschutzbehörde (www.dsb.gv.at) zu beschweren."
+              }
+            }
+          },
+          "processors": {
+            "title": "Drittanbieter / Auftragsverarbeiter",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Wir geben Ihre Daten an folgende Drittanbieter und Auftragsverarbeiter weiter:"
+              },
+              "block02": {
+                "type": "list",
+                "items": {
+                  "item01": "Webflow, Inc. (Website-Hosting und Content-Management)",
+                  "item02": "Google LLC (Google Analytics)",
+                  "item03": "Yandex LLC (Analytics)",
+                  "item04": "Vercel, Inc. (Website-Hosting)",
+                  "item05": "BunnyWay d.o.o., Dunajska cesta 165, 1000 Ljubljana, Slowenien (Bunny.net) — Datei-Speicherung und Auslieferung. Datenresidenz ausschließlich in EU-Rechenzentren (Routing Filters „EU only“ aktiviert).",
+                  "item06": "Anthropic, PBC, 548 Market Street, PMB 90375, San Francisco, CA 94104, USA — Bereitstellung des Sprachmodells „Claude“ über die Anthropic-API zur Inhaltsanalyse hochgeladener Dateien. Datenverarbeitung in den USA. Rechtsgrundlage für den Drittlandtransfer: Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO) gemäß Anthropic Data Processing Addendum (https://www.anthropic.com/legal/data-processing-addendum) sowie ausdrückliche Einwilligung der betroffenen Person (Art. 49 Abs. 1 lit. a DSGVO). Anthropic Subprocessor-Liste: https://www.anthropic.com/subprocessors.",
+                  "item07": "Trigger.dev Ltd., Vereinigtes Königreich — asynchrone Hintergrund-Verarbeitung der Datei-Extraktionsaufträge (Job-Orchestrierung). Verarbeitung auf Basis eines Auftragsverarbeitungsvertrags (Bestandteil der Trigger.dev Terms of Service, https://trigger.dev/legal; SOC 2 Type II- und GDPR-konforme Sicherheitsorganisation laut https://trigger.dev/security). Datenresidenz: EU-Region, soweit konfigurierbar."
+                }
+              }
+            }
+          },
+          "thirdCountries": {
+            "title": "Datenübermittlung in Drittländer",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Ihre Daten können in Länder außerhalb der EU (insbesondere die USA) übertragen werden. In diesen Fällen stellen wir sicher, dass ein angemessenes Datenschutzniveau gewährleistet ist, z.B. durch den Abschluss von Standardvertragsklauseln der EU-Kommission."
+              }
+            }
+          },
+          "retention": {
+            "title": "Dauer der Speicherung",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Ihre personenbezogenen Daten werden nur so lange gespeichert, wie es für die Erfüllung der oben genannten Zwecke erforderlich ist oder wie es gesetzliche Aufbewahrungspflichten vorsehen."
+              }
+            }
+          },
+          "rights": {
+            "title": "Rechte der Betroffenen",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Sie haben das Recht:"
+              },
+              "block02": {
+                "type": "list",
+                "items": {
+                  "item01": "Auskunft über Ihre bei uns gespeicherten Daten zu verlangen",
+                  "item02": "Berichtigung unrichtiger Daten zu verlangen",
+                  "item03": "Löschung Ihrer Daten zu verlangen",
+                  "item04": "Einschränkung der Verarbeitung Ihrer Daten zu verlangen",
+                  "item05": "Widerspruch gegen die Verarbeitung Ihrer Daten einzulegen",
+                  "item06": "Ihre Einwilligung zur Datenverarbeitung jederzeit zu widerrufen",
+                  "item07": "Datenübertragbarkeit zu verlangen"
+                }
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "Zur Ausübung dieser Rechte können Sie uns jederzeit unter den oben angegebenen Kontaktdaten erreichen."
+              }
+            }
+          },
+          "automatedDecision": {
+            "title": "Automatisierte Entscheidungsfindung und Profiling",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Wir treffen keine ausschließlich auf einer automatisierten Verarbeitung beruhenden Entscheidungen im Sinne des Art. 22 Abs. 1 DSGVO, die Ihnen gegenüber rechtliche Wirkung entfalten oder Sie in ähnlicher Weise erheblich beeinträchtigen."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "Hinweis zum Fragebogen-Assistenten: Beim Einsatz des KI-gestützten Fragebogen-Assistenten (siehe gesonderter Abschnitt „KI-gestützte Auswertung hochgeladener Dateien\") werden Inhalte aus den von Ihnen hochgeladenen Dateien automatisiert ausgelesen und als Vorschlag in den Fragebogen eingetragen. Diese Vorschläge stellen keine Entscheidung über Sie dar, sondern dienen ausschließlich der Vorbereitung Ihrer Anfrage und werden vor einer etwaigen Angebotslegung stets durch einen Menschen geprüft. Eine abschließende Beurteilung Ihrer Anfrage und allfällige Vertragsentscheidungen erfolgen ausschließlich durch unsere Mitarbeiter."
+              }
+            }
+          },
+          "cookies": {
+            "title": "Cookies und Tracking-Technologien",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Wir verwenden Cookies und ähnliche Technologien, um die Nutzung unserer Website zu analysieren und unser Angebot zu verbessern. Sie können die Speicherung von Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern."
+              }
+            }
+          },
+          "googleAnalytics": {
+            "title": "Google Analytics",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Diese Website benutzt Google Analytics, einen Webanalysedienst der Google LLC (\"Google\"). Google Analytics verwendet Cookies, die eine Analyse der Benutzung der Website durch Sie ermöglichen. Die durch das Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Wir haben auf dieser Website die IP-Anonymisierung aktiviert. Dadurch wird Ihre IP-Adresse von Google innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum zuvor gekürzt. Nur in Ausnahmefällen wird die volle IP-Adresse an einen Server von Google in den USA übertragen und dort gekürzt. Im Auftrag des Betreibers dieser Website wird Google diese Informationen benutzen, um Ihre Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen gegenüber dem Websitebetreiber zu erbringen. Die im Rahmen von Google Analytics von Ihrem Browser übermittelte IP-Adresse wird nicht mit anderen Daten von Google zusammengeführt. Sie können die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website vollumfänglich werden nutzen können. Sie können darüber hinaus die Erfassung der durch das Cookie erzeugten und auf Ihre Nutzung der Website bezogenen Daten (inkl. Ihrer IP-Adresse) an Google sowie die Verarbeitung dieser Daten durch Google verhindern, indem Sie das Browser-Plugin unter tools.google.com/dlpage/gaoptout herunterladen und installieren."
+              }
+            }
+          },
+          "webflow": {
+            "title": "Webflow",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Diese Website wird auf der Plattform Webflow betrieben, die von Webflow, Inc. bereitgestellt wird. Webflow bietet eine Plattform zum Erstellen und Hosten von Websites. Webflow kann personenbezogene Daten wie IP-Adressen und Nutzungsdaten erheben und speichern. Webflow verarbeitet diese Daten in unserem Auftrag und auf Grundlage eines Auftragsverarbeitungsvertrags gemäß Art. 28 DSGVO. Weitere Informationen finden Sie unter webflow.com/legal/privacy."
+              }
+            }
+          },
+          "informationObligation": {
+            "title": "Informationspflicht",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Informationspflicht laut §5 E-Commerce Gesetz, §14 Unternehmensgesetzbuch, §63 Gewerbeordnung und Offenlegungspflicht laut §25 Mediengesetz."
+              }
+            }
+          }
+        }
       }
     }
   }

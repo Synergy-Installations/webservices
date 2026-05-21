@@ -501,9 +501,11 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     const currentQuestionIndex = questionKeys.indexOf(currentQuestionKey);
     const formKeys = Object.keys(currentQuestion.form);
     const currentFormIndex = formKeys.indexOf(formKey);
+    const extractionReviewEnabled = questionPresentation === "window";
     const visibleQuestionKeys = getNavigationQuestionKeys(
       questionElements,
       currentQuestionKey,
+      extractionReviewEnabled,
     );
     const currentVisibleQuestionIndex =
       visibleQuestionKeys.indexOf(currentQuestionKey);
@@ -511,10 +513,11 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
       questionElements,
       currentQuestionKey,
       formKey,
+      extractionReviewEnabled,
     );
     const currentVisibleFormIndex = visibleFormKeys.indexOf(formKey);
     const extractionReviewFlowActive =
-      isExtractionReviewFlowActive(questionElements);
+      extractionReviewEnabled && isExtractionReviewFlowActive(questionElements);
 
     let error = false;
     visibleQuestionKeys.forEach(
@@ -523,6 +526,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
           questionElements,
           questionKey,
           questionKey === currentQuestionKey ? formKey : undefined,
+          extractionReviewEnabled,
         ).forEach((formKey: string, formIndex: number) => {
           console.log(questionKey, formKey);
           console.log(
@@ -1081,6 +1085,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
         userReviewed?: boolean;
       },
     ): FunnelPrefillResult => {
+      const aiPrefillDefaultLabel = t("ui.aiPrefill.defaultLabel");
       const thresholds = getExtractionThresholds(questionElements);
       const preview = cloneQuestionElements(questionElements);
       const { result } = applyPrefillToQuestionElements({
@@ -1088,6 +1093,10 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
         prefill,
         context,
         thresholds,
+        getAiPrefillWarningMessage: (label?: string) =>
+          t("ui.aiPrefill.warning", {
+            label: label ?? aiPrefillDefaultLabel,
+          }),
       });
 
       setQuestionElements((prev) => {
@@ -1096,6 +1105,10 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
           prefill,
           context,
           thresholds,
+          getAiPrefillWarningMessage: (label?: string) =>
+            t("ui.aiPrefill.warning", {
+              label: label ?? aiPrefillDefaultLabel,
+            }),
         });
         return elements;
       });
@@ -1103,7 +1116,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
       debouncedCountQuestionsAndSet();
       return result;
     },
-    [debouncedCountQuestionsAndSet, questionElements],
+    [debouncedCountQuestionsAndSet, questionElements, t],
   );
 
   const removeFunnelPrefill = useCallback(
@@ -1222,7 +1235,10 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
       (questionKey: any) => isVisibleEntity(questionElements[questionKey]),
     );
     let filteredQuestionKeys =
-      getRenderableQuestionKeys(questionElements) ?? visibleQuestionKeys;
+      getRenderableQuestionKeys(
+        questionElements,
+        questionPresentation === "window",
+      ) ?? visibleQuestionKeys;
 
     if (questionPresentation === "window" && typeof window !== "undefined") {
       const url = new URL(window.location.href);
@@ -1267,6 +1283,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
 
   const renderedQuestionKeys = questionElementsToBeRendered();
   const isQuestionTransitionActive = questionTransition.phase === "rotating";
+  const showQuestionNavigationButtons = questionPresentation === "window";
   const overviewQuestionKeys = Object.keys(questionElements ?? {}).filter(
     (questionKey) => isVisibleEntity(questionElements[questionKey]),
   );
@@ -1354,7 +1371,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
             {overviewQuestionKeys.length > 0 && (
               <div
                 className="funnel-progress-map"
-                aria-label="Funnel question overview"
+                aria-label={t("ui.accessibility.questionOverviewAriaLabel")}
                 role="list"
               >
                 {overviewQuestionKeys.map((questionKey, index) => {
@@ -1387,7 +1404,14 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                       style={{ left: `${markerPosition}%` }}
                       role="listitem"
                       tabIndex={0}
-                      aria-label={`${index + 1}/${overviewQuestionKeys.length}: ${question?.title ?? ""}`}
+                      aria-label={t(
+                        "ui.accessibility.questionProgressMarkerAriaLabel",
+                        {
+                          current: index + 1,
+                          total: overviewQuestionKeys.length,
+                          title: question?.title ?? "",
+                        },
+                      )}
                     >
                       <span
                         className={`funnel-progress-marker-dot ${markerStateClassName}`}
@@ -1444,6 +1468,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                       questionElements,
                       questionKey,
                       formKey,
+                      questionPresentation === "window",
                     ),
                   )
                   .map((formKey: any, index: any) => (
@@ -2128,23 +2153,24 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                         "submit-button" ? (
                         <div className="flex justify-between">
                           <div className="flex">
-                            {getNavigationQuestionKeys(
-                              questionElements,
-                              questionKey,
-                            )[0] !== questionKey && (
-                              <button
-                                onClick={() => {
-                                  getNextQuestionKey(
-                                    questionKey,
-                                    formKey,
-                                    "previous",
-                                  );
-                                }}
-                                className="rounded-md bg-synergy-light-blue px-3 py-1 text-white transition-colors hover:bg-synergy-light-blue/90 focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2"
-                              >
-                                Vorherige
-                              </button>
-                            )}
+                            {showQuestionNavigationButtons &&
+                              getNavigationQuestionKeys(
+                                questionElements,
+                                questionKey,
+                              )[0] !== questionKey && (
+                                <button
+                                  onClick={() => {
+                                    getNextQuestionKey(
+                                      questionKey,
+                                      formKey,
+                                      "previous",
+                                    );
+                                  }}
+                                  className="rounded-md bg-synergy-light-blue px-3 py-1 text-white transition-colors hover:bg-synergy-light-blue/90 focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2"
+                                >
+                                  {t("ui.navigation.previous")}
+                                </button>
+                              )}
                           </div>
                           <p
                             className={`mt-2 min-h-[1.57rem] text-sm ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : questionElements[questionKey].form[formKey].message.type === "warning" ? "text-orange-600 dark:text-orange-500" : questionElements[questionKey].form[formKey].message.type === "loading" ? "text-synergy-light-blue" : "text-green-600 dark:text-green-500"} `}
@@ -2300,6 +2326,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                       )}
                       {questionElements[questionKey].form[formKey].type !==
                         "submit-button" &&
+                        showQuestionNavigationButtons &&
                         index ==
                           Object.entries(
                             questionElements[questionKey].form,
@@ -2308,6 +2335,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                               questionElements,
                               questionKey,
                               String(formKey),
+                              questionPresentation === "window",
                             ),
                           ).length -
                             1 && (
@@ -2327,7 +2355,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                   }}
                                   className="rounded-md bg-synergy-light-blue px-3 py-1 text-white transition-colors hover:bg-synergy-light-blue/90 focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2"
                                 >
-                                  Vorherige
+                                  {t("ui.navigation.previous")}
                                 </button>
                               )}
                             </div>
@@ -2343,8 +2371,8 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                 className="rounded-md bg-synergy-light-blue px-3 py-1 text-white transition-colors hover:bg-synergy-light-blue/90 focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2"
                               >
                                 {isQuestionSkippable(questionKey)
-                                  ? "Überspringen"
-                                  : "Weiter"}
+                                  ? t("ui.navigation.skip")
+                                  : t("ui.navigation.next")}
                               </button>
                             </div>
                           </div>
@@ -2369,22 +2397,18 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
             {/* The actual dialog panel  */}
             <DialogPanel className="max-w-lg space-y-4 bg-white p-12 rounded-2xl border border-synergy-dark-grey shadow-lg">
               <DialogTitle className="font-bold">
-                E-Mail verifikation
+                {t("ui.verification.title")}
               </DialogTitle>
               <Description>
-                Geben Sie den Code ein, den Sie per E-Mail erhalten haben, um
-                zum Dashboard zu gelangen.
+                {t("ui.verification.description")}
               </Description>
-              <p>
-                Mit dem Dashboard können Sie weitere Projekte eintragen, Ihre
-                Formulare verwalten und Ihre Einstellungen anpassen.
-              </p>
+              <p>{t("ui.verification.details")}</p>
               <form className="max-w-sm mx-auto">
                 <div className="flex mb-2 space-x-2 rtl:space-x-reverse">
                   {[...Array(6)].map((_, index) => (
                     <div key={index}>
                       <label htmlFor={`code-${index + 1}`} className="sr-only">
-                        Code {index + 1}
+                        {t("ui.verification.codeLabel", { index: index + 1 })}
                       </label>
                       <input
                         ref={(el) => {
@@ -2405,7 +2429,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                   id="helper-text-explanation"
                   className="mt-2 text-sm text-gray-500 dark:text-gray-400"
                 >
-                  Please introduce the 6-digit code we sent via email.
+                  {t("ui.verification.helperText")}
                 </p>
                 <button
                   type="button"
@@ -2420,7 +2444,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                   className="mt-4 inline-flex items-center gap-1 rounded-lg bg-synergy-light-blue px-4 py-2 text-white transition-colors hover:bg-synergy-light-blue/90 focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2"
                   disabled={verificationButtonClicked}
                 >
-                  Verify
+                  {t("ui.verification.verifyButton")}
                   {verificationButtonClicked && (
                     <svg
                       aria-hidden="true"
@@ -2811,12 +2835,15 @@ function isQuestionComplete(question: any): boolean {
   );
 }
 
-function getRenderableQuestionKeys(elements: Record<string, any>): string[] {
+function getRenderableQuestionKeys(
+  elements: Record<string, any>,
+  extractionReviewEnabled = true,
+): string[] {
   const visibleQuestionKeys = Object.keys(elements ?? {}).filter(
     (questionKey) => isVisibleEntity(elements[questionKey]),
   );
 
-  if (!isExtractionReviewFlowActive(elements)) {
+  if (!extractionReviewEnabled || !isExtractionReviewFlowActive(elements)) {
     return visibleQuestionKeys;
   }
 
@@ -2832,12 +2859,13 @@ function getRenderableQuestionKeys(elements: Record<string, any>): string[] {
 function getNavigationQuestionKeys(
   elements: Record<string, any>,
   currentQuestionKey?: string,
+  extractionReviewEnabled = true,
 ): string[] {
   const visibleQuestionKeys = Object.keys(elements ?? {}).filter(
     (questionKey) => isVisibleEntity(elements[questionKey]),
   );
 
-  if (!isExtractionReviewFlowActive(elements)) {
+  if (!extractionReviewEnabled || !isExtractionReviewFlowActive(elements)) {
     return visibleQuestionKeys;
   }
 
@@ -2865,13 +2893,14 @@ function getNavigationFormKeys(
   elements: Record<string, any>,
   questionKey: string,
   currentFormKey?: string,
+  extractionReviewEnabled = true,
 ): string[] {
   const forms = elements[questionKey]?.form ?? {};
   const visibleFormKeys = Object.keys(forms).filter((formKey) =>
     isVisibleEntity(forms[formKey]),
   );
 
-  if (!isExtractionReviewFlowActive(elements)) {
+  if (!extractionReviewEnabled || !isExtractionReviewFlowActive(elements)) {
     return visibleFormKeys;
   }
 
@@ -2903,10 +2932,13 @@ function shouldRenderFunnelForm(
   elements: Record<string, any>,
   questionKey: string,
   formKey: string,
+  extractionReviewEnabled = true,
 ): boolean {
   const form = elements[questionKey]?.form?.[formKey];
   if (!form || !isVisibleEntity(form)) return false;
-  if (!isExtractionReviewFlowActive(elements)) return true;
+  if (!extractionReviewEnabled || !isExtractionReviewFlowActive(elements)) {
+    return true;
+  }
 
   return !formHasAcceptedExtractionValue(form);
 }
@@ -2980,6 +3012,7 @@ function applyPrefillToQuestionElements(opts: {
     userReviewed?: boolean;
   };
   thresholds: { green: number; yellow: number };
+  getAiPrefillWarningMessage?: (label?: string) => string;
 }): { elements: Record<string, any>; result: FunnelPrefillResult } {
   const result: FunnelPrefillResult = { applied: [], skipped: [] };
 
@@ -3073,7 +3106,8 @@ function applyPrefillToQuestionElements(opts: {
     resolved.form.message.text =
       tier === "green"
         ? resolved.form.message.successMessage
-        : `${entry.label ?? "Wert"} wurde von der KI vorausgefuellt. Bitte pruefen.`;
+        : (opts.getAiPrefillWarningMessage?.(entry.label) ??
+          `${entry.label ?? "Wert"} wurde von der KI vorausgefüllt. Bitte prüfen.`);
     result.applied.push(formUid);
   });
 
@@ -3365,26 +3399,11 @@ function confidenceTier(
 
 function renderExtractionHint(form: any): JSX.Element | null {
   const extraction = form.extraction;
-  if (!extraction) return null;
-
-  const confidence = Number(extraction.confidence ?? 0);
-  const className =
-    extraction.tier === "green"
-      ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
-      : extraction.tier === "yellow"
-        ? "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200"
-        : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200";
-  const quote = extraction.sourceQuote
-    ? ` Quelle: ${String(extraction.sourceQuote).slice(0, 160)}`
-    : "";
-  const title = `KI ${Math.round(confidence * 100)}%${extraction.sourcePage ? `, S. ${extraction.sourcePage}` : ""}.${quote}`;
+  if (extraction?.source !== "llm") return null;
 
   return (
-    <span
-      className={`inline-flex items-center rounded px-1.5 py-0.5 text-xs font-medium ${className}`}
-      title={title}
-    >
-      KI {Math.round(confidence * 100)}%
+    <span className="inline-flex items-center rounded bg-synergy-light-blue/10 px-1.5 py-0.5 text-xs font-medium text-synergy-light-blue">
+      KI Ausgefüllt
     </span>
   );
 }

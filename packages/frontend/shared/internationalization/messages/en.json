@@ -5936,6 +5936,41 @@
             "helperText": "Please enter the 6-digit code we sent you by email.",
             "verifyButton": "Verify"
           },
+          "submitProgress": {
+            "title": "Processing your request",
+            "description": "We are saving your details and preparing secure access.",
+            "saving": {
+              "label": "Saving your request",
+              "description": "Your details are being added securely to the dashboard."
+            },
+            "sendingEmail": {
+              "label": "Sending confirmation",
+              "description": "We are sending a summary of your request by email."
+            },
+            "preparingAccess": {
+              "label": "Preparing access",
+              "description": "We are preparing email verification for your dashboard."
+            },
+            "redirecting": {
+              "label": "Opening dashboard",
+              "description": "You are already signed in, so we are taking you straight there."
+            },
+            "success": {
+              "label": "Everything is ready",
+              "description": "Please check your email for the next step."
+            },
+            "error": {
+              "label": "Something went wrong",
+              "description": "Please try again or contact us directly by email."
+            },
+            "steps": {
+              "saving": "Save",
+              "sendingEmail": "Email",
+              "preparingAccess": "Access",
+              "redirecting": "Redirect"
+            },
+            "closeButton": "Close"
+          },
           "aiPrefill": {
             "defaultLabel": "Value",
             "warning": "{label} was prefilled by AI. Please review."

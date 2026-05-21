@@ -6163,6 +6163,41 @@
             "helperText": "Bitte geben Sie den 6-stelligen Code ein, den wir Ihnen per E-Mail gesendet haben.",
             "verifyButton": "Verifizieren"
           },
+          "submitProgress": {
+            "title": "Ihre Anfrage wird verarbeitet",
+            "description": "Wir speichern Ihre Angaben und bereiten den sicheren Zugang vor.",
+            "saving": {
+              "label": "Anfrage wird gespeichert",
+              "description": "Ihre Angaben werden sicher im Dashboard angelegt."
+            },
+            "sendingEmail": {
+              "label": "Bestätigung wird gesendet",
+              "description": "Wir senden Ihnen die Zusammenfassung Ihrer Anfrage per E-Mail."
+            },
+            "preparingAccess": {
+              "label": "Zugang wird vorbereitet",
+              "description": "Wir bereiten die E-Mail-Verifizierung für Ihr Dashboard vor."
+            },
+            "redirecting": {
+              "label": "Dashboard wird geöffnet",
+              "description": "Sie sind bereits angemeldet. Wir leiten Sie direkt weiter."
+            },
+            "success": {
+              "label": "Alles ist vorbereitet",
+              "description": "Bitte prüfen Sie gleich Ihre E-Mails für den nächsten Schritt."
+            },
+            "error": {
+              "label": "Das hat leider nicht geklappt",
+              "description": "Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt per E-Mail."
+            },
+            "steps": {
+              "saving": "Speichern",
+              "sendingEmail": "E-Mail",
+              "preparingAccess": "Zugang",
+              "redirecting": "Weiterleitung"
+            },
+            "closeButton": "Schließen"
+          },
           "aiPrefill": {
             "defaultLabel": "Wert",
             "warning": "{label} wurde von der KI vorausgefüllt. Bitte prüfen."

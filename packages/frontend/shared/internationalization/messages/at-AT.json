@@ -6076,7 +6076,7 @@
         },
         "Powerful-search": {
           "title": "Oder kommen Sie vorbei und lassen Sie sich beraten",
-          "description": "Wagenseilgasse 14, Stock 5 andys.cc, EURO PLAZA 1120 Wien",
+          "description": "Anton Krenn Straße 23/2, 2540 Bad Vöslau · Lager: Industriestraße 2c Tor 6-7, 2540 Bad Vöslau",
           "href": "https://g.co/kgs/zvtKtWc",
           "icon": {
             "src": "/frontend/landingPage/icons/storefront_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg",
@@ -10485,102 +10485,81 @@
     "Legal": {
       "Impressum": {
         "title": "Impressum",
-        "updatedAt": "Stand: 01.09.2025",
+        "updatedAt": "Stand: 29.05.2026",
+        "intro": {
+          "block01": {
+            "type": "paragraph",
+            "text": "Informationspflicht laut § 5 E-Commerce-Gesetz (ECG), § 14 Unternehmensgesetzbuch (UGB) und § 63 Gewerbeordnung (GewO) sowie Offenlegungspflicht laut § 25 Mediengesetz."
+          }
+        },
         "sections": {
-          "companyInformation": {
-            "title": "Firmeninformationen",
+          "mediaOwner": {
+            "title": "Medieninhaber und Diensteanbieter",
             "blocks": {
               "block01": {
                 "type": "paragraph",
-                "text": "Informationspflicht laut §5 E-Commerce Gesetz, §14 Unternehmensgesetzbuch, §63 Gewerbeordnung und Offenlegungspflicht laut §25 Mediengesetz."
+                "text": "<b>Synergie Montagen Riegler GmbH</b><br></br>Anton Krenn Straße 23/2, 2540 Bad Vöslau, Österreich<br></br>Lager: Industriestraße 2c, Tor 6–7, 2540 Bad Vöslau, Österreich"
               },
               "block02": {
                 "type": "paragraph",
-                "text": "<b>Synergie Montagen Riegler GmbH</b><br></br>EURO PLAZA<br></br>Wagenseilgasse 14<br></br>1120 Wien<br></br>Österreich"
-              },
-              "block03": {
-                "type": "paragraph",
-                "text": "<b>UID-Nummer:</b> ATU78880338<br></br><b>GLN:</b> 9110032870340<br></br><b>GISA:</b> 35484653<br></br><b>Firmenbuchnummer:</b> FN 593978 y<br></br><b>Firmenbuchgericht:</b> Landesgericht Wiener Neustadt"
-              },
-              "block04": {
-                "type": "paragraph",
-                "text": "<b>Tel.:</b> +43 664 2448742<br></br><b>E-Mail:</b> office@synergiemontagen.eco"
-              },
-              "block05": {
-                "type": "paragraph",
-                "text": "<b>Mitglied bei:</b> WKO, Landesinnung<br></br><b>Berufsrecht:</b> Gewerbeordnung: www.ris.bka.gv.at"
-              },
-              "block06": {
-                "type": "paragraph",
-                "text": "<b>Aufsichtsbehörde/Gewerbebehörde:</b> Bezirkshauptmannschaft Baden"
-              },
-              "block07": {
-                "type": "paragraph",
-                "text": "<b>Unternehmensgegenstand:</b> Montage von Photovoltaikmodulen, Energiekostenberatung, Handelsgewerbe, Elektrotechnik<br></br><b>Berufsbezeichnung:</b> Elektro-,Audio-,Video-u.Alarmanlagentechniker<br></br><b>Verleihungsstaat:</b> Österreich"
-              },
-              "block08": {
-                "type": "paragraph",
-                "text": "<b>Geschäftsführer:</b> Michael Riegler"
+                "text": "Tel.: +43 664 2448742<br></br>E-Mail: office@synergiemontagen.eco"
               }
             }
           },
-          "euSettlement": {
-            "title": "EU-Streitschlichtung",
+          "companyData": {
+            "title": "Unternehmensdaten",
             "blocks": {
               "block01": {
                 "type": "paragraph",
-                "text": "Gemäß Verordnung über Online-Streitbeilegung in Verbraucherangelegenheiten (ODR-Verordnung) möchten wir Sie über die Online-Streitbeilegungsplattform (OS-Plattform) informieren.<br></br>Verbraucher haben die Möglichkeit, Beschwerden an die Online-Streitbeilegungsplattform der Europäischen Kommission unter http://ec.europa.eu/odr?tid=121890425 zu richten. Die dafür notwendigen Kontaktdaten finden Sie oberhalb in unserem Impressum."
+                "text": "Firmenbuchnummer: FN 593978 y<br></br>Firmenbuchgericht: Landesgericht Wiener Neustadt<br></br>UID-Nummer: ATU78880338<br></br>GISA-Zahl: 35484653<br></br>GLN: 9110032870340"
               },
               "block02": {
                 "type": "paragraph",
-                "text": "Wir möchten Sie jedoch darauf hinweisen, dass wir nicht bereit oder verpflichtet sind, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+                "text": "Geschäftsführer: Michael Riegler"
               }
             }
           },
-          "liabilityForContent": {
+          "professionalLaw": {
+            "title": "Berufsrecht und Aufsicht",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Mitglied bei: WKO (Wirtschaftskammer Österreich), Landesinnung<br></br>Berufsbezeichnung: Elektro-, Audio-, Video- und Alarmanlagentechniker (Verleihungsstaat: Österreich)<br></br>Unternehmensgegenstand: Montage von Photovoltaikmodulen, Energiekostenberatung, Handelsgewerbe, Elektrotechnik<br></br>Anzuwendende Rechtsvorschrift: Gewerbeordnung (abrufbar unter www.ris.bka.gv.at)<br></br>Aufsichts-/Gewerbebehörde: Bezirkshauptmannschaft Baden"
+              }
+            }
+          },
+          "disputeResolution": {
+            "title": "Verbraucherstreitbeilegung",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+              }
+            }
+          },
+          "liabilityContent": {
             "title": "Haftung für Inhalte dieser Website",
             "blocks": {
               "block01": {
                 "type": "paragraph",
-                "text": "Wir entwickeln die Inhalte dieser Website ständig weiter und bemühen uns, korrekte und aktuelle Informationen bereitzustellen. Leider können wir keine Haftung für die Korrektheit aller Inhalte auf dieser Website übernehmen, speziell für jene, die seitens Dritter bereitgestellt wurden."
+                "text": "Wir entwickeln die Inhalte dieser Website ständig weiter und bemühen uns, korrekte und aktuelle Informationen bereitzustellen. Eine Haftung für die Korrektheit aller Inhalte kann jedoch nicht übernommen werden, insbesondere für Inhalte, die von Dritten bereitgestellt wurden."
               },
               "block02": {
                 "type": "paragraph",
-                "text": "Als Diensteanbieter sind wir nicht verpflichtet, die von ihnen übermittelten oder gespeicherten Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen."
+                "text": "Als Diensteanbieter sind wir nicht verpflichtet, die von uns übermittelten oder gespeicherten fremden Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung von Informationen nach den allgemeinen Gesetzen aufgrund gerichtlicher oder behördlicher Anordnungen bleiben hiervon unberührt."
               },
               "block03": {
                 "type": "paragraph",
-                "text": "Unsere Verpflichtungen zur Entfernung von Informationen oder zur Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen aufgrund von gerichtlichen oder behördlichen Anordnungen bleiben auch im Falle unserer Nichtverantwortlichkeit davon unberührt."
-              },
-              "block04": {
-                "type": "paragraph",
-                "text": "Sollten Ihnen problematische oder rechtswidrige Inhalte auffallen, bitten wir Sie, uns umgehend zu kontaktieren, damit wir die rechtswidrigen Inhalte entfernen können. Sie finden die Kontaktdaten im Impressum."
+                "text": "Sollten Ihnen problematische oder rechtswidrige Inhalte auffallen, bitten wir um umgehende Kontaktaufnahme über die oben angeführten Kontaktdaten, damit wir die betreffenden Inhalte entfernen können."
               }
             }
           },
-          "liabilityForLinks": {
+          "liabilityLinks": {
             "title": "Haftung für Links auf dieser Website",
             "blocks": {
               "block01": {
                 "type": "paragraph",
-                "text": "Unsere Website enthält Links zu anderen Websites, für deren Inhalt wir nicht verantwortlich sind. Haftung für verlinkte Websites besteht für uns nicht, da wir keine Kenntnis rechtswidriger Tätigkeiten hatten und haben, uns solche Rechtswidrigkeiten auch bisher nicht aufgefallen sind und wir Links sofort entfernen würden, wenn uns Rechtswidrigkeiten bekannt werden."
-              },
-              "block02": {
-                "type": "paragraph",
-                "text": "Wenn Ihnen rechtswidrige Links auf unserer Website auffallen, bitten wir Sie, uns zu kontaktieren. Sie finden die Kontaktdaten im Impressum."
-              }
-            }
-          },
-          "copyrightNotice": {
-            "title": "Urheberrechtshinweis",
-            "blocks": {
-              "block01": {
-                "type": "paragraph",
-                "text": "Alle Inhalte dieser Webseite (Bilder, Fotos, Texte, Videos) unterliegen dem Urheberrecht. Bitte fragen Sie uns, bevor Sie die Inhalte dieser Website verbreiten, vervielfältigen oder verwerten, wie zum Beispiel auf anderen Websites erneut veröffentlichen. Falls notwendig, werden wir die unerlaubte Nutzung von Teilen der Inhalte unserer Seite rechtlich verfolgen."
-              },
-              "block02": {
-                "type": "paragraph",
-                "text": "Sollten Sie auf dieser Webseite Inhalte finden, die das Urheberrecht verletzen, bitten wir Sie, uns zu kontaktieren."
+                "text": "Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für diese fremden Inhalte können wir keine Gewähr übernehmen. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden derartige Links umgehend entfernt. Sollten Ihnen rechtswidrige Links auffallen, bitten wir um Kontaktaufnahme."
               }
             }
           },
@@ -10589,11 +10568,7 @@
             "blocks": {
               "block01": {
                 "type": "paragraph",
-                "text": "Die Bilder, Fotos und Grafiken auf dieser Webseite sind urheberrechtlich geschützt."
-              },
-              "block02": {
-                "type": "paragraph",
-                "text": "Alle Texte sind urheberrechtlich geschützt."
+                "text": "Alle Inhalte dieser Website (insbesondere Texte, Bilder, Fotos, Grafiken und Videos) sind urheberrechtlich geschützt. Eine Verbreitung, Vervielfältigung oder sonstige Verwertung – etwa die erneute Veröffentlichung auf anderen Websites – ist nur mit unserer vorherigen Zustimmung zulässig. Eine unerlaubte Nutzung von Inhalten dieser Website behalten wir uns vor, rechtlich zu verfolgen. Sollten Sie auf dieser Website Inhalte finden, die das Urheberrecht Dritter verletzen, bitten wir um Kontaktaufnahme."
               }
             }
           }
@@ -10601,251 +10576,272 @@
       },
       "Datenschutz": {
         "title": "Datenschutzerklärung",
-        "updatedAt": "Stand: 21.05.2026",
+        "updatedAt": "Stand: 29.05.2026",
+        "intro": {
+          "block01": {
+            "type": "paragraph",
+            "text": "Wir nehmen den Schutz Ihrer personenbezogenen Daten ernst und verarbeiten diese ausschließlich im Einklang mit der Datenschutz-Grundverordnung (DSGVO), dem österreichischen Datenschutzgesetz (DSG) und dem Telekommunikationsgesetz 2021 (TKG 2021). In dieser Datenschutzerklärung informieren wir Sie über Art, Umfang und Zweck der Verarbeitung personenbezogener Daten auf unserer Website sowie über Ihre Rechte."
+          }
+        },
         "sections": {
-          "controller": {
-            "title": "1. Name und Kontaktdaten des Verantwortlichen",
+          "section01": {
+            "title": "1. Verantwortlicher",
             "blocks": {
               "block01": {
                 "type": "paragraph",
-                "text": "<b>Verantwortlicher für die Datenverarbeitung:</b>"
+                "text": "Verantwortlicher im Sinne des Art. 4 Z 7 DSGVO ist:"
               },
               "block02": {
                 "type": "paragraph",
-                "text": "Michael Riegler<br></br>Anton Krenn-Straße 28, 2540, Bad Vöslau, AT<br></br>office@synergiemontagen.at<br></br>+43 664 2448742"
+                "text": "<b>Synergie Montagen Riegler GmbH</b><br></br>Anton Krenn Straße 23/2, 2540 Bad Vöslau, Österreich<br></br>FN 593978 y, Landesgericht Wiener Neustadt – UID-Nummer: ATU78880338<br></br>Geschäftsführer: Michael Riegler<br></br>E-Mail: office@synergiemontagen.eco<br></br>Tel.: +43 664 2448742"
               }
             }
           },
-          "dataTypes": {
-            "title": "2. Art der verarbeiteten Daten",
+          "section02": {
+            "title": "2. Aufruf der Website und Server-Logfiles",
             "blocks": {
               "block01": {
                 "type": "paragraph",
-                "text": "Wir verarbeiten folgende personenbezogene Daten:"
+                "text": "Beim Aufruf unserer Website werden durch den Browser automatisch Informationen an den Server unserer Website übermittelt und vorübergehend in sogenannten Logfiles gespeichert. Erfasst werden insbesondere: IP-Adresse des anfragenden Geräts, Datum und Uhrzeit des Zugriffs, Name und URL der abgerufenen Datei, übertragene Datenmenge, Meldung über den erfolgreichen Abruf, Browsertyp und -version, Betriebssystem sowie die zuvor besuchte Seite (Referrer)."
               },
               "block02": {
-                "type": "list",
-                "items": {
-                  "item01": "Name",
-                  "item02": "E-Mail-Adresse",
-                  "item03": "IP-Adresse",
-                  "item04": "Nutzungsdaten (z.B. besuchte Seiten, Verweildauer)",
-                  "item05": "ggf. weitere durch das Kontaktformular übermittelte Daten"
-                }
-              }
-            }
-          },
-          "processingPurpose": {
-            "title": "3. Zweck der Datenverarbeitung",
-            "blocks": {
-              "block01": {
                 "type": "paragraph",
-                "text": "Die Verarbeitung Ihrer Daten erfolgt zu folgenden Zwecken:"
-              },
-              "block02": {
-                "type": "list",
-                "items": {
-                  "item01": "Beantwortung von Kontaktanfragen",
-                  "item02": "Analyse der Nutzung unserer Website",
-                  "item03": "Verbesserung unseres Online-Angebots",
-                  "item04": "Erfüllung gesetzlicher Verpflichtungen"
-                }
-              }
-            }
-          },
-          "aiAssistant": {
-            "title": "KI-gestützte Auswertung hochgeladener Dateien (Fragebogen-Assistent)",
-            "blocks": {
-              "block01": {
-                "type": "paragraph",
-                "text": "Auf unserer Website bieten wir Ihnen einen Fragebogen-Assistenten an, mit dem Sie eigene Projektdateien (z. B. Stromrechnungen, Lastprofile, Pläne, Angebote, Datenblätter, Fotos) hochladen können. Ein Sprachmodell (Large Language Model, kurz „LLM“) extrahiert aus diesen Dateien Informationen und befüllt damit die Antwortfelder des Fragebogens vor. Sie können die vorgeschlagenen Antworten anschließend prüfen, ändern, ergänzen oder verwerfen."
-              },
-              "block02": {
-                "type": "subheading",
-                "text": "1. Verantwortlicher"
+                "text": "<b>Zweck:</b> Gewährleistung eines reibungslosen Verbindungsaufbaus, einer komfortablen Nutzung, der Systemsicherheit und -stabilität sowie zu administrativen Zwecken."
               },
               "block03": {
                 "type": "paragraph",
-                "text": "Verantwortlicher im Sinne des Art. 4 Z 7 DSGVO ist:<br></br>Synergie Montagen Riegler GmbH<br></br>EURO PLAZA, Wagenseilgasse 14, 1120 Wien, Österreich<br></br>FN 593978 y, Landesgericht Wiener Neustadt, UID ATU78880338<br></br>Geschäftsführer: Michael Riegler<br></br>E-Mail: [Kontakt-E-Mail einsetzen]"
+                "text": "<b>Rechtsgrundlage:</b> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am sicheren und stabilen Betrieb der Website)."
               },
               "block04": {
-                "type": "subheading",
-                "text": "2. Verarbeitete Daten"
+                "type": "paragraph",
+                "text": "<b>Speicherdauer:</b> Technische Logs werden nach spätestens 90 Tagen anonymisiert oder gelöscht."
+              }
+            }
+          },
+          "section03": {
+            "title": "3. Kontaktaufnahme",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Wenn Sie über das Kontaktformular oder per E-Mail mit uns in Verbindung treten, verarbeiten wir die von Ihnen mitgeteilten Daten (z. B. Name, E-Mail-Adresse, Telefonnummer, Inhalt Ihrer Anfrage), um Ihre Anfrage zu bearbeiten."
               },
-              "block05": {
+              "block02": {
+                "type": "paragraph",
+                "text": "<b>Rechtsgrundlage:</b> Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre Anfrage auf den Abschluss oder die Durchführung eines Vertrags gerichtet ist; im Übrigen Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen)."
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "<b>Speicherdauer:</b> Wir bewahren diese Daten auf, solange dies zur Bearbeitung Ihrer Anfrage erforderlich ist, und löschen sie anschließend, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen."
+              }
+            }
+          },
+          "section04": {
+            "title": "4. Bearbeitung und Verwaltung Ihrer Anfrage",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Die im Zuge einer Anfrage oder eines Vertragsverhältnisses übermittelten Daten verarbeiten wir in unseren internen Systemen, um Ihre Anfrage zu bearbeiten, Angebote zu erstellen und – bei Zustandekommen eines Vertrags – diesen abzuwickeln."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "<b>Rechtsgrundlage:</b> Art. 6 Abs. 1 lit. b DSGVO (Vertrag bzw. vorvertragliche Maßnahmen); für die Erfüllung gesetzlicher Aufbewahrungspflichten Art. 6 Abs. 1 lit. c DSGVO."
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "<b>Speicherdauer:</b> für die Dauer der Bearbeitung bzw. Vertragsabwicklung und darüber hinaus im Rahmen der gesetzlichen Aufbewahrungsfristen (insbesondere § 132 BAO, § 212 UGB: 7 Jahre)."
+              }
+            }
+          },
+          "section05": {
+            "title": "5. Cookies und Einwilligungsverwaltung",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Unsere Website verwendet Cookies und vergleichbare Technologien. Technisch notwendige Cookies, die für den Betrieb der Website erforderlich sind, setzen wir auf Grundlage unseres berechtigten Interesses (Art. 6 Abs. 1 lit. f DSGVO) bzw. auf Grundlage des § 165 Abs. 3 TKG 2021 ein."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "Nicht technisch notwendige Cookies sowie Dienste, die ein Auslesen oder Speichern von Informationen auf Ihrem Endgerät voraussetzen (z. B. Webanalyse), setzen wir nur ein, soweit Sie zuvor über unser Einwilligungsbanner ausdrücklich eingewilligt haben (Art. 6 Abs. 1 lit. a DSGVO i. V. m. § 165 Abs. 3 TKG 2021). Ihre Einwilligung ist freiwillig und kann jederzeit mit Wirkung für die Zukunft über die Einstellungen des Einwilligungsbanners widerrufen werden."
+              }
+            }
+          },
+          "section06": {
+            "title": "6. Hosting",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "<b>Marketing-Website (Webflow):</b> Diese Website wird auf der Plattform von Webflow, Inc. betrieben, die eine Plattform zum Erstellen und Hosten von Websites bereitstellt. Dabei können IP-Adressen und Nutzungsdaten verarbeitet werden. Webflow verarbeitet diese Daten in unserem Auftrag auf Grundlage eines Auftragsverarbeitungsvertrags gemäß Art. 28 DSGVO. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am Betrieb der Website)."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "<b>Web-Anwendung und Dashboard (Vercel):</b> Der Fragebogen-Assistent und die zugehörigen Anwendungen werden als eigenständige Web-Anwendung über Vercel Inc. (440 N Barranca Ave #4133, Covina, CA 91723, USA) betrieben; die Ausführung erfolgt in einer EU-Region (Frankfurt). Da Vercel Inc. ein US-Unternehmen ist, kann ein Zugriff aus den USA nicht vollständig ausgeschlossen werden. Die Übermittlung wird auf die Standardvertragsklauseln der EU-Kommission (Art. 46 Abs. 2 lit. c DSGVO) gemäß dem Data Processing Addendum von Vercel gestützt sowie – soweit Vercel unter dem EU-US Data Privacy Framework zertifiziert ist – auf den entsprechenden Angemessenheitsbeschluss. Rechtsgrundlage: Art. 6 Abs. 1 lit. b und lit. f DSGVO."
+              }
+            }
+          },
+          "section07": {
+            "title": "7. Webanalyse mit Google Analytics",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "<i>Diesen Abschnitt nur beibehalten, wenn Google Analytics tatsächlich und ausschließlich nach vorheriger Einwilligung über das Einwilligungsbanner eingesetzt wird. Andernfalls Abschnitt streichen.</i>"
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "Wir verwenden Google Analytics 4, einen Webanalysedienst der Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irland). Google Analytics verwendet Cookies und ähnliche Technologien, um die Nutzung unserer Website zu analysieren. Die dabei erzeugten Informationen über Ihre Nutzung der Website werden in der Regel an Server von Google übertragen und dort verarbeitet; dabei kann eine Übermittlung in die USA erfolgen, die auf Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO) und – soweit zertifiziert – auf den EU-US Data Privacy Framework gestützt wird. In Google Analytics 4 werden IP-Adressen nicht protokolliert und nicht gespeichert."
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "<b>Rechtsgrundlage:</b> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung), die Sie über unser Einwilligungsbanner erteilen und jederzeit mit Wirkung für die Zukunft widerrufen können."
+              }
+            }
+          },
+          "section08": {
+            "title": "8. KI-gestützte Auswertung hochgeladener Dateien (Fragebogen-Assistent)",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Auf unserer Website bieten wir einen Fragebogen-Assistenten an, mit dem Sie eigene Projektdateien (z. B. Stromrechnungen, Lastprofile, Pläne, Angebote, Datenblätter, Fotos) hochladen können. Ein Sprachmodell (Large Language Model, „LLM\") liest aus diesen Dateien Informationen aus und befüllt damit die Antwortfelder des Fragebogens vor. Sie können die vorgeschlagenen Antworten anschließend prüfen, ändern, ergänzen oder verwerfen."
+              },
+              "block02": {
+                "type": "subheading",
+                "text": "8.1 Verarbeitete Daten"
+              },
+              "block03": {
                 "type": "paragraph",
                 "text": "Wir verarbeiten in diesem Zusammenhang insbesondere:"
               },
-              "block06": {
+              "block04": {
                 "type": "list",
                 "items": {
                   "item01": "Inhalte der von Ihnen hochgeladenen Dateien (PDFs, Bilder, Office-Dokumente und vergleichbare Formate); diese können personenbezogene Daten enthalten (z. B. Name, Adresse, Zählpunkt, Verbrauchsdaten, Vertragsdaten, Bankdaten, Fotos von Gebäuden, ggf. Daten Dritter);",
                   "item02": "die aus den Dateien durch das KI-Modell extrahierten Datenpunkte und die daraus erzeugten Vorschläge für die Fragebogen-Antworten;",
                   "item03": "Ihre Eingaben im Fragebogen, Ihre Kontaktdaten und die Kommunikation mit uns;",
-                  "item04": "technische Verbindungsdaten (IP-Adresse, Zeitstempel, User-Agent), Datei-Metadaten sowie Verarbeitungs-Protokolle (Logs) zu Zwecken der Sicherheit und Fehleranalyse."
+                  "item04": "technische Verbindungsdaten (IP-Adresse, Zeitstempel, User-Agent), Datei-Metadaten sowie Verarbeitungsprotokolle (Logs) zu Zwecken der Sicherheit und Fehleranalyse."
                 }
               },
-              "block07": {
+              "block05": {
                 "type": "subheading",
-                "text": "3. Zweck der Verarbeitung"
+                "text": "8.2 Zweck"
               },
-              "block08": {
+              "block06": {
                 "type": "paragraph",
                 "text": "Zweck ist die Erbringung des kostenlos angebotenen Fragebogen-Assistenten, konkret das automatisierte Auslesen relevanter Informationen aus Ihren Dateien, das Vorausfüllen der Fragebogen-Felder, die anschließende individuelle Beratung sowie die Erstellung von Angeboten im Bereich Photovoltaik, Energiekostenberatung und Elektrotechnik."
               },
-              "block09": {
+              "block07": {
                 "type": "subheading",
-                "text": "4. Rechtsgrundlagen"
+                "text": "8.3 Rechtsgrundlagen"
               },
-              "block10": {
+              "block08": {
                 "type": "list",
                 "items": {
                   "item01": "Art. 6 Abs. 1 lit. b DSGVO (Durchführung vorvertraglicher Maßnahmen bzw. Vertragserfüllung) für die Bearbeitung Ihrer Anfrage und die Vorbereitung eines Angebots;",
                   "item02": "Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) für den Upload und die KI-gestützte Auswertung Ihrer Dateien einschließlich der damit verbundenen Übermittlung an Anthropic, PBC in die USA;",
-                  "item03": "Art. 49 Abs. 1 lit. a DSGVO (ausdrückliche Einwilligung in den Drittlandtransfer) für die Übermittlung an Anthropic, PBC, soweit die Standardvertragsklauseln gemäß Art. 46 Abs. 2 lit. c DSGVO im Einzelfall nicht ausreichen sollten;",
+                  "item03": "Art. 49 Abs. 1 lit. a DSGVO (ausdrückliche Einwilligung in den Drittlandtransfer) ergänzend für die Übermittlung an Anthropic, PBC, soweit die Standardvertragsklauseln gemäß Art. 46 Abs. 2 lit. c DSGVO im Einzelfall nicht ausreichen sollten;",
                   "item04": "Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Betrieb, Sicherheit und Missbrauchsabwehr unserer IT-Systeme) für technische Logs."
                 }
               },
-              "block11": {
+              "block09": {
                 "type": "paragraph",
                 "text": "Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, ohne dass die Rechtmäßigkeit der bis dahin erfolgten Verarbeitung berührt wird. Den Widerruf können Sie formlos per E-Mail an uns richten."
               },
-              "block12": {
+              "block10": {
                 "type": "subheading",
-                "text": "5. Hochgeladene Dateien können Daten Dritter enthalten"
+                "text": "8.4 Hochgeladene Dateien können Daten Dritter enthalten"
               },
-              "block13": {
+              "block11": {
                 "type": "paragraph",
                 "text": "Bitte beachten Sie: Hochgeladene Dateien (z. B. Rechnungen, Verträge, Pläne) können personenbezogene Daten Dritter enthalten (etwa Daten anderer Vertragspartner, Mitbewohner, Familienangehöriger, Lieferantenmitarbeiter). Sie sichern uns mit dem Upload zu, zur Verarbeitung dieser Daten berechtigt zu sein und – soweit erforderlich – die betroffenen Personen über die Verarbeitung informiert zu haben. Bitte laden Sie keine Dokumente hoch, deren Inhalt einem Berufs- oder Amtsgeheimnis unterliegt oder die besondere Kategorien personenbezogener Daten (Art. 9 DSGVO, z. B. Gesundheitsdaten) enthalten, sofern dies nicht für die Anfrage zwingend erforderlich ist."
               },
-              "block14": {
+              "block12": {
                 "type": "subheading",
-                "text": "6. Empfänger / Auftragsverarbeiter"
+                "text": "8.5 Empfänger / Auftragsverarbeiter"
               },
-              "block15": {
+              "block13": {
                 "type": "paragraph",
                 "text": "Für den Betrieb des Fragebogen-Assistenten setzen wir folgende Auftragsverarbeiter ein:"
               },
-              "block16": {
+              "block14": {
                 "type": "list",
                 "items": {
-                  "item01": "Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA (Hosting/Betrieb der Web-Anwendung; EU-Region Frankfurt);",
-                  "item02": "BunnyWay d.o.o., Dunajska cesta 165, 1000 Ljubljana, Slowenien (Datei-Speicherung und Auslieferung, ausschließlich in EU-Regionen);",
-                  "item03": "Trigger.dev Ltd. (Hintergrundverarbeitung / Job-Queue);",
-                  "item04": "Anthropic, PBC, 548 Market Street, PMB 90375, San Francisco, CA 94104, USA (Bereitstellung des Sprachmodells „Claude“ über die Anthropic-API zur Extraktion der Inhalte)."
+                  "item01": "<b>Vercel Inc.</b>, 440 N Barranca Ave #4133, Covina, CA 91723, USA – Hosting und Betrieb der Web-Anwendung (Ausführung in EU-Region Frankfurt);",
+                  "item02": "<b>BunnyWay d.o.o.</b>, Dunajska cesta 165, 1000 Ljubljana, Slowenien (Bunny.net) – Datei-Speicherung und Auslieferung, ausschließlich in EU-Rechenzentren (Routing-Filter „EU only\" aktiviert);",
+                  "item03": "<b>Trigger.dev Ltd.</b>, Vereinigtes Königreich – asynchrone Hintergrundverarbeitung der Datei-Extraktionsaufträge (Job-Orchestrierung), Datenresidenz in EU-Region, soweit konfigurierbar;",
+                  "item04": "<b>Anthropic, PBC</b>, 548 Market Street, PMB 90375, San Francisco, CA 94104, USA – Bereitstellung des Sprachmodells „Claude\" über die Anthropic-API zur Inhaltsanalyse hochgeladener Dateien (Verarbeitung in den USA)."
                 }
               },
-              "block17": {
+              "block15": {
                 "type": "subheading",
-                "text": "7. Übermittlung in Drittländer (USA)"
+                "text": "8.6 Übermittlung in Drittländer (USA)"
+              },
+              "block16": {
+                "type": "paragraph",
+                "text": "Beim Aufruf des Sprachmodells werden die Inhalte Ihrer Dateien an Anthropic, PBC in die Vereinigten Staaten von Amerika übermittelt und dort verarbeitet. Die USA gewährleisten nicht durchgängig ein dem DSGVO-Niveau entsprechendes Datenschutzniveau; insbesondere besteht das Risiko eines Zugriffs durch US-Behörden auf Grundlage US-amerikanischer Überwachungsgesetze (z. B. FISA 702, CLOUD Act)."
+              },
+              "block17": {
+                "type": "paragraph",
+                "text": "Die Übermittlung wird gestützt auf:"
               },
               "block18": {
-                "type": "paragraph",
-                "text": "Beim Aufruf des Sprachmodells werden die Inhalte Ihrer Dateien an Anthropic, PBC in die Vereinigten Staaten von Amerika übermittelt und dort verarbeitet. Die USA gelten nicht durchgängig als sicheres Drittland im Sinne der DSGVO; insbesondere besteht das Risiko des Zugriffs durch US-Behörden auf Grundlage US-amerikanischer Überwachungsgesetze (z. B. FISA 702, CLOUD Act)."
+                "type": "list",
+                "items": {
+                  "item01": "die Standardvertragsklauseln der EU-Kommission gemäß Art. 46 Abs. 2 lit. c DSGVO (Module 2 und 3), die fester Bestandteil des Data Processing Addendums von Anthropic sind (https://www.anthropic.com/legal/data-processing-addendum), sowie",
+                  "item02": "ergänzend Ihre ausdrückliche Einwilligung gemäß Art. 49 Abs. 1 lit. a DSGVO, die Sie am Upload-Schritt erteilen."
+                }
               },
               "block19": {
                 "type": "paragraph",
-                "text": "Der Transfer wird gestützt auf:"
+                "text": "Anthropic verarbeitet die über die API übermittelten Inhalte nach eigenen Angaben nicht zum Training eigener Modelle. Eingaben und Ausgaben werden im Rahmen der von Anthropic vorgesehenen Aufbewahrungsfrist gelöscht (nach aktuellen Angaben von Anthropic innerhalb von höchstens 30 Tagen, bei Nutzung über die kommerzielle API regelmäßig kürzer). Aktuelle Informationen finden Sie unter https://privacy.claude.com/. Die Anthropic-Subprozessorenliste ist abrufbar unter https://www.anthropic.com/subprocessors."
               },
               "block20": {
-                "type": "list",
-                "items": {
-                  "item01": "Standardvertragsklauseln der EU-Kommission gemäß Art. 46 Abs. 2 lit. c DSGVO (Module 2 und 3), die fester Bestandteil des Data Processing Addendums von Anthropic sind (https://www.anthropic.com/legal/data-processing-addendum), sowie",
-                  "item02": "Ihre ausdrückliche Einwilligung gemäß Art. 49 Abs. 1 lit. a DSGVO, die Sie am Upload-Schritt erteilen."
-                }
+                "type": "subheading",
+                "text": "8.7 Speicherdauer"
               },
               "block21": {
-                "type": "paragraph",
-                "text": "Anthropic verarbeitet Inhaltsdaten der API nach eigenen Angaben nicht zum Training eigener Modelle. Eingaben und Ausgaben werden gemäß Anthropic Privacy Center („How long do you store my organization's data?\", Stand 16. März 2026, https://privacy.claude.com/) standardmäßig innerhalb von 30 Tagen automatisch gelöscht. Für regulierte Anwendungen ist eine Zero-Data-Retention-Vereinbarung möglich."
-              },
-              "block22": {
-                "type": "subheading",
-                "text": "8. Speicherdauer"
-              },
-              "block23": {
                 "type": "list",
                 "items": {
                   "item01": "Hochgeladene Dateien speichern wir auf unserer EU-Infrastruktur (Bunny.net Storage, EU-Region) für maximal 30 Tage ab Upload und löschen sie danach automatisiert; auf Ihren Wunsch löschen wir sie früher.",
-                  "item02": "Die durch das KI-Modell extrahierten Antworten sowie Ihre Fragebogeneingaben bewahren wir auf, solange dies für die Bearbeitung Ihrer Anfrage bzw. – bei Zustandekommen eines Vertrags – für die Vertragsabwicklung und die Erfüllung gesetzlicher Aufbewahrungspflichten (insb. § 132 BAO, § 212 UGB: 7 Jahre) erforderlich ist.",
+                  "item02": "Die durch das KI-Modell extrahierten Antworten sowie Ihre Fragebogeneingaben bewahren wir auf, solange dies für die Bearbeitung Ihrer Anfrage bzw. – bei Zustandekommen eines Vertrags – für die Vertragsabwicklung und die Erfüllung gesetzlicher Aufbewahrungspflichten (insbesondere § 132 BAO, § 212 UGB: 7 Jahre) erforderlich ist.",
                   "item03": "Technische Logs werden nach maximal 90 Tagen anonymisiert oder gelöscht."
                 }
-              },
-              "block24": {
-                "type": "subheading",
-                "text": "9. Ihre Rechte"
-              },
-              "block25": {
-                "type": "paragraph",
-                "text": "Es bleiben Ihnen sämtliche datenschutzrechtlichen Rechte aus Art. 15 bis Art. 22 DSGVO unberührt (Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerspruch). Sie haben das Recht, sich bei der österreichischen Datenschutzbehörde (www.dsb.gv.at) zu beschweren."
               }
             }
           },
-          "processors": {
-            "title": "Drittanbieter / Auftragsverarbeiter",
+          "section09": {
+            "title": "9. Weitere Empfänger",
             "blocks": {
               "block01": {
                 "type": "paragraph",
-                "text": "Wir geben Ihre Daten an folgende Drittanbieter und Auftragsverarbeiter weiter:"
-              },
-              "block02": {
-                "type": "list",
-                "items": {
-                  "item01": "Webflow, Inc. (Website-Hosting und Content-Management)",
-                  "item02": "Google LLC (Google Analytics)",
-                  "item03": "Yandex LLC (Analytics)",
-                  "item04": "Vercel, Inc. (Website-Hosting)",
-                  "item05": "BunnyWay d.o.o., Dunajska cesta 165, 1000 Ljubljana, Slowenien (Bunny.net) — Datei-Speicherung und Auslieferung. Datenresidenz ausschließlich in EU-Rechenzentren (Routing Filters „EU only“ aktiviert).",
-                  "item06": "Anthropic, PBC, 548 Market Street, PMB 90375, San Francisco, CA 94104, USA — Bereitstellung des Sprachmodells „Claude“ über die Anthropic-API zur Inhaltsanalyse hochgeladener Dateien. Datenverarbeitung in den USA. Rechtsgrundlage für den Drittlandtransfer: Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO) gemäß Anthropic Data Processing Addendum (https://www.anthropic.com/legal/data-processing-addendum) sowie ausdrückliche Einwilligung der betroffenen Person (Art. 49 Abs. 1 lit. a DSGVO). Anthropic Subprocessor-Liste: https://www.anthropic.com/subprocessors.",
-                  "item07": "Trigger.dev Ltd., Vereinigtes Königreich — asynchrone Hintergrund-Verarbeitung der Datei-Extraktionsaufträge (Job-Orchestrierung). Verarbeitung auf Basis eines Auftragsverarbeitungsvertrags (Bestandteil der Trigger.dev Terms of Service, https://trigger.dev/legal; SOC 2 Type II- und GDPR-konforme Sicherheitsorganisation laut https://trigger.dev/security). Datenresidenz: EU-Region, soweit konfigurierbar."
-                }
+                "text": "Eine Weitergabe Ihrer Daten an andere als die in dieser Datenschutzerklärung genannten Empfänger erfolgt nur, soweit dies gesetzlich vorgeschrieben ist, Sie eingewilligt haben oder es zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen erforderlich ist."
               }
             }
           },
-          "thirdCountries": {
-            "title": "Datenübermittlung in Drittländer",
+          "section10": {
+            "title": "10. Ihre Rechte",
             "blocks": {
               "block01": {
                 "type": "paragraph",
-                "text": "Ihre Daten können in Länder außerhalb der EU (insbesondere die USA) übertragen werden. In diesen Fällen stellen wir sicher, dass ein angemessenes Datenschutzniveau gewährleistet ist, z.B. durch den Abschluss von Standardvertragsklauseln der EU-Kommission."
-              }
-            }
-          },
-          "retention": {
-            "title": "Dauer der Speicherung",
-            "blocks": {
-              "block01": {
-                "type": "paragraph",
-                "text": "Ihre personenbezogenen Daten werden nur so lange gespeichert, wie es für die Erfüllung der oben genannten Zwecke erforderlich ist oder wie es gesetzliche Aufbewahrungspflichten vorsehen."
-              }
-            }
-          },
-          "rights": {
-            "title": "Rechte der Betroffenen",
-            "blocks": {
-              "block01": {
-                "type": "paragraph",
-                "text": "Sie haben das Recht:"
+                "text": "Ihnen stehen hinsichtlich der Sie betreffenden personenbezogenen Daten folgende Rechte zu:"
               },
               "block02": {
                 "type": "list",
                 "items": {
-                  "item01": "Auskunft über Ihre bei uns gespeicherten Daten zu verlangen",
-                  "item02": "Berichtigung unrichtiger Daten zu verlangen",
-                  "item03": "Löschung Ihrer Daten zu verlangen",
-                  "item04": "Einschränkung der Verarbeitung Ihrer Daten zu verlangen",
-                  "item05": "Widerspruch gegen die Verarbeitung Ihrer Daten einzulegen",
-                  "item06": "Ihre Einwilligung zur Datenverarbeitung jederzeit zu widerrufen",
-                  "item07": "Datenübertragbarkeit zu verlangen"
+                  "item01": "Recht auf Auskunft (Art. 15 DSGVO);",
+                  "item02": "Recht auf Berichtigung (Art. 16 DSGVO);",
+                  "item03": "Recht auf Löschung (Art. 17 DSGVO);",
+                  "item04": "Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO);",
+                  "item05": "Recht auf Datenübertragbarkeit (Art. 20 DSGVO);",
+                  "item06": "Recht auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO);",
+                  "item07": "Recht auf Widerruf einer erteilten Einwilligung mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO)."
                 }
               },
               "block03": {
                 "type": "paragraph",
-                "text": "Zur Ausübung dieser Rechte können Sie uns jederzeit unter den oben angegebenen Kontaktdaten erreichen."
+                "text": "Zur Ausübung dieser Rechte können Sie uns jederzeit über die unter Punkt 1 angegebenen Kontaktdaten erreichen. Darüber hinaus haben Sie das Recht, sich bei der österreichischen Datenschutzbehörde (Barichgasse 40–42, 1030 Wien, www.dsb.gv.at) zu beschweren."
               }
             }
           },
-          "automatedDecision": {
-            "title": "Automatisierte Entscheidungsfindung und Profiling",
+          "section11": {
+            "title": "11. Automatisierte Entscheidungsfindung und Profiling",
             "blocks": {
               "block01": {
                 "type": "paragraph",
@@ -10853,43 +10849,16 @@
               },
               "block02": {
                 "type": "paragraph",
-                "text": "Hinweis zum Fragebogen-Assistenten: Beim Einsatz des KI-gestützten Fragebogen-Assistenten (siehe gesonderter Abschnitt „KI-gestützte Auswertung hochgeladener Dateien\") werden Inhalte aus den von Ihnen hochgeladenen Dateien automatisiert ausgelesen und als Vorschlag in den Fragebogen eingetragen. Diese Vorschläge stellen keine Entscheidung über Sie dar, sondern dienen ausschließlich der Vorbereitung Ihrer Anfrage und werden vor einer etwaigen Angebotslegung stets durch einen Menschen geprüft. Eine abschließende Beurteilung Ihrer Anfrage und allfällige Vertragsentscheidungen erfolgen ausschließlich durch unsere Mitarbeiter."
+                "text": "Hinweis zum Fragebogen-Assistenten: Beim Einsatz des KI-gestützten Fragebogen-Assistenten (siehe Punkt 8) werden Inhalte aus den von Ihnen hochgeladenen Dateien automatisiert ausgelesen und als Vorschlag in den Fragebogen eingetragen. Diese Vorschläge stellen keine Entscheidung über Sie dar, sondern dienen ausschließlich der Vorbereitung Ihrer Anfrage und werden vor einer etwaigen Angebotslegung stets durch einen Menschen geprüft. Eine abschließende Beurteilung Ihrer Anfrage und allfällige Vertragsentscheidungen erfolgen ausschließlich durch unsere Mitarbeiter."
               }
             }
           },
-          "cookies": {
-            "title": "Cookies und Tracking-Technologien",
+          "section12": {
+            "title": "12. Aktualität und Änderung dieser Datenschutzerklärung",
             "blocks": {
               "block01": {
                 "type": "paragraph",
-                "text": "Wir verwenden Cookies und ähnliche Technologien, um die Nutzung unserer Website zu analysieren und unser Angebot zu verbessern. Sie können die Speicherung von Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern."
-              }
-            }
-          },
-          "googleAnalytics": {
-            "title": "Google Analytics",
-            "blocks": {
-              "block01": {
-                "type": "paragraph",
-                "text": "Diese Website benutzt Google Analytics, einen Webanalysedienst der Google LLC (\"Google\"). Google Analytics verwendet Cookies, die eine Analyse der Benutzung der Website durch Sie ermöglichen. Die durch das Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Wir haben auf dieser Website die IP-Anonymisierung aktiviert. Dadurch wird Ihre IP-Adresse von Google innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum zuvor gekürzt. Nur in Ausnahmefällen wird die volle IP-Adresse an einen Server von Google in den USA übertragen und dort gekürzt. Im Auftrag des Betreibers dieser Website wird Google diese Informationen benutzen, um Ihre Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen gegenüber dem Websitebetreiber zu erbringen. Die im Rahmen von Google Analytics von Ihrem Browser übermittelte IP-Adresse wird nicht mit anderen Daten von Google zusammengeführt. Sie können die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website vollumfänglich werden nutzen können. Sie können darüber hinaus die Erfassung der durch das Cookie erzeugten und auf Ihre Nutzung der Website bezogenen Daten (inkl. Ihrer IP-Adresse) an Google sowie die Verarbeitung dieser Daten durch Google verhindern, indem Sie das Browser-Plugin unter tools.google.com/dlpage/gaoptout herunterladen und installieren."
-              }
-            }
-          },
-          "webflow": {
-            "title": "Webflow",
-            "blocks": {
-              "block01": {
-                "type": "paragraph",
-                "text": "Diese Website wird auf der Plattform Webflow betrieben, die von Webflow, Inc. bereitgestellt wird. Webflow bietet eine Plattform zum Erstellen und Hosten von Websites. Webflow kann personenbezogene Daten wie IP-Adressen und Nutzungsdaten erheben und speichern. Webflow verarbeitet diese Daten in unserem Auftrag und auf Grundlage eines Auftragsverarbeitungsvertrags gemäß Art. 28 DSGVO. Weitere Informationen finden Sie unter webflow.com/legal/privacy."
-              }
-            }
-          },
-          "informationObligation": {
-            "title": "Informationspflicht",
-            "blocks": {
-              "block01": {
-                "type": "paragraph",
-                "text": "Informationspflicht laut §5 E-Commerce Gesetz, §14 Unternehmensgesetzbuch, §63 Gewerbeordnung und Offenlegungspflicht laut §25 Mediengesetz."
+                "text": "Diese Datenschutzerklärung hat den oben angegebenen Stand. Durch die Weiterentwicklung unserer Website und Angebote oder aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es erforderlich werden, diese Datenschutzerklärung anzupassen. Die jeweils aktuelle Fassung ist auf dieser Website abrufbar."
               }
             }
           }

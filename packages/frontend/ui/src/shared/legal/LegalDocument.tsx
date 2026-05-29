@@ -13,9 +13,10 @@ export const LegalDocument = (props: LegalDocumentProps) => {
   const messages: any = useMessages();
   const documentMessages = messages?.LandingPage?.Legal?.[documentKey] ?? {};
   const sectionKeys = Object.keys(documentMessages.sections || {});
+  const introBlockKeys = Object.keys(documentMessages.intro || {});
 
   return (
-    <main className="mx-auto max-w-6xl px-4 pb-20 pt-12 sm:px-6 lg:pt-16">
+    <main className="mx-auto max-w-6xl px-4 pb-20 pt-24 xs:pt-28 sm:px-6 lg:pt-32">
       <div className="grid gap-6 lg:grid-cols-[260px_minmax(0,1fr)]">
         <aside className="h-max rounded-2xl border border-slate-200 bg-slate-50 p-4 lg:sticky lg:top-28">
           <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-700">
@@ -46,6 +47,16 @@ export const LegalDocument = (props: LegalDocumentProps) => {
               <p className="mt-3 text-sm text-slate-500">{t("updatedAt")}</p>
             )}
           </header>
+
+          {introBlockKeys.length > 0 && (
+            <div className="mt-8 space-y-4">
+              {introBlockKeys.map((blockKey) => (
+                <RichText key={`intro-${blockKey}`} className="m-0 leading-7 text-slate-700">
+                  {(tags) => t.rich(`intro.${blockKey}.text`, tags)}
+                </RichText>
+              ))}
+            </div>
+          )}
 
           <div className="mt-8 space-y-10">
             {sectionKeys.map((sectionKey) => {

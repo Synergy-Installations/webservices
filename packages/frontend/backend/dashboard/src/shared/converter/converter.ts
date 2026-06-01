@@ -43,9 +43,12 @@ export const SUPPORTED_INPUTS = [
   "text/plain",
   "image/jpeg",
   "image/png",
+  "message/rfc822", // .eml
+  "application/vnd.ms-outlook", // .msg
 ] as const;
 
 export type SupportedMime = (typeof SUPPORTED_INPUTS)[number];
+export type EmailMime = "message/rfc822" | "application/vnd.ms-outlook";
 
 const GENERIC_CONTENT_TYPES = new Set([
   "",
@@ -56,6 +59,11 @@ const GENERIC_CONTENT_TYPES = new Set([
 const MIME_ALIASES: Record<string, SupportedMime> = {
   "image/jpg": "image/jpeg",
   "image/pjpeg": "image/jpeg",
+  "application/eml": "message/rfc822",
+  "application/x-eml": "message/rfc822",
+  "application/x-msg": "application/vnd.ms-outlook",
+  "application/msoutlook": "application/vnd.ms-outlook",
+  "application/outlook": "application/vnd.ms-outlook",
 };
 
 const EXTENSION_CONTENT_TYPES: Record<string, SupportedMime> = {
@@ -74,6 +82,8 @@ const EXTENSION_CONTENT_TYPES: Record<string, SupportedMime> = {
   jpg: "image/jpeg",
   jpeg: "image/jpeg",
   png: "image/png",
+  eml: "message/rfc822",
+  msg: "application/vnd.ms-outlook",
 };
 
 const DEFAULT_EXTENSION: Record<SupportedMime, string> = {
@@ -93,10 +103,16 @@ const DEFAULT_EXTENSION: Record<SupportedMime, string> = {
   "text/plain": ".txt",
   "image/jpeg": ".jpg",
   "image/png": ".png",
+  "message/rfc822": ".eml",
+  "application/vnd.ms-outlook": ".msg",
 };
 
 export function isSupportedInput(mime: string): mime is SupportedMime {
   return (SUPPORTED_INPUTS as readonly string[]).includes(mime);
+}
+
+export function isEmailInputContentType(mime: string): mime is EmailMime {
+  return mime === "message/rfc822" || mime === "application/vnd.ms-outlook";
 }
 
 export function normalizeInputContentType(
@@ -105,6 +121,14 @@ export function normalizeInputContentType(
 ): SupportedMime | null {
   const normalized = normalizeContentTypeHeader(contentType);
   const aliased = MIME_ALIASES[normalized] ?? normalized;
+  const extension = extensionFromFilename(filename);
+  const extensionContentType = extension
+    ? (EXTENSION_CONTENT_TYPES[extension] ?? null)
+    : null;
+
+  if (extensionContentType && isEmailInputContentType(extensionContentType)) {
+    return extensionContentType;
+  }
 
   if (isSupportedInput(aliased)) {
     return aliased;
@@ -114,8 +138,7 @@ export function normalizeInputContentType(
     return null;
   }
 
-  const extension = extensionFromFilename(filename);
-  return extension ? (EXTENSION_CONTENT_TYPES[extension] ?? null) : null;
+  return extensionContentType;
 }
 
 function normalizeContentTypeHeader(
@@ -161,6 +184,12 @@ export async function normalizeToPdf(opts: {
   if (!contentType) {
     throw new Error(
       `Unsupported content type: ${opts.contentType}. Add it to SUPPORTED_INPUTS or pre-convert.`,
+    );
+  }
+
+  if (isEmailInputContentType(contentType)) {
+    throw new Error(
+      `Email container ${opts.filename} must be expanded before PDF conversion.`,
     );
   }
 

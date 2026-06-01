@@ -48,6 +48,7 @@ export type GroundedExtractionValue = {
   value: unknown | null;
   source_quote: string | null;
   source_page: number | null;
+  source_document: string | null;
   reasoning: string | null;
 };
 
@@ -56,6 +57,11 @@ export type ExtractionResult = Record<string, GroundedExtractionValue>;
 export type PartialExtractionHandler = (
   extraction: ExtractionResult,
 ) => void | Promise<void>;
+
+export type ExtractionDocument = {
+  pdfBytes: Buffer;
+  filename: string;
+};
 
 export type FunnelPrefillValue = {
   value: unknown;
@@ -84,28 +90,52 @@ export async function extractFromPdf(opts: {
   usage: { input_tokens: number; output_tokens: number };
   model: string;
 }> {
-  if (opts.pdfBytes.byteLength > MAX_PDF_BYTES) {
-    throw new Error(
-      `PDF too large: ${opts.pdfBytes.byteLength} bytes (max ${MAX_PDF_BYTES})`,
-    );
+  return extractFromPdfs({
+    documents: [{ pdfBytes: opts.pdfBytes, filename: opts.filename }],
+    config: opts.config,
+    onPartialExtraction: opts.onPartialExtraction,
+  });
+}
+
+export async function extractFromPdfs(opts: {
+  documents: ExtractionDocument[];
+  config: ExtractionConfig;
+  onPartialExtraction?: PartialExtractionHandler;
+}): Promise<{
+  extraction: ExtractionResult;
+  raw: Anthropic.Messages.Message;
+  usage: { input_tokens: number; output_tokens: number };
+  model: string;
+}> {
+  if (opts.documents.length === 0) {
+    throw new Error("No documents supplied for extraction.");
   }
+
+  opts.documents.forEach((document) => {
+    if (document.pdfBytes.byteLength > MAX_PDF_BYTES) {
+      throw new Error(
+        `PDF too large: ${document.filename} has ${document.pdfBytes.byteLength} bytes (max ${MAX_PDF_BYTES})`,
+      );
+    }
+  });
 
   const model = process.env.ANTHROPIC_EXTRACTION_MODEL ?? "claude-sonnet-4-6";
   const anthropic = new Anthropic({
     apiKey: process.env.ANTHROPIC_API_KEY!,
   });
+  const documentNames = opts.documents.map((document) => document.filename);
 
   const request = {
     model,
     max_tokens: 4096,
     temperature: 0,
-    system: buildSystemPrompt(opts.config),
+    system: buildSystemPrompt(opts.config, documentNames),
     tools: [
       {
         name: TOOL_NAME,
         description:
           "Submit structured extraction data for the Synergie funnel.",
-        input_schema: buildToolInputSchema(opts.config) as any,
+        input_schema: buildToolInputSchema(opts.config, documentNames) as any,
       },
     ],
     tool_choice: { type: "tool", name: TOOL_NAME },
@@ -113,17 +143,18 @@ export async function extractFromPdf(opts: {
       {
         role: "user",
         content: [
-          {
-            type: "document",
+          ...opts.documents.map((document) => ({
+            type: "document" as const,
+            title: document.filename,
             source: {
-              type: "base64",
-              media_type: "application/pdf",
-              data: opts.pdfBytes.toString("base64"),
+              type: "base64" as const,
+              media_type: "application/pdf" as const,
+              data: document.pdfBytes.toString("base64"),
             },
-          },
+          })),
           {
             type: "text",
-            text: `Dokument: ${opts.filename}\n\nExtrahiere alle konfigurierten Felder. Gib fuer value null zurueck, wenn ein Feld nicht eindeutig im Dokument vorhanden ist, und begruende kurz warum.`,
+            text: buildUserPrompt(documentNames),
           },
         ],
       },
@@ -287,7 +318,7 @@ export function toFunnelPrefill(opts: {
       sourceQuote: extracted.source_quote,
       sourcePage: extracted.source_page,
       fieldKey,
-      documentName: opts.documentName,
+      documentName: extracted.source_document ?? opts.documentName,
       label: field.label,
     };
     funnelConfidences[field.target.formUid] = confidence;
@@ -298,6 +329,7 @@ export function toFunnelPrefill(opts: {
 
 function buildToolInputSchema(
   config: ExtractionConfig,
+  documentNames: string[] = [],
 ): Record<string, unknown> {
   return {
     type: "object",
@@ -310,11 +342,27 @@ function buildToolInputSchema(
           type: "object",
           description: buildFieldSchemaDescription(field),
           additionalProperties: false,
-          required: ["value", "source_quote", "source_page", "reasoning"],
+          required: [
+            "value",
+            "source_quote",
+            "source_page",
+            "source_document",
+            "reasoning",
+          ],
           properties: {
             value: valueSchemaForField(field),
             source_quote: nullable({ type: "string" }),
             source_page: nullable({ type: "integer", minimum: 1 }),
+            source_document: nullable(
+              Object.fromEntries(
+                Object.entries({
+                  type: "string",
+                  enum: documentNames.length > 0 ? documentNames : undefined,
+                  description:
+                    "Exact uploaded filename that is the primary source for this value.",
+                }).filter(([, value]) => value !== undefined),
+              ),
+            ),
             reasoning: nullable({ type: "string" }),
           },
         },
@@ -370,7 +418,10 @@ function nullable(schema: Record<string, unknown>): Record<string, unknown> {
   };
 }
 
-function buildSystemPrompt(config: ExtractionConfig): string {
+function buildSystemPrompt(
+  config: ExtractionConfig,
+  documentNames: string[] = [],
+): string {
   const fieldLines = Object.entries(config.fields)
     .map(([fieldKey, field]) => {
       const aliasLine =
@@ -400,6 +451,10 @@ function buildSystemPrompt(config: ExtractionConfig): string {
         .join("\n");
     })
     .join("\n");
+  const documentLines =
+    documentNames.length > 0
+      ? documentNames.map((name) => `- ${name}`).join("\n")
+      : "- unbekannt";
 
   return `Du bist eine Extraktions-Engine fuer PV-Projektberichte im DACH-Raum.
 
@@ -407,16 +462,30 @@ Extrahiere strukturierte Werte fuer ein Montage-Onboarding-Funnel. Fuer jedes Fe
 - value: der Wert im konfigurierten Format
 - source_quote: ein woertliches Zitat aus dem Dokument, das den Wert stuetzt
 - source_page: die 1-indexierte Seite des Zitats
+- source_document: der exakte Dateiname des primaeren Dokuments, das den Wert stuetzt
 - reasoning: ein kurzer deutscher Satz zur Ableitung oder dazu, warum kein eindeutiger Wert gefunden wurde
 
 Regeln:
-1. Wenn ein Feld nicht eindeutig im Dokument steht, setze value, source_quote und source_page auf null und erklaere in reasoning kurz, warum kein eindeutiger Wert gefunden wurde.
+1. Wenn ein Feld nicht eindeutig in den Dokumenten steht, setze value, source_quote, source_page und source_document auf null und erklaere in reasoning kurz, warum kein eindeutiger Wert gefunden wurde.
 2. Erfinde keine plausiblen Werte.
 3. source_quote muss aus dem Dokument stammen und darf nicht paraphrasiert werden.
 4. Werte mit Einheiten muessen in die angegebene Zieleinheit umgerechnet werden.
+5. source_document muss exakt einem der hochgeladenen Dateinamen entsprechen.
+6. Wenn ein Wert aus mehreren Dokumenten abgeleitet wird, waehle als source_document das primaere Dokument mit der staerksten direkten Evidenz.
+
+Hochgeladene Dateinamen:
+${documentLines}
 
 Konfigurierte Felder:
 ${fieldLines}`;
+}
+
+function buildUserPrompt(documentNames: string[]): string {
+  if (documentNames.length === 1) {
+    return `Dokument: ${documentNames[0]}\n\nExtrahiere alle konfigurierten Felder. Gib fuer value null zurueck, wenn ein Feld nicht eindeutig im Dokument vorhanden ist, und begruende kurz warum. Setze source_document auf den exakten Dateinamen, wenn ein Wert gefunden wurde.`;
+  }
+
+  return `Dokumente:\n${documentNames.map((name) => `- ${name}`).join("\n")}\n\nExtrahiere alle konfigurierten Felder aus dem gemeinsamen Kontext aller Dokumente. Gib fuer value null zurueck, wenn ein Feld nicht eindeutig vorhanden ist, und begruende kurz warum. Setze source_document auf den exakten Dateinamen des primaeren Dokuments, aus dem die Entscheidung stammt.`;
 }
 
 function buildFieldSchemaDescription(field: ExtractionFieldConfig): string {
@@ -460,6 +529,10 @@ function normalizeExtraction(
             typeof field.source_quote === "string" ? field.source_quote : null,
           source_page:
             typeof field.source_page === "number" ? field.source_page : null,
+          source_document:
+            typeof field.source_document === "string"
+              ? field.source_document
+              : null,
           reasoning:
             typeof field.reasoning === "string" ? field.reasoning : null,
         },
@@ -473,6 +546,7 @@ function emptyGroundedValue(): GroundedExtractionValue {
     value: null,
     source_quote: null,
     source_page: null,
+    source_document: null,
     reasoning: null,
   };
 }

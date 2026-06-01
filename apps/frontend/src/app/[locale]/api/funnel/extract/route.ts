@@ -1,3 +1,4 @@
+import crypto from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { tasks } from "@trigger.dev/sdk/v3";
 import { z } from "zod";
@@ -7,20 +8,37 @@ import type { extractFromDocument } from "@com.synergy/frontend-backend-dashboar
 export const runtime = "nodejs";
 export const maxDuration = 30;
 
-const Body = z.object({
-  funnelSessionId: z.string().min(8).max(128),
+const DocumentBody = z.object({
   bunnyPath: z.string().min(1),
   filename: z.string().min(1),
   contentType: z.string().min(1),
-  extractionQuestionUid: z.string().min(1),
-  extractionFormUid: z.string().min(1),
-  options: z
-    .object({
-      selfConsistencySamples: z.number().int().min(0).max(5).optional(),
-      runVerifier: z.boolean().optional(),
-    })
-    .optional(),
 });
+
+const Body = z
+  .object({
+    funnelSessionId: z.string().min(8).max(128),
+    documents: z.array(DocumentBody).min(1).max(20).optional(),
+    bunnyPath: z.string().min(1).optional(),
+    filename: z.string().min(1).optional(),
+    contentType: z.string().min(1).optional(),
+    extractionQuestionUid: z.string().min(1),
+    extractionFormUid: z.string().min(1),
+    options: z
+      .object({
+        selfConsistencySamples: z.number().int().min(0).max(5).optional(),
+        runVerifier: z.boolean().optional(),
+      })
+      .optional(),
+  })
+  .superRefine((value, ctx) => {
+    if (value.documents?.length) return;
+    if (value.bunnyPath && value.filename && value.contentType) return;
+
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: "Provide documents[] or bunnyPath/filename/contentType.",
+    });
+  });
 
 export async function POST(
   req: NextRequest,
@@ -37,6 +55,14 @@ export async function POST(
     );
   }
 
+  const documents = parsed.documents ?? [
+    {
+      bunnyPath: parsed.bunnyPath!,
+      filename: parsed.filename!,
+      contentType: parsed.contentType!,
+    },
+  ];
+
   let extractionConfig;
   try {
     extractionConfig = getExtractionConfig({
@@ -51,14 +77,22 @@ export async function POST(
     );
   }
 
-  const idempotencyKey = `${parsed.funnelSessionId}::${parsed.bunnyPath}`;
+  const documentHash = crypto
+    .createHash("sha256")
+    .update(
+      documents
+        .map((document) => document.bunnyPath)
+        .sort()
+        .join("|"),
+    )
+    .digest("hex")
+    .slice(0, 32);
+  const idempotencyKey = `${parsed.funnelSessionId}::${documentHash}`;
   const handle = await tasks.trigger<typeof extractFromDocument>(
     "extract-from-document",
     {
       funnelSessionId: parsed.funnelSessionId,
-      bunnyPath: parsed.bunnyPath,
-      filename: parsed.filename,
-      contentType: parsed.contentType,
+      documents,
       extractionConfig,
       options: parsed.options,
     },

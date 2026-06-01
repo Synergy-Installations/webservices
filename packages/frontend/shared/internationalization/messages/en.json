@@ -6015,7 +6015,7 @@
                   },
                   "extraction": {
                     "endpoint": "/api/funnel/extract",
-                    "acceptText": "PDF, DOCX, PPTX, XLSX, TXT, JPG or PNG (max. 100 MB)",
+                    "acceptText": "PDF, DOCX, PPTX, XLSX, TXT, JPG, PNG, EML or MSG (max. 100 MB)",
                     "mimeTypes": [
                       "application/pdf",
                       "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
@@ -6030,7 +6030,9 @@
                       "application/rtf",
                       "text/plain",
                       "image/jpeg",
-                      "image/png"
+                      "image/png",
+                      "message/rfc822",
+                      "application/vnd.ms-outlook"
                     ],
                     "confidence": {
                       "green": "0.85",
@@ -6344,6 +6346,129 @@
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics",
                       "name": "Wrench"
+                    }
+                  }
+                },
+                "aiExtraction": {
+                  "fieldKey": "dachtyp",
+                  "label": "Mounting surface",
+                  "type": "multi-option",
+                  "aliases": [
+                    "Roof type",
+                    "Roof structure",
+                    "Mounting surface",
+                    "Mounting substrate",
+                    "Roof covering",
+                    "Installation surface",
+                    "Building envelope"
+                  ],
+                  "description": "Roof or mounting surface. Multiple selections are allowed.",
+                  "instructions": "Select all clearly identified mounting surfaces. Distinguish metal roof from tile roof: treat it as a metal roof, not a tile roof, when the evidence shows flowing transitions, one large sheet-metal panel with tile-like steps, no visible screws, and no individual tiles visible from below or a white underside. In that case, use the metal option trapez unless standing seam/folded seam is clearly mentioned or visible. Select tile roof/ziegel only when individual roof tiles or concrete/clay roof stones are clearly visible or explicitly mentioned, even if the technical form UID differs. Select facade, fence, carport, and open area only when they are named as mounting surfaces.",
+                  "options": {
+                    "trapez": {
+                      "targetOptionUid": "trapez",
+                      "aliases": [
+                        "Trapezoidal sheet",
+                        "Trapez",
+                        "Trapezoidal metal roof",
+                        "Metal roof",
+                        "Sheet metal roof",
+                        "Tile-effect metal roof",
+                        "Metal roof tile sheet",
+                        "Large sheet-metal panel with tile-like steps"
+                      ]
+                    },
+                    "falz": {
+                      "targetOptionUid": "falz",
+                      "aliases": [
+                        "Standing seam",
+                        "Folded seam",
+                        "Klemmfalz",
+                        "Double lock seam",
+                        "Seam roof"
+                      ]
+                    },
+                    "flachdach": {
+                      "targetOptionUid": "flachdach",
+                      "aliases": [
+                        "Flat roof",
+                        "Bitumen roof",
+                        "Membrane roof"
+                      ]
+                    },
+                    "ziegel": {
+                      "targetOptionUid": "wärmepumpe",
+                      "aliases": [
+                        "Tile roof",
+                        "Tiles",
+                        "Roof tiles",
+                        "Ziegel",
+                        "Ziegeldach",
+                        "Dachziegel",
+                        "Clay tiles",
+                        "Concrete roof tile",
+                        "Frankfurter tile"
+                      ]
+                    },
+                    "eternit": {
+                      "targetOptionUid": "eternit",
+                      "aliases": [
+                        "Eternit",
+                        "Fiber cement",
+                        "Corrugated eternit"
+                      ]
+                    },
+                    "bramac": {
+                      "targetOptionUid": "bramac",
+                      "aliases": [
+                        "Bramac"
+                      ]
+                    },
+                    "fassade": {
+                      "targetOptionUid": "fassade",
+                      "aliases": [
+                        "Facade",
+                        "Wall",
+                        "Curtain facade"
+                      ]
+                    },
+                    "carport": {
+                      "targetOptionUid": "carport",
+                      "aliases": [
+                        "Carport"
+                      ]
+                    },
+                    "zaun": {
+                      "targetOptionUid": "zaun",
+                      "aliases": [
+                        "Fence",
+                        "Fence system"
+                      ]
+                    },
+                    "freiflaeche": {
+                      "targetOptionUid": "freilache",
+                      "aliases": [
+                        "Open area",
+                        "Open space",
+                        "Ground-mount",
+                        "Ground-mounted"
+                      ]
+                    },
+                    "winter-sommergarten": {
+                      "targetOptionUid": "winter-sommergarten",
+                      "aliases": [
+                        "Winter garden",
+                        "Summer garden",
+                        "Winter/summer garden"
+                      ]
+                    },
+                    "andere": {
+                      "targetOptionUid": "klimasysteme-1",
+                      "aliases": [
+                        "Other",
+                        "Special",
+                        "Special construction"
+                      ]
                     }
                   }
                 }

@@ -6242,7 +6242,7 @@
                   },
                   "extraction": {
                     "endpoint": "/api/funnel/extract",
-                    "acceptText": "PDF, DOCX, PPTX, XLSX, TXT, JPG oder PNG (max. 100 MB)",
+                    "acceptText": "PDF, DOCX, PPTX, XLSX, TXT, JPG, PNG, EML oder MSG (max. 100 MB)",
                     "mimeTypes": [
                       "application/pdf",
                       "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
@@ -6257,7 +6257,9 @@
                       "application/rtf",
                       "text/plain",
                       "image/jpeg",
-                      "image/png"
+                      "image/png",
+                      "message/rfc822",
+                      "application/vnd.ms-outlook"
                     ],
                     "confidence": {
                       "green": "0.85",
@@ -6588,14 +6590,19 @@
                     "Gebäudehülle"
                   ],
                   "description": "Dach- oder Montageuntergrund. Mehrfachauswahl ist erlaubt.",
-                  "instructions": "Wähle alle eindeutig genannten Montageuntergründe. Bei Ziegeln immer die Option ziegeldach/ziegel verwenden, auch wenn der technische Formular-UID anders lautet. Fassade, Zaun, Carport und Freifläche nur auswählen, wenn sie als Montagefläche genannt sind.",
+                  "instructions": "Wähle alle eindeutig genannten Montageuntergründe. Unterscheide Metalldach klar von Ziegeldach: Ein Metalldach liegt vor, wenn fließende Übergänge, eine große Blechplatte mit ziegelartigen Abstufungen, keine sichtbaren Schrauben und von unten keine einzelnen Ziegel erkennbar sind bzw. die Unterseite weiß wirkt. In diesem Fall nicht Ziegel wählen, sondern die Metall-Option trapez verwenden, außer Falz/Stehfalz ist eindeutig genannt oder sichtbar. Ziegeldach/Ziegel nur wählen, wenn einzelne Dachziegel oder Dachsteine eindeutig sichtbar oder genannt sind; der technische Formular-UID kann anders lauten. Fassade, Zaun, Carport und Freifläche nur auswählen, wenn sie als Montagefläche genannt sind.",
                   "options": {
                     "trapez": {
                       "targetOptionUid": "trapez",
                       "aliases": [
                         "Trapez",
                         "Trapezblech",
-                        "Trapezdach"
+                        "Trapezdach",
+                        "Metalldach",
+                        "Blechdach",
+                        "Blechplatte mit ziegelartigen Abstufungen",
+                        "Metallziegel",
+                        "Ziegelblech"
                       ]
                     },
                     "falz": {
@@ -6620,6 +6627,8 @@
                       "targetOptionUid": "wärmepumpe",
                       "aliases": [
                         "Ziegel",
+                        "Ziegeldach",
+                        "Dachziegel",
                         "Tonziegel",
                         "Betondachstein",
                         "Frankfurter Pfanne"

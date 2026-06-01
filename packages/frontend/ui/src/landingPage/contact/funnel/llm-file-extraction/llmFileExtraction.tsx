@@ -39,14 +39,14 @@ type SelectedFile = {
   status: FileStatus;
   downloadUrl: string;
   uploadProgress?: number;
+  extractionBatchId?: string;
+  extractionBatchOwner?: boolean;
+  extractionBatchDocumentNames?: string[];
   extractionRun?: RunHandle;
   extractionStep?: string;
   extractionStartedAt?: number;
   extractionCompletedInSeconds?: number;
-  partialExtraction?: Record<
-    string,
-    { value?: unknown; reasoning?: string | null }
-  >;
+  partialExtraction?: Record<string, Partial<GroundedExtractionValue>>;
   extractionError?: string;
   extractionResult?: unknown;
   prefillResult?: unknown;
@@ -76,6 +76,7 @@ type GroundedExtractionValue = {
   value?: unknown;
   source_quote?: string | null;
   source_page?: number | null;
+  source_document?: string | null;
   reasoning?: string | null;
 };
 
@@ -83,6 +84,16 @@ type ExtractionOutput = {
   extraction?: Record<string, GroundedExtractionValue>;
   confidences?: Record<string, number>;
   funnelPrefill?: Record<string, FunnelPrefillEntry>;
+  skippedParts?: SkippedExtractionPart[];
+};
+
+type SkippedExtractionPart = {
+  parentFilename?: string;
+  filename: string;
+  contentType?: string;
+  size?: number;
+  reason: string;
+  detail?: string;
 };
 
 type FunnelPrefillEntry = {
@@ -104,6 +115,14 @@ type FunnelPrefillResult = {
     reason: string;
     value: unknown;
   }>;
+};
+
+type ExtractionRequestDocument = {
+  fileUid: string;
+  clientId?: string;
+  bunnyPath: string;
+  filename: string;
+  contentType: string;
 };
 
 /* eslint-disable-next-line */
@@ -145,15 +164,15 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
 
   const form = questionElements[questionKey].form[formKey];
   const uploadFingerprintsRef = useRef<Set<string>>(new Set());
+  const selectedFiles = (form.selected.selectedFiles ?? []) as SelectedFile[];
+  const selectedFilesRef = useRef<SelectedFile[]>(selectedFiles);
   const extraction = form.options.extraction ?? {};
   const statusLabels = extraction.statusLabels ?? {};
   const mimeTypes = Array.isArray(extraction.mimeTypes)
     ? extraction.mimeTypes
     : [];
   const accept =
-    mimeTypes.length > 0
-      ? Object.fromEntries(mimeTypes.map((mimeType: string) => [mimeType, []]))
-      : undefined;
+    mimeTypes.length > 0 ? buildDropzoneAccept(mimeTypes) : undefined;
   const extractionFields = useMemo(
     () => collectAiExtractionFields(questionElements, extraction.fields ?? {}),
     [extraction.fields, questionElements],
@@ -166,6 +185,10 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
     [extraction.confidence?.green, extraction.confidence?.yellow],
   );
   const lastReconciliationSignatureRef = useRef<string>("");
+
+  useEffect(() => {
+    selectedFilesRef.current = selectedFiles;
+  }, [selectedFiles]);
 
   const updateFile = useCallback(
     (
@@ -196,23 +219,63 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
     [formKey, questionKey, setQuestionElements],
   );
 
+  const updateFiles = useCallback(
+    (
+      predicate: (file: SelectedFile) => boolean,
+      patch:
+        | Partial<SelectedFile>
+        | ((file: SelectedFile) => Partial<SelectedFile>),
+    ) => {
+      setQuestionElements((prev: any) => {
+        return updateSelectedFilesInElements(
+          prev,
+          questionKey,
+          formKey,
+          (files) =>
+            files.map((file) => {
+              if (!predicate(file)) {
+                return file;
+              }
+
+              return {
+                ...file,
+                ...(typeof patch === "function" ? patch(file) : patch),
+              };
+            }),
+        );
+      });
+    },
+    [formKey, questionKey, setQuestionElements],
+  );
+
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
-      acceptedFiles.forEach(async (file) => {
+      const filesToUpload = acceptedFiles.filter((file) => {
         const fingerprint = buildFileFingerprint(file);
 
         if (uploadFingerprintsRef.current.has(fingerprint)) {
-          return;
+          return false;
         }
 
         uploadFingerprintsRef.current.add(fingerprint);
+        return true;
+      });
+
+      if (filesToUpload.length === 0) {
+        return;
+      }
+
+      const pullHostName = form.options.download.pullHostName;
+      const funnelSessionId = buildFunnelSessionId(questionKey, formKey);
+
+      const uploadFile = async (
+        file: File,
+      ): Promise<ExtractionRequestDocument | null> => {
+        const fingerprint = buildFileFingerprint(file);
 
         const temporaryFileUid = `pending-${Math.random().toString(36).substring(2, 7)}-${file.name}`;
         let currentFileUid = temporaryFileUid;
         const localUrl = URL.createObjectURL(file);
-        const pullHostName = form.options.download.pullHostName;
-        const funnelSessionId = buildFunnelSessionId(questionKey, formKey);
-        let extractionStartedAt: number | undefined;
 
         try {
           setQuestionElements((prev: any) => {
@@ -283,13 +346,75 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
           });
 
           updateFile(path, { status: "uploaded", uploadProgress: 100 });
-          extractionStartedAt = Date.now();
-          updateFile(path, {
+
+          return {
+            fileUid: path,
+            clientId: temporaryFileUid,
+            bunnyPath: path,
+            filename: file.name,
+            contentType: uploadContentType,
+          };
+        } catch (error) {
+          updateFile(currentFileUid, {
+            status: "error",
+            extractionError: String(error),
+          });
+          console.error("File upload failed", error);
+          return null;
+        } finally {
+          uploadFingerprintsRef.current.delete(fingerprint);
+        }
+      };
+
+      void (async () => {
+        const uploadedDocuments = (
+          await Promise.all(filesToUpload.map((file) => uploadFile(file)))
+        ).filter(isExtractionRequestDocument);
+
+        if (uploadedDocuments.length === 0) {
+          return;
+        }
+
+        const documents = collectCurrentExtractionDocuments(
+          selectedFilesRef.current,
+          uploadedDocuments,
+        );
+
+        if (documents.length === 0) {
+          return;
+        }
+
+        const extractionBatchId = buildExtractionBatchId();
+        const extractionStartedAt = Date.now();
+        const ownerDocument = documents[0];
+        const batchDocumentNames = documents.map(
+          (document) => document.filename,
+        );
+
+        updateFiles(
+          (file) =>
+            documents.some((document) =>
+              matchesExtractionDocument(file, document),
+            ),
+          (file) => ({
             status: "queued",
+            extractionBatchId,
+            extractionBatchOwner: ownerDocument
+              ? matchesExtractionDocument(file, ownerDocument)
+              : false,
+            extractionBatchDocumentNames: batchDocumentNames,
+            extractionRun: undefined,
+            extractionStep: undefined,
             extractionStartedAt,
             extractionCompletedInSeconds: undefined,
-          });
+            partialExtraction: undefined,
+            extractionError: undefined,
+            extractionResult: undefined,
+            prefillResult: undefined,
+          }),
+        );
 
+        try {
           const extractResponse = await fetch(
             `/${locale}${extraction.endpoint ?? "/api/funnel/extract"}`,
             {
@@ -297,9 +422,11 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
                 funnelSessionId,
-                bunnyPath: path,
-                filename: file.name,
-                contentType: uploadContentType,
+                documents: documents.map((document) => ({
+                  bunnyPath: document.bunnyPath,
+                  filename: document.filename,
+                  contentType: document.contentType,
+                })),
                 extractionQuestionUid: questionElements[questionKey].uid,
                 extractionFormUid: form.uid,
                 options: {
@@ -321,24 +448,36 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
           }
 
           const handle = (await extractResponse.json()) as RunHandle;
-          updateFile(path, {
-            status: "extracting",
-            extractionRun: handle,
-            extractionStartedAt,
-          });
+          updateFiles(
+            (file) =>
+              file.extractionBatchId === extractionBatchId &&
+              documents.some((document) =>
+                matchesExtractionDocument(file, document),
+              ),
+            {
+              status: "extracting",
+              extractionRun: handle,
+              extractionStartedAt,
+            },
+          );
         } catch (error) {
-          updateFile(currentFileUid, {
-            status: "error",
-            extractionCompletedInSeconds: extractionStartedAt
-              ? secondsSince(extractionStartedAt)
-              : undefined,
-            extractionError: String(error),
-          });
-          console.error("File upload or extraction failed", error);
-        } finally {
-          uploadFingerprintsRef.current.delete(fingerprint);
+          updateFiles(
+            (file) =>
+              file.extractionBatchId === extractionBatchId &&
+              documents.some((document) =>
+                matchesExtractionDocument(file, document),
+              ),
+            (file) => ({
+              status: "error",
+              extractionCompletedInSeconds: file.extractionStartedAt
+                ? secondsSince(file.extractionStartedAt)
+                : undefined,
+              extractionError: String(error),
+            }),
+          );
+          console.error("File extraction failed", error);
         }
-      });
+      })();
     },
     [
       extraction.endpoint,
@@ -352,6 +491,7 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
       questionKey,
       setQuestionElements,
       updateFile,
+      updateFiles,
     ],
   );
 
@@ -627,6 +767,17 @@ function collectAiExtractionFields(
   });
 
   return fields;
+}
+
+function buildDropzoneAccept(mimeTypes: string[]): Record<string, string[]> {
+  const extensionsByMime: Record<string, string[]> = {
+    "message/rfc822": [".eml"],
+    "application/vnd.ms-outlook": [".msg"],
+  };
+
+  return Object.fromEntries(
+    mimeTypes.map((mimeType) => [mimeType, extensionsByMime[mimeType] ?? []]),
+  );
 }
 
 function normalizeAiExtractionField(
@@ -980,23 +1131,40 @@ function collectExtractionCandidates(
       : null;
     if (!output?.funnelPrefill) return [];
 
-    return Object.entries(output.funnelPrefill).map(([formUid, entry]) => ({
-      fileIdentity: selectedFileIdentity(file),
-      fileUid: file.uid,
-      fileName: file.name,
-      formUid,
-      fieldKey: entry.fieldKey,
-      label: entry.label,
-      value: entry.value,
-      valueKey: normalizePrefillValue(entry.value),
-      confidence: Number(entry.confidence ?? 0),
-      entry: {
-        ...entry,
-        documentName: entry.documentName ?? file.name,
-        fileUid: file.uid,
-      },
-      removed: file.removedPrefill?.includes(formUid) === true,
-    }));
+    return Object.entries(output.funnelPrefill).flatMap(([formUid, entry]) => {
+      const sourceDocument = getExtractionSourceDocument(
+        output,
+        entry.fieldKey,
+        undefined,
+        entry,
+      );
+
+      if (
+        !shouldCollectExtractionCandidateForFile(files, file, sourceDocument)
+      ) {
+        return [];
+      }
+
+      return [
+        {
+          fileIdentity: selectedFileIdentity(file),
+          fileUid: file.uid,
+          fileName: file.name,
+          formUid,
+          fieldKey: entry.fieldKey,
+          label: entry.label,
+          value: entry.value,
+          valueKey: normalizePrefillValue(entry.value),
+          confidence: Number(entry.confidence ?? 0),
+          entry: {
+            ...entry,
+            documentName: entry.documentName ?? sourceDocument ?? file.name,
+            fileUid: file.uid,
+          },
+          removed: file.removedPrefill?.includes(formUid) === true,
+        },
+      ];
+    });
   });
 }
 
@@ -1111,6 +1279,126 @@ function normalizePrefillValue(value: unknown): string {
   return `json:${JSON.stringify(value)}`;
 }
 
+function getSkippedExtractionParts(
+  file: SelectedFile,
+): SkippedExtractionPart[] {
+  const output = isExtractionOutput(file.extractionResult)
+    ? file.extractionResult
+    : null;
+  const skippedParts = output?.skippedParts ?? [];
+
+  return skippedParts.filter(
+    (part) =>
+      !part.parentFilename ||
+      documentNamesMatch(file.name, part.parentFilename),
+  );
+}
+
+function skippedPartReasonLabel(reason: string): string {
+  switch (reason) {
+    case "unsupported_content_type":
+      return "Dateityp wird nicht unterstützt";
+    case "nested_email_unsupported":
+      return "verschachtelte E-Mail wird übersprungen";
+    case "empty_attachment":
+      return "leerer Anhang";
+    case "attachment_too_large":
+      return "Anhang ist zu groß";
+    case "pdf_too_large":
+      return "konvertierte PDF ist zu groß";
+    case "conversion_failed":
+      return "Konvertierung fehlgeschlagen";
+    case "parse_error":
+      return "Anhang konnte nicht gelesen werden";
+    default:
+      return reason.replace(/_/g, " ");
+  }
+}
+
+function getExtractionSourceDocument(
+  output: ExtractionOutput | null | undefined,
+  fieldKey?: string,
+  extracted?: Partial<GroundedExtractionValue>,
+  prefillEntry?: FunnelPrefillEntry,
+): string | null {
+  const directSource =
+    typeof extracted?.source_document === "string"
+      ? extracted.source_document
+      : null;
+  if (directSource?.trim()) return directSource;
+
+  const outputSource =
+    fieldKey &&
+    typeof output?.extraction?.[fieldKey]?.source_document === "string"
+      ? output.extraction[fieldKey].source_document
+      : null;
+  if (outputSource?.trim()) return outputSource;
+
+  const prefillSource =
+    typeof prefillEntry?.documentName === "string"
+      ? prefillEntry.documentName
+      : null;
+  return prefillSource?.trim() ? prefillSource : null;
+}
+
+function shouldCollectExtractionCandidateForFile(
+  files: SelectedFile[],
+  file: SelectedFile,
+  sourceDocument: string | null,
+): boolean {
+  if (sourceDocument) {
+    const batchFiles = file.extractionBatchId
+      ? files.filter(
+          (candidate) => candidate.extractionBatchId === file.extractionBatchId,
+        )
+      : files;
+    const primarySourceFile = batchFiles.find((candidate) =>
+      documentNamesMatch(candidate.name, sourceDocument),
+    );
+
+    if (primarySourceFile) {
+      return isSameSelectedFile(file, primarySourceFile);
+    }
+  }
+
+  if ((file.extractionBatchDocumentNames?.length ?? 0) > 1) {
+    return file.extractionBatchOwner === true;
+  }
+
+  return true;
+}
+
+function shouldDisplayExtractionRowForFile(
+  file: SelectedFile,
+  sourceDocument: string | null,
+): boolean {
+  const isBundledExtraction =
+    (file.extractionBatchDocumentNames?.length ?? 0) > 1;
+
+  if (!sourceDocument) {
+    return !isBundledExtraction;
+  }
+
+  return documentNamesMatch(file.name, sourceDocument);
+}
+
+function documentNamesMatch(a: string, b: string): boolean {
+  const normalizedA = normalizeDocumentName(a);
+  const normalizedB = normalizeDocumentName(b);
+
+  return (
+    normalizedA === normalizedB || normalizedB.startsWith(`${normalizedA}__`)
+  );
+}
+
+function normalizeDocumentName(value: string): string {
+  return value
+    .trim()
+    .replace(/^["']+|["']+$/g, "")
+    .toLowerCase()
+    .replace(/\s+/g, " ");
+}
+
 function updateSelectedFilesInElements(
   elements: any,
   questionKey: string,
@@ -1174,6 +1462,77 @@ function isSameSelectedFile(candidate: SelectedFile, file: SelectedFile) {
   );
 }
 
+function matchesActiveExtractionRun(
+  candidate: SelectedFile,
+  owner: SelectedFile,
+): boolean {
+  if (
+    candidate.extractionRun?.runId &&
+    owner.extractionRun?.runId &&
+    candidate.extractionRun.runId !== owner.extractionRun.runId
+  ) {
+    return false;
+  }
+
+  if (owner.extractionBatchId) {
+    return candidate.extractionBatchId === owner.extractionBatchId;
+  }
+
+  return isSameSelectedFile(candidate, owner);
+}
+
+function isExtractionRequestDocument(
+  document: ExtractionRequestDocument | null,
+): document is ExtractionRequestDocument {
+  return document !== null;
+}
+
+function collectCurrentExtractionDocuments(
+  files: SelectedFile[],
+  uploadedDocuments: ExtractionRequestDocument[],
+): ExtractionRequestDocument[] {
+  const documentsByUid = new Map<string, ExtractionRequestDocument>();
+
+  files.forEach((file) => {
+    if (!isUploadedExtractionFile(file)) return;
+    documentsByUid.set(file.uid, {
+      fileUid: file.uid,
+      bunnyPath: file.uid,
+      filename: file.name,
+      contentType: file.type || "application/octet-stream",
+    });
+  });
+
+  uploadedDocuments.forEach((document) => {
+    documentsByUid.set(document.fileUid, document);
+  });
+
+  return Array.from(documentsByUid.values());
+}
+
+function isUploadedExtractionFile(file: SelectedFile): boolean {
+  return Boolean(
+    file.uid &&
+    !file.uid.startsWith("pending-") &&
+    file.downloadUrl &&
+    file.status !== "error",
+  );
+}
+
+function matchesExtractionDocument(
+  file: SelectedFile,
+  document: ExtractionRequestDocument,
+): boolean {
+  return (
+    matchesSelectedFile(file, document.fileUid) ||
+    (document.clientId ? matchesSelectedFile(file, document.clientId) : false)
+  );
+}
+
+function buildExtractionBatchId(): string {
+  return `batch-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`;
+}
+
 function buildFileFingerprint(file: File): string {
   return `${file.name}:${file.size}:${file.lastModified}:${file.type}`;
 }
@@ -1231,13 +1590,24 @@ function buildExtractionRows(opts: {
 
   return Object.entries(extraction)
     .filter(([, extracted]) => hasDisplayableExtractionValue(extracted?.value))
-    .map(([fieldKey, extracted]) => {
+    .flatMap(([fieldKey, extracted]) => {
       const grounded = extracted as GroundedExtractionValue;
       const field = opts.extractionFields[fieldKey] ?? {};
       const formUid = field.target?.formUid;
       const funnelValue = formUid
         ? output?.funnelPrefill?.[formUid]
         : undefined;
+      const sourceDocument = getExtractionSourceDocument(
+        output,
+        fieldKey,
+        grounded,
+        funnelValue,
+      );
+
+      if (!shouldDisplayExtractionRowForFile(opts.file, sourceDocument)) {
+        return [];
+      }
+
       const skipped = prefillResult?.skipped.find(
         (entry) => entry.formUid === formUid,
       );
@@ -1255,29 +1625,34 @@ function buildExtractionRows(opts: {
             ? "skipped"
             : "partial";
 
-      return {
-        fieldKey,
-        formUid,
-        label: field.label ?? funnelValue?.label ?? fieldKey,
-        displayValue: formatExtractionValue(extracted.value, field),
-        valueKey: normalizePrefillValue(funnelValue?.value ?? extracted.value),
-        confidence:
-          output?.confidences?.[fieldKey] ??
-          funnelValue?.confidence ??
-          undefined,
-        sourceQuote: grounded.source_quote ?? funnelValue?.sourceQuote ?? null,
-        sourcePage: grounded.source_page ?? funnelValue?.sourcePage ?? null,
-        status,
-        skipReason: skipped?.reason,
-        canRemove: status === "applied" && Boolean(formUid),
-        canApply:
-          Boolean(formUid && funnelValue) &&
-          (status === "removed" ||
-            (status === "skipped" &&
-              (skipped?.reason === "low_confidence" ||
-                skipped?.reason === "conflict"))),
-        prefillEntry: funnelValue,
-      };
+      return [
+        {
+          fieldKey,
+          formUid,
+          label: field.label ?? funnelValue?.label ?? fieldKey,
+          displayValue: formatExtractionValue(extracted.value, field),
+          valueKey: normalizePrefillValue(
+            funnelValue?.value ?? extracted.value,
+          ),
+          confidence:
+            output?.confidences?.[fieldKey] ??
+            funnelValue?.confidence ??
+            undefined,
+          sourceQuote:
+            grounded.source_quote ?? funnelValue?.sourceQuote ?? null,
+          sourcePage: grounded.source_page ?? funnelValue?.sourcePage ?? null,
+          status,
+          skipReason: skipped?.reason,
+          canRemove: status === "applied" && Boolean(formUid),
+          canApply:
+            Boolean(formUid && funnelValue) &&
+            (status === "removed" ||
+              (status === "skipped" &&
+                (skipped?.reason === "low_confidence" ||
+                  skipped?.reason === "conflict"))),
+          prefillEntry: funnelValue,
+        },
+      ];
     });
 }
 
@@ -1300,21 +1675,35 @@ function buildExtractionCompletionSummary(opts: {
             [fieldKey, { label: fieldKey }] as [string, ExtractionFieldConfig],
         );
 
-  const items = fieldEntries.map(([fieldKey, field]) => {
+  const items = fieldEntries.flatMap(([fieldKey, field]) => {
     const extracted = isPlainRecord(extraction[fieldKey])
       ? (extraction[fieldKey] as GroundedExtractionValue)
       : undefined;
+    const formUid = field.target?.formUid;
+    const sourceDocument = getExtractionSourceDocument(
+      output,
+      fieldKey,
+      extracted,
+      formUid ? output?.funnelPrefill?.[formUid] : undefined,
+    );
+
+    if (!shouldDisplayExtractionRowForFile(opts.file, sourceDocument)) {
+      return [];
+    }
+
     const hasValue = hasDisplayableExtractionValue(extracted?.value);
 
-    return {
-      fieldKey,
-      label: field.label ?? fieldKey,
-      hasValue,
-      displayValue: hasValue
-        ? formatExtractionValue(extracted?.value, field)
-        : null,
-      reasoning: formatExtractionReasoning(extracted?.reasoning),
-    };
+    return [
+      {
+        fieldKey,
+        label: field.label ?? fieldKey,
+        hasValue,
+        displayValue: hasValue
+          ? formatExtractionValue(extracted?.value, field)
+          : null,
+        reasoning: formatExtractionReasoning(extracted?.reasoning),
+      },
+    ];
   });
 
   return {
@@ -1621,9 +2010,10 @@ function ExtractionRunSubscription(props: {
   } = props;
   const appliedRef = useRef(false);
   const failedRef = useRef(false);
+  const shouldSubscribeToRun = file.extractionBatchOwner !== false;
   const { run, error } = useRealtimeRun(file.extractionRun?.runId, {
     accessToken: file.extractionRun?.publicAccessToken,
-    enabled: Boolean(file.extractionRun?.runId),
+    enabled: Boolean(file.extractionRun?.runId && shouldSubscribeToRun),
     throttleInMs: 150,
   });
   const extractionMessages = useMemo(
@@ -1640,16 +2030,15 @@ function ExtractionRunSubscription(props: {
     file.status === "extracted" || file.status === "error";
 
   useEffect(() => {
+    if (!shouldSubscribeToRun) return;
+
     const runStatus = String(run?.status ?? "");
     if (runStatus === "COMPLETED" || runStatus === "SUCCESS") return;
 
     const metadata = run?.metadata as
       | {
           step?: string;
-          partialExtraction?: Record<
-            string,
-            { value?: unknown; reasoning?: string | null }
-          >;
+          partialExtraction?: Record<string, Partial<GroundedExtractionValue>>;
         }
       | undefined;
 
@@ -1662,7 +2051,7 @@ function ExtractionRunSubscription(props: {
         formKey,
         (selectedFiles) =>
           selectedFiles.map((selectedFile) => {
-            if (!isSameSelectedFile(selectedFile, file)) {
+            if (!matchesActiveExtractionRun(selectedFile, file)) {
               return selectedFile;
             }
 
@@ -1682,6 +2071,8 @@ function ExtractionRunSubscription(props: {
     });
   }, [
     error,
+    file.extractionBatchId,
+    file.extractionRun?.runId,
     file.clientId,
     file.uid,
     formKey,
@@ -1689,9 +2080,12 @@ function ExtractionRunSubscription(props: {
     run?.metadata,
     run?.status,
     setQuestionElements,
+    shouldSubscribeToRun,
   ]);
 
   useEffect(() => {
+    if (!shouldSubscribeToRun) return;
+
     const status = String(run?.status ?? "");
     const output = (run as any)?.output;
 
@@ -1708,7 +2102,7 @@ function ExtractionRunSubscription(props: {
           formKey,
           (selectedFiles) =>
             selectedFiles.map((selectedFile) => {
-              if (!isSameSelectedFile(selectedFile, file)) {
+              if (!matchesActiveExtractionRun(selectedFile, file)) {
                 return selectedFile;
               }
 
@@ -1738,7 +2132,7 @@ function ExtractionRunSubscription(props: {
           formKey,
           (selectedFiles) =>
             selectedFiles.map((selectedFile) => {
-              if (!isSameSelectedFile(selectedFile, file)) {
+              if (!matchesActiveExtractionRun(selectedFile, file)) {
                 return selectedFile;
               }
 
@@ -1757,12 +2151,15 @@ function ExtractionRunSubscription(props: {
     }
   }, [
     file.clientId,
+    file.extractionBatchId,
+    file.extractionRun?.runId,
     file.name,
     file.uid,
     formKey,
     questionKey,
     run,
     setQuestionElements,
+    shouldSubscribeToRun,
   ]);
 
   const markPrefillRemoved = useCallback(
@@ -1825,6 +2222,7 @@ function ExtractionRunSubscription(props: {
     file,
     extractionFields,
   });
+  const skippedParts = getSkippedExtractionParts(file);
   const extractionSummary = buildExtractionCompletionSummary({
     file,
     extractionFields,
@@ -1944,6 +2342,23 @@ function ExtractionRunSubscription(props: {
             </li>
           ))}
         </ul>
+      )}
+      {extractionIsFinished && skippedParts.length > 0 && (
+        <div className="mt-2 rounded border border-orange-200 bg-orange-50 p-2 text-[11px] text-orange-800 dark:border-orange-900 dark:bg-orange-950 dark:text-orange-200">
+          <div className="font-medium">
+            {skippedParts.length === 1
+              ? "1 E-Mail-Anhang konnte nicht verarbeitet werden."
+              : `${skippedParts.length} E-Mail-Anhaenge konnten nicht verarbeitet werden.`}
+          </div>
+          <ul className="mt-1 grid gap-1">
+            {skippedParts.slice(0, 5).map((part, index) => (
+              <li key={`${part.filename}-${part.reason}-${index}`}>
+                <span className="font-medium">{part.filename}</span>:{" "}
+                {skippedPartReasonLabel(part.reason)}
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
       {isPrefillResult(file.prefillResult) &&
         file.prefillResult.skipped.length > 0 && (

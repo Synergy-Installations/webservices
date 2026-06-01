@@ -41,6 +41,7 @@
   "devDependencies": {
     "@com.synergy/frontend-shared-typescript-config": "workspace:*",
     "@turbo/gen": "^2.3.3",
+    "@types/mailparser": "^3.4.6",
     "@types/node": "^20.11.24",
     "typescript": "latest"
   },
@@ -50,12 +51,14 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.95.1",
     "@com.synergy/frontend-shared-internationalization": "workspace:*",
+    "@kenjiuno/msgreader": "^1.28.0",
     "@reduxjs/toolkit": "^2.6.1",
     "@trigger.dev/sdk": "^4.4.5",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^18.2.61",
     "aws4": "^1.13.2",
     "immer": "^10.0.3",
+    "mailparser": "^3.9.9",
     "mongoose": "^8.13.0",
     "nodemailer": "^7.0.3",
     "pdf-parse": "^2.4.5",

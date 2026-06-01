@@ -1,12 +1,17 @@
 "use client";
 
-import { useMessages, useTranslations } from "next-intl";
-import { useState, useEffect, useCallback, useRef } from "react";
-import { RichText } from "@com.synergy/frontend-ui/RichText";
-import Link from "next/link";
-import { aside, label, p, q } from "framer-motion/client";
+import { useTranslations } from "next-intl";
+import {
+  useState,
+  useReducer,
+  useEffect,
+  useCallback,
+  useMemo,
+  useRef,
+  type Dispatch,
+  type SetStateAction,
+} from "react";
 import { debounce } from "@com.synergy/frontend-ui/Debounce";
-import { useDropzone } from "react-dropzone";
 import FileUpload from "@com.synergy/frontend-ui/FileUpload";
 import LlmFileExtraction from "@com.synergy/frontend-ui/llmFileExtraction";
 import Confetti from "react-dom-confetti";
@@ -20,63 +25,41 @@ import {
   DialogPanel,
   DialogTitle,
 } from "@headlessui/react";
-import { useSignUp, useUser, useSignIn, useClerk } from "@clerk/nextjs";
 import {
-  PhoneCodeFactor,
-  EmailCodeFactor,
-  SignInFirstFactor,
-} from "@clerk/types";
-import { Dispatch, SetStateAction } from "react";
+  funnelReducer,
+  initFunnelState,
+  type FunnelElements,
+  type InitFunnelArgs,
+} from "./state/funnelReducer";
+import { useFunnelElements } from "./hooks/useFunnelElements";
+import { CheckboxRadioForm } from "./forms/CheckboxRadioForm";
+import { SelectForm } from "./forms/SelectForm";
+import { TextInputForm } from "./forms/TextInputForm";
+import { SubmitButtonForm } from "./forms/SubmitButtonForm";
+import { CalculationForm } from "./forms/CalculationForm";
 import {
-  createQuestionElement,
-  createFormElement,
-} from "@com.synergy/frontend-ui/CreateElements";
-import {
-  BadgeCheck,
-  BatteryCharging,
-  Building2,
-  Cable,
-  Car,
-  CircleHelp,
-  Fence,
-  Gauge,
-  Heater,
-  House,
-  HousePlug,
-  LandPlot,
-  Layers,
-  PanelTop,
-  PanelTopOpen,
-  Plug,
-  PlugZap,
-  Snowflake,
-  Sun,
-  Warehouse,
-  Wrench,
-  Zap,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
-
-type FunnelPrefillEntry = {
-  value: unknown;
-  confidence?: number;
-  sourceQuote?: string | null;
-  sourcePage?: number | null;
-  fieldKey?: string;
-  documentName?: string;
-  fileUid?: string;
-  label?: string;
-};
-
-type FunnelPrefillResult = {
-  applied: string[];
-  skipped: Array<{
-    formUid: string;
-    label?: string;
-    reason: string;
-    value: unknown;
-  }>;
-};
+  type FunnelPrefillEntry,
+  type FunnelPrefillResult,
+  isVisibleEntity,
+  isRequiredForm,
+  isQuestionComplete,
+  shouldRenderFunnelForm,
+  getRenderableQuestionKeys,
+  getNavigationQuestionKeys,
+  getNavigationFormKeys,
+  isExtractionReviewFlowActive,
+  questionHasVisibleNonAiAcceptedForm,
+  questionHasLlmFileExtraction,
+  markExtractionReviewed,
+  renderFormRequiredLabel,
+  renderExtractionHint,
+  applyPrefillToQuestionElements,
+  findFormByUid,
+  recalculateDependentForms,
+  clearFormValue,
+  getExtractionThresholds,
+  cloneQuestionElements,
+} from "./utils/funnelHelpers";
 
 type QuestionTransitionDirection = "next" | "previous";
 type QuestionTransitionState = {
@@ -167,44 +150,46 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
   const [verificationButtonClicked, setVerificationButtonClicked] =
     useState<boolean>(false);
 
-  // Use a reference to store the first question element key generated firstly
-  // from the server and changes later by the client to purpusefully recreate state
-  // in useEffect when needed (e.g. url queryParameters)
-  const [
-    referencingFirstQuestionElementKey,
-    setReferencingFirstQuestionElementKey,
-  ] = useState<string | null>(null);
-
-  const [questionElements, setQuestionElements] = useState<Record<string, any>>(
-    () => {
-      console.log("recreate state");
-      const questionElementKeys = Object.keys(questionElementsRaw);
-
-      const questionElementsRawReduce = questionElementKeys.reduce(
-        (acc: Record<string, any>, questionKey: string) => {
-          const key = `${questionKey}-${Math.random().toString(36).substring(2, 7)}`;
-          acc[useKey ? questionKey : key] = createQuestionElement(
-            useKey ? questionElementsRaw[questionKey].uid : key,
-            questionElementsRaw[questionKey],
-            useKey,
-            useStrings,
-            useSelected,
-            ["initialLoad"],
-            false,
-          );
-          return acc;
-        },
-        {},
-      );
-      setReferencingFirstQuestionElementKey(
-        Object.keys(questionElementsRawReduce)[0] || null,
-      );
-
-      return questionElementsRawReduce;
-    },
+  const initArgs = useMemo<InitFunnelArgs>(
+    () => ({
+      questionElementsRaw,
+      format: { useKey, useStrings, useSelected, useUidAsKey },
+    }),
+    [questionElementsRaw, useKey, useStrings, useSelected, useUidAsKey],
   );
 
-  children && children(questionElements);
+  const [questionElements, dispatch] = useReducer(
+    funnelReducer,
+    initArgs,
+    initFunnelState,
+  );
+
+  /** Backward-compatible setState shim. Existing call sites (navigation,
+   * prefill, submitFunnel and the delegated child components) keep using
+   * setQuestionElements unchanged; the reducer applies their updater against a
+   * deep clone so nested mutations no longer corrupt shared state. */
+  const setQuestionElements = useCallback(
+    (updater: SetStateAction<FunnelElements>) =>
+      dispatch({ type: "SET", updater }),
+    [],
+  );
+
+  /** Always-current snapshot for stable (debounced) callbacks and the element hook. */
+  const questionElementsRef = useRef<FunnelElements>(questionElements);
+  questionElementsRef.current = questionElements;
+
+  const { applyOptionSideEffects, removeOptionSideEffects } = useFunnelElements({
+    dispatch,
+    questionElementsRef,
+    questionElementsRaw,
+    format: { useKey, useStrings, useSelected, useUidAsKey },
+  });
+
+  const firstQuestionKey = Object.keys(questionElements)[0] ?? null;
+
+  useEffect(() => {
+    children && children(questionElements);
+  }, [children, questionElements]);
 
   const confettiConfig = {
     angle: 90,
@@ -234,93 +219,35 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     colors: ["#0CC0DF", "#333333", "#EFEFEF"],
   };
 
-  /** Flush server state - This is dirty and should be handled better
-   * Rerender the component to use the client's section ids for continue button
-   * This is due to the server rendering the compontent using the useState and then the client
-   * recreates the state using different keys as they are created on initializing the state.
-   */
+  /** Re-initialise on the client after mount so the runtime keys are generated
+   * client-side (the server render uses different random keys). Single source of
+   * truth via initFunnelState - no duplicated init logic. */
   useEffect(() => {
-    setQuestionElements((prev) => ({}));
-    setQuestionElements(() => {
-      const questionElementKeys = Object.keys(questionElementsRaw);
-
-      const questionElementsRawReduce = questionElementKeys.reduce(
-        (acc: Record<string, any>, questionKey: string) => {
-          const key = `${questionKey}-${Math.random().toString(36).substring(2, 7)}`;
-          acc[useKey ? questionKey : key] = createQuestionElement(
-            useKey ? questionElementsRaw[questionKey].uid : questionKey,
-            questionElementsRaw[questionKey],
-            useKey,
-            useStrings,
-            useSelected,
-            ["initialLoad"],
-            false,
-          );
-          return acc;
-        },
-        {},
-      );
-
-      setReferencingFirstQuestionElementKey(
-        Object.keys(questionElementsRawReduce)[0] || null,
-      );
-
-      return questionElementsRawReduce;
-    });
+    dispatch({ type: "REINIT", init: initArgs });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const setQuestionElementParameters = () => {
-    if (
-      typeof window !== "undefined" &&
-      questionPresentation === "window" &&
-      Object.keys(questionElements).length > 0
-    ) {
-      console.log("set currentQuestionId to URL", questionElements);
-      const firstKey = Object.keys(questionElements)[0];
-      let currentQuestionId = firstKey;
-      const url = new URL(window.location.href);
-
-      // If currentQuestionId is already in the query, use it if valid, else set to firstKey
-      const paramId = url.searchParams.get("currentQuestionId");
-      if (paramId && questionElements[paramId]) {
-        currentQuestionId = paramId;
-      } else {
-        url.searchParams.set("currentQuestionId", firstKey);
-        window.history.replaceState({}, "", url.toString());
-      }
-    }
-  };
 
   // Set the current question id to the URL for advanced use
   // to start where the user left off (requires saving state)
   useEffect(() => {
-    console.log(
-      "setQuestionElementParameters",
-      referencingFirstQuestionElementKey,
-    );
-    const url = new URL(window.location.href);
     if (
-      // typeof window !== "undefined" &&
-      questionPresentation === "window" &&
-      url.searchParams.get("currentQuestionId") !==
-        Object.keys(questionElements)[0]
+      typeof window === "undefined" ||
+      questionPresentation !== "window" ||
+      !firstQuestionKey
     ) {
-      setQuestionElementParameters();
+      return;
     }
 
-    // if (
-    //   typeof window !== "undefined" &&
-    //   questionPresentation === "window" &&
-    //   Object.keys(questionElements).length > 0
-    // ) {
-    //   debouncedSetQuestionElementParameters();
-    // }
-  }, [referencingFirstQuestionElementKey]);
+    const url = new URL(window.location.href);
+    const paramId = url.searchParams.get("currentQuestionId");
 
-  console.log(
-    "referenceFirstQuestionElementKey",
-    referencingFirstQuestionElementKey,
-  );
+    // Keep an existing, still-valid currentQuestionId; otherwise reset to the
+    // first question key.
+    if (!paramId || !questionElements[paramId]) {
+      url.searchParams.set("currentQuestionId", firstQuestionKey);
+      window.history.replaceState({}, "", url.toString());
+    }
+  }, [firstQuestionKey, questionPresentation, questionElements]);
 
   const countQuestions = (): {
     totalQuestions: number;
@@ -340,11 +267,24 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
 
   const [questionCounts, setQuestionCounts] = useState(() => countQuestions());
 
-  const countQuestionsAndSet = () => {
-    setQuestionCounts(countQuestions());
-  };
-
-  const debouncedCountQuestionsAndSet = debounce(countQuestionsAndSet, 100);
+  /** Stable debounced fn (created once) reading the latest snapshot via ref so
+   * the debounce timer actually persists across renders. */
+  const debouncedCountQuestionsAndSet = useMemo(
+    () =>
+      debounce(() => {
+        const elements = questionElementsRef.current;
+        const visibleQuestionKeys = Object.keys(elements ?? {}).filter(
+          (questionKey) => isVisibleEntity(elements[questionKey]),
+        );
+        setQuestionCounts({
+          totalQuestions: visibleQuestionKeys.length,
+          completedQuestions: visibleQuestionKeys.filter((questionKey) =>
+            isQuestionComplete(elements[questionKey]),
+          ).length,
+        });
+      }, 100),
+    [questionElementsRef],
+  );
 
   /** Used for initial client render and is needed as countQuestions
    * does not recognize a newly created question when evoked
@@ -819,175 +759,17 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     return { status: "success" };
   };
 
-  const debouncedGetNextQuestionKey = debounce(getNextQuestionKey, 100);
-
-  const addQuestionElement = (
-    from: {
-      fromQuestionKey: string;
-      fromFormKey: string;
-      fromOptionKey: string;
-    },
-    questionKey: string,
-    question: any,
-  ) => {
-    /** Get the old "from" sources to aid deletion in case of reselection */
-    const fromArray = [
-      ...(questionElements[from.fromQuestionKey].form[from.fromFormKey].from ||
-        []),
-    ];
-    fromArray.push(from.fromOptionKey);
-    const questionKeyUid = `${questionKey}-${Math.random().toString(36).substring(2, 7)}`;
-    console.log(
-      "addQuestionElement",
-      fromArray,
-      createQuestionElement(
-        questionKey,
-        question,
-        // We are creating a new question element so we need to create a unique key
-        false,
-        useStrings,
-        // We are creating a new question element so we do not have previously selected value
-        false,
-        fromArray,
-        true,
-        useUidAsKey,
-      ),
-      questionKeyUid,
-    );
-    setQuestionElements((prev) => {
-      const updatedElements = { ...prev };
-      const fromQuestionIndex = Object.keys(updatedElements).indexOf(
-        from.fromQuestionKey,
-      );
-      const newQuestionElements = Object.entries(updatedElements);
-      newQuestionElements.splice(fromQuestionIndex + 1, 0, [
-        questionKeyUid,
-        createQuestionElement(
-          questionKey,
-          question,
-          // We are creating a new question element so we need to create a unique key
-          false,
-          useStrings,
-          // We are creating a new question element so we do not have previously selected value
-          false,
-          fromArray,
-          true,
-          useUidAsKey,
-        ),
-      ]);
-      return Object.fromEntries(newQuestionElements);
-    });
-  };
-
-  const addFormElement = (
-    from: {
-      fromQuestionKey: string;
-      fromFormKey: string;
-      fromOptionKey: string;
-    },
-    formKey: string,
-    form: any,
-  ) => {
-    console.log("addFormElement", from, formKey);
-    /** Get the old "from" sources to aid deletion in case of reselection */
-    const fromArray = [
-      ...(questionElements[from.fromQuestionKey].form[from.fromFormKey].from ||
-        []),
-    ];
-    fromArray.push(from.fromOptionKey);
-    const formKeyUid = `${formKey}-${Math.random().toString(36).substring(2, 7)}`;
-    console.log(
-      "addFormElement",
-      fromArray,
-      form,
-      createFormElement(
-        questionElements[from.fromQuestionKey].uid,
-        formKey,
-        form,
-        // We are creating a new form element so we need to create a unique key
-        false,
-        useStrings,
-        // We are creating a new question element so we do not have previously selected value
-        false,
-        fromArray,
-        true,
-      ),
-      formKeyUid,
-    );
-    setQuestionElements((prev) => {
-      const updatedElements = { ...prev };
-      const fromFormIndex = Object.keys(
-        updatedElements[from.fromQuestionKey].form,
-      ).indexOf(from.fromFormKey);
-      const newFormElements = Object.entries(
-        updatedElements[from.fromQuestionKey].form,
-      );
-      newFormElements.splice(fromFormIndex + 1, 0, [
-        formKeyUid,
-        createFormElement(
-          questionElements[from.fromQuestionKey].uid,
-          formKey,
-          form,
-          // We are creating a new form element so we need to create a unique key
-          false,
-          useStrings,
-          // We are creating a new question element so we do not have previously selected value
-          false,
-          fromArray,
-          true,
-        ),
-      ]);
-      updatedElements[from.fromQuestionKey].form =
-        Object.fromEntries(newFormElements);
-      return updatedElements;
-    });
-  };
-
-  const removeQuestionElement = (fromOptionKey: string) => {
-    setQuestionElements((prev) => {
-      const updatedElements = { ...prev };
-      Object.keys(updatedElements).forEach((key) => {
-        if (updatedElements[key].from.includes(fromOptionKey)) {
-          delete updatedElements[key];
-        }
-      });
-      return updatedElements;
-    });
-  };
-
-  const removeFormElement = (
-    fromQuestionKey: string,
-    fromOptionKey: string,
-  ) => {
-    console.log(
-      "initiate removeFormElement",
-      fromQuestionKey,
-      fromOptionKey,
-      questionElements[fromQuestionKey],
-    );
-    setQuestionElements((prev) => {
-      const updatedElements = { ...prev };
-      Object.keys(updatedElements[fromQuestionKey].form).forEach((key) => {
-        if (
-          updatedElements[fromQuestionKey].form[key].from.includes(
-            fromOptionKey,
-          )
-        ) {
-          console.log(
-            "key is included",
-            updatedElements[fromQuestionKey].form[key].from,
-          );
-          delete updatedElements[fromQuestionKey].form[key];
-        }
-      });
-      return updatedElements;
-    });
-  };
-
-  console.log(
-    "questionElements",
-    questionElements,
-    Object.keys(questionElements ?? {}).length,
+  /** Stable debounced wrappers (created once). They invoke the latest function
+   * via a ref so the debounce timer survives re-renders while still closing over
+   * up-to-date state. */
+  const getNextQuestionKeyRef = useRef(getNextQuestionKey);
+  getNextQuestionKeyRef.current = getNextQuestionKey;
+  const debouncedGetNextQuestionKey = useMemo(
+    () =>
+      debounce((questionKey: string, formKey: string) => {
+        getNextQuestionKeyRef.current(questionKey, formKey);
+      }, 100),
+    [],
   );
 
   const handleKeyUpCode = (
@@ -1073,7 +855,15 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     });
   };
 
-  const debouncedCalculateForms = debounce(calculateForms, 100);
+  const calculateFormsRef = useRef(calculateForms);
+  calculateFormsRef.current = calculateForms;
+  const debouncedCalculateForms = useMemo(
+    () =>
+      debounce((questionKey: string, formKey: string) => {
+        calculateFormsRef.current(questionKey, formKey);
+      }, 100),
+    [],
+  );
 
   const applyFunnelPrefill = useCallback(
     (
@@ -1201,34 +991,6 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     return !hasData;
   };
 
-  const renderAfterMathsCalculation = (
-    questionUid: string,
-    formUid: string,
-  ): JSX.Element => {
-    const question = Object.values(questionElements).find(
-      ({ uid }: { uid: string }) => questionUid === uid,
-    );
-    const form: any = Object.values(question.form).find(
-      (form: any) => form.uid === formUid,
-    );
-
-    console.log("renderAfterMathsCalculation", form);
-    return (
-      <div
-        className={`flex justify-end ${form.options.unit.spaceBetween && "gap-1"}`}
-      >
-        <span className="text-synergy-dark-grey dark:text-gray-400">
-          {form.selected.selectedValue}
-        </span>
-        <span
-          className={`text-synergy-dark-grey dark:text-gray-400 flex justify-end ${form.options.unit.position === "before" && "order-first"}`}
-        >
-          {form.options.unit.value}
-        </span>
-      </div>
-    );
-  };
-
   const questionElementsToBeRendered = () => {
     // Helper to get the currentQuestionId from the URL if questionPresentation is "window"
     const visibleQuestionKeys = Object.keys(questionElements ?? {}).filter(
@@ -1258,7 +1020,6 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
           return transitionQuestionKeys;
         }
       }
-      console.log("currentQuestionId", currentQuestionId, filteredQuestionKeys);
       if (
         currentQuestionId &&
         visibleQuestionKeys.includes(currentQuestionId)
@@ -1272,16 +1033,43 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
 
         if (keepCurrentQuestion) {
           filteredQuestionKeys = [currentQuestionId];
-        } else if (filteredQuestionKeys[0]) {
-          url.searchParams.set("currentQuestionId", filteredQuestionKeys[0]);
-          window.history.replaceState({}, "", url.toString());
         }
+        // When the current question should be skipped in the review flow the URL
+        // is re-synced to the first renderable question in an effect (see below)
+        // to avoid mutating history during render.
       }
     }
     return filteredQuestionKeys;
   };
 
   const renderedQuestionKeys = questionElementsToBeRendered();
+
+  /** Keep the URL's currentQuestionId in sync when the active question is
+   * skipped by the extraction-review flow (side-effect kept out of render). */
+  useEffect(() => {
+    if (questionPresentation !== "window" || typeof window === "undefined") {
+      return;
+    }
+    const url = new URL(window.location.href);
+    const currentQuestionId = url.searchParams.get("currentQuestionId");
+    if (!currentQuestionId || !questionElements[currentQuestionId]) return;
+    if (questionTransition.phase === "rotating") return;
+
+    const keepCurrentQuestion =
+      !isExtractionReviewFlowActive(questionElements) ||
+      questionHasVisibleNonAiAcceptedForm(questionElements[currentQuestionId]) ||
+      questionHasLlmFileExtraction(questionElements[currentQuestionId]);
+    if (keepCurrentQuestion) return;
+
+    const renderable = getRenderableQuestionKeys(
+      questionElements,
+      true,
+    )?.[0];
+    if (renderable && renderable !== currentQuestionId) {
+      url.searchParams.set("currentQuestionId", renderable);
+      window.history.replaceState({}, "", url.toString());
+    }
+  }, [questionElements, questionPresentation, questionTransition.phase]);
   const isQuestionTransitionActive = questionTransition.phase === "rotating";
   const showQuestionNavigationButtons = questionPresentation === "window";
   const overviewQuestionKeys = Object.keys(questionElements ?? {}).filter(
@@ -1483,6 +1271,11 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                       <div className="text-center mt-5 mb-5">
                         <div className="text-lg font-medium text-gray-900 dark:text-white flex items-center justify-center gap-2">
                           {questionElements[questionKey].form[formKey].title}
+                          {renderFormRequiredLabel(
+                            questionElements[questionKey].form[formKey],
+                            t("ui.formLabel.required"),
+                            t("ui.formLabel.optional"),
+                          )}
                           {renderExtractionHint(
                             questionElements[questionKey].form[formKey],
                           )}
@@ -1494,836 +1287,118 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                           }
                         </div>
                       </div>
-                      {questionElements[questionKey].form[formKey].type ===
-                        "checkbox" ||
-                      questionElements[questionKey].form[formKey].type ===
-                        "radio" ? (
-                        <>
-                          <ul className="grid w-full gap-6 grid-flow-row md:grid-cols-6">
-                            {Object.keys(
-                              questionElements[questionKey].form[formKey]
-                                .options,
-                            ).map((optionKey: any, index: any) => (
-                              <li
-                                key={optionKey}
-                                className={`col-span-${questionElements[questionKey].form[formKey].options[optionKey].span}`}
-                              >
-                                <input
-                                  type={
-                                    questionElements[questionKey].form[formKey]
-                                      .type === "checkbox"
-                                      ? "checkbox"
-                                      : "radio"
-                                  }
-                                  disabled={
-                                    questionElements[questionKey].form[formKey]
-                                      .options[optionKey].disabled
-                                  }
-                                  name={formKey}
-                                  id={optionKey}
-                                  checked={
-                                    questionElements[questionKey].form[
-                                      formKey
-                                    ].selected.selectedOptionsUid.includes(
-                                      optionKey,
-                                    ) ||
-                                    questionElements[questionKey].form[
-                                      formKey
-                                    ].selected.selectedOptions.includes(
-                                      questionElements[questionKey].form[
-                                        formKey
-                                      ].options[optionKey].title,
-                                    )
-                                  }
-                                  tabIndex={0}
-                                  onChange={(e) => {
-                                    const { checked, id } = e.target;
-                                    console.log("onchange", checked, id);
-                                    if (checked) {
-                                      /** Clean deselection for radio */
-                                      if (
-                                        questionElements[questionKey].form[
-                                          formKey
-                                        ].selected.selectedOptionsUid.length >
-                                          0 &&
-                                        questionElements[questionKey].form[
-                                          formKey
-                                        ].type === "radio"
-                                      ) {
-                                        questionElements[questionKey].form[
-                                          formKey
-                                        ].selected.selectedOptionsUid.map(
-                                          (optionUid: string) => {
-                                            removeFormElement(
-                                              questionKey,
-                                              optionUid,
-                                            );
-                                            removeQuestionElement(optionUid);
-                                          },
-                                        );
-                                      }
-
-                                      if (
-                                        questionElements[questionKey].form[
-                                          formKey
-                                        ].options[optionKey].addForm !== ""
-                                      ) {
-                                        addFormElement(
-                                          {
-                                            fromQuestionKey: questionKey,
-                                            fromFormKey: formKey,
-                                            fromOptionKey: optionKey,
-                                          },
-                                          questionElements[questionKey].form[
-                                            formKey
-                                          ].options[optionKey].addForm,
-                                          // On dashboard where we get the uid in the key in questionElementsRaw, we need to find the element
-                                          useKey
-                                            ? Object.values(
-                                                questionElements[questionKey]
-                                                  .form,
-                                              ).find(
-                                                (form: any) =>
-                                                  form.uid ===
-                                                  questionElements[questionKey]
-                                                    .form[formKey].options[
-                                                    optionKey
-                                                  ].addForm,
-                                              )
-                                            : questionElementsRaw[
-                                                questionElements[questionKey]
-                                                  .uid
-                                              ].form[
-                                                questionElements[questionKey]
-                                                  .form[formKey].options[
-                                                  optionKey
-                                                ].addForm
-                                              ],
-                                        );
-                                      }
-                                      if (
-                                        questionElements[questionKey].form[
-                                          formKey
-                                        ].options[optionKey].addQuestion !== ""
-                                      ) {
-                                        console.log("request add Question");
-                                        addQuestionElement(
-                                          {
-                                            fromQuestionKey: questionKey,
-                                            fromFormKey: formKey,
-                                            fromOptionKey: optionKey,
-                                          },
-                                          questionElements[questionKey].form[
-                                            formKey
-                                          ].options[optionKey].addQuestion,
-                                          useKey
-                                            ? Object.values(
-                                                questionElements,
-                                              ).find(
-                                                (questionElement: any) =>
-                                                  questionElement.uid ===
-                                                  questionElements[questionKey]
-                                                    .form[formKey].options[
-                                                    optionKey
-                                                  ].addQuestion,
-                                              )
-                                            : questionElementsRaw[
-                                                questionElements[questionKey]
-                                                  .form[formKey].options[
-                                                  optionKey
-                                                ].addQuestion
-                                              ],
-                                        );
-                                      }
-                                    } else {
-                                      /** Gets used for checkbox only, use "Clean deselection for radio above for radio type" */
-                                      removeFormElement(questionKey, optionKey);
-                                      removeQuestionElement(optionKey);
-                                    }
-
-                                    setQuestionElements((prev) => {
-                                      /** Gets called twice in dev - do not fall off your chair - prod only updates the elements once */
-                                      const updatedElements = { ...prev };
-                                      const form =
-                                        updatedElements[questionKey].form[
-                                          formKey
-                                        ];
-                                      if (checked) {
-                                        if (
-                                          questionElements[questionKey].form[
-                                            formKey
-                                          ].type === "checkbox"
-                                        ) {
-                                          form.selected.selectedOptions = [
-                                            ...form.selected.selectedOptions,
-                                            questionElements[questionKey].form[
-                                              formKey
-                                            ].options[optionKey].title,
-                                          ];
-                                          form.selected.selectedOptionsUid = [
-                                            ...form.selected.selectedOptionsUid,
-                                            optionKey,
-                                          ];
-                                        } else if (
-                                          questionElements[questionKey].form[
-                                            formKey
-                                          ].type === "radio"
-                                        ) {
-                                          /** Radio - only one option can be selected */
-                                          form.selected.selectedOptions = [
-                                            questionElements[questionKey].form[
-                                              formKey
-                                            ].options[optionKey].title,
-                                          ];
-                                          form.selected.selectedOptionsUid = [
-                                            optionKey,
-                                          ];
-                                        }
-                                      } else {
-                                        /** Remove selectedOptions which only works for checkbox (radio cannot detect deselection) */
-                                        form.selected.selectedOptions =
-                                          form.selected.selectedOptions.filter(
-                                            (option: string) =>
-                                              option !==
-                                              questionElements[questionKey]
-                                                .form[formKey].options[
-                                                optionKey
-                                              ].title,
-                                          );
-                                        form.selected.selectedOptionsUid =
-                                          form.selected.selectedOptionsUid.filter(
-                                            (option: string) =>
-                                              option !== optionKey,
-                                          );
-                                        // if (
-                                        //   form.selected[selectedOptionIndex]
-                                        //     .selectedOptions.length === 0
-                                        // ) {
-                                        //   form.selected.splice(
-                                        //     selectedOptionIndex,
-                                        //     1
-                                        //   );
-                                        // }
-                                      }
-                                      return updatedElements;
-                                    });
-
-                                    /** Validate input (especially useful if user forgot input at form above)
-                                     * Need to be debounced as it may happen that state is not updated right away
-                                     */
-                                    debouncedGetNextQuestionKey(
-                                      questionKey,
-                                      formKey,
-                                    );
-
-                                    /** Update Progress count */
-                                    debouncedCountQuestionsAndSet();
-                                  }}
-                                  className="hidden peer"
-                                  required={true}
-                                />
-                                <label
-                                  htmlFor={optionKey}
-                                  className="inline-flex w-full cursor-pointer items-center justify-between rounded-lg border-2 border-gray-200 bg-white p-5 text-synergy-dark-grey transition-colors hover:border-synergy-light-blue/50 hover:bg-synergy-light-grey hover:text-synergy-dark-grey peer-checked:border-synergy-light-blue peer-checked:text-synergy-dark-grey peer-focus-visible:ring-2 peer-focus-visible:ring-synergy-light-blue peer-focus-visible:ring-offset-2 peer-disabled:cursor-not-allowed peer-disabled:hover:bg-white peer-disabled:hover:text-synergy-dark-grey dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:peer-checked:border-synergy-light-blue dark:peer-checked:text-synergy-light-grey"
-                                >
-                                  <div className="block">
-                                    {renderFunnelOptionIcon(
-                                      questionElements[questionKey].form[
-                                        formKey
-                                      ].options[optionKey],
-                                    )}
-                                    <div className="w-full text-lg font-semibold">
-                                      {
-                                        questionElements[questionKey].form[
-                                          formKey
-                                        ].options[optionKey].title
-                                      }
-                                    </div>
-                                    <div className="w-full text-sm">
-                                      {
-                                        questionElements[questionKey].form[
-                                          formKey
-                                        ].options[optionKey].description
-                                      }
-                                    </div>
-                                  </div>
-                                </label>
-                              </li>
-                            ))}
-                          </ul>
-                          <p
-                            className={`text-sm w-full inline-block mt-2 min-h-[1.57rem] ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : questionElements[questionKey].form[formKey].message.type === "warning" ? "text-orange-600 dark:text-orange-500" : "text-green-600 dark:text-green-500"} `}
-                          >
-                            {
-                              questionElements[questionKey].form[formKey]
-                                .message.text
-                            }
-                          </p>
-                        </>
-                      ) : questionElements[questionKey].form[formKey].type ===
-                        "select" ? (
-                        <div
-                          key={formKey}
-                          className="grid gap-6 md:grid-cols-2"
-                        >
-                          <div className="">
-                            <label
-                              htmlFor={formKey}
-                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                            >
-                              {
-                                questionElements[questionKey].form[formKey]
-                                  .label
-                              }
-                            </label>
-                            <select
-                              id={formKey}
-                              // defaultValue={
-                              //   questionElements[questionKey].form[formKey]
-                              //     .defaultValue
-                              // }
-                              value={
-                                questionElements[questionKey].form[formKey]
-                                  .multiple
-                                  ? questionElements[questionKey].form[formKey]
-                                      .selected.selectedOptions
-                                  : questionElements[questionKey].form[formKey]
-                                      .selected.selectedOptions[0]
-                              }
-                              multiple={
-                                questionElements[questionKey].form[formKey]
-                                  .multiple
-                              }
-                              className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-synergy-light-blue focus:ring-synergy-light-blue dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-synergy-light-blue dark:focus:ring-synergy-light-blue"
-                              onChange={(e) => {
-                                const { selectedOptions } = e.target;
-                                const selectedOptionValues = Array.from(
-                                  selectedOptions,
-                                ).map((option) => option.value);
-                                console.log("onchange select", selectedOptions);
-
-                                const selectedOptionKeys =
-                                  selectedOptionValues.map((value) => {
-                                    return (
-                                      Object.keys(
-                                        questionElements[questionKey].form[
-                                          formKey
-                                        ].options,
-                                      ).find(
-                                        (key) =>
-                                          questionElements[questionKey].form[
-                                            formKey
-                                          ].options[key].title === value,
-                                      ) || ""
-                                    );
-                                  });
-                                console.log(
-                                  "selectegOptionKeys",
-                                  selectedOptionKeys,
-                                );
-
-                                /** Clean deselection for deselected elements */
-                                if (
-                                  questionElements[questionKey].form[formKey]
-                                    .selected.selectedOptionsUid.length > 0
-                                ) {
-                                  questionElements[questionKey].form[
-                                    formKey
-                                  ].selected.selectedOptionsUid.map(
-                                    (optionUid: string) => {
-                                      console.log("about to clean ", optionUid);
-                                      /** Only remove form or question if the option is not selected any more */
-                                      if (
-                                        !selectedOptionKeys.includes(optionUid)
-                                      ) {
-                                        console.log(
-                                          "in cleaning stage ",
-                                          optionUid,
-                                          questionKey,
-                                        );
-                                        removeFormElement(
-                                          questionKey,
-                                          optionUid,
-                                        );
-                                        removeQuestionElement(optionUid);
-                                      }
-                                    },
-                                  );
-                                }
-
-                                selectedOptionKeys.forEach(
-                                  (optionKey: string) => {
-                                    if (
-                                      !questionElements[questionKey].form[
-                                        formKey
-                                      ].selected.selectedOptionsUid.includes(
-                                        optionKey,
-                                      )
-                                    ) {
-                                      if (
-                                        questionElements[questionKey].form[
-                                          formKey
-                                        ].options[optionKey].addForm !== ""
-                                      ) {
-                                        addFormElement(
-                                          {
-                                            fromQuestionKey: questionKey,
-                                            fromFormKey: formKey,
-                                            fromOptionKey: optionKey,
-                                          },
-                                          questionElements[questionKey].form[
-                                            formKey
-                                          ].options[optionKey].addForm,
-                                          // On dashboard where we get the uid in the key in questionElementsRaw, we need to find the element
-                                          useKey
-                                            ? Object.values(
-                                                questionElements[questionKey]
-                                                  .form,
-                                              ).find(
-                                                (form: any) =>
-                                                  form.uid ===
-                                                  questionElements[questionKey]
-                                                    .form[formKey].options[
-                                                    optionKey
-                                                  ].addForm,
-                                              )
-                                            : questionElementsRaw[
-                                                questionElements[questionKey]
-                                                  .uid
-                                              ].form[
-                                                questionElements[questionKey]
-                                                  .form[formKey].options[
-                                                  optionKey
-                                                ].addForm
-                                              ],
-                                        );
-                                        // addFormElement(
-                                        //   {
-                                        //     fromQuestionKey: questionKey,
-                                        //     fromFormKey: formKey,
-                                        //     fromOptionKey: optionKey,
-                                        //   },
-                                        //   questionElements[questionKey].form[
-                                        //     formKey
-                                        //   ].options[optionKey].addForm,
-                                        //   questionElementsRaw[
-                                        //     questionElements[questionKey].uid
-                                        //   ].form[
-                                        //     questionElements[questionKey].form[
-                                        //       formKey
-                                        //     ].options[optionKey].addForm
-                                        //   ]
-                                        // );
-                                      }
-                                      if (
-                                        questionElements[questionKey].form[
-                                          formKey
-                                        ].options[optionKey].addQuestion !== ""
-                                      ) {
-                                        console.log("request add Question");
-                                        addQuestionElement(
-                                          {
-                                            fromQuestionKey: questionKey,
-                                            fromFormKey: formKey,
-                                            fromOptionKey: optionKey,
-                                          },
-                                          questionElements[questionKey].form[
-                                            formKey
-                                          ].options[optionKey].addQuestion,
-                                          questionElementsRaw[
-                                            questionElements[questionKey].form[
-                                              formKey
-                                            ].options[optionKey].addQuestion
-                                          ],
-                                        );
-                                      }
-                                    }
-                                  },
-                                );
-
-                                setQuestionElements((prev) => {
-                                  const updatedElements = { ...prev };
-                                  const form =
-                                    updatedElements[questionKey].form[formKey];
-                                  form.selected.selectedOptions =
-                                    selectedOptionKeys.map(
-                                      (optionKey: any) =>
-                                        updatedElements[questionKey].form[
-                                          formKey
-                                        ].options[optionKey].title,
-                                    );
-                                  form.selected.selectedOptionsUid =
-                                    selectedOptionKeys;
-
-                                  return updatedElements;
-                                });
-
-                                localStorage.setItem(
-                                  `${questionElements[questionKey].uid}-${questionElements[questionKey].form[formKey].uid}`,
-                                  selectedOptionKeys
-                                    .map(
-                                      (optionKey: any) =>
-                                        questionElements[questionKey].form[
-                                          formKey
-                                        ].options[optionKey].title,
-                                    )
-                                    .toString(),
-                                );
-
-                                /** Validate input (especially useful if user forgot input at form above)
-                                 * Need to be debounced as it may happen that state is not updated right away
-                                 */
-                                debouncedGetNextQuestionKey(
-                                  questionKey,
-                                  formKey,
-                                );
-
-                                /** Update Progress count */
-                                debouncedCountQuestionsAndSet();
-                              }}
-                            >
-                              {Object.keys(
-                                questionElements[questionKey].form[formKey]
-                                  .options,
-                              ).map((optionKey: any, index: any) => (
-                                <option
-                                  key={optionKey}
-                                  value={
-                                    questionElements[questionKey].form[formKey]
-                                      .options[optionKey].title
-                                  }
-                                >
-                                  {
-                                    questionElements[questionKey].form[formKey]
-                                      .options[optionKey].title
-                                  }
-                                </option>
-                              ))}
-                            </select>
-                            <p
-                              className={`text-sm mt-2 min-h-[1.57rem] ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : questionElements[questionKey].form[formKey].message.type === "warning" ? "text-orange-600 dark:text-orange-500" : "text-green-600 dark:text-green-500"} `}
-                            >
-                              {
-                                questionElements[questionKey].form[formKey]
-                                  .message.text
-                              }
-                            </p>
-                          </div>
-                        </div>
-                      ) : questionElements[questionKey].form[formKey].type ===
-                        "range" ? (
-                        <Range
-                          questionElements={questionElements}
-                          questionKey={questionKey}
-                          formKey={formKey}
-                          setQuestionElements={setQuestionElements}
-                          debouncedGetNextQuestionKey={
-                            debouncedGetNextQuestionKey
-                          }
-                          debouncedCalculateForms={debouncedCalculateForms}
-                        />
-                      ) : questionElements[questionKey].form[formKey].type ===
-                          "text" ||
-                        questionElements[questionKey].form[formKey].type ===
-                          "email" ||
-                        questionElements[questionKey].form[formKey].type ===
-                          "tel" ||
-                        questionElements[questionKey].form[formKey].type ===
-                          "textarea" ? (
-                        <div className="grid gap-6">
-                          <div>
-                            <label
-                              htmlFor={formKey}
-                              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                            >
-                              {
-                                questionElements[questionKey].form[formKey]
-                                  .options.label
-                              }
-                            </label>
-                            {questionElements[questionKey].form[formKey]
-                              .type === "textarea" ? (
-                              <textarea
-                                id={formKey}
-                                rows={
-                                  questionElements[questionKey].form[formKey]
-                                    .options.rows
-                                }
-                                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-synergy-light-blue focus:ring-synergy-light-blue dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-synergy-light-blue dark:focus:ring-synergy-light-blue"
-                                placeholder={
-                                  questionElements[questionKey].form[formKey]
-                                    .options.placeholder
-                                }
-                                required={
-                                  questionElements[questionKey].form[formKey]
-                                    .required
-                                }
-                                value={
-                                  questionElements[questionKey].form[formKey]
-                                    .selected.inputValue
-                                }
-                                onChange={(e) => {
-                                  const { value } = e.target;
-                                  setQuestionElements((prev) => {
-                                    const updatedElements = { ...prev };
-                                    updatedElements[questionKey].form[
-                                      formKey
-                                    ].selected.inputValue = value;
-                                    return updatedElements;
-                                  });
-
-                                  /** Save input in localStorage if dared */
-                                  questionElements[questionKey].form[formKey]
-                                    .localStorage &&
-                                    localStorage.setItem(
-                                      `${questionElements[questionKey].uid}-${questionElements[questionKey].form[formKey].uid}`,
-                                      value,
-                                    );
-                                }}
-                                onBlur={() => {
-                                  /** Validate input (especially useful if user forgot input at form above)
-                                   * Need to be debounced as it may happen that state is not updated right away
-                                   */
-                                  debouncedGetNextQuestionKey(
-                                    questionKey,
-                                    formKey,
-                                  );
-                                }}
-                              ></textarea>
-                            ) : (
-                              <input
-                                type={
-                                  questionElements[questionKey].form[formKey]
-                                    .type
-                                }
-                                id={formKey}
-                                className={`block w-full rounded-lg border bg-gray-50 p-2.5 text-sm ${questionElements[questionKey].form[formKey].message.type === "success" ? "border-green-500 text-green-900 placeholder-green-700 focus:border-green-500 focus:ring-green-500 dark:border-green-500 dark:bg-gray-700 dark:text-green-400 dark:placeholder-green-500" : "border-gray-300 text-gray-900 focus:border-synergy-light-blue focus:ring-synergy-light-blue dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-synergy-light-blue dark:focus:ring-synergy-light-blue"} `}
-                                placeholder={
-                                  questionElements[questionKey].form[formKey]
-                                    .options.placeholder
-                                }
-                                value={
-                                  questionElements[questionKey].form[formKey]
-                                    .selected.inputValue
-                                }
-                                required={
-                                  questionElements[questionKey].form[formKey]
-                                    .required
-                                }
-                                onChange={(e) => {
-                                  const { value } = e.target;
-                                  setQuestionElements((prev) => {
-                                    const updatedElements = { ...prev };
-                                    updatedElements[questionKey].form[
-                                      formKey
-                                    ].selected.inputValue = value;
-                                    return updatedElements;
-                                  });
-
-                                  /** Save input in localStorage if dared */
-                                  questionElements[questionKey].form[formKey]
-                                    .localStorage &&
-                                    localStorage.setItem(
-                                      `${questionElements[questionKey].uid}-${questionElements[questionKey].form[formKey].uid}`,
-                                      value,
-                                    );
-                                }}
-                                onBlur={() => {
-                                  /** Validate input (especially useful if user forgot input at form above)
-                                   * Need to be debounced as it may happen that state is not updated right away
-                                   */
-                                  debouncedGetNextQuestionKey(
-                                    questionKey,
-                                    formKey,
-                                  );
-                                }}
+                      {(() => {
+                        const form = questionElements[questionKey].form[formKey];
+                        switch (form.type) {
+                          case "checkbox":
+                          case "radio":
+                            return (
+                              <CheckboxRadioForm
+                                questionElements={questionElements}
+                                questionKey={questionKey}
+                                formKey={formKey}
+                                dispatch={dispatch}
+                                applyOptionSideEffects={applyOptionSideEffects}
+                                removeOptionSideEffects={removeOptionSideEffects}
+                                debouncedGetNextQuestionKey={debouncedGetNextQuestionKey}
+                                debouncedCountQuestionsAndSet={debouncedCountQuestionsAndSet}
                               />
-                            )}
-                            <p
-                              className={`text-sm mt-2 min-h-[1.57rem] ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : questionElements[questionKey].form[formKey].message.type === "warning" ? "text-orange-600 dark:text-orange-500" : "text-green-600 dark:text-green-500"} `}
-                            >
-                              {
-                                questionElements[questionKey].form[formKey]
-                                  .message.text
-                              }
-                            </p>
-                          </div>
-                        </div>
-                      ) : questionElements[questionKey].form[formKey].type ===
-                        "submit-button" ? (
-                        <div className="flex justify-between">
-                          <div className="flex">
-                            {showQuestionNavigationButtons &&
-                              getNavigationQuestionKeys(
-                                questionElements,
-                                questionKey,
-                              )[0] !== questionKey && (
-                                <button
-                                  onClick={() => {
-                                    getNextQuestionKey(
-                                      questionKey,
-                                      formKey,
-                                      "previous",
-                                    );
-                                  }}
-                                  className="rounded-md bg-synergy-light-blue px-3 py-1 text-white transition-colors hover:bg-synergy-light-blue/90 focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2"
-                                >
-                                  {t("ui.navigation.previous")}
-                                </button>
-                              )}
-                          </div>
-                          <p
-                            className={`mt-2 min-h-[1.57rem] text-sm ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : questionElements[questionKey].form[formKey].message.type === "warning" ? "text-orange-600 dark:text-orange-500" : questionElements[questionKey].form[formKey].message.type === "loading" ? "text-synergy-light-blue" : "text-green-600 dark:text-green-500"} `}
-                          >
-                            {
-                              questionElements[questionKey].form[formKey]
-                                .message.text
-                            }
-                          </p>
-                          <button
-                            onClick={() => {
-                              submitFunnel &&
-                                submitFunnel(
-                                  questionKey,
-                                  formKey,
-                                  questionElements,
-                                  setQuestionElements,
-                                  getNextQuestionKey,
-                                );
-                            }}
-                            className="inline-flex items-center rounded-md bg-synergy-light-blue px-3 py-1 text-white transition-colors hover:bg-synergy-light-blue/90 focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
-                            disabled={
-                              questionElements[questionKey].form[formKey]
-                                .message.type !== "info" &&
-                              questionElements[questionKey].form[formKey]
-                                .message.type !== "warning"
-                            }
-                          >
-                            <>
-                              <Confetti
-                                active={
-                                  questionElements[questionKey].form[formKey]
-                                    .message.type === "success"
-                                }
-                                config={confettiConfig}
+                            );
+                          case "select":
+                            return (
+                              <SelectForm
+                                questionElements={questionElements}
+                                questionKey={questionKey}
+                                formKey={formKey}
+                                dispatch={dispatch}
+                                applyOptionSideEffects={applyOptionSideEffects}
+                                removeOptionSideEffects={removeOptionSideEffects}
+                                debouncedGetNextQuestionKey={debouncedGetNextQuestionKey}
+                                debouncedCountQuestionsAndSet={debouncedCountQuestionsAndSet}
                               />
-                              {questionElements[questionKey].form[formKey]
-                                .message.type === "loading" && (
-                                <svg
-                                  aria-hidden="true"
-                                  role="status"
-                                  className="inline w-4 h-4 me-3 text-white animate-spin"
-                                  viewBox="0 0 100 101"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                                    fill="#E5E7EB"
-                                  />
-                                  <path
-                                    d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                                    fill="currentColor"
-                                  />
-                                </svg>
-                              )}
-                              {
-                                questionElements[questionKey].form[formKey]
-                                  .options.button.text
-                              }
-                            </>
-                          </button>
-                        </div>
-                      ) : questionElements[questionKey].form[formKey].type ===
-                        "calculation" ? (
-                        <>
-                          <div className="flex justify-center items-center gap-1 text-lg">
-                            <div
-                              className={`flex font-semibold justify-center ${questionElements[questionKey].form[formKey].options.maths.spaceBetween && "gap-1"}`}
-                            >
-                              <span className="text-synergy-dark-grey dark:text-gray-400">
-                                {Number(
-                                  questionElements[questionKey].form[formKey]
-                                    .selected.inputValue,
-                                ).toLocaleString()}
-                              </span>
-                              <span
-                                className={`text-synergy-dark-grey dark:text-gray-400 flex justify-end ${questionElements[questionKey].form[formKey].options.maths.position === "before" && "order-first"}`}
-                              >
-                                {
-                                  questionElements[questionKey].form[formKey]
-                                    .options.maths.unit
-                                }
-                              </span>
-                            </div>
-                            <div className="flex gap-1 items-center">
-                              <span className="">
-                                {
-                                  questionElements[questionKey].form[formKey]
-                                    .options.afterMaths.before
-                                }
-                              </span>
-                              <div className="font-semibold">
-                                {renderAfterMathsCalculation(
-                                  questionElements[questionKey].form[formKey]
-                                    .options.inputForm.questionKey,
-                                  questionElements[questionKey].form[formKey]
-                                    .options.inputForm.formKey,
-                                )}
-                              </div>
-                              <span className="">
-                                {
-                                  questionElements[questionKey].form[formKey]
-                                    .options.afterMaths.after
-                                }
-                              </span>
-                            </div>
-                          </div>
-                          <div className="flex justify-between">
-                            <p
-                              className={`text-sm mt-2 min-h-[1.57rem] ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : questionElements[questionKey].form[formKey].message.type === "warning" ? "text-orange-600 dark:text-orange-500" : "text-green-600 dark:text-green-500"} `}
-                            >
-                              {
-                                questionElements[questionKey].form[formKey]
-                                  .message.text
-                              }
-                            </p>
-                          </div>
-                        </>
-                      ) : questionElements[questionKey].form[formKey].type ===
-                        "file-upload" ? (
-                        <FileUpload
-                          questionKey={questionKey}
-                          formKey={formKey}
-                          questionElements={questionElements}
-                          setQuestionElements={setQuestionElements}
-                          STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
-                        />
-                      ) : questionElements[questionKey].form[formKey].type ===
-                        "llm-file-extraction" ? (
-                        <LlmFileExtraction
-                          questionKey={questionKey}
-                          formKey={formKey}
-                          questionElements={questionElements}
-                          setQuestionElements={setQuestionElements}
-                          STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
-                          applyFunnelPrefill={applyFunnelPrefill}
-                          removeFunnelPrefill={removeFunnelPrefill}
-                        />
-                      ) : (
-                        questionElements[questionKey].form[formKey].type ===
-                          "calendly" && (
-                          <Calendly
-                            questionKey={questionKey}
-                            formKey={formKey}
-                            questionElements={questionElements}
-                            setQuestionElements={setQuestionElements}
-                            debouncedCountFormsAndSet={
-                              debouncedCountQuestionsAndSet
-                            }
-                          />
-                        )
-                      )}
+                            );
+                          case "range":
+                            return (
+                              <Range
+                                questionElements={questionElements}
+                                questionKey={questionKey}
+                                formKey={formKey}
+                                setQuestionElements={setQuestionElements}
+                                debouncedGetNextQuestionKey={debouncedGetNextQuestionKey}
+                                debouncedCalculateForms={debouncedCalculateForms}
+                              />
+                            );
+                          case "text":
+                          case "email":
+                          case "tel":
+                          case "textarea":
+                            return (
+                              <TextInputForm
+                                questionElements={questionElements}
+                                questionKey={questionKey}
+                                formKey={formKey}
+                                dispatch={dispatch}
+                                debouncedGetNextQuestionKey={debouncedGetNextQuestionKey}
+                              />
+                            );
+                          case "submit-button":
+                            return (
+                              <SubmitButtonForm
+                                questionElements={questionElements}
+                                questionKey={questionKey}
+                                formKey={formKey}
+                                showQuestionNavigationButtons={showQuestionNavigationButtons}
+                                confettiConfig={confettiConfig}
+                                t={t}
+                                setQuestionElements={setQuestionElements}
+                                getNextQuestionKey={getNextQuestionKey}
+                                submitFunnel={submitFunnel}
+                              />
+                            );
+                          case "calculation":
+                            return (
+                              <CalculationForm
+                                questionElements={questionElements}
+                                questionKey={questionKey}
+                                formKey={formKey}
+                              />
+                            );
+                          case "file-upload":
+                            return (
+                              <FileUpload
+                                questionKey={questionKey}
+                                formKey={formKey}
+                                questionElements={questionElements}
+                                setQuestionElements={setQuestionElements}
+                                STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
+                              />
+                            );
+                          case "llm-file-extraction":
+                            return (
+                              <LlmFileExtraction
+                                questionKey={questionKey}
+                                formKey={formKey}
+                                questionElements={questionElements}
+                                setQuestionElements={setQuestionElements}
+                                STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
+                                applyFunnelPrefill={applyFunnelPrefill}
+                                removeFunnelPrefill={removeFunnelPrefill}
+                              />
+                            );
+                          case "calendly":
+                            return (
+                              <Calendly
+                                questionKey={questionKey}
+                                formKey={formKey}
+                                questionElements={questionElements}
+                                setQuestionElements={setQuestionElements}
+                                debouncedCountFormsAndSet={debouncedCountQuestionsAndSet}
+                              />
+                            );
+                          default:
+                            return null;
+                        }
+                      })()}
                       {questionElements[questionKey].form[formKey].type !==
                         "submit-button" &&
                         showQuestionNavigationButtons &&
@@ -2740,682 +1815,6 @@ function FunnelQuestionTransitionStyles() {
       `}
     </style>
   );
-}
-
-type FunnelIconConfig = {
-  name?: string;
-  icon?: string;
-  src?: string;
-  url?: string;
-  alt?: string;
-};
-
-const funnelIconComponents: Record<string, LucideIcon> = {
-  BadgeCheck,
-  BatteryCharging,
-  Building2,
-  Cable,
-  Car,
-  CircleHelp,
-  Fence,
-  Gauge,
-  Heater,
-  House,
-  HousePlug,
-  LandPlot,
-  Layers,
-  PanelTop,
-  PanelTopOpen,
-  Plug,
-  PlugZap,
-  Snowflake,
-  Sun,
-  Warehouse,
-  Wrench,
-  Zap,
-};
-
-function renderFunnelOptionIcon(option: any): JSX.Element {
-  const icon = (option?.icon ?? {}) as FunnelIconConfig;
-  const iconName = icon.name ?? icon.icon;
-  const Icon = iconName ? funnelIconComponents[iconName] : undefined;
-
-  if (Icon) {
-    return (
-      <Icon
-        aria-hidden="true"
-        className="mb-2 h-7 w-7 text-synergy-light-blue"
-        strokeWidth={1.8}
-      />
-    );
-  }
-
-  const iconSrc = icon.src ?? icon.url;
-  if (iconSrc) {
-    return (
-      <img
-        src={iconSrc}
-        alt={icon.alt ?? option?.title ?? ""}
-        className="mb-2 h-8 w-8 rounded object-cover"
-      />
-    );
-  }
-
-  return (
-    <CircleHelp
-      aria-hidden="true"
-      className="mb-2 h-7 w-7 text-synergy-light-blue"
-      strokeWidth={1.8}
-    />
-  );
-}
-
-function isVisibleEntity(entity: any): boolean {
-  return entity?.defaultVisible === true || entity?.defaultVisible === "true";
-}
-
-function isRequiredForm(form: any): boolean {
-  return form?.required === true || form?.required === "true";
-}
-
-function isQuestionComplete(question: any): boolean {
-  const forms = question?.form ?? {};
-  const visibleInputFormKeys = Object.keys(forms).filter(
-    (formKey) =>
-      isVisibleEntity(forms[formKey]) &&
-      forms[formKey].type !== "submit-button",
-  );
-
-  if (visibleInputFormKeys.length === 0) return false;
-
-  return visibleInputFormKeys.every(
-    (formKey) =>
-      forms[formKey].message?.type === "success" ||
-      forms[formKey].message?.type === "warning",
-  );
-}
-
-function getRenderableQuestionKeys(
-  elements: Record<string, any>,
-  extractionReviewEnabled = true,
-): string[] {
-  const visibleQuestionKeys = Object.keys(elements ?? {}).filter(
-    (questionKey) => isVisibleEntity(elements[questionKey]),
-  );
-
-  if (!extractionReviewEnabled || !isExtractionReviewFlowActive(elements)) {
-    return visibleQuestionKeys;
-  }
-
-  const reviewQuestionKeys = visibleQuestionKeys.filter((questionKey) =>
-    questionHasVisibleNonAiAcceptedForm(elements[questionKey]),
-  );
-
-  return reviewQuestionKeys.length > 0
-    ? reviewQuestionKeys
-    : visibleQuestionKeys;
-}
-
-function getNavigationQuestionKeys(
-  elements: Record<string, any>,
-  currentQuestionKey?: string,
-  extractionReviewEnabled = true,
-): string[] {
-  const visibleQuestionKeys = Object.keys(elements ?? {}).filter(
-    (questionKey) => isVisibleEntity(elements[questionKey]),
-  );
-
-  if (!extractionReviewEnabled || !isExtractionReviewFlowActive(elements)) {
-    return visibleQuestionKeys;
-  }
-
-  const reviewQuestionKeys = visibleQuestionKeys.filter((questionKey) =>
-    questionHasVisibleNonAiAcceptedForm(elements[questionKey]),
-  );
-  const baseKeys =
-    reviewQuestionKeys.length > 0 ? reviewQuestionKeys : visibleQuestionKeys;
-
-  if (
-    currentQuestionKey &&
-    visibleQuestionKeys.includes(currentQuestionKey) &&
-    !baseKeys.includes(currentQuestionKey)
-  ) {
-    return visibleQuestionKeys.filter(
-      (questionKey) =>
-        questionKey === currentQuestionKey || baseKeys.includes(questionKey),
-    );
-  }
-
-  return baseKeys;
-}
-
-function getNavigationFormKeys(
-  elements: Record<string, any>,
-  questionKey: string,
-  currentFormKey?: string,
-  extractionReviewEnabled = true,
-): string[] {
-  const forms = elements[questionKey]?.form ?? {};
-  const visibleFormKeys = Object.keys(forms).filter((formKey) =>
-    isVisibleEntity(forms[formKey]),
-  );
-
-  if (!extractionReviewEnabled || !isExtractionReviewFlowActive(elements)) {
-    return visibleFormKeys;
-  }
-
-  const navigableFormKeys = visibleFormKeys.filter((formKey) => {
-    const form = forms[formKey];
-    return (
-      form.type === "submit-button" ||
-      form.type === "llm-file-extraction" ||
-      !formHasAcceptedExtractionValue(form)
-    );
-  });
-
-  const baseKeys = navigableFormKeys;
-
-  if (
-    currentFormKey &&
-    navigableFormKeys.includes(currentFormKey) &&
-    !baseKeys.includes(currentFormKey)
-  ) {
-    return navigableFormKeys.filter(
-      (formKey) => formKey === currentFormKey || baseKeys.includes(formKey),
-    );
-  }
-
-  return baseKeys;
-}
-
-function shouldRenderFunnelForm(
-  elements: Record<string, any>,
-  questionKey: string,
-  formKey: string,
-  extractionReviewEnabled = true,
-): boolean {
-  const form = elements[questionKey]?.form?.[formKey];
-  if (!form || !isVisibleEntity(form)) return false;
-  if (!extractionReviewEnabled || !isExtractionReviewFlowActive(elements)) {
-    return true;
-  }
-
-  return !formHasAcceptedExtractionValue(form);
-}
-
-function isExtractionReviewFlowActive(elements: Record<string, any>): boolean {
-  return Object.values(elements ?? {}).some((question: any) =>
-    Object.values(question.form ?? {}).some((form: any) => {
-      if (form.extraction?.source === "llm") return true;
-      if (form.type !== "llm-file-extraction") return false;
-      return (form.selected?.selectedFiles ?? []).some(
-        (file: any) => file.status === "extracted",
-      );
-    }),
-  );
-}
-
-function questionHasVisibleNonAiAcceptedForm(question: any): boolean {
-  return Object.values(question?.form ?? {}).some(
-    (form: any) =>
-      isVisibleEntity(form) && !formHasAcceptedExtractionValue(form),
-  );
-}
-
-function questionHasLlmFileExtraction(question: any): boolean {
-  return Object.values(question?.form ?? {}).some(
-    (form: any) => isVisibleEntity(form) && form.type === "llm-file-extraction",
-  );
-}
-
-function formNeedsReview(form: any): boolean {
-  if (!form || !isVisibleEntity(form)) return false;
-  if (form.type === "submit-button" || form.type === "calculation") {
-    return false;
-  }
-  if (form.type === "llm-file-extraction") return false;
-
-  if (
-    form.extraction?.source === "llm" &&
-    form.extraction.tier !== "green" &&
-    form.extraction.userReviewed !== true
-  ) {
-    return true;
-  }
-
-  if (form.message?.type === "error") return true;
-
-  return isRequiredForm(form) && !formHasUserValue(form);
-}
-
-function formHasAcceptedExtractionValue(form: any): boolean {
-  return (
-    form.extraction?.source === "llm" &&
-    formHasUserValue(form) &&
-    !formNeedsReview(form)
-  );
-}
-
-function markExtractionReviewed(form: any) {
-  if (form.extraction?.source === "llm") {
-    form.extraction.userReviewed = true;
-  }
-}
-
-function applyPrefillToQuestionElements(opts: {
-  elements: Record<string, any>;
-  prefill: Record<string, FunnelPrefillEntry>;
-  context: {
-    documentName: string;
-    fileUid: string;
-    force?: boolean;
-    userReviewed?: boolean;
-  };
-  thresholds: { green: number; yellow: number };
-  getAiPrefillWarningMessage?: (label?: string) => string;
-}): { elements: Record<string, any>; result: FunnelPrefillResult } {
-  const result: FunnelPrefillResult = { applied: [], skipped: [] };
-
-  Object.entries(opts.prefill ?? {}).forEach(([formUid, entry]) => {
-    const resolved = findFormByUid(opts.elements, formUid);
-    if (!resolved) {
-      result.skipped.push({
-        formUid,
-        label: entry.label,
-        reason: "target_not_found",
-        value: entry.value,
-      });
-      return;
-    }
-
-    const confidence = Number(entry.confidence ?? 0);
-    const tier = confidenceTier(confidence, opts.thresholds);
-    if (tier === "red" && !opts.context.force) {
-      result.skipped.push({
-        formUid,
-        label: entry.label,
-        reason: "low_confidence",
-        value: entry.value,
-      });
-      return;
-    }
-
-    if (formHasUserValue(resolved.form)) {
-      if (
-        resolved.form.extraction?.source === "llm" &&
-        formValueMatchesPrefill(resolved.form, entry.value)
-      ) {
-        result.applied.push(formUid);
-        return;
-      }
-
-      if (opts.context.force && resolved.form.extraction?.source === "llm") {
-        clearFormValue(resolved.form);
-      } else {
-        result.skipped.push({
-          formUid,
-          label: entry.label,
-          reason: "already_filled",
-          value: entry.value,
-        });
-        return;
-      }
-    }
-
-    if (formHasUserValue(resolved.form)) {
-      result.skipped.push({
-        formUid,
-        label: entry.label,
-        reason: "already_filled",
-        value: entry.value,
-      });
-      return;
-    }
-
-    const applied = applyValueToForm(resolved.form, entry.value);
-    if (!applied) {
-      result.skipped.push({
-        formUid,
-        label: entry.label,
-        reason: "unsupported_value",
-        value: entry.value,
-      });
-      return;
-    }
-
-    recalculateDependentForms(
-      opts.elements,
-      resolved.question.uid,
-      resolved.form.uid,
-      resolved.form,
-    );
-    resolved.form.extraction = {
-      source: "llm",
-      confidence,
-      tier,
-      sourceQuote: entry.sourceQuote ?? null,
-      sourcePage: entry.sourcePage ?? null,
-      fieldKey: entry.fieldKey,
-      documentName: entry.documentName ?? opts.context.documentName,
-      fileUid: entry.fileUid ?? opts.context.fileUid,
-      label: entry.label,
-      userModified: false,
-      userReviewed: opts.context.userReviewed === true,
-    };
-    resolved.form.message.type = tier === "green" ? "success" : "warning";
-    resolved.form.message.text =
-      tier === "green"
-        ? resolved.form.message.successMessage
-        : (opts.getAiPrefillWarningMessage?.(entry.label) ??
-          `${entry.label ?? "Wert"} wurde von der KI vorausgefüllt. Bitte prüfen.`);
-    result.applied.push(formUid);
-  });
-
-  return { elements: opts.elements, result };
-}
-
-function findFormByUid(
-  elements: Record<string, any>,
-  formUid: string,
-): { questionKey: string; formKey: string; question: any; form: any } | null {
-  for (const questionKey of Object.keys(elements)) {
-    const question = elements[questionKey];
-    const forms = elements[questionKey]?.form ?? {};
-    for (const formKey of Object.keys(forms)) {
-      if (forms[formKey]?.uid === formUid || formKey === formUid) {
-        return { questionKey, formKey, question, form: forms[formKey] };
-      }
-    }
-  }
-
-  return null;
-}
-
-function recalculateDependentForms(
-  elements: Record<string, any>,
-  inputQuestionUid: string,
-  inputFormUid: string,
-  inputForm: any,
-) {
-  if (inputForm.type !== "range") return;
-
-  const locale = inputForm.options?.unit?.numberFormat ?? "de-DE";
-  const inputValue = formatLocaleNumberToUniNumber(
-    String(inputForm.selected?.selectedValue ?? "0"),
-    locale,
-  );
-  if (!Number.isFinite(inputValue)) return;
-
-  Object.values(elements).forEach((question: any) => {
-    Object.values(question.form ?? {}).forEach((form: any) => {
-      if (
-        form.type === "calculation" &&
-        form.options?.inputForm?.questionKey === inputQuestionUid &&
-        form.options?.inputForm?.formKey === inputFormUid
-      ) {
-        const formula = String(form.options.maths?.formula ?? "").replace(
-          "x",
-          String(inputValue),
-        );
-        const result = Number(Function(`"use strict"; return (${formula});`)());
-        if (Number.isFinite(result)) {
-          form.selected.inputValue = `${result}`;
-        }
-      }
-    });
-  });
-}
-
-function applyValueToForm(form: any, value: unknown): boolean {
-  if (form.type === "range") {
-    const numberValue = typeof value === "number" ? value : Number(value);
-    if (!Number.isFinite(numberValue)) return false;
-
-    const locale = form.options?.unit?.numberFormat ?? "de-DE";
-    form.selected.selectedValue = numberValue.toLocaleString(locale, {
-      maximumFractionDigits: 2,
-    });
-    form.selected.rangeValue = rangePositionForValue(form, numberValue);
-    return true;
-  }
-
-  if (
-    form.type === "text" ||
-    form.type === "email" ||
-    form.type === "tel" ||
-    form.type === "textarea"
-  ) {
-    if (typeof value !== "string" && typeof value !== "number") return false;
-    form.selected.inputValue = String(value);
-    return true;
-  }
-
-  if (
-    form.type === "checkbox" ||
-    form.type === "radio" ||
-    form.type === "select"
-  ) {
-    const targetOptionUids = (Array.isArray(value) ? value : [value]).filter(
-      (item): item is string => typeof item === "string" && item.length > 0,
-    );
-    const runtimeOptionKeys = targetOptionUids
-      .map((targetOptionUid) => findRuntimeOptionKey(form, targetOptionUid))
-      .filter((item): item is string => Boolean(item));
-
-    if (runtimeOptionKeys.length === 0) return false;
-
-    const finalOptionKeys =
-      form.type === "radio" ? runtimeOptionKeys.slice(0, 1) : runtimeOptionKeys;
-    form.selected.selectedOptionsUid = finalOptionKeys;
-    form.selected.selectedOptions = finalOptionKeys.map(
-      (optionKey) => form.options[optionKey].title,
-    );
-    return true;
-  }
-
-  return false;
-}
-
-function formValueMatchesPrefill(form: any, value: unknown): boolean {
-  if (form.type === "range") {
-    const locale = form.options?.unit?.numberFormat ?? "de-DE";
-    const current = formatLocaleNumberToUniNumber(
-      String(form.selected?.selectedValue ?? "0"),
-      locale,
-    );
-    const next = typeof value === "number" ? value : Number(value);
-    return (
-      Number.isFinite(current) &&
-      Number.isFinite(next) &&
-      Math.abs(current - next) <= Math.max(0.0001, Math.abs(next) * 0.0001)
-    );
-  }
-
-  if (
-    form.type === "text" ||
-    form.type === "email" ||
-    form.type === "tel" ||
-    form.type === "textarea"
-  ) {
-    return (
-      String(form.selected?.inputValue ?? "")
-        .trim()
-        .toLowerCase() ===
-      String(value ?? "")
-        .trim()
-        .toLowerCase()
-    );
-  }
-
-  if (
-    form.type === "checkbox" ||
-    form.type === "radio" ||
-    form.type === "select"
-  ) {
-    const selected = (form.selected?.selectedOptionsUid ?? [])
-      .map(String)
-      .sort();
-    const targetOptionUids = (Array.isArray(value) ? value : [value])
-      .filter((item): item is string => typeof item === "string")
-      .map((targetOptionUid) => findRuntimeOptionKey(form, targetOptionUid))
-      .filter((item): item is string => Boolean(item))
-      .sort();
-
-    return (
-      selected.length === targetOptionUids.length &&
-      selected.every(
-        (item: string, index: number) => item === targetOptionUids[index],
-      )
-    );
-  }
-
-  return false;
-}
-
-function clearFormValue(form: any): void {
-  if (form.type === "range") {
-    const defaultValue = Number(form.options?.range?.defaultValue ?? 0);
-    const locale = form.options?.unit?.numberFormat ?? "de-DE";
-    form.selected.selectedValue = defaultValue.toLocaleString(locale, {
-      maximumFractionDigits: 2,
-    });
-    form.selected.rangeValue = rangePositionForValue(form, defaultValue);
-    return;
-  }
-
-  if (
-    form.type === "text" ||
-    form.type === "email" ||
-    form.type === "tel" ||
-    form.type === "textarea"
-  ) {
-    form.selected.inputValue = "";
-    return;
-  }
-
-  if (
-    form.type === "checkbox" ||
-    form.type === "radio" ||
-    form.type === "select"
-  ) {
-    form.selected.selectedOptions = [];
-    form.selected.selectedOptionsUid = [];
-  }
-}
-
-function findRuntimeOptionKey(
-  form: any,
-  targetOptionUid: string,
-): string | null {
-  return (
-    Object.keys(form.options ?? {}).find(
-      (optionKey) =>
-        optionKey === targetOptionUid ||
-        form.options[optionKey]?.uid === targetOptionUid,
-    ) ?? null
-  );
-}
-
-function formHasUserValue(form: any): boolean {
-  if (
-    form.type === "checkbox" ||
-    form.type === "radio" ||
-    form.type === "select"
-  ) {
-    return (form.selected?.selectedOptionsUid?.length ?? 0) > 0;
-  }
-
-  if (
-    form.type === "text" ||
-    form.type === "email" ||
-    form.type === "tel" ||
-    form.type === "textarea"
-  ) {
-    return String(form.selected?.inputValue ?? "").trim() !== "";
-  }
-
-  if (form.type === "range") {
-    const locale = form.options?.unit?.numberFormat ?? "de-DE";
-    const current = formatLocaleNumberToUniNumber(
-      String(form.selected?.selectedValue ?? "0"),
-      locale,
-    );
-    const defaultValue = Number(form.options?.range?.defaultValue ?? 0);
-    return (
-      Number.isFinite(current) && Math.abs(current - defaultValue) > 0.0001
-    );
-  }
-
-  return false;
-}
-
-function rangePositionForValue(form: any, value: number): number {
-  const range = form.options?.range ?? {};
-  const min = Number(range.min ?? 0);
-  const max = Number(range.max ?? value);
-  const clamped = Math.max(min, Math.min(max, value));
-
-  if (range.type !== "exp") return clamped;
-
-  const safeMin = Math.max(0.01, min);
-  const safeMax = Math.max(safeMin, max);
-  const safeValue = Math.max(safeMin, clamped);
-  if (safeMax === safeMin) return safeMin;
-
-  return (
-    (Math.log(safeValue / safeMin) / Math.log(safeMax / safeMin)) *
-      (safeMax - safeMin) +
-    safeMin
-  );
-}
-
-function getExtractionThresholds(elements: Record<string, any>): {
-  green: number;
-  yellow: number;
-} {
-  for (const question of Object.values(elements)) {
-    for (const form of Object.values((question as any).form ?? {})) {
-      const confidence = (form as any).options?.extraction?.confidence;
-      if (confidence) {
-        return {
-          green: Number(confidence.green ?? 0.85),
-          yellow: Number(confidence.yellow ?? 0.55),
-        };
-      }
-    }
-  }
-
-  return { green: 0.85, yellow: 0.55 };
-}
-
-function confidenceTier(
-  confidence: number,
-  thresholds: { green: number; yellow: number },
-): "green" | "yellow" | "red" {
-  if (confidence >= thresholds.green) return "green";
-  if (confidence >= thresholds.yellow) return "yellow";
-  return "red";
-}
-
-function renderExtractionHint(form: any): JSX.Element | null {
-  const extraction = form.extraction;
-  if (extraction?.source !== "llm") return null;
-
-  return (
-    <span className="inline-flex items-center rounded bg-synergy-light-blue/10 px-1.5 py-0.5 text-xs font-medium text-synergy-light-blue">
-      KI Ausgefüllt
-    </span>
-  );
-}
-
-function cloneQuestionElements(
-  elements: Record<string, any>,
-): Record<string, any> {
-  const structuredCloneFn = (globalThis as any).structuredClone;
-  if (typeof structuredCloneFn === "function") {
-    return structuredCloneFn(elements);
-  }
-  return JSON.parse(JSON.stringify(elements));
 }
 
 export default DefaultFunnel;

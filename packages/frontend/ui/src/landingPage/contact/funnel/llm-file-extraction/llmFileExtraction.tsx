@@ -528,10 +528,10 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
     const autoResult =
       Object.keys(plan.autoPrefill).length > 0
         ? applyFunnelPrefill?.(plan.autoPrefill, {
-            documentName: "KI-Auswertung",
-            fileUid: "multi-file-extraction",
-            force: true,
-          })
+          documentName: "KI-Auswertung",
+          fileUid: "multi-file-extraction",
+          force: true,
+        })
         : undefined;
 
     setQuestionElements((prev: any) =>
@@ -632,7 +632,11 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
                 <div className="flex items-center space-x-2 min-w-0">
                   {file.type?.startsWith("image/") ? (
                     <img
-                      src={file.downloadUrl || file.localUrl}
+                      src={
+                        file.downloadUrl
+                          ? `/${locale}/api/download/file?url=${encodeURIComponent(file.downloadUrl)}&name=${encodeURIComponent(file.name)}`
+                          : file.localUrl
+                      }
                       alt=""
                       className="h-10 w-10 object-cover rounded"
                     />
@@ -755,7 +759,7 @@ function collectAiExtractionFields(
 
       const fieldKey =
         typeof aiExtraction.fieldKey === "string" &&
-        aiExtraction.fieldKey.trim()
+          aiExtraction.fieldKey.trim()
           ? aiExtraction.fieldKey
           : String(form.uid ?? form.title ?? "field");
       fields[fieldKey] = normalizeAiExtractionField(
@@ -1024,9 +1028,9 @@ function markManualPrefillChoice(
 
     const result = isPrefillResult(file.prefillResult)
       ? {
-          applied: [...file.prefillResult.applied],
-          skipped: file.prefillResult.skipped.map((item) => ({ ...item })),
-        }
+        applied: [...file.prefillResult.applied],
+        skipped: file.prefillResult.skipped.map((item) => ({ ...item })),
+      }
       : emptyPrefillResult();
     const sameValue = normalizePrefillValue(entry.value) === opts.valueKey;
 
@@ -1329,7 +1333,7 @@ function getExtractionSourceDocument(
 
   const outputSource =
     fieldKey &&
-    typeof output?.extraction?.[fieldKey]?.source_document === "string"
+      typeof output?.extraction?.[fieldKey]?.source_document === "string"
       ? output.extraction[fieldKey].source_document
       : null;
   if (outputSource?.trim()) return outputSource;
@@ -1349,8 +1353,8 @@ function shouldCollectExtractionCandidateForFile(
   if (sourceDocument) {
     const batchFiles = file.extractionBatchId
       ? files.filter(
-          (candidate) => candidate.extractionBatchId === file.extractionBatchId,
-        )
+        (candidate) => candidate.extractionBatchId === file.extractionBatchId,
+      )
       : files;
     const primarySourceFile = batchFiles.find((candidate) =>
       documentNamesMatch(candidate.name, sourceDocument),
@@ -1671,9 +1675,9 @@ function buildExtractionCompletionSummary(opts: {
     Object.keys(opts.extractionFields).length > 0
       ? Object.entries(opts.extractionFields)
       : Object.keys(extraction).map(
-          (fieldKey) =>
-            [fieldKey, { label: fieldKey }] as [string, ExtractionFieldConfig],
-        );
+        (fieldKey) =>
+          [fieldKey, { label: fieldKey }] as [string, ExtractionFieldConfig],
+      );
 
   const items = fieldEntries.flatMap(([fieldKey, field]) => {
     const extracted = isPlainRecord(extraction[fieldKey])
@@ -1797,10 +1801,10 @@ function buildExtractionPromptMessages(
   return messages.length > 0
     ? messages
     : [
-        "KI liest die Projektunterlagen...",
-        "KI sucht passende Antworten...",
-        "KI prueft die gefundenen Werte...",
-      ];
+      "KI liest die Projektunterlagen...",
+      "KI sucht passende Antworten...",
+      "KI prueft die gefundenen Werte...",
+    ];
 }
 
 function useRotatingExtractionMessage(
@@ -1904,11 +1908,10 @@ function ExtractionCompletionBadge({
                   <div className="flex items-start justify-between gap-2">
                     <span className="font-medium">{item.label}</span>
                     <span
-                      className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-medium ${
-                        item.hasValue
+                      className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-medium ${item.hasValue
                           ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
                           : "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300"
-                      }`}
+                        }`}
                     >
                       {item.hasValue ? "Ausgefüllt" : "Kein Ergebnis"}
                     </span>
@@ -2037,9 +2040,9 @@ function ExtractionRunSubscription(props: {
 
     const metadata = run?.metadata as
       | {
-          step?: string;
-          partialExtraction?: Record<string, Partial<GroundedExtractionValue>>;
-        }
+        step?: string;
+        partialExtraction?: Record<string, Partial<GroundedExtractionValue>>;
+      }
       | undefined;
 
     if (!metadata && !error) return;
@@ -2364,7 +2367,7 @@ function ExtractionRunSubscription(props: {
         file.prefillResult.skipped.length > 0 && (
           <p className="mt-1 text-synergy-dark-grey dark:text-synergy-light-grey">
             {file.prefillResult.skipped.length} Wert(e) wurden nicht automatisch
-            uebernommen. Bitte pruefen Sie die markierten Eintraege.
+            übernommen. Bitte prüfen Sie die markierten Einträge.
           </p>
         )}
     </div>

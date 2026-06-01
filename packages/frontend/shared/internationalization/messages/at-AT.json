@@ -6201,6 +6201,10 @@
           "aiPrefill": {
             "defaultLabel": "Wert",
             "warning": "{label} wurde von der KI vorausgefüllt. Bitte prüfen."
+          },
+          "formLabel": {
+            "required": "Pflichtfeld",
+            "optional": "Optional"
           }
         },
         "questions": {
@@ -6299,7 +6303,7 @@
                 "type": "range",
                 "required": "true",
                 "defaultVisible": "true",
-                "title": "Wie viel kWp? *",
+                "title": "Wie viel kWp?",
                 "description": "Wählen Sie den Betrag, den Sie benötigen",
                 "localStorage": "false",
                 "span": "2",
@@ -6312,14 +6316,14 @@
                 },
                 "options": {
                   "buttons": {
-                    "incrementBy": "5",
-                    "decrementBy": "5"
+                    "incrementBy": "0.25",
+                    "decrementBy": "0.25"
                   },
                   "range": {
                     "defaultValue": "0",
                     "min": "1",
                     "max": "10000",
-                    "step": "0.01",
+                    "step": "0.25",
                     "type": "exp"
                   },
                   "unit": {
@@ -6395,7 +6399,7 @@
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "true",
-                "title": "Wähle den Untergrund? *",
+                "title": "Wähle den Untergrund?",
                 "description": "",
                 "localStorage": "false",
                 "span": "2",
@@ -6718,14 +6722,22 @@
                   "placeholder": "Schreiben Sie hier Ihre Angaben...",
                   "rows": "4"
                 }
-              },
+              }
+            }
+          },
+          "interested-products-schnittstellen": {
+            "title": "Schnittstellen",
+            "description": "",
+            "version": "0.1.0",
+            "defaultVisible": "true",
+            "form": {
               "interested-products-schnittstelle": {
                 "order": "1",
                 "type": "checkbox",
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "true",
-                "title": "Schnittstelle? *",
+                "title": "Schnittstelle?",
                 "description": "Wählen Sie alle aus, die zutreffen",
                 "localStorage": "false",
                 "span": "2",
@@ -6937,14 +6949,14 @@
                 },
                 "options": {
                   "buttons": {
-                    "incrementBy": "5",
-                    "decrementBy": "5"
+                    "incrementBy": "2.5",
+                    "decrementBy": "2.5"
                   },
                   "range": {
                     "defaultValue": "0",
                     "min": "0",
                     "max": "3000",
-                    "step": "0.5",
+                    "step": "2.5",
                     "type": "exp"
                   },
                   "unit": {
@@ -7003,8 +7015,8 @@
                     "Modulhöhe",
                     "Höhe über Grund"
                   ],
-                  "description": "Höhe des Montageortes in Metern über Grund. Bei Gebäuden Traufhöhe oder höchste Modulhöhe verwenden.",
-                  "instructions": "Extrahiere die Höhe des Montageortes über Grund in Metern. Akzeptiere auch Gebäudehöhe, Fassadenhöhe, Hanghöhe, Traufhöhe, Attikahöhe oder höchste Modulhöhe, wenn diese den Montageort beschreibt. Nicht als Seehöhe oder geografische Höhenlage interpretieren."
+                  "description": "Höhe des Montageortes in Metern über Grund. Bei Gebäuden Traufhöhe oder höchste Modulhöhe verwenden. Wenn keine explizite Höhe angegeben ist, aus dem Gebäudetyp schätzen.",
+                  "instructions": "Extrahiere die Höhe des Montageortes über Grund in Metern. Akzeptiere auch Gebäudehöhe, Fassadenhöhe, Hanghöhe, Traufhöhe, Attikahöhe oder höchste Modulhöhe, wenn diese den Montageort beschreibt. Nicht als Seehöhe oder geografische Höhenlage interpretieren. Wenn keine explizite Höhe angegeben ist, schätze aus dem Gebäudetyp: Bungalow oder einstöckig ≤ 5 m, 2 Geschosse ca. 7–12 m, 3+ Geschosse ca. 12–18 m, Industriehalle ca. 6–12 m. Als Schätzung kennzeichnen."
                 }
               },
               "interested-products-range-dachneigung": {
@@ -7025,14 +7037,14 @@
                 },
                 "options": {
                   "buttons": {
-                    "incrementBy": "10",
-                    "decrementBy": "10"
+                    "incrementBy": "2.5",
+                    "decrementBy": "2.5"
                   },
                   "range": {
                     "defaultValue": "0",
                     "min": "0",
                     "max": "90",
-                    "step": "1",
+                    "step": "2.5",
                     "type": "linear"
                   },
                   "unit": {
@@ -7227,7 +7239,7 @@
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "false",
-                "title": "Wie ist der Status des Vorhabens? *",
+                "title": "Wie ist der Status des Vorhabens?",
                 "description": "",
                 "localStorage": "false",
                 "span": "2",
@@ -7667,7 +7679,7 @@
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "true",
-                "title": "Wie ist der Status des Vorhabens? *",
+                "title": "Wie ist der Status des Vorhabens?",
                 "description": "",
                 "span": "2",
                 "message": {
@@ -7770,7 +7782,7 @@
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "false",
-                "title": "Wie ist der Status des Vorhabens? *",
+                "title": "Wie ist der Status des Vorhabens?",
                 "description": "",
                 "span": "2",
                 "message": {

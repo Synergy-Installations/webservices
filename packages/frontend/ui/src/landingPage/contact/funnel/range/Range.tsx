@@ -62,6 +62,15 @@ export const Range = (props: RangeProps) => {
         )
       : 0;
 
+  const configuredStep = Number(
+    questionElements[questionKey].form[formKey].options.range.step ?? 1,
+  );
+
+  const snapToStep = (value: number): number => {
+    if (!configuredStep || configuredStep <= 0) return value;
+    return Math.round(value / configuredStep) * configuredStep;
+  };
+
   const convertToExponential = (value: number) => {
     if (!isExponentialScale) return value;
     const scale = (value - min) / (max - min); // Normalize value to a 0-1 range
@@ -287,24 +296,25 @@ export const Range = (props: RangeProps) => {
             }
             min={questionElements[questionKey].form[formKey].options.range.min}
             max={questionElements[questionKey].form[formKey].options.range.max}
-            step={
-              questionElements[questionKey].form[formKey].options.range.step
-            }
+            step={isExponentialScale ? "any" : questionElements[questionKey].form[formKey].options.range.step}
             className="funnel-range-input h-2 w-full cursor-pointer rounded-lg"
             style={{ accentColor: "var(--synergy-light-blue, #0CC0DF)" }}
             onChange={(e) => {
               const { value } = e.target;
               setQuestionElements((prev: any) => {
                 const updatedElements = { ...prev };
-                const exponentialValue = convertToExponential(Number(value));
+                const rawExponentialValue = convertToExponential(Number(value));
+                const exponentialValue = isExponentialScale
+                  ? snapToStep(rawExponentialValue)
+                  : rawExponentialValue;
                 updatedElements[questionKey].form[
                   formKey
                 ].selected.selectedValue = format(exponentialValue, options);
 
-                // Convert the exponentialValue back to the range slider value
-                const reverseScale = convertToRange(exponentialValue);
+                // Convert the snapped value back to the range slider position
+                const reverseScale = convertToRange(Math.max(0.01, exponentialValue));
                 updatedElements[questionKey].form[formKey].selected.rangeValue =
-                  reverseScale;
+                  isFinite(reverseScale) ? reverseScale : 0.01;
                 return updatedElements;
               });
             }}

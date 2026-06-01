@@ -5974,6 +5974,10 @@
           "aiPrefill": {
             "defaultLabel": "Value",
             "warning": "{label} was prefilled by AI. Please review."
+          },
+          "formLabel": {
+            "required": "Required",
+            "optional": "Optional"
           }
         },
         "questions": {
@@ -6072,7 +6076,7 @@
                 "type": "range",
                 "required": "true",
                 "defaultVisible": "true",
-                "title": "How much kWp? *",
+                "title": "How much kWp?",
                 "description": "Select the amount you need",
                 "localStorage": "false",
                 "span": "2",
@@ -6085,14 +6089,14 @@
                 },
                 "options": {
                   "buttons": {
-                    "incrementBy": "5",
-                    "decrementBy": "5"
+                    "incrementBy": "0.25",
+                    "decrementBy": "0.25"
                   },
                   "range": {
                     "defaultValue": "0",
                     "min": "1",
                     "max": "10000",
-                    "step": "0.01",
+                    "step": "0.25",
                     "type": "exp"
                   },
                   "unit": {
@@ -6168,7 +6172,7 @@
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "true",
-                "title": "Choose the mounting surface? *",
+                "title": "Choose the mounting surface?",
                 "description": "",
                 "localStorage": "false",
                 "span": "2",
@@ -6561,132 +6565,6 @@
                   "rows": "4"
                 }
               },
-              "interested-products-schnittstelle": {
-                "order": "1",
-                "type": "checkbox",
-                "multiple": "true",
-                "required": "true",
-                "defaultVisible": "true",
-                "title": "Scope of installation? *",
-                "description": "Select all that apply",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Thanks for your input",
-                  "requiredMessage": "This input is mandatory",
-                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
-                },
-                "options": {
-                  "photovoltaic": {
-                    "type": "checkbox",
-                    "title": "Roof assembly",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "House"
-                    }
-                  },
-                  "kabelweg": {
-                    "type": "checkbox",
-                    "title": "Roof assembly + cable path",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "Cable"
-                    }
-                  },
-                  "wärmepumpe": {
-                    "type": "checkbox",
-                    "title": "Roof assembly + cable route + inverter",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "Zap"
-                    }
-                  },
-                  "speicher": {
-                    "type": "checkbox",
-                    "title": "Roof assembly + cable route + inverter + storage",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "BatteryCharging"
-                    }
-                  },
-                  "zusatzarbeiten": {
-                    "type": "checkbox",
-                    "title": "Additional work",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "Wrench"
-                    }
-                  },
-                  "ac-installation": {
-                    "type": "checkbox",
-                    "title": "AC Installation",
-                    "disabled": "true",
-                    "span": "3",
-                    "description": "Coming soon",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "Plug"
-                    }
-                  }
-                }
-              },
-              "submit-form-schnittstelle-anderes-textarea": {
-                "order": "1",
-                "type": "textarea",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Thanks for your input",
-                  "requiredMessage": "This input is mandatory",
-                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
-                },
-                "options": {
-                  "label": "Quick description",
-                  "placeholder": "Write your thoughts here...",
-                  "rows": "4"
-                }
-              },
               "interested-products": {
                 "title": "Project details",
                 "description": "",
@@ -6698,7 +6576,7 @@
                     "type": "range",
                     "required": "true",
                     "defaultVisible": "true",
-                    "title": "How much kWp? *",
+                    "title": "How much kWp?",
                     "description": "Select the amount you need",
                     "localStorage": "false",
                     "span": "2",
@@ -6765,7 +6643,7 @@
                     "multiple": "true",
                     "required": "true",
                     "defaultVisible": "true",
-                    "title": "Choose the underground? *",
+                    "title": "Choose the underground?",
                     "description": "",
                     "localStorage": "false",
                     "span": "2",
@@ -6963,7 +6841,7 @@
                     "multiple": "true",
                     "required": "true",
                     "defaultVisible": "true",
-                    "title": "Interface? *",
+                    "title": "Interface?",
                     "description": "Select all that apply",
                     "localStorage": "false",
                     "span": "2",
@@ -7377,7 +7255,7 @@
                     "multiple": "true",
                     "required": "true",
                     "defaultVisible": "false",
-                    "title": "What is the status of the project? *",
+                    "title": "What is the status of the project?",
                     "description": "",
                     "localStorage": "false",
                     "span": "2",
@@ -7792,6 +7670,206 @@
               }
             }
           },
+          "interested-products-schnittstellen": {
+            "title": "Scope of installation",
+            "description": "",
+            "version": "0.1.0",
+            "defaultVisible": "true",
+            "form": {
+              "interested-products-schnittstelle": {
+                "order": "1",
+                "type": "checkbox",
+                "multiple": "true",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "Scope of installation?",
+                "description": "Select all that apply",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thanks for your input",
+                  "requiredMessage": "This input is mandatory",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "photovoltaic": {
+                    "type": "checkbox",
+                    "title": "Roof assembly",
+                    "disabled": "false",
+                    "span": "3",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-schnittstelle-anderes-textarea",
+                    "icon": {
+                      "name": "House",
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Roof assembly"
+                    }
+                  },
+                  "kabelweg": {
+                    "type": "checkbox",
+                    "title": "Roof assembly + cable path",
+                    "disabled": "false",
+                    "span": "3",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-schnittstelle-anderes-textarea",
+                    "icon": {
+                      "name": "Cable",
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Roof assembly + cable path"
+                    }
+                  },
+                  "wärmepumpe": {
+                    "type": "checkbox",
+                    "title": "Roof assembly + cable route + inverter",
+                    "disabled": "false",
+                    "span": "3",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-schnittstelle-anderes-textarea",
+                    "icon": {
+                      "name": "Zap",
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Roof assembly + cable route + inverter"
+                    }
+                  },
+                  "speicher": {
+                    "type": "checkbox",
+                    "title": "Roof assembly + cable route + inverter + storage",
+                    "disabled": "false",
+                    "span": "3",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-schnittstelle-anderes-textarea",
+                    "icon": {
+                      "name": "BatteryCharging",
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Roof assembly + cable route + inverter + storage"
+                    }
+                  },
+                  "zusatzarbeiten": {
+                    "type": "checkbox",
+                    "title": "Additional work",
+                    "disabled": "false",
+                    "span": "3",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-schnittstelle-anderes-textarea",
+                    "icon": {
+                      "name": "Wrench",
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Additional work"
+                    }
+                  },
+                  "ac-installation": {
+                    "type": "checkbox",
+                    "title": "AC Installation",
+                    "disabled": "true",
+                    "span": "3",
+                    "description": "Coming soon",
+                    "addQuestion": "",
+                    "addForm": "submit-form-schnittstelle-anderes-textarea",
+                    "icon": {
+                      "name": "Plug",
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "AC Installation"
+                    }
+                  }
+                },
+                "aiExtraction": {
+                  "fieldKey": "schnittstelle",
+                  "label": "Scope",
+                  "type": "single-option",
+                  "aliases": [
+                    "Interface",
+                    "Scope",
+                    "Installation scope",
+                    "Trade",
+                    "Work package",
+                    "Order scope",
+                    "Assembly scope"
+                  ],
+                  "description": "Extent of installation services. Select the most comprehensive matching option.",
+                  "instructions": "If multiple service components are mentioned, select the most comprehensive matching option. Roof assembly + cable route + inverter + storage takes priority over smaller contained scopes. Use AC installation only if AC-side or electrical installation is explicitly stated.",
+                  "options": {
+                    "dachmontage": {
+                      "targetOptionUid": "photovoltaic",
+                      "aliases": [
+                        "Roof assembly",
+                        "PV installation",
+                        "Assembly"
+                      ]
+                    },
+                    "kabelweg": {
+                      "targetOptionUid": "kabelweg",
+                      "aliases": [
+                        "Roof assembly + cable route",
+                        "Cable route",
+                        "Wiring",
+                        "Cable laying"
+                      ]
+                    },
+                    "wechselrichter": {
+                      "targetOptionUid": "wärmepumpe",
+                      "aliases": [
+                        "Inverter",
+                        "Roof assembly + cable route + inverter"
+                      ]
+                    },
+                    "speicher": {
+                      "targetOptionUid": "speicher",
+                      "aliases": [
+                        "Storage",
+                        "Battery storage",
+                        "Roof assembly + cable route + inverter + storage"
+                      ]
+                    },
+                    "zusatzarbeiten": {
+                      "targetOptionUid": "zusatzarbeiten",
+                      "aliases": [
+                        "Additional work",
+                        "Ancillary work",
+                        "Special work"
+                      ]
+                    },
+                    "ac-installation": {
+                      "targetOptionUid": "ac-installation",
+                      "aliases": [
+                        "AC installation",
+                        "AC-side",
+                        "Electrical installation"
+                      ]
+                    }
+                  }
+                }
+              },
+              "submit-form-schnittstelle-anderes-textarea": {
+                "order": "1",
+                "type": "textarea",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thanks for your input",
+                  "requiredMessage": "This input is mandatory",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Quick description",
+                  "placeholder": "Write your thoughts here...",
+                  "rows": "4"
+                }
+              }
+            }
+          },
           "interested-products-3": {
             "title": "Project details",
             "description": "",
@@ -7816,14 +7894,14 @@
                 },
                 "options": {
                   "buttons": {
-                    "incrementBy": "5",
-                    "decrementBy": "5"
+                    "incrementBy": "2.5",
+                    "decrementBy": "2.5"
                   },
                   "range": {
                     "defaultValue": "0",
                     "min": "0",
                     "max": "3000",
-                    "step": "0.5",
+                    "step": "2.5",
                     "type": "exp"
                   },
                   "unit": {
@@ -7880,8 +7958,8 @@
                     "Module height",
                     "Height above ground"
                   ],
-                  "description": "Height of the mounting location in meters above ground. For buildings, use eaves height or highest module height.",
-                  "instructions": "Extract the height of the mounting location above ground in meters. Also accept building height, facade height, slope height, eaves height, attic height, or highest module height if it describes the installation location. Do not interpret as altitude above sea level or geographic elevation."
+                  "description": "Height of the mounting location in meters above ground. For buildings, use eaves height or highest module height. If no explicit height is given, estimate from building type.",
+                  "instructions": "Extract the height of the mounting location above ground in meters. Also accept building height, facade height, slope height, eaves height, attic height, or highest module height if it describes the installation location. Do not interpret as altitude above sea level or geographic elevation. If no explicit height is given, estimate from building type: bungalow or single-storey ≤ 5 m, 2 storeys approx. 7–12 m, 3+ storeys approx. 12–18 m, industrial hall approx. 6–12 m. Mark as an estimate."
                 }
               },
               "interested-products-range-dachneigung": {
@@ -7902,14 +7980,14 @@
                 },
                 "options": {
                   "buttons": {
-                    "incrementBy": "10",
-                    "decrementBy": "10"
+                    "incrementBy": "2.5",
+                    "decrementBy": "2.5"
                   },
                   "range": {
                     "defaultValue": "0",
                     "min": "0",
                     "max": "90",
-                    "step": "1",
+                    "step": "2.5",
                     "type": "linear"
                   },
                   "unit": {
@@ -8103,7 +8181,7 @@
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "false",
-                "title": "What is the status of the project? *",
+                "title": "What is the status of the project?",
                 "description": "",
                 "localStorage": "false",
                 "span": "2",
@@ -8543,7 +8621,7 @@
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "true",
-                "title": "What is the status of the project? *",
+                "title": "What is the status of the project?",
                 "description": "",
                 "span": "2",
                 "message": {
@@ -8646,7 +8724,7 @@
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "false",
-                "title": "What is the status of the project? *",
+                "title": "What is the status of the project?",
                 "description": "",
                 "span": "2",
                 "message": {

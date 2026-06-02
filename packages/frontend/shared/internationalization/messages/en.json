@@ -6191,7 +6191,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": ["dachtyp-trapez-materialstaerke", "dachtyp-trapez-hoehe", "dachtyp-trapez-talbreite", "dachtyp-trapez-material", "dachtyp-trapez-foto"],
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics",
@@ -6205,7 +6205,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": ["dachtyp-falz-falztyp", "dachtyp-falz-kupfer", "dachtyp-falz-abstand", "dachtyp-falz-foto"],
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics",
@@ -6219,7 +6219,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": ["dachtyp-flachdach-traglast", "dachtyp-flachdach-material", "dachtyp-flachdach-kies", "dachtyp-flachdach-traglast-pv", "dachtyp-flachdach-foto"],
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics",
@@ -6233,7 +6233,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": ["dachtyp-ziegel-art", "dachtyp-ziegel-typ", "dachtyp-ziegel-metallersatz", "dachtyp-ziegel-farbe", "dachtyp-ziegel-ersatz", "dachtyp-ziegel-genagelt", "dachtyp-ziegel-foto"],
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics",
@@ -6242,29 +6242,29 @@
                   },
                   "eternit": {
                     "type": "checkbox",
-                    "title": "Eternit",
+                    "title": "Faserplatten",
                     "disabled": "false",
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": ["dachtyp-faserplatten-form", "dachtyp-faserplatten-farbe", "dachtyp-faserplatten-welle", "dachtyp-faserplatten-foto"],
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
+                      "alt": "Faserplatten",
                       "name": "Layers"
                     }
                   },
                   "bramac": {
                     "type": "checkbox",
-                    "title": "Bramac",
+                    "title": "Prefa",
                     "disabled": "false",
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": ["dachtyp-prefa-platten", "dachtyp-prefa-konstruktion", "dachtyp-prefa-foto"],
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
+                      "alt": "Prefa",
                       "name": "HousePlug"
                     }
                   },
@@ -6275,7 +6275,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": ["submit-form-dachtyp-anderes-textarea", "dachtyp-allgemein-foto"],
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics",
@@ -6289,7 +6289,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": ["submit-form-dachtyp-anderes-textarea", "dachtyp-allgemein-foto"],
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics",
@@ -6303,7 +6303,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": ["submit-form-dachtyp-anderes-textarea", "dachtyp-allgemein-foto"],
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics",
@@ -6317,7 +6317,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": ["submit-form-dachtyp-anderes-textarea", "dachtyp-freiflaeche-untergrund", "dachtyp-allgemein-foto"],
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics",
@@ -6331,7 +6331,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": ["submit-form-dachtyp-anderes-textarea", "dachtyp-allgemein-foto"],
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics",
@@ -6345,7 +6345,7 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": ["submit-form-dachtyp-anderes-textarea", "dachtyp-allgemein-foto"],
                     "icon": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaics",
@@ -6417,7 +6417,9 @@
                     "eternit": {
                       "targetOptionUid": "eternit",
                       "aliases": [
-                        "Eternit",
+                        "Faserplatten",
+                        "Fiber cement panel",
+                        "Corrugated fibre panel",
                         "Fiber cement",
                         "Corrugated eternit"
                       ]
@@ -6425,6 +6427,8 @@
                     "bramac": {
                       "targetOptionUid": "bramac",
                       "aliases": [
+                        "Prefa",
+                        "Prefa panel",
                         "Bramac"
                       ]
                     },
@@ -6543,12 +6547,719 @@
                   }
                 }
               },
+              "dachtyp-trapez-materialstaerke": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Material thickness",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Material thickness",
+                  "placeholder": "e.g. 0.75 mm / 1.0 mm"
+                }
+              },
+              "dachtyp-trapez-hoehe": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Trapezoid height",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Trapezoid height",
+                  "placeholder": "e.g. 35 mm / 40 mm"
+                }
+              },
+              "dachtyp-trapez-talbreite": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Valley width",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Valley width",
+                  "placeholder": "e.g. narrow valleys / wide valleys"
+                }
+              },
+              "dachtyp-trapez-material": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Material type",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Material type",
+                  "placeholder": "e.g. galvanised steel / aluminium"
+                }
+              },
+              "dachtyp-trapez-foto": {
+                "order": "1",
+                "type": "file-upload",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Photo of the trapezoidal sheet",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "By uploading your files, you agree to our privacy policy.",
+                  "type": "info",
+                  "successMessage": "Thank you for your upload",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Thank you for your input. Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "upload": {
+                    "hostname": "storage.bunnycdn.com",
+                    "storageZoneName": "synergy-webservices-assets",
+                    "region": "",
+                    "filesAccepted": "",
+                    "multipleFiles": "true",
+                    "uploadingText": "Uploading...",
+                    "uploadError": "Upload failed. We are currently working on fixing the issue, please try again later.",
+                    "uploadSuccess": "Upload successful, thank you!"
+                  },
+                  "download": {
+                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                  }
+                }
+              },
+              "dachtyp-falz-falztyp": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Seam type",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Seam type",
+                  "placeholder": "e.g. double standing seam / angle seam"
+                }
+              },
+              "dachtyp-falz-kupfer": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Copper",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Copper",
+                  "placeholder": "Yes / No"
+                }
+              },
+              "dachtyp-falz-abstand": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Seam spacing",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Seam spacing",
+                  "placeholder": "e.g. approx. 500 mm"
+                }
+              },
+              "dachtyp-falz-foto": {
+                "order": "1",
+                "type": "file-upload",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Photo of the seam covering",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "By uploading your files, you agree to our privacy policy.",
+                  "type": "info",
+                  "successMessage": "Thank you for your upload",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Thank you for your input. Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "upload": {
+                    "hostname": "storage.bunnycdn.com",
+                    "storageZoneName": "synergy-webservices-assets",
+                    "region": "",
+                    "filesAccepted": "",
+                    "multipleFiles": "true",
+                    "uploadingText": "Uploading...",
+                    "uploadError": "Upload failed. We are currently working on fixing the issue, please try again later.",
+                    "uploadSuccess": "Upload successful, thank you!"
+                  },
+                  "download": {
+                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                  }
+                }
+              },
+              "dachtyp-flachdach-traglast": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Load capacity",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Load capacity",
+                  "placeholder": "e.g. … kg/m² / unknown"
+                }
+              },
+              "dachtyp-flachdach-material": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Material type",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Material type",
+                  "placeholder": "e.g. bitumen / felt / membrane"
+                }
+              },
+              "dachtyp-flachdach-kies": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Gravel ballast",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Gravel ballast",
+                  "placeholder": "Yes / No – if yes, height (e.g. 5 cm)"
+                }
+              },
+              "dachtyp-flachdach-traglast-pv": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Permissible load for PV",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Load for PV",
+                  "placeholder": "e.g. … kg/m² (separate from snow load)"
+                }
+              },
+              "dachtyp-flachdach-foto": {
+                "order": "1",
+                "type": "file-upload",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Photo of the roof surface",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "By uploading your files, you agree to our privacy policy.",
+                  "type": "info",
+                  "successMessage": "Thank you for your upload",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Thank you for your input. Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "upload": {
+                    "hostname": "storage.bunnycdn.com",
+                    "storageZoneName": "synergy-webservices-assets",
+                    "region": "",
+                    "filesAccepted": "",
+                    "multipleFiles": "true",
+                    "uploadingText": "Uploading...",
+                    "uploadError": "Upload failed. We are currently working on fixing the issue, please try again later.",
+                    "uploadSuccess": "Upload successful, thank you!"
+                  },
+                  "download": {
+                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                  }
+                }
+              },
+              "dachtyp-ziegel-art": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Clay or concrete tiles?",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Tile type",
+                  "placeholder": "Clay tiles / Concrete tiles"
+                }
+              },
+              "dachtyp-ziegel-typ": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Tile type (shape, surface, structure)",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Tile type",
+                  "placeholder": "e.g. Roman tile, glazed"
+                }
+              },
+              "dachtyp-ziegel-metallersatz": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Metal replacement plates required?",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Metal replacement plates",
+                  "placeholder": "Yes / No"
+                }
+              },
+              "dachtyp-ziegel-farbe": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Colour",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Colour",
+                  "placeholder": "e.g. terracotta / anthracite"
+                }
+              },
+              "dachtyp-ziegel-ersatz": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Replacement tiles available?",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Replacement tiles",
+                  "placeholder": "Yes / No"
+                }
+              },
+              "dachtyp-ziegel-genagelt": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Tiles nailed?",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Tiles nailed",
+                  "placeholder": "Yes / No"
+                }
+              },
+              "dachtyp-ziegel-foto": {
+                "order": "1",
+                "type": "file-upload",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Photo of the tile covering",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "By uploading your files, you agree to our privacy policy.",
+                  "type": "info",
+                  "successMessage": "Thank you for your upload",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Thank you for your input. Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "upload": {
+                    "hostname": "storage.bunnycdn.com",
+                    "storageZoneName": "synergy-webservices-assets",
+                    "region": "",
+                    "filesAccepted": "",
+                    "multipleFiles": "true",
+                    "uploadingText": "Uploading...",
+                    "uploadError": "Upload failed. We are currently working on fixing the issue, please try again later.",
+                    "uploadSuccess": "Upload successful, thank you!"
+                  },
+                  "download": {
+                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                  }
+                }
+              },
+              "dachtyp-faserplatten-form": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Shape",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Shape",
+                  "placeholder": "Rectangle 30/40 (double coverage) / Rectangle 40/40 (double coverage) / Rhombus / Rhombus stencil"
+                }
+              },
+              "dachtyp-faserplatten-farbe": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Colour",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Colour",
+                  "placeholder": "e.g. anthracite"
+                }
+              },
+              "dachtyp-faserplatten-welle": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Corrugated fibre panels",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Corrugated fibre panels",
+                  "placeholder": "Yes / No"
+                }
+              },
+              "dachtyp-faserplatten-foto": {
+                "order": "1",
+                "type": "file-upload",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Photos (roof surface + roof structure)",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "By uploading your files, you agree to our privacy policy.",
+                  "type": "info",
+                  "successMessage": "Thank you for your upload",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Thank you for your input. Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "upload": {
+                    "hostname": "storage.bunnycdn.com",
+                    "storageZoneName": "synergy-webservices-assets",
+                    "region": "",
+                    "filesAccepted": "",
+                    "multipleFiles": "true",
+                    "uploadingText": "Uploading...",
+                    "uploadError": "Upload failed. We are currently working on fixing the issue, please try again later.",
+                    "uploadSuccess": "Upload successful, thank you!"
+                  },
+                  "download": {
+                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                  }
+                }
+              },
+              "dachtyp-prefa-platten": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Description of Prefa panels",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Prefa panels",
+                  "placeholder": "which Prefa panels, e.g. R.16, anthracite"
+                }
+              },
+              "dachtyp-prefa-konstruktion": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Description of roof structure",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Roof structure",
+                  "placeholder": "e.g. rafters + battens, condition …"
+                }
+              },
+              "dachtyp-prefa-foto": {
+                "order": "1",
+                "type": "file-upload",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Photos (Prefa panels + roof structure)",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "By uploading your files, you agree to our privacy policy.",
+                  "type": "info",
+                  "successMessage": "Thank you for your upload",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Thank you for your input. Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "upload": {
+                    "hostname": "storage.bunnycdn.com",
+                    "storageZoneName": "synergy-webservices-assets",
+                    "region": "",
+                    "filesAccepted": "",
+                    "multipleFiles": "true",
+                    "uploadingText": "Uploading...",
+                    "uploadError": "Upload failed. We are currently working on fixing the issue, please try again later.",
+                    "uploadSuccess": "Upload successful, thank you!"
+                  },
+                  "download": {
+                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                  }
+                }
+              },
+              "dachtyp-freiflaeche-untergrund": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Ground/substructure",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thank you for your input",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Ground/substructure",
+                  "placeholder": "e.g. landfill / river / stone / gravel / concrete / soil / meadow"
+                }
+              },
+              "dachtyp-allgemein-foto": {
+                "order": "1",
+                "type": "file-upload",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Photo",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "By uploading your files, you agree to our privacy policy.",
+                  "type": "info",
+                  "successMessage": "Thank you for your upload",
+                  "requiredMessage": "This field is required",
+                  "checkPreviousFormsMessage": "Thank you for your input. Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "upload": {
+                    "hostname": "storage.bunnycdn.com",
+                    "storageZoneName": "synergy-webservices-assets",
+                    "region": "",
+                    "filesAccepted": "",
+                    "multipleFiles": "true",
+                    "uploadingText": "Uploading...",
+                    "uploadError": "Upload failed. We are currently working on fixing the issue, please try again later.",
+                    "uploadSuccess": "Upload successful, thank you!"
+                  },
+                  "download": {
+                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                  }
+                }
+              },
               "submit-form-dachtyp-anderes-textarea": {
                 "order": "1",
                 "type": "textarea",
                 "required": "false",
                 "defaultVisible": "false",
-                "title": "",
+                "title": "Layout / Plans / Sections / Condition",
                 "description": "",
                 "localStorage": "false",
                 "span": "2",
@@ -6561,7 +7272,7 @@
                 },
                 "options": {
                   "label": "Quick description",
-                  "placeholder": "Write your thoughts here...",
+                  "placeholder": "Layout, existing plans/sections, condition",
                   "rows": "4"
                 }
               },
@@ -6662,7 +7373,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
+                        "addForm": ["dachtyp-trapez-materialstaerke", "dachtyp-trapez-hoehe", "dachtyp-trapez-talbreite", "dachtyp-trapez-material", "dachtyp-trapez-foto"],
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6675,7 +7386,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
+                        "addForm": ["dachtyp-falz-falztyp", "dachtyp-falz-kupfer", "dachtyp-falz-abstand", "dachtyp-falz-foto"],
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6688,7 +7399,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
+                        "addForm": ["dachtyp-flachdach-traglast", "dachtyp-flachdach-material", "dachtyp-flachdach-kies", "dachtyp-flachdach-traglast-pv", "dachtyp-flachdach-foto"],
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6701,7 +7412,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
+                        "addForm": ["dachtyp-ziegel-art", "dachtyp-ziegel-typ", "dachtyp-ziegel-metallersatz", "dachtyp-ziegel-farbe", "dachtyp-ziegel-ersatz", "dachtyp-ziegel-genagelt", "dachtyp-ziegel-foto"],
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6709,28 +7420,28 @@
                       },
                       "eternit": {
                         "type": "checkbox",
-                        "title": "ternite",
+                        "title": "Faserplatten",
                         "disabled": "false",
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
+                        "addForm": ["dachtyp-faserplatten-form", "dachtyp-faserplatten-farbe", "dachtyp-faserplatten-welle", "dachtyp-faserplatten-foto"],
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaics"
+                          "alt": "Faserplatten"
                         }
                       },
                       "bramac": {
                         "type": "checkbox",
-                        "title": "Bramac",
+                        "title": "Prefa",
                         "disabled": "false",
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
+                        "addForm": ["dachtyp-prefa-platten", "dachtyp-prefa-konstruktion", "dachtyp-prefa-foto"],
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaics"
+                          "alt": "Prefa"
                         }
                       },
                       "fassade": {
@@ -6740,7 +7451,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
+                        "addForm": ["submit-form-dachtyp-anderes-textarea", "dachtyp-allgemein-foto"],
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6753,7 +7464,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
+                        "addForm": ["submit-form-dachtyp-anderes-textarea", "dachtyp-allgemein-foto"],
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6766,7 +7477,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
+                        "addForm": ["submit-form-dachtyp-anderes-textarea", "dachtyp-allgemein-foto"],
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6779,7 +7490,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
+                        "addForm": ["submit-form-dachtyp-anderes-textarea", "dachtyp-freiflaeche-untergrund", "dachtyp-allgemein-foto"],
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6792,7 +7503,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
+                        "addForm": ["submit-form-dachtyp-anderes-textarea", "dachtyp-allgemein-foto"],
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6805,7 +7516,7 @@
                         "span": "2",
                         "description": "",
                         "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
+                        "addForm": ["submit-form-dachtyp-anderes-textarea", "dachtyp-allgemein-foto"],
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
@@ -6818,7 +7529,7 @@
                     "type": "textarea",
                     "required": "false",
                     "defaultVisible": "false",
-                    "title": "",
+                    "title": "Layout / Plans / Sections / Condition",
                     "description": "",
                     "localStorage": "false",
                     "span": "2",
@@ -6831,7 +7542,7 @@
                     },
                     "options": {
                       "label": "Quick description",
-                      "placeholder": "Write your thoughts here...",
+                      "placeholder": "Layout, existing plans/sections, condition",
                       "rows": "4"
                     }
                   },

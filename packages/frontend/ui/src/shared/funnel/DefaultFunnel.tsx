@@ -1244,23 +1244,11 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
             (questionCounts.totalQuestions - 1)) *
             100,
         );
-  const extractionReviewActive = isExtractionReviewFlowActive(questionElements);
   const questionHasVisibleLlmExtractionForm = (questionKey: string): boolean =>
     Object.values(questionElements[questionKey]?.form ?? {}).some(
       (form: any) =>
         isVisibleEntity(form) && form.type === "llm-file-extraction",
     );
-  const questionShouldShowReviewAccuracyNotice = (
-    questionKey: string,
-  ): boolean =>
-    extractionReviewActive &&
-    Object.values(questionElements[questionKey]?.form ?? {}).some(
-      (form: any) =>
-        isVisibleEntity(form) &&
-        form.type !== "submit-button" &&
-        form.type !== "llm-file-extraction",
-    );
-
   return (
     <>
       {topBar && topBar(questionElements)}
@@ -1393,9 +1381,6 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
               </div>
               {questionHasVisibleLlmExtractionForm(questionKey) && (
                 <LegalAiTransparencyNotice />
-              )}
-              {questionShouldShowReviewAccuracyNotice(questionKey) && (
-                <LegalAccuracyNotice />
               )}
               {/** Form */}
               <div className="grid grid-cols-2 gap-6">

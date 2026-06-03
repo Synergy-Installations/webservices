@@ -93,6 +93,52 @@ export const Funnel = (props: FunnelProps) => {
   const [submitProgressStage, setSubmitProgressStage] =
     useState<SubmitProgressStage>("idle");
 
+  /**
+   * The async auth handlers below can run from closures created on an earlier
+   * render (e.g. when Clerk had not finished loading yet) and Clerk's
+   * `isLoaded` flags can flip to `false` while it (re)initialises. Mirroring the
+   * latest Clerk values in a ref guarantees the handlers always read live
+   * values instead of a stale snapshot.
+   */
+  const clerkRef = useRef({
+    isSignUpLoaded,
+    signUp,
+    setActiveSignUp,
+    isSignInLoaded,
+    signIn,
+    setActiveSignIn,
+    isSignedIn,
+    user,
+    session,
+  });
+  clerkRef.current = {
+    isSignUpLoaded,
+    signUp,
+    setActiveSignUp,
+    isSignInLoaded,
+    signIn,
+    setActiveSignIn,
+    isSignedIn,
+    user,
+    session,
+  };
+
+  /**
+   * Waits until `selector` returns true (i.e. the relevant Clerk instance has
+   * finished loading) or the timeout elapses. Returns whether it became ready.
+   */
+  const waitForClerkReady = async (
+    selector: () => boolean,
+    { timeoutMs = 10000, intervalMs = 100 }: { timeoutMs?: number; intervalMs?: number } = {},
+  ): Promise<boolean> => {
+    const start = Date.now();
+    while (!selector()) {
+      if (Date.now() - start > timeoutMs) return false;
+      await new Promise((resolve) => setTimeout(resolve, intervalMs));
+    }
+    return true;
+  };
+
   useEffect(() => {
     if (verifying) setSubmitProgressStage("idle");
   }, [verifying]);
@@ -102,6 +148,8 @@ export const Funnel = (props: FunnelProps) => {
     firstName: string,
     phoneNumber: string,
   ): Promise<AuthFlowResult> {
+    const { isSignedIn, user, session } = clerkRef.current;
+
     console.log(
       "checkparameters",
       isSignedIn,
@@ -117,7 +165,7 @@ export const Funnel = (props: FunnelProps) => {
     if (isSignedIn) {
       // E-Mail address matches with the current session
       if (
-        user.emailAddresses?.some(
+        user?.emailAddresses?.some(
           (email) => email.emailAddress === emailAddress,
         )
       ) {
@@ -178,7 +226,11 @@ export const Funnel = (props: FunnelProps) => {
     // userId is needed because useState might not update quickly enough
     userId: string | null,
   ): Promise<AuthFlowResult> {
-    if (!isSignUpLoaded || !signUp) {
+    const ready = await waitForClerkReady(
+      () => clerkRef.current.isSignUpLoaded && !!clerkRef.current.signUp,
+    );
+    const { signUp } = clerkRef.current;
+    if (!ready || !signUp) {
       throw new Error("Sign up is not ready yet");
     }
 
@@ -228,7 +280,11 @@ export const Funnel = (props: FunnelProps) => {
     firstName: string,
     phoneNumber: string,
   ): Promise<AuthFlowResult> {
-    if (!isSignInLoaded || !signIn) {
+    const ready = await waitForClerkReady(
+      () => clerkRef.current.isSignInLoaded && !!clerkRef.current.signIn,
+    );
+    const { signIn } = clerkRef.current;
+    if (!ready || !signIn) {
       throw new Error("Sign in is not ready yet");
     }
 
@@ -277,7 +333,8 @@ export const Funnel = (props: FunnelProps) => {
   }
 
   async function handleSignUpVerification(code: string) {
-    if (!isSignUpLoaded && !signUp) return null;
+    const { isSignUpLoaded, signUp, setActiveSignUp } = clerkRef.current;
+    if (!isSignUpLoaded || !signUp) return null;
 
     try {
       // Use the code provided by the user and attempt verification
@@ -292,7 +349,7 @@ export const Funnel = (props: FunnelProps) => {
       // If verification was completed, set the session to active
       // and redirect the user
       if (signUpAttempt.status === "complete") {
-        await setActiveSignUp({ session: signUpAttempt.createdSessionId });
+        await setActiveSignUp?.({ session: signUpAttempt.createdSessionId });
 
         const res = await fetch(`/api/dashboard/users/${signUpUserId}`, {
           method: "PUT",
@@ -321,7 +378,8 @@ export const Funnel = (props: FunnelProps) => {
   }
 
   async function handleSignInVerification(code: string) {
-    if (!isSignInLoaded && !signIn) return null;
+    const { isSignInLoaded, signIn, setActiveSignIn } = clerkRef.current;
+    if (!isSignInLoaded || !signIn) return null;
 
     try {
       // Use the code provided by the user and attempt verification
@@ -333,7 +391,7 @@ export const Funnel = (props: FunnelProps) => {
       // If verification was completed, set the session to active
       // and redirect the user
       if (signInAttempt.status === "complete") {
-        await setActiveSignIn({ session: signInAttempt.createdSessionId });
+        await setActiveSignIn?.({ session: signInAttempt.createdSessionId });
 
         router.push("/dashboard");
       } else {

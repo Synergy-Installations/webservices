@@ -53,7 +53,7 @@
     "@com.synergy/frontend-shared-internationalization": "workspace:*",
     "@kenjiuno/msgreader": "^1.28.0",
     "@reduxjs/toolkit": "^2.6.1",
-    "@trigger.dev/sdk": "^4.4.5",
+    "@trigger.dev/sdk": "4.4.6",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^18.2.61",
     "aws4": "^1.13.2",

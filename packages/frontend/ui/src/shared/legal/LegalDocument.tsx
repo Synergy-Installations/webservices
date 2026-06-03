@@ -3,7 +3,7 @@ import RichText from "../internationalization/text/RichText";
 
 /* eslint-disable-next-line */
 export interface LegalDocumentProps {
-  documentKey: "Impressum" | "Datenschutz";
+  documentKey: "Impressum" | "Datenschutz" | "Nutzungsbedingungen";
 }
 
 export const LegalDocument = (props: LegalDocumentProps) => {
@@ -51,7 +51,10 @@ export const LegalDocument = (props: LegalDocumentProps) => {
           {introBlockKeys.length > 0 && (
             <div className="mt-8 space-y-4">
               {introBlockKeys.map((blockKey) => (
-                <RichText key={`intro-${blockKey}`} className="m-0 leading-7 text-slate-700">
+                <RichText
+                  key={`intro-${blockKey}`}
+                  className="m-0 leading-7 text-slate-700"
+                >
                   {(tags) => t.rich(`intro.${blockKey}.text`, tags)}
                 </RichText>
               ))}
@@ -65,7 +68,11 @@ export const LegalDocument = (props: LegalDocumentProps) => {
               const blockKeys = Object.keys(sectionMessages.blocks || {});
 
               return (
-                <section key={sectionKey} id={sectionKey} className="scroll-mt-24">
+                <section
+                  key={sectionKey}
+                  id={sectionKey}
+                  className="scroll-mt-24"
+                >
                   <h2 className="text-xl font-semibold text-slate-900 sm:text-2xl">
                     {t(`sections.${sectionKey}.title`)}
                   </h2>
@@ -73,7 +80,7 @@ export const LegalDocument = (props: LegalDocumentProps) => {
                   <div className="mt-4 space-y-4">
                     {blockKeys.map((blockKey) => {
                       const blockType = t(
-                        `sections.${sectionKey}.blocks.${blockKey}.type`
+                        `sections.${sectionKey}.blocks.${blockKey}.type`,
                       );
 
                       if (blockType === "subheading") {
@@ -82,14 +89,16 @@ export const LegalDocument = (props: LegalDocumentProps) => {
                             key={blockKey}
                             className="pt-2 text-lg font-semibold text-slate-900"
                           >
-                            {t(`sections.${sectionKey}.blocks.${blockKey}.text`)}
+                            {t(
+                              `sections.${sectionKey}.blocks.${blockKey}.text`,
+                            )}
                           </h3>
                         );
                       }
 
                       if (blockType === "list") {
                         const itemKeys = Object.keys(
-                          sectionMessages.blocks?.[blockKey]?.items || {}
+                          sectionMessages.blocks?.[blockKey]?.items || {},
                         );
 
                         return (
@@ -109,7 +118,7 @@ export const LegalDocument = (props: LegalDocumentProps) => {
                                       <i className="italic">{chunks}</i>
                                     ),
                                     br: () => <br />,
-                                  }
+                                  },
                                 )}
                               </li>
                             ))}
@@ -125,7 +134,7 @@ export const LegalDocument = (props: LegalDocumentProps) => {
                           {(tags) =>
                             t.rich(
                               `sections.${sectionKey}.blocks.${blockKey}.text`,
-                              tags
+                              tags,
                             )
                           }
                         </RichText>

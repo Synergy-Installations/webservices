@@ -25,14 +25,17 @@ import {
   DialogPanel,
   DialogTitle,
 } from "@headlessui/react";
+import { AlertTriangle, Info, ShieldCheck } from "lucide-react";
 import {
   funnelReducer,
   initFunnelState,
+  type LegalConsentKey,
   type FunnelElements,
   type InitFunnelArgs,
 } from "./state/funnelReducer";
 import { useFunnelElements } from "./hooks/useFunnelElements";
 import { CheckboxRadioForm } from "./forms/CheckboxRadioForm";
+import { CardPopupForm } from "./forms/CardPopupForm";
 import { SelectForm } from "./forms/SelectForm";
 import { TextInputForm } from "./forms/TextInputForm";
 import { SubmitButtonForm } from "./forms/SubmitButtonForm";
@@ -70,6 +73,75 @@ type QuestionTransitionState = {
 };
 
 const QUESTION_TRANSITION_ROTATE_MS = 560;
+const LEGAL_CONSENT_VERSION = "2026-06-03";
+const LEGAL_POLICY_VERSIONS = {
+  datenschutzerklaerung: "2026-06-03",
+  nutzungsbedingungen: "2026-06-03",
+};
+const LEGAL_CONSENT_KEYS: LegalConsentKey[] = [
+  "ai_transfer",
+  "third_party_data",
+  "fagg_waiver",
+];
+const LEGAL_REQUIRE_UPLOAD_AUTH_TICK = true;
+const LEGAL_VISIBLE_CONSENT_KEYS = LEGAL_CONSENT_KEYS.filter(
+  (consentKey) =>
+    consentKey !== "third_party_data" || LEGAL_REQUIRE_UPLOAD_AUTH_TICK,
+);
+const LEGAL_CONSENT_STATIC_HINT =
+  "Die hochgeladenen Dateien werden in unserem Auftrag in der EU (Bunny.net, Slowenien) gespeichert und nach spätestens 30 Tagen automatisch gelöscht. Details: Datenschutzerklärung. Es gelten unsere Nutzungsbedingungen.";
+
+const LEGAL_AI_TRANSPARENCY_NOTICE = {
+  title: "Hinweis: KI-gestützte Funktion",
+  body: 'Dieser Fragebogen wird mithilfe eines Systems der Künstlichen Intelligenz (KI) betrieben. Ein Sprachmodell („Claude" von Anthropic) liest die von Ihnen hochgeladenen Dokumente automatisiert aus und füllt die Antwortfelder für Sie vor. Die so erzeugten Texte und Werte sind maschinell generiert, können fehlerhaft oder unvollständig sein und ersetzen keine fachliche Beratung. Bitte prüfen Sie alle Vorschläge, bevor Sie das Formular absenden.',
+};
+
+const LEGAL_ACCURACY_NOTICE = {
+  title: "Hinweis zur Genauigkeit der KI-Vorschläge",
+  submitSummary:
+    "KI-Vorschläge können Fehler enthalten — bitte alle Felder vor dem Absenden prüfen. Verbindlich sind ausschließlich Ihre abgesendeten Antworten.",
+  body: 'Die Vorschläge in diesem Fragebogen wurden mittels eines KI-Sprachmodells aus Ihren Dateien generiert. Trotz sorgfältiger technischer Umsetzung kann es zu Fehlern, Auslassungen, Fehlinterpretationen oder sogenannten „Halluzinationen" kommen. Bitte prüfen Sie sämtliche Felder, bevor Sie den Fragebogen absenden, und korrigieren Sie diese bei Bedarf. Verbindlich sind ausschließlich die von Ihnen abgesendeten Antworten.',
+};
+
+const LEGAL_CONSENT_TEXTS: Record<
+  LegalConsentKey,
+  {
+    title: string;
+    visible: string;
+    details: string;
+  }
+> = {
+  ai_transfer: {
+    title: "A (erforderlich)",
+    visible:
+      'Ich willige ein, dass meine hochgeladenen Dateien durch ein KI-Sprachmodell („Claude" von Anthropic) ausgewertet und dafür in die USA übermittelt werden. Die USA bieten kein gleichwertiges Datenschutzniveau; ein Zugriff durch US-Behörden ist nicht ausgeschlossen.',
+    details:
+      "Die Übermittlung an Anthropic, PBC (USA) erfolgt auf Grundlage von Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO) sowie meiner ausdrücklichen Einwilligung gemäß Art. 49 Abs. 1 lit. a DSGVO. Anthropic verwendet die übermittelten Inhalte nach eigenen Angaben nicht zum Training. Diese Einwilligung kann ich jederzeit mit Wirkung für die Zukunft widerrufen (formlos per E-Mail). Weitere Informationen in der Datenschutzerklärung.",
+  },
+  third_party_data: {
+    title: "B (erforderlich)",
+    visible:
+      "Ich bin berechtigt, diese Dateien hochzuladen, habe etwaige betroffene Dritte informiert und lade keine Geheimnis- oder Art.-9-Daten hoch.",
+    details:
+      "Soweit die Dateien personenbezogene Daten Dritter (z. B. von Familienangehörigen, Mitbewohnern, Vertragspartnern, Mitarbeitern) enthalten, bestätige ich, dass ich diese Personen über die Verarbeitung informiert habe bzw. zu deren Übermittlung berechtigt bin. Ich lade keine Dokumente hoch, die einem Berufs- oder Amtsgeheimnis unterliegen oder besondere Kategorien personenbezogener Daten im Sinne des Art. 9 DSGVO enthalten, soweit dies nicht für meine Anfrage zwingend erforderlich ist.",
+  },
+  fagg_waiver: {
+    title: "C (erforderlich, nur Verbraucher)",
+    visible:
+      "Ich verlange den sofortigen Beginn und nehme zur Kenntnis, dass mein Rücktrittsrecht (§ 18 FAGG) mit vollständiger Erbringung erlischt.",
+    details:
+      "Ich verlange ausdrücklich, dass mit der KI-gestützten Auswertung meiner Dateien sofort begonnen wird, und nehme zur Kenntnis, dass mein Rücktrittsrecht nach § 18 Abs. 1 FAGG mit vollständiger Erbringung dieser digitalen Dienstleistung erlischt.",
+  },
+};
+
+const LEGAL_CONSENT_HASH_TEXT = [
+  `consent_version: ${LEGAL_CONSENT_VERSION}`,
+  ...LEGAL_VISIBLE_CONSENT_KEYS.flatMap((consentKey) => {
+    const text = LEGAL_CONSENT_TEXTS[consentKey];
+    return [text.title, text.visible, text.details];
+  }),
+  LEGAL_CONSENT_STATIC_HINT,
+].join("\n\n");
 
 /* eslint-disable-next-line */
 export interface DefaultFunnelProps {
@@ -149,6 +221,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
 
   const [verificationButtonClicked, setVerificationButtonClicked] =
     useState<boolean>(false);
+  const [legalConsentTextHash, setLegalConsentTextHash] = useState<string>("");
 
   const initArgs = useMemo<InitFunnelArgs>(
     () => ({
@@ -178,12 +251,66 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
   const questionElementsRef = useRef<FunnelElements>(questionElements);
   questionElementsRef.current = questionElements;
 
-  const { applyOptionSideEffects, removeOptionSideEffects } = useFunnelElements({
-    dispatch,
-    questionElementsRef,
-    questionElementsRaw,
-    format: { useKey, useStrings, useSelected, useUidAsKey },
-  });
+  useEffect(() => {
+    let isMounted = true;
+
+    void sha256Hex(LEGAL_CONSENT_HASH_TEXT).then((hash) => {
+      if (isMounted) {
+        setLegalConsentTextHash(hash);
+      }
+    });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const legalConsentTextHashReady = legalConsentTextHash.length > 0;
+  const legalConsentValues = useMemo(
+    () =>
+      LEGAL_CONSENT_KEYS.reduce(
+        (acc, consentKey) => {
+          acc[consentKey] =
+            questionElements.__legalConsent?.consents?.[consentKey] === true;
+          return acc;
+        },
+        {} as Record<LegalConsentKey, boolean>,
+      ),
+    [questionElements.__legalConsent?.consents],
+  );
+  const hasRequiredLegalConsents =
+    legalConsentTextHashReady &&
+    LEGAL_VISIBLE_CONSENT_KEYS.every(
+      (consentKey) => legalConsentValues[consentKey],
+    );
+  const legalConsentDisabledReason = legalConsentTextHashReady
+    ? "Bitte bestätigen Sie die Pflichtfelder."
+    : "Die Einwilligungstexte werden vorbereitet.";
+  const handleLegalConsentChange = useCallback(
+    (consentKey: LegalConsentKey, checked: boolean) => {
+      if (!legalConsentTextHashReady) return;
+
+      dispatch({
+        type: "SET_LEGAL_CONSENT",
+        consentKey,
+        checked,
+        changedAt: new Date().toISOString(),
+        consentVersion: LEGAL_CONSENT_VERSION,
+        textHash: legalConsentTextHash,
+        policyVersions: LEGAL_POLICY_VERSIONS,
+      });
+    },
+    [legalConsentTextHash, legalConsentTextHashReady],
+  );
+
+  const { applyOptionSideEffects, removeOptionSideEffects } = useFunnelElements(
+    {
+      dispatch,
+      questionElementsRef,
+      questionElementsRaw,
+      format: { useKey, useStrings, useSelected, useUidAsKey },
+    },
+  );
 
   const firstQuestionKey = Object.keys(questionElements)[0] ?? null;
 
@@ -967,7 +1094,8 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
       if (
         form.type === "checkbox" ||
         form.type === "radio" ||
-        form.type === "select"
+        form.type === "select" ||
+        form.type === "card-popup"
       ) {
         return form.selected.selectedOptions.length > 0;
       }
@@ -1057,14 +1185,13 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
 
     const keepCurrentQuestion =
       !isExtractionReviewFlowActive(questionElements) ||
-      questionHasVisibleNonAiAcceptedForm(questionElements[currentQuestionId]) ||
+      questionHasVisibleNonAiAcceptedForm(
+        questionElements[currentQuestionId],
+      ) ||
       questionHasLlmFileExtraction(questionElements[currentQuestionId]);
     if (keepCurrentQuestion) return;
 
-    const renderable = getRenderableQuestionKeys(
-      questionElements,
-      true,
-    )?.[0];
+    const renderable = getRenderableQuestionKeys(questionElements, true)?.[0];
     if (renderable && renderable !== currentQuestionId) {
       url.searchParams.set("currentQuestionId", renderable);
       window.history.replaceState({}, "", url.toString());
@@ -1117,6 +1244,22 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
             (questionCounts.totalQuestions - 1)) *
             100,
         );
+  const extractionReviewActive = isExtractionReviewFlowActive(questionElements);
+  const questionHasVisibleLlmExtractionForm = (questionKey: string): boolean =>
+    Object.values(questionElements[questionKey]?.form ?? {}).some(
+      (form: any) =>
+        isVisibleEntity(form) && form.type === "llm-file-extraction",
+    );
+  const questionShouldShowReviewAccuracyNotice = (
+    questionKey: string,
+  ): boolean =>
+    extractionReviewActive &&
+    Object.values(questionElements[questionKey]?.form ?? {}).some(
+      (form: any) =>
+        isVisibleEntity(form) &&
+        form.type !== "submit-button" &&
+        form.type !== "llm-file-extraction",
+    );
 
   return (
     <>
@@ -1248,6 +1391,12 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                   {questionElements[questionKey].description}
                 </div>
               </div>
+              {questionHasVisibleLlmExtractionForm(questionKey) && (
+                <LegalAiTransparencyNotice />
+              )}
+              {questionShouldShowReviewAccuracyNotice(questionKey) && (
+                <LegalAccuracyNotice />
+              )}
               {/** Form */}
               <div className="grid grid-cols-2 gap-6">
                 {Object.keys(questionElements[questionKey].form)
@@ -1288,7 +1437,8 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                         </div>
                       </div>
                       {(() => {
-                        const form = questionElements[questionKey].form[formKey];
+                        const form =
+                          questionElements[questionKey].form[formKey];
                         switch (form.type) {
                           case "checkbox":
                           case "radio":
@@ -1299,9 +1449,31 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                 formKey={formKey}
                                 dispatch={dispatch}
                                 applyOptionSideEffects={applyOptionSideEffects}
-                                removeOptionSideEffects={removeOptionSideEffects}
-                                debouncedGetNextQuestionKey={debouncedGetNextQuestionKey}
-                                debouncedCountQuestionsAndSet={debouncedCountQuestionsAndSet}
+                                removeOptionSideEffects={
+                                  removeOptionSideEffects
+                                }
+                                debouncedGetNextQuestionKey={
+                                  debouncedGetNextQuestionKey
+                                }
+                                debouncedCountQuestionsAndSet={
+                                  debouncedCountQuestionsAndSet
+                                }
+                              />
+                            );
+                          case "card-popup":
+                            return (
+                              <CardPopupForm
+                                questionElements={questionElements}
+                                questionKey={questionKey}
+                                formKey={formKey}
+                                setQuestionElements={setQuestionElements}
+                                debouncedGetNextQuestionKey={
+                                  debouncedGetNextQuestionKey
+                                }
+                                debouncedCountQuestionsAndSet={
+                                  debouncedCountQuestionsAndSet
+                                }
+                                t={t}
                               />
                             );
                           case "select":
@@ -1312,9 +1484,15 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                 formKey={formKey}
                                 dispatch={dispatch}
                                 applyOptionSideEffects={applyOptionSideEffects}
-                                removeOptionSideEffects={removeOptionSideEffects}
-                                debouncedGetNextQuestionKey={debouncedGetNextQuestionKey}
-                                debouncedCountQuestionsAndSet={debouncedCountQuestionsAndSet}
+                                removeOptionSideEffects={
+                                  removeOptionSideEffects
+                                }
+                                debouncedGetNextQuestionKey={
+                                  debouncedGetNextQuestionKey
+                                }
+                                debouncedCountQuestionsAndSet={
+                                  debouncedCountQuestionsAndSet
+                                }
                               />
                             );
                           case "range":
@@ -1324,8 +1502,12 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                 questionKey={questionKey}
                                 formKey={formKey}
                                 setQuestionElements={setQuestionElements}
-                                debouncedGetNextQuestionKey={debouncedGetNextQuestionKey}
-                                debouncedCalculateForms={debouncedCalculateForms}
+                                debouncedGetNextQuestionKey={
+                                  debouncedGetNextQuestionKey
+                                }
+                                debouncedCalculateForms={
+                                  debouncedCalculateForms
+                                }
                               />
                             );
                           case "text":
@@ -1338,22 +1520,29 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                 questionKey={questionKey}
                                 formKey={formKey}
                                 dispatch={dispatch}
-                                debouncedGetNextQuestionKey={debouncedGetNextQuestionKey}
+                                debouncedGetNextQuestionKey={
+                                  debouncedGetNextQuestionKey
+                                }
                               />
                             );
                           case "submit-button":
                             return (
-                              <SubmitButtonForm
-                                questionElements={questionElements}
-                                questionKey={questionKey}
-                                formKey={formKey}
-                                showQuestionNavigationButtons={showQuestionNavigationButtons}
-                                confettiConfig={confettiConfig}
-                                t={t}
-                                setQuestionElements={setQuestionElements}
-                                getNextQuestionKey={getNextQuestionKey}
-                                submitFunnel={submitFunnel}
-                              />
+                              <>
+                                <LegalAccuracyNotice compact />
+                                <SubmitButtonForm
+                                  questionElements={questionElements}
+                                  questionKey={questionKey}
+                                  formKey={formKey}
+                                  showQuestionNavigationButtons={
+                                    showQuestionNavigationButtons
+                                  }
+                                  confettiConfig={confettiConfig}
+                                  t={t}
+                                  setQuestionElements={setQuestionElements}
+                                  getNextQuestionKey={getNextQuestionKey}
+                                  submitFunnel={submitFunnel}
+                                />
+                              </>
                             );
                           case "calculation":
                             return (
@@ -1370,7 +1559,9 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                 formKey={formKey}
                                 questionElements={questionElements}
                                 setQuestionElements={setQuestionElements}
-                                STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
+                                STORAGE_ZONE_ACCESS_KEY={
+                                  STORAGE_ZONE_ACCESS_KEY
+                                }
                               />
                             );
                           case "llm-file-extraction":
@@ -1380,9 +1571,22 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                 formKey={formKey}
                                 questionElements={questionElements}
                                 setQuestionElements={setQuestionElements}
-                                STORAGE_ZONE_ACCESS_KEY={STORAGE_ZONE_ACCESS_KEY}
+                                STORAGE_ZONE_ACCESS_KEY={
+                                  STORAGE_ZONE_ACCESS_KEY
+                                }
                                 applyFunnelPrefill={applyFunnelPrefill}
                                 removeFunnelPrefill={removeFunnelPrefill}
+                                analysisDisabled={!hasRequiredLegalConsents}
+                                analysisDisabledReason={
+                                  legalConsentDisabledReason
+                                }
+                                consentGate={
+                                  <LegalConsentGate
+                                    consents={legalConsentValues}
+                                    disabled={!legalConsentTextHashReady}
+                                    onChange={handleLegalConsentChange}
+                                  />
+                                }
                               />
                             );
                           case "calendly":
@@ -1392,7 +1596,9 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                                 formKey={formKey}
                                 questionElements={questionElements}
                                 setQuestionElements={setQuestionElements}
-                                debouncedCountFormsAndSet={debouncedCountQuestionsAndSet}
+                                debouncedCountFormsAndSet={
+                                  debouncedCountQuestionsAndSet
+                                }
                               />
                             );
                           default:
@@ -1474,9 +1680,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
               <DialogTitle className="font-bold">
                 {t("ui.verification.title")}
               </DialogTitle>
-              <Description>
-                {t("ui.verification.description")}
-              </Description>
+              <Description>{t("ui.verification.description")}</Description>
               <p>{t("ui.verification.details")}</p>
               <form className="max-w-sm mx-auto">
                 <div className="flex mb-2 space-x-2 rtl:space-x-reverse">
@@ -1552,6 +1756,215 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     </>
   );
 };
+
+function LegalAiTransparencyNotice() {
+  return (
+    <section className="mt-6 rounded-lg border border-synergy-light-blue/30 bg-synergy-light-blue/5 p-4 text-left text-synergy-dark-grey shadow-sm dark:border-synergy-light-blue/40 dark:bg-synergy-light-blue/10 dark:text-synergy-light-grey">
+      <div className="flex gap-3">
+        <Info
+          aria-hidden="true"
+          className="mt-0.5 h-5 w-5 flex-none text-synergy-light-blue"
+          strokeWidth={1.9}
+        />
+        <div>
+          <h2 className="text-base font-semibold">
+            {LEGAL_AI_TRANSPARENCY_NOTICE.title}
+          </h2>
+          <p className="mt-1 text-sm leading-6 text-gray-700 dark:text-gray-300">
+            {LEGAL_AI_TRANSPARENCY_NOTICE.body} Weitere Informationen finden Sie
+            in unserer{" "}
+            <a
+              href="/datenschutz"
+              className="font-medium text-synergy-light-blue underline-offset-4 hover:underline focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2"
+            >
+              Datenschutzerklärung
+            </a>
+            .
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function LegalAccuracyNotice({ compact = false }: { compact?: boolean }) {
+  if (compact) {
+    return (
+      <section className="mb-4 rounded-lg border border-amber-300 bg-amber-50 p-3 text-left text-amber-950 shadow-sm dark:border-amber-400/50 dark:bg-amber-500/10 dark:text-amber-100">
+        <div className="flex gap-2.5">
+          <AlertTriangle
+            aria-hidden="true"
+            className="mt-0.5 h-4 w-4 flex-none text-amber-600 dark:text-amber-300"
+            strokeWidth={1.9}
+          />
+          <div className="min-w-0 flex-1">
+            <p className="text-sm font-medium leading-6">
+              {LEGAL_ACCURACY_NOTICE.submitSummary}
+            </p>
+            <details className="group mt-1.5 text-sm leading-6">
+              <summary className="inline-flex cursor-pointer list-none items-center gap-1 font-medium text-amber-800 underline-offset-4 hover:underline focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 dark:text-amber-100 [&::-webkit-details-marker]:hidden">
+                Details
+                <span
+                  aria-hidden="true"
+                  className="transition-transform group-open:rotate-180"
+                >
+                  ▾
+                </span>
+              </summary>
+              <p className="mt-1 text-sm leading-6">
+                {LEGAL_ACCURACY_NOTICE.body}
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="mb-5 rounded-lg border border-amber-300 bg-amber-50 p-4 text-left text-amber-950 shadow-sm dark:border-amber-400/50 dark:bg-amber-500/10 dark:text-amber-100">
+      <div className="flex gap-3">
+        <AlertTriangle
+          aria-hidden="true"
+          className="mt-0.5 h-5 w-5 flex-none text-amber-600 dark:text-amber-300"
+          strokeWidth={1.9}
+        />
+        <div>
+          <h2 className="text-base font-semibold">
+            {LEGAL_ACCURACY_NOTICE.title}
+          </h2>
+          <p className="mt-1 text-sm leading-6">{LEGAL_ACCURACY_NOTICE.body}</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function LegalConsentGate({
+  consents,
+  disabled,
+  onChange,
+}: {
+  consents: Record<LegalConsentKey, boolean>;
+  disabled: boolean;
+  onChange: (consentKey: LegalConsentKey, checked: boolean) => void;
+}) {
+  return (
+    <section className="mb-4 rounded-lg border border-gray-200 bg-white p-3 text-left shadow-sm dark:border-gray-700 dark:bg-gray-900">
+      <div className="flex gap-2.5">
+        <ShieldCheck
+          aria-hidden="true"
+          className="mt-0.5 h-4 w-4 flex-none text-synergy-light-blue"
+          strokeWidth={1.9}
+        />
+        <div className="min-w-0 flex-1">
+          <h2 className="text-sm font-semibold text-synergy-dark-grey dark:text-synergy-light-grey">
+            Einwilligungen vor der KI-Auswertung
+          </h2>
+          <p className="mt-0.5 text-xs leading-5 text-gray-600 dark:text-gray-300">
+            Bitte bestätigen Sie die Pflichtfelder, damit die KI-Auswertung
+            starten kann.
+          </p>
+        </div>
+      </div>
+
+      <div className="mt-3 space-y-2">
+        {LEGAL_VISIBLE_CONSENT_KEYS.map((consentKey) => {
+          const text = LEGAL_CONSENT_TEXTS[consentKey];
+          const checkboxId = `legal-consent-${consentKey}`;
+          const detailsId = `${checkboxId}-details`;
+          const requirementLabel =
+            consentKey === "fagg_waiver"
+              ? "(erforderlich, Verbraucher)"
+              : "(erforderlich)";
+
+          return (
+            <div
+              key={consentKey}
+              className={`rounded-md border px-2.5 py-2 transition-colors ${
+                consents[consentKey]
+                  ? "border-synergy-light-blue bg-synergy-light-blue/5"
+                  : "border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800"
+              }`}
+            >
+              <div className="flex items-start gap-2.5">
+                <input
+                  id={checkboxId}
+                  type="checkbox"
+                  checked={consents[consentKey]}
+                  disabled={disabled}
+                  aria-describedby={detailsId}
+                  onChange={(event) =>
+                    onChange(consentKey, event.currentTarget.checked)
+                  }
+                  className="mt-0.5 h-4 w-4 flex-none cursor-pointer rounded border-gray-300 text-synergy-light-blue focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+                />
+                <div className="min-w-0 flex-1">
+                  <label
+                    htmlFor={checkboxId}
+                    className="cursor-pointer text-xs leading-5 text-synergy-dark-grey dark:text-synergy-light-grey"
+                  >
+                    {text.visible}{" "}
+                    <span className="whitespace-nowrap font-medium text-synergy-light-blue">
+                      {requirementLabel}
+                    </span>
+                  </label>
+                  <LegalConsentDetails id={detailsId} details={text.details} />
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <p className="mt-3 text-xs leading-5 text-gray-600 dark:text-gray-300">
+        {LEGAL_CONSENT_STATIC_HINT}
+      </p>
+    </section>
+  );
+}
+
+function LegalConsentDetails({ id, details }: { id: string; details: string }) {
+  return (
+    <details id={id} className="group mt-1 text-xs leading-5">
+      <summary className="inline-flex cursor-pointer list-none items-center gap-1 font-medium text-synergy-light-blue underline-offset-4 hover:underline focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2 [&::-webkit-details-marker]:hidden">
+        Details
+        <span
+          aria-hidden="true"
+          className="transition-transform group-open:rotate-180"
+        >
+          ▾
+        </span>
+      </summary>
+      <p className="mt-1 text-gray-600 dark:text-gray-300">{details}</p>
+    </details>
+  );
+}
+
+async function sha256Hex(text: string): Promise<string> {
+  const subtle = globalThis.crypto?.subtle;
+
+  if (!subtle) {
+    return fallbackStableHash(text);
+  }
+
+  const digest = await subtle.digest("SHA-256", new TextEncoder().encode(text));
+
+  return Array.from(new Uint8Array(digest))
+    .map((byte) => byte.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+function fallbackStableHash(text: string): string {
+  let hash = 2166136261;
+
+  for (let index = 0; index < text.length; index += 1) {
+    hash ^= text.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+
+  return `fallback-${(hash >>> 0).toString(16).padStart(8, "0")}`;
+}
 
 function FunnelQuestionTransitionStyles() {
   return (

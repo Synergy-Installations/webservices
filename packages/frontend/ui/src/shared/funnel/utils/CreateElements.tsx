@@ -677,6 +677,115 @@ export const createQuestionElement = (
                 : { event: { uri: "" }, invitee: { uri: "" } },
             },
           };
+        } else if (element.form[formKey].type === "card-popup") {
+          formAcc[
+            useKey
+              ? formKey
+              : `${useUidAsKey ? element.form[formKey].uid : formKey}-${Math.random().toString(36).substring(2, 7)}`
+          ] = {
+            order: useStrings
+              ? Number(element.form[formKey].order)
+              : element.form[formKey].order,
+            uid: useKey || useUidAsKey ? element.form[formKey].uid : formKey,
+            type: element.form[formKey].type,
+            multiple: useStrings
+              ? element.form[formKey].multiple === "true"
+              : element.form[formKey].multiple,
+            required: useStrings
+              ? element.form[formKey].required === "true"
+              : element.form[formKey].required,
+            defaultVisible: useStrings
+              ? element.form[formKey].defaultVisible === "true"
+              : element.form[formKey].defaultVisible,
+            title: element.form[formKey].title,
+            description: element.form[formKey].description,
+            aiExtraction: element.form[formKey].aiExtraction ?? null,
+            extraction: createExtractionState(element.form[formKey]),
+            from: useKey ? element.form[formKey].from : from || [],
+            localStorage: useStrings
+              ? element.form[formKey].localStorage === "true"
+              : element.form[formKey].localStorage,
+            span: element.form[formKey].span,
+            message: {
+              text: element.form[formKey].message.text,
+              type: element.form[formKey].message.type,
+              requiredMessage: element.form[formKey].message.requiredMessage,
+              successMessage: element.form[formKey].message.successMessage,
+              checkPreviousFormsMessage:
+                element.form[formKey].message.checkPreviousFormsMessage,
+            },
+            options: Object.keys(element.form[formKey].options).reduce(
+              (optionsAcc: any, optionKey: string) => {
+                const option = element.form[formKey].options[optionKey];
+                optionsAcc[
+                  useKey
+                    ? optionKey
+                    : `${useUidAsKey ? option.uid : optionKey}-${Math.random().toString(36).substring(2, 7)}`
+                ] = {
+                  uid: useKey || useUidAsKey ? option.uid : optionKey,
+                  title: option.title,
+                  text: option.title,
+                  description: option.description,
+                  disabled: useStrings
+                    ? option.disabled === "true"
+                    : option.disabled,
+                  span: option.span,
+                  icon: createIconConfig(option.icon),
+                  /** Each card reveals its own set of fields inside the pop-up. */
+                  fields: Object.keys(option.fields ?? {}).reduce(
+                    (fieldsAcc: any, fieldKey: string) => {
+                      const field = option.fields[fieldKey];
+                      fieldsAcc[fieldKey] = {
+                        uid: field.uid ?? fieldKey,
+                        order: useStrings
+                          ? Number(field.order ?? 0)
+                          : (field.order ?? 0),
+                        type: field.type,
+                        label: field.label,
+                        placeholder: field.placeholder ?? "",
+                        rows: field.rows
+                          ? useStrings
+                            ? Number(field.rows)
+                            : field.rows
+                          : 3,
+                        options: field.options
+                          ? Object.keys(field.options).reduce(
+                              (fieldOptsAcc: any, fieldOptKey: string) => {
+                                fieldOptsAcc[fieldOptKey] = {
+                                  uid: field.options[fieldOptKey].uid ?? fieldOptKey,
+                                  title: field.options[fieldOptKey].title,
+                                };
+                                return fieldOptsAcc;
+                              },
+                              {},
+                            )
+                          : null,
+                      };
+                      return fieldsAcc;
+                    },
+                    {},
+                  ),
+                };
+                return optionsAcc;
+              },
+              {},
+            ),
+            selected: {
+              questionTitle: useSelected
+                ? element.form[formKey].selected.questionTitle
+                : element.form[formKey].title,
+              selectedOptions: useSelected
+                ? element.form[formKey].selected.selectedOptions
+                : [],
+              selectedOptionsUid: useSelected
+                ? element.form[formKey].selected.selectedOptionsUid
+                : [],
+              /** Per-card field values: { [optionKey]: { [fieldKey]: value } }. */
+              fields: useSelected
+                ? (element.form[formKey].selected.fields ?? {})
+                : {},
+            },
+          };
         }
         return formAcc;
       },

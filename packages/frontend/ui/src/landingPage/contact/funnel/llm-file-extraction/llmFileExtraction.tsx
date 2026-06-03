@@ -1,6 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  type ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { useDropzone } from "react-dropzone";
 import { useParams } from "next/navigation";
 import { useRealtimeRun } from "@trigger.dev/react-hooks";
@@ -145,6 +152,11 @@ export interface LLMFileExtractionProps {
     formUid: string,
     context: { documentName: string; fileUid: string; force?: boolean },
   ): void;
+  disabled?: boolean;
+  disabledReason?: string;
+  analysisDisabled?: boolean;
+  analysisDisabledReason?: string;
+  consentGate?: ReactNode;
 }
 
 export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
@@ -155,6 +167,11 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
     setQuestionElements,
     applyFunnelPrefill,
     removeFunnelPrefill,
+    disabled = false,
+    disabledReason,
+    analysisDisabled = false,
+    analysisDisabledReason,
+    consentGate,
   } = props;
 
   const params = useParams();
@@ -183,6 +200,10 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
       yellow: Number(extraction.confidence?.yellow ?? 0.55),
     }),
     [extraction.confidence?.green, extraction.confidence?.yellow],
+  );
+  const funnelSessionId = useMemo(
+    () => buildFunnelSessionId(questionKey, formKey),
+    [formKey, questionKey],
   );
   const lastReconciliationSignatureRef = useRef<string>("");
 
@@ -250,6 +271,10 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
 
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
+      if (disabled) {
+        return;
+      }
+
       const filesToUpload = acceptedFiles.filter((file) => {
         const fingerprint = buildFileFingerprint(file);
 
@@ -266,11 +291,8 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
       }
 
       const pullHostName = form.options.download.pullHostName;
-      const funnelSessionId = buildFunnelSessionId(questionKey, formKey);
 
-      const uploadFile = async (
-        file: File,
-      ): Promise<ExtractionRequestDocument | null> => {
+      const uploadFile = async (file: File): Promise<void> => {
         const fingerprint = buildFileFingerprint(file);
 
         const temporaryFileUid = `pending-${Math.random().toString(36).substring(2, 7)}-${file.name}`;
@@ -347,159 +369,183 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
 
           updateFile(path, { status: "uploaded", uploadProgress: 100 });
 
-          return {
-            fileUid: path,
-            clientId: temporaryFileUid,
-            bunnyPath: path,
-            filename: file.name,
-            contentType: uploadContentType,
-          };
+          return;
         } catch (error) {
           updateFile(currentFileUid, {
             status: "error",
             extractionError: String(error),
           });
           console.error("File upload failed", error);
-          return null;
         } finally {
           uploadFingerprintsRef.current.delete(fingerprint);
         }
       };
 
-      void (async () => {
-        const uploadedDocuments = (
-          await Promise.all(filesToUpload.map((file) => uploadFile(file)))
-        ).filter(isExtractionRequestDocument);
+      void Promise.all(filesToUpload.map((file) => uploadFile(file)));
+    },
+    [
+      disabled,
+      form.options.download.pullHostName,
+      funnelSessionId,
+      formKey,
+      locale,
+      setQuestionElements,
+      updateFile,
+    ],
+  );
 
-        if (uploadedDocuments.length === 0) {
-          return;
-        }
+  const startExtraction = useCallback(() => {
+    if (analysisDisabled) {
+      return;
+    }
 
-        const documents = collectCurrentExtractionDocuments(
-          selectedFilesRef.current,
-          uploadedDocuments,
+    const documents = collectReadyExtractionDocuments(selectedFilesRef.current);
+
+    if (documents.length === 0) {
+      return;
+    }
+
+    const extractionBatchId = buildExtractionBatchId();
+    const extractionStartedAt = Date.now();
+    const ownerDocument = documents[0];
+    const batchDocumentNames = documents.map((document) => document.filename);
+
+    updateFiles(
+      (file) =>
+        documents.some((document) => matchesExtractionDocument(file, document)),
+      (file) => ({
+        status: "queued",
+        extractionBatchId,
+        extractionBatchOwner: ownerDocument
+          ? matchesExtractionDocument(file, ownerDocument)
+          : false,
+        extractionBatchDocumentNames: batchDocumentNames,
+        extractionRun: undefined,
+        extractionStep: undefined,
+        extractionStartedAt,
+        extractionCompletedInSeconds: undefined,
+        partialExtraction: undefined,
+        extractionError: undefined,
+        extractionResult: undefined,
+        prefillResult: undefined,
+      }),
+    );
+
+    void (async () => {
+      try {
+        const extractResponse = await fetch(
+          `/${locale}${extraction.endpoint ?? "/api/funnel/extract"}`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              funnelSessionId,
+              documents: documents.map((document) => ({
+                bunnyPath: document.bunnyPath,
+                filename: document.filename,
+                contentType: document.contentType,
+              })),
+              extractionQuestionUid: questionElements[questionKey].uid,
+              extractionFormUid: form.uid,
+              options: {
+                selfConsistencySamples: Number(
+                  extraction.options?.selfConsistencySamples ?? 0,
+                ),
+                runVerifier:
+                  extraction.options?.runVerifier === true ||
+                  extraction.options?.runVerifier === "true",
+              },
+            }),
+          },
         );
 
-        if (documents.length === 0) {
-          return;
+        if (!extractResponse.ok) {
+          throw new Error(
+            `extract ${extractResponse.status}: ${await extractResponse.text()}`,
+          );
         }
 
-        const extractionBatchId = buildExtractionBatchId();
-        const extractionStartedAt = Date.now();
-        const ownerDocument = documents[0];
-        const batchDocumentNames = documents.map(
-          (document) => document.filename,
-        );
-
+        const handle = (await extractResponse.json()) as RunHandle;
         updateFiles(
           (file) =>
+            file.extractionBatchId === extractionBatchId &&
+            documents.some((document) =>
+              matchesExtractionDocument(file, document),
+            ),
+          {
+            status: "extracting",
+            extractionRun: handle,
+            extractionStartedAt,
+          },
+        );
+      } catch (error) {
+        updateFiles(
+          (file) =>
+            file.extractionBatchId === extractionBatchId &&
             documents.some((document) =>
               matchesExtractionDocument(file, document),
             ),
           (file) => ({
-            status: "queued",
-            extractionBatchId,
-            extractionBatchOwner: ownerDocument
-              ? matchesExtractionDocument(file, ownerDocument)
-              : false,
-            extractionBatchDocumentNames: batchDocumentNames,
-            extractionRun: undefined,
-            extractionStep: undefined,
-            extractionStartedAt,
-            extractionCompletedInSeconds: undefined,
-            partialExtraction: undefined,
-            extractionError: undefined,
-            extractionResult: undefined,
-            prefillResult: undefined,
+            status: "error",
+            extractionCompletedInSeconds: file.extractionStartedAt
+              ? secondsSince(file.extractionStartedAt)
+              : undefined,
+            extractionError: String(error),
           }),
         );
-
-        try {
-          const extractResponse = await fetch(
-            `/${locale}${extraction.endpoint ?? "/api/funnel/extract"}`,
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                funnelSessionId,
-                documents: documents.map((document) => ({
-                  bunnyPath: document.bunnyPath,
-                  filename: document.filename,
-                  contentType: document.contentType,
-                })),
-                extractionQuestionUid: questionElements[questionKey].uid,
-                extractionFormUid: form.uid,
-                options: {
-                  selfConsistencySamples: Number(
-                    extraction.options?.selfConsistencySamples ?? 0,
-                  ),
-                  runVerifier:
-                    extraction.options?.runVerifier === true ||
-                    extraction.options?.runVerifier === "true",
-                },
-              }),
-            },
-          );
-
-          if (!extractResponse.ok) {
-            throw new Error(
-              `extract ${extractResponse.status}: ${await extractResponse.text()}`,
-            );
-          }
-
-          const handle = (await extractResponse.json()) as RunHandle;
-          updateFiles(
-            (file) =>
-              file.extractionBatchId === extractionBatchId &&
-              documents.some((document) =>
-                matchesExtractionDocument(file, document),
-              ),
-            {
-              status: "extracting",
-              extractionRun: handle,
-              extractionStartedAt,
-            },
-          );
-        } catch (error) {
-          updateFiles(
-            (file) =>
-              file.extractionBatchId === extractionBatchId &&
-              documents.some((document) =>
-                matchesExtractionDocument(file, document),
-              ),
-            (file) => ({
-              status: "error",
-              extractionCompletedInSeconds: file.extractionStartedAt
-                ? secondsSince(file.extractionStartedAt)
-                : undefined,
-              extractionError: String(error),
-            }),
-          );
-          console.error("File extraction failed", error);
-        }
-      })();
-    },
-    [
-      extraction.endpoint,
-      extraction.options?.runVerifier,
-      extraction.options?.selfConsistencySamples,
-      form.options.download.pullHostName,
-      form.uid,
-      formKey,
-      locale,
-      questionElements,
-      questionKey,
-      setQuestionElements,
-      updateFile,
-      updateFiles,
-    ],
-  );
+        console.error("File extraction failed", error);
+      }
+    })();
+  }, [
+    analysisDisabled,
+    extraction.endpoint,
+    extraction.options?.runVerifier,
+    extraction.options?.selfConsistencySamples,
+    form.uid,
+    funnelSessionId,
+    locale,
+    questionElements,
+    questionKey,
+    updateFiles,
+  ]);
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     accept,
     multiple: form.options.upload.multipleFiles !== "false",
+    disabled,
   });
+  const hasSelectedFiles = selectedFiles.length > 0;
+  const readyExtractionDocumentCount =
+    collectReadyExtractionDocuments(selectedFiles).length;
+  const hasReadyExtractionDocuments = readyExtractionDocumentCount > 0;
+  const uploadInProgress = selectedFiles.some(
+    (file) => file.status === "minting" || file.status === "uploading",
+  );
+  const extractionInProgress = selectedFiles.some(
+    (file) => file.status === "queued" || file.status === "extracting",
+  );
+  const hasStartedExtraction = selectedFiles.some(
+    (file) =>
+      Boolean(file.extractionRun) ||
+      file.status === "queued" ||
+      file.status === "extracting" ||
+      file.status === "extracted",
+  );
+  const startAnalysisDisabled =
+    uploadInProgress ||
+    extractionInProgress ||
+    analysisDisabled ||
+    !hasReadyExtractionDocuments;
+  const startAnalysisDisabledReason = uploadInProgress
+    ? "Dateien werden noch hochgeladen."
+    : extractionInProgress
+      ? "Die KI-Auswertung läuft bereits."
+      : analysisDisabled
+        ? (analysisDisabledReason ?? "Bitte bestätigen Sie die Pflichtfelder.")
+        : !hasReadyExtractionDocuments && hasStartedExtraction
+          ? "Die ausgewählten Dateien wurden bereits analysiert."
+          : "Bitte laden Sie zuerst eine Datei hoch.";
 
   useEffect(() => {
     const selectedFiles = (form.selected.selectedFiles ?? []) as SelectedFile[];
@@ -528,10 +574,10 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
     const autoResult =
       Object.keys(plan.autoPrefill).length > 0
         ? applyFunnelPrefill?.(plan.autoPrefill, {
-          documentName: "KI-Auswertung",
-          fileUid: "multi-file-extraction",
-          force: true,
-        })
+            documentName: "KI-Auswertung",
+            fileUid: "multi-file-extraction",
+            force: true,
+          })
         : undefined;
 
     setQuestionElements((prev: any) =>
@@ -573,37 +619,62 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
 
   return (
     <>
-      <div
-        {...getRootProps()}
-        className="flex flex-col items-center justify-center w-full"
-      >
-        <label
-          htmlFor={formKey}
-          className="relative flex h-64 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 transition-colors hover:border-synergy-light-blue hover:bg-synergy-light-grey dark:border-gray-600 dark:bg-gray-700 dark:hover:border-synergy-light-blue dark:hover:bg-gray-800"
+      <div className="relative w-full">
+        <div
+          {...getRootProps({
+            "aria-disabled": disabled,
+            className: `flex w-full flex-col items-center justify-center ${
+              disabled ? "pointer-events-none" : ""
+            }`,
+          })}
         >
-          <div className="flex flex-col items-center justify-center pt-5 pb-6 px-4 text-center">
-            <UploadCloud
-              className="mb-4 h-8 w-8 text-synergy-light-blue"
-              aria-hidden="true"
-              strokeWidth={1.8}
+          <label
+            htmlFor={formKey}
+            className={`relative flex h-64 w-full flex-col items-center justify-center rounded-lg border-2 border-dashed transition-colors ${
+              disabled
+                ? "cursor-not-allowed border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800/80"
+                : "cursor-pointer border-gray-300 bg-gray-50 hover:border-synergy-light-blue hover:bg-synergy-light-grey dark:border-gray-600 dark:bg-gray-700 dark:hover:border-synergy-light-blue dark:hover:bg-gray-800"
+            }`}
+          >
+            <span className="absolute right-3 top-3 rounded-full bg-white/90 px-2 py-0.5 text-xs font-medium text-gray-500 shadow-sm dark:bg-gray-900/90 dark:text-gray-300">
+              Optional
+            </span>
+            <div
+              className={`flex flex-col items-center justify-center px-4 pb-6 pt-5 text-center transition ${
+                disabled ? "opacity-70 blur-[2px] saturate-75" : ""
+              }`}
+            >
+              <UploadCloud
+                className="mb-4 h-8 w-8 text-synergy-light-blue"
+                aria-hidden="true"
+                strokeWidth={1.8}
+              />
+              <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                <span className="font-semibold text-synergy-dark-grey dark:text-synergy-light-grey">
+                  Klicken zum Hochladen
+                </span>{" "}
+                oder Drag and Drop
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                {extraction.acceptText || form.options.upload.filesAccepted}
+              </p>
+            </div>
+            <input
+              {...getInputProps({ disabled })}
+              id={formKey}
+              type="file"
+              className="hidden"
             />
-            <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-              <span className="font-semibold text-synergy-dark-grey dark:text-synergy-light-grey">
-                Klicken zum Hochladen
-              </span>{" "}
-              oder Drag and Drop
-            </p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">
-              {extraction.acceptText || form.options.upload.filesAccepted}
-            </p>
+          </label>
+        </div>
+        {disabled && (
+          <div className="pointer-events-none absolute inset-0 flex items-end justify-center rounded-lg bg-white/15 p-3 text-center dark:bg-gray-950/20">
+            <div className="max-w-sm rounded-full border border-gray-200/80 bg-white/90 px-3 py-1.5 text-xs font-medium text-synergy-dark-grey shadow-sm dark:border-gray-700 dark:bg-gray-900/90 dark:text-synergy-light-grey">
+              {disabledReason ??
+                "Bitte bestätigen Sie die Pflichtfelder, bevor Sie Dateien hochladen."}
+            </div>
           </div>
-          <input
-            {...getInputProps()}
-            id={formKey}
-            type="file"
-            className="hidden"
-          />
-        </label>
+        )}
       </div>
 
       {form.selected.selectedFiles.length > 0 && (
@@ -723,6 +794,46 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
         ))}
       </div>
 
+      {hasSelectedFiles && (
+        <div className="mt-3 space-y-3">
+          {consentGate}
+          <div className="rounded-lg border border-gray-200 bg-white p-3 text-left shadow-sm dark:border-gray-700 dark:bg-gray-900">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-sm font-semibold text-synergy-dark-grey dark:text-synergy-light-grey">
+                  KI-Auswertung starten
+                </p>
+                <p
+                  id={`${formKey}-analysis-start-hint`}
+                  className={`mt-1 text-xs leading-5 ${
+                    startAnalysisDisabled
+                      ? "text-gray-600 dark:text-gray-300"
+                      : "text-green-700 dark:text-green-400"
+                  }`}
+                >
+                  {startAnalysisDisabled
+                    ? startAnalysisDisabledReason
+                    : `${readyExtractionDocumentCount} Datei(en) bereit für die KI-Auswertung.`}
+                </p>
+              </div>
+              <button
+                type="button"
+                disabled={startAnalysisDisabled}
+                aria-disabled={startAnalysisDisabled}
+                aria-describedby={`${formKey}-analysis-start-hint`}
+                onClick={(event) => {
+                  event.preventDefault();
+                  startExtraction();
+                }}
+                className="inline-flex items-center justify-center rounded-md bg-synergy-light-blue px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-synergy-light-blue/90 focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-600 dark:disabled:bg-gray-700 dark:disabled:text-gray-300"
+              >
+                Analyse starten
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <p
         className={`mt-2 min-h-[1.57rem] text-sm ${form.message.type === "error" ? "text-red-600 dark:text-red-500" : form.message.type === "warning" ? "text-orange-600 dark:text-orange-500" : form.message.type === "loading" ? "text-synergy-light-blue" : "text-green-600 dark:text-green-500"}`}
       >
@@ -759,7 +870,7 @@ function collectAiExtractionFields(
 
       const fieldKey =
         typeof aiExtraction.fieldKey === "string" &&
-          aiExtraction.fieldKey.trim()
+        aiExtraction.fieldKey.trim()
           ? aiExtraction.fieldKey
           : String(form.uid ?? form.title ?? "field");
       fields[fieldKey] = normalizeAiExtractionField(
@@ -1028,9 +1139,9 @@ function markManualPrefillChoice(
 
     const result = isPrefillResult(file.prefillResult)
       ? {
-        applied: [...file.prefillResult.applied],
-        skipped: file.prefillResult.skipped.map((item) => ({ ...item })),
-      }
+          applied: [...file.prefillResult.applied],
+          skipped: file.prefillResult.skipped.map((item) => ({ ...item })),
+        }
       : emptyPrefillResult();
     const sameValue = normalizePrefillValue(entry.value) === opts.valueKey;
 
@@ -1333,7 +1444,7 @@ function getExtractionSourceDocument(
 
   const outputSource =
     fieldKey &&
-      typeof output?.extraction?.[fieldKey]?.source_document === "string"
+    typeof output?.extraction?.[fieldKey]?.source_document === "string"
       ? output.extraction[fieldKey].source_document
       : null;
   if (outputSource?.trim()) return outputSource;
@@ -1353,8 +1464,8 @@ function shouldCollectExtractionCandidateForFile(
   if (sourceDocument) {
     const batchFiles = file.extractionBatchId
       ? files.filter(
-        (candidate) => candidate.extractionBatchId === file.extractionBatchId,
-      )
+          (candidate) => candidate.extractionBatchId === file.extractionBatchId,
+        )
       : files;
     const primarySourceFile = batchFiles.find((candidate) =>
       documentNamesMatch(candidate.name, sourceDocument),
@@ -1485,33 +1596,19 @@ function matchesActiveExtractionRun(
   return isSameSelectedFile(candidate, owner);
 }
 
-function isExtractionRequestDocument(
-  document: ExtractionRequestDocument | null,
-): document is ExtractionRequestDocument {
-  return document !== null;
+function collectReadyExtractionDocuments(
+  files: SelectedFile[],
+): ExtractionRequestDocument[] {
+  return files.filter(isReadyForExtractionFile).map((file) => ({
+    fileUid: file.uid,
+    bunnyPath: file.uid,
+    filename: file.name,
+    contentType: file.type || "application/octet-stream",
+  }));
 }
 
-function collectCurrentExtractionDocuments(
-  files: SelectedFile[],
-  uploadedDocuments: ExtractionRequestDocument[],
-): ExtractionRequestDocument[] {
-  const documentsByUid = new Map<string, ExtractionRequestDocument>();
-
-  files.forEach((file) => {
-    if (!isUploadedExtractionFile(file)) return;
-    documentsByUid.set(file.uid, {
-      fileUid: file.uid,
-      bunnyPath: file.uid,
-      filename: file.name,
-      contentType: file.type || "application/octet-stream",
-    });
-  });
-
-  uploadedDocuments.forEach((document) => {
-    documentsByUid.set(document.fileUid, document);
-  });
-
-  return Array.from(documentsByUid.values());
+function isReadyForExtractionFile(file: SelectedFile): boolean {
+  return isUploadedExtractionFile(file) && file.status === "uploaded";
 }
 
 function isUploadedExtractionFile(file: SelectedFile): boolean {
@@ -1675,9 +1772,9 @@ function buildExtractionCompletionSummary(opts: {
     Object.keys(opts.extractionFields).length > 0
       ? Object.entries(opts.extractionFields)
       : Object.keys(extraction).map(
-        (fieldKey) =>
-          [fieldKey, { label: fieldKey }] as [string, ExtractionFieldConfig],
-      );
+          (fieldKey) =>
+            [fieldKey, { label: fieldKey }] as [string, ExtractionFieldConfig],
+        );
 
   const items = fieldEntries.flatMap(([fieldKey, field]) => {
     const extracted = isPlainRecord(extraction[fieldKey])
@@ -1801,10 +1898,10 @@ function buildExtractionPromptMessages(
   return messages.length > 0
     ? messages
     : [
-      "KI liest die Projektunterlagen...",
-      "KI sucht passende Antworten...",
-      "KI prueft die gefundenen Werte...",
-    ];
+        "KI liest die Projektunterlagen...",
+        "KI sucht passende Antworten...",
+        "KI prueft die gefundenen Werte...",
+      ];
 }
 
 function useRotatingExtractionMessage(
@@ -1908,10 +2005,11 @@ function ExtractionCompletionBadge({
                   <div className="flex items-start justify-between gap-2">
                     <span className="font-medium">{item.label}</span>
                     <span
-                      className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-medium ${item.hasValue
+                      className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-medium ${
+                        item.hasValue
                           ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
                           : "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300"
-                        }`}
+                      }`}
                     >
                       {item.hasValue ? "Ausgefüllt" : "Kein Ergebnis"}
                     </span>
@@ -2040,9 +2138,9 @@ function ExtractionRunSubscription(props: {
 
     const metadata = run?.metadata as
       | {
-        step?: string;
-        partialExtraction?: Record<string, Partial<GroundedExtractionValue>>;
-      }
+          step?: string;
+          partialExtraction?: Record<string, Partial<GroundedExtractionValue>>;
+        }
       | undefined;
 
     if (!metadata && !error) return;

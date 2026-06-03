@@ -41,7 +41,22 @@ export const ContactBlocks = (props: ContactBlocksProps) => {
                   href={t(`${contactBlockKey}.href`)}
                 >
                   <RichText>
-                    {(tags) => t.rich(`${contactBlockKey}.description`, tags)}
+                    {(tags) =>
+                      t.rich(`${contactBlockKey}.description`, {
+                        ...tags,
+                        lager: (chunks) => (
+                          <a
+                            href="https://maps.app.goo.gl/5muEKSBAzkPtgotu7"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            {chunks}
+                          </a>
+                        ),
+                      })
+                    }
                   </RichText>
                 </a>
               </div>

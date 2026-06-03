@@ -413,7 +413,29 @@ export const Funnel = (props: FunnelProps) => {
                       form.type === "radio" ||
                       form.type === "select"
                         ? form.selected.selectedOptions
-                        : form.type === "range"
+                        : form.type === "card-popup"
+                          ? form.selected.selectedOptionsUid.map(
+                              (optionKey: string) => {
+                                const option = form.options[optionKey];
+                                const values = form.selected.fields[optionKey] ?? {};
+                                const details = Object.keys(option.fields ?? {})
+                                  .map((fieldKey: string) => {
+                                    const field = option.fields[fieldKey];
+                                    const raw = values[fieldKey];
+                                    if (!raw) return null;
+                                    const value =
+                                      field.type === "choice"
+                                        ? (field.options?.[raw]?.title ?? raw)
+                                        : raw;
+                                    return `${field.label}: ${value}`;
+                                  })
+                                  .filter(Boolean);
+                                return details.length > 0
+                                  ? `${option.title} (${details.join(", ")})`
+                                  : option.title;
+                              },
+                            )
+                          : form.type === "range"
                           ? `${form.selected.selectedValue} ${form.options.unit.value}`
                           : form.type === "text" ||
                               form.type === "email" ||

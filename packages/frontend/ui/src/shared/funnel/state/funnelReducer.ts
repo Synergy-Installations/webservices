@@ -19,6 +19,30 @@ export type InitFunnelArgs = {
 /** A single `[key, element]` pair ready to be spliced into the tree. */
 export type ElementEntry = [string, any];
 
+export type LegalConsentKey =
+  | "ai_transfer"
+  | "third_party_data"
+  | "fagg_waiver";
+
+export type LegalConsentPolicyVersions = Record<string, string>;
+
+export type LegalConsentCheckboxState = {
+  checked: boolean;
+  changed_at: string | null;
+  checked_at: string | null;
+  unchecked_at: string | null;
+};
+
+export type LegalConsentState = {
+  type: "legal-consent";
+  defaultVisible: false;
+  consent_version: string;
+  text_hash: string;
+  policy_versions: LegalConsentPolicyVersions;
+  consents: Record<LegalConsentKey, boolean>;
+  checkboxes: Record<LegalConsentKey, LegalConsentCheckboxState>;
+};
+
 export type FunnelAction =
   /**
    * Backward-compatible escape hatch matching React's `setState`. The updater
@@ -54,13 +78,26 @@ export type FunnelAction =
       value: string;
     }
   | {
+      type: "SET_LEGAL_CONSENT";
+      consentKey: LegalConsentKey;
+      checked: boolean;
+      changedAt: string;
+      consentVersion: string;
+      textHash: string;
+      policyVersions: LegalConsentPolicyVersions;
+    }
+  | {
       type: "ADD_FORMS";
       fromQuestionKey: string;
       fromFormKey: string;
       entries: ElementEntry[];
     }
   | { type: "ADD_QUESTIONS"; fromQuestionKey: string; entries: ElementEntry[] }
-  | { type: "REMOVE_FORMS_BY_OPTION"; questionKey: string; fromOptionKey: string }
+  | {
+      type: "REMOVE_FORMS_BY_OPTION";
+      questionKey: string;
+      fromOptionKey: string;
+    }
   | { type: "REMOVE_QUESTIONS_BY_OPTION"; fromOptionKey: string };
 
 /**
@@ -72,7 +109,7 @@ export function initFunnelState(args: InitFunnelArgs): FunnelElements {
   const { questionElementsRaw, format } = args;
   const { useKey, useStrings, useSelected } = format;
 
-  return Object.keys(questionElementsRaw).reduce(
+  const elements = Object.keys(questionElementsRaw).reduce(
     (acc: FunnelElements, questionKey: string) => {
       const key = `${questionKey}-${Math.random().toString(36).substring(2, 7)}`;
       acc[useKey ? questionKey : key] = createQuestionElement(
@@ -88,6 +125,40 @@ export function initFunnelState(args: InitFunnelArgs): FunnelElements {
     },
     {},
   );
+
+  return {
+    ...elements,
+    __legalConsent: createInitialLegalConsentState(),
+  };
+}
+
+function createInitialLegalConsentState(): LegalConsentState {
+  return {
+    type: "legal-consent",
+    defaultVisible: false,
+    consent_version: "",
+    text_hash: "",
+    policy_versions: {},
+    consents: {
+      ai_transfer: false,
+      third_party_data: false,
+      fagg_waiver: false,
+    },
+    checkboxes: {
+      ai_transfer: createInitialLegalConsentCheckboxState(),
+      third_party_data: createInitialLegalConsentCheckboxState(),
+      fagg_waiver: createInitialLegalConsentCheckboxState(),
+    },
+  };
+}
+
+function createInitialLegalConsentCheckboxState(): LegalConsentCheckboxState {
+  return {
+    checked: false,
+    changed_at: null,
+    checked_at: null,
+    unchecked_at: null,
+  };
 }
 
 /** Immutably replace a single form within a question. */
@@ -191,6 +262,47 @@ export function funnelReducer(
       }));
     }
 
+    case "SET_LEGAL_CONSENT": {
+      const {
+        consentKey,
+        checked,
+        changedAt,
+        consentVersion,
+        textHash,
+        policyVersions,
+      } = action;
+      const current =
+        (state.__legalConsent as LegalConsentState | undefined) ??
+        createInitialLegalConsentState();
+      const currentCheckbox =
+        current.checkboxes?.[consentKey] ??
+        createInitialLegalConsentCheckboxState();
+
+      return {
+        ...state,
+        __legalConsent: {
+          ...current,
+          consent_version: consentVersion,
+          text_hash: textHash,
+          policy_versions: policyVersions,
+          consents: {
+            ...current.consents,
+            [consentKey]: checked,
+          },
+          checkboxes: {
+            ...current.checkboxes,
+            [consentKey]: {
+              ...currentCheckbox,
+              checked,
+              changed_at: changedAt,
+              checked_at: checked ? changedAt : currentCheckbox.checked_at,
+              unchecked_at: checked ? currentCheckbox.unchecked_at : changedAt,
+            },
+          },
+        },
+      };
+    }
+
     case "ADD_FORMS": {
       const { fromQuestionKey, fromFormKey, entries } = action;
       const question = state[fromQuestionKey];
@@ -228,8 +340,7 @@ export function funnelReducer(
           ...question,
           form: Object.fromEntries(
             Object.entries(question.form).filter(
-              ([, form]: [string, any]) =>
-                !form.from?.includes(fromOptionKey),
+              ([, form]: [string, any]) => !form.from?.includes(fromOptionKey),
             ),
           ),
         },

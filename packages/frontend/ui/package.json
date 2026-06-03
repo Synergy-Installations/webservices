@@ -103,6 +103,7 @@
     "./RichText": "./src/shared/internationalization/text/RichText.tsx",
     "./ImpressumPage": "./src/landingPage/legal/ImpressumPage.tsx",
     "./DatenschutzPage": "./src/landingPage/legal/DatenschutzPage.tsx",
+    "./NutzungsbedingungenPage": "./src/landingPage/legal/NutzungsbedingungenPage.tsx",
     "./ProductPreviewSmallTransition": "./src/landingPage/shared/ui/productPreviewSmallTransition/ProductPreviewSmallTransition.tsx",
     "./TracingBeam": "./src/shared/animations/tracingBeam/TracingBeam.tsx",
     "./cn": "./src/shared/utils/cn/Cn.tsx",

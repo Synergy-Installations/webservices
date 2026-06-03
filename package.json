@@ -22,5 +22,9 @@
     "overrides": {
       "@tiptap/core": "2.11.7"
     }
+  },
+  "dependencies": {
+    "@trigger.dev/sdk": "4.4.6",
+    "trigger.dev": "^4.4.5"
   }
 }

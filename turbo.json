@@ -19,11 +19,32 @@
         "SMTP_USER",
         "SMTP_PASSWORD",
         "NEXT_PUBLIC_C15T_URL",
-        "RESEND_API_KEY"
+        "RESEND_API_KEY",
+        "UPLOAD_TOKEN_SECRET",
+        "BUNNY_STORAGE_ZONE",
+        "BUNNY_STORAGE_REGION",
+        "BUNNY_STORAGE_ACCESS_KEY",
+        "BUNNY_PULL_HOSTNAME",
+        "BUNNY_UPLOAD_ENDPOINT",
+        "GOTENBERG_URL",
+        "GOTENBERG_API_KEY",
+        "TRIGGER_PROJECT_REF",
+        "TRIGGER_SECRET_KEY",
+        "ANTHROPIC_API_KEY",
+        "ANTHROPIC_EXTRACTION_MODEL"
       ],
-      "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env*"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**",
+        "!.next/cache/**"
+      ]
     },
     "lint": {},
     "type-check": {},

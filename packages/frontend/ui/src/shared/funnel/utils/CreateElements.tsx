@@ -1,3 +1,17 @@
+const createIconConfig = (icon: any) =>
+  icon
+    ? {
+        src: icon.src,
+        url: icon.url,
+        name: icon.name,
+        icon: icon.icon,
+        alt: icon.alt,
+      }
+    : null;
+
+const createExtractionState = (form: any) =>
+  form?.extraction ? { ...form.extraction } : null;
+
 export const createQuestionElement = (
   questionKeyRef: string,
   question: any,
@@ -13,7 +27,7 @@ export const createQuestionElement = (
   convertVisiblityToTrue?: boolean,
   // useUidAsKey decides whether the element uid should be used for the uid and the randomly generated key should
   // use the uid to create a unique key; the use case is creating a new question element with the same uid and original key
-  useUidAsKey?: boolean
+  useUidAsKey?: boolean,
 ) => {
   const element = question;
   const questionKey: string = questionKeyRef;
@@ -67,6 +81,8 @@ export const createQuestionElement = (
               : element.form[formKey].defaultVisible,
             title: element.form[formKey].title,
             description: element.form[formKey].description,
+            aiExtraction: element.form[formKey].aiExtraction ?? null,
+            extraction: createExtractionState(element.form[formKey]),
             from: useKey ? element.form[formKey].from : from || [],
             localStorage: useStrings
               ? element.form[formKey].localStorage === "true"
@@ -104,14 +120,13 @@ export const createQuestionElement = (
                   addQuestion:
                     element.form[formKey].options[optionKey].addQuestion,
                   addForm: element.form[formKey].options[optionKey].addForm,
-                  icon: {
-                    src: element.form[formKey].options[optionKey].icon.src,
-                    alt: element.form[formKey].options[optionKey].icon.alt,
-                  },
+                  icon: createIconConfig(
+                    element.form[formKey].options[optionKey].icon,
+                  ),
                 };
                 return optionsAcc;
               },
-              {}
+              {},
             ),
             selected: {
               questionTitle: useSelected
@@ -147,6 +162,8 @@ export const createQuestionElement = (
               : element.form[formKey].defaultVisible,
             title: element.form[formKey].title,
             description: element.form[formKey].description,
+            aiExtraction: element.form[formKey].aiExtraction ?? null,
+            extraction: createExtractionState(element.form[formKey]),
             localStorage: useStrings
               ? element.form[formKey].localStorage === "true"
               : element.form[formKey].localStorage,
@@ -179,10 +196,13 @@ export const createQuestionElement = (
                   addQuestion:
                     element.form[formKey].options[optionKey].addQuestion,
                   addForm: element.form[formKey].options[optionKey].addForm,
+                  icon: createIconConfig(
+                    element.form[formKey].options[optionKey].icon,
+                  ),
                 };
                 return optionsAcc;
               },
-              {}
+              {},
             ),
             selected: {
               questionTitle: useSelected
@@ -219,6 +239,8 @@ export const createQuestionElement = (
               : element.form[formKey].defaultVisible,
             title: element.form[formKey].title,
             description: element.form[formKey].description,
+            aiExtraction: element.form[formKey].aiExtraction ?? null,
+            extraction: createExtractionState(element.form[formKey]),
             localStorage: useStrings
               ? element.form[formKey].localStorage === "true"
               : element.form[formKey].localStorage,
@@ -278,7 +300,7 @@ export const createQuestionElement = (
                         : labelKey,
                     value: useStrings
                       ? Number(
-                          element.form[formKey].options.labels[labelKey].value
+                          element.form[formKey].options.labels[labelKey].value,
                         )
                       : element.form[formKey].options.labels[labelKey].value,
                     align: element.form[formKey].options.labels[labelKey].align,
@@ -289,7 +311,7 @@ export const createQuestionElement = (
                   };
                   return lablesAcc;
                 },
-                {}
+                {},
               ),
             },
             selected: {
@@ -328,6 +350,8 @@ export const createQuestionElement = (
               : element.form[formKey].defaultVisible,
             title: element.form[formKey].title,
             description: element.form[formKey].description,
+            aiExtraction: element.form[formKey].aiExtraction ?? null,
+            extraction: createExtractionState(element.form[formKey]),
             localStorage: useStrings
               ? element.form[formKey].localStorage === "true"
               : element.form[formKey].localStorage,
@@ -521,6 +545,71 @@ export const createQuestionElement = (
                 pullHostName:
                   element.form[formKey].options.download.pullHostName,
               },
+              extraction: element.form[formKey].options.extraction ?? null,
+            },
+            selected: {
+              questionTitle: useSelected
+                ? element.form[formKey].selected.questionTitle
+                : element.form[formKey].title,
+              selectedFiles: useSelected
+                ? element.form[formKey].selected.selectedFiles
+                : [],
+            },
+          };
+        } else if (element.form[formKey].type === "llm-file-extraction") {
+          formAcc[
+            useKey
+              ? formKey
+              : `${useUidAsKey ? element.form[formKey].uid : formKey}-${Math.random().toString(36).substring(2, 7)}`
+          ] = {
+            order: useStrings
+              ? Number(element.form[formKey].order)
+              : element.form[formKey].order,
+            uid: useKey || useUidAsKey ? element.form[formKey].uid : formKey,
+            type: element.form[formKey].type,
+            required: useStrings
+              ? element.form[formKey].required === "true"
+              : element.form[formKey].required,
+            defaultVisible: useStrings
+              ? element.form[formKey].defaultVisible === "true"
+              : element.form[formKey].defaultVisible,
+            title: element.form[formKey].title,
+            description: element.form[formKey].description,
+            localStorage: useStrings
+              ? element.form[formKey].localStorage === "true"
+              : element.form[formKey].localStorage,
+            span: element.form[formKey].span,
+            from: useKey ? element.form[formKey].from : from || [],
+            message: {
+              text: element.form[formKey].message.text,
+              type: element.form[formKey].message.type,
+              errorMessage: element.form[formKey].message.errorMessage,
+              successMessage: element.form[formKey].message.successMessage,
+              loadingMessage: element.form[formKey].message.loadingMessage,
+              checkPreviousFormsMessage:
+                element.form[formKey].message.checkPreviousFormsMessage,
+            },
+            options: {
+              upload: {
+                hostname: element.form[formKey].options.upload.hostname,
+                storageZoneName:
+                  element.form[formKey].options.upload.storageZoneName,
+                region: element.form[formKey].options.upload.region,
+                filesAccepted:
+                  element.form[formKey].options.upload.filesAccepted,
+                multipleFiles:
+                  element.form[formKey].options.upload.multipleFiles,
+                uploadingText:
+                  element.form[formKey].options.upload.uploadingText,
+                uploadError: element.form[formKey].options.upload.uploadError,
+                uploadSuccess:
+                  element.form[formKey].options.upload.uploadSuccess,
+              },
+              download: {
+                pullHostName:
+                  element.form[formKey].options.download.pullHostName,
+              },
+              extraction: element.form[formKey].options.extraction ?? null,
             },
             selected: {
               questionTitle: useSelected
@@ -588,10 +677,119 @@ export const createQuestionElement = (
                 : { event: { uri: "" }, invitee: { uri: "" } },
             },
           };
+        } else if (element.form[formKey].type === "card-popup") {
+          formAcc[
+            useKey
+              ? formKey
+              : `${useUidAsKey ? element.form[formKey].uid : formKey}-${Math.random().toString(36).substring(2, 7)}`
+          ] = {
+            order: useStrings
+              ? Number(element.form[formKey].order)
+              : element.form[formKey].order,
+            uid: useKey || useUidAsKey ? element.form[formKey].uid : formKey,
+            type: element.form[formKey].type,
+            multiple: useStrings
+              ? element.form[formKey].multiple === "true"
+              : element.form[formKey].multiple,
+            required: useStrings
+              ? element.form[formKey].required === "true"
+              : element.form[formKey].required,
+            defaultVisible: useStrings
+              ? element.form[formKey].defaultVisible === "true"
+              : element.form[formKey].defaultVisible,
+            title: element.form[formKey].title,
+            description: element.form[formKey].description,
+            aiExtraction: element.form[formKey].aiExtraction ?? null,
+            extraction: createExtractionState(element.form[formKey]),
+            from: useKey ? element.form[formKey].from : from || [],
+            localStorage: useStrings
+              ? element.form[formKey].localStorage === "true"
+              : element.form[formKey].localStorage,
+            span: element.form[formKey].span,
+            message: {
+              text: element.form[formKey].message.text,
+              type: element.form[formKey].message.type,
+              requiredMessage: element.form[formKey].message.requiredMessage,
+              successMessage: element.form[formKey].message.successMessage,
+              checkPreviousFormsMessage:
+                element.form[formKey].message.checkPreviousFormsMessage,
+            },
+            options: Object.keys(element.form[formKey].options).reduce(
+              (optionsAcc: any, optionKey: string) => {
+                const option = element.form[formKey].options[optionKey];
+                optionsAcc[
+                  useKey
+                    ? optionKey
+                    : `${useUidAsKey ? option.uid : optionKey}-${Math.random().toString(36).substring(2, 7)}`
+                ] = {
+                  uid: useKey || useUidAsKey ? option.uid : optionKey,
+                  title: option.title,
+                  text: option.title,
+                  description: option.description,
+                  disabled: useStrings
+                    ? option.disabled === "true"
+                    : option.disabled,
+                  span: option.span,
+                  icon: createIconConfig(option.icon),
+                  /** Each card reveals its own set of fields inside the pop-up. */
+                  fields: Object.keys(option.fields ?? {}).reduce(
+                    (fieldsAcc: any, fieldKey: string) => {
+                      const field = option.fields[fieldKey];
+                      fieldsAcc[fieldKey] = {
+                        uid: field.uid ?? fieldKey,
+                        order: useStrings
+                          ? Number(field.order ?? 0)
+                          : (field.order ?? 0),
+                        type: field.type,
+                        label: field.label,
+                        placeholder: field.placeholder ?? "",
+                        rows: field.rows
+                          ? useStrings
+                            ? Number(field.rows)
+                            : field.rows
+                          : 3,
+                        options: field.options
+                          ? Object.keys(field.options).reduce(
+                              (fieldOptsAcc: any, fieldOptKey: string) => {
+                                fieldOptsAcc[fieldOptKey] = {
+                                  uid: field.options[fieldOptKey].uid ?? fieldOptKey,
+                                  title: field.options[fieldOptKey].title,
+                                };
+                                return fieldOptsAcc;
+                              },
+                              {},
+                            )
+                          : null,
+                      };
+                      return fieldsAcc;
+                    },
+                    {},
+                  ),
+                };
+                return optionsAcc;
+              },
+              {},
+            ),
+            selected: {
+              questionTitle: useSelected
+                ? element.form[formKey].selected.questionTitle
+                : element.form[formKey].title,
+              selectedOptions: useSelected
+                ? element.form[formKey].selected.selectedOptions
+                : [],
+              selectedOptionsUid: useSelected
+                ? element.form[formKey].selected.selectedOptionsUid
+                : [],
+              /** Per-card field values: { [optionKey]: { [fieldKey]: value } }. */
+              fields: useSelected
+                ? (element.form[formKey].selected.fields ?? {})
+                : {},
+            },
+          };
         }
         return formAcc;
       },
-      {}
+      {},
     ),
   };
 };
@@ -608,7 +806,7 @@ export const createFormElement = (
   // this is used when we have selected value present and we want to use it
   useSelected: boolean,
   from?: Array<string> | null,
-  convertVisiblityToTrue?: boolean
+  convertVisiblityToTrue?: boolean,
 ) => {
   // console.log(
   //   "createFormElement",
@@ -643,6 +841,8 @@ export const createFormElement = (
             : element.defaultVisible,
       title: element.title,
       description: element.description,
+      aiExtraction: element.aiExtraction ?? null,
+      extraction: createExtractionState(element),
       localStorage: useStrings
         ? element.localStorage === "true"
         : element.localeStorage,
@@ -673,14 +873,11 @@ export const createFormElement = (
             description: element.options[optionKey].description,
             addQuestion: element.options[optionKey].addQuestion,
             addForm: element.options[optionKey].addForm,
-            icon: {
-              src: element.options[optionKey].icon.src,
-              alt: element.options[optionKey].icon.alt,
-            },
+            icon: createIconConfig(element.options[optionKey].icon),
           };
           return optionsAcc;
         },
-        {}
+        {},
       ),
       selected: {
         questionTitle: useSelected
@@ -709,6 +906,8 @@ export const createFormElement = (
             : element.defaultVisible,
       title: element.title,
       description: element.description,
+      aiExtraction: element.aiExtraction ?? null,
+      extraction: createExtractionState(element),
       localStorage: useStrings
         ? element.localStorage === "true"
         : element.localStorage,
@@ -736,10 +935,11 @@ export const createFormElement = (
             uid: useKey ? element.options[optionKey].uid : optionKey,
             addQuestion: element.options[optionKey].addQuestion,
             addForm: element.options[optionKey].addForm,
+            icon: createIconConfig(element.options[optionKey].icon),
           };
           return optionsAcc;
         },
-        {}
+        {},
       ),
       selected: {
         questionTitle: useSelected
@@ -772,6 +972,8 @@ export const createFormElement = (
             : element.defaultVisible,
       title: element.title,
       description: element.description,
+      aiExtraction: element.aiExtraction ?? null,
+      extraction: createExtractionState(element),
       localStorage: useStrings
         ? element.localStorage === "true"
         : element.localStorage,
@@ -832,7 +1034,7 @@ export const createFormElement = (
             };
             return lablesAcc;
           },
-          {}
+          {},
         ),
       },
       selected: {
@@ -870,6 +1072,8 @@ export const createFormElement = (
             : element.defaultVisible,
       title: element.title,
       description: element.description,
+      aiExtraction: element.aiExtraction ?? null,
+      extraction: createExtractionState(element),
       localStorage: useStrings
         ? element.localStorage === "true"
         : element.localStorage,
@@ -1041,6 +1245,59 @@ export const createFormElement = (
         download: {
           pullHostName: element.options.download.pullHostName,
         },
+        extraction: element.options.extraction ?? null,
+      },
+      selected: {
+        questionTitle: useSelected
+          ? element.selected.questionTitle
+          : element.title,
+        selectedFiles: useSelected ? element.selected.selectedFiles : [],
+      },
+    };
+  } else if (element.type === "llm-file-extraction") {
+    return {
+      order: useStrings ? Number(element.order) : element.order,
+      uid: useKey ? element.uid : formKey,
+      type: element.type,
+      required: element.required === "true",
+      defaultVisible:
+        (useStrings
+          ? element.defaultVisible === "false"
+          : element.defaultVisible == false) && convertVisiblityToTrue
+          ? true
+          : useStrings
+            ? element.defaultVisible === "true"
+            : element.defaultVisible,
+      title: element.title,
+      description: element.description,
+      localStorage: useStrings
+        ? element.localStorage === "true"
+        : element.localStorage,
+      span: element.span,
+      from: from || [],
+      message: {
+        text: element.message.text,
+        type: element.message.type,
+        errorMessage: element.message.errorMessage,
+        successMessage: element.message.successMessage,
+        loadingMessage: element.message.loadingMessage,
+        checkPreviousFormsMessage: element.message.checkPreviousFormsMessage,
+      },
+      options: {
+        upload: {
+          hostname: element.options.upload.hostname,
+          storageZoneName: element.options.upload.storageZoneName,
+          region: element.options.upload.region,
+          filesAccepted: element.options.upload.filesAccepted,
+          multipleFiles: element.options.upload.multipleFiles,
+          uploadingText: element.options.upload.uploadingText,
+          uploadError: element.options.upload.uploadError,
+          uploadSuccess: element.options.upload.uploadSuccess,
+        },
+        download: {
+          pullHostName: element.options.download.pullHostName,
+        },
+        extraction: element.options.extraction ?? null,
       },
       selected: {
         questionTitle: useSelected

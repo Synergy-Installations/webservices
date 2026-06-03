@@ -13,6 +13,7 @@ export const WhatsappButton = (props: WhatsappButtonProps) => {
       chatboxHeight={400}
       placeholder="Nachricht schreiben..."
       notificationSound={true}
+      notificationSoundSrc="https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/sounds/universfield-new-notification-09-352705.mp3"
       notification={true}
       notificationDelay={20}
       notificationLoop={1}

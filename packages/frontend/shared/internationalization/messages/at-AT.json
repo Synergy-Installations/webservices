@@ -5935,7 +5935,6 @@
               "optionsFour": {
                 "text": "Smart Home & Energiemanagement Systeme"
               },
-
               "optionsSix": {
                 "text": "Stromtankstellen & Wallboxen"
               },
@@ -6071,7 +6070,7 @@
         },
         "Powerful-search": {
           "title": "Oder kommen Sie vorbei und lassen Sie sich beraten",
-          "description": "Wagenseilgasse 14, Stock 5 andys.cc, EURO PLAZA 1120 Wien",
+          "description": "Anton Krenn Straße 23/2, 2540 Bad Vöslau · <lager>Lager: Industriestraße 2c Tor 6-7, 2540 Bad Vöslau</lager>",
           "href": "https://g.co/kgs/zvtKtWc",
           "icon": {
             "src": "/frontend/landingPage/icons/storefront_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg",
@@ -6135,12 +6134,164 @@
         },
         "progress": {
           "labels": {
-            "topLeft": "Synergie Anfrage Progress",
+            "topLeft": "Synergie Anfragefortschritt",
             "topRightDeliminator": "von",
             "topRightPostfix": "Fragen"
           }
         },
+        "ui": {
+          "accessibility": {
+            "questionOverviewAriaLabel": "Fragenübersicht im Funnel",
+            "questionProgressMarkerAriaLabel": "{current}/{total}: {title}"
+          },
+          "navigation": {
+            "previous": "Zurück",
+            "next": "Weiter",
+            "skip": "Überspringen"
+          },
+          "verification": {
+            "title": "E-Mail-Verifizierung",
+            "description": "Geben Sie den Code ein, den Sie per E-Mail erhalten haben, um zum Dashboard zu gelangen.",
+            "details": "Mit dem Dashboard können Sie weitere Projekte eintragen, Ihre Formulare verwalten und Ihre Einstellungen anpassen.",
+            "codeLabel": "Code {index}",
+            "helperText": "Bitte geben Sie den 6-stelligen Code ein, den wir Ihnen per E-Mail gesendet haben.",
+            "verifyButton": "Verifizieren"
+          },
+          "submitProgress": {
+            "title": "Ihre Anfrage wird verarbeitet",
+            "description": "Wir speichern Ihre Angaben und bereiten den sicheren Zugang vor.",
+            "saving": {
+              "label": "Anfrage wird gespeichert",
+              "description": "Ihre Angaben werden sicher im Dashboard angelegt."
+            },
+            "sendingEmail": {
+              "label": "Bestätigung wird gesendet",
+              "description": "Wir senden Ihnen die Zusammenfassung Ihrer Anfrage per E-Mail."
+            },
+            "preparingAccess": {
+              "label": "Zugang wird vorbereitet",
+              "description": "Wir bereiten die E-Mail-Verifizierung für Ihr Dashboard vor."
+            },
+            "redirecting": {
+              "label": "Dashboard wird geöffnet",
+              "description": "Sie sind bereits angemeldet. Wir leiten Sie direkt weiter."
+            },
+            "success": {
+              "label": "Alles ist vorbereitet",
+              "description": "Bitte prüfen Sie gleich Ihre E-Mails für den nächsten Schritt."
+            },
+            "error": {
+              "label": "Das hat leider nicht geklappt",
+              "description": "Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt per E-Mail."
+            },
+            "steps": {
+              "saving": "Speichern",
+              "sendingEmail": "E-Mail",
+              "preparingAccess": "Zugang",
+              "redirecting": "Weiterleitung"
+            },
+            "closeButton": "Schließen"
+          },
+          "aiPrefill": {
+            "defaultLabel": "Wert",
+            "warning": "{label} wurde von der KI vorausgefüllt. Bitte prüfen."
+          },
+          "formLabel": {
+            "required": "Pflichtfeld",
+            "optional": "Optional"
+          },
+          "cards": {
+            "done": "Fertig",
+            "close": "Schließen",
+            "remove": "Entfernen",
+            "tapToEdit": "Zum Ausfüllen tippen (optional)"
+          }
+        },
         "questions": {
+          "project-files-llm-extraction": {
+            "title": "KI-unterstütztes Ausfüllen",
+            "description": "",
+            "version": "0.1.0",
+            "defaultVisible": "true",
+            "form": {
+              "llm-file-extraction": {
+                "order": "1",
+                "type": "llm-file-extraction",
+                "required": "false",
+                "defaultVisible": "true",
+                "title": "Laden Sie den Projektbericht bzw. die Projektdaten und Fotos hoch oder überspringen um die Daten manuell einzugeben.",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "Details zur Verarbeitung: Datenschutzerklärung.",
+                  "type": "info",
+                  "successMessage": "Vielen Dank für Ihren Upload",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Vielen Dank für Ihre Eingabe. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "upload": {
+                    "hostname": "storage.bunnycdn.com",
+                    "storageZoneName": "synergy-webservices-assets",
+                    "region": "",
+                    "filesAccepted": "",
+                    "multipleFiles": "true",
+                    "uploadingText": "Datei wird hochgeladen...",
+                    "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                    "uploadSuccess": "Upload erfolgreich, vielen Dank!"
+                  },
+                  "download": {
+                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                  },
+                  "extraction": {
+                    "endpoint": "/api/funnel/extract",
+                    "acceptText": "PDF, DOCX, PPTX, XLSX, TXT, JPG, PNG, EML oder MSG (max. 100 MB)",
+                    "mimeTypes": [
+                      "application/pdf",
+                      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                      "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+                      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                      "application/msword",
+                      "application/vnd.ms-powerpoint",
+                      "application/vnd.ms-excel",
+                      "application/vnd.oasis.opendocument.text",
+                      "application/vnd.oasis.opendocument.presentation",
+                      "application/vnd.oasis.opendocument.spreadsheet",
+                      "application/rtf",
+                      "text/plain",
+                      "image/jpeg",
+                      "image/png",
+                      "message/rfc822",
+                      "application/vnd.ms-outlook"
+                    ],
+                    "confidence": {
+                      "green": "0.85",
+                      "yellow": "0.55"
+                    },
+                    "options": {
+                      "selfConsistencySamples": "0",
+                      "runVerifier": "false"
+                    },
+                    "statusLabels": {
+                      "minting": "Sicherheitstoken wird vorbereitet...",
+                      "uploading": "Datei wird hochgeladen...",
+                      "uploaded": "Upload abgeschlossen",
+                      "queued": "KI-Extraktion wurde gestartet...",
+                      "download": "Datei wird abgerufen...",
+                      "normalize": "Dokument wird vorbereitet...",
+                      "extract": "Projektangaben werden ausgelesen...",
+                      "text_index": "Quellen werden geprüft...",
+                      "score": "Konfidenz wird berechnet...",
+                      "persist": "Ergebnis wird übernommen...",
+                      "complete": "KI-Auswertung abgeschlossen",
+                      "error": "KI-Auswertung fehlgeschlagen"
+                    }
+                  }
+                }
+              }
+            }
+          },
           "interested-products": {
             "title": "Projektdetails",
             "description": "",
@@ -6152,7 +6303,7 @@
                 "type": "range",
                 "required": "true",
                 "defaultVisible": "true",
-                "title": "Wie viel kWp? *",
+                "title": "Wie viel kWp?",
                 "description": "Wählen Sie den Betrag, den Sie benötigen",
                 "localStorage": "false",
                 "span": "2",
@@ -6165,14 +6316,14 @@
                 },
                 "options": {
                   "buttons": {
-                    "incrementBy": "5",
-                    "decrementBy": "5"
+                    "incrementBy": "0.25",
+                    "decrementBy": "0.25"
                   },
                   "range": {
                     "defaultValue": "0",
                     "min": "1",
                     "max": "10000",
-                    "step": "0.01",
+                    "step": "0.25",
                     "type": "exp"
                   },
                   "unit": {
@@ -6211,6 +6362,27 @@
                       "correctX": "0%"
                     }
                   }
+                },
+                "aiExtraction": {
+                  "fieldKey": "installed_capacity_kwp",
+                  "label": "Anlagenleistung",
+                  "type": "number",
+                  "unit": "kWp",
+                  "min": "0.1",
+                  "max": "10000",
+                  "aliases": [
+                    "Anlagenleistung",
+                    "PV-Leistung",
+                    "Generatorleistung",
+                    "DC-Leistung",
+                    "Modulleistung",
+                    "Nennleistung",
+                    "kWp",
+                    "MWp",
+                    "Wp"
+                  ],
+                  "description": "Installierte DC-Spitzenleistung der PV-Anlage in kWp. MWp in kWp und Wp in kWp umrechnen.",
+                  "instructions": "Extrahiere die installierte DC-Spitzenleistung der PV-Anlage. Werte in MWp oder Wp in kWp umrechnen. Nicht mit Wechselrichterleistung, AC-Leistung, Netzanschlussleistung oder Jahresertrag verwechseln."
                 }
               }
             }
@@ -6227,7 +6399,7 @@
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "true",
-                "title": "Wähle den Untergrund? *",
+                "title": "Wähle den Untergrund?",
                 "description": "",
                 "localStorage": "false",
                 "span": "2",
@@ -6246,10 +6418,17 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": [
+                      "dachtyp-trapez-materialstaerke",
+                      "dachtyp-trapez-hoehe",
+                      "dachtyp-trapez-talbreite",
+                      "dachtyp-trapez-material",
+                      "dachtyp-trapez-foto"
+                    ],
                     "icon": {
+                      "name": "Warehouse",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Trapez"
                     }
                   },
                   "falz": {
@@ -6259,10 +6438,16 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": [
+                      "dachtyp-falz-falztyp",
+                      "dachtyp-falz-kupfer",
+                      "dachtyp-falz-abstand",
+                      "dachtyp-falz-foto"
+                    ],
                     "icon": {
+                      "name": "PanelTop",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Falz"
                     }
                   },
                   "flachdach": {
@@ -6272,10 +6457,17 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": [
+                      "dachtyp-flachdach-traglast",
+                      "dachtyp-flachdach-material",
+                      "dachtyp-flachdach-kies",
+                      "dachtyp-flachdach-traglast-pv",
+                      "dachtyp-flachdach-foto"
+                    ],
                     "icon": {
+                      "name": "PanelTopOpen",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Flachdach"
                     }
                   },
                   "wärmepumpe": {
@@ -6285,36 +6477,56 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": [
+                      "dachtyp-ziegel-art",
+                      "dachtyp-ziegel-typ",
+                      "dachtyp-ziegel-metallersatz",
+                      "dachtyp-ziegel-farbe",
+                      "dachtyp-ziegel-ersatz",
+                      "dachtyp-ziegel-genagelt",
+                      "dachtyp-ziegel-foto"
+                    ],
                     "icon": {
+                      "name": "House",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Ziegel"
                     }
                   },
                   "eternit": {
                     "type": "checkbox",
-                    "title": "Eternit",
+                    "title": "Faserplatten",
                     "disabled": "false",
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": [
+                      "dachtyp-faserplatten-form",
+                      "dachtyp-faserplatten-farbe",
+                      "dachtyp-faserplatten-welle",
+                      "dachtyp-faserplatten-foto"
+                    ],
                     "icon": {
+                      "name": "Layers",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Faserplatten"
                     }
                   },
                   "bramac": {
                     "type": "checkbox",
-                    "title": "Bramac",
+                    "title": "Prefa",
                     "disabled": "false",
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": [
+                      "dachtyp-prefa-platten",
+                      "dachtyp-prefa-konstruktion",
+                      "dachtyp-prefa-foto"
+                    ],
                     "icon": {
+                      "name": "HousePlug",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Prefa"
                     }
                   },
                   "fassade": {
@@ -6324,10 +6536,14 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": [
+                      "submit-form-dachtyp-anderes-textarea",
+                      "dachtyp-allgemein-foto"
+                    ],
                     "icon": {
+                      "name": "Building2",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Fassade"
                     }
                   },
                   "carport": {
@@ -6337,10 +6553,14 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": [
+                      "submit-form-dachtyp-anderes-textarea",
+                      "dachtyp-allgemein-foto"
+                    ],
                     "icon": {
+                      "name": "Car",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Carport"
                     }
                   },
                   "zaun": {
@@ -6350,10 +6570,14 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": [
+                      "submit-form-dachtyp-anderes-textarea",
+                      "dachtyp-allgemein-foto"
+                    ],
                     "icon": {
+                      "name": "Fence",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Zaun"
                     }
                   },
                   "freilache": {
@@ -6363,10 +6587,15 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": [
+                      "submit-form-dachtyp-anderes-textarea",
+                      "dachtyp-freiflaeche-untergrund",
+                      "dachtyp-allgemein-foto"
+                    ],
                     "icon": {
+                      "name": "LandPlot",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Freifläche"
                     }
                   },
                   "winter-sommergarten": {
@@ -6376,10 +6605,14 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": [
+                      "submit-form-dachtyp-anderes-textarea",
+                      "dachtyp-allgemein-foto"
+                    ],
                     "icon": {
+                      "name": "Sun",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Winter/Sommergarten"
                     }
                   },
                   "klimasysteme-1": {
@@ -6389,15 +6622,1201 @@
                     "span": "2",
                     "description": "",
                     "addQuestion": "",
-                    "addForm": "submit-form-dachtyp-anderes-textarea",
+                    "addForm": [
+                      "submit-form-dachtyp-anderes-textarea",
+                      "dachtyp-allgemein-foto"
+                    ],
                     "icon": {
+                      "name": "Wrench",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Andere/Spezial"
+                    }
+                  }
+                },
+                "aiExtraction": {
+                  "fieldKey": "dachtyp",
+                  "label": "Untergrund",
+                  "type": "multi-option",
+                  "aliases": [
+                    "Dachtyp",
+                    "Dachart",
+                    "Untergrund",
+                    "Montageuntergrund",
+                    "Dachdeckung",
+                    "Montagefläche",
+                    "Gebäudehülle"
+                  ],
+                  "description": "Dach- oder Montageuntergrund. Mehrfachauswahl ist erlaubt.",
+                  "instructions": "Wähle alle eindeutig genannten Montageuntergründe. Unterscheide Metalldach klar von Ziegeldach: Ein Metalldach liegt vor, wenn fließende Übergänge, eine große Blechplatte mit ziegelartigen Abstufungen, keine sichtbaren Schrauben und von unten keine einzelnen Ziegel erkennbar sind bzw. die Unterseite weiß wirkt. In diesem Fall nicht Ziegel wählen, sondern die Metall-Option trapez verwenden, außer Falz/Stehfalz ist eindeutig genannt oder sichtbar. Ziegeldach/Ziegel nur wählen, wenn einzelne Dachziegel oder Dachsteine eindeutig sichtbar oder genannt sind; der technische Formular-UID kann anders lauten. Fassade, Zaun, Carport und Freifläche nur auswählen, wenn sie als Montagefläche genannt sind.",
+                  "options": {
+                    "trapez": {
+                      "targetOptionUid": "trapez",
+                      "aliases": [
+                        "Trapez",
+                        "Trapezblech",
+                        "Trapezdach",
+                        "Metalldach",
+                        "Blechdach",
+                        "Blechplatte mit ziegelartigen Abstufungen",
+                        "Metallziegel",
+                        "Ziegelblech"
+                      ]
+                    },
+                    "falz": {
+                      "targetOptionUid": "falz",
+                      "aliases": [
+                        "Falz",
+                        "Stehfalz",
+                        "Klemmfalz",
+                        "Doppelfalz",
+                        "Falzdach"
+                      ]
+                    },
+                    "flachdach": {
+                      "targetOptionUid": "flachdach",
+                      "aliases": ["Flachdach", "Bitumendach", "Foliendach"]
+                    },
+                    "ziegel": {
+                      "targetOptionUid": "wärmepumpe",
+                      "aliases": [
+                        "Ziegel",
+                        "Ziegeldach",
+                        "Dachziegel",
+                        "Tonziegel",
+                        "Betondachstein",
+                        "Frankfurter Pfanne"
+                      ]
+                    },
+                    "eternit": {
+                      "targetOptionUid": "eternit",
+                      "aliases": [
+                        "Faserplatten",
+                        "Faserzementplatte",
+                        "Wellfaserplatte",
+                        "Faserzement",
+                        "Welleternit"
+                      ]
+                    },
+                    "bramac": {
+                      "targetOptionUid": "bramac",
+                      "aliases": ["Prefa", "Prefa-Platte", "Bramac"]
+                    },
+                    "fassade": {
+                      "targetOptionUid": "fassade",
+                      "aliases": ["Fassade", "Wand", "Vorhangfassade"]
+                    },
+                    "carport": {
+                      "targetOptionUid": "carport",
+                      "aliases": ["Carport"]
+                    },
+                    "zaun": {
+                      "targetOptionUid": "zaun",
+                      "aliases": ["Zaun", "Zaunanlage"]
+                    },
+                    "freiflaeche": {
+                      "targetOptionUid": "freilache",
+                      "aliases": [
+                        "Freifläche",
+                        "Freiland",
+                        "Open Space",
+                        "Ground-Mount"
+                      ]
+                    },
+                    "winter-sommergarten": {
+                      "targetOptionUid": "winter-sommergarten",
+                      "aliases": [
+                        "Wintergarten",
+                        "Sommergarten",
+                        "Winter/Sommergarten"
+                      ]
+                    },
+                    "andere": {
+                      "targetOptionUid": "klimasysteme-1",
+                      "aliases": ["Andere", "Spezial", "Sonderkonstruktion"]
                     }
                   }
                 }
               },
+              "dachtyp-trapez-materialstaerke": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Materialstärke (Dicke)",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Materialstärke",
+                  "placeholder": "z. B. 0,75 mm / 1,0 mm"
+                }
+              },
+              "dachtyp-trapez-hoehe": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Trapezhöhe",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Trapezhöhe",
+                  "placeholder": "z. B. 35 mm / 40 mm"
+                }
+              },
+              "dachtyp-trapez-talbreite": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Talbreite",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Talbreite",
+                  "placeholder": "z. B. schmale Täler / breite Täler"
+                }
+              },
+              "dachtyp-trapez-material": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Materialart",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Materialart",
+                  "placeholder": "z. B. Stahl verzinkt / Aluminium"
+                }
+              },
+              "dachtyp-trapez-foto": {
+                "order": "1",
+                "type": "file-upload",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Foto des Trapezblechs",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "Details zur Verarbeitung: Datenschutzerklärung.",
+                  "type": "info",
+                  "successMessage": "Vielen Dank für Ihren Upload",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Vielen Dank für Ihre Eingabe. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "upload": {
+                    "hostname": "storage.bunnycdn.com",
+                    "storageZoneName": "synergy-webservices-assets",
+                    "region": "",
+                    "filesAccepted": "",
+                    "multipleFiles": "true",
+                    "uploadingText": "Datei wird hochgeladen...",
+                    "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                    "uploadSuccess": "Upload erfolgreich, vielen Dank!"
+                  },
+                  "download": {
+                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                  }
+                }
+              },
+              "dachtyp-falz-falztyp": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Falztyp",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Falztyp",
+                  "placeholder": "z. B. Doppelstehfalz / Winkelfalz"
+                }
+              },
+              "dachtyp-falz-kupfer": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Kupfer",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Kupfer",
+                  "placeholder": "Ja / Nein"
+                }
+              },
+              "dachtyp-falz-abstand": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Falzabstand",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Falzabstand",
+                  "placeholder": "z. B. ca. 500 mm"
+                }
+              },
+              "dachtyp-falz-foto": {
+                "order": "1",
+                "type": "file-upload",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Foto der Falzeindeckung",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "Details zur Verarbeitung: Datenschutzerklärung.",
+                  "type": "info",
+                  "successMessage": "Vielen Dank für Ihren Upload",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Vielen Dank für Ihre Eingabe. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "upload": {
+                    "hostname": "storage.bunnycdn.com",
+                    "storageZoneName": "synergy-webservices-assets",
+                    "region": "",
+                    "filesAccepted": "",
+                    "multipleFiles": "true",
+                    "uploadingText": "Datei wird hochgeladen...",
+                    "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                    "uploadSuccess": "Upload erfolgreich, vielen Dank!"
+                  },
+                  "download": {
+                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                  }
+                }
+              },
+              "dachtyp-flachdach-traglast": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Traglast",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Traglast",
+                  "placeholder": "z. B. … kg/m² / unbekannt"
+                }
+              },
+              "dachtyp-flachdach-material": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Materialtyp",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Materialtyp",
+                  "placeholder": "z. B. Bitumen / Filz / Folie"
+                }
+              },
+              "dachtyp-flachdach-kies": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Kies-Schüttung",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Kies-Schüttung",
+                  "placeholder": "Ja / Nein – wenn ja, Höhe (z. B. 5 cm)"
+                }
+              },
+              "dachtyp-flachdach-traglast-pv": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Zulässige Traglast für PV",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Traglast für PV",
+                  "placeholder": "z. B. … kg/m² (separat von Schneelast)"
+                }
+              },
+              "dachtyp-flachdach-foto": {
+                "order": "1",
+                "type": "file-upload",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Foto der Dachfläche",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "Details zur Verarbeitung: Datenschutzerklärung.",
+                  "type": "info",
+                  "successMessage": "Vielen Dank für Ihren Upload",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Vielen Dank für Ihre Eingabe. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "upload": {
+                    "hostname": "storage.bunnycdn.com",
+                    "storageZoneName": "synergy-webservices-assets",
+                    "region": "",
+                    "filesAccepted": "",
+                    "multipleFiles": "true",
+                    "uploadingText": "Datei wird hochgeladen...",
+                    "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                    "uploadSuccess": "Upload erfolgreich, vielen Dank!"
+                  },
+                  "download": {
+                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                  }
+                }
+              },
+              "dachtyp-ziegel-art": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Ton- oder Betonziegel?",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Ziegelart",
+                  "placeholder": "Tonziegel / Betonziegel"
+                }
+              },
+              "dachtyp-ziegel-typ": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Ziegeltyp (Form, Oberfläche, Struktur)",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Ziegeltyp",
+                  "placeholder": "z. B. Frankfurter Pfanne, glasiert"
+                }
+              },
+              "dachtyp-ziegel-metallersatz": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Metallersatzplatten erforderlich?",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Metallersatzplatten",
+                  "placeholder": "Ja / Nein"
+                }
+              },
+              "dachtyp-ziegel-farbe": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Farbe",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Farbe",
+                  "placeholder": "z. B. ziegelrot / anthrazit"
+                }
+              },
+              "dachtyp-ziegel-ersatz": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Ersatzziegel vorhanden?",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Ersatzziegel",
+                  "placeholder": "Ja / Nein"
+                }
+              },
+              "dachtyp-ziegel-genagelt": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Ziegel genagelt?",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Ziegel genagelt",
+                  "placeholder": "Ja / Nein"
+                }
+              },
+              "dachtyp-ziegel-foto": {
+                "order": "1",
+                "type": "file-upload",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Foto der Ziegeleindeckung",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "Details zur Verarbeitung: Datenschutzerklärung.",
+                  "type": "info",
+                  "successMessage": "Vielen Dank für Ihren Upload",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Vielen Dank für Ihre Eingabe. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "upload": {
+                    "hostname": "storage.bunnycdn.com",
+                    "storageZoneName": "synergy-webservices-assets",
+                    "region": "",
+                    "filesAccepted": "",
+                    "multipleFiles": "true",
+                    "uploadingText": "Datei wird hochgeladen...",
+                    "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                    "uploadSuccess": "Upload erfolgreich, vielen Dank!"
+                  },
+                  "download": {
+                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                  }
+                }
+              },
+              "dachtyp-faserplatten-form": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Form",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Form",
+                  "placeholder": "Rechteck 30/40 (Doppeldeckung) / Rechteck 40/40 (Doppeldeckung) / Rhombus / Rhombusschablone"
+                }
+              },
+              "dachtyp-faserplatten-farbe": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Farbe",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Farbe",
+                  "placeholder": "z. B. anthrazit"
+                }
+              },
+              "dachtyp-faserplatten-welle": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Wellfaserplatten",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Wellfaserplatten",
+                  "placeholder": "Ja / Nein"
+                }
+              },
+              "dachtyp-faserplatten-foto": {
+                "order": "1",
+                "type": "file-upload",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Fotos (Dachfläche + Dachstuhl)",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "Details zur Verarbeitung: Datenschutzerklärung.",
+                  "type": "info",
+                  "successMessage": "Vielen Dank für Ihren Upload",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Vielen Dank für Ihre Eingabe. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "upload": {
+                    "hostname": "storage.bunnycdn.com",
+                    "storageZoneName": "synergy-webservices-assets",
+                    "region": "",
+                    "filesAccepted": "",
+                    "multipleFiles": "true",
+                    "uploadingText": "Datei wird hochgeladen...",
+                    "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                    "uploadSuccess": "Upload erfolgreich, vielen Dank!"
+                  },
+                  "download": {
+                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                  }
+                }
+              },
+              "dachtyp-prefa-platten": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Beschreibung Prefa-Platten",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Prefa-Platten",
+                  "placeholder": "welche Prefa-Platten, z. B. R.16, anthrazit"
+                }
+              },
+              "dachtyp-prefa-konstruktion": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Beschreibung Dachkonstruktion",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Dachkonstruktion",
+                  "placeholder": "z. B. Sparren + Lattung, Zustand …"
+                }
+              },
+              "dachtyp-prefa-foto": {
+                "order": "1",
+                "type": "file-upload",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Fotos (Prefa-Platten + Dachstuhl)",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "Details zur Verarbeitung: Datenschutzerklärung.",
+                  "type": "info",
+                  "successMessage": "Vielen Dank für Ihren Upload",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Vielen Dank für Ihre Eingabe. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "upload": {
+                    "hostname": "storage.bunnycdn.com",
+                    "storageZoneName": "synergy-webservices-assets",
+                    "region": "",
+                    "filesAccepted": "",
+                    "multipleFiles": "true",
+                    "uploadingText": "Datei wird hochgeladen...",
+                    "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                    "uploadSuccess": "Upload erfolgreich, vielen Dank!"
+                  },
+                  "download": {
+                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                  }
+                }
+              },
+              "dachtyp-freiflaeche-untergrund": {
+                "order": "1",
+                "type": "text",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Aufbau Untergrund",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Aufbau Untergrund",
+                  "placeholder": "z. B. Deponie / Fluss / Stein / Kies / Beton / Erde / Wiese"
+                }
+              },
+              "dachtyp-allgemein-foto": {
+                "order": "1",
+                "type": "file-upload",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Foto",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "Details zur Verarbeitung: Datenschutzerklärung.",
+                  "type": "info",
+                  "successMessage": "Vielen Dank für Ihren Upload",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Vielen Dank für Ihre Eingabe. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "upload": {
+                    "hostname": "storage.bunnycdn.com",
+                    "storageZoneName": "synergy-webservices-assets",
+                    "region": "",
+                    "filesAccepted": "",
+                    "multipleFiles": "true",
+                    "uploadingText": "Datei wird hochgeladen...",
+                    "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                    "uploadSuccess": "Upload erfolgreich, vielen Dank!"
+                  },
+                  "download": {
+                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                  }
+                }
+              },
               "submit-form-dachtyp-anderes-textarea": {
+                "order": "1",
+                "type": "textarea",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Aufbau / Pläne / Schnitte / Beschaffenheit",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "label": "Kurze Beschreibung",
+                  "placeholder": "Aufbau, vorhandene Pläne/Schnitte, Beschaffenheit",
+                  "rows": "4"
+                }
+              }
+            }
+          },
+          "interested-products-komponenten": {
+            "title": "Komponenten",
+            "description": "Wählen Sie die gewünschten Komponenten. Tippen Sie auf eine Karte, um optionale Details anzugeben. Mehrfachauswahl möglich.",
+            "version": "0.1.0",
+            "defaultVisible": "true",
+            "form": {
+              "interested-products-komponenten-cards": {
+                "order": "1",
+                "type": "card-popup",
+                "multiple": "true",
+                "required": "false",
+                "defaultVisible": "true",
+                "title": "Welche Komponenten benötigen Sie?",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Auswahl",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "paneele": {
+                    "title": "Paneele",
+                    "description": "Module / Solarpaneele",
+                    "disabled": "false",
+                    "span": "2",
+                    "icon": {
+                      "name": "Sun",
+                      "alt": "Paneele"
+                    },
+                    "fields": {
+                      "groesse": {
+                        "order": "1",
+                        "type": "text",
+                        "label": "Größe / Maße",
+                        "placeholder": "z. B. 1722 × 1134 × 30 mm (lt. Datenblatt)"
+                      },
+                      "leistung": {
+                        "order": "2",
+                        "type": "text",
+                        "label": "Leistung",
+                        "placeholder": "z. B. 440 Wp"
+                      },
+                      "aufbau": {
+                        "order": "3",
+                        "type": "choice",
+                        "label": "Aufbau",
+                        "options": {
+                          "glas-folie": { "title": "Glas-Folie" },
+                          "glas-glas": { "title": "Glas-Glas" }
+                        }
+                      },
+                      "fazialitaet": {
+                        "order": "4",
+                        "type": "choice",
+                        "label": "Fazialität",
+                        "options": {
+                          "bifazial": { "title": "Bifazial" },
+                          "monofazial": { "title": "Monofazial" }
+                        }
+                      },
+                      "rahmen": {
+                        "order": "5",
+                        "type": "choice",
+                        "label": "Rahmen",
+                        "options": {
+                          "silberframe": { "title": "Silberframe" },
+                          "blackframe": { "title": "Blackframe" },
+                          "full-black": { "title": "Full Black" }
+                        }
+                      },
+                      "back-contact": {
+                        "order": "6",
+                        "type": "choice",
+                        "label": "Back-Contact",
+                        "options": {
+                          "ja": { "title": "Ja" },
+                          "nein": { "title": "Nein" }
+                        }
+                      }
+                    }
+                  },
+                  "wechselrichter": {
+                    "title": "Wechselrichter",
+                    "description": "",
+                    "disabled": "false",
+                    "span": "2",
+                    "icon": {
+                      "name": "Plug",
+                      "alt": "Wechselrichter"
+                    },
+                    "fields": {
+                      "hersteller": {
+                        "order": "1",
+                        "type": "text",
+                        "label": "Hersteller",
+                        "placeholder": "z. B. Fronius, SMA, Huawei"
+                      },
+                      "leistungsklasse": {
+                        "order": "2",
+                        "type": "text",
+                        "label": "Leistungsklasse",
+                        "placeholder": "z. B. 10 kW"
+                      },
+                      "zusatzfunktionen": {
+                        "order": "3",
+                        "type": "textarea",
+                        "label": "Zusatzfunktionen",
+                        "placeholder": "z. B. Notstromfähig, Anlagenüberwachung",
+                        "rows": "3"
+                      }
+                    }
+                  },
+                  "speicher": {
+                    "title": "Speicher",
+                    "description": "Batteriespeicher",
+                    "disabled": "false",
+                    "span": "2",
+                    "icon": {
+                      "name": "BatteryCharging",
+                      "alt": "Speicher"
+                    },
+                    "fields": {
+                      "hersteller": {
+                        "order": "1",
+                        "type": "text",
+                        "label": "Hersteller",
+                        "placeholder": "z. B. BYD, Fronius, Huawei"
+                      },
+                      "groesse": {
+                        "order": "2",
+                        "type": "text",
+                        "label": "Größe",
+                        "placeholder": "z. B. 10 kWh"
+                      },
+                      "leistungsanforderungen": {
+                        "order": "3",
+                        "type": "textarea",
+                        "label": "Leistungsanforderungen",
+                        "placeholder": "z. B. Lade-/Entladeleistung, Notstrom",
+                        "rows": "3"
+                      }
+                    }
+                  },
+                  "notstrom": {
+                    "title": "Notstrom",
+                    "description": "",
+                    "disabled": "false",
+                    "span": "2",
+                    "icon": {
+                      "name": "Zap",
+                      "alt": "Notstrom"
+                    },
+                    "fields": {
+                      "phasen": {
+                        "order": "1",
+                        "type": "choice",
+                        "label": "Anschluss",
+                        "options": {
+                          "ein-phasig": { "title": "1~ (einphasig)" },
+                          "drei-phasig": { "title": "3~ (dreiphasig)" }
+                        }
+                      },
+                      "umschaltung": {
+                        "order": "2",
+                        "type": "choice",
+                        "label": "Umschaltung",
+                        "options": {
+                          "automatik": { "title": "Automatik" },
+                          "handumschalter": { "title": "Handumschalter" }
+                        }
+                      }
+                    }
+                  },
+                  "smart-meter": {
+                    "title": "Smart Meter",
+                    "description": "",
+                    "disabled": "false",
+                    "span": "2",
+                    "icon": {
+                      "name": "Gauge",
+                      "alt": "Smart Meter"
+                    },
+                    "fields": {
+                      "anforderungen": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Anforderungen",
+                        "placeholder": "Beschreiben Sie Ihre Anforderungen",
+                        "rows": "3"
+                      }
+                    }
+                  },
+                  "energiemanager": {
+                    "title": "Energiemanager",
+                    "description": "",
+                    "disabled": "false",
+                    "span": "2",
+                    "icon": {
+                      "name": "HousePlug",
+                      "alt": "Energiemanager"
+                    },
+                    "fields": {
+                      "anforderungen": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Anforderungen",
+                        "placeholder": "Beschreiben Sie Ihre Anforderungen",
+                        "rows": "3"
+                      }
+                    }
+                  },
+                  "wallbox": {
+                    "title": "Wallbox",
+                    "description": "Ladestation",
+                    "disabled": "false",
+                    "span": "2",
+                    "icon": {
+                      "name": "PlugZap",
+                      "alt": "Wallbox"
+                    },
+                    "fields": {
+                      "anforderungen": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Anforderungen",
+                        "placeholder": "z. B. Leistung, Anzahl, Lastmanagement",
+                        "rows": "3"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "interested-products-schnittstellen": {
+            "title": "Schnittstellen",
+            "description": "",
+            "version": "0.1.0",
+            "defaultVisible": "true",
+            "form": {
+              "interested-products-schnittstelle": {
+                "order": "1",
+                "type": "checkbox",
+                "multiple": "true",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "Schnittstelle?",
+                "description": "Wählen Sie alle aus, die zutreffen",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Eingabe",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {
+                  "photovoltaic": {
+                    "type": "checkbox",
+                    "title": "Solarpaneele / Solarmodule",
+                    "disabled": "false",
+                    "span": "3",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-schnittstelle-anderes-textarea",
+                    "icon": {
+                      "name": "PanelTop",
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Solarpaneele / Solarmodule"
+                    }
+                  },
+                  "kabelweg": {
+                    "type": "checkbox",
+                    "title": "Überspannungsschutz (ÜSS)",
+                    "disabled": "false",
+                    "span": "3",
+                    "description": "im Generatoranschlusskasten (GAK)",
+                    "addQuestion": "",
+                    "addForm": "submit-form-schnittstelle-anderes-textarea",
+                    "icon": {
+                      "name": "Gauge",
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Überspannungsschutz (ÜSS)"
+                    }
+                  },
+                  "wärmepumpe": {
+                    "type": "checkbox",
+                    "title": "Wechselrichter",
+                    "disabled": "false",
+                    "span": "3",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-schnittstelle-anderes-textarea",
+                    "icon": {
+                      "name": "Zap",
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Wechselrichter"
+                    }
+                  },
+                  "speicher": {
+                    "type": "checkbox",
+                    "title": "Speicher",
+                    "disabled": "false",
+                    "span": "3",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-schnittstelle-anderes-textarea",
+                    "icon": {
+                      "name": "BatteryCharging",
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Speicher"
+                    }
+                  },
+                  "zusatzarbeiten": {
+                    "type": "checkbox",
+                    "title": "Zusatzarbeiten",
+                    "disabled": "false",
+                    "span": "3",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-schnittstelle-anderes-textarea",
+                    "icon": {
+                      "name": "Wrench",
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Zusatzarbeiten"
+                    }
+                  },
+                  "ac-installation": {
+                    "type": "checkbox",
+                    "title": "AC-Installation",
+                    "disabled": "false",
+                    "span": "3",
+                    "description": "",
+                    "addQuestion": "",
+                    "addForm": "submit-form-schnittstelle-anderes-textarea",
+                    "icon": {
+                      "name": "Plug",
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "AC-Installation"
+                    }
+                  }
+                }
+              },
+              "submit-form-schnittstelle-anderes-textarea": {
                 "order": "1",
                 "type": "textarea",
                 "required": "false",
@@ -6415,1165 +7834,8 @@
                 },
                 "options": {
                   "label": "Kurze Beschreibung",
-                  "placeholder": "Write your thoughts here...",
+                  "placeholder": "Schreiben Sie hier Ihre Angaben...",
                   "rows": "4"
-                }
-              },
-              "interested-products-schnittstelle": {
-                "order": "1",
-                "type": "checkbox",
-                "multiple": "true",
-                "required": "true",
-                "defaultVisible": "true",
-                "title": "Schnittstelle? *",
-                "description": "Wählen Sie alle aus, die zutreffen",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "photovoltaic": {
-                    "type": "checkbox",
-                    "title": "Dachmontage",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
-                    }
-                  },
-                  "kabelweg": {
-                    "type": "checkbox",
-                    "title": "Dachmontage + Kabelweg",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
-                    }
-                  },
-                  "wärmepumpe": {
-                    "type": "checkbox",
-                    "title": "Dachmontage + Kabelweg + Wechselrichter",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
-                    }
-                  },
-                  "speicher": {
-                    "type": "checkbox",
-                    "title": "Dachmontage + Kabelweg + Wechselrichter + Speicher",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
-                    }
-                  },
-                  "zusatzarbeiten": {
-                    "type": "checkbox",
-                    "title": "Zusatzarbeiten",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
-                    }
-                  },
-                  "ac-installation": {
-                    "type": "checkbox",
-                    "title": "AC Installation",
-                    "disabled": "true",
-                    "span": "3",
-                    "description": "Kommt in Kürze",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
-                    }
-                  }
-                }
-              },
-              "submit-form-schnittstelle-anderes-textarea": {
-                "order": "1",
-                "type": "textarea",
-                "required": "false",
-                "defaultVisible": "true",
-                "title": "",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Kurze Beschreibung",
-                  "placeholder": "Write your thoughts here...",
-                  "rows": "4"
-                }
-              },
-              "interested-products": {
-                "title": "Projektdetails",
-                "description": "",
-                "version": "0.1.0",
-                "defaultVisible": "true",
-                "form": {
-                  "interested-products-range-2": {
-                    "order": "1",
-                    "type": "range",
-                    "required": "true",
-                    "defaultVisible": "true",
-                    "title": "Wie viel kWp? *",
-                    "description": "Wählen Sie den Betrag, den Sie benötigen",
-                    "localStorage": "false",
-                    "span": "2",
-                    "message": {
-                      "text": "",
-                      "type": "info",
-                      "requiredMessage": "Diese Eingabe ist verpflichtend",
-                      "successMessage": "Danke für Ihre Eingabe",
-                      "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                    },
-                    "options": {
-                      "buttons": {
-                        "incrementBy": "5",
-                        "decrementBy": "5"
-                      },
-                      "range": {
-                        "defaultValue": "0",
-                        "min": "1",
-                        "max": "10000",
-                        "step": "0.01",
-                        "type": "exp"
-                      },
-                      "unit": {
-                        "value": "kWp",
-                        "spaceBetween": "true",
-                        "position": "after",
-                        "numberFormat": "de-DE"
-                      },
-                      "labels": {
-                        "min": {
-                          "text": "Min (1 kWp)",
-                          "value": "1",
-                          "align": "start",
-                          "offsetX": "0",
-                          "correctX": "0%"
-                        },
-                        "q1": {
-                          "text": "30 kWp",
-                          "value": "30",
-                          "align": "start",
-                          "offsetX": "1/3",
-                          "correctX": "145%"
-                        },
-                        "q2": {
-                          "text": "300 kWp",
-                          "value": "300",
-                          "align": "start",
-                          "offsetX": "2/3",
-                          "correctX": "105%"
-                        },
-                        "max": {
-                          "text": "Max (∞ kWp)",
-                          "value": "10000",
-                          "align": "end",
-                          "offsetX": "0",
-                          "correctX": "0%"
-                        }
-                      }
-                    }
-                  },
-                  "interested-products-dachtyp": {
-                    "order": "1",
-                    "type": "radio",
-                    "multiple": "true",
-                    "required": "true",
-                    "defaultVisible": "true",
-                    "title": "Wähle den Untergrund? *",
-                    "description": "",
-                    "localStorage": "false",
-                    "span": "2",
-                    "message": {
-                      "text": "",
-                      "type": "info",
-                      "successMessage": "Danke für Ihre Eingabe",
-                      "requiredMessage": "Diese Eingabe ist verpflichtend",
-                      "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                    },
-                    "options": {
-                      "trapez": {
-                        "type": "checkbox",
-                        "title": "Trapez",
-                        "disabled": "false",
-                        "span": "2",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "falz": {
-                        "type": "checkbox",
-                        "title": "Falz",
-                        "disabled": "false",
-                        "span": "2",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "flachdach": {
-                        "type": "checkbox",
-                        "title": "Flachdach",
-                        "disabled": "false",
-                        "span": "2",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "wärmepumpe": {
-                        "type": "checkbox",
-                        "title": "Ziegel",
-                        "disabled": "false",
-                        "span": "2",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "eternit": {
-                        "type": "checkbox",
-                        "title": "Eternit",
-                        "disabled": "false",
-                        "span": "2",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "bramac": {
-                        "type": "checkbox",
-                        "title": "Bramac",
-                        "disabled": "false",
-                        "span": "2",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "fassade": {
-                        "type": "checkbox",
-                        "title": "Fassade",
-                        "disabled": "false",
-                        "span": "2",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "carport": {
-                        "type": "checkbox",
-                        "title": "Carport",
-                        "disabled": "false",
-                        "span": "2",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "zaun": {
-                        "type": "checkbox",
-                        "title": "Zaun",
-                        "disabled": "false",
-                        "span": "2",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "freilache": {
-                        "type": "checkbox",
-                        "title": "Freifläche",
-                        "disabled": "false",
-                        "span": "2",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "winter-sommergarten": {
-                        "type": "checkbox",
-                        "title": "Winter/Sommergarten",
-                        "disabled": "false",
-                        "span": "2",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "klimasysteme-1": {
-                        "type": "checkbox",
-                        "title": "Andere/Spezial",
-                        "disabled": "false",
-                        "span": "2",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "submit-form-dachtyp-anderes-textarea",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      }
-                    }
-                  },
-                  "submit-form-dachtyp-anderes-textarea": {
-                    "order": "1",
-                    "type": "textarea",
-                    "required": "false",
-                    "defaultVisible": "false",
-                    "title": "",
-                    "description": "",
-                    "localStorage": "false",
-                    "span": "2",
-                    "message": {
-                      "text": "",
-                      "type": "info",
-                      "successMessage": "Danke für Ihre Eingabe",
-                      "requiredMessage": "Diese Eingabe ist verpflichtend",
-                      "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                    },
-                    "options": {
-                      "label": "Kurze Beschreibung",
-                      "placeholder": "Write your thoughts here...",
-                      "rows": "4"
-                    }
-                  },
-                  "interested-products-schnittstelle": {
-                    "order": "1",
-                    "type": "checkbox",
-                    "multiple": "true",
-                    "required": "true",
-                    "defaultVisible": "true",
-                    "title": "Schnittstelle? *",
-                    "description": "Wählen Sie alle aus, die zutreffen",
-                    "localStorage": "false",
-                    "span": "2",
-                    "message": {
-                      "text": "",
-                      "type": "info",
-                      "successMessage": "Danke für Ihre Eingabe",
-                      "requiredMessage": "Diese Eingabe ist verpflichtend",
-                      "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                    },
-                    "options": {
-                      "photovoltaic": {
-                        "type": "checkbox",
-                        "title": "Dachmontage",
-                        "disabled": "false",
-                        "span": "3",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "kabelweg": {
-                        "type": "checkbox",
-                        "title": "Dachmontage + Kabelweg",
-                        "disabled": "false",
-                        "span": "3",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "wärmepumpe": {
-                        "type": "checkbox",
-                        "title": "Dachmontage + Kabelweg + Wechselrichter",
-                        "disabled": "false",
-                        "span": "3",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "speicher": {
-                        "type": "checkbox",
-                        "title": "Dachmontage + Kabelweg + Wechselrichter + Speicher",
-                        "disabled": "false",
-                        "span": "3",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "zusatzarbeiten": {
-                        "type": "checkbox",
-                        "title": "Zusatzarbeiten",
-                        "disabled": "false",
-                        "span": "3",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "ac-installation": {
-                        "type": "checkbox",
-                        "title": "AC Installation",
-                        "disabled": "true",
-                        "span": "3",
-                        "description": "Kommt in Kürze",
-                        "addQuestion": "",
-                        "addForm": "",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      }
-                    }
-                  },
-                  "submit-form-schnittstelle-anderes-textarea": {
-                    "order": "1",
-                    "type": "textarea",
-                    "required": "false",
-                    "defaultVisible": "true",
-                    "title": "",
-                    "description": "",
-                    "localStorage": "false",
-                    "span": "2",
-                    "message": {
-                      "text": "",
-                      "type": "info",
-                      "successMessage": "Danke für Ihre Eingabe",
-                      "requiredMessage": "Diese Eingabe ist verpflichtend",
-                      "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                    },
-                    "options": {
-                      "label": "Kurze Beschreibung",
-                      "placeholder": "Write your thoughts here...",
-                      "rows": "4"
-                    }
-                  },
-                  "interested-products-range-height": {
-                    "order": "1",
-                    "type": "range",
-                    "required": "true",
-                    "defaultVisible": "true",
-                    "title": "Wie hoch ist der Montageort?",
-                    "description": "(Haus, Berg, Fassade)",
-                    "localStorage": "false",
-                    "span": "2",
-                    "message": {
-                      "text": "",
-                      "type": "info",
-                      "requiredMessage": "Diese Eingabe ist verpflichtend",
-                      "successMessage": "Danke für Ihre Eingabe",
-                      "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                    },
-                    "options": {
-                      "buttons": {
-                        "incrementBy": "5",
-                        "decrementBy": "5"
-                      },
-                      "range": {
-                        "defaultValue": "0",
-                        "min": "0",
-                        "max": "3000",
-                        "step": "0.5",
-                        "type": "exp"
-                      },
-                      "unit": {
-                        "value": "m",
-                        "spaceBetween": "true",
-                        "position": "after",
-                        "numberFormat": "de-DE"
-                      },
-                      "labels": {
-                        "min": {
-                          "text": "Min (0 m)",
-                          "value": "0",
-                          "align": "start",
-                          "offsetX": "0",
-                          "correctX": "0%"
-                        },
-                        "q1": {
-                          "text": "1 m",
-                          "value": "1",
-                          "align": "start",
-                          "offsetX": "1/3",
-                          "correctX": "145%"
-                        },
-                        "q2": {
-                          "text": "30 m",
-                          "value": "30",
-                          "align": "start",
-                          "offsetX": "2/3",
-                          "correctX": "105%"
-                        },
-                        "max": {
-                          "text": "Max (3000 m)",
-                          "value": "3000",
-                          "align": "end",
-                          "offsetX": "0",
-                          "correctX": "0%"
-                        }
-                      }
-                    }
-                  },
-                  "interested-products-range-dachneigung": {
-                    "order": "1",
-                    "type": "range",
-                    "required": "true",
-                    "defaultVisible": "true",
-                    "title": "Neigung Montageuntergund",
-                    "description": "(Dach, Hang)",
-                    "localStorage": "false",
-                    "span": "2",
-                    "message": {
-                      "text": "",
-                      "type": "info",
-                      "requiredMessage": "Diese Eingabe ist verpflichtend",
-                      "successMessage": "Danke für Ihre Eingabe",
-                      "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                    },
-                    "options": {
-                      "buttons": {
-                        "incrementBy": "10",
-                        "decrementBy": "10"
-                      },
-                      "range": {
-                        "defaultValue": "0",
-                        "min": "0",
-                        "max": "90",
-                        "step": "1",
-                        "type": "linear"
-                      },
-                      "unit": {
-                        "value": "°",
-                        "spaceBetween": "false",
-                        "position": "after",
-                        "numberFormat": "de-DE"
-                      },
-                      "labels": {
-                        "min": {
-                          "text": "Min (0°)",
-                          "value": "0",
-                          "align": "start",
-                          "offsetX": "0",
-                          "correctX": "0%"
-                        },
-                        "q1": {
-                          "text": "30°",
-                          "value": "30",
-                          "align": "start",
-                          "offsetX": "1/3",
-                          "correctX": "145%"
-                        },
-                        "q2": {
-                          "text": "60°",
-                          "value": "60",
-                          "align": "start",
-                          "offsetX": "2/3",
-                          "correctX": "105%"
-                        },
-                        "max": {
-                          "text": "Max (90°)",
-                          "value": "90",
-                          "align": "end",
-                          "offsetX": "0",
-                          "correctX": "0%"
-                        }
-                      }
-                    }
-                  },
-                  "submit-form-textarea-address": {
-                    "order": "1",
-                    "type": "textarea",
-                    "required": "true",
-                    "defaultVisible": "true",
-                    "title": "Adresse Endkunde",
-                    "description": "",
-                    "localStorage": "false",
-                    "span": "2",
-                    "message": {
-                      "text": "",
-                      "type": "info",
-                      "successMessage": "Danke für Ihre Eingabe",
-                      "requiredMessage": "Diese Eingabe ist verpflichtend",
-                      "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                    },
-                    "options": {
-                      "label": "",
-                      "placeholder": "Strasse XX, XXXX",
-                      "rows": "4"
-                    }
-                  },
-                  "submit-form-file-upload": {
-                    "order": "1",
-                    "type": "file-upload",
-                    "required": "false",
-                    "defaultVisible": "true",
-                    "title": "Upload your files",
-                    "description": "",
-                    "localStorage": "false",
-                    "span": "2",
-                    "message": {
-                      "text": "Mit dem Hochladen Ihrer Dateien stimmen Sie unseren Datenschutzbestimmungen zu.",
-                      "type": "info",
-                      "successMessage": "Thank you for your upload",
-                      "requiredMessage": "Diese Eingabe ist verpflichtend",
-                      "checkPreviousFormsMessage": "Thank your for your input. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                    },
-                    "options": {
-                      "upload": {
-                        "hostname": "storage.bunnycdn.com",
-                        "storageZoneName": "synergy-webservices-assets",
-                        "region": "",
-                        "filesAccepted": "",
-                        "multipleFiles": "true",
-                        "uploadingText": "Uploading...",
-                        "uploadError": "Upload failed, we are currently working on fixing it, please try again later",
-                        "uploadSuccess": "Upload successful, thank you!"
-                      },
-                      "download": {
-                        "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
-                      }
-                    }
-                  },
-                  "interested-products-text": {
-                    "order": "1",
-                    "type": "text",
-                    "required": "true",
-                    "defaultVisible": "false",
-                    "title": "Wie viel Zahlen Sie derzeit für Strom?",
-                    "description": "Geben Sie den Betrag ein, den Sie derzeit für Strom zahlen",
-                    "localStorage": "false",
-                    "span": "2",
-                    "message": {
-                      "text": "Only valid Names are allowed",
-                      "type": "info",
-                      "successMessage": "Danke für Ihre Eingabe",
-                      "requiredMessage": "Diese Eingabe ist verpflichtend",
-                      "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                    },
-                    "options": {
-                      "label": "Enter your Name",
-                      "placeholder": "Bernd Johnson"
-                    }
-                  },
-                  "interested-products-text-2": {
-                    "order": "1",
-                    "type": "text",
-                    "required": "true",
-                    "defaultVisible": "false",
-                    "title": "",
-                    "description": "",
-                    "localStorage": "false",
-                    "span": "2",
-                    "message": {
-                      "text": "",
-                      "type": "info",
-                      "successMessage": "Danke für Ihre Eingabe",
-                      "requiredMessage": "Diese Eingabe ist verpflichtend",
-                      "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                    },
-                    "options": {
-                      "label": "Enter your Name",
-                      "placeholder": "Bernd Johnsen"
-                    }
-                  },
-                  "interested-products": {
-                    "order": "1",
-                    "type": "checkbox",
-                    "multiple": "true",
-                    "required": "true",
-                    "defaultVisible": "false",
-                    "title": "Wie ist der Status des Vorhabens? *",
-                    "description": "",
-                    "localStorage": "false",
-                    "span": "2",
-                    "message": {
-                      "text": "Only valid Names are allowed",
-                      "type": "info",
-                      "successMessage": "Danke für Ihre Eingabe",
-                      "requiredMessage": "Diese Eingabe ist verpflichtend",
-                      "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                    },
-                    "options": {
-                      "photovoltaic": {
-                        "type": "checkbox",
-                        "title": "Photovoltaik",
-                        "disabled": "false",
-                        "span": "3",
-                        "description": "Erzeugen Sie Ihren eigenen Strom und sparen Sie bis zu 98% Ihrer Stromkosten",
-                        "addQuestion": "interested-products",
-                        "addForm": "interested-products-range",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "wärmepumpe": {
-                        "type": "checkbox",
-                        "title": "Wärmepumpe",
-                        "disabled": "false",
-                        "span": "3",
-                        "description": "Heizen und Kühlen Sie Ihr Zuhause mit erneuerbarer Energie",
-                        "addQuestion": "",
-                        "addForm": "",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "klimasysteme": {
-                        "type": "checkbox",
-                        "title": "Klimasysteme",
-                        "disabled": "false",
-                        "span": "3",
-                        "description": "Kühlen Sie Ihr Zuhause mit erneuerbarer Energie",
-                        "addQuestion": "",
-                        "addForm": "",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "smart-home": {
-                        "type": "checkbox",
-                        "title": "Smart Home",
-                        "disabled": "false",
-                        "span": "3",
-                        "description": "Automatisieren Sie Ihr Zuhause und sparen Sie Energie",
-                        "addQuestion": "",
-                        "addForm": "",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "Energiemanagement": {
-                        "type": "checkbox",
-                        "title": "Energiemanagement",
-                        "disabled": "false",
-                        "span": "3",
-                        "description": "Optimieren Sie Ihren Energieverbrauch und sparen Sie bis zu 30% Ihrer Energiekosten",
-                        "addQuestion": "",
-                        "addForm": "",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "wallbox": {
-                        "type": "checkbox",
-                        "title": "Wallbox",
-                        "disabled": "false",
-                        "span": "3",
-                        "description": "Laden Sie Ihr Elektroauto mit erneuerbarer Energie",
-                        "addQuestion": "",
-                        "addForm": "",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      }
-                    }
-                  },
-                  "interested-products-text-3": {
-                    "order": "1",
-                    "type": "text",
-                    "required": "true",
-                    "defaultVisible": "false",
-                    "title": "",
-                    "description": "",
-                    "localStorage": "false",
-                    "span": "2",
-                    "message": {
-                      "text": "",
-                      "type": "info",
-                      "successMessage": "Danke für Ihre Eingabe",
-                      "requiredMessage": "Diese Eingabe ist verpflichtend",
-                      "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                    },
-                    "options": {
-                      "label": "Enter your Name",
-                      "placeholder": "Bernd Johnsen"
-                    }
-                  },
-                  "interested-products-range": {
-                    "order": "1",
-                    "type": "range",
-                    "required": "true",
-                    "defaultVisible": "hidden",
-                    "title": "Wie viel Zahlen Sie derzeit für Strom?",
-                    "description": "Wählen Sie den Betrag, den Sie derzeit für Strom zahlen",
-                    "localStorage": "false",
-                    "span": "2",
-                    "message": {
-                      "text": "Only valid Names are allowed",
-                      "type": "info",
-                      "requiredMessage": "Diese Eingabe ist verpflichtend",
-                      "successMessage": "Danke für Ihre Eingabe",
-                      "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                    },
-                    "options": {
-                      "buttons": {
-                        "incrementBy": "10",
-                        "decrementBy": "10"
-                      },
-                      "range": {
-                        "defaultValue": "0",
-                        "min": "100",
-                        "max": "1500",
-                        "step": "10",
-                        "type": "linear"
-                      },
-                      "unit": {
-                        "value": "$",
-                        "spaceBetween": "false",
-                        "position": "before",
-                        "numberFormat": "de-DE"
-                      },
-                      "labels": {
-                        "min": {
-                          "text": "Min ($100)",
-                          "value": "100",
-                          "align": "start",
-                          "offsetX": "0",
-                          "correctX": "0%"
-                        },
-                        "q1": {
-                          "text": "$500",
-                          "value": "500",
-                          "align": "start",
-                          "offsetX": "1/3",
-                          "correctX": "145%"
-                        },
-                        "q2": {
-                          "text": "$1000",
-                          "value": "1000",
-                          "align": "start",
-                          "offsetX": "2/3",
-                          "correctX": "105%"
-                        },
-                        "max": {
-                          "text": "Max ($1500)",
-                          "value": "1500",
-                          "align": "end",
-                          "offsetX": "0",
-                          "correctX": "0%"
-                        }
-                      }
-                    }
-                  },
-                  "interested-products-two": {
-                    "order": "1",
-                    "type": "radio",
-                    "multiple": "true",
-                    "required": "true",
-                    "defaultVisible": "false",
-                    "title": "Wofür interessieren Sie sich? Part 2",
-                    "description": "Wählen Sie alle Produkte aus, die Sie interessieren",
-                    "localStorage": "false",
-                    "span": "2",
-                    "message": {
-                      "text": "Only valid Names are allowed",
-                      "type": "info",
-                      "requiredMessage": "Diese Eingabe ist verpflichtend",
-                      "successMessage": "Danke für Ihre Eingabe",
-                      "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                    },
-                    "options": {
-                      "photovoltaic": {
-                        "type": "checkbox",
-                        "title": "Photovoltaik",
-                        "disabled": "false",
-                        "span": "3",
-                        "description": "Erzeugen Sie Ihren eigenen Strom und sparen Sie bis zu 98% Ihrer Stromkosten",
-                        "addQuestion": "main-photovoltaic",
-                        "addForm": "",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "wärmepumpe": {
-                        "type": "checkbox",
-                        "title": "Wärmepumpe",
-                        "disabled": "false",
-                        "span": "3",
-                        "description": "Heizen und Kühlen Sie Ihr Zuhause mit erneuerbarer Energie",
-                        "addQuestion": "",
-                        "addForm": "",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "klimasysteme": {
-                        "type": "checkbox",
-                        "title": "Klimasysteme",
-                        "disabled": "false",
-                        "span": "3",
-                        "description": "Kühlen Sie Ihr Zuhause mit erneuerbarer Energie",
-                        "addQuestion": "",
-                        "addForm": "",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "smart-home": {
-                        "type": "checkbox",
-                        "title": "Smart Home",
-                        "disabled": "false",
-                        "span": "3",
-                        "description": "Automatisieren Sie Ihr Zuhause und sparen Sie Energie",
-                        "addQuestion": "",
-                        "addForm": "",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "Energiemanagement": {
-                        "type": "checkbox",
-                        "title": "Energiemanagement",
-                        "disabled": "false",
-                        "span": "3",
-                        "description": "Optimieren Sie Ihren Energieverbrauch und sparen Sie bis zu 30% Ihrer Energiekosten",
-                        "addQuestion": "",
-                        "addForm": "",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      },
-                      "wallbox": {
-                        "type": "checkbox",
-                        "title": "Wallbox",
-                        "disabled": "false",
-                        "span": "3",
-                        "description": "Laden Sie Ihr Elektroauto mit erneuerbarer Energie",
-                        "addQuestion": "",
-                        "addForm": "",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      }
-                    }
-                  },
-                  "interested-products-calculation": {
-                    "order": "1",
-                    "type": "calculation",
-                    "multiple": "true",
-                    "required": "false",
-                    "defaultVisible": "false",
-                    "title": "Hier kommt in Kürze ihre Preisberechnung (Durchschnittlicher Montagepreis 200€/kWp)",
-                    "description": "",
-                    "localStorage": "false",
-                    "span": "2",
-                    "message": {
-                      "text": "",
-                      "type": "info",
-                      "successMessage": "Danke für Ihre Eingabe",
-                      "requiredMessage": "Diese Eingabe ist verpflichtend",
-                      "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                    },
-                    "options": {
-                      "inputForm": {
-                        "questionKey": "interested-products",
-                        "formKey": "interested-products-range-2"
-                      },
-                      "maths": {
-                        "type": "multiplication",
-                        "formula": "x * 200",
-                        "unit": "€",
-                        "spaceBetween": "false",
-                        "position": "after"
-                      },
-                      "afterMaths": {
-                        "before": "für eine",
-                        "after": "Anlage"
-                      }
-                    }
-                  },
-                  "interested-products-wir-empfehlen": {
-                    "order": "1",
-                    "type": "checkbox",
-                    "multiple": "true",
-                    "required": "false",
-                    "defaultVisible": "true",
-                    "title": "Wir empfehlen",
-                    "description": "Material für Konstruktion, Abdichtung und Kabelweg von uns zu nehmen",
-                    "localStorage": "false",
-                    "span": "2",
-                    "message": {
-                      "text": "",
-                      "type": "info",
-                      "successMessage": "Danke für Ihre Eingabe",
-                      "requiredMessage": "Diese Eingabe ist verpflichtend",
-                      "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                    },
-                    "options": {
-                      "photovoltaic": {
-                        "type": "checkbox",
-                        "title": "Ja bitte",
-                        "disabled": "false",
-                        "span": "3",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      }
-                    }
-                  },
-                  "interested-products-calculation-enquiry": {
-                    "order": "1",
-                    "type": "checkbox",
-                    "multiple": "true",
-                    "required": "false",
-                    "defaultVisible": "true",
-                    "title": "Hier kommt in Kürze ihre Preisberechnung (Durchschnittlicher Montagepreis 200€/kWp)",
-                    "description": "",
-                    "localStorage": "false",
-                    "span": "2",
-                    "message": {
-                      "text": "",
-                      "type": "info",
-                      "successMessage": "Danke für Ihre Eingabe",
-                      "requiredMessage": "Diese Eingabe ist verpflichtend",
-                      "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                    },
-                    "options": {
-                      "photovoltaic": {
-                        "type": "checkbox",
-                        "title": "Ja bitte",
-                        "disabled": "false",
-                        "span": "3",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      }
-                    }
-                  },
-                  "interested-products-again": {
-                    "order": "1",
-                    "type": "checkbox",
-                    "multiple": "true",
-                    "required": "false",
-                    "defaultVisible": "true",
-                    "title": "Wollen Sie noch ein Projekt hinzufügen?",
-                    "description": "",
-                    "localStorage": "false",
-                    "span": "2",
-                    "message": {
-                      "text": "",
-                      "type": "info",
-                      "successMessage": "Danke für Ihre Eingabe",
-                      "requiredMessage": "Diese Eingabe ist verpflichtend",
-                      "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                    },
-                    "options": {
-                      "photovoltaic": {
-                        "type": "checkbox",
-                        "title": "Ja bitte",
-                        "disabled": "false",
-                        "span": "3",
-                        "description": "",
-                        "addQuestion": "interested-products",
-                        "addForm": "",
-                        "icon": {
-                          "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                          "alt": "Photovoltaik"
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -7602,14 +7864,14 @@
                 },
                 "options": {
                   "buttons": {
-                    "incrementBy": "5",
-                    "decrementBy": "5"
+                    "incrementBy": "2.5",
+                    "decrementBy": "2.5"
                   },
                   "range": {
                     "defaultValue": "0",
                     "min": "0",
                     "max": "3000",
-                    "step": "0.5",
+                    "step": "2.5",
                     "type": "exp"
                   },
                   "unit": {
@@ -7648,6 +7910,28 @@
                       "correctX": "0%"
                     }
                   }
+                },
+                "aiExtraction": {
+                  "fieldKey": "mounting_height_m",
+                  "label": "Montagehöhe",
+                  "type": "number",
+                  "unit": "m",
+                  "min": "0",
+                  "max": "3000",
+                  "aliases": [
+                    "Montagehöhe",
+                    "Gebäudehöhe",
+                    "Gebäude Höhe",
+                    "Fassadenhöhe",
+                    "Fassade",
+                    "Hanghöhe",
+                    "Traufhöhe",
+                    "Attikahöhe",
+                    "Modulhöhe",
+                    "Höhe über Grund"
+                  ],
+                  "description": "Höhe des Montageortes in Metern über Grund. Bei Gebäuden Traufhöhe oder höchste Modulhöhe verwenden. Wenn keine explizite Höhe angegeben ist, aus dem Gebäudetyp schätzen.",
+                  "instructions": "Extrahiere die Höhe des Montageortes über Grund in Metern. Akzeptiere auch Gebäudehöhe, Fassadenhöhe, Hanghöhe, Traufhöhe, Attikahöhe oder höchste Modulhöhe, wenn diese den Montageort beschreibt. Nicht als Seehöhe oder geografische Höhenlage interpretieren. Wenn keine explizite Höhe angegeben ist, schätze aus dem Gebäudetyp: Bungalow oder einstöckig ≤ 5 m, 2 Geschosse ca. 7–12 m, 3+ Geschosse ca. 12–18 m, Industriehalle ca. 6–12 m. Als Schätzung kennzeichnen."
                 }
               },
               "interested-products-range-dachneigung": {
@@ -7668,14 +7952,14 @@
                 },
                 "options": {
                   "buttons": {
-                    "incrementBy": "10",
-                    "decrementBy": "10"
+                    "incrementBy": "2.5",
+                    "decrementBy": "2.5"
                   },
                   "range": {
                     "defaultValue": "0",
                     "min": "0",
                     "max": "90",
-                    "step": "1",
+                    "step": "2.5",
                     "type": "linear"
                   },
                   "unit": {
@@ -7714,6 +7998,26 @@
                       "correctX": "0%"
                     }
                   }
+                },
+                "aiExtraction": {
+                  "fieldKey": "roof_pitch_deg",
+                  "label": "Neigung",
+                  "type": "number",
+                  "unit": "°",
+                  "min": "0",
+                  "max": "90",
+                  "aliases": [
+                    "Dachneigung",
+                    "Neigung",
+                    "Montageneigung",
+                    "Dachwinkel",
+                    "Anstellwinkel",
+                    "Modulneigung",
+                    "Hangneigung",
+                    "Gefälle"
+                  ],
+                  "description": "Dach- oder Montageflächenneigung in Grad. 0° ist flach, 90° ist vertikal.",
+                  "instructions": "Extrahiere die Neigung der Dach- oder Montagefläche in Grad. Prozentangaben nur dann umrechnen, wenn sie eindeutig als Gefälle/Neigung angegeben sind. Nicht mit Azimut, Ausrichtung, Himmelsrichtung oder Koordinaten verwechseln."
                 }
               }
             }
@@ -7742,25 +8046,41 @@
                 },
                 "options": {
                   "label": "",
-                  "placeholder": "Strasse XX, XXXX",
+                  "placeholder": "Straße XX, XXXX",
                   "rows": "4"
+                },
+                "aiExtraction": {
+                  "fieldKey": "end_customer_address",
+                  "label": "Adresse Endkunde",
+                  "type": "text",
+                  "aliases": [
+                    "Adresse Endkunde",
+                    "Projektadresse",
+                    "Anlagenstandort",
+                    "Montageort",
+                    "Baustellenadresse",
+                    "Standort",
+                    "Objektadresse"
+                  ],
+                  "description": "Adresse des Montageortes bzw. Anlagenstandortes, nicht Rechnungs- oder Auftragnehmeradresse.",
+                  "instructions": "Extrahiere die vollständige Adresse des Montageortes bzw. Anlagenstandortes. Bevorzuge Projektadresse, Baustellenadresse, Objektadresse oder Anlagenstandort. Keine Rechnungsadresse, Auftragnehmeradresse oder Firmenadresse übernehmen, wenn sie nicht eindeutig der Montageort ist."
                 }
               },
               "submit-form-file-upload": {
                 "order": "1",
                 "type": "file-upload",
                 "required": "false",
-                "defaultVisible": "true",
-                "title": "Upload your files",
+                "defaultVisible": "false",
+                "title": "Dateien hochladen",
                 "description": "",
                 "localStorage": "false",
                 "span": "2",
                 "message": {
-                  "text": "Mit dem Hochladen Ihrer Dateien stimmen Sie unseren Datenschutzbestimmungen zu.",
+                  "text": "Details zur Verarbeitung: Datenschutzerklärung.",
                   "type": "info",
-                  "successMessage": "Thank you for your upload",
+                  "successMessage": "Vielen Dank für Ihren Upload",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Thank your for your input. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                  "checkPreviousFormsMessage": "Vielen Dank für Ihre Eingabe. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "upload": {
@@ -7769,9 +8089,9 @@
                     "region": "",
                     "filesAccepted": "",
                     "multipleFiles": "true",
-                    "uploadingText": "Uploading...",
-                    "uploadError": "Upload failed, we are currently working on fixing it, please try again later",
-                    "uploadSuccess": "Upload successful, thank you!"
+                    "uploadingText": "Datei wird hochgeladen...",
+                    "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                    "uploadSuccess": "Upload erfolgreich, vielen Dank!"
                   },
                   "download": {
                     "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
@@ -7796,7 +8116,7 @@
                 "localStorage": "false",
                 "span": "2",
                 "message": {
-                  "text": "Only valid Names are allowed",
+                  "text": "Nur gültige Namen sind zulässig",
                   "type": "info",
                   "successMessage": "Danke für Ihre Eingabe",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
@@ -7834,12 +8154,12 @@
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "false",
-                "title": "Wie ist der Status des Vorhabens? *",
+                "title": "Wie ist der Status des Vorhabens?",
                 "description": "",
                 "localStorage": "false",
                 "span": "2",
                 "message": {
-                  "text": "Only valid Names are allowed",
+                  "text": "Nur gültige Namen sind zulässig",
                   "type": "info",
                   "successMessage": "Danke für Ihre Eingabe",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
@@ -7855,6 +8175,7 @@
                     "addQuestion": "interested-products",
                     "addForm": "interested-products-range",
                     "icon": {
+                      "name": "Sun",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
                     }
@@ -7868,8 +8189,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Heater",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Wärmepumpe"
                     }
                   },
                   "klimasysteme": {
@@ -7881,8 +8203,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Snowflake",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Klimasysteme"
                     }
                   },
                   "smart-home": {
@@ -7894,8 +8217,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "HousePlug",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Smart Home"
                     }
                   },
                   "Energiemanagement": {
@@ -7907,8 +8231,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Gauge",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Energiemanagement"
                     }
                   },
                   "wallbox": {
@@ -7920,8 +8245,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "PlugZap",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Wallbox"
                     }
                   }
                 }
@@ -7957,7 +8283,7 @@
                 "localStorage": "false",
                 "span": "2",
                 "message": {
-                  "text": "Only valid Names are allowed",
+                  "text": "Nur gültige Namen sind zulässig",
                   "type": "info",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
                   "successMessage": "Danke für Ihre Eingabe",
@@ -8024,7 +8350,7 @@
                 "localStorage": "false",
                 "span": "2",
                 "message": {
-                  "text": "Only valid Names are allowed",
+                  "text": "Nur gültige Namen sind zulässig",
                   "type": "info",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
                   "successMessage": "Danke für Ihre Eingabe",
@@ -8040,6 +8366,7 @@
                     "addQuestion": "main-photovoltaic",
                     "addForm": "",
                     "icon": {
+                      "name": "Sun",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
                     }
@@ -8053,8 +8380,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Heater",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Wärmepumpe"
                     }
                   },
                   "klimasysteme": {
@@ -8066,8 +8394,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Snowflake",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Klimasysteme"
                     }
                   },
                   "smart-home": {
@@ -8079,8 +8408,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "HousePlug",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Smart Home"
                     }
                   },
                   "Energiemanagement": {
@@ -8092,8 +8422,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Gauge",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Energiemanagement"
                     }
                   },
                   "wallbox": {
@@ -8105,8 +8436,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "PlugZap",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Wallbox"
                     }
                   }
                 }
@@ -8173,8 +8505,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "BadgeCheck",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Ja bitte"
                     }
                   }
                 }
@@ -8206,8 +8539,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "BadgeCheck",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Ja bitte"
                     }
                   }
                 }
@@ -8239,8 +8573,9 @@
                     "addQuestion": "interested-products",
                     "addForm": "",
                     "icon": {
+                      "name": "BadgeCheck",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Ja bitte"
                     }
                   }
                 }
@@ -8259,11 +8594,11 @@
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "true",
-                "title": "Wie ist der Status des Vorhabens? *",
+                "title": "Wie ist der Status des Vorhabens?",
                 "description": "",
                 "span": "2",
                 "message": {
-                  "text": "Only valid Names are allowed",
+                  "text": "Nur gültige Namen sind zulässig",
                   "type": "info",
                   "successMessage": "Danke für Ihre Eingabe",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
@@ -8279,6 +8614,7 @@
                     "addQuestion": "interested-products",
                     "addForm": "interested-products-two",
                     "icon": {
+                      "name": "Sun",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
                     }
@@ -8292,8 +8628,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Heater",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Wärmepumpe"
                     }
                   },
                   "klimasysteme": {
@@ -8305,8 +8642,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Snowflake",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Klimasysteme"
                     }
                   },
                   "smart-home": {
@@ -8318,8 +8656,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "HousePlug",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Smart Home"
                     }
                   },
                   "Energiemanagement": {
@@ -8331,8 +8670,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Gauge",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Energiemanagement"
                     }
                   },
                   "wallbox": {
@@ -8344,8 +8684,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "PlugZap",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Wallbox"
                     }
                   }
                 }
@@ -8356,11 +8697,11 @@
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "false",
-                "title": "Wie ist der Status des Vorhabens? *",
+                "title": "Wie ist der Status des Vorhabens?",
                 "description": "",
                 "span": "2",
                 "message": {
-                  "text": "Only valid Names are allowed",
+                  "text": "Nur gültige Namen sind zulässig",
                   "type": "info",
                   "successMessage": "Danke für Ihre Eingabe",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
@@ -8376,6 +8717,7 @@
                     "addQuestion": "main-photovoltaic",
                     "addForm": "",
                     "icon": {
+                      "name": "Sun",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Photovoltaik"
                     }
@@ -8389,8 +8731,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Heater",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Wärmepumpe"
                     }
                   },
                   "klimasysteme": {
@@ -8402,8 +8745,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Snowflake",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Klimasysteme"
                     }
                   },
                   "smart-home": {
@@ -8415,8 +8759,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "HousePlug",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Smart Home"
                     }
                   },
                   "Energiemanagement": {
@@ -8428,8 +8773,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "Gauge",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Energiemanagement"
                     }
                   },
                   "wallbox": {
@@ -8441,8 +8787,9 @@
                     "addQuestion": "",
                     "addForm": "",
                     "icon": {
+                      "name": "PlugZap",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaik"
+                      "alt": "Wallbox"
                     }
                   }
                 }
@@ -8535,8 +8882,8 @@
                   "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
-                  "label": "Provide your project details",
-                  "placeholder": "Write your thoughts here...",
+                  "label": "Geben Sie Ihre Projektdetails an",
+                  "placeholder": "Schreiben Sie hier Ihre Angaben...",
                   "rows": "4"
                 }
               },
@@ -8544,16 +8891,16 @@
                 "order": "1",
                 "type": "select",
                 "multiple": "false",
-                "required": "true",
-                "defaultVisible": "true",
+                "required": "false",
+                "defaultVisible": "false",
                 "title": "",
                 "description": "",
-                "defaultValue": ["Please select"],
-                "label": "How did you hear about us?",
+                "defaultValue": ["Bitte auswählen"],
+                "label": "Wie haben Sie von uns erfahren?",
                 "localStorage": "true",
                 "span": "2",
                 "message": {
-                  "text": "If none apply, select \"Other\"",
+                  "text": "Falls nichts zutrifft, wählen Sie \"Sonstiges\"",
                   "type": "info",
                   "successMessage": "Danke für Ihre Eingabe",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
@@ -8562,63 +8909,63 @@
                 "options": {
                   "please-select": {
                     "type": "select",
-                    "title": "Please select",
+                    "title": "Bitte auswählen",
                     "value": "please-select",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Search-Engine": {
                     "type": "select",
-                    "title": "Search Engine (Google, Bing, etc.)",
+                    "title": "Suchmaschine (Google, Bing usw.)",
                     "value": "",
                     "addQuestion": "",
                     "addForm": "submit-form-search-engine"
                   },
                   "Social-media": {
                     "type": "select",
-                    "title": "Social Media",
+                    "title": "Soziale Medien",
                     "value": "social-media",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Television": {
                     "type": "select",
-                    "title": "Television",
+                    "title": "Fernsehen",
                     "value": "television",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Billboard": {
                     "type": "select",
-                    "title": "Billboard",
+                    "title": "Plakatwerbung",
                     "value": "billboard",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Convention": {
                     "type": "select",
-                    "title": "Convention",
+                    "title": "Messe",
                     "value": "convention",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Word-of-Mouth": {
                     "type": "select",
-                    "title": "Word of Mouth",
+                    "title": "Mundpropaganda",
                     "value": "word-of-mouth",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Referral": {
                     "type": "select",
-                    "title": "Referral",
+                    "title": "Empfehlung",
                     "value": "referral",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Other": {
                     "type": "select",
-                    "title": "Other",
+                    "title": "Sonstiges",
                     "value": "other",
                     "addQuestion": "",
                     "addForm": ""
@@ -8629,16 +8976,16 @@
                 "order": "1",
                 "type": "select",
                 "multiple": "true",
-                "required": "true",
+                "required": "false",
                 "defaultVisible": "false",
                 "title": "",
                 "description": "",
                 "defaultValue": [""],
-                "label": "How did you hear about us? (Multiple)",
+                "label": "Wie haben Sie von uns erfahren? (Mehrfachauswahl)",
                 "localStorage": "true",
                 "span": "2",
                 "message": {
-                  "text": "If none apply, select \"Other\"",
+                  "text": "Falls nichts zutrifft, wählen Sie \"Sonstiges\"",
                   "type": "info",
                   "successMessage": "Danke für Ihre Eingabe",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
@@ -8647,56 +8994,56 @@
                 "options": {
                   "Search-Engine": {
                     "type": "select",
-                    "title": "Search Engine (Google, Bing, etc.)",
+                    "title": "Suchmaschine (Google, Bing usw.)",
                     "value": "search-engine",
                     "addQuestion": "",
                     "addForm": "submit-form-search-engine"
                   },
                   "Social Media": {
                     "type": "select",
-                    "title": "Social Media",
+                    "title": "Soziale Medien",
                     "value": "social-media",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Television": {
                     "type": "select",
-                    "title": "Television",
+                    "title": "Fernsehen",
                     "value": "television",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Billboard": {
                     "type": "select",
-                    "title": "Billboard",
+                    "title": "Plakatwerbung",
                     "value": "billboard",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Convention": {
                     "type": "select",
-                    "title": "Convention",
+                    "title": "Messe",
                     "value": "convention",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Word-of-Mouth": {
                     "type": "select",
-                    "title": "Word of Mouth",
+                    "title": "Mundpropaganda",
                     "value": "word-of-mouth",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Referral": {
                     "type": "select",
-                    "title": "Referral",
+                    "title": "Empfehlung",
                     "value": "referral",
                     "addQuestion": "",
                     "addForm": ""
                   },
                   "Other": {
                     "type": "select",
-                    "title": "Other",
+                    "title": "Sonstiges",
                     "value": "other",
                     "addQuestion": "",
                     "addForm": "submit-form-search-engine"
@@ -8713,14 +9060,14 @@
                 "localStorage": "true",
                 "span": "2",
                 "message": {
-                  "text": "Only valid Search Engines are allowed",
+                  "text": "Es sind nur gültige Suchmaschinen zulässig",
                   "type": "info",
                   "successMessage": "Danke für Ihre Eingabe",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
                   "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
-                  "label": "Enter the Search Engine",
+                  "label": "Suchmaschine eingeben",
                   "placeholder": "Google, Bing, etc."
                 }
               },
@@ -8750,7 +9097,7 @@
                 "type": "textarea",
                 "required": "false",
                 "defaultVisible": "true",
-                "title": "Haben Sie Verbesserungsvorschläge?",
+                "title": "Was können wir Ihrer Meinung nach besser machen?",
                 "description": "",
                 "localStorage": "false",
                 "span": "2",
@@ -8776,7 +9123,7 @@
                 "description": "",
                 "span": "2",
                 "message": {
-                  "text": "Only book an appointment if you already know the date and time",
+                  "text": "Buchen Sie nur dann einen Termin, wenn Sie Datum und Uhrzeit bereits kennen",
                   "type": "info",
                   "successMessage": "Danke für Ihre Eingabe",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
@@ -8810,10 +9157,10 @@
                 "message": {
                   "text": "",
                   "type": "info",
-                  "errorMessage": "Die E-Mail konnte nicht abgesendet werden. Wir arbeiten derzeit daran, das Problem zu beheben. Bitte benutzten Sie die unten angegebene E-Mail.",
-                  "successMessage": "Thank you for your submit",
-                  "loadingMessage": "Please wait while we process your request",
-                  "checkPreviousFormsMessage": "Please resolve all errors from previous forms"
+                  "errorMessage": "Die E-Mail konnte nicht abgesendet werden. Wir arbeiten derzeit daran, das Problem zu beheben. Bitte benutzen Sie die unten angegebene E-Mail.",
+                  "successMessage": "Vielen Dank für Ihre Anfrage",
+                  "loadingMessage": "Bitte warten Sie, während wir Ihre Anfrage verarbeiten",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
                 },
                 "options": {
                   "button": {
@@ -11065,6 +11412,575 @@
       "LocaleSwitcher": {
         "label": "Change language",
         "locale": "{locale, select, atAT {🇦🇹 Deutsch} en {🇺🇸 English} other {Unknown}}"
+      }
+    },
+    "Legal": {
+      "Impressum": {
+        "title": "Impressum",
+        "updatedAt": "Stand: 29.05.2026",
+        "intro": {
+          "block01": {
+            "type": "paragraph",
+            "text": "Informationspflicht laut § 5 E-Commerce-Gesetz (ECG), § 14 Unternehmensgesetzbuch (UGB) und § 63 Gewerbeordnung (GewO) sowie Offenlegungspflicht laut § 25 Mediengesetz."
+          }
+        },
+        "sections": {
+          "mediaOwner": {
+            "title": "Medieninhaber und Diensteanbieter",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "<b>Synergie Montagen Riegler GmbH</b><br></br>Anton Krenn Straße 23/2, 2540 Bad Vöslau, Österreich<br></br>Lager: Industriestraße 2c, Tor 6–7, 2540 Bad Vöslau, Österreich"
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "Tel.: +43 664 2448742<br></br>E-Mail: office@synergie.cc"
+              }
+            }
+          },
+          "companyData": {
+            "title": "Unternehmensdaten",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Firmenbuchnummer: FN 593978 y<br></br>Firmenbuchgericht: Landesgericht Wiener Neustadt<br></br>UID-Nummer: ATU78880338<br></br>GISA-Zahl: 35484653<br></br>GLN: 9110032870340"
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "Geschäftsführer: Michael Riegler"
+              }
+            }
+          },
+          "professionalLaw": {
+            "title": "Berufsrecht und Aufsicht",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Mitglied bei: WKO (Wirtschaftskammer Österreich), Landesinnung Niederösterreich, PV Austria, Österreichischer Verband für Elektrotechnik (OVE)<br></br>Berufsbezeichnung / Unternehmensgegenstand: Montage von Photovoltaik-Modulen, Energiekostenberatung, Handelsgewerbe<br></br>Anzuwendende Rechtsvorschrift: Gewerbeordnung (abrufbar unter www.ris.bka.gv.at)<br></br>Aufsichts-/Gewerbebehörde: Bezirkshauptmannschaft Baden"
+              }
+            }
+          },
+          "disputeResolution": {
+            "title": "Verbraucherstreitbeilegung",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+              }
+            }
+          },
+          "liabilityContent": {
+            "title": "Haftung für Inhalte dieser Website",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Wir entwickeln die Inhalte dieser Website ständig weiter und bemühen uns, korrekte und aktuelle Informationen bereitzustellen. Eine Haftung für die Korrektheit aller Inhalte kann jedoch nicht übernommen werden, insbesondere für Inhalte, die von Dritten bereitgestellt wurden."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "Als Diensteanbieter sind wir nicht verpflichtet, die von uns übermittelten oder gespeicherten fremden Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung von Informationen nach den allgemeinen Gesetzen aufgrund gerichtlicher oder behördlicher Anordnungen bleiben hiervon unberührt."
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "Sollten Ihnen problematische oder rechtswidrige Inhalte auffallen, bitten wir um umgehende Kontaktaufnahme über die oben angeführten Kontaktdaten, damit wir die betreffenden Inhalte entfernen können."
+              }
+            }
+          },
+          "liabilityLinks": {
+            "title": "Haftung für Links auf dieser Website",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für diese fremden Inhalte können wir keine Gewähr übernehmen. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden derartige Links umgehend entfernt. Sollten Ihnen rechtswidrige Links auffallen, bitten wir um Kontaktaufnahme."
+              }
+            }
+          },
+          "copyright": {
+            "title": "Urheberrecht",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Alle Inhalte dieser Website (insbesondere Texte, Bilder, Fotos, Grafiken und Videos) sind urheberrechtlich geschützt. Eine Verbreitung, Vervielfältigung oder sonstige Verwertung – etwa die erneute Veröffentlichung auf anderen Websites – ist nur mit unserer vorherigen Zustimmung zulässig. Eine unerlaubte Nutzung von Inhalten dieser Website behalten wir uns vor, rechtlich zu verfolgen. Sollten Sie auf dieser Website Inhalte finden, die das Urheberrecht Dritter verletzen, bitten wir um Kontaktaufnahme."
+              }
+            }
+          }
+        }
+      },
+      "Datenschutz": {
+        "title": "Datenschutzerklärung",
+        "updatedAt": "Stand: 29.05.2026",
+        "intro": {
+          "block01": {
+            "type": "paragraph",
+            "text": "Wir nehmen den Schutz Ihrer personenbezogenen Daten ernst und verarbeiten diese ausschließlich im Einklang mit der Datenschutz-Grundverordnung (DSGVO), dem österreichischen Datenschutzgesetz (DSG) und dem Telekommunikationsgesetz 2021 (TKG 2021). In dieser Datenschutzerklärung informieren wir Sie über Art, Umfang und Zweck der Verarbeitung personenbezogener Daten auf unserer Website sowie über Ihre Rechte."
+          }
+        },
+        "sections": {
+          "section01": {
+            "title": "1. Verantwortlicher",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Verantwortlicher im Sinne des Art. 4 Z 7 DSGVO ist:"
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "<b>Synergie Montagen Riegler GmbH</b><br></br>Anton Krenn Straße 23/2, 2540 Bad Vöslau, Österreich<br></br>FN 593978 y, Landesgericht Wiener Neustadt – UID-Nummer: ATU78880338<br></br>Geschäftsführer: Michael Riegler<br></br>E-Mail: office@synergie.cc<br></br>Tel.: +43 664 2448742"
+              }
+            }
+          },
+          "section02": {
+            "title": "2. Aufruf der Website und Server-Logfiles",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Beim Aufruf unserer Website werden durch den Browser automatisch Informationen an den Server unserer Website übermittelt und vorübergehend in sogenannten Logfiles gespeichert. Erfasst werden insbesondere: IP-Adresse des anfragenden Geräts, Datum und Uhrzeit des Zugriffs, Name und URL der abgerufenen Datei, übertragene Datenmenge, Meldung über den erfolgreichen Abruf, Browsertyp und -version, Betriebssystem sowie die zuvor besuchte Seite (Referrer)."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "<b>Zweck:</b> Gewährleistung eines reibungslosen Verbindungsaufbaus, einer komfortablen Nutzung, der Systemsicherheit und -stabilität sowie zu administrativen Zwecken."
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "<b>Rechtsgrundlage:</b> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am sicheren und stabilen Betrieb der Website)."
+              },
+              "block04": {
+                "type": "paragraph",
+                "text": "<b>Speicherdauer:</b> Technische Logs werden nach spätestens 90 Tagen anonymisiert oder gelöscht."
+              }
+            }
+          },
+          "section03": {
+            "title": "3. Kontaktaufnahme",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Wenn Sie über das Kontaktformular oder per E-Mail mit uns in Verbindung treten, verarbeiten wir die von Ihnen mitgeteilten Daten (z. B. Name, E-Mail-Adresse, Telefonnummer, Inhalt Ihrer Anfrage), um Ihre Anfrage zu bearbeiten."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "<b>Rechtsgrundlage:</b> Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre Anfrage auf den Abschluss oder die Durchführung eines Vertrags gerichtet ist; im Übrigen Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen)."
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "<b>Speicherdauer:</b> Wir bewahren diese Daten auf, solange dies zur Bearbeitung Ihrer Anfrage erforderlich ist, und löschen sie anschließend, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen."
+              }
+            }
+          },
+          "section04": {
+            "title": "4. Bearbeitung und Verwaltung Ihrer Anfrage",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Die im Zuge einer Anfrage oder eines Vertragsverhältnisses übermittelten Daten verarbeiten wir in unseren internen Systemen, um Ihre Anfrage zu bearbeiten, Angebote zu erstellen und – bei Zustandekommen eines Vertrags – diesen abzuwickeln."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "<b>Rechtsgrundlage:</b> Art. 6 Abs. 1 lit. b DSGVO (Vertrag bzw. vorvertragliche Maßnahmen); für die Erfüllung gesetzlicher Aufbewahrungspflichten Art. 6 Abs. 1 lit. c DSGVO."
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "<b>Speicherdauer:</b> für die Dauer der Bearbeitung bzw. Vertragsabwicklung und darüber hinaus im Rahmen der gesetzlichen Aufbewahrungsfristen (insbesondere § 132 BAO, § 212 UGB: 7 Jahre)."
+              }
+            }
+          },
+          "section05": {
+            "title": "5. Cookies und Einwilligungsverwaltung",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Unsere Website verwendet Cookies und vergleichbare Technologien. Technisch notwendige Cookies, die für den Betrieb der Website erforderlich sind, setzen wir auf Grundlage unseres berechtigten Interesses (Art. 6 Abs. 1 lit. f DSGVO) bzw. auf Grundlage des § 165 Abs. 3 TKG 2021 ein."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "Nicht technisch notwendige Cookies sowie Dienste, die ein Auslesen oder Speichern von Informationen auf Ihrem Endgerät voraussetzen (z. B. Webanalyse), setzen wir nur ein, soweit Sie zuvor über unser Einwilligungsbanner ausdrücklich eingewilligt haben (Art. 6 Abs. 1 lit. a DSGVO i. V. m. § 165 Abs. 3 TKG 2021). Ihre Einwilligung ist freiwillig und kann jederzeit mit Wirkung für die Zukunft über die Einstellungen des Einwilligungsbanners widerrufen werden."
+              }
+            }
+          },
+          "section06": {
+            "title": "6. Hosting",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "<b>Marketing-Website (Webflow):</b> Diese Website wird auf der Plattform von Webflow, Inc. betrieben, die eine Plattform zum Erstellen und Hosten von Websites bereitstellt. Dabei können IP-Adressen und Nutzungsdaten verarbeitet werden. Webflow verarbeitet diese Daten in unserem Auftrag auf Grundlage eines Auftragsverarbeitungsvertrags gemäß Art. 28 DSGVO. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am Betrieb der Website)."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "<b>Web-Anwendung und Dashboard (Vercel):</b> Der Fragebogen-Assistent und die zugehörigen Anwendungen werden als eigenständige Web-Anwendung über Vercel Inc. (440 N Barranca Ave #4133, Covina, CA 91723, USA) betrieben; die Ausführung erfolgt in einer EU-Region (Frankfurt). Da Vercel Inc. ein US-Unternehmen ist, kann ein Zugriff aus den USA nicht vollständig ausgeschlossen werden. Die Übermittlung wird auf die Standardvertragsklauseln der EU-Kommission (Art. 46 Abs. 2 lit. c DSGVO) gemäß dem Data Processing Addendum von Vercel gestützt sowie – soweit Vercel unter dem EU-US Data Privacy Framework zertifiziert ist – auf den entsprechenden Angemessenheitsbeschluss. Rechtsgrundlage: Art. 6 Abs. 1 lit. b und lit. f DSGVO."
+              }
+            }
+          },
+          "section07": {
+            "title": "7. Webanalyse mit Google Analytics",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "<i>Diesen Abschnitt nur beibehalten, wenn Google Analytics tatsächlich und ausschließlich nach vorheriger Einwilligung über das Einwilligungsbanner eingesetzt wird. Andernfalls Abschnitt streichen.</i>"
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "Wir verwenden Google Analytics 4, einen Webanalysedienst der Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irland). Google Analytics verwendet Cookies und ähnliche Technologien, um die Nutzung unserer Website zu analysieren. Die dabei erzeugten Informationen über Ihre Nutzung der Website werden in der Regel an Server von Google übertragen und dort verarbeitet; dabei kann eine Übermittlung in die USA erfolgen, die auf Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO) und – soweit zertifiziert – auf den EU-US Data Privacy Framework gestützt wird. In Google Analytics 4 werden IP-Adressen nicht protokolliert und nicht gespeichert."
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "<b>Rechtsgrundlage:</b> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung), die Sie über unser Einwilligungsbanner erteilen und jederzeit mit Wirkung für die Zukunft widerrufen können."
+              }
+            }
+          },
+          "section08": {
+            "title": "8. KI-gestützte Auswertung hochgeladener Dateien (Fragebogen-Assistent)",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Auf unserer Website bieten wir einen Fragebogen-Assistenten an, mit dem Sie eigene Projektdateien (z. B. Stromrechnungen, Lastprofile, Pläne, Angebote, Datenblätter, Fotos) hochladen können. Ein Sprachmodell (Large Language Model, „LLM\") liest aus diesen Dateien Informationen aus und befüllt damit die Antwortfelder des Fragebogens vor. Sie können die vorgeschlagenen Antworten anschließend prüfen, ändern, ergänzen oder verwerfen."
+              },
+              "block02": {
+                "type": "subheading",
+                "text": "8.1 Verarbeitete Daten"
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "Wir verarbeiten in diesem Zusammenhang insbesondere:"
+              },
+              "block04": {
+                "type": "list",
+                "items": {
+                  "item01": "Inhalte der von Ihnen hochgeladenen Dateien (PDFs, Bilder, Office-Dokumente und vergleichbare Formate); diese können personenbezogene Daten enthalten (z. B. Name, Adresse, Zählpunkt, Verbrauchsdaten, Vertragsdaten, Bankdaten, Fotos von Gebäuden, ggf. Daten Dritter);",
+                  "item02": "die aus den Dateien durch das KI-Modell extrahierten Datenpunkte und die daraus erzeugten Vorschläge für die Fragebogen-Antworten;",
+                  "item03": "Ihre Eingaben im Fragebogen, Ihre Kontaktdaten und die Kommunikation mit uns;",
+                  "item04": "technische Verbindungsdaten (IP-Adresse, Zeitstempel, User-Agent), Datei-Metadaten sowie Verarbeitungsprotokolle (Logs) zu Zwecken der Sicherheit und Fehleranalyse."
+                }
+              },
+              "block05": {
+                "type": "subheading",
+                "text": "8.2 Zweck"
+              },
+              "block06": {
+                "type": "paragraph",
+                "text": "Zweck ist die Erbringung des kostenlos angebotenen Fragebogen-Assistenten, konkret das automatisierte Auslesen relevanter Informationen aus Ihren Dateien, das Vorausfüllen der Fragebogen-Felder, die anschließende individuelle Beratung sowie die Erstellung von Angeboten im Bereich Photovoltaik und Energiekostenberatung."
+              },
+              "block07": {
+                "type": "subheading",
+                "text": "8.3 Rechtsgrundlagen"
+              },
+              "block08": {
+                "type": "list",
+                "items": {
+                  "item01": "Art. 6 Abs. 1 lit. b DSGVO (Durchführung vorvertraglicher Maßnahmen bzw. Vertragserfüllung) für die Bearbeitung Ihrer Anfrage und die Vorbereitung eines Angebots;",
+                  "item02": "Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) für den Upload und die KI-gestützte Auswertung Ihrer Dateien einschließlich der damit verbundenen Übermittlung an Anthropic, PBC in die USA;",
+                  "item03": "Art. 49 Abs. 1 lit. a DSGVO (ausdrückliche Einwilligung in den Drittlandtransfer) ergänzend für die Übermittlung an Anthropic, PBC, soweit die Standardvertragsklauseln gemäß Art. 46 Abs. 2 lit. c DSGVO im Einzelfall nicht ausreichen sollten;",
+                  "item04": "Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Betrieb, Sicherheit und Missbrauchsabwehr unserer IT-Systeme) für technische Logs."
+                }
+              },
+              "block09": {
+                "type": "paragraph",
+                "text": "Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, ohne dass die Rechtmäßigkeit der bis dahin erfolgten Verarbeitung berührt wird. Den Widerruf können Sie formlos per E-Mail an uns richten."
+              },
+              "block10": {
+                "type": "subheading",
+                "text": "8.4 Hochgeladene Dateien können Daten Dritter enthalten"
+              },
+              "block11": {
+                "type": "paragraph",
+                "text": "Bitte beachten Sie: Hochgeladene Dateien (z. B. Rechnungen, Verträge, Pläne) können personenbezogene Daten Dritter enthalten (etwa Daten anderer Vertragspartner, Mitbewohner, Familienangehöriger, Lieferantenmitarbeiter). Sie sichern uns mit dem Upload zu, zur Verarbeitung dieser Daten berechtigt zu sein und – soweit erforderlich – die betroffenen Personen über die Verarbeitung informiert zu haben. Bitte laden Sie keine Dokumente hoch, deren Inhalt einem Berufs- oder Amtsgeheimnis unterliegt oder die besondere Kategorien personenbezogener Daten (Art. 9 DSGVO, z. B. Gesundheitsdaten) enthalten, sofern dies nicht für die Anfrage zwingend erforderlich ist."
+              },
+              "block12": {
+                "type": "subheading",
+                "text": "8.5 Empfänger / Auftragsverarbeiter"
+              },
+              "block13": {
+                "type": "paragraph",
+                "text": "Für den Betrieb des Fragebogen-Assistenten setzen wir folgende Auftragsverarbeiter ein:"
+              },
+              "block14": {
+                "type": "list",
+                "items": {
+                  "item01": "<b>Vercel Inc.</b>, 440 N Barranca Ave #4133, Covina, CA 91723, USA – Hosting und Betrieb der Web-Anwendung (Ausführung in EU-Region Frankfurt);",
+                  "item02": "<b>BunnyWay d.o.o.</b>, Dunajska cesta 165, 1000 Ljubljana, Slowenien (Bunny.net) – Datei-Speicherung und Auslieferung, ausschließlich in EU-Rechenzentren (Routing-Filter „EU only\" aktiviert);",
+                  "item03": "<b>Trigger.dev Ltd.</b>, Vereinigtes Königreich – asynchrone Hintergrundverarbeitung der Datei-Extraktionsaufträge (Job-Orchestrierung), Datenresidenz in EU-Region, soweit konfigurierbar;",
+                  "item04": "<b>Anthropic, PBC</b>, 548 Market Street, PMB 90375, San Francisco, CA 94104, USA – Bereitstellung des Sprachmodells „Claude\" über die Anthropic-API zur Inhaltsanalyse hochgeladener Dateien (Verarbeitung in den USA)."
+                }
+              },
+              "block15": {
+                "type": "subheading",
+                "text": "8.6 Übermittlung in Drittländer (USA)"
+              },
+              "block16": {
+                "type": "paragraph",
+                "text": "Beim Aufruf des Sprachmodells werden die Inhalte Ihrer Dateien an Anthropic, PBC in die Vereinigten Staaten von Amerika übermittelt und dort verarbeitet. Die USA gewährleisten nicht durchgängig ein dem DSGVO-Niveau entsprechendes Datenschutzniveau; insbesondere besteht das Risiko eines Zugriffs durch US-Behörden auf Grundlage US-amerikanischer Überwachungsgesetze (z. B. FISA 702, CLOUD Act)."
+              },
+              "block17": {
+                "type": "paragraph",
+                "text": "Die Übermittlung wird gestützt auf:"
+              },
+              "block18": {
+                "type": "list",
+                "items": {
+                  "item01": "die Standardvertragsklauseln der EU-Kommission gemäß Art. 46 Abs. 2 lit. c DSGVO (Module 2 und 3), die fester Bestandteil des Data Processing Addendums von Anthropic sind (https://www.anthropic.com/legal/data-processing-addendum), sowie",
+                  "item02": "ergänzend Ihre ausdrückliche Einwilligung gemäß Art. 49 Abs. 1 lit. a DSGVO, die Sie am Upload-Schritt erteilen."
+                }
+              },
+              "block19": {
+                "type": "paragraph",
+                "text": "Anthropic verarbeitet die über die API übermittelten Inhalte nach eigenen Angaben nicht zum Training eigener Modelle. Eingaben und Ausgaben werden im Rahmen der von Anthropic vorgesehenen Aufbewahrungsfrist gelöscht (nach aktuellen Angaben von Anthropic innerhalb von höchstens 30 Tagen, bei Nutzung über die kommerzielle API regelmäßig kürzer). Aktuelle Informationen finden Sie unter https://privacy.claude.com/. Die Anthropic-Subprozessorenliste ist abrufbar unter https://www.anthropic.com/subprocessors."
+              },
+              "block20": {
+                "type": "subheading",
+                "text": "8.7 Speicherdauer"
+              },
+              "block21": {
+                "type": "list",
+                "items": {
+                  "item01": "Hochgeladene Dateien speichern wir auf unserer EU-Infrastruktur (Bunny.net Storage, EU-Region) für maximal 30 Tage ab Upload und löschen sie danach automatisiert; auf Ihren Wunsch löschen wir sie früher.",
+                  "item02": "Die durch das KI-Modell extrahierten Antworten sowie Ihre Fragebogeneingaben bewahren wir auf, solange dies für die Bearbeitung Ihrer Anfrage bzw. – bei Zustandekommen eines Vertrags – für die Vertragsabwicklung und die Erfüllung gesetzlicher Aufbewahrungspflichten (insbesondere § 132 BAO, § 212 UGB: 7 Jahre) erforderlich ist.",
+                  "item03": "Technische Logs werden nach maximal 90 Tagen anonymisiert oder gelöscht."
+                }
+              }
+            }
+          },
+          "section09": {
+            "title": "9. Weitere Empfänger",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Eine Weitergabe Ihrer Daten an andere als die in dieser Datenschutzerklärung genannten Empfänger erfolgt nur, soweit dies gesetzlich vorgeschrieben ist, Sie eingewilligt haben oder es zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen erforderlich ist."
+              }
+            }
+          },
+          "section10": {
+            "title": "10. Ihre Rechte",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Ihnen stehen hinsichtlich der Sie betreffenden personenbezogenen Daten folgende Rechte zu:"
+              },
+              "block02": {
+                "type": "list",
+                "items": {
+                  "item01": "Recht auf Auskunft (Art. 15 DSGVO);",
+                  "item02": "Recht auf Berichtigung (Art. 16 DSGVO);",
+                  "item03": "Recht auf Löschung (Art. 17 DSGVO);",
+                  "item04": "Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO);",
+                  "item05": "Recht auf Datenübertragbarkeit (Art. 20 DSGVO);",
+                  "item06": "Recht auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO);",
+                  "item07": "Recht auf Widerruf einer erteilten Einwilligung mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO)."
+                }
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "Zur Ausübung dieser Rechte können Sie uns jederzeit über die unter Punkt 1 angegebenen Kontaktdaten erreichen. Darüber hinaus haben Sie das Recht, sich bei der österreichischen Datenschutzbehörde (Barichgasse 40–42, 1030 Wien, www.dsb.gv.at) zu beschweren."
+              }
+            }
+          },
+          "section11": {
+            "title": "11. Automatisierte Entscheidungsfindung und Profiling",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Wir treffen keine ausschließlich auf einer automatisierten Verarbeitung beruhenden Entscheidungen im Sinne des Art. 22 Abs. 1 DSGVO, die Ihnen gegenüber rechtliche Wirkung entfalten oder Sie in ähnlicher Weise erheblich beeinträchtigen."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "Hinweis zum Fragebogen-Assistenten: Beim Einsatz des KI-gestützten Fragebogen-Assistenten (siehe Punkt 8) werden Inhalte aus den von Ihnen hochgeladenen Dateien automatisiert ausgelesen und als Vorschlag in den Fragebogen eingetragen. Diese Vorschläge stellen keine Entscheidung über Sie dar, sondern dienen ausschließlich der Vorbereitung Ihrer Anfrage und werden vor einer etwaigen Angebotslegung stets durch einen Menschen geprüft. Eine abschließende Beurteilung Ihrer Anfrage und allfällige Vertragsentscheidungen erfolgen ausschließlich durch unsere Mitarbeiter."
+              }
+            }
+          },
+          "section12": {
+            "title": "12. Aktualität und Änderung dieser Datenschutzerklärung",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Diese Datenschutzerklärung hat den oben angegebenen Stand. Durch die Weiterentwicklung unserer Website und Angebote oder aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es erforderlich werden, diese Datenschutzerklärung anzupassen. Die jeweils aktuelle Fassung ist auf dieser Website abrufbar."
+              }
+            }
+          }
+        }
+      },
+      "Nutzungsbedingungen": {
+        "title": "Nutzungsbedingungen für den KI-gestützten Fragebogen-Assistenten",
+        "updatedAt": "Stand: 03.06.2026",
+        "sections": {
+          "section01": {
+            "title": "§ 1 Geltungsbereich und Vertragspartner",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "(1) Diese Nutzungsbedingungen gelten für die Nutzung des kostenlos angebotenen, KI-gestützten Fragebogen-Assistenten auf der Website der"
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "<b>Synergie Montagen Riegler GmbH</b><br></br>Anton Krenn Straße 23/2, 2540 Bad Vöslau, Österreich<br></br>FN 593978 y, Landesgericht Wiener Neustadt – UID-Nummer: ATU78880338<br></br>E-Mail: office@synergiemontagen.eco"
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "(im Folgenden „Anbieter\")."
+              },
+              "block04": {
+                "type": "paragraph",
+                "text": "(2) Die Nutzung steht Unternehmern (B2B) und Verbrauchern im Sinne des § 1 Konsumentenschutzgesetz (KSchG, B2C) offen. Soweit zwingende verbraucherschutzrechtliche Bestimmungen entgegenstehen, gehen diese den Regelungen dieser Bedingungen vor."
+              },
+              "block05": {
+                "type": "paragraph",
+                "text": "(3) Diese Nutzungsbedingungen regeln ausschließlich die Nutzung des Fragebogen-Assistenten. Für die Verarbeitung Ihrer personenbezogenen Daten gilt ergänzend die Datenschutzerklärung des Anbieters."
+              }
+            }
+          },
+          "section02": {
+            "title": "§ 2 Leistungsumfang und unverbindlicher Charakter",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "(1) Der Anbieter stellt Ihnen ein Werkzeug zur Verfügung, mit dem Sie Projektdateien (z. B. Stromrechnungen, Lastprofile, Pläne, Angebote, Datenblätter, Fotos) hochladen können. Ein KI-Sprachmodell extrahiert daraus Informationen und befüllt einen Fragebogen vor. Auf Grundlage Ihrer Angaben kann der Anbieter Ihnen ein individuelles Angebot legen."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "(2) Der Fragebogen-Assistent stellt keine rechtliche, steuerliche oder technische Beratung dar. Die KI-generierten Vorschläge sind unverbindlich und ersetzen keine fachkundige Prüfung."
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "(3) Aus der bloßen Nutzung des Fragebogen-Assistenten entsteht kein Anspruch auf Abschluss eines Vertrags. Der Anbieter ist nicht verpflichtet, ein Angebot zu legen."
+              },
+              "block04": {
+                "type": "paragraph",
+                "text": "(4) Der Anbieter ist berechtigt, den Funktionsumfang des Fragebogen-Assistenten zu ändern, einzuschränken oder den Dienst ganz oder teilweise einzustellen, soweit dies für Sie zumutbar ist."
+              }
+            }
+          },
+          "section03": {
+            "title": "§ 3 Pflichten des Nutzers / zulässige Inhalte",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "(1) Sie dürfen nur Dateien hochladen, an denen Ihnen die erforderlichen Nutzungs- und Verwertungsrechte zustehen."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "(2) Sie dürfen insbesondere nicht hochladen:"
+              },
+              "block03": {
+                "type": "list",
+                "items": {
+                  "item01": "a) Dateien, die Rechte Dritter (insbesondere Urheber-, Marken- oder Persönlichkeitsrechte) verletzen;",
+                  "item02": "b) Dateien, die personenbezogene Daten Dritter enthalten, ohne dass Sie zur Verarbeitung dieser Daten berechtigt sind oder die betroffenen Personen informiert haben;",
+                  "item03": "c) Dokumente, die einem Berufs- oder Amtsgeheimnis unterliegen;",
+                  "item04": "d) besondere Kategorien personenbezogener Daten im Sinne des Art. 9 DSGVO (z. B. Gesundheitsdaten), soweit deren Übermittlung für Ihre Anfrage nicht zwingend erforderlich ist;",
+                  "item05": "e) Schadsoftware oder rechtswidrige, gewaltverherrlichende, pornografische oder diskriminierende Inhalte."
+                }
+              },
+              "block04": {
+                "type": "paragraph",
+                "text": "(3) Bei einem Verstoß gegen Abs. 2 ist der Anbieter berechtigt, die Verarbeitung sofort abzubrechen, die betreffende Datei zu löschen und Sie von der weiteren Nutzung auszuschließen. Sie stellen den Anbieter von Ansprüchen Dritter frei, die aus einer von Ihnen zu vertretenden Verletzung von Abs. 2 resultieren."
+              }
+            }
+          },
+          "section04": {
+            "title": "§ 4 Nutzungsrechte an hochgeladenen Inhalten",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "(1) Sie räumen dem Anbieter an den hochgeladenen Dateien ein einfaches, nicht ausschließliches, räumlich unbeschränktes, zeitlich auf die Erbringung der Leistung sowie die gesetzlichen Aufbewahrungsfristen beschränktes und nicht übertragbares Nutzungsrecht ein, beschränkt auf folgende Zwecke:"
+              },
+              "block02": {
+                "type": "list",
+                "items": {
+                  "item01": "a) die technische Speicherung, den Transport und die Anzeige der Datei innerhalb des Tools;",
+                  "item02": "b) die KI-gestützte Inhaltsanalyse und Vorbefüllung des Fragebogens einschließlich der dafür notwendigen Übermittlung an die in der Datenschutzerklärung genannten Auftragsverarbeiter;",
+                  "item03": "c) die interne Erstellung des auf Ihre Anfrage bezogenen Angebots bzw. die Vertragsabwicklung."
+                }
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "(2) Eine darüber hinausgehende Nutzung – insbesondere zum Training von KI-Modellen – findet nicht statt. Der vom Anbieter eingesetzte KI-Anbieter (Anthropic) verwendet die über die Schnittstelle übermittelten Inhalte nach eigenen Angaben nicht für das Modelltraining."
+              }
+            }
+          },
+          "section05": {
+            "title": "§ 5 Funktionsweise der KI / keine Gewähr für Richtigkeit",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "(1) Die Vorbefüllung des Fragebogens erfolgt durch ein generatives KI-Sprachmodell. KI-generierte Ausgaben können fehlerhaft, unvollständig, veraltet oder erfunden sein („Halluzinationen\")."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "(2) Soweit gesetzlich zulässig, übernimmt der Anbieter keine Gewähr für Richtigkeit, Vollständigkeit oder Aktualität der KI-Vorschläge. Sie sind verpflichtet, alle Vorschläge eigenverantwortlich zu prüfen, bevor Sie den Fragebogen absenden. Verbindlich sind ausschließlich Ihre abgesendeten Antworten."
+              }
+            }
+          },
+          "section06": {
+            "title": "§ 6 Haftung",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "(1) Der Anbieter haftet unbeschränkt für Vorsatz und grobe Fahrlässigkeit, für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit, nach dem Produkthaftungsgesetz sowie im Umfang einer von ihm übernommenen Garantie."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "(2) Für leicht fahrlässig verursachte Schäden haftet der Anbieter nur bei Verletzung einer wesentlichen Vertragspflicht (einer Pflicht, deren Erfüllung die ordnungsgemäße Durchführung erst ermöglicht und auf deren Einhaltung der Nutzer regelmäßig vertraut) und der Höhe nach begrenzt auf den vertragstypischen, vorhersehbaren Schaden. Im Übrigen ist die Haftung für leichte Fahrlässigkeit ausgeschlossen."
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "(3) Gegenüber Verbrauchern bleiben die zwingenden Bestimmungen des KSchG und des ABGB unberührt; insbesondere gilt der Vorrang des § 6 KSchG sowie das Verbot des Ausschlusses der Haftung für grobe Fahrlässigkeit gegenüber Verbrauchern."
+              },
+              "block04": {
+                "type": "paragraph",
+                "text": "(4) Eine Haftung für Schäden, die daraus entstehen, dass Sie unkorrigierte KI-Vorschläge ungeprüft verwenden, ist im Rahmen der vorstehenden Absätze ausgeschlossen."
+              }
+            }
+          },
+          "section07": {
+            "title": "§ 7 Rücktrittsrecht für Verbraucher (FAGG)",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "(1) Sind Sie Verbraucher, steht Ihnen grundsätzlich gemäß § 11 Fern- und Auswärtsgeschäfte-Gesetz (FAGG) ein Rücktrittsrecht von 14 Tagen zu."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "(2) Das Rücktrittsrecht erlischt gemäß § 18 Abs. 1 FAGG mit vollständiger Erbringung der KI-gestützten Auswertung (digitale Dienstleistung), wenn Sie dem sofortigen Beginn vor Ablauf der Rücktrittsfrist ausdrücklich zugestimmt und zur Kenntnis genommen haben, dass Sie mit der vollständigen Vertragserfüllung Ihr Rücktrittsrecht verlieren (Bestätigung über die entsprechende Checkbox beim Upload)."
+              },
+              "block03": {
+                "type": "paragraph",
+                "text": "(3) Den Rücktritt können Sie formlos, etwa per E-Mail an office@synergiemontagen.eco, erklären. Ein Muster-Widerrufsformular stellen wir auf Anfrage bereit."
+              }
+            }
+          },
+          "section08": {
+            "title": "§ 8 Datenschutz",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "Hinsichtlich der Verarbeitung Ihrer personenbezogenen Daten und der Übermittlung Ihrer Dateien in die USA verweisen wir auf die gesonderte Datenschutzerklärung, die einen eigenen Abschnitt zum Fragebogen-Assistenten enthält."
+              }
+            }
+          },
+          "section09": {
+            "title": "§ 9 Anwendbares Recht, Gerichtsstand",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "(1) Es gilt österreichisches Recht unter Ausschluss des UN-Kaufrechts und der Verweisungsnormen des Internationalen Privatrechts."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "(2) Gerichtsstand für Streitigkeiten mit Unternehmern ist das sachlich zuständige Gericht in Wien. Für Verbraucher gilt der gesetzliche Gerichtsstand nach § 14 KSchG; zwingende Verbrauchergerichtsstände bleiben unberührt."
+              }
+            }
+          },
+          "section10": {
+            "title": "§ 10 Schlussbestimmungen",
+            "blocks": {
+              "block01": {
+                "type": "paragraph",
+                "text": "(1) Der Anbieter ist berechtigt, diese Nutzungsbedingungen mit Wirkung für die Zukunft zu ändern, soweit dies für Sie zumutbar ist. Es gilt jeweils die zum Zeitpunkt der Nutzung veröffentlichte Fassung."
+              },
+              "block02": {
+                "type": "paragraph",
+                "text": "(2) Sollten einzelne Bestimmungen dieser Nutzungsbedingungen unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt. Gegenüber Verbrauchern tritt an die Stelle einer unwirksamen Bestimmung die gesetzliche Regelung."
+              }
+            }
+          }
+        }
       }
     }
   }

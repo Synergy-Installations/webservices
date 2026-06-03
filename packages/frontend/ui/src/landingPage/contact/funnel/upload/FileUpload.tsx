@@ -2,6 +2,7 @@
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { useParams } from "next/navigation";
+import { Download, FileText, UploadCloud, X } from "lucide-react";
 
 /* eslint-disable-next-line */
 export interface FileUploadProps {
@@ -22,7 +23,7 @@ export const FileUpload = (props: FileUploadProps) => {
     setQuestionElements,
     STORAGE_ZONE_ACCESS_KEY,
   } = props;
-  
+
   const params = useParams();
   const locale = params.locale;
 
@@ -96,7 +97,7 @@ export const FileUpload = (props: FileUploadProps) => {
               status: "uploading",
               downloadUrl: encodeURI(
                 questionElements[questionKey].form[formKey].options.download
-                  .pullHostName + fileName
+                  .pullHostName + fileName,
               ),
             },
           ];
@@ -148,7 +149,7 @@ export const FileUpload = (props: FileUploadProps) => {
               "Content-Type": "application/octet-stream",
             },
             body: binaryStr,
-          }
+          },
         );
 
         if (response.ok) {
@@ -158,7 +159,7 @@ export const FileUpload = (props: FileUploadProps) => {
             const form = updatedElements[questionKey].form[formKey];
 
             const fileIndex = form.selected.selectedFiles.findIndex(
-              (file: any) => file.uid === fileName
+              (file: any) => file.uid === fileName,
             );
             if (fileIndex !== -1) {
               form.selected.selectedFiles[fileIndex].status = "uploaded";
@@ -172,7 +173,7 @@ export const FileUpload = (props: FileUploadProps) => {
             const form = updatedElements[questionKey].form[formKey];
 
             const fileIndex = form.selected.selectedFiles.findIndex(
-              (file: any) => file.uid === fileName
+              (file: any) => file.uid === fileName,
             );
             if (fileIndex !== -1) {
               form.selected.selectedFiles[fileIndex].status = "error";
@@ -191,12 +192,12 @@ export const FileUpload = (props: FileUploadProps) => {
   const handleDownload = (url: string, name: string) => {
     // Use the proxy API to download the file, avoiding CORS and forcing download
     const proxyUrl = `/${locale}/api/download/file?url=${encodeURIComponent(url)}&name=${encodeURIComponent(name)}`;
-    
+
     const link = document.createElement("a");
     link.href = proxyUrl;
-    // We don't need 'download' attribute strictly if the server sends Content-Disposition, 
+    // We don't need 'download' attribute strictly if the server sends Content-Disposition,
     // but it doesn't hurt.
-    link.download = name; 
+    link.download = name;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -206,8 +207,7 @@ export const FileUpload = (props: FileUploadProps) => {
     const files =
       questionElements[questionKey].form[formKey].selected.selectedFiles;
     for (const file of files) {
-      const url =
-        file.status === "uploaded" ? file.downloadUrl : file.localUrl;
+      const url = file.status === "uploaded" ? file.downloadUrl : file.localUrl;
       if (url) {
         // Add a small delay to ensure multiple downloads are handled correctly by the browser
         handleDownload(url, file.name);
@@ -229,27 +229,19 @@ export const FileUpload = (props: FileUploadProps) => {
       >
         <label
           htmlFor={formKey}
-          className="relative flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500"
+          className="relative flex h-64 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 transition-colors hover:border-synergy-light-blue hover:bg-synergy-light-grey dark:border-gray-600 dark:bg-gray-700 dark:hover:border-synergy-light-blue dark:hover:bg-gray-800"
         >
           <div className="flex flex-col items-center justify-center pt-5 pb-6">
-            <svg
-              className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400"
+            <UploadCloud
+              className="mb-4 h-8 w-8 text-synergy-light-blue"
               aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 20 16"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
-              />
-            </svg>
+              strokeWidth={1.8}
+            />
             <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-              <span className="font-semibold">Click to upload</span> or drag and
-              drop
+              <span className="font-semibold text-synergy-dark-grey dark:text-synergy-light-grey">
+                Click to upload
+              </span>{" "}
+              or drag and drop
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-400">
               SVG, PNG, JPG or GIF (MAX. 800x400px)
@@ -271,22 +263,9 @@ export const FileUpload = (props: FileUploadProps) => {
               e.preventDefault();
               handleDownloadAll();
             }}
-            className="text-sm text-blue-600 dark:text-blue-500 hover:underline flex items-center gap-1"
+            className="flex items-center gap-1 text-sm text-synergy-light-blue hover:underline focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2"
           >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-              ></path>
-            </svg>
+            <Download className="h-4 w-4" aria-hidden="true" />
             Alle herunterladen
           </button>
         </div>
@@ -311,24 +290,18 @@ export const FileUpload = (props: FileUploadProps) => {
                       className="h-10 w-10 object-cover rounded"
                     />
                   ) : (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      className="h-10 w-10"
-                      id="file"
-                    >
-                      <path
-                        fill="#000000"
-                        d="M20,8.94a1.31,1.31,0,0,0-.06-.27l0-.09a1.07,1.07,0,0,0-.19-.28h0l-6-6h0a1.07,1.07,0,0,0-.28-.19l-.09,0L13.06,2H7A3,3,0,0,0,4,5V19a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V9S20,9,20,8.94ZM14,5.41,16.59,8H14ZM18,19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V5A1,1,0,0,1,7,4h5V9a1,1,0,0,0,1,1h5Z"
-                      ></path>
-                    </svg>
+                    <FileText
+                      className="h-10 w-10 text-synergy-dark-grey dark:text-synergy-light-grey"
+                      aria-hidden="true"
+                      strokeWidth={1.6}
+                    />
                   )}
                   <p className="text-sm text-gray-500 dark:text-gray-400 truncate max-w-[150px] sm:max-w-xs">
                     {file.name}
                   </p>
                 </div>
                 <p
-                  className={`text-sm mt-2 sm:mt-0 min-h-[1.57rem] ${file.status === "error" ? "text-red-600 dark:text-red-500" : file.status === "warning" ? "text-orange-600 dark:text-orange-500" : "text-green-600 dark:text-green-500"} `}
+                  className={`mt-2 min-h-[1.57rem] text-sm sm:mt-0 ${file.status === "error" ? "text-red-600 dark:text-red-500" : file.status === "warning" ? "text-orange-600 dark:text-orange-500" : file.status === "uploading" ? "text-synergy-light-blue" : "text-green-600 dark:text-green-500"} `}
                 >
                   {file.status === "uploading"
                     ? questionElements[questionKey].form[formKey].options.upload
@@ -347,27 +320,14 @@ export const FileUpload = (props: FileUploadProps) => {
                     e.stopPropagation();
                     handleDownload(file.downloadUrl, file.name);
                   }}
-                  className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 focus:outline-none"
+                  className="text-gray-500 hover:text-synergy-light-blue focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2 dark:text-gray-400 dark:hover:text-synergy-light-blue"
                   title="Download"
                 >
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                    ></path>
-                  </svg>
+                  <Download className="h-6 w-6" aria-hidden="true" />
                 </button>
                 {/** Delete Button */}
                 <button
-                  className="text-gray-500 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-500 focus:outline-none"
+                  className="text-gray-500 hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2 dark:text-gray-400 dark:hover:text-red-500"
                   title="Delete"
                   onClick={() => {
                     setQuestionElements((prev: any) => {
@@ -375,35 +335,21 @@ export const FileUpload = (props: FileUploadProps) => {
                       const form = updatedElements[questionKey].form[formKey];
                       form.selected.selectedFiles =
                         form.selected.selectedFiles.filter(
-                          (fileFilter: any) => fileFilter.uid !== file.uid
+                          (fileFilter: any) => fileFilter.uid !== file.uid,
                         );
                       return updatedElements;
                     });
                   }}
                 >
-                  <svg
-                    className="w-6 h-6"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
+                  <X className="h-6 w-6" aria-hidden="true" />
                 </button>
               </div>
             </div>
-          )
+          ),
         )}
       </div>
       <p
-        className={`text-sm mt-2 min-h-[1.57rem] ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : questionElements[questionKey].form[formKey].message.type === "warning" ? "text-orange-600 dark:text-orange-500" : questionElements[questionKey].form[formKey].message.type === "loading" ? "text-blue-600 dark:text-blue-500" : "text-green-600 dark:text-green-500"} `}
+        className={`mt-2 min-h-[1.57rem] text-sm ${questionElements[questionKey].form[formKey].message.type === "error" ? "text-red-600 dark:text-red-500" : questionElements[questionKey].form[formKey].message.type === "warning" ? "text-orange-600 dark:text-orange-500" : questionElements[questionKey].form[formKey].message.type === "loading" ? "text-synergy-light-blue" : "text-green-600 dark:text-green-500"} `}
       >
         {questionElements[questionKey].form[formKey].message.text}
       </p>

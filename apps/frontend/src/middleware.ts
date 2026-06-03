@@ -4,8 +4,12 @@ import { clerkMiddleware } from "@clerk/nextjs/server";
 
 const intlMiddleware = createMiddleware(routing);
 
+// Matches localized dashboard *pages* (e.g. `/at-AT/dashboard/...`) so they can
+// be protected by Clerk. The `(?!api\/)` lookahead prevents this from also
+// matching the `/api/dashboard/...` route handlers, which manage their own auth
+// (some, like the public funnel submit, are intentionally unauthenticated).
 const isDashboardRoute = (pathname: string) =>
-  /^\/[^/]+\/dashboard/.test(pathname);
+  /^\/(?!api\/)[^/]+\/dashboard/.test(pathname);
 
 export default clerkMiddleware(
   async (auth, req) => {

@@ -1,5 +1,16 @@
 import Anthropic from "@anthropic-ai/sdk";
-import { PDFParse } from "pdf-parse";
+import type { PDFParse } from "pdf-parse";
+
+// `pdf-parse` (via `pdfjs-dist/legacy`) runs a `DOMMatrix` polyfill at
+// module-eval time that relies on `process.getBuiltinModule`. That API is not
+// available during Trigger.dev's task-indexing step, so a static import crashes
+// the deploy ("DOMMatrix is not defined"). Load it lazily so it is only
+// evaluated when the task actually runs in the deployed Node runtime.
+let pdfParseModule: Promise<typeof import("pdf-parse")> | undefined;
+function loadPdfParse(): Promise<typeof import("pdf-parse")> {
+  pdfParseModule ??= import("pdf-parse");
+  return pdfParseModule;
+}
 
 export type ExtractionFieldType =
   | "number"
@@ -262,6 +273,7 @@ function buildExtractionSignature(
 }
 
 export async function extractTextFromPdf(pdf: Buffer): Promise<string> {
+  const { PDFParse } = await loadPdfParse();
   const parser = new PDFParse({ data: new Uint8Array(pdf) });
   try {
     const result = await parser.getText();

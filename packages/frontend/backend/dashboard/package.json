@@ -51,6 +51,7 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.95.1",
     "@com.synergy/frontend-shared-internationalization": "workspace:*",
+    "@napi-rs/canvas": "0.1.80",
     "@kenjiuno/msgreader": "^1.28.0",
     "@reduxjs/toolkit": "^2.6.1",
     "@trigger.dev/sdk": "4.4.6",

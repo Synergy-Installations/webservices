@@ -1,15 +1,39 @@
 import Anthropic from "@anthropic-ai/sdk";
 import type { PDFParse } from "pdf-parse";
 
-// `pdf-parse` (via `pdfjs-dist/legacy`) runs a `DOMMatrix` polyfill at
-// module-eval time that relies on `process.getBuiltinModule`. That API is not
-// available during Trigger.dev's task-indexing step, so a static import crashes
-// the deploy ("DOMMatrix is not defined"). Load it lazily so it is only
-// evaluated when the task actually runs in the deployed Node runtime.
+// `pdf-parse` pulls in `pdfjs-dist/legacy`, whose `canvas.js` references the
+// browser globals `DOMMatrix`/`ImageData`/`Path2D` at module-eval time. pdfjs'
+// own polyfill relies on `process.getBuiltinModule`, which isn't available
+// during Trigger.dev's task indexing nor in the deployed worker, so the import
+// throws "DOMMatrix is not defined". We:
+//   1. load it lazily, so it isn't evaluated during task indexing, and
+//   2. seed the missing globals from `@napi-rs/canvas` (a dependency of
+//      `pdf-parse`) before importing, so the deployed runtime can load pdfjs.
 let pdfParseModule: Promise<typeof import("pdf-parse")> | undefined;
 function loadPdfParse(): Promise<typeof import("pdf-parse")> {
-  pdfParseModule ??= import("pdf-parse");
+  pdfParseModule ??= (async () => {
+    await ensurePdfGlobals();
+    return import("pdf-parse");
+  })();
   return pdfParseModule;
+}
+
+async function ensurePdfGlobals(): Promise<void> {
+  const globals = globalThis as Record<string, unknown>;
+  const needed = ["DOMMatrix", "ImageData", "Path2D", "DOMPoint", "DOMRect"];
+  if (needed.every((name) => name in globals)) {
+    return;
+  }
+
+  const canvas = (await import("@napi-rs/canvas")) as unknown as Record<
+    string,
+    unknown
+  >;
+  for (const name of needed) {
+    if (!(name in globals) && typeof canvas[name] === "function") {
+      globals[name] = canvas[name];
+    }
+  }
 }
 
 export type ExtractionFieldType =

@@ -205,8 +205,14 @@
           "imageAlt": "Leistungen Symbolbild",
           "title": "Leistungen",
           "lists": [
-            ["Beratung", "Marketing"],
-            ["Service", "Umsetzung"]
+            [
+              "Beratung",
+              "Marketing"
+            ],
+            [
+              "Service",
+              "Umsetzung"
+            ]
           ],
           "button": {
             "text": "Details anzeigen",
@@ -6395,12 +6401,12 @@
             "form": {
               "interested-products-dachtyp": {
                 "order": "1",
-                "type": "radio",
+                "type": "card-popup",
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "true",
                 "title": "Wähle den Untergrund?",
-                "description": "",
+                "description": "Tippen Sie auf eine Karte, um optionale Details anzugeben.",
                 "localStorage": "false",
                 "span": "2",
                 "message": {
@@ -6412,224 +6418,555 @@
                 },
                 "options": {
                   "trapez": {
-                    "type": "checkbox",
                     "title": "Trapez",
+                    "description": "",
                     "disabled": "false",
                     "span": "2",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": [
-                      "dachtyp-trapez-materialstaerke",
-                      "dachtyp-trapez-hoehe",
-                      "dachtyp-trapez-talbreite",
-                      "dachtyp-trapez-material",
-                      "dachtyp-trapez-foto"
-                    ],
                     "icon": {
                       "name": "Warehouse",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Trapez"
+                    },
+                    "fields": {
+                      "materialstaerke": {
+                        "order": "1",
+                        "type": "text",
+                        "label": "Materialstärke",
+                        "placeholder": "z. B. 0,75 mm / 1,0 mm"
+                      },
+                      "hoehe": {
+                        "order": "2",
+                        "type": "text",
+                        "label": "Trapezhöhe",
+                        "placeholder": "z. B. 35 mm / 40 mm"
+                      },
+                      "talbreite": {
+                        "order": "3",
+                        "type": "text",
+                        "label": "Talbreite",
+                        "placeholder": "z. B. schmale Täler / breite Täler"
+                      },
+                      "material": {
+                        "order": "4",
+                        "type": "text",
+                        "label": "Materialart",
+                        "placeholder": "z. B. Stahl verzinkt / Aluminium"
+                      },
+                      "foto": {
+                        "order": "5",
+                        "type": "file-upload",
+                        "label": "Foto des Trapezblechs",
+                        "upload": {
+                          "hostname": "storage.bunnycdn.com",
+                          "storageZoneName": "synergy-webservices-assets",
+                          "region": "",
+                          "filesAccepted": "",
+                          "multipleFiles": "true",
+                          "uploadingText": "Datei wird hochgeladen...",
+                          "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                          "uploadSuccess": "Upload erfolgreich, vielen Dank!"
+                        },
+                        "download": {
+                          "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                        }
+                      }
                     }
                   },
                   "falz": {
-                    "type": "checkbox",
                     "title": "Falz",
+                    "description": "",
                     "disabled": "false",
                     "span": "2",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": [
-                      "dachtyp-falz-falztyp",
-                      "dachtyp-falz-kupfer",
-                      "dachtyp-falz-abstand",
-                      "dachtyp-falz-foto"
-                    ],
                     "icon": {
                       "name": "PanelTop",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Falz"
+                    },
+                    "fields": {
+                      "falztyp": {
+                        "order": "1",
+                        "type": "text",
+                        "label": "Falztyp",
+                        "placeholder": "z. B. Doppelstehfalz / Winkelfalz"
+                      },
+                      "kupfer": {
+                        "order": "2",
+                        "type": "text",
+                        "label": "Kupfer",
+                        "placeholder": "Ja / Nein"
+                      },
+                      "abstand": {
+                        "order": "3",
+                        "type": "text",
+                        "label": "Falzabstand",
+                        "placeholder": "z. B. ca. 500 mm"
+                      },
+                      "foto": {
+                        "order": "4",
+                        "type": "file-upload",
+                        "label": "Foto der Falzeindeckung",
+                        "upload": {
+                          "hostname": "storage.bunnycdn.com",
+                          "storageZoneName": "synergy-webservices-assets",
+                          "region": "",
+                          "filesAccepted": "",
+                          "multipleFiles": "true",
+                          "uploadingText": "Datei wird hochgeladen...",
+                          "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                          "uploadSuccess": "Upload erfolgreich, vielen Dank!"
+                        },
+                        "download": {
+                          "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                        }
+                      }
                     }
                   },
                   "flachdach": {
-                    "type": "checkbox",
                     "title": "Flachdach",
+                    "description": "",
                     "disabled": "false",
                     "span": "2",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": [
-                      "dachtyp-flachdach-traglast",
-                      "dachtyp-flachdach-material",
-                      "dachtyp-flachdach-kies",
-                      "dachtyp-flachdach-traglast-pv",
-                      "dachtyp-flachdach-foto"
-                    ],
                     "icon": {
                       "name": "PanelTopOpen",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Flachdach"
+                    },
+                    "fields": {
+                      "traglast": {
+                        "order": "1",
+                        "type": "text",
+                        "label": "Traglast",
+                        "placeholder": "z. B. … kg/m² / unbekannt"
+                      },
+                      "material": {
+                        "order": "2",
+                        "type": "text",
+                        "label": "Materialtyp",
+                        "placeholder": "z. B. Bitumen / Filz / Folie"
+                      },
+                      "kies": {
+                        "order": "3",
+                        "type": "text",
+                        "label": "Kies-Schüttung",
+                        "placeholder": "Ja / Nein – wenn ja, Höhe (z. B. 5 cm)"
+                      },
+                      "pv": {
+                        "order": "4",
+                        "type": "text",
+                        "label": "Traglast für PV",
+                        "placeholder": "z. B. … kg/m² (separat von Schneelast)"
+                      },
+                      "foto": {
+                        "order": "5",
+                        "type": "file-upload",
+                        "label": "Foto der Dachfläche",
+                        "upload": {
+                          "hostname": "storage.bunnycdn.com",
+                          "storageZoneName": "synergy-webservices-assets",
+                          "region": "",
+                          "filesAccepted": "",
+                          "multipleFiles": "true",
+                          "uploadingText": "Datei wird hochgeladen...",
+                          "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                          "uploadSuccess": "Upload erfolgreich, vielen Dank!"
+                        },
+                        "download": {
+                          "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                        }
+                      }
                     }
                   },
                   "wärmepumpe": {
-                    "type": "checkbox",
                     "title": "Ziegel",
+                    "description": "",
                     "disabled": "false",
                     "span": "2",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": [
-                      "dachtyp-ziegel-art",
-                      "dachtyp-ziegel-typ",
-                      "dachtyp-ziegel-metallersatz",
-                      "dachtyp-ziegel-farbe",
-                      "dachtyp-ziegel-ersatz",
-                      "dachtyp-ziegel-genagelt",
-                      "dachtyp-ziegel-foto"
-                    ],
                     "icon": {
                       "name": "House",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Ziegel"
+                    },
+                    "fields": {
+                      "art": {
+                        "order": "1",
+                        "type": "text",
+                        "label": "Ziegelart",
+                        "placeholder": "Tonziegel / Betonziegel"
+                      },
+                      "typ": {
+                        "order": "2",
+                        "type": "text",
+                        "label": "Ziegeltyp",
+                        "placeholder": "z. B. Frankfurter Pfanne, glasiert"
+                      },
+                      "metallersatz": {
+                        "order": "3",
+                        "type": "text",
+                        "label": "Metallersatzplatten",
+                        "placeholder": "Ja / Nein"
+                      },
+                      "farbe": {
+                        "order": "4",
+                        "type": "text",
+                        "label": "Farbe",
+                        "placeholder": "z. B. ziegelrot / anthrazit"
+                      },
+                      "ersatz": {
+                        "order": "5",
+                        "type": "text",
+                        "label": "Ersatzziegel",
+                        "placeholder": "Ja / Nein"
+                      },
+                      "genagelt": {
+                        "order": "6",
+                        "type": "text",
+                        "label": "Ziegel genagelt",
+                        "placeholder": "Ja / Nein"
+                      },
+                      "foto": {
+                        "order": "7",
+                        "type": "file-upload",
+                        "label": "Foto der Ziegeleindeckung",
+                        "upload": {
+                          "hostname": "storage.bunnycdn.com",
+                          "storageZoneName": "synergy-webservices-assets",
+                          "region": "",
+                          "filesAccepted": "",
+                          "multipleFiles": "true",
+                          "uploadingText": "Datei wird hochgeladen...",
+                          "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                          "uploadSuccess": "Upload erfolgreich, vielen Dank!"
+                        },
+                        "download": {
+                          "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                        }
+                      }
                     }
                   },
                   "eternit": {
-                    "type": "checkbox",
                     "title": "Faserplatten",
+                    "description": "",
                     "disabled": "false",
                     "span": "2",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": [
-                      "dachtyp-faserplatten-form",
-                      "dachtyp-faserplatten-farbe",
-                      "dachtyp-faserplatten-welle",
-                      "dachtyp-faserplatten-foto"
-                    ],
                     "icon": {
                       "name": "Layers",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Faserplatten"
+                    },
+                    "fields": {
+                      "form": {
+                        "order": "1",
+                        "type": "text",
+                        "label": "Form",
+                        "placeholder": "Rechteck 30/40 (Doppeldeckung) / Rechteck 40/40 (Doppeldeckung) / Rhombus / Rhombusschablone"
+                      },
+                      "farbe": {
+                        "order": "2",
+                        "type": "text",
+                        "label": "Farbe",
+                        "placeholder": "z. B. anthrazit"
+                      },
+                      "welle": {
+                        "order": "3",
+                        "type": "text",
+                        "label": "Wellfaserplatten",
+                        "placeholder": "Ja / Nein"
+                      },
+                      "foto": {
+                        "order": "4",
+                        "type": "file-upload",
+                        "label": "Fotos (Dachfläche + Dachstuhl)",
+                        "upload": {
+                          "hostname": "storage.bunnycdn.com",
+                          "storageZoneName": "synergy-webservices-assets",
+                          "region": "",
+                          "filesAccepted": "",
+                          "multipleFiles": "true",
+                          "uploadingText": "Datei wird hochgeladen...",
+                          "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                          "uploadSuccess": "Upload erfolgreich, vielen Dank!"
+                        },
+                        "download": {
+                          "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                        }
+                      }
                     }
                   },
                   "bramac": {
-                    "type": "checkbox",
                     "title": "Prefa",
+                    "description": "",
                     "disabled": "false",
                     "span": "2",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": [
-                      "dachtyp-prefa-platten",
-                      "dachtyp-prefa-konstruktion",
-                      "dachtyp-prefa-foto"
-                    ],
                     "icon": {
                       "name": "HousePlug",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Prefa"
+                    },
+                    "fields": {
+                      "platten": {
+                        "order": "1",
+                        "type": "text",
+                        "label": "Prefa-Platten",
+                        "placeholder": "welche Prefa-Platten, z. B. R.16, anthrazit"
+                      },
+                      "konstruktion": {
+                        "order": "2",
+                        "type": "text",
+                        "label": "Dachkonstruktion",
+                        "placeholder": "z. B. Sparren + Lattung, Zustand …"
+                      },
+                      "foto": {
+                        "order": "3",
+                        "type": "file-upload",
+                        "label": "Fotos (Prefa-Platten + Dachstuhl)",
+                        "upload": {
+                          "hostname": "storage.bunnycdn.com",
+                          "storageZoneName": "synergy-webservices-assets",
+                          "region": "",
+                          "filesAccepted": "",
+                          "multipleFiles": "true",
+                          "uploadingText": "Datei wird hochgeladen...",
+                          "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                          "uploadSuccess": "Upload erfolgreich, vielen Dank!"
+                        },
+                        "download": {
+                          "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                        }
+                      }
                     }
                   },
                   "fassade": {
-                    "type": "checkbox",
                     "title": "Fassade",
+                    "description": "",
                     "disabled": "false",
                     "span": "2",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": [
-                      "submit-form-dachtyp-anderes-textarea",
-                      "dachtyp-allgemein-foto"
-                    ],
                     "icon": {
                       "name": "Building2",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Fassade"
+                    },
+                    "fields": {
+                      "textarea": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Kurze Beschreibung",
+                        "placeholder": "Aufbau, vorhandene Pläne/Schnitte, Beschaffenheit",
+                        "rows": "4"
+                      },
+                      "foto": {
+                        "order": "2",
+                        "type": "file-upload",
+                        "label": "Foto",
+                        "upload": {
+                          "hostname": "storage.bunnycdn.com",
+                          "storageZoneName": "synergy-webservices-assets",
+                          "region": "",
+                          "filesAccepted": "",
+                          "multipleFiles": "true",
+                          "uploadingText": "Datei wird hochgeladen...",
+                          "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                          "uploadSuccess": "Upload erfolgreich, vielen Dank!"
+                        },
+                        "download": {
+                          "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                        }
+                      }
                     }
                   },
                   "carport": {
-                    "type": "checkbox",
                     "title": "Carport",
+                    "description": "",
                     "disabled": "false",
                     "span": "2",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": [
-                      "submit-form-dachtyp-anderes-textarea",
-                      "dachtyp-allgemein-foto"
-                    ],
                     "icon": {
                       "name": "Car",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Carport"
+                    },
+                    "fields": {
+                      "textarea": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Kurze Beschreibung",
+                        "placeholder": "Aufbau, vorhandene Pläne/Schnitte, Beschaffenheit",
+                        "rows": "4"
+                      },
+                      "foto": {
+                        "order": "2",
+                        "type": "file-upload",
+                        "label": "Foto",
+                        "upload": {
+                          "hostname": "storage.bunnycdn.com",
+                          "storageZoneName": "synergy-webservices-assets",
+                          "region": "",
+                          "filesAccepted": "",
+                          "multipleFiles": "true",
+                          "uploadingText": "Datei wird hochgeladen...",
+                          "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                          "uploadSuccess": "Upload erfolgreich, vielen Dank!"
+                        },
+                        "download": {
+                          "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                        }
+                      }
                     }
                   },
                   "zaun": {
-                    "type": "checkbox",
                     "title": "Zaun",
+                    "description": "",
                     "disabled": "false",
                     "span": "2",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": [
-                      "submit-form-dachtyp-anderes-textarea",
-                      "dachtyp-allgemein-foto"
-                    ],
                     "icon": {
                       "name": "Fence",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Zaun"
+                    },
+                    "fields": {
+                      "textarea": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Kurze Beschreibung",
+                        "placeholder": "Aufbau, vorhandene Pläne/Schnitte, Beschaffenheit",
+                        "rows": "4"
+                      },
+                      "foto": {
+                        "order": "2",
+                        "type": "file-upload",
+                        "label": "Foto",
+                        "upload": {
+                          "hostname": "storage.bunnycdn.com",
+                          "storageZoneName": "synergy-webservices-assets",
+                          "region": "",
+                          "filesAccepted": "",
+                          "multipleFiles": "true",
+                          "uploadingText": "Datei wird hochgeladen...",
+                          "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                          "uploadSuccess": "Upload erfolgreich, vielen Dank!"
+                        },
+                        "download": {
+                          "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                        }
+                      }
                     }
                   },
                   "freilache": {
-                    "type": "checkbox",
                     "title": "Freifläche",
+                    "description": "",
                     "disabled": "false",
                     "span": "2",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": [
-                      "submit-form-dachtyp-anderes-textarea",
-                      "dachtyp-freiflaeche-untergrund",
-                      "dachtyp-allgemein-foto"
-                    ],
                     "icon": {
                       "name": "LandPlot",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Freifläche"
+                    },
+                    "fields": {
+                      "textarea": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Kurze Beschreibung",
+                        "placeholder": "Aufbau, vorhandene Pläne/Schnitte, Beschaffenheit",
+                        "rows": "4"
+                      },
+                      "untergrund": {
+                        "order": "2",
+                        "type": "text",
+                        "label": "Aufbau Untergrund",
+                        "placeholder": "z. B. Deponie / Fluss / Stein / Kies / Beton / Erde / Wiese"
+                      },
+                      "foto": {
+                        "order": "3",
+                        "type": "file-upload",
+                        "label": "Foto",
+                        "upload": {
+                          "hostname": "storage.bunnycdn.com",
+                          "storageZoneName": "synergy-webservices-assets",
+                          "region": "",
+                          "filesAccepted": "",
+                          "multipleFiles": "true",
+                          "uploadingText": "Datei wird hochgeladen...",
+                          "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                          "uploadSuccess": "Upload erfolgreich, vielen Dank!"
+                        },
+                        "download": {
+                          "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                        }
+                      }
                     }
                   },
                   "winter-sommergarten": {
-                    "type": "checkbox",
                     "title": "Winter/Sommergarten",
+                    "description": "",
                     "disabled": "false",
                     "span": "2",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": [
-                      "submit-form-dachtyp-anderes-textarea",
-                      "dachtyp-allgemein-foto"
-                    ],
                     "icon": {
                       "name": "Sun",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Winter/Sommergarten"
+                    },
+                    "fields": {
+                      "textarea": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Kurze Beschreibung",
+                        "placeholder": "Aufbau, vorhandene Pläne/Schnitte, Beschaffenheit",
+                        "rows": "4"
+                      },
+                      "foto": {
+                        "order": "2",
+                        "type": "file-upload",
+                        "label": "Foto",
+                        "upload": {
+                          "hostname": "storage.bunnycdn.com",
+                          "storageZoneName": "synergy-webservices-assets",
+                          "region": "",
+                          "filesAccepted": "",
+                          "multipleFiles": "true",
+                          "uploadingText": "Datei wird hochgeladen...",
+                          "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                          "uploadSuccess": "Upload erfolgreich, vielen Dank!"
+                        },
+                        "download": {
+                          "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                        }
+                      }
                     }
                   },
                   "klimasysteme-1": {
-                    "type": "checkbox",
                     "title": "Andere/Spezial",
+                    "description": "",
                     "disabled": "false",
                     "span": "2",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": [
-                      "submit-form-dachtyp-anderes-textarea",
-                      "dachtyp-allgemein-foto"
-                    ],
                     "icon": {
                       "name": "Wrench",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Andere/Spezial"
+                    },
+                    "fields": {
+                      "textarea": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Kurze Beschreibung",
+                        "placeholder": "Aufbau, vorhandene Pläne/Schnitte, Beschaffenheit",
+                        "rows": "4"
+                      },
+                      "foto": {
+                        "order": "2",
+                        "type": "file-upload",
+                        "label": "Foto",
+                        "upload": {
+                          "hostname": "storage.bunnycdn.com",
+                          "storageZoneName": "synergy-webservices-assets",
+                          "region": "",
+                          "filesAccepted": "",
+                          "multipleFiles": "true",
+                          "uploadingText": "Datei wird hochgeladen...",
+                          "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
+                          "uploadSuccess": "Upload erfolgreich, vielen Dank!"
+                        },
+                        "download": {
+                          "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                        }
+                      }
                     }
                   }
                 },
@@ -6674,7 +7011,11 @@
                     },
                     "flachdach": {
                       "targetOptionUid": "flachdach",
-                      "aliases": ["Flachdach", "Bitumendach", "Foliendach"]
+                      "aliases": [
+                        "Flachdach",
+                        "Bitumendach",
+                        "Foliendach"
+                      ]
                     },
                     "ziegel": {
                       "targetOptionUid": "wärmepumpe",
@@ -6699,19 +7040,32 @@
                     },
                     "bramac": {
                       "targetOptionUid": "bramac",
-                      "aliases": ["Prefa", "Prefa-Platte", "Bramac"]
+                      "aliases": [
+                        "Prefa",
+                        "Prefa-Platte",
+                        "Bramac"
+                      ]
                     },
                     "fassade": {
                       "targetOptionUid": "fassade",
-                      "aliases": ["Fassade", "Wand", "Vorhangfassade"]
+                      "aliases": [
+                        "Fassade",
+                        "Wand",
+                        "Vorhangfassade"
+                      ]
                     },
                     "carport": {
                       "targetOptionUid": "carport",
-                      "aliases": ["Carport"]
+                      "aliases": [
+                        "Carport"
+                      ]
                     },
                     "zaun": {
                       "targetOptionUid": "zaun",
-                      "aliases": ["Zaun", "Zaunanlage"]
+                      "aliases": [
+                        "Zaun",
+                        "Zaunanlage"
+                      ]
                     },
                     "freiflaeche": {
                       "targetOptionUid": "freilache",
@@ -6732,738 +7086,13 @@
                     },
                     "andere": {
                       "targetOptionUid": "klimasysteme-1",
-                      "aliases": ["Andere", "Spezial", "Sonderkonstruktion"]
+                      "aliases": [
+                        "Andere",
+                        "Spezial",
+                        "Sonderkonstruktion"
+                      ]
                     }
                   }
-                }
-              },
-              "dachtyp-trapez-materialstaerke": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Materialstärke (Dicke)",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Materialstärke",
-                  "placeholder": "z. B. 0,75 mm / 1,0 mm"
-                }
-              },
-              "dachtyp-trapez-hoehe": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Trapezhöhe",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Trapezhöhe",
-                  "placeholder": "z. B. 35 mm / 40 mm"
-                }
-              },
-              "dachtyp-trapez-talbreite": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Talbreite",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Talbreite",
-                  "placeholder": "z. B. schmale Täler / breite Täler"
-                }
-              },
-              "dachtyp-trapez-material": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Materialart",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Materialart",
-                  "placeholder": "z. B. Stahl verzinkt / Aluminium"
-                }
-              },
-              "dachtyp-trapez-foto": {
-                "order": "1",
-                "type": "file-upload",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Foto des Trapezblechs",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "Details zur Verarbeitung: Datenschutzerklärung.",
-                  "type": "info",
-                  "successMessage": "Vielen Dank für Ihren Upload",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Vielen Dank für Ihre Eingabe. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "upload": {
-                    "hostname": "storage.bunnycdn.com",
-                    "storageZoneName": "synergy-webservices-assets",
-                    "region": "",
-                    "filesAccepted": "",
-                    "multipleFiles": "true",
-                    "uploadingText": "Datei wird hochgeladen...",
-                    "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
-                    "uploadSuccess": "Upload erfolgreich, vielen Dank!"
-                  },
-                  "download": {
-                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
-                  }
-                }
-              },
-              "dachtyp-falz-falztyp": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Falztyp",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Falztyp",
-                  "placeholder": "z. B. Doppelstehfalz / Winkelfalz"
-                }
-              },
-              "dachtyp-falz-kupfer": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Kupfer",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Kupfer",
-                  "placeholder": "Ja / Nein"
-                }
-              },
-              "dachtyp-falz-abstand": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Falzabstand",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Falzabstand",
-                  "placeholder": "z. B. ca. 500 mm"
-                }
-              },
-              "dachtyp-falz-foto": {
-                "order": "1",
-                "type": "file-upload",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Foto der Falzeindeckung",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "Details zur Verarbeitung: Datenschutzerklärung.",
-                  "type": "info",
-                  "successMessage": "Vielen Dank für Ihren Upload",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Vielen Dank für Ihre Eingabe. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "upload": {
-                    "hostname": "storage.bunnycdn.com",
-                    "storageZoneName": "synergy-webservices-assets",
-                    "region": "",
-                    "filesAccepted": "",
-                    "multipleFiles": "true",
-                    "uploadingText": "Datei wird hochgeladen...",
-                    "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
-                    "uploadSuccess": "Upload erfolgreich, vielen Dank!"
-                  },
-                  "download": {
-                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
-                  }
-                }
-              },
-              "dachtyp-flachdach-traglast": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Traglast",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Traglast",
-                  "placeholder": "z. B. … kg/m² / unbekannt"
-                }
-              },
-              "dachtyp-flachdach-material": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Materialtyp",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Materialtyp",
-                  "placeholder": "z. B. Bitumen / Filz / Folie"
-                }
-              },
-              "dachtyp-flachdach-kies": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Kies-Schüttung",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Kies-Schüttung",
-                  "placeholder": "Ja / Nein – wenn ja, Höhe (z. B. 5 cm)"
-                }
-              },
-              "dachtyp-flachdach-traglast-pv": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Zulässige Traglast für PV",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Traglast für PV",
-                  "placeholder": "z. B. … kg/m² (separat von Schneelast)"
-                }
-              },
-              "dachtyp-flachdach-foto": {
-                "order": "1",
-                "type": "file-upload",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Foto der Dachfläche",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "Details zur Verarbeitung: Datenschutzerklärung.",
-                  "type": "info",
-                  "successMessage": "Vielen Dank für Ihren Upload",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Vielen Dank für Ihre Eingabe. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "upload": {
-                    "hostname": "storage.bunnycdn.com",
-                    "storageZoneName": "synergy-webservices-assets",
-                    "region": "",
-                    "filesAccepted": "",
-                    "multipleFiles": "true",
-                    "uploadingText": "Datei wird hochgeladen...",
-                    "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
-                    "uploadSuccess": "Upload erfolgreich, vielen Dank!"
-                  },
-                  "download": {
-                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
-                  }
-                }
-              },
-              "dachtyp-ziegel-art": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Ton- oder Betonziegel?",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Ziegelart",
-                  "placeholder": "Tonziegel / Betonziegel"
-                }
-              },
-              "dachtyp-ziegel-typ": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Ziegeltyp (Form, Oberfläche, Struktur)",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Ziegeltyp",
-                  "placeholder": "z. B. Frankfurter Pfanne, glasiert"
-                }
-              },
-              "dachtyp-ziegel-metallersatz": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Metallersatzplatten erforderlich?",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Metallersatzplatten",
-                  "placeholder": "Ja / Nein"
-                }
-              },
-              "dachtyp-ziegel-farbe": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Farbe",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Farbe",
-                  "placeholder": "z. B. ziegelrot / anthrazit"
-                }
-              },
-              "dachtyp-ziegel-ersatz": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Ersatzziegel vorhanden?",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Ersatzziegel",
-                  "placeholder": "Ja / Nein"
-                }
-              },
-              "dachtyp-ziegel-genagelt": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Ziegel genagelt?",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Ziegel genagelt",
-                  "placeholder": "Ja / Nein"
-                }
-              },
-              "dachtyp-ziegel-foto": {
-                "order": "1",
-                "type": "file-upload",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Foto der Ziegeleindeckung",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "Details zur Verarbeitung: Datenschutzerklärung.",
-                  "type": "info",
-                  "successMessage": "Vielen Dank für Ihren Upload",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Vielen Dank für Ihre Eingabe. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "upload": {
-                    "hostname": "storage.bunnycdn.com",
-                    "storageZoneName": "synergy-webservices-assets",
-                    "region": "",
-                    "filesAccepted": "",
-                    "multipleFiles": "true",
-                    "uploadingText": "Datei wird hochgeladen...",
-                    "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
-                    "uploadSuccess": "Upload erfolgreich, vielen Dank!"
-                  },
-                  "download": {
-                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
-                  }
-                }
-              },
-              "dachtyp-faserplatten-form": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Form",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Form",
-                  "placeholder": "Rechteck 30/40 (Doppeldeckung) / Rechteck 40/40 (Doppeldeckung) / Rhombus / Rhombusschablone"
-                }
-              },
-              "dachtyp-faserplatten-farbe": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Farbe",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Farbe",
-                  "placeholder": "z. B. anthrazit"
-                }
-              },
-              "dachtyp-faserplatten-welle": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Wellfaserplatten",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Wellfaserplatten",
-                  "placeholder": "Ja / Nein"
-                }
-              },
-              "dachtyp-faserplatten-foto": {
-                "order": "1",
-                "type": "file-upload",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Fotos (Dachfläche + Dachstuhl)",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "Details zur Verarbeitung: Datenschutzerklärung.",
-                  "type": "info",
-                  "successMessage": "Vielen Dank für Ihren Upload",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Vielen Dank für Ihre Eingabe. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "upload": {
-                    "hostname": "storage.bunnycdn.com",
-                    "storageZoneName": "synergy-webservices-assets",
-                    "region": "",
-                    "filesAccepted": "",
-                    "multipleFiles": "true",
-                    "uploadingText": "Datei wird hochgeladen...",
-                    "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
-                    "uploadSuccess": "Upload erfolgreich, vielen Dank!"
-                  },
-                  "download": {
-                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
-                  }
-                }
-              },
-              "dachtyp-prefa-platten": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Beschreibung Prefa-Platten",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Prefa-Platten",
-                  "placeholder": "welche Prefa-Platten, z. B. R.16, anthrazit"
-                }
-              },
-              "dachtyp-prefa-konstruktion": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Beschreibung Dachkonstruktion",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Dachkonstruktion",
-                  "placeholder": "z. B. Sparren + Lattung, Zustand …"
-                }
-              },
-              "dachtyp-prefa-foto": {
-                "order": "1",
-                "type": "file-upload",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Fotos (Prefa-Platten + Dachstuhl)",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "Details zur Verarbeitung: Datenschutzerklärung.",
-                  "type": "info",
-                  "successMessage": "Vielen Dank für Ihren Upload",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Vielen Dank für Ihre Eingabe. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "upload": {
-                    "hostname": "storage.bunnycdn.com",
-                    "storageZoneName": "synergy-webservices-assets",
-                    "region": "",
-                    "filesAccepted": "",
-                    "multipleFiles": "true",
-                    "uploadingText": "Datei wird hochgeladen...",
-                    "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
-                    "uploadSuccess": "Upload erfolgreich, vielen Dank!"
-                  },
-                  "download": {
-                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
-                  }
-                }
-              },
-              "dachtyp-freiflaeche-untergrund": {
-                "order": "1",
-                "type": "text",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Aufbau Untergrund",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Aufbau Untergrund",
-                  "placeholder": "z. B. Deponie / Fluss / Stein / Kies / Beton / Erde / Wiese"
-                }
-              },
-              "dachtyp-allgemein-foto": {
-                "order": "1",
-                "type": "file-upload",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Foto",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "Details zur Verarbeitung: Datenschutzerklärung.",
-                  "type": "info",
-                  "successMessage": "Vielen Dank für Ihren Upload",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Vielen Dank für Ihre Eingabe. Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "upload": {
-                    "hostname": "storage.bunnycdn.com",
-                    "storageZoneName": "synergy-webservices-assets",
-                    "region": "",
-                    "filesAccepted": "",
-                    "multipleFiles": "true",
-                    "uploadingText": "Datei wird hochgeladen...",
-                    "uploadError": "Der Upload ist fehlgeschlagen. Wir arbeiten bereits an einer Lösung, bitte versuchen Sie es später erneut.",
-                    "uploadSuccess": "Upload erfolgreich, vielen Dank!"
-                  },
-                  "download": {
-                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
-                  }
-                }
-              },
-              "submit-form-dachtyp-anderes-textarea": {
-                "order": "1",
-                "type": "textarea",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Aufbau / Pläne / Schnitte / Beschaffenheit",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Kurze Beschreibung",
-                  "placeholder": "Aufbau, vorhandene Pläne/Schnitte, Beschaffenheit",
-                  "rows": "4"
                 }
               }
             }
@@ -7519,8 +7148,12 @@
                         "type": "choice",
                         "label": "Aufbau",
                         "options": {
-                          "glas-folie": { "title": "Glas-Folie" },
-                          "glas-glas": { "title": "Glas-Glas" }
+                          "glas-folie": {
+                            "title": "Glas-Folie"
+                          },
+                          "glas-glas": {
+                            "title": "Glas-Glas"
+                          }
                         }
                       },
                       "fazialitaet": {
@@ -7528,8 +7161,12 @@
                         "type": "choice",
                         "label": "Fazialität",
                         "options": {
-                          "bifazial": { "title": "Bifazial" },
-                          "monofazial": { "title": "Monofazial" }
+                          "bifazial": {
+                            "title": "Bifazial"
+                          },
+                          "monofazial": {
+                            "title": "Monofazial"
+                          }
                         }
                       },
                       "rahmen": {
@@ -7537,9 +7174,15 @@
                         "type": "choice",
                         "label": "Rahmen",
                         "options": {
-                          "silberframe": { "title": "Silberframe" },
-                          "blackframe": { "title": "Blackframe" },
-                          "full-black": { "title": "Full Black" }
+                          "silberframe": {
+                            "title": "Silberframe"
+                          },
+                          "blackframe": {
+                            "title": "Blackframe"
+                          },
+                          "full-black": {
+                            "title": "Full Black"
+                          }
                         }
                       },
                       "back-contact": {
@@ -7547,8 +7190,12 @@
                         "type": "choice",
                         "label": "Back-Contact",
                         "options": {
-                          "ja": { "title": "Ja" },
-                          "nein": { "title": "Nein" }
+                          "ja": {
+                            "title": "Ja"
+                          },
+                          "nein": {
+                            "title": "Nein"
+                          }
                         }
                       }
                     }
@@ -7630,8 +7277,12 @@
                         "type": "choice",
                         "label": "Anschluss",
                         "options": {
-                          "ein-phasig": { "title": "1~ (einphasig)" },
-                          "drei-phasig": { "title": "3~ (dreiphasig)" }
+                          "ein-phasig": {
+                            "title": "1~ (einphasig)"
+                          },
+                          "drei-phasig": {
+                            "title": "3~ (dreiphasig)"
+                          }
                         }
                       },
                       "umschaltung": {
@@ -7639,8 +7290,12 @@
                         "type": "choice",
                         "label": "Umschaltung",
                         "options": {
-                          "automatik": { "title": "Automatik" },
-                          "handumschalter": { "title": "Handumschalter" }
+                          "automatik": {
+                            "title": "Automatik"
+                          },
+                          "handumschalter": {
+                            "title": "Handumschalter"
+                          }
                         }
                       }
                     }
@@ -8895,7 +8550,9 @@
                 "defaultVisible": "false",
                 "title": "",
                 "description": "",
-                "defaultValue": ["Bitte auswählen"],
+                "defaultValue": [
+                  "Bitte auswählen"
+                ],
                 "label": "Wie haben Sie von uns erfahren?",
                 "localStorage": "true",
                 "span": "2",
@@ -8980,7 +8637,9 @@
                 "defaultVisible": "false",
                 "title": "",
                 "description": "",
-                "defaultValue": [""],
+                "defaultValue": [
+                  ""
+                ],
                 "label": "Wie haben Sie von uns erfahren? (Mehrfachauswahl)",
                 "localStorage": "true",
                 "span": "2",

@@ -58,7 +58,16 @@ export type ExtractionFieldConfig = {
   max?: string;
   target: {
     questionUid: string;
+    /** For normal fields the real form uid; for card-popup sub-fields the
+     * composite `cardField::<formUid>::<optionUid>::<cardFieldKey>` key so it
+     * never collides with a real form uid in the prefill map. */
     formUid: string;
+    /** Set on card-popup sub-fields: the real card form uid to write into. */
+    cardFormUid?: string;
+    /** Set on card-popup sub-fields: the option uid that owns this sub-field. */
+    optionUid?: string;
+    /** Set on card-popup sub-fields: the key of the field inside the option. */
+    cardFieldKey?: string;
   };
   options?: Record<string, ExtractionOptionConfig>;
 };
@@ -106,6 +115,11 @@ export type FunnelPrefillValue = {
   fieldKey: string;
   documentName: string;
   label: string;
+  /** Set on card-popup sub-field entries so the frontend can write into
+   * `form.selected.fields[optionUid][cardFieldKey]` of the real card form. */
+  formUid?: string;
+  optionUid?: string;
+  cardFieldKey?: string;
 };
 
 export type FunnelPrefill = Record<string, FunnelPrefillValue>;
@@ -162,7 +176,7 @@ export async function extractFromPdfs(opts: {
 
   const request = {
     model,
-    max_tokens: 4096,
+    max_tokens: 8192,
     temperature: 0,
     system: buildSystemPrompt(opts.config, documentNames),
     tools: [
@@ -344,10 +358,15 @@ export function toFunnelPrefill(opts: {
     const extracted = opts.extraction[fieldKey];
     if (!extracted || extracted.value == null) return;
 
-    const normalizedValue = normalizeValueForFunnel(field, extracted.value);
+    const isCardSubField = Boolean(field.target.cardFieldKey);
+    const normalizedValue = isCardSubField
+      ? normalizeSubFieldValue(field, extracted.value)
+      : normalizeValueForFunnel(field, extracted.value);
     if (normalizedValue == null) return;
 
     const confidence = opts.confidences[fieldKey] ?? 0;
+    // Card sub-fields key by the (composite) target.formUid so they never
+    // collide with the real card form's selection entry.
     values[field.target.formUid] = {
       value: normalizedValue,
       confidence,
@@ -356,6 +375,13 @@ export function toFunnelPrefill(opts: {
       fieldKey,
       documentName: extracted.source_document ?? opts.documentName,
       label: field.label,
+      ...(isCardSubField
+        ? {
+            formUid: field.target.cardFormUid,
+            optionUid: field.target.optionUid,
+            cardFieldKey: field.target.cardFieldKey,
+          }
+        : {}),
     };
     funnelConfidences[field.target.formUid] = confidence;
   });
@@ -613,6 +639,34 @@ function normalizeValueForFunnel(
       .map((item) => field.options?.[item]?.targetOptionUid)
       .filter((item): item is string => Boolean(item));
     return targets.length > 0 ? targets : null;
+  }
+
+  return null;
+}
+
+/**
+ * Card-popup sub-fields are stored as plain strings in
+ * `form.selected.fields[optionKey][cardFieldKey]` (a text input value or, for
+ * `choice` fields, the bare chosen option key). So unlike `normalizeValueForFunnel`
+ * (which returns an array of target uids for single-option), we return a single
+ * string the popup can consume directly.
+ */
+function normalizeSubFieldValue(
+  field: ExtractionFieldConfig,
+  value: unknown,
+): string | null {
+  if (field.type === "single-option") {
+    if (typeof value !== "string") return null;
+    const target = field.options?.[value]?.targetOptionUid;
+    return target ?? null;
+  }
+
+  if (typeof value === "string") {
+    return value.trim() ? value.trim() : null;
+  }
+
+  if (typeof value === "number") {
+    return String(value);
   }
 
   return null;

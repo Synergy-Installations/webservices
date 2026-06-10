@@ -6210,7 +6210,8 @@
             "done": "Fertig",
             "close": "Schließen",
             "remove": "Entfernen",
-            "tapToEdit": "Zum Ausfüllen tippen (optional)"
+            "tapToEdit": "Zum Ausfüllen tippen (optional)",
+            "allOptional": "Optionale Auswahlkriterien"
           }
         },
         "questions": {
@@ -6230,7 +6231,7 @@
                 "localStorage": "false",
                 "span": "2",
                 "message": {
-                  "text": "Details zur Verarbeitung: Datenschutzerklärung.",
+                  "text": "",
                   "type": "info",
                   "successMessage": "Vielen Dank für Ihren Upload",
                   "requiredMessage": "Diese Eingabe ist verpflichtend",
@@ -7134,18 +7135,21 @@
                       "groesse": {
                         "order": "1",
                         "type": "text",
+                        "required": "true",
                         "label": "Größe / Maße",
                         "placeholder": "z. B. 1722 × 1134 × 30 mm (lt. Datenblatt)"
                       },
                       "leistung": {
                         "order": "2",
                         "type": "text",
+                        "required": "false",
                         "label": "Leistung",
                         "placeholder": "z. B. 440 Wp"
                       },
                       "aufbau": {
                         "order": "3",
                         "type": "choice",
+                        "required": "false",
                         "label": "Aufbau",
                         "options": {
                           "glas-folie": {
@@ -7159,6 +7163,7 @@
                       "fazialitaet": {
                         "order": "4",
                         "type": "choice",
+                        "required": "false",
                         "label": "Fazialität",
                         "options": {
                           "bifazial": {
@@ -7172,6 +7177,7 @@
                       "rahmen": {
                         "order": "5",
                         "type": "choice",
+                        "required": "false",
                         "label": "Rahmen",
                         "options": {
                           "silberframe": {
@@ -7188,6 +7194,7 @@
                       "back-contact": {
                         "order": "6",
                         "type": "choice",
+                        "required": "false",
                         "label": "Back-Contact",
                         "options": {
                           "ja": {
@@ -7213,18 +7220,21 @@
                       "hersteller": {
                         "order": "1",
                         "type": "text",
+                        "required": "false",
                         "label": "Hersteller",
                         "placeholder": "z. B. Fronius, SMA, Huawei"
                       },
                       "leistungsklasse": {
                         "order": "2",
                         "type": "text",
+                        "required": "false",
                         "label": "Leistungsklasse",
                         "placeholder": "z. B. 10 kW"
                       },
                       "zusatzfunktionen": {
                         "order": "3",
                         "type": "textarea",
+                        "required": "false",
                         "label": "Zusatzfunktionen",
                         "placeholder": "z. B. Notstromfähig, Anlagenüberwachung",
                         "rows": "3"
@@ -7244,18 +7254,21 @@
                       "hersteller": {
                         "order": "1",
                         "type": "text",
+                        "required": "false",
                         "label": "Hersteller",
                         "placeholder": "z. B. BYD, Fronius, Huawei"
                       },
                       "groesse": {
                         "order": "2",
                         "type": "text",
+                        "required": "false",
                         "label": "Größe",
                         "placeholder": "z. B. 10 kWh"
                       },
                       "leistungsanforderungen": {
                         "order": "3",
                         "type": "textarea",
+                        "required": "false",
                         "label": "Leistungsanforderungen",
                         "placeholder": "z. B. Lade-/Entladeleistung, Notstrom",
                         "rows": "3"
@@ -7275,6 +7288,7 @@
                       "phasen": {
                         "order": "1",
                         "type": "choice",
+                        "required": "false",
                         "label": "Anschluss",
                         "options": {
                           "ein-phasig": {
@@ -7288,6 +7302,7 @@
                       "umschaltung": {
                         "order": "2",
                         "type": "choice",
+                        "required": "false",
                         "label": "Umschaltung",
                         "options": {
                           "automatik": {
@@ -7313,6 +7328,7 @@
                       "anforderungen": {
                         "order": "1",
                         "type": "textarea",
+                        "required": "false",
                         "label": "Anforderungen",
                         "placeholder": "Beschreiben Sie Ihre Anforderungen",
                         "rows": "3"
@@ -7332,6 +7348,7 @@
                       "anforderungen": {
                         "order": "1",
                         "type": "textarea",
+                        "required": "false",
                         "label": "Anforderungen",
                         "placeholder": "Beschreiben Sie Ihre Anforderungen",
                         "rows": "3"
@@ -7351,10 +7368,90 @@
                       "anforderungen": {
                         "order": "1",
                         "type": "textarea",
+                        "required": "false",
                         "label": "Anforderungen",
                         "placeholder": "z. B. Leistung, Anzahl, Lastmanagement",
                         "rows": "3"
                       }
+                    }
+                  }
+                },
+                "aiExtraction": {
+                  "fieldKey": "komponenten",
+                  "label": "Komponenten",
+                  "type": "multi-option",
+                  "aliases": [
+                    "Komponenten",
+                    "Systemkomponenten",
+                    "Anlagenkomponenten",
+                    "Material",
+                    "Stückliste"
+                  ],
+                  "description": "Gewünschte bzw. genannte PV-Anlagenkomponenten. Mehrfachauswahl ist erlaubt.",
+                  "instructions": "Wähle alle Komponenten, die im Dokument eindeutig als Bestandteil der Anlage genannt sind (z. B. Module, Wechselrichter, Speicher, Notstrom, Smart Meter, Energiemanager, Wallbox).",
+                  "options": {
+                    "paneele": {
+                      "targetOptionUid": "paneele",
+                      "aliases": [
+                        "Paneele",
+                        "Module",
+                        "Solarmodule",
+                        "PV-Module",
+                        "Solarpaneele"
+                      ]
+                    },
+                    "wechselrichter": {
+                      "targetOptionUid": "wechselrichter",
+                      "aliases": [
+                        "Wechselrichter",
+                        "Inverter",
+                        "WR"
+                      ]
+                    },
+                    "speicher": {
+                      "targetOptionUid": "speicher",
+                      "aliases": [
+                        "Speicher",
+                        "Batteriespeicher",
+                        "Batterie",
+                        "Akku",
+                        "Stromspeicher"
+                      ]
+                    },
+                    "notstrom": {
+                      "targetOptionUid": "notstrom",
+                      "aliases": [
+                        "Notstrom",
+                        "Ersatzstrom",
+                        "Backup",
+                        "Notstromversorgung"
+                      ]
+                    },
+                    "smart-meter": {
+                      "targetOptionUid": "smart-meter",
+                      "aliases": [
+                        "Smart Meter",
+                        "Smartmeter",
+                        "intelligenter Zähler",
+                        "Messeinrichtung"
+                      ]
+                    },
+                    "energiemanager": {
+                      "targetOptionUid": "energiemanager",
+                      "aliases": [
+                        "Energiemanager",
+                        "Energiemanagementsystem",
+                        "EMS",
+                        "Energiemanagement"
+                      ]
+                    },
+                    "wallbox": {
+                      "targetOptionUid": "wallbox",
+                      "aliases": [
+                        "Wallbox",
+                        "Ladestation",
+                        "Ladepunkt"
+                      ]
                     }
                   }
                 }
@@ -7369,7 +7466,7 @@
             "form": {
               "interested-products-schnittstelle": {
                 "order": "1",
-                "type": "checkbox",
+                "type": "card-popup",
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "true",
@@ -7386,111 +7483,125 @@
                 },
                 "options": {
                   "photovoltaic": {
-                    "type": "checkbox",
                     "title": "Solarpaneele / Solarmodule",
+                    "description": "",
                     "disabled": "false",
                     "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "submit-form-schnittstelle-anderes-textarea",
                     "icon": {
                       "name": "PanelTop",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Solarpaneele / Solarmodule"
+                    },
+                    "fields": {
+                      "textarea": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Kurze Beschreibung",
+                        "placeholder": "Schreiben Sie hier Ihre Angaben...",
+                        "rows": "4"
+                      }
                     }
                   },
                   "kabelweg": {
-                    "type": "checkbox",
                     "title": "Überspannungsschutz (ÜSS)",
+                    "description": "im Generatoranschlusskasten (GAK)",
                     "disabled": "false",
                     "span": "3",
-                    "description": "im Generatoranschlusskasten (GAK)",
-                    "addQuestion": "",
-                    "addForm": "submit-form-schnittstelle-anderes-textarea",
                     "icon": {
                       "name": "Gauge",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Überspannungsschutz (ÜSS)"
+                    },
+                    "fields": {
+                      "textarea": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Kurze Beschreibung",
+                        "placeholder": "Schreiben Sie hier Ihre Angaben...",
+                        "rows": "4"
+                      }
                     }
                   },
                   "wärmepumpe": {
-                    "type": "checkbox",
                     "title": "Wechselrichter",
+                    "description": "",
                     "disabled": "false",
                     "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "submit-form-schnittstelle-anderes-textarea",
                     "icon": {
                       "name": "Zap",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Wechselrichter"
+                    },
+                    "fields": {
+                      "textarea": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Kurze Beschreibung",
+                        "placeholder": "Schreiben Sie hier Ihre Angaben...",
+                        "rows": "4"
+                      }
                     }
                   },
                   "speicher": {
-                    "type": "checkbox",
                     "title": "Speicher",
+                    "description": "",
                     "disabled": "false",
                     "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "submit-form-schnittstelle-anderes-textarea",
                     "icon": {
                       "name": "BatteryCharging",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Speicher"
+                    },
+                    "fields": {
+                      "textarea": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Kurze Beschreibung",
+                        "placeholder": "Schreiben Sie hier Ihre Angaben...",
+                        "rows": "4"
+                      }
                     }
                   },
                   "zusatzarbeiten": {
-                    "type": "checkbox",
                     "title": "Zusatzarbeiten",
+                    "description": "",
                     "disabled": "false",
                     "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "submit-form-schnittstelle-anderes-textarea",
                     "icon": {
                       "name": "Wrench",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Zusatzarbeiten"
+                    },
+                    "fields": {
+                      "textarea": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Kurze Beschreibung",
+                        "placeholder": "Schreiben Sie hier Ihre Angaben...",
+                        "rows": "4"
+                      }
                     }
                   },
                   "ac-installation": {
-                    "type": "checkbox",
                     "title": "AC-Installation",
+                    "description": "",
                     "disabled": "false",
                     "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "submit-form-schnittstelle-anderes-textarea",
                     "icon": {
                       "name": "Plug",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "AC-Installation"
+                    },
+                    "fields": {
+                      "textarea": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Kurze Beschreibung",
+                        "placeholder": "Schreiben Sie hier Ihre Angaben...",
+                        "rows": "4"
+                      }
                     }
                   }
-                }
-              },
-              "submit-form-schnittstelle-anderes-textarea": {
-                "order": "1",
-                "type": "textarea",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Danke für Ihre Eingabe",
-                  "requiredMessage": "Diese Eingabe ist verpflichtend",
-                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
-                },
-                "options": {
-                  "label": "Kurze Beschreibung",
-                  "placeholder": "Schreiben Sie hier Ihre Angaben...",
-                  "rows": "4"
                 }
               }
             }

@@ -34,6 +34,11 @@ export type FunnelPrefillEntry = {
   documentName?: string;
   fileUid?: string;
   label?: string;
+  /** Set on card-popup sub-field entries: the real card form uid, the owning
+   * option uid and the field key to write into `selected.fields`. */
+  formUid?: string;
+  optionUid?: string;
+  cardFieldKey?: string;
 };
 
 export type FunnelPrefillResult = {
@@ -322,7 +327,17 @@ export function applyPrefillToQuestionElements(opts: {
 }): { elements: Record<string, any>; result: FunnelPrefillResult } {
   const result: FunnelPrefillResult = { applied: [], skipped: [] };
 
-  Object.entries(opts.prefill ?? {}).forEach(([formUid, entry]) => {
+  // Process card-popup sub-field entries in a second pass so the card SELECTION
+  // entry establishes the base selection first.
+  const entries = Object.entries(opts.prefill ?? {});
+  const subFieldEntries = entries.filter(([, entry]) =>
+    isCardSubFieldEntry(entry),
+  );
+  const normalEntries = entries.filter(
+    ([, entry]) => !isCardSubFieldEntry(entry),
+  );
+
+  normalEntries.forEach(([formUid, entry]) => {
     const resolved = findFormByUid(opts.elements, formUid);
     if (!resolved) {
       result.skipped.push({
@@ -417,7 +432,102 @@ export function applyPrefillToQuestionElements(opts: {
     result.applied.push(formUid);
   });
 
+  subFieldEntries.forEach(([key, entry]) => {
+    applyCardSubFieldPrefill(opts.elements, key, entry, opts.thresholds, opts.context, result);
+  });
+
   return { elements: opts.elements, result };
+}
+
+function isCardSubFieldEntry(entry: FunnelPrefillEntry): boolean {
+  return Boolean(entry.cardFieldKey && entry.optionUid && entry.formUid);
+}
+
+/**
+ * Writes an AI-extracted pop-up sub-field value directly into the card form's
+ * `selected.fields[runtimeOptionKey][cardFieldKey]`, auto-selecting the owning
+ * card if needed. Sub-fields bypass the per-form review flow (no
+ * `form.extraction` is set), matching the "apply directly into pop-up" decision.
+ */
+function applyCardSubFieldPrefill(
+  elements: Record<string, any>,
+  key: string,
+  entry: FunnelPrefillEntry,
+  thresholds: { green: number; yellow: number },
+  context: { force?: boolean },
+  result: FunnelPrefillResult,
+): void {
+  const confidence = Number(entry.confidence ?? 0);
+  if (confidenceTier(confidence, thresholds) === "red" && !context.force) {
+    result.skipped.push({
+      formUid: key,
+      label: entry.label,
+      reason: "low_confidence",
+      value: entry.value,
+    });
+    return;
+  }
+
+  const resolved = entry.formUid
+    ? findFormByUid(elements, entry.formUid)
+    : null;
+  if (!resolved) {
+    result.skipped.push({
+      formUid: key,
+      label: entry.label,
+      reason: "target_not_found",
+      value: entry.value,
+    });
+    return;
+  }
+
+  const runtimeOptionKey = findRuntimeOptionKey(
+    resolved.form,
+    entry.optionUid as string,
+  );
+  if (!runtimeOptionKey) {
+    result.skipped.push({
+      formUid: key,
+      label: entry.label,
+      reason: "unsupported_value",
+      value: entry.value,
+    });
+    return;
+  }
+
+  const value = typeof entry.value === "string" ? entry.value : String(entry.value);
+  if (!value.trim()) {
+    result.skipped.push({
+      formUid: key,
+      label: entry.label,
+      reason: "unsupported_value",
+      value: entry.value,
+    });
+    return;
+  }
+
+  const selected = resolved.form.selected;
+  selected.selectedOptionsUid = selected.selectedOptionsUid ?? [];
+  selected.selectedOptions = selected.selectedOptions ?? [];
+  selected.fields = selected.fields ?? {};
+
+  // Union-select the owning card so the value is visible/persisted.
+  if (!selected.selectedOptionsUid.includes(runtimeOptionKey)) {
+    selected.selectedOptionsUid = [
+      ...selected.selectedOptionsUid,
+      runtimeOptionKey,
+    ];
+    const title = resolved.form.options?.[runtimeOptionKey]?.title;
+    if (title && !selected.selectedOptions.includes(title)) {
+      selected.selectedOptions = [...selected.selectedOptions, title];
+    }
+  }
+
+  selected.fields[runtimeOptionKey] = {
+    ...(selected.fields[runtimeOptionKey] ?? {}),
+    [entry.cardFieldKey as string]: value,
+  };
+  result.applied.push(key);
 }
 
 export function findFormByUid(
@@ -519,6 +629,43 @@ export function applyValueToForm(form: any, value: unknown): boolean {
     return true;
   }
 
+  // Card-popup: select the AI-chosen cards (union with any existing selection)
+  // and make sure each has a `selected.fields` bucket for pop-up sub-values.
+  if (form.type === "card-popup") {
+    const targetOptionUids = (Array.isArray(value) ? value : [value]).filter(
+      (item): item is string => typeof item === "string" && item.length > 0,
+    );
+    const runtimeOptionKeys = targetOptionUids
+      .map((targetOptionUid) => findRuntimeOptionKey(form, targetOptionUid))
+      .filter((item): item is string => Boolean(item));
+
+    if (runtimeOptionKeys.length === 0) return false;
+
+    form.selected.selectedOptionsUid = form.selected.selectedOptionsUid ?? [];
+    form.selected.selectedOptions = form.selected.selectedOptions ?? [];
+    form.selected.fields = form.selected.fields ?? {};
+
+    runtimeOptionKeys.forEach((optionKey) => {
+      if (!form.selected.selectedOptionsUid.includes(optionKey)) {
+        form.selected.selectedOptionsUid = [
+          ...form.selected.selectedOptionsUid,
+          optionKey,
+        ];
+        const title = form.options?.[optionKey]?.title;
+        if (title && !form.selected.selectedOptions.includes(title)) {
+          form.selected.selectedOptions = [
+            ...form.selected.selectedOptions,
+            title,
+          ];
+        }
+      }
+      if (!form.selected.fields[optionKey]) {
+        form.selected.fields[optionKey] = {};
+      }
+    });
+    return true;
+  }
+
   return false;
 }
 
@@ -556,7 +703,8 @@ export function formValueMatchesPrefill(form: any, value: unknown): boolean {
   if (
     form.type === "checkbox" ||
     form.type === "radio" ||
-    form.type === "select"
+    form.type === "select" ||
+    form.type === "card-popup"
   ) {
     const selected = (form.selected?.selectedOptionsUid ?? [])
       .map(String)
@@ -607,6 +755,12 @@ export function clearFormValue(form: any): void {
     form.selected.selectedOptions = [];
     form.selected.selectedOptionsUid = [];
   }
+
+  if (form.type === "card-popup") {
+    form.selected.selectedOptions = [];
+    form.selected.selectedOptionsUid = [];
+    form.selected.fields = {};
+  }
 }
 
 export function findRuntimeOptionKey(
@@ -626,7 +780,8 @@ export function formHasUserValue(form: any): boolean {
   if (
     form.type === "checkbox" ||
     form.type === "radio" ||
-    form.type === "select"
+    form.type === "select" ||
+    form.type === "card-popup"
   ) {
     return (form.selected?.selectedOptionsUid?.length ?? 0) > 0;
   }

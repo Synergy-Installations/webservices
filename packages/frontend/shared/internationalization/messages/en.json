@@ -5983,7 +5983,8 @@
             "done": "Done",
             "close": "Close",
             "remove": "Remove",
-            "tapToEdit": "Tap to fill in (optional)"
+            "tapToEdit": "Tap to fill in (optional)",
+            "allOptional": "Optional selection criteria"
           }
         },
         "questions": {
@@ -7571,7 +7572,7 @@
                   },
                   "interested-products-schnittstelle": {
                     "order": "1",
-                    "type": "checkbox",
+                    "type": "card-popup",
                     "multiple": "true",
                     "required": "true",
                     "defaultVisible": "true",
@@ -7588,105 +7589,65 @@
                     },
                     "options": {
                       "photovoltaic": {
-                        "type": "checkbox",
                         "title": "Roof assembly",
+                        "description": "",
                         "disabled": "false",
                         "span": "3",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "",
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
                         }
                       },
                       "kabelweg": {
-                        "type": "checkbox",
                         "title": "Roof assembly + cable path",
+                        "description": "",
                         "disabled": "false",
                         "span": "3",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "",
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
                         }
                       },
                       "wärmepumpe": {
-                        "type": "checkbox",
                         "title": "roof assembly + cable path + inverter",
+                        "description": "",
                         "disabled": "false",
                         "span": "3",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "",
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
                         }
                       },
                       "speicher": {
-                        "type": "checkbox",
                         "title": "roof assembly + cable path + inverter + storage",
+                        "description": "",
                         "disabled": "false",
                         "span": "3",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "",
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
                         }
                       },
                       "zusatzarbeiten": {
-                        "type": "checkbox",
                         "title": "Additional work",
+                        "description": "",
                         "disabled": "false",
                         "span": "3",
-                        "description": "",
-                        "addQuestion": "",
-                        "addForm": "",
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
                         }
                       },
                       "ac-installation": {
-                        "type": "checkbox",
                         "title": "AC Installation",
+                        "description": "Coming soon",
                         "disabled": "true",
                         "span": "3",
-                        "description": "Coming soon",
-                        "addQuestion": "",
-                        "addForm": "",
                         "icon": {
                           "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                           "alt": "Photovoltaics"
                         }
                       }
-                    }
-                  },
-                  "submit-form-schnittstelle-anderes-textarea": {
-                    "order": "1",
-                    "type": "textarea",
-                    "required": "false",
-                    "defaultVisible": "true",
-                    "title": "",
-                    "description": "",
-                    "localStorage": "false",
-                    "span": "2",
-                    "message": {
-                      "text": "",
-                      "type": "info",
-                      "successMessage": "Thanks for your input",
-                      "requiredMessage": "This input is mandatory",
-                      "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
-                    },
-                    "options": {
-                      "label": "Quick description",
-                      "placeholder": "Write your thoughts here...",
-                      "rows": "4"
                     }
                   },
                   "interested-products-range-height": {
@@ -8441,18 +8402,21 @@
                       "groesse": {
                         "order": "1",
                         "type": "text",
+                        "required": "false",
                         "label": "Size / dimensions",
                         "placeholder": "e.g. 1722 × 1134 × 30 mm (per datasheet)"
                       },
                       "leistung": {
                         "order": "2",
                         "type": "text",
+                        "required": "false",
                         "label": "Power",
                         "placeholder": "e.g. 440 Wp"
                       },
                       "aufbau": {
                         "order": "3",
                         "type": "choice",
+                        "required": "false",
                         "label": "Construction",
                         "options": {
                           "glas-folie": {
@@ -8466,6 +8430,7 @@
                       "fazialitaet": {
                         "order": "4",
                         "type": "choice",
+                        "required": "false",
                         "label": "Faciality",
                         "options": {
                           "bifazial": {
@@ -8479,6 +8444,7 @@
                       "rahmen": {
                         "order": "5",
                         "type": "choice",
+                        "required": "false",
                         "label": "Frame",
                         "options": {
                           "silberframe": {
@@ -8495,6 +8461,7 @@
                       "back-contact": {
                         "order": "6",
                         "type": "choice",
+                        "required": "false",
                         "label": "Back-contact",
                         "options": {
                           "ja": {
@@ -8520,18 +8487,21 @@
                       "hersteller": {
                         "order": "1",
                         "type": "text",
+                        "required": "false",
                         "label": "Manufacturer",
                         "placeholder": "e.g. Fronius, SMA, Huawei"
                       },
                       "leistungsklasse": {
                         "order": "2",
                         "type": "text",
+                        "required": "false",
                         "label": "Power class",
                         "placeholder": "e.g. 10 kW"
                       },
                       "zusatzfunktionen": {
                         "order": "3",
                         "type": "textarea",
+                        "required": "false",
                         "label": "Additional functions",
                         "placeholder": "e.g. backup power capable, system monitoring",
                         "rows": "3"
@@ -8551,18 +8521,21 @@
                       "hersteller": {
                         "order": "1",
                         "type": "text",
+                        "required": "false",
                         "label": "Manufacturer",
                         "placeholder": "e.g. BYD, Fronius, Huawei"
                       },
                       "groesse": {
                         "order": "2",
                         "type": "text",
+                        "required": "false",
                         "label": "Size",
                         "placeholder": "e.g. 10 kWh"
                       },
                       "leistungsanforderungen": {
                         "order": "3",
                         "type": "textarea",
+                        "required": "false",
                         "label": "Power requirements",
                         "placeholder": "e.g. charge/discharge power, backup power",
                         "rows": "3"
@@ -8582,6 +8555,7 @@
                       "phasen": {
                         "order": "1",
                         "type": "choice",
+                        "required": "false",
                         "label": "Connection",
                         "options": {
                           "ein-phasig": {
@@ -8595,6 +8569,7 @@
                       "umschaltung": {
                         "order": "2",
                         "type": "choice",
+                        "required": "false",
                         "label": "Switching",
                         "options": {
                           "automatik": {
@@ -8620,6 +8595,7 @@
                       "anforderungen": {
                         "order": "1",
                         "type": "textarea",
+                        "required": "false",
                         "label": "Requirements",
                         "placeholder": "Describe your requirements",
                         "rows": "3"
@@ -8639,6 +8615,7 @@
                       "anforderungen": {
                         "order": "1",
                         "type": "textarea",
+                        "required": "false",
                         "label": "Requirements",
                         "placeholder": "Describe your requirements",
                         "rows": "3"
@@ -8658,10 +8635,91 @@
                       "anforderungen": {
                         "order": "1",
                         "type": "textarea",
+                        "required": "false",
                         "label": "Requirements",
                         "placeholder": "e.g. power, quantity, load management",
                         "rows": "3"
                       }
+                    }
+                  }
+                },
+                "aiExtraction": {
+                  "fieldKey": "komponenten",
+                  "label": "Components",
+                  "type": "multi-option",
+                  "aliases": [
+                    "Components",
+                    "System components",
+                    "Komponenten",
+                    "Material",
+                    "Bill of materials"
+                  ],
+                  "description": "Requested or mentioned PV system components. Multiple selection is allowed.",
+                  "instructions": "Select all components that are clearly named as part of the system in the document (e.g. modules, inverter, storage, backup power, smart meter, energy manager, wallbox).",
+                  "options": {
+                    "paneele": {
+                      "targetOptionUid": "paneele",
+                      "aliases": [
+                        "Panels",
+                        "Modules",
+                        "Solar modules",
+                        "PV modules",
+                        "Paneele",
+                        "Module"
+                      ]
+                    },
+                    "wechselrichter": {
+                      "targetOptionUid": "wechselrichter",
+                      "aliases": [
+                        "Inverter",
+                        "Wechselrichter",
+                        "WR"
+                      ]
+                    },
+                    "speicher": {
+                      "targetOptionUid": "speicher",
+                      "aliases": [
+                        "Storage",
+                        "Battery storage",
+                        "Battery",
+                        "Speicher",
+                        "Akku"
+                      ]
+                    },
+                    "notstrom": {
+                      "targetOptionUid": "notstrom",
+                      "aliases": [
+                        "Backup power",
+                        "Emergency power",
+                        "Backup",
+                        "Notstrom"
+                      ]
+                    },
+                    "smart-meter": {
+                      "targetOptionUid": "smart-meter",
+                      "aliases": [
+                        "Smart Meter",
+                        "Smartmeter",
+                        "smart meter",
+                        "metering device"
+                      ]
+                    },
+                    "energiemanager": {
+                      "targetOptionUid": "energiemanager",
+                      "aliases": [
+                        "Energy manager",
+                        "Energy management system",
+                        "EMS",
+                        "Energiemanager"
+                      ]
+                    },
+                    "wallbox": {
+                      "targetOptionUid": "wallbox",
+                      "aliases": [
+                        "Wallbox",
+                        "Charging station",
+                        "Charge point"
+                      ]
                     }
                   }
                 }
@@ -8676,7 +8734,7 @@
             "form": {
               "interested-products-schnittstelle": {
                 "order": "1",
-                "type": "checkbox",
+                "type": "card-popup",
                 "multiple": "true",
                 "required": "true",
                 "defaultVisible": "true",
@@ -8693,111 +8751,125 @@
                 },
                 "options": {
                   "photovoltaic": {
-                    "type": "checkbox",
                     "title": "Solar panels / Solar modules",
+                    "description": "",
                     "disabled": "false",
                     "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "submit-form-schnittstelle-anderes-textarea",
                     "icon": {
                       "name": "PanelTop",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Solar panels / Solar modules"
+                    },
+                    "fields": {
+                      "textarea": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Quick description",
+                        "placeholder": "Write your thoughts here...",
+                        "rows": "4"
+                      }
                     }
                   },
                   "kabelweg": {
-                    "type": "checkbox",
                     "title": "Surge protection (SPD)",
+                    "description": "in the generator connection box (GAK)",
                     "disabled": "false",
                     "span": "3",
-                    "description": "in the generator connection box (GAK)",
-                    "addQuestion": "",
-                    "addForm": "submit-form-schnittstelle-anderes-textarea",
                     "icon": {
                       "name": "Gauge",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Surge protection (SPD)"
+                    },
+                    "fields": {
+                      "textarea": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Quick description",
+                        "placeholder": "Write your thoughts here...",
+                        "rows": "4"
+                      }
                     }
                   },
                   "wärmepumpe": {
-                    "type": "checkbox",
                     "title": "Inverter",
+                    "description": "",
                     "disabled": "false",
                     "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "submit-form-schnittstelle-anderes-textarea",
                     "icon": {
                       "name": "Zap",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Inverter"
+                    },
+                    "fields": {
+                      "textarea": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Quick description",
+                        "placeholder": "Write your thoughts here...",
+                        "rows": "4"
+                      }
                     }
                   },
                   "speicher": {
-                    "type": "checkbox",
                     "title": "Battery storage",
+                    "description": "",
                     "disabled": "false",
                     "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "submit-form-schnittstelle-anderes-textarea",
                     "icon": {
                       "name": "BatteryCharging",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Battery storage"
+                    },
+                    "fields": {
+                      "textarea": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Quick description",
+                        "placeholder": "Write your thoughts here...",
+                        "rows": "4"
+                      }
                     }
                   },
                   "zusatzarbeiten": {
-                    "type": "checkbox",
                     "title": "Additional work",
+                    "description": "",
                     "disabled": "false",
                     "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "submit-form-schnittstelle-anderes-textarea",
                     "icon": {
                       "name": "Wrench",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Additional work"
+                    },
+                    "fields": {
+                      "textarea": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Quick description",
+                        "placeholder": "Write your thoughts here...",
+                        "rows": "4"
+                      }
                     }
                   },
                   "ac-installation": {
-                    "type": "checkbox",
                     "title": "AC installation",
+                    "description": "",
                     "disabled": "false",
                     "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "submit-form-schnittstelle-anderes-textarea",
                     "icon": {
                       "name": "Plug",
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "AC installation"
+                    },
+                    "fields": {
+                      "textarea": {
+                        "order": "1",
+                        "type": "textarea",
+                        "label": "Quick description",
+                        "placeholder": "Write your thoughts here...",
+                        "rows": "4"
+                      }
                     }
                   }
-                }
-              },
-              "submit-form-schnittstelle-anderes-textarea": {
-                "order": "1",
-                "type": "textarea",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Thanks for your input",
-                  "requiredMessage": "This input is mandatory",
-                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
-                },
-                "options": {
-                  "label": "Quick description",
-                  "placeholder": "Write your thoughts here...",
-                  "rows": "4"
                 }
               }
             }

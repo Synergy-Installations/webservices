@@ -190,7 +190,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
               </Link>
             </li> */}
 
-            <div className="sm:mr-2 text-synergy-dark-grey">
+            <div className="hidden min-[360px]:block sm:mr-2 text-synergy-dark-grey">
               <LocaleSwitcher />
             </div>
             <li className="hidden sm:block">

@@ -103,6 +103,8 @@ function collectFormExtractionFields(
       const questionUid = String(question.uid ?? questionKey);
       const formUid = String((form as RawRecord).uid ?? formKey);
 
+      // The form's own extraction field(s) — for card-popup forms this is the
+      // card SELECTION field (which cards to tick).
       if (isRecord(formExtraction.fields)) {
         Object.entries(formExtraction.fields).forEach(([fieldKey, field]) => {
           if (!isRecord(field)) return;
@@ -114,22 +116,36 @@ function collectFormExtractionFields(
             formUid,
           });
         });
-        return;
+      } else {
+        const fieldKey =
+          typeof formExtraction.fieldKey === "string" &&
+          formExtraction.fieldKey.trim()
+            ? formExtraction.fieldKey
+            : formUid;
+
+        fields[fieldKey] = normalizeFieldConfig({
+          field: formExtraction,
+          fieldKey,
+          form: form as RawRecord,
+          questionUid,
+          formUid,
+        });
       }
 
-      const fieldKey =
-        typeof formExtraction.fieldKey === "string" &&
-        formExtraction.fieldKey.trim()
-          ? formExtraction.fieldKey
-          : formUid;
-
-      fields[fieldKey] = normalizeFieldConfig({
-        field: formExtraction,
-        fieldKey,
-        form: form as RawRecord,
-        questionUid,
-        formUid,
-      });
+      // For card-popup forms also auto-derive an extraction field for every
+      // pop-up sub-field of every card (unless explicitly disabled).
+      if (
+        (form as RawRecord).type === "card-popup" &&
+        !isDisabled(formExtraction.extractCardFields)
+      ) {
+        collectCardSubFields({
+          form: form as RawRecord,
+          questionUid,
+          formUid,
+        }).forEach(([fieldKey, field]) => {
+          fields[fieldKey] = field;
+        });
+      }
     });
   });
 
@@ -184,13 +200,124 @@ function normalizeFieldType(
   }
 
   if (form.type === "range") return "number";
-  if (form.type === "checkbox" || form.type === "select") {
+  if (
+    form.type === "checkbox" ||
+    form.type === "select" ||
+    form.type === "card-popup"
+  ) {
     return form.multiple === "false" || form.multiple === false
       ? "single-option"
       : "multi-option";
   }
   if (form.type === "radio") return "single-option";
   return "text";
+}
+
+/**
+ * Card-popup sub-fields are keyed by a short, stable token because the key is
+ * used as an Anthropic tool-schema property name, which must match
+ * `^[a-zA-Z0-9_.-]{1,64}$` (no `::`, no umlauts, max 64 chars). The real
+ * form/option/field identity travels on `target.cardFormUid`/`optionUid`/
+ * `cardFieldKey` instead. The same algorithm runs on the frontend mirror so the
+ * keys line up. */
+export function buildCardSubFieldKey(
+  formUid: string,
+  optionUid: string,
+  cardFieldKey: string,
+): string {
+  return `cf_${fnv1aBase36(`${formUid}::${optionUid}::${cardFieldKey}`)}`;
+}
+
+/** Deterministic FNV-1a (32-bit) hash as base36 — must match the frontend copy. */
+function fnv1aBase36(input: string): string {
+  let hash = 0x811c9dc5;
+  for (let i = 0; i < input.length; i += 1) {
+    hash ^= input.charCodeAt(i);
+    hash = Math.imul(hash, 0x01000193);
+  }
+  return (hash >>> 0).toString(36);
+}
+
+/**
+ * Auto-derive an extraction field for every pop-up sub-field of every card.
+ * Each card option owns a `fields` map (text/textarea/choice/file-upload); we
+ * skip file uploads and map choice -> single-option, everything else -> text.
+ */
+function collectCardSubFields(opts: {
+  form: RawRecord;
+  questionUid: string;
+  formUid: string;
+}): Array<[string, ExtractionFieldConfig]> {
+  const out: Array<[string, ExtractionFieldConfig]> = [];
+  const options = isRecord(opts.form.options) ? opts.form.options : {};
+
+  Object.entries(options).forEach(([optionKey, optionRaw]) => {
+    if (!isRecord(optionRaw)) return;
+    const optionUid = String(optionRaw.uid ?? optionKey);
+    const optionTitle = String(optionRaw.title ?? optionUid);
+    const cardFields = isRecord(optionRaw.fields) ? optionRaw.fields : {};
+
+    Object.entries(cardFields).forEach(([cardFieldKey, cardFieldRaw]) => {
+      if (!isRecord(cardFieldRaw) || cardFieldRaw.type === "file-upload") return;
+
+      const isChoice = cardFieldRaw.type === "choice";
+      const type: ExtractionFieldType = isChoice ? "single-option" : "text";
+      const fieldLabel = String(cardFieldRaw.label ?? cardFieldKey);
+      const label = `${optionTitle} – ${fieldLabel}`;
+      const compositeKey = buildCardSubFieldKey(
+        opts.formUid,
+        optionUid,
+        cardFieldKey,
+      );
+      const placeholder = stringOrUndefined(cardFieldRaw.placeholder);
+
+      out.push([
+        compositeKey,
+        {
+          label,
+          type,
+          description: placeholder
+            ? `${label} (Detail nur relevant, wenn ${optionTitle} betroffen ist). Beispiel: ${placeholder}`
+            : `${label} (Detail nur relevant, wenn ${optionTitle} betroffen ist).`,
+          aliases: Array.from(new Set([fieldLabel, optionTitle])),
+          instructions: undefined,
+          unit: undefined,
+          min: undefined,
+          max: undefined,
+          target: {
+            questionUid: opts.questionUid,
+            formUid: compositeKey,
+            cardFormUid: opts.formUid,
+            optionUid,
+            cardFieldKey,
+          },
+          options: isChoice
+            ? buildCardChoiceOptions(cardFieldRaw.options)
+            : undefined,
+        },
+      ]);
+    });
+  });
+
+  return out;
+}
+
+function buildCardChoiceOptions(
+  options: unknown,
+): Record<string, ExtractionOptionConfig> {
+  if (!isRecord(options)) return {};
+  return Object.fromEntries(
+    Object.entries(options).map(([choiceKey, choice]) => {
+      const choiceRecord = isRecord(choice) ? choice : {};
+      return [
+        choiceKey,
+        {
+          targetOptionUid: choiceKey,
+          aliases: [String(choiceRecord.title ?? choiceKey)],
+        },
+      ];
+    }),
+  );
 }
 
 function normalizeOptionConfig(

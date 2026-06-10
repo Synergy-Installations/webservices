@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import { Link } from "@com.synergy/frontend-shared-internationalization/routing";
 import { useMessages, useTranslations } from "next-intl";
+import LocaleSwitcher from "../translation/LocaleSwitcher";
 
 /* eslint-disable-next-line */
 export interface MobileMenuProps {}
@@ -155,6 +156,15 @@ export const MobileMenu = (props: MobileMenuProps) => {
                 </a>
               </div>
             </div>
+
+            {/* On screens too narrow for the header switcher (<360px) the
+                language toggle lives in the mobile menu instead */}
+            <li
+              className="min-[360px]:hidden flex justify-center mt-4"
+              onClick={() => setMobileNavOpen(false)}
+            >
+              <LocaleSwitcher />
+            </li>
 
             <li className="flex flex-col xs:flex-row items-center justify-center mt-4 gap-2">
               <Link

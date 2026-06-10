@@ -741,6 +741,9 @@ export const createQuestionElement = (
                           ? Number(field.order ?? 0)
                           : (field.order ?? 0),
                         type: field.type,
+                        required: useStrings
+                          ? field.required === "true"
+                          : (field.required ?? false),
                         label: field.label,
                         placeholder: field.placeholder ?? "",
                         rows: field.rows

@@ -112,6 +112,11 @@ type FunnelPrefillEntry = {
   documentName?: string;
   fileUid?: string;
   label?: string;
+  /** Card-popup sub-field entries carry the real card form uid + the option /
+   * field they belong to so the value can be written into `selected.fields`. */
+  formUid?: string;
+  optionUid?: string;
+  cardFieldKey?: string;
 };
 
 type FunnelPrefillResult = {
@@ -150,7 +155,14 @@ export interface LLMFileExtractionProps {
   ): FunnelPrefillResult | void;
   removeFunnelPrefill?(
     formUid: string,
-    context: { documentName: string; fileUid: string; force?: boolean },
+    context: {
+      documentName: string;
+      fileUid: string;
+      force?: boolean;
+      cardFormUid?: string;
+      optionUid?: string;
+      cardFieldKey?: string;
+    },
   ): void;
   disabled?: boolean;
   disabledReason?: string;
@@ -574,10 +586,10 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
     const autoResult =
       Object.keys(plan.autoPrefill).length > 0
         ? applyFunnelPrefill?.(plan.autoPrefill, {
-            documentName: "KI-Auswertung",
-            fileUid: "multi-file-extraction",
-            force: true,
-          })
+          documentName: "KI-Auswertung",
+          fileUid: "multi-file-extraction",
+          force: true,
+        })
         : undefined;
 
     setQuestionElements((prev: any) =>
@@ -623,26 +635,20 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
         <div
           {...getRootProps({
             "aria-disabled": disabled,
-            className: `flex w-full flex-col items-center justify-center ${
-              disabled ? "pointer-events-none" : ""
-            }`,
+            className: `flex w-full flex-col items-center justify-center ${disabled ? "pointer-events-none" : ""
+              }`,
           })}
         >
           <label
             htmlFor={formKey}
-            className={`relative flex h-64 w-full flex-col items-center justify-center rounded-lg border-2 border-dashed transition-colors ${
-              disabled
-                ? "cursor-not-allowed border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800/80"
-                : "cursor-pointer border-gray-300 bg-gray-50 hover:border-synergy-light-blue hover:bg-synergy-light-grey dark:border-gray-600 dark:bg-gray-700 dark:hover:border-synergy-light-blue dark:hover:bg-gray-800"
-            }`}
-          >
-            <span className="absolute right-3 top-3 rounded-full bg-white/90 px-2 py-0.5 text-xs font-medium text-gray-500 shadow-sm dark:bg-gray-900/90 dark:text-gray-300">
-              Optional
-            </span>
-            <div
-              className={`flex flex-col items-center justify-center px-4 pb-6 pt-5 text-center transition ${
-                disabled ? "opacity-70 blur-[2px] saturate-75" : ""
+            className={`relative flex h-64 w-full flex-col items-center justify-center rounded-lg border-2 border-dashed transition-colors ${disabled
+              ? "cursor-not-allowed border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800/80"
+              : "cursor-pointer border-gray-300 bg-gray-50 hover:border-synergy-light-blue hover:bg-synergy-light-grey dark:border-gray-600 dark:bg-gray-700 dark:hover:border-synergy-light-blue dark:hover:bg-gray-800"
               }`}
+          >
+            <div
+              className={`flex flex-col items-center justify-center px-4 pb-6 pt-5 text-center transition ${disabled ? "opacity-70 blur-[2px] saturate-75" : ""
+                }`}
             >
               <UploadCloud
                 className="mb-4 h-8 w-8 text-synergy-light-blue"
@@ -805,11 +811,10 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
                 </p>
                 <p
                   id={`${formKey}-analysis-start-hint`}
-                  className={`mt-1 text-xs leading-5 ${
-                    startAnalysisDisabled
-                      ? "text-gray-600 dark:text-gray-300"
-                      : "text-green-700 dark:text-green-400"
-                  }`}
+                  className={`mt-1 text-xs leading-5 ${startAnalysisDisabled
+                    ? "text-gray-600 dark:text-gray-300"
+                    : "text-green-700 dark:text-green-400"
+                    }`}
                 >
                   {startAnalysisDisabled
                     ? startAnalysisDisabledReason
@@ -865,23 +870,108 @@ function collectAiExtractionFields(
           if (!isPlainRecord(field)) return;
           fields[fieldKey] = normalizeAiExtractionField(field, fieldKey, form);
         });
-        return;
+      } else {
+        const fieldKey =
+          typeof aiExtraction.fieldKey === "string" &&
+            aiExtraction.fieldKey.trim()
+            ? aiExtraction.fieldKey
+            : String(form.uid ?? form.title ?? "field");
+        fields[fieldKey] = normalizeAiExtractionField(
+          aiExtraction,
+          fieldKey,
+          form,
+        );
       }
 
-      const fieldKey =
-        typeof aiExtraction.fieldKey === "string" &&
-        aiExtraction.fieldKey.trim()
-          ? aiExtraction.fieldKey
-          : String(form.uid ?? form.title ?? "field");
-      fields[fieldKey] = normalizeAiExtractionField(
-        aiExtraction,
-        fieldKey,
-        form,
-      );
+      // Mirror the backend card-popup sub-field derivation so the extraction
+      // summary / display rows render the pop-up sub-values with proper labels.
+      if (
+        form.type === "card-popup" &&
+        aiExtraction.extractCardFields !== false &&
+        aiExtraction.extractCardFields !== "false"
+      ) {
+        collectCardSubFieldsForDisplay(form).forEach(([fieldKey, field]) => {
+          fields[fieldKey] = field;
+        });
+      }
     });
   });
 
   return fields;
+}
+
+/** Short, schema-safe key for a card-popup sub-field. Must stay byte-for-byte
+ * identical to the backend (`config.ts` `buildCardSubFieldKey`) so the frontend
+ * display config lines up with `funnelPrefill`. */
+function buildCardSubFieldKey(
+  formUid: string,
+  optionUid: string,
+  cardFieldKey: string,
+): string {
+  return `cf_${fnv1aBase36(`${formUid}::${optionUid}::${cardFieldKey}`)}`;
+}
+
+function fnv1aBase36(input: string): string {
+  let hash = 0x811c9dc5;
+  for (let i = 0; i < input.length; i += 1) {
+    hash ^= input.charCodeAt(i);
+    hash = Math.imul(hash, 0x01000193);
+  }
+  return (hash >>> 0).toString(36);
+}
+
+/** Composite-key + label mirror of the backend's card sub-field derivation. */
+function collectCardSubFieldsForDisplay(
+  form: any,
+): Array<[string, ExtractionFieldConfig]> {
+  const out: Array<[string, ExtractionFieldConfig]> = [];
+  const formUid = String(form.uid ?? form.title ?? "field");
+  const options = isPlainRecord(form.options) ? form.options : {};
+
+  Object.entries(options).forEach(([optionKey, optionRaw]) => {
+    if (!isPlainRecord(optionRaw)) return;
+    const optionUid = String(optionRaw.uid ?? optionKey);
+    const optionTitle = String(optionRaw.title ?? optionUid);
+    const cardFields = isPlainRecord(optionRaw.fields) ? optionRaw.fields : {};
+
+    Object.entries(cardFields).forEach(([cardFieldKey, cardFieldRaw]) => {
+      if (!isPlainRecord(cardFieldRaw) || cardFieldRaw.type === "file-upload") {
+        return;
+      }
+
+      const isChoice = cardFieldRaw.type === "choice";
+      const compositeKey = buildCardSubFieldKey(formUid, optionUid, cardFieldKey);
+      const choiceOptions =
+        isChoice && isPlainRecord(cardFieldRaw.options)
+          ? Object.fromEntries(
+            Object.entries(cardFieldRaw.options).map(([choiceKey, choice]) => [
+              choiceKey,
+              {
+                targetOptionUid: choiceKey,
+                aliases: [
+                  String(
+                    (isPlainRecord(choice) ? choice.title : undefined) ??
+                    choiceKey,
+                  ),
+                ],
+              },
+            ]),
+          )
+          : undefined;
+
+      out.push([
+        compositeKey,
+        {
+          label: `${optionTitle} – ${String(cardFieldRaw.label ?? cardFieldKey)}`,
+          type: isChoice ? "single-option" : "text",
+          target: { formUid: compositeKey },
+          options: choiceOptions,
+        },
+      ]);
+    });
+  });
+
+  return out;
 }
 
 function buildDropzoneAccept(mimeTypes: string[]): Record<string, string[]> {
@@ -921,8 +1011,14 @@ function normalizeAiExtractionField(
 function inferExtractionFieldType(form: any): string {
   if (form?.type === "range") return "number";
   if (form?.type === "radio") return "single-option";
-  if (form?.type === "checkbox" || form?.type === "select") {
-    return form.multiple === false ? "single-option" : "multi-option";
+  if (
+    form?.type === "checkbox" ||
+    form?.type === "select" ||
+    form?.type === "card-popup"
+  ) {
+    return form.multiple === false || form.multiple === "false"
+      ? "single-option"
+      : "multi-option";
   }
   return "text";
 }
@@ -1139,9 +1235,9 @@ function markManualPrefillChoice(
 
     const result = isPrefillResult(file.prefillResult)
       ? {
-          applied: [...file.prefillResult.applied],
-          skipped: file.prefillResult.skipped.map((item) => ({ ...item })),
-        }
+        applied: [...file.prefillResult.applied],
+        skipped: file.prefillResult.skipped.map((item) => ({ ...item })),
+      }
       : emptyPrefillResult();
     const sameValue = normalizePrefillValue(entry.value) === opts.valueKey;
 
@@ -1444,7 +1540,7 @@ function getExtractionSourceDocument(
 
   const outputSource =
     fieldKey &&
-    typeof output?.extraction?.[fieldKey]?.source_document === "string"
+      typeof output?.extraction?.[fieldKey]?.source_document === "string"
       ? output.extraction[fieldKey].source_document
       : null;
   if (outputSource?.trim()) return outputSource;
@@ -1464,8 +1560,8 @@ function shouldCollectExtractionCandidateForFile(
   if (sourceDocument) {
     const batchFiles = file.extractionBatchId
       ? files.filter(
-          (candidate) => candidate.extractionBatchId === file.extractionBatchId,
-        )
+        (candidate) => candidate.extractionBatchId === file.extractionBatchId,
+      )
       : files;
     const primarySourceFile = batchFiles.find((candidate) =>
       documentNamesMatch(candidate.name, sourceDocument),
@@ -1772,9 +1868,9 @@ function buildExtractionCompletionSummary(opts: {
     Object.keys(opts.extractionFields).length > 0
       ? Object.entries(opts.extractionFields)
       : Object.keys(extraction).map(
-          (fieldKey) =>
-            [fieldKey, { label: fieldKey }] as [string, ExtractionFieldConfig],
-        );
+        (fieldKey) =>
+          [fieldKey, { label: fieldKey }] as [string, ExtractionFieldConfig],
+      );
 
   const items = fieldEntries.flatMap(([fieldKey, field]) => {
     const extracted = isPlainRecord(extraction[fieldKey])
@@ -1898,10 +1994,10 @@ function buildExtractionPromptMessages(
   return messages.length > 0
     ? messages
     : [
-        "KI liest die Projektunterlagen...",
-        "KI sucht passende Antworten...",
-        "KI prueft die gefundenen Werte...",
-      ];
+      "KI liest die Projektunterlagen...",
+      "KI sucht passende Antworten...",
+      "KI prueft die gefundenen Werte...",
+    ];
 }
 
 function useRotatingExtractionMessage(
@@ -2005,11 +2101,10 @@ function ExtractionCompletionBadge({
                   <div className="flex items-start justify-between gap-2">
                     <span className="font-medium">{item.label}</span>
                     <span
-                      className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-medium ${
-                        item.hasValue
-                          ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
-                          : "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300"
-                      }`}
+                      className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] font-medium ${item.hasValue
+                        ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                        : "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300"
+                        }`}
                     >
                       {item.hasValue ? "Ausgefüllt" : "Kein Ergebnis"}
                     </span>
@@ -2138,9 +2233,9 @@ function ExtractionRunSubscription(props: {
 
     const metadata = run?.metadata as
       | {
-          step?: string;
-          partialExtraction?: Record<string, Partial<GroundedExtractionValue>>;
-        }
+        step?: string;
+        partialExtraction?: Record<string, Partial<GroundedExtractionValue>>;
+      }
       | undefined;
 
     if (!metadata && !error) return;
@@ -2390,6 +2485,9 @@ function ExtractionRunSubscription(props: {
                         removeFunnelPrefill?.(row.formUid, {
                           documentName: file.name,
                           fileUid: file.uid,
+                          cardFormUid: row.prefillEntry?.formUid,
+                          optionUid: row.prefillEntry?.optionUid,
+                          cardFieldKey: row.prefillEntry?.cardFieldKey,
                         });
                         markPrefillRemoved(row.formUid);
                       }}

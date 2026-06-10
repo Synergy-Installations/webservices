@@ -140,6 +140,16 @@ export function CardPopupForm({
   const openFieldValues =
     (openOptionKey && form.selected.fields[openOptionKey]) || {};
 
+  const openFieldKeys = openOption ? orderedFieldKeys(openOption) : [];
+  /** Show an "optional selection criteria" hint when none of the card's fields
+   * are required. */
+  const allFieldsOptional =
+    openFieldKeys.length > 0 &&
+    openFieldKeys.every((fieldKey) => {
+      const required = openOption.fields[fieldKey]?.required;
+      return required !== true && required !== "true";
+    });
+
   return (
     <>
       <ul className="grid w-full gap-6 grid-flow-row md:grid-cols-6">
@@ -252,9 +262,16 @@ export function CardPopupForm({
             {openOption && (
               <>
                 <div className="flex items-start justify-between">
-                  <DialogTitle className="text-xl font-bold">
-                    {openOption.title}
-                  </DialogTitle>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <DialogTitle className="text-xl font-bold">
+                      {openOption.title}
+                    </DialogTitle>
+                    {allFieldsOptional && (
+                      <span className="inline-flex items-center rounded bg-gray-100 px-1.5 py-0.5 text-xs font-medium text-gray-500 dark:bg-gray-700 dark:text-gray-400">
+                        {t("ui.cards.allOptional")}
+                      </span>
+                    )}
+                  </div>
                   <button
                     type="button"
                     aria-label={t("ui.cards.close")}
@@ -269,11 +286,25 @@ export function CardPopupForm({
                   {orderedFieldKeys(openOption).map((fieldKey) => {
                     const field = openOption.fields[fieldKey];
                     const value = openFieldValues[fieldKey] ?? "";
+                    const fieldRequired =
+                      field.required === true || field.required === "true";
 
                     return (
                       <div key={field.uid} className="space-y-1.5">
-                        <label className="block text-sm font-medium text-gray-900 dark:text-white">
+                        <label className="flex items-center gap-2 text-sm font-medium text-gray-900 dark:text-white">
                           {field.label}
+                          {/** When the card mixes required and optional fields,
+                           * label each one so the requirement is explicit. */}
+                          {!allFieldsOptional &&
+                            (fieldRequired ? (
+                              <span className="inline-flex items-center rounded bg-synergy-light-blue/10 px-1.5 py-0.5 text-xs font-medium text-synergy-light-blue dark:bg-synergy-light-blue/20">
+                                {t("ui.formLabel.required")}
+                              </span>
+                            ) : (
+                              <span className="inline-flex items-center rounded bg-gray-100 px-1.5 py-0.5 text-xs font-medium text-gray-500 dark:bg-gray-700 dark:text-gray-400">
+                                {t("ui.formLabel.optional")}
+                              </span>
+                            ))}
                         </label>
 
                         {field.type === "choice" ? (

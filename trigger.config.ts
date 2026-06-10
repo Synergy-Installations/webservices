@@ -8,13 +8,16 @@ export default defineConfig({
   maxDuration: 300,
   retries: {
     enabledInDev: false,
-    default: { maxAttempts: 3, factor: 2, minTimeoutInMs: 2_000 },
+    default: { maxAttempts: 2, factor: 2, minTimeoutInMs: 2_000 },
   },
   dirs: ["./packages/frontend/backend/dashboard/src/trigger"],
   // Build dependencies into the worker bundle.
   // pdf-parse and pdfjs-dist sometimes trip over Trigger.dev's bundler;
   // mark them external so the runtime resolves them from node_modules.
   build: {
-    external: ["pdf-parse", "tesseract.js"],
+    // `@napi-rs/canvas` ships a native `.node` binary and must not be bundled;
+    // it supplies the `DOMMatrix`/`ImageData`/`Path2D` globals that
+    // `pdf-parse` (pdfjs-dist) needs at runtime.
+    external: ["pdf-parse", "tesseract.js", "@napi-rs/canvas"],
   },
 });

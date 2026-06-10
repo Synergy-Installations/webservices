@@ -58,6 +58,7 @@ import {
   renderExtractionHint,
   applyPrefillToQuestionElements,
   findFormByUid,
+  findRuntimeOptionKey,
   recalculateDependentForms,
   clearFormValue,
   getExtractionThresholds,
@@ -1039,10 +1040,38 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
   const removeFunnelPrefill = useCallback(
     (
       formUid: string,
-      context: { documentName: string; fileUid: string; force?: boolean },
+      context: {
+        documentName: string;
+        fileUid: string;
+        force?: boolean;
+        cardFormUid?: string;
+        optionUid?: string;
+        cardFieldKey?: string;
+      },
     ): void => {
       setQuestionElements((prev) => {
         const elements = cloneQuestionElements(prev);
+
+        // Card-popup sub-fields use opaque short keys; their real card/option/
+        // field identity travels on the context. Clear the value straight out
+        // of the card's `selected.fields` bucket.
+        if (context.cardFormUid && context.optionUid && context.cardFieldKey) {
+          const card = findFormByUid(elements, context.cardFormUid);
+          const runtimeOptionKey = card
+            ? findRuntimeOptionKey(card.form, context.optionUid)
+            : null;
+          if (
+            card &&
+            runtimeOptionKey &&
+            card.form.selected?.fields?.[runtimeOptionKey]
+          ) {
+            delete card.form.selected.fields[runtimeOptionKey][
+              context.cardFieldKey
+            ];
+          }
+          return elements;
+        }
+
         const resolved = findFormByUid(elements, formUid);
 
         if (!resolved || resolved.form.extraction?.source !== "llm") {

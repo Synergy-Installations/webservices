@@ -2599,604 +2599,9 @@
         }
       },
       "Services": {
-        "marketing": {
-          "title": "Marketing",
-          "SubServices": {
-            "projektakquise": {
-              "Diamond": {
-                "title": "Project acquisitions",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaics"
-                }
-              },
-              "Components": {
-                "titleOne": "Why is professional project acquisition crucial?",
-                "descriptionOne": "With targeted project acquisitions, you can secure the best opportunities on the market early on. We identify suitable projects, analyze potentials and accompany you from the first idea to the successful conclusion.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "Benefit from our network, our experience and our handling quality. We bring you together with the right partners and ensure smooth implementation.",
-                "button": {
-                  "text": "Secure project opportunities",
-                  "href": "/contact-us"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "Targeted market analysis",
-                    "description": "We will find the right projects and partners for you.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Efficient contact",
-                    "description": "We are responsible for addressing and coordinating with all stakeholders.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Inverters"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Quick project start",
-                    "description": "Through structured processes, we are moving your project quickly.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Battery storage"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages through professional project acquisition:",
-                    "list": {
-                      "itemOne": "Early identification of opportunities",
-                      "itemTwo": "Targeted address of potential customers",
-                      "itemThree": "Efficient project coordination",
-                      "itemFour": "Quick access to relevant networks",
-                      "itemFive": "Higher success rate in project implementation",
-                      "itemSix": "Transparent communication and support"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "This is how the project acquisition runs:",
-                    "list": {
-                      "itemOne": "First interview and target definition",
-                      "itemTwo": "Market analysis and project identification",
-                      "itemThree": "Contact and qualification",
-                      "itemFour": "Presentation and mediation of suitable projects",
-                      "itemFive": "Support through to contract signature",
-                      "itemSix": "Aftercare and feedback"
-                    }
-                  }
-                },
-                "boxesBottom": {
-                  "boxOne": {
-                    "title": "Intelligent energy management:",
-                    "description": "Optimize your consumption with predictive online weather control that intelligently adjusts the heating and cooling performance. If a sunny day is before, the heating operation is lowered in time. And in an expectation of a creeping frost night, the heating power is increased early enough.",
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/function.svg",
-                      "alt": "Focus highlight icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "boxTwo": {
-                    "title": "Automation of daily routines:",
-                    "description": "Save time in everyday life and impress your guests with cool Smart Home features that automatically control processes. Apps on the smartphone or tablet can also be used to control devices on the go.",
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/function.svg",
-                      "alt": "Focus highlight icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "boxThree": {
-                    "title": "Maximum flexibility & expandability:",
-                    "description": "Start cheaply and expand your system at any time easily and flexibly according to your needs – including energy management and power storage integration.  ",
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/function.svg",
-                      "alt": "Focus highlight icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Making use of project opportunities",
-                  "href": "/contact-us"
-                }
-              }
-            },
-            "energievertrieb": {
-              "Diamond": {
-                "title": "Energy Sales",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaics"
-                }
-              },
-              "Components": {
-                "titleOne": "Why is professional energy distribution important?",
-                "descriptionOne": "A structured energy distribution opens up new markets and customers. We support you in marketing your energy products and ensure sustainable sales.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "We have experience in the energy market, a broad network and employ modern sales methods.",
-                "button": {
-                  "text": "Start energy distribution now",
-                  "href": "/contact-us"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "Market access",
-                    "description": "We bring your energy products to the right customers.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Sales strategy",
-                    "description": "We develop and implement individual sales concepts.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Inverters"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Customer Loyalty",
-                    "description": "We accompany you from the acquisition to the long-term customer relationship.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Battery storage"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages through energy distribution:",
-                    "list": {
-                      "itemOne": "New Customer Acquisition",
-                      "itemTwo": "Expand your market share",
-                      "itemThree": "Professional marketing",
-                      "itemFour": "Long-term Customer Loyalty",
-                      "itemFive": "Efficient sales processes",
-                      "itemSix": "Transparent communication"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "This is how energy distribution runs:",
-                    "list": {
-                      "itemOne": "Analysis of your products",
-                      "itemTwo": "Development of sales strategy",
-                      "itemThree": "Customer address and acquisition",
-                      "itemFour": "Conclusion of the contract",
-                      "itemFive": "Client Care",
-                      "itemSix": "Feedback and optimization"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Launch Energy Sales",
-                  "href": "/contact-us"
-                }
-              }
-            },
-            "mediation": {
-              "Diamond": {
-                "title": "Mediation",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Mediation"
-                }
-              },
-              "Components": {
-                "titleOne": "Why is mediation important?",
-                "descriptionOne": "Mediation resolves conflicts constructively, saves time and costs and maintains business relationships. Through moderate discussions, interests are created visibly and viable solutions.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "Our mediators bring experience, neutrality and fingertip feeling. We accompany parties throughout the process and ensure sustainable, fair agreements.",
-                "button": {
-                  "text": "Request Mediation now",
-                  "href": "/contact-us"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "Conflict prevention",
-                    "description": "Early detection and defocusing of conflicts prevents escalations and delays.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Conflict prevention"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Prevention",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Presentation",
-                    "description": "Structured moderation ensures clear communication and solution-oriented negotiations.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Moderation"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Moderation",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Sustainable agreements",
-                    "description": "We support the implementation of the agreements and thus secure long-term, sustainable solutions.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Agreements"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Agreement",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages through mediation:",
-                    "list": {
-                      "itemOne": "Quick and confidential conflict resolution",
-                      "itemTwo": "Cost-efficient alternative to litigation",
-                      "itemThree": "Maintenance of business and customer relationships",
-                      "itemFour": "Transparent and fair talk",
-                      "itemFive": "Individually agreed agreements",
-                      "itemSix": "Replaceable solutions instead of process"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "This is how a mediation takes place:",
-                    "list": {
-                      "itemOne": "Contact and initial clarification",
-                      "itemTwo": "Independent inventory of the situation",
-                      "itemThree": "Moderated talks with all parties",
-                      "itemFour": "Development of solutions",
-                      "itemFive": "Agreement, documentation and implementation management",
-                      "itemSix": "Aftercare and evaluation"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Start Mediation",
-                  "href": "/contact-us"
-                }
-              }
-            },
-            "verhandlungsunterstützung": {
-              "Diamond": {
-                "title": "Negotiating support",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaics"
-                }
-              },
-              "Components": {
-                "titleOne": "Why is negotiation support important?",
-                "descriptionOne": "Professional support during negotiations ensures fair, transparent and successful results. We support you in preparing, implementing and preparing negotiations.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "Our experts bring experience, neutrality and feeling of fingertips to optimally represent your interests.",
-                "button": {
-                  "text": "Request negotiation support now",
-                  "href": "/contact-us"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "Preparation",
-                    "description": "We analyze your goals and prepare the negotiation strategically.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Moderation",
-                    "description": "We moderate the discussions and ensure a structured process.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Inverters"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Outcome documentation",
-                    "description": "We document the results and support implementation.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Battery storage"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages through negotiation support:",
-                    "list": {
-                      "itemOne": "Improved negotiation outcomes",
-                      "itemTwo": "Transparent communication",
-                      "itemThree": "Neutrality and objectivity",
-                      "itemFour": "Quick agreement",
-                      "itemFive": "Documentation of the results",
-                      "itemSix": "Sustainable implementation"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "This is how negotiation support runs:",
-                    "list": {
-                      "itemOne": "Analysis and target definition",
-                      "itemTwo": "Strategic preparation",
-                      "itemThree": "Neutral negotiation moderation",
-                      "itemFour": "Documentation of the results",
-                      "itemFive": "Support for implementation",
-                      "itemSix": "Preparation and feedback"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Start negotiation support",
-                  "href": "/contact-us"
-                }
-              }
-            },
-            "smvideo": {
-              "Diamond": {
-                "title": "Social Media & Video",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Social Media & Video"
-                }
-              },
-              "Components": {
-                "titleOne": "Why are social media & video important?",
-                "descriptionOne": "Targeted social media strategies and professional video content increase reach, trust and leads for your project. We combine technical know-how with attractive communication.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "Our team creates targeted campaigns, produces high-quality videos and delivers measurable results – from awareness to conversion.",
-                "button": {
-                  "text": "Request now Social Media & Video",
-                  "href": "/contact-us"
-                },
-                "boxes": {
-                  "social-media": {
-                    "title": "Strategy & Management",
-                    "description": "Conception, community building and cross-channel management for sustainable growth.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Social Media"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Social Media",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "video-production": {
-                    "title": "Video production",
-                    "description": "From concept to film to post production: emotional videos that transport your message.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Video production"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Video",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "analytics": {
-                    "title": "Tracking & Optimization",
-                    "description": "Continuous evaluation, A/B tests and optimization for maximum campaign performance.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                      "alt": "Analytics"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Analytics",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages through Social Media & Video:",
-                    "list": {
-                      "itemOne": "More visibility and brand awareness",
-                      "itemTwo": "Higher customer loyalty through emotional content",
-                      "itemThree": "Qualified leads and increase in sales",
-                      "itemFour": "Consistent brand communication",
-                      "itemFive": "Efficient use of advertising budgets",
-                      "itemSix": "Measurable campaign results"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "This is how our social media & video service runs:",
-                    "list": {
-                      "itemOne": "Briefing & target definition",
-                      "itemTwo": "Concept development (Content- & Mediaplan)",
-                      "itemThree": "Production: Turning & Post Production",
-                      "itemFour": "playout on relevant channels",
-                      "itemFive": "Monitoring & optimization",
-                      "itemSix": "Reporting with clear KPIs"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Start Social Media & Video",
-                  "href": "/contact-us"
-                }
-              }
-            }
-          }
-        },
         "beratung": {
           "title": "Consulting & Engineering",
           "SubServices": {
-            "analysen": {
-              "Diamond": {
-                "title": "Analysis",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Analysis"
-                }
-              },
-              "Components": {
-                "titleOne": "Why are analyses important?",
-                "descriptionOne": "Funded analyses create clarity: they show technical feasibility, predict revenue and cover economic & regulatory risks. So make safe decisions for your project.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "Our interdisciplinary team combines technical simulations, market knowledge and experience with local regulations to provide you with resilient recommendations for action.",
-                "button": {
-                  "text": "Request analysis",
-                  "href": "/contact-us"
-                },
-                "boxes": {
-                  "standortanalyse": {
-                    "title": "Location analysis",
-                    "description": "Examination of alignment, shading, roof structure and network connection for optimal system design.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Location analysis"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Location",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "ertragsprognose": {
-                    "title": "Profit forecast",
-                    "description": "Simulation of expected energy yields over lifetime taking into account local weather data.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Profit forecast"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Yield",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "risikoanalyse": {
-                    "title": "Risk & Sensitivity Analysis",
-                    "description": "Assessment of uncertainties (price, yield, promotions) and presentation of scenarios for decision strengthening.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Risk analysis"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Risk",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages through professional analyses:",
-                    "list": {
-                      "itemOne": "Reliable basis for decision",
-                      "itemTwo": "Optimized system design",
-                      "itemThree": "Cost transparency & funding audit",
-                      "itemFour": "Early detection of risks",
-                      "itemFive": "scenarios for planning and budget security",
-                      "itemSix": "Documentation for approvals and applications"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "This is how the analysis works:",
-                    "list": {
-                      "itemOne": "First interview on target definition",
-                      "itemTwo": "Data collection (areas, consumption, location data)",
-                      "itemThree": "Technical simulations and cost-effectiveness testing",
-                      "itemFour": "Scenario and risk analysis",
-                      "itemFive": "Presentation of results with recommendations for action",
-                      "itemSix": "Support for next steps (planning/promotion)"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Start analysis now",
-                  "href": "/contact-us"
-                }
-              }
-            },
             "machbarkeitsstudien": {
               "Diamond": {
                 "title": "Feasibility studies",
@@ -3207,7 +2612,7 @@
               },
               "Components": {
                 "titleOne": "Why are feasibility studies important?",
-                "descriptionOne": "A feasibility study examines whether a project is technically, economically and legally feasible. We analyze location, connection, approval requirements and risks so that you can make a resilient decision.",
+                "descriptionOne": "A feasibility study examines whether a project is technically, economically and legally feasible. With well-founded location, profitability and risk analyses we assess connection and approval requirements – so you can make a resilient decision.",
                 "titleTwo": "Why us?",
                 "descriptionTwo": "Our interdisciplinary team combines technical expertise, local knowledge and experience in approval procedures. We provide clear recommendations for action and concrete implementation steps.",
                 "button": {
@@ -3476,99 +2881,6 @@
                 }
               }
             },
-            "Energieausweis": {
-              "Diamond": {
-                "title": "Energy Performance Certificate",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Energy Performance Certificate"
-                }
-              },
-              "Components": {
-                "titleOne": "Why is an energy pass important?",
-                "descriptionOne": "The energy pass provides information on the energy efficiency of a building and is often required by law for sale or rental. It helps to identify savings potentials and to test funding.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "Our experts create your energy pass quickly, correctly and according to the applicable guidelines. We offer complementary recommendations to improve efficiency and support in funding applications.",
-                "button": {
-                  "text": "Request Energy Performance Certificate",
-                  "href": "/contact-us"
-                },
-                "boxes": {
-                  "gebaeudedatenaufnahme": {
-                    "title": "Building data recording",
-                    "description": "Collection of all relevant building data on site or on the basis of documents.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Building data"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Data",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "berechnungBewertung": {
-                    "title": "Calculation & evaluation",
-                    "description": "Standardised calculation of energy needs and evaluation of efficiency using current methods.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Calculation"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Calculation",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "ausstellungBeratung": {
-                    "title": "Exhibition & Consulting",
-                    "description": "You will receive the energy pass including concrete proposals for measures to improve energy efficiency.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                      "alt": "Exhibition"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Consultation",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages through the energy pass:",
-                    "list": {
-                      "itemOne": "Compliance with legal requirements",
-                      "itemTwo": "Transparency on energy",
-                      "itemThree": "Specific saving and modernization recommendations",
-                      "itemFour": "Improved marketing on sale or rental",
-                      "itemFive": "Support for applications",
-                      "itemSix": "Long-term cost savings"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "This is how the exhibition runs:",
-                    "list": {
-                      "itemOne": "First talk and appointment",
-                      "itemTwo": "Data collection (areas, consumption, on-site adoption)",
-                      "itemThree": "Implementation of the calculations according to standard",
-                      "itemFour": "Preparation of the energy performance certificate",
-                      "itemFive": "Presentation of results and recommendations",
-                      "itemSix": "Support for further steps (support, modernisation)"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Request Energy Performance Certificate",
-                  "href": "/contact-us"
-                }
-              }
-            },
             "behoerdeverfahren": {
               "Diamond": {
                 "title": "Authorities",
@@ -3672,7 +2984,7 @@
               },
               "Components": {
                 "titleOne": "Why is careful planning important?",
-                "descriptionOne": "A well-founded planning sets the foundation for efficient, timely and costly projects. It minimizes risks and creates clear implementation steps.",
+                "descriptionOne": "A well-founded planning lays the foundation for efficient, on-time and cost-secure projects. From technical design to energy performance certificate and energy assessment, we minimize risks and create clear implementation steps.",
                 "titleTwo": "Why us?",
                 "descriptionTwo": "Our team creates detailed planning documents, takes into account local regulations and creates practical implementation plans for your project.",
                 "button": {
@@ -3760,99 +3072,6 @@
         "umsetzung": {
           "title": "Implementation",
           "SubServices": {
-            "Projektkoordination": {
-              "Diamond": {
-                "title": "Project coordination",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaics"
-                }
-              },
-              "Components": {
-                "titleOne": "Why is project coordination important?",
-                "descriptionOne": "Professional project coordination ensures that all trades and participants work together optimally. Time, costs and quality will be kept under control and their project will be successfully completed.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "We take over the central control of your project, ensure clear communication and coordinate all processes efficiently.",
-                "button": {
-                  "text": "Request project coordination now",
-                  "href": "/contact-us"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "Central control",
-                    "description": "We coordinate all trades and service providers.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Efficient processes",
-                    "description": "We provide a smooth process and quick problem solution.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Inverters"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Clear communication",
-                    "description": "All participants are regularly informed.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Battery storage"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages through project coordination:",
-                    "list": {
-                      "itemOne": "Central respondent",
-                      "itemTwo": "Efficient control of all processes",
-                      "itemThree": "Quick problem solution",
-                      "itemFour": "Transparent communication",
-                      "itemFive": "Date schedule",
-                      "itemSix": "Cost control"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "This is how project coordination works:",
-                    "list": {
-                      "itemOne": "Project start and target definition",
-                      "itemTwo": "Voting of participants",
-                      "itemThree": "Current coordination",
-                      "itemFour": "Monitoring progress",
-                      "itemFive": "Communication and reporting",
-                      "itemSix": "Project completion"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Start project coordination",
-                  "href": "/contact-us"
-                }
-              }
-            },
             "Projektmanagement": {
               "Diamond": {
                 "title": "Project management",
@@ -3863,7 +3082,7 @@
               },
               "Components": {
                 "titleOne": "Why is professional project management important?",
-                "descriptionOne": "A central project management unites process and project monitoring: progress, costs, timetables and quality are continuously monitored, deviations are detected early and corrective measures are initiated quickly.",
+                "descriptionOne": "Central project management bundles control, coordination and monitoring in one hand: progress, costs, schedules and quality are continuously tracked, all trades are coordinated, deviations are detected early and corrective measures are initiated immediately.",
                 "titleTwo": "Why us?",
                 "descriptionTwo": "We combine digital monitoring tools with experienced project management to ensure appointments, budget and quality and to deliver transparent reports to all stakeholders.",
                 "button": {
@@ -4225,99 +3444,6 @@
                 }
               }
             },
-            "Qualitätssicherung": {
-              "Diamond": {
-                "title": "Quality assurance",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaics"
-                }
-              },
-              "Components": {
-                "titleOne": "Why is quality assurance important?",
-                "descriptionOne": "Quality assurance ensures that all works meet the highest standards and avoid defects.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "We regularly check all construction services and document the results transparently.",
-                "button": {
-                  "text": "Request quality assurance now",
-                  "href": "/contact-us"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "Regular tests",
-                    "description": "We control all construction services according to defined standards.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Deficiencies management",
-                    "description": "We recognize and remedy defects early.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Inverters"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Transparent documentation",
-                    "description": "All tests are documented in detail.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Battery storage"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages through quality assurance:",
-                    "list": {
-                      "itemOne": "Highest quality standards",
-                      "itemTwo": "Early detection of defects",
-                      "itemThree": "Transparent documentation",
-                      "itemFour": "Safe decrease",
-                      "itemFive": "Satisfied builders",
-                      "itemSix": "Long-term value maintenance"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "This is how quality assurance processes:",
-                    "list": {
-                      "itemOne": "Definition of standards",
-                      "itemTwo": "Regular tests",
-                      "itemThree": "Deficiencies management",
-                      "itemFour": "Documentation",
-                      "itemFive": "Voting with all parties",
-                      "itemSix": "acceptance and conclusion"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Start quality assurance",
-                  "href": "/contact-us"
-                }
-              }
-            },
             "Generalunternehmer": {
               "Diamond": {
                 "title": "General contractors",
@@ -4328,9 +3454,9 @@
               },
               "Components": {
                 "titleOne": "Why hire a general contractor?",
-                "descriptionOne": "A general contractor takes over the complete execution of your project – from planning to turnkey transfer.",
+                "descriptionOne": "A general contractor takes over the complete execution of your project – from planning through assembly handling, construction supervision and quality assurance to turnkey handover. Everything from a single source, with one responsible contact.",
                 "titleTwo": "Why us?",
-                "descriptionTwo": "We coordinate all plants, ensure smooth processes and are your central contact person.",
+                "descriptionTwo": "We coordinate all trades, supervise execution and quality on site and ensure smooth, on-schedule processes – as your central contact.",
                 "button": {
                   "text": "Request general contractor now",
                   "href": "/contact-us"
@@ -4413,102 +3539,9 @@
             }
           }
         },
-        "service": {
-          "title": "Service",
+        "anlagenservice": {
+          "title": "System Service",
           "SubServices": {
-            "Kundendienst": {
-              "Diamond": {
-                "title": "Customer Service",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaics"
-                }
-              },
-              "Components": {
-                "titleOne": "Why is customer service important?",
-                "descriptionOne": "A reliable customer service ensures the long-term satisfaction of your customers. We also accompany you after completion of the project, are ready for questions and ensure the sustainable functioning of your plant.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "We offer personal care, fast response times and lasting solutions – for maximum customer satisfaction and a long-term partnership.",
-                "button": {
-                  "text": "Request customer service now",
-                  "href": "/contact-us"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "Client Care",
-                    "description": "We are also here for you after completing the project and answer all questions.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Quick help",
-                    "description": "In the event of a malfunction, we react quickly and reliably.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Inverters"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Long-term partnership",
-                    "description": "We accompany you over the entire service life of your facility.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Battery storage"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages through customer service:",
-                    "list": {
-                      "itemOne": "Long-term care and advice",
-                      "itemTwo": "Quick help with problems",
-                      "itemThree": "Maximum plant availability",
-                      "itemFour": "Transparent communication",
-                      "itemFive": "Satisfied customers and recommendations",
-                      "itemSix": "Sustainable partnership"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "This is how the customer service runs:",
-                    "list": {
-                      "itemOne": "Contact after project completion",
-                      "itemTwo": "Regular demand for satisfaction",
-                      "itemThree": "Quick response to concerns",
-                      "itemFour": "Solution of problems and optimization",
-                      "itemFive": "Documentation and feedback",
-                      "itemSix": "Long-term support"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Request Customer Service",
-                  "href": "/contact-us"
-                }
-              }
-            },
             "Wartung": {
               "Diamond": {
                 "title": "Maintenance",
@@ -4519,7 +3552,7 @@
               },
               "Components": {
                 "titleOne": "Why is maintenance important?",
-                "descriptionOne": "Regular maintenance ensures the efficiency and durability of your system. We recognize wear and tear at an early stage and prevent expensive failures.",
+                "descriptionOne": "Regular maintenance ensures the efficiency and durability of your system. We detect wear and faults early, carry out the hydraulic balancing and support you with reliable customer service – preventing expensive failures.",
                 "titleTwo": "Why us?",
                 "descriptionTwo": "Our experts thoroughly check your systems, document all results and ensure smooth operation.",
                 "button": {
@@ -4788,6 +3821,99 @@
                 }
               }
             },
+            "Betriebsführung": {
+              "Diamond": {
+                "title": "Operations Management",
+                "backgroundImage": {
+                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
+                  "alt": "Operations Management"
+                }
+              },
+              "Components": {
+                "titleOne": "Why is professional operations management important?",
+                "descriptionOne": "With continuous operations management we ensure the availability, efficiency and safety of your system. We take over asset administration, monitoring, troubleshooting and ongoing optimization of the entire operation – so you don't have to worry about a thing.",
+                "titleTwo": "Why us?",
+                "descriptionTwo": "Our team combines technical know‑how, monitoring tools and practical experience to operate systems reliably, quickly resolve faults and optimize operational processes.",
+                "button": {
+                  "text": "Request operations management",
+                  "href": "/kontakt"
+                },
+                "boxes": {
+                  "betriebsueberwachung": {
+                    "title": "Operations monitoring",
+                    "description": "24/7 monitoring of performance, yields and system status including alerts for deviations.",
+                    "image": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Operations monitoring"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Monitoring",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "fernwartung": {
+                    "title": "Remote maintenance & control",
+                    "description": "Remote analysis, configuration adjustments and rapid interventions to minimize downtime.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
+                      "alt": "Remote maintenance"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Remote maintenance",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  },
+                  "protokoll-und-reporting": {
+                    "title": "Protocol & Reporting",
+                    "description": "Regular operational reports, performance analyses and recommendations for action for sustainable optimization.",
+                    "image": {
+                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
+                      "alt": "Reporting"
+                    },
+                    "icon": {
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Reporting",
+                      "width": "32",
+                      "height": "32"
+                    }
+                  }
+                }
+              },
+              "Background": {
+                "boxes": {
+                  "boxLeft": {
+                    "title": "Your advantages through operations management:",
+                    "list": {
+                      "itemOne": "Maximum system availability",
+                      "itemTwo": "Early detection of faults",
+                      "itemThree": "Optimized yields through continuous adjustment",
+                      "itemFour": "Reduced operating costs",
+                      "itemFive": "Documentation & traceability",
+                      "itemSix": "Reliable service partner"
+                    }
+                  },
+                  "boxRight": {
+                    "title": "How operations management runs:",
+                    "list": {
+                      "itemOne": "Connection to monitoring system and initial check",
+                      "itemTwo": "Continuous analysis and alerting",
+                      "itemThree": "Remote maintenance or on-site intervention if needed",
+                      "itemFour": "Regular reports and optimization measures",
+                      "itemFive": "Incident management & escalation processes",
+                      "itemSix": "Continuous improvement and documentation"
+                    }
+                  }
+                },
+                "button": {
+                  "text": "Start operations management",
+                  "href": "/kontakt"
+                }
+              }
+            },
             "Reinigung": {
               "Diamond": {
                 "title": "Cleaning",
@@ -4880,100 +4006,12 @@
                   "href": "/contact-us"
                 }
               }
-            },
-            "HydraulischerAbgleich": {
-              "Diamond": {
-                "title": "Hydraulic compensation",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Hydraulic compensation"
-                }
-              },
-              "Components": {
-                "titleOne": "Why is a hydraulic balance important?",
-                "descriptionOne": "The hydraulic balance ensures that all heaters and heat collectors are supplied uniformly with heat in the building. This reduces energy losses, reduces heating costs and increases living comfort.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "Our experienced technicians perform the balancing according to current standards, measure flow rates, adjust valves and document all settings for maximum operational reliability and traceability.",
-                "button": {
-                  "text": "Request Hydraulic Balance",
-                  "href": "/contact-us"
-                },
-                "boxes": {
-                  "systemanalyse": {
-                    "title": "System analysis",
-                    "description": "detection of heating circuits, pump power and existing control for determining the optimization requirement.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "System analysis"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Analysis",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "durchflussmessung": {
-                    "title": "Flow measurement",
-                    "description": "Precise measurement of the volume flows and determination of the optimal setting values for all heating circuits.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Flow measurement"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Measurement",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "einstellung-und-protokoll": {
-                    "title": "Setting & Protocol",
-                    "description": "Professional adjustment of thermostat and return valves as well as preparation of a protocol with all the values performed.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                      "alt": "Adjustment"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Protocol",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages through hydraulic balancing:",
-                    "list": {
-                      "itemOne": "Uniform heat distribution",
-                      "itemTwo": "Reduced heating costs",
-                      "itemThree": "Lower pump energy consumption",
-                      "itemFour": "Improved living comfort",
-                      "itemFive": "Compliance with funding conditions",
-                      "itemSix": "Documentation for operation and promotion"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "This is how the balance expires:",
-                    "list": {
-                      "itemOne": "Date agreement and inventory",
-                      "itemTwo": "Measurement of flow and heating power",
-                      "itemThree": "Calculation of target values",
-                      "itemFour": "adjustment of valves and pumps",
-                      "itemFive": "Functional testing and fine tuning",
-                      "itemSix": "Transfer of protocol and recommendations"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Start balance",
-                  "href": "/contact-us"
-                }
-              }
-            },
+            }
+          }
+        },
+        "weitereServices": {
+          "title": "Additional Services",
+          "SubServices": {
             "Energiegemeinschaften": {
               "Diamond": {
                 "title": "Energy\nCommunities",
@@ -5067,62 +4105,62 @@
                 }
               }
             },
-            "Betriebsführung": {
+            "optimierungStromvertraege": {
               "Diamond": {
-                "title": "Operations Management",
+                "title": "Optimization of electricity contracts",
                 "backgroundImage": {
                   "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Operations Management"
+                  "alt": "Optimization of electricity contracts"
                 }
               },
               "Components": {
-                "titleOne": "Why is professional operations management important?",
-                "descriptionOne": "With continuous operations management we ensure optimal availability, efficiency and safety of your system. We take over monitoring, troubleshooting and regular optimization of operations.",
+                "titleOne": "Why optimize electricity contracts?",
+                "descriptionOne": "We optimize your electricity contracts to achieve better terms, lower costs and more supply security.",
                 "titleTwo": "Why us?",
-                "descriptionTwo": "Our team combines technical know‑how, monitoring tools and practical experience to operate systems reliably, quickly resolve faults and optimize operational processes.",
+                "descriptionTwo": "Our experts analyze contracts, negotiate with providers and implement smart tariff strategies.",
                 "button": {
-                  "text": "Request operations management",
+                  "text": "Contact for optimization",
                   "href": "/kontakt"
                 },
                 "boxes": {
-                  "betriebsueberwachung": {
-                    "title": "Operations monitoring",
-                    "description": "24/7 monitoring of performance, yields and system status including alerts for deviations.",
+                  "systemanalyse": {
+                    "title": "Contract analysis",
+                    "description": "Detailed review of existing tariff conditions, terms and hidden costs.",
                     "image": {
                       "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Operations monitoring"
+                      "alt": "Contract analysis"
                     },
                     "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Monitoring",
+                      "src": "/frontend/landingPage/icons/icon-plan.svg",
+                      "alt": "Analysis",
                       "width": "32",
                       "height": "32"
                     }
                   },
-                  "fernwartung": {
-                    "title": "Remote maintenance & control",
-                    "description": "Remote analysis, configuration adjustments and rapid interventions to minimize downtime.",
+                  "durchflussmessung": {
+                    "title": "Load profile & consumption",
+                    "description": "Determine your consumption behavior to select optimal tariffs and time windows.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Remote maintenance"
+                      "alt": "Load profile"
                     },
                     "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Remote maintenance",
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Measurement",
                       "width": "32",
                       "height": "32"
                     }
                   },
-                  "protokoll-und-reporting": {
-                    "title": "Protocol & Reporting",
-                    "description": "Regular operational reports, performance analyses and recommendations for action for sustainable optimization.",
+                  "einstellung-und-protokoll": {
+                    "title": "Implementation & Reporting",
+                    "description": "Contractual adjustments, tariff changes and ongoing reporting for cost control.",
                     "image": {
                       "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                      "alt": "Reporting"
+                      "alt": "Implementation"
                     },
                     "icon": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Reporting",
+                      "alt": "Report",
                       "width": "32",
                       "height": "32"
                     }
@@ -5132,30 +4170,30 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Your advantages through operations management:",
+                    "title": "Advantages of optimization:",
                     "list": {
-                      "itemOne": "Maximum system availability",
-                      "itemTwo": "Early detection of faults",
-                      "itemThree": "Optimized yields through continuous adjustment",
-                      "itemFour": "Reduced operating costs",
-                      "itemFive": "Documentation & traceability",
-                      "itemSix": "Reliable service partner"
+                      "itemOne": "Lower energy costs",
+                      "itemTwo": "Transparent tariff conditions",
+                      "itemThree": "Better budget planning",
+                      "itemFour": "Offers tailored to the load profile",
+                      "itemFive": "Reduction of hidden fees",
+                      "itemSix": "Ongoing monitoring and readjustment"
                     }
                   },
                   "boxRight": {
-                    "title": "How operations management runs:",
+                    "title": "How optimization works:",
                     "list": {
-                      "itemOne": "Connection to monitoring system and initial check",
-                      "itemTwo": "Continuous analysis and alerting",
-                      "itemThree": "Remote maintenance or on-site intervention if needed",
-                      "itemFour": "Regular reports and optimization measures",
-                      "itemFive": "Incident management & escalation processes",
-                      "itemSix": "Continuous improvement and documentation"
+                      "itemOne": "Analysis of current contracts and consumption data",
+                      "itemTwo": "Identification of savings potentials",
+                      "itemThree": "Negotiation with providers and tariff change",
+                      "itemFour": "Implementation and monitoring",
+                      "itemFive": "Regular reporting",
+                      "itemSix": "Continuous adjustment to market changes"
                     }
                   }
                 },
                 "button": {
-                  "text": "Start operations management",
+                  "text": "Start optimization now",
                   "href": "/kontakt"
                 }
               }
@@ -5346,62 +4384,62 @@
                 }
               }
             },
-            "Anlagenverwaltung": {
+            "foerderung": {
               "Diamond": {
-                "title": "Asset Management",
+                "title": "Subsidies & Grants",
                 "backgroundImage": {
                   "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Asset Management"
+                  "alt": "Subsidies & Grants"
                 }
               },
               "Components": {
-                "titleOne": "Why is asset management important?",
-                "descriptionOne": "Professional asset management secures availability, optimizes yields and reduces downtime. This keeps your investment profitable in the long term.",
+                "titleOne": "Why use subsidies?",
+                "descriptionOne": "With the right subsidy you significantly reduce your investment costs. Federal, state and utility programs offer numerous grants – we find the ones that fit your project and get the maximum out of them for you.",
                 "titleTwo": "Why us?",
-                "descriptionTwo": "We offer holistic management: monitoring, maintenance, incident management and regular reporting — all from a single source.",
+                "descriptionTwo": "We know the current funding landscape, examine every option and handle the complete application – on time, complete and with a high approval rate.",
                 "button": {
-                  "text": "Request asset management now",
+                  "text": "Request subsidy advice",
                   "href": "/kontakt"
                 },
                 "boxes": {
-                  "monitoring": {
-                    "title": "24/7 Monitoring",
-                    "description": "Continuous monitoring of performance data detects deviations early and enables proactive intervention.",
+                  "foerdercheck": {
+                    "title": "Subsidy check",
+                    "description": "We check which federal, state and regional subsidies qualify for your project.",
                     "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Monitoring"
+                      "src": "/frontend/landingPage/icons/finance_chart.svg",
+                      "alt": "Subsidy check"
                     },
                     "icon": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Monitoring Icon",
+                      "alt": "Subsidy Icon",
                       "width": "32",
                       "height": "32"
                     }
                   },
-                  "wartung": {
-                    "title": "Scheduled maintenance",
-                    "description": "Planned inspections and preventive measures extend component lifespan.",
+                  "antragstellung": {
+                    "title": "Application handling",
+                    "description": "We prepare all documents and submit applications on time and in full.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Maintenance"
+                      "alt": "Application handling"
                     },
                     "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Maintenance Icon",
+                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
+                      "alt": "Application Icon",
                       "width": "32",
                       "height": "32"
                     }
                   },
-                  "reporting": {
-                    "title": "Transparent reports",
-                    "description": "Regular performance and cost reports as well as recommendations for action for maximum transparency.",
+                  "maximalefoerderung": {
+                    "title": "Maximum funding rate",
+                    "description": "We cleverly combine programs to secure the highest possible grant for your project.",
                     "image": {
                       "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                      "alt": "Reporting"
+                      "alt": "Maximum funding rate"
                     },
                     "icon": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Reporting Icon",
+                      "alt": "Funding Icon",
                       "width": "32",
                       "height": "32"
                     }
@@ -5411,216 +4449,30 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Your advantages of professional asset management:",
+                    "title": "Your advantages from subsidies:",
                     "list": {
-                      "itemOne": "Maximum system availability",
-                      "itemTwo": "Higher yields through optimized operations",
-                      "itemThree": "Reduced operating costs through proactive maintenance",
-                      "itemFour": "Fast response times for incidents",
-                      "itemFive": "Transparent documentation and reports",
-                      "itemSix": "One central contact for all concerns"
+                      "itemOne": "Significantly reduced investment costs",
+                      "itemTwo": "Combination of several funding programs",
+                      "itemThree": "On-time and complete applications",
+                      "itemFour": "High approval rate through expert knowledge",
+                      "itemFive": "Combinable with financing solutions",
+                      "itemSix": "Less effort – we handle the paperwork"
                     }
                   },
                   "boxRight": {
-                    "title": "How asset management works:",
+                    "title": "How the subsidy process works:",
                     "list": {
-                      "itemOne": "Connection to our monitoring and initial check",
-                      "itemTwo": "Frequent evaluations and automatic alerting",
-                      "itemThree": "Scheduled maintenance and inspections",
-                      "itemFour": "Fast on-site interventions for critical incidents",
-                      "itemFive": "Regular reporting and optimization suggestions",
-                      "itemSix": "Continuous development of the operational strategy"
+                      "itemOne": "Initial consultation and project intake",
+                      "itemTwo": "Identification of suitable funding programs",
+                      "itemThree": "Review of requirements and deadlines",
+                      "itemFour": "Preparation and submission of applications",
+                      "itemFive": "Support until approval and disbursement",
+                      "itemSix": "Documentation and proof of use"
                     }
                   }
                 },
                 "button": {
-                  "text": "Start asset management",
-                  "href": "/kontakt"
-                }
-              }
-            },
-            "Operate": {
-              "Diamond": {
-                "title": "Operate",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Operate"
-                }
-              },
-              "Components": {
-                "titleOne": "Why Operate?",
-                "descriptionOne": "Operate ensures systems run reliably and efficiently through continuous monitoring and expert adjustments.",
-                "titleTwo": "Why we?",
-                "descriptionTwo": "Our specialists deliver operational excellence with proven processes, precise measurements and clear documentation.",
-                "button": {
-                  "text": "Request Operate",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "systemanalyse": {
-                    "title": "System analysis",
-                    "description": "Comprehensive inspection of system topology, performance and control strategy to identify optimization needs.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "System analysis"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Analysis",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "durchflussmessung": {
-                    "title": "Flow measurement",
-                    "description": "Accurate measurement and verification of operational flows and setpoints to ensure optimal performance.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Flow measurement"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Measurement",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "einstellung-und-protokoll": {
-                    "title": "Adjustment & report",
-                    "description": "Professional configuration of controls and delivery of a clear operational protocol with all values recorded.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                      "alt": "Adjustment"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Report",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Benefits of Operate:",
-                    "list": {
-                      "itemOne": "Consistent system performance",
-                      "itemTwo": "Lower operating costs",
-                      "itemThree": "Reduced energy consumption",
-                      "itemFour": "Improved comfort and reliability",
-                      "itemFive": "Compliance and documentation",
-                      "itemSix": "Actionable operational insights"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "How Operate works:",
-                    "list": {
-                      "itemOne": "Schedule and initial site assessment",
-                      "itemTwo": "Measurement and diagnostics",
-                      "itemThree": "Define target settings",
-                      "itemFour": "Implement adjustments and calibrations",
-                      "itemFive": "Verification and fine-tuning",
-                      "itemSix": "Handover of operational report and recommendations"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Start Operate",
-                  "href": "/kontakt"
-                }
-              }
-            },
-            "Optimize": {
-              "Diamond": {
-                "title": "Optimization of electricity contracts",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Optimization of electricity contracts"
-                }
-              },
-              "Components": {
-                "titleOne": "Why optimize electricity contracts?",
-                "descriptionOne": "We optimize your electricity contracts to achieve better terms, lower costs and more supply security.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "Our experts analyze contracts, negotiate with providers and implement smart tariff strategies.",
-                "button": {
-                  "text": "Contact for optimization",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "systemanalyse": {
-                    "title": "Contract analysis",
-                    "description": "Detailed review of existing tariff conditions, terms and hidden costs.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Contract analysis"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Analysis",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "durchflussmessung": {
-                    "title": "Load profile & consumption",
-                    "description": "Determine your consumption behavior to select optimal tariffs and time windows.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Load profile"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Measurement",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "einstellung-und-protokoll": {
-                    "title": "Implementation & Reporting",
-                    "description": "Contractual adjustments, tariff changes and ongoing reporting for cost control.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                      "alt": "Implementation"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Report",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Advantages of optimization:",
-                    "list": {
-                      "itemOne": "Lower energy costs",
-                      "itemTwo": "Transparent tariff conditions",
-                      "itemThree": "Better budget planning",
-                      "itemFour": "Offers tailored to the load profile",
-                      "itemFive": "Reduction of hidden fees",
-                      "itemSix": "Ongoing monitoring and readjustment"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "How optimization works:",
-                    "list": {
-                      "itemOne": "Analysis of current contracts and consumption data",
-                      "itemTwo": "Identification of savings potentials",
-                      "itemThree": "Negotiation with providers and tariff change",
-                      "itemFour": "Implementation and monitoring",
-                      "itemFive": "Regular reporting",
-                      "itemSix": "Continuous adjustment to market changes"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Start optimization now",
+                  "text": "Secure funding",
                   "href": "/kontakt"
                 }
               }
@@ -6072,19 +4924,97 @@
               }
             }
           },
-          "interested-products": {
-            "title": "Project details",
+          "project-address": {
+            "title": "Project Address",
             "description": "",
             "version": "0.1.0",
             "defaultVisible": "true",
             "form": {
-              "interested-products-range-2": {
+              "submit-form-textarea-address": {
+                "order": "1",
+                "type": "textarea",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "Customer Address",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "successMessage": "Thanks for your input",
+                  "requiredMessage": "This input is mandatory",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "",
+                  "placeholder": "Street XX, XXXX",
+                  "rows": "4"
+                },
+                "aiExtraction": {
+                  "fieldKey": "end_customer_address",
+                  "label": "End customer address",
+                  "type": "text",
+                  "aliases": [
+                    "End customer address",
+                    "Project address",
+                    "System location",
+                    "Installation location",
+                    "Site address",
+                    "Location",
+                    "Object address"
+                  ],
+                  "description": "Address of the installation location or system site, not billing or contractor address.",
+                  "instructions": "Extract the full address of the installation location or system site. Prefer project address, site address, object address, or system location. Do not use billing address, contractor address, or company address unless they clearly refer to the installation site."
+                }
+              },
+              "submit-form-file-upload": {
+                "order": "1",
+                "type": "file-upload",
+                "required": "false",
+                "defaultVisible": "false",
+                "title": "Upload your files",
+                "description": "",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "By uploading your files, you agree to our privacy policy.",
+                  "type": "info",
+                  "successMessage": "Thank you for your upload",
+                  "requiredMessage": "This input is mandatory",
+                  "checkPreviousFormsMessage": "Thank you for your input. Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "upload": {
+                    "hostname": "storage.bunnycdn.com",
+                    "storageZoneName": "synergy-webservices-assets",
+                    "region": "",
+                    "filesAccepted": "",
+                    "multipleFiles": "true",
+                    "uploadingText": "Uploading...",
+                    "uploadError": "Upload failed, we are currently working on fixing it, please try again later",
+                    "uploadSuccess": "Upload successful, thank you!"
+                  },
+                  "download": {
+                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
+                  }
+                }
+              }
+            }
+          },
+          "interested-standort": {
+            "title": "Mounting Location",
+            "description": "",
+            "version": "0.1.0",
+            "defaultVisible": "true",
+            "form": {
+              "interested-products-range-height": {
                 "order": "1",
                 "type": "range",
                 "required": "true",
                 "defaultVisible": "true",
-                "title": "How much kWp?",
-                "description": "Select the amount you need",
+                "title": "What is the installation height?",
+                "description": "(house, mountain, facade)",
                 "localStorage": "false",
                 "span": "2",
                 "message": {
@@ -6096,47 +5026,47 @@
                 },
                 "options": {
                   "buttons": {
-                    "incrementBy": "0.25",
-                    "decrementBy": "0.25"
+                    "incrementBy": "2.5",
+                    "decrementBy": "2.5"
                   },
                   "range": {
                     "defaultValue": "0",
-                    "min": "1",
-                    "max": "10000",
-                    "step": "0.25",
+                    "min": "0",
+                    "max": "3000",
+                    "step": "2.5",
                     "type": "exp"
                   },
                   "unit": {
-                    "value": "kWp",
+                    "value": "m",
                     "spaceBetween": "true",
                     "position": "after",
                     "numberFormat": "de-DE"
                   },
                   "labels": {
                     "min": {
-                      "text": "Min (1 kWp)",
-                      "value": "1",
+                      "text": "Min (0 m)",
+                      "value": "0",
                       "align": "start",
                       "offsetX": "0",
                       "correctX": "0%"
                     },
                     "q1": {
-                      "text": "30 kWp",
-                      "value": "30",
+                      "text": "1 m",
+                      "value": "1",
                       "align": "start",
                       "offsetX": "1/3",
                       "correctX": "145%"
                     },
                     "q2": {
-                      "text": "300 kWp",
-                      "value": "300",
+                      "text": "30 m",
+                      "value": "30",
                       "align": "start",
                       "offsetX": "2/3",
                       "correctX": "105%"
                     },
                     "max": {
-                      "text": "Max (∞ kWp)",
-                      "value": "10000",
+                      "text": "Max (3000 m)",
+                      "value": "3000",
                       "align": "end",
                       "offsetX": "0",
                       "correctX": "0%"
@@ -6144,31 +5074,115 @@
                   }
                 },
                 "aiExtraction": {
-                  "fieldKey": "installed_capacity_kwp",
-                  "label": "System capacity",
+                  "fieldKey": "mounting_height_m",
+                  "label": "Mounting height",
                   "type": "number",
-                  "unit": "kWp",
-                  "min": "0.1",
-                  "max": "10000",
+                  "unit": "m",
+                  "min": "0",
+                  "max": "3000",
                   "aliases": [
-                    "System capacity",
-                    "PV capacity",
-                    "Generator capacity",
-                    "DC capacity",
-                    "Module capacity",
-                    "Rated capacity",
-                    "kWp",
-                    "MWp",
-                    "Wp"
+                    "Mounting height",
+                    "Building height",
+                    "Facade height",
+                    "Slope height",
+                    "Eaves height",
+                    "Attic height",
+                    "Module height",
+                    "Height above ground"
                   ],
-                  "description": "Installed DC peak output of the PV system in kWp. Convert MWp and Wp into kWp.",
-                  "instructions": "Extract the installed DC peak output of the PV system. Convert values in MWp or Wp to kWp. Do not confuse with inverter capacity, AC capacity, grid connection capacity, or annual yield."
+                  "description": "Height of the mounting location in meters above ground. For buildings, use eaves height or highest module height. If no explicit height is given, estimate from building type.",
+                  "instructions": "Extract the height of the mounting location above ground in meters. Also accept building height, facade height, slope height, eaves height, attic height, or highest module height if it describes the installation location. Do not interpret as altitude above sea level or geographic elevation. If no explicit height is given, estimate from building type: bungalow or single-storey ≤ 5 m, 2 storeys approx. 7–12 m, 3+ storeys approx. 12–18 m, industrial hall approx. 6–12 m. Mark as an estimate."
+                }
+              },
+              "interested-products-range-dachneigung": {
+                "order": "1",
+                "type": "range",
+                "required": "true",
+                "defaultVisible": "true",
+                "title": "Mounting surface pitch",
+                "description": "(Roof, slope)",
+                "localStorage": "false",
+                "span": "2",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "requiredMessage": "This input is mandatory",
+                  "successMessage": "Thanks for your input",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "buttons": {
+                    "incrementBy": "2.5",
+                    "decrementBy": "2.5"
+                  },
+                  "range": {
+                    "defaultValue": "0",
+                    "min": "0",
+                    "max": "90",
+                    "step": "2.5",
+                    "type": "linear"
+                  },
+                  "unit": {
+                    "value": "°",
+                    "spaceBetween": "false",
+                    "position": "after",
+                    "numberFormat": "de-DE"
+                  },
+                  "labels": {
+                    "min": {
+                      "text": "Min (0°)",
+                      "value": "0",
+                      "align": "start",
+                      "offsetX": "0",
+                      "correctX": "0%"
+                    },
+                    "q1": {
+                      "text": "30°",
+                      "value": "30",
+                      "align": "start",
+                      "offsetX": "1/3",
+                      "correctX": "145%"
+                    },
+                    "q2": {
+                      "text": "60°",
+                      "value": "60",
+                      "align": "start",
+                      "offsetX": "2/3",
+                      "correctX": "105%"
+                    },
+                    "max": {
+                      "text": "Max (90°)",
+                      "value": "90",
+                      "align": "end",
+                      "offsetX": "0",
+                      "correctX": "0%"
+                    }
+                  }
+                },
+                "aiExtraction": {
+                  "fieldKey": "roof_pitch_deg",
+                  "label": "Pitch",
+                  "type": "number",
+                  "unit": "°",
+                  "min": "0",
+                  "max": "90",
+                  "aliases": [
+                    "Roof pitch",
+                    "Pitch",
+                    "Mounting pitch",
+                    "Roof angle",
+                    "Tilt angle",
+                    "Module tilt",
+                    "Slope"
+                  ],
+                  "description": "Roof or mounting surface pitch in degrees. 0° is flat, 90° is vertical.",
+                  "instructions": "Extract the pitch of the roof or mounting surface in degrees. Convert percentage values only if they are clearly stated as slope/pitch. Do not confuse with azimuth, orientation, cardinal direction, or coordinates."
                 }
               }
             }
           },
-          "interested-products-2": {
-            "title": "Project details",
+          "interested-montageuntergrund": {
+            "title": "Mounting Surface",
             "description": "",
             "version": "0.1.0",
             "defaultVisible": "true",
@@ -8365,363 +7379,148 @@
               }
             }
           },
-          "interested-products-komponenten": {
-            "title": "Components",
-            "description": "Select the components you need. Tap a card to add optional details. Multiple selection is possible.",
+          "interested-anlagenleistung": {
+            "title": "System Capacity",
+            "description": "",
             "version": "0.1.0",
             "defaultVisible": "true",
             "form": {
-              "interested-products-komponenten-cards": {
+              "interested-products-range-2": {
                 "order": "1",
-                "type": "card-popup",
-                "multiple": "true",
+                "type": "range",
                 "required": "false",
+                "requiredGroup": "anlagenleistung",
+                "computeFrom": {
+                  "factors": [
+                    "interested-products-paneele-count",
+                    "interested-products-paneele-power"
+                  ],
+                  "divideBy": "1000"
+                },
                 "defaultVisible": "true",
-                "title": "Which components do you need?",
-                "description": "",
+                "title": "How much kWp?",
+                "description": "Select the desired capacity – or enter the number of panels below",
                 "localStorage": "false",
                 "span": "2",
                 "message": {
                   "text": "",
                   "type": "info",
-                  "successMessage": "Thanks for your selection",
-                  "requiredMessage": "This input is required",
+                  "requiredMessage": "Please enter the kWp capacity or the number of panels",
+                  "successMessage": "Thanks for your input",
                   "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
                 },
                 "options": {
-                  "paneele": {
-                    "title": "Panels",
-                    "description": "Modules / solar panels",
-                    "disabled": "false",
-                    "span": "2",
-                    "icon": {
-                      "name": "Sun",
-                      "alt": "Panels"
-                    },
-                    "fields": {
-                      "groesse": {
-                        "order": "1",
-                        "type": "text",
-                        "required": "false",
-                        "label": "Size / dimensions",
-                        "placeholder": "e.g. 1722 × 1134 × 30 mm (per datasheet)"
-                      },
-                      "leistung": {
-                        "order": "2",
-                        "type": "text",
-                        "required": "false",
-                        "label": "Power",
-                        "placeholder": "e.g. 440 Wp"
-                      },
-                      "aufbau": {
-                        "order": "3",
-                        "type": "choice",
-                        "required": "false",
-                        "label": "Construction",
-                        "options": {
-                          "glas-folie": {
-                            "title": "Glass-foil"
-                          },
-                          "glas-glas": {
-                            "title": "Glass-glass"
-                          }
-                        }
-                      },
-                      "fazialitaet": {
-                        "order": "4",
-                        "type": "choice",
-                        "required": "false",
-                        "label": "Faciality",
-                        "options": {
-                          "bifazial": {
-                            "title": "Bifacial"
-                          },
-                          "monofazial": {
-                            "title": "Monofacial"
-                          }
-                        }
-                      },
-                      "rahmen": {
-                        "order": "5",
-                        "type": "choice",
-                        "required": "false",
-                        "label": "Frame",
-                        "options": {
-                          "silberframe": {
-                            "title": "Silver frame"
-                          },
-                          "blackframe": {
-                            "title": "Black frame"
-                          },
-                          "full-black": {
-                            "title": "Full black"
-                          }
-                        }
-                      },
-                      "back-contact": {
-                        "order": "6",
-                        "type": "choice",
-                        "required": "false",
-                        "label": "Back-contact",
-                        "options": {
-                          "ja": {
-                            "title": "Yes"
-                          },
-                          "nein": {
-                            "title": "No"
-                          }
-                        }
-                      }
-                    }
+                  "buttons": {
+                    "incrementBy": "0.25",
+                    "decrementBy": "0.25"
                   },
-                  "wechselrichter": {
-                    "title": "Inverter",
-                    "description": "",
-                    "disabled": "false",
-                    "span": "2",
-                    "icon": {
-                      "name": "Plug",
-                      "alt": "Inverter"
-                    },
-                    "fields": {
-                      "hersteller": {
-                        "order": "1",
-                        "type": "text",
-                        "required": "false",
-                        "label": "Manufacturer",
-                        "placeholder": "e.g. Fronius, SMA, Huawei"
-                      },
-                      "leistungsklasse": {
-                        "order": "2",
-                        "type": "text",
-                        "required": "false",
-                        "label": "Power class",
-                        "placeholder": "e.g. 10 kW"
-                      },
-                      "zusatzfunktionen": {
-                        "order": "3",
-                        "type": "textarea",
-                        "required": "false",
-                        "label": "Additional functions",
-                        "placeholder": "e.g. backup power capable, system monitoring",
-                        "rows": "3"
-                      }
-                    }
+                  "range": {
+                    "defaultValue": "0",
+                    "min": "1",
+                    "max": "10000",
+                    "step": "0.25",
+                    "type": "exp"
                   },
-                  "speicher": {
-                    "title": "Storage",
-                    "description": "Battery storage",
-                    "disabled": "false",
-                    "span": "2",
-                    "icon": {
-                      "name": "BatteryCharging",
-                      "alt": "Storage"
-                    },
-                    "fields": {
-                      "hersteller": {
-                        "order": "1",
-                        "type": "text",
-                        "required": "false",
-                        "label": "Manufacturer",
-                        "placeholder": "e.g. BYD, Fronius, Huawei"
-                      },
-                      "groesse": {
-                        "order": "2",
-                        "type": "text",
-                        "required": "false",
-                        "label": "Size",
-                        "placeholder": "e.g. 10 kWh"
-                      },
-                      "leistungsanforderungen": {
-                        "order": "3",
-                        "type": "textarea",
-                        "required": "false",
-                        "label": "Power requirements",
-                        "placeholder": "e.g. charge/discharge power, backup power",
-                        "rows": "3"
-                      }
-                    }
+                  "unit": {
+                    "value": "kWp",
+                    "spaceBetween": "true",
+                    "position": "after",
+                    "numberFormat": "de-DE"
                   },
-                  "notstrom": {
-                    "title": "Backup power",
-                    "description": "",
-                    "disabled": "false",
-                    "span": "2",
-                    "icon": {
-                      "name": "Zap",
-                      "alt": "Backup power"
+                  "labels": {
+                    "min": {
+                      "text": "Min (1 kWp)",
+                      "value": "1",
+                      "align": "start",
+                      "offsetX": "0",
+                      "correctX": "0%"
                     },
-                    "fields": {
-                      "phasen": {
-                        "order": "1",
-                        "type": "choice",
-                        "required": "false",
-                        "label": "Connection",
-                        "options": {
-                          "ein-phasig": {
-                            "title": "1~ (single-phase)"
-                          },
-                          "drei-phasig": {
-                            "title": "3~ (three-phase)"
-                          }
-                        }
-                      },
-                      "umschaltung": {
-                        "order": "2",
-                        "type": "choice",
-                        "required": "false",
-                        "label": "Switching",
-                        "options": {
-                          "automatik": {
-                            "title": "Automatic"
-                          },
-                          "handumschalter": {
-                            "title": "Manual switch"
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "smart-meter": {
-                    "title": "Smart meter",
-                    "description": "",
-                    "disabled": "false",
-                    "span": "2",
-                    "icon": {
-                      "name": "Gauge",
-                      "alt": "Smart meter"
+                    "q1": {
+                      "text": "30 kWp",
+                      "value": "30",
+                      "align": "start",
+                      "offsetX": "1/3",
+                      "correctX": "145%"
                     },
-                    "fields": {
-                      "anforderungen": {
-                        "order": "1",
-                        "type": "textarea",
-                        "required": "false",
-                        "label": "Requirements",
-                        "placeholder": "Describe your requirements",
-                        "rows": "3"
-                      }
-                    }
-                  },
-                  "energiemanager": {
-                    "title": "Energy manager",
-                    "description": "",
-                    "disabled": "false",
-                    "span": "2",
-                    "icon": {
-                      "name": "HousePlug",
-                      "alt": "Energy manager"
+                    "q2": {
+                      "text": "300 kWp",
+                      "value": "300",
+                      "align": "start",
+                      "offsetX": "2/3",
+                      "correctX": "105%"
                     },
-                    "fields": {
-                      "anforderungen": {
-                        "order": "1",
-                        "type": "textarea",
-                        "required": "false",
-                        "label": "Requirements",
-                        "placeholder": "Describe your requirements",
-                        "rows": "3"
-                      }
-                    }
-                  },
-                  "wallbox": {
-                    "title": "Wallbox",
-                    "description": "Charging station",
-                    "disabled": "false",
-                    "span": "2",
-                    "icon": {
-                      "name": "PlugZap",
-                      "alt": "Wallbox"
-                    },
-                    "fields": {
-                      "anforderungen": {
-                        "order": "1",
-                        "type": "textarea",
-                        "required": "false",
-                        "label": "Requirements",
-                        "placeholder": "e.g. power, quantity, load management",
-                        "rows": "3"
-                      }
+                    "max": {
+                      "text": "Max (∞ kWp)",
+                      "value": "10000",
+                      "align": "end",
+                      "offsetX": "0",
+                      "correctX": "0%"
                     }
                   }
                 },
                 "aiExtraction": {
-                  "fieldKey": "komponenten",
-                  "label": "Components",
-                  "type": "multi-option",
+                  "fieldKey": "installed_capacity_kwp",
+                  "label": "System capacity",
+                  "type": "number",
+                  "unit": "kWp",
+                  "min": "0.1",
+                  "max": "10000",
                   "aliases": [
-                    "Components",
-                    "System components",
-                    "Komponenten",
-                    "Material",
-                    "Bill of materials"
+                    "System capacity",
+                    "PV capacity",
+                    "Generator capacity",
+                    "DC capacity",
+                    "Module capacity",
+                    "Rated capacity",
+                    "kWp",
+                    "MWp",
+                    "Wp"
                   ],
-                  "description": "Requested or mentioned PV system components. Multiple selection is allowed.",
-                  "instructions": "Select all components that are clearly named as part of the system in the document (e.g. modules, inverter, storage, backup power, smart meter, energy manager, wallbox).",
-                  "options": {
-                    "paneele": {
-                      "targetOptionUid": "paneele",
-                      "aliases": [
-                        "Panels",
-                        "Modules",
-                        "Solar modules",
-                        "PV modules",
-                        "Paneele",
-                        "Module"
-                      ]
-                    },
-                    "wechselrichter": {
-                      "targetOptionUid": "wechselrichter",
-                      "aliases": [
-                        "Inverter",
-                        "Wechselrichter",
-                        "WR"
-                      ]
-                    },
-                    "speicher": {
-                      "targetOptionUid": "speicher",
-                      "aliases": [
-                        "Storage",
-                        "Battery storage",
-                        "Battery",
-                        "Speicher",
-                        "Akku"
-                      ]
-                    },
-                    "notstrom": {
-                      "targetOptionUid": "notstrom",
-                      "aliases": [
-                        "Backup power",
-                        "Emergency power",
-                        "Backup",
-                        "Notstrom"
-                      ]
-                    },
-                    "smart-meter": {
-                      "targetOptionUid": "smart-meter",
-                      "aliases": [
-                        "Smart Meter",
-                        "Smartmeter",
-                        "smart meter",
-                        "metering device"
-                      ]
-                    },
-                    "energiemanager": {
-                      "targetOptionUid": "energiemanager",
-                      "aliases": [
-                        "Energy manager",
-                        "Energy management system",
-                        "EMS",
-                        "Energiemanager"
-                      ]
-                    },
-                    "wallbox": {
-                      "targetOptionUid": "wallbox",
-                      "aliases": [
-                        "Wallbox",
-                        "Charging station",
-                        "Charge point"
-                      ]
-                    }
-                  }
+                  "description": "Installed DC peak output of the PV system in kWp. Convert MWp and Wp into kWp.",
+                  "instructions": "Extract the installed DC peak output of the PV system. Convert values in MWp or Wp to kWp. Do not confuse with inverter capacity, AC capacity, grid connection capacity, or annual yield."
+                }
+              },
+              "interested-products-paneele-count": {
+                "order": "2",
+                "type": "number",
+                "required": "false",
+                "requiredGroup": "anlagenleistung",
+                "defaultVisible": "true",
+                "title": "",
+                "description": "",
+                "localStorage": "false",
+                "span": "1",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "requiredMessage": "Please enter the kWp capacity or the number of panels",
+                  "successMessage": "Thanks for your input",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "or number of panels",
+                  "placeholder": "e.g. 24"
+                }
+              },
+              "interested-products-paneele-power": {
+                "order": "3",
+                "type": "number",
+                "required": "false",
+                "defaultVisible": "true",
+                "title": "",
+                "description": "If unsure, just estimate.",
+                "localStorage": "false",
+                "span": "1",
+                "message": {
+                  "text": "",
+                  "type": "info",
+                  "requiredMessage": "This input is mandatory",
+                  "successMessage": "Thanks for your input",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {
+                  "label": "Power per panel (W)",
+                  "placeholder": "e.g. 450"
                 }
               }
             }
@@ -8874,953 +7673,544 @@
               }
             }
           },
-          "interested-products-3": {
-            "title": "Project details",
-            "description": "",
+          "interested-products-komponenten": {
+            "title": "Components",
+            "description": "Select the components you need. Tap a card to add optional details. Multiple selection is possible.",
             "version": "0.1.0",
             "defaultVisible": "true",
             "form": {
-              "interested-products-range-height": {
+              "interested-products-komponenten-cards": {
                 "order": "1",
-                "type": "range",
-                "required": "true",
+                "type": "card-popup",
+                "multiple": "true",
+                "required": "false",
                 "defaultVisible": "true",
-                "title": "What is the installation height?",
-                "description": "(house, mountain, facade)",
+                "title": "Which components do you need?",
+                "description": "",
                 "localStorage": "false",
                 "span": "2",
                 "message": {
                   "text": "",
                   "type": "info",
-                  "requiredMessage": "This input is mandatory",
-                  "successMessage": "Thanks for your input",
+                  "successMessage": "Thanks for your selection",
+                  "requiredMessage": "This input is required",
                   "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
                 },
                 "options": {
-                  "buttons": {
-                    "incrementBy": "2.5",
-                    "decrementBy": "2.5"
-                  },
-                  "range": {
-                    "defaultValue": "0",
-                    "min": "0",
-                    "max": "3000",
-                    "step": "2.5",
-                    "type": "exp"
-                  },
-                  "unit": {
-                    "value": "m",
-                    "spaceBetween": "true",
-                    "position": "after",
-                    "numberFormat": "de-DE"
-                  },
-                  "labels": {
-                    "min": {
-                      "text": "Min (0 m)",
-                      "value": "0",
-                      "align": "start",
-                      "offsetX": "0",
-                      "correctX": "0%"
+                  "paneele": {
+                    "title": "Panels",
+                    "description": "Modules / solar panels",
+                    "disabled": "false",
+                    "span": "2",
+                    "icon": {
+                      "name": "Sun",
+                      "alt": "Panels"
                     },
-                    "q1": {
-                      "text": "1 m",
-                      "value": "1",
-                      "align": "start",
-                      "offsetX": "1/3",
-                      "correctX": "145%"
+                    "fields": {
+                      "groesse": {
+                        "order": "1",
+                        "type": "text",
+                        "required": "false",
+                        "label": "Size / dimensions",
+                        "placeholder": "e.g. 1722 × 1134 × 30 mm (per datasheet)"
+                      },
+                      "leistung": {
+                        "order": "2",
+                        "type": "text",
+                        "required": "false",
+                        "label": "Power",
+                        "placeholder": "e.g. 440 Wp"
+                      },
+                      "aufbau": {
+                        "order": "3",
+                        "type": "choice",
+                        "required": "false",
+                        "label": "Construction",
+                        "options": {
+                          "glas-folie": {
+                            "title": "Glass-foil"
+                          },
+                          "glas-glas": {
+                            "title": "Glass-glass"
+                          }
+                        }
+                      },
+                      "fazialitaet": {
+                        "order": "4",
+                        "type": "choice",
+                        "required": "false",
+                        "label": "Faciality",
+                        "options": {
+                          "bifazial": {
+                            "title": "Bifacial"
+                          },
+                          "monofazial": {
+                            "title": "Monofacial"
+                          }
+                        }
+                      },
+                      "rahmen": {
+                        "order": "5",
+                        "type": "choice",
+                        "required": "false",
+                        "label": "Frame",
+                        "options": {
+                          "silberframe": {
+                            "title": "Silver frame"
+                          },
+                          "blackframe": {
+                            "title": "Black frame"
+                          },
+                          "full-black": {
+                            "title": "Full black"
+                          }
+                        }
+                      },
+                      "back-contact": {
+                        "order": "6",
+                        "type": "choice",
+                        "required": "false",
+                        "label": "Back-contact",
+                        "options": {
+                          "ja": {
+                            "title": "Yes"
+                          },
+                          "nein": {
+                            "title": "No"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "wechselrichter": {
+                    "title": "Inverter",
+                    "description": "",
+                    "disabled": "false",
+                    "span": "2",
+                    "icon": {
+                      "name": "Plug",
+                      "alt": "Inverter"
                     },
-                    "q2": {
-                      "text": "30 m",
-                      "value": "30",
-                      "align": "start",
-                      "offsetX": "2/3",
-                      "correctX": "105%"
+                    "fields": {
+                      "hersteller": {
+                        "order": "1",
+                        "type": "text",
+                        "required": "false",
+                        "label": "Manufacturer",
+                        "placeholder": "e.g. Fronius, SMA, Huawei"
+                      },
+                      "leistungsklasse": {
+                        "order": "2",
+                        "type": "text",
+                        "required": "false",
+                        "label": "Power class",
+                        "placeholder": "e.g. 10 kW"
+                      },
+                      "smart-meter": {
+                        "order": "3",
+                        "type": "choice",
+                        "required": "false",
+                        "label": "Smart meter",
+                        "options": {
+                          "mit": {
+                            "title": "with smart meter"
+                          },
+                          "ohne": {
+                            "title": "without smart meter"
+                          }
+                        }
+                      },
+                      "dc-freischaltung": {
+                        "order": "4",
+                        "type": "choice",
+                        "required": "false",
+                        "label": "DC disconnection",
+                        "options": {
+                          "mit": {
+                            "title": "with DC disconnection"
+                          },
+                          "ohne": {
+                            "title": "without DC disconnection"
+                          }
+                        }
+                      },
+                      "mpp-anzahl": {
+                        "order": "5",
+                        "type": "number",
+                        "required": "false",
+                        "label": "How many MPPs?",
+                        "placeholder": "e.g. 2",
+                        "min": "0"
+                      },
+                      "power-sensor": {
+                        "order": "6",
+                        "type": "choice",
+                        "required": "false",
+                        "label": "Power sensor",
+                        "options": {
+                          "mit": {
+                            "title": "with power sensor"
+                          },
+                          "ohne": {
+                            "title": "without power sensor"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "speicher": {
+                    "title": "Storage",
+                    "description": "Battery storage",
+                    "disabled": "false",
+                    "span": "2",
+                    "icon": {
+                      "name": "BatteryCharging",
+                      "alt": "Storage"
                     },
-                    "max": {
-                      "text": "Max (3000 m)",
-                      "value": "3000",
-                      "align": "end",
-                      "offsetX": "0",
-                      "correctX": "0%"
+                    "fields": {
+                      "hersteller": {
+                        "order": "1",
+                        "type": "text",
+                        "required": "false",
+                        "label": "Manufacturer",
+                        "placeholder": "e.g. BYD, Fronius, Huawei"
+                      },
+                      "groesse": {
+                        "order": "2",
+                        "type": "text",
+                        "required": "false",
+                        "label": "Size",
+                        "placeholder": "e.g. 10 kWh"
+                      },
+                      "leistungsanforderungen": {
+                        "order": "3",
+                        "type": "textarea",
+                        "required": "false",
+                        "label": "Power requirements",
+                        "placeholder": "e.g. charge/discharge power, backup power",
+                        "rows": "3"
+                      }
+                    }
+                  },
+                  "notstrom": {
+                    "title": "Backup power",
+                    "description": "",
+                    "disabled": "false",
+                    "span": "2",
+                    "icon": {
+                      "name": "Zap",
+                      "alt": "Backup power"
+                    },
+                    "fields": {
+                      "phasen": {
+                        "order": "1",
+                        "type": "choice",
+                        "required": "false",
+                        "label": "Connection",
+                        "options": {
+                          "ein-phasig": {
+                            "title": "1~ (single-phase)"
+                          },
+                          "drei-phasig": {
+                            "title": "3~ (three-phase)"
+                          }
+                        }
+                      },
+                      "umschaltung": {
+                        "order": "2",
+                        "type": "choice",
+                        "required": "false",
+                        "label": "Switching",
+                        "options": {
+                          "automatik": {
+                            "title": "Automatic"
+                          },
+                          "handumschalter": {
+                            "title": "Manual switch"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "energiemanager": {
+                    "title": "Energy manager",
+                    "description": "",
+                    "disabled": "false",
+                    "span": "2",
+                    "icon": {
+                      "name": "HousePlug",
+                      "alt": "Energy manager"
+                    },
+                    "fields": {
+                      "anforderungen": {
+                        "order": "1",
+                        "type": "textarea",
+                        "required": "false",
+                        "label": "Requirements",
+                        "placeholder": "Describe your requirements",
+                        "rows": "3"
+                      }
+                    }
+                  },
+                  "wallbox": {
+                    "title": "Wallbox",
+                    "description": "Charging station",
+                    "disabled": "false",
+                    "span": "2",
+                    "icon": {
+                      "name": "PlugZap",
+                      "alt": "Wallbox"
+                    },
+                    "fields": {
+                      "anforderungen": {
+                        "order": "1",
+                        "type": "textarea",
+                        "required": "false",
+                        "label": "Requirements",
+                        "placeholder": "e.g. power, quantity, load management",
+                        "rows": "3"
+                      }
+                    }
+                  },
+                  "ueberspannungsschutz": {
+                    "title": "Surge protection",
+                    "description": "Surge arrester",
+                    "disabled": "false",
+                    "span": "2",
+                    "icon": {
+                      "name": "ShieldAlert",
+                      "alt": "Surge protection"
+                    },
+                    "fields": {
+                      "anforderungen": {
+                        "order": "1",
+                        "type": "textarea",
+                        "required": "false",
+                        "label": "Requirements",
+                        "placeholder": "e.g. type 1+2, AC/DC side",
+                        "rows": "3"
+                      }
+                    }
+                  },
+                  "unterkonstruktion": {
+                    "title": "Mounting structure",
+                    "description": "",
+                    "disabled": "false",
+                    "span": "2",
+                    "icon": {
+                      "name": "Frame",
+                      "alt": "Mounting structure"
+                    },
+                    "fields": {
+                      "beschreibung": {
+                        "order": "1",
+                        "type": "textarea",
+                        "required": "false",
+                        "label": "Description / requirements of the mounting structure",
+                        "placeholder": "Describe the mounting structure or its requirements",
+                        "rows": "3"
+                      },
+                      "kreuzverbund": {
+                        "order": "2",
+                        "type": "choice",
+                        "required": "false",
+                        "label": "Cross connection",
+                        "options": {
+                          "ja": {
+                            "title": "Yes"
+                          },
+                          "nein": {
+                            "title": "No"
+                          }
+                        }
+                      },
+                      "kreuzverbund-prozent": {
+                        "order": "3",
+                        "type": "range",
+                        "required": "false",
+                        "label": "What percentage of cross connection?",
+                        "min": "0",
+                        "max": "100",
+                        "step": "5",
+                        "default": "50",
+                        "unit": "%",
+                        "showWhen": {
+                          "field": "kreuzverbund",
+                          "equals": "ja"
+                        }
+                      },
+                      "ausrichtung": {
+                        "order": "4",
+                        "type": "split-range",
+                        "required": "false",
+                        "label": "Panels landscape ↔ portrait",
+                        "min": "0",
+                        "max": "100",
+                        "step": "5",
+                        "default": "50",
+                        "startLabel": "landscape/horizontal",
+                        "endLabel": "portrait/vertical"
+                      },
+                      "aufgestaendert": {
+                        "order": "5",
+                        "type": "range",
+                        "required": "false",
+                        "label": "Elevated",
+                        "min": "0",
+                        "max": "100",
+                        "step": "5",
+                        "default": "0",
+                        "unit": "%"
+                      }
+                    }
+                  },
+                  "kabelweg-potenzialausgleich": {
+                    "title": "Cable routing and equipotential bonding",
+                    "description": "",
+                    "disabled": "false",
+                    "span": "2",
+                    "icon": {
+                      "name": "Cable",
+                      "alt": "Cable routing and equipotential bonding"
+                    },
+                    "fields": {
+                      "beschreibung": {
+                        "order": "1",
+                        "type": "textarea",
+                        "required": "false",
+                        "label": "Description of the cable routing and length",
+                        "placeholder": "Describe the cable routing and total length",
+                        "rows": "3"
+                      },
+                      "laenge-aussen": {
+                        "order": "2",
+                        "type": "number",
+                        "required": "false",
+                        "label": "Length outside",
+                        "placeholder": "e.g. 20",
+                        "min": "0",
+                        "unit": "m"
+                      },
+                      "laenge-innen": {
+                        "order": "3",
+                        "type": "number",
+                        "required": "false",
+                        "label": "Length inside",
+                        "placeholder": "e.g. 15",
+                        "min": "0",
+                        "unit": "m"
+                      },
+                      "anforderungen": {
+                        "order": "4",
+                        "type": "textarea",
+                        "required": "false",
+                        "label": "Description / requirements",
+                        "placeholder": "e.g. UV-resistant outside, metal inside",
+                        "rows": "3"
+                      }
                     }
                   }
                 },
                 "aiExtraction": {
-                  "fieldKey": "mounting_height_m",
-                  "label": "Mounting height",
-                  "type": "number",
-                  "unit": "m",
-                  "min": "0",
-                  "max": "3000",
+                  "fieldKey": "komponenten",
+                  "label": "Components",
+                  "type": "multi-option",
                   "aliases": [
-                    "Mounting height",
-                    "Building height",
-                    "Facade height",
-                    "Slope height",
-                    "Eaves height",
-                    "Attic height",
-                    "Module height",
-                    "Height above ground"
+                    "Components",
+                    "System components",
+                    "Komponenten",
+                    "Material",
+                    "Bill of materials"
                   ],
-                  "description": "Height of the mounting location in meters above ground. For buildings, use eaves height or highest module height. If no explicit height is given, estimate from building type.",
-                  "instructions": "Extract the height of the mounting location above ground in meters. Also accept building height, facade height, slope height, eaves height, attic height, or highest module height if it describes the installation location. Do not interpret as altitude above sea level or geographic elevation. If no explicit height is given, estimate from building type: bungalow or single-storey ≤ 5 m, 2 storeys approx. 7–12 m, 3+ storeys approx. 12–18 m, industrial hall approx. 6–12 m. Mark as an estimate."
-                }
-              },
-              "interested-products-range-dachneigung": {
-                "order": "1",
-                "type": "range",
-                "required": "true",
-                "defaultVisible": "true",
-                "title": "Mounting surface pitch",
-                "description": "(Roof, slope)",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "requiredMessage": "This input is mandatory",
-                  "successMessage": "Thanks for your input",
-                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
-                },
-                "options": {
-                  "buttons": {
-                    "incrementBy": "2.5",
-                    "decrementBy": "2.5"
-                  },
-                  "range": {
-                    "defaultValue": "0",
-                    "min": "0",
-                    "max": "90",
-                    "step": "2.5",
-                    "type": "linear"
-                  },
-                  "unit": {
-                    "value": "°",
-                    "spaceBetween": "false",
-                    "position": "after",
-                    "numberFormat": "de-DE"
-                  },
-                  "labels": {
-                    "min": {
-                      "text": "Min (0°)",
-                      "value": "0",
-                      "align": "start",
-                      "offsetX": "0",
-                      "correctX": "0%"
+                  "description": "Requested or mentioned PV system components. Multiple selection is allowed.",
+                  "instructions": "Select all components that are clearly named as part of the system in the document (e.g. modules, inverter, storage, backup power, energy manager, wallbox, surge protection, mounting structure, cable routing and equipotential bonding).",
+                  "options": {
+                    "paneele": {
+                      "targetOptionUid": "paneele",
+                      "aliases": [
+                        "Panels",
+                        "Modules",
+                        "Solar modules",
+                        "PV modules",
+                        "Paneele",
+                        "Module"
+                      ]
                     },
-                    "q1": {
-                      "text": "30°",
-                      "value": "30",
-                      "align": "start",
-                      "offsetX": "1/3",
-                      "correctX": "145%"
+                    "wechselrichter": {
+                      "targetOptionUid": "wechselrichter",
+                      "aliases": [
+                        "Inverter",
+                        "Wechselrichter",
+                        "WR"
+                      ]
                     },
-                    "q2": {
-                      "text": "60°",
-                      "value": "60",
-                      "align": "start",
-                      "offsetX": "2/3",
-                      "correctX": "105%"
+                    "speicher": {
+                      "targetOptionUid": "speicher",
+                      "aliases": [
+                        "Storage",
+                        "Battery storage",
+                        "Battery",
+                        "Speicher",
+                        "Akku"
+                      ]
                     },
-                    "max": {
-                      "text": "Max (90°)",
-                      "value": "90",
-                      "align": "end",
-                      "offsetX": "0",
-                      "correctX": "0%"
-                    }
-                  }
-                },
-                "aiExtraction": {
-                  "fieldKey": "roof_pitch_deg",
-                  "label": "Pitch",
-                  "type": "number",
-                  "unit": "°",
-                  "min": "0",
-                  "max": "90",
-                  "aliases": [
-                    "Roof pitch",
-                    "Pitch",
-                    "Mounting pitch",
-                    "Roof angle",
-                    "Tilt angle",
-                    "Module tilt",
-                    "Slope"
-                  ],
-                  "description": "Roof or mounting surface pitch in degrees. 0° is flat, 90° is vertical.",
-                  "instructions": "Extract the pitch of the roof or mounting surface in degrees. Convert percentage values only if they are clearly stated as slope/pitch. Do not confuse with azimuth, orientation, cardinal direction, or coordinates."
-                }
-              }
-            }
-          },
-          "interested-products-4": {
-            "title": "Project details",
-            "description": "",
-            "version": "0.1.0",
-            "defaultVisible": "true",
-            "form": {
-              "submit-form-textarea-address": {
-                "order": "1",
-                "type": "textarea",
-                "required": "true",
-                "defaultVisible": "true",
-                "title": "Customer Address",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Thanks for your input",
-                  "requiredMessage": "This input is mandatory",
-                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
-                },
-                "options": {
-                  "label": "",
-                  "placeholder": "Street XX, XXXX",
-                  "rows": "4"
-                },
-                "aiExtraction": {
-                  "fieldKey": "end_customer_address",
-                  "label": "End customer address",
-                  "type": "text",
-                  "aliases": [
-                    "End customer address",
-                    "Project address",
-                    "System location",
-                    "Installation location",
-                    "Site address",
-                    "Location",
-                    "Object address"
-                  ],
-                  "description": "Address of the installation location or system site, not billing or contractor address.",
-                  "instructions": "Extract the full address of the installation location or system site. Prefer project address, site address, object address, or system location. Do not use billing address, contractor address, or company address unless they clearly refer to the installation site."
-                }
-              },
-              "submit-form-file-upload": {
-                "order": "1",
-                "type": "file-upload",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Upload your files",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "By uploading your files, you agree to our privacy policy.",
-                  "type": "info",
-                  "successMessage": "Thank you for your upload",
-                  "requiredMessage": "This input is mandatory",
-                  "checkPreviousFormsMessage": "Thank you for your input. Please fix all errors in the previous forms"
-                },
-                "options": {
-                  "upload": {
-                    "hostname": "storage.bunnycdn.com",
-                    "storageZoneName": "synergy-webservices-assets",
-                    "region": "",
-                    "filesAccepted": "",
-                    "multipleFiles": "true",
-                    "uploadingText": "Uploading...",
-                    "uploadError": "Upload failed, we are currently working on fixing it, please try again later",
-                    "uploadSuccess": "Upload successful, thank you!"
-                  },
-                  "download": {
-                    "pullHostName": "https://synergy-webservices-assets.b-cdn.net"
-                  }
-                }
-              }
-            }
-          },
-          "interested-products-5": {
-            "title": "Project details",
-            "description": "",
-            "version": "0.1.0",
-            "defaultVisible": "true",
-            "form": {
-              "interested-products-text": {
-                "order": "1",
-                "type": "text",
-                "required": "true",
-                "defaultVisible": "false",
-                "title": "How much are you currently paying for electricity?",
-                "description": "Enter the amount you currently pay for electricity",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "Only valid Names are allowed",
-                  "type": "info",
-                  "successMessage": "Thanks for your input",
-                  "requiredMessage": "This input is mandatory",
-                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
-                },
-                "options": {
-                  "label": "Enter your name",
-                  "placeholder": "Bernd Johnson"
-                }
-              },
-              "interested-products-text-2": {
-                "order": "1",
-                "type": "text",
-                "required": "true",
-                "defaultVisible": "false",
-                "title": "",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Thanks for your input",
-                  "requiredMessage": "This input is mandatory",
-                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
-                },
-                "options": {
-                  "label": "Enter your name",
-                  "placeholder": "Bernd Johnsen"
-                }
-              },
-              "interested-products": {
-                "order": "1",
-                "type": "checkbox",
-                "multiple": "true",
-                "required": "true",
-                "defaultVisible": "false",
-                "title": "What is the status of the project?",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "Only valid Names are allowed",
-                  "type": "info",
-                  "successMessage": "Thanks for your input",
-                  "requiredMessage": "This input is mandatory",
-                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
-                },
-                "options": {
-                  "photovoltaic": {
-                    "type": "checkbox",
-                    "title": "Photovoltaics",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Create your own electricity and save up to 98% of your electricity costs",
-                    "addQuestion": "Interest-products",
-                    "addForm": "Interest-products-range",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "Sun"
-                    }
-                  },
-                  "wärmepumpe": {
-                    "type": "checkbox",
-                    "title": "Heat pump",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Heating and Cool Your Home with Renewable Energy",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "Heater"
-                    }
-                  },
-                  "klimasysteme": {
-                    "type": "checkbox",
-                    "title": "Climate Systems",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Cool your home with renewable energy",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "Snowflake"
-                    }
-                  },
-                  "smart-home": {
-                    "type": "checkbox",
-                    "title": "Smart Home",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Automate your home and save energy",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "HousePlug"
-                    }
-                  },
-                  "Energiemanagement": {
-                    "type": "checkbox",
-                    "title": "Energy Management",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Optimize your energy consumption and save up to 30% of your energy costs",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "Gauge"
-                    }
-                  },
-                  "wallbox": {
-                    "type": "checkbox",
-                    "title": "Wallbox",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Download your electric car with renewable energy",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "PlugZap"
-                    }
-                  }
-                }
-              },
-              "interested-products-text-3": {
-                "order": "1",
-                "type": "text",
-                "required": "true",
-                "defaultVisible": "false",
-                "title": "",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Thanks for your input",
-                  "requiredMessage": "This input is mandatory",
-                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
-                },
-                "options": {
-                  "label": "Enter your name",
-                  "placeholder": "Bernd Johnsen"
-                }
-              },
-              "interested-products-range": {
-                "order": "1",
-                "type": "range",
-                "required": "true",
-                "defaultVisible": "hidden",
-                "title": "How much are you currently paying for electricity?",
-                "description": "Choose the amount you currently pay for electricity",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "Only valid Names are allowed",
-                  "type": "info",
-                  "requiredMessage": "This input is mandatory",
-                  "successMessage": "Thanks for your input",
-                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
-                },
-                "options": {
-                  "buttons": {
-                    "incrementBy": "10",
-                    "decrementBy": "10"
-                  },
-                  "range": {
-                    "defaultValue": "0",
-                    "min": "100",
-                    "max": "1500",
-                    "step": "10",
-                    "type": "linear"
-                  },
-                  "unit": {
-                    "value": "$",
-                    "spaceBetween": "false",
-                    "position": "before",
-                    "numberFormat": "de-DE"
-                  },
-                  "labels": {
-                    "min": {
-                      "text": "Min ($100)",
-                      "value": "100",
-                      "align": "start",
-                      "offsetX": "0",
-                      "correctX": "0%"
+                    "notstrom": {
+                      "targetOptionUid": "notstrom",
+                      "aliases": [
+                        "Backup power",
+                        "Emergency power",
+                        "Backup",
+                        "Notstrom"
+                      ]
                     },
-                    "q1": {
-                      "text": "$500",
-                      "value": "500",
-                      "align": "start",
-                      "offsetX": "1/3",
-                      "correctX": "145%"
+                    "energiemanager": {
+                      "targetOptionUid": "energiemanager",
+                      "aliases": [
+                        "Energy manager",
+                        "Energy management system",
+                        "EMS",
+                        "Energiemanager"
+                      ]
                     },
-                    "q2": {
-                      "text": "$1000",
-                      "value": "1000",
-                      "align": "start",
-                      "offsetX": "2/3",
-                      "correctX": "105%"
+                    "wallbox": {
+                      "targetOptionUid": "wallbox",
+                      "aliases": [
+                        "Wallbox",
+                        "Charging station",
+                        "Charge point"
+                      ]
                     },
-                    "max": {
-                      "text": "Max ($1500)",
-                      "value": "1500",
-                      "align": "end",
-                      "offsetX": "0",
-                      "correctX": "0%"
-                    }
-                  }
-                }
-              },
-              "interested-products-two": {
-                "order": "1",
-                "type": "radio",
-                "multiple": "true",
-                "required": "true",
-                "defaultVisible": "false",
-                "title": "What are you interested in? Part 2",
-                "description": "Select all products you are interested in",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "Only valid Names are allowed",
-                  "type": "info",
-                  "requiredMessage": "This input is mandatory",
-                  "successMessage": "Thanks for your input",
-                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
-                },
-                "options": {
-                  "photovoltaic": {
-                    "type": "checkbox",
-                    "title": "Photovoltaics",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Create your own electricity and save up to 98% of your electricity costs",
-                    "addQuestion": "main-photovoltaic",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "Sun"
-                    }
-                  },
-                  "wärmepumpe": {
-                    "type": "checkbox",
-                    "title": "Heat pump",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Heating and Cool Your Home with Renewable Energy",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "Heater"
-                    }
-                  },
-                  "klimasysteme": {
-                    "type": "checkbox",
-                    "title": "Climate Systems",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Cool your home with renewable energy",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "Snowflake"
-                    }
-                  },
-                  "smart-home": {
-                    "type": "checkbox",
-                    "title": "Smart Home",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Automate your home and save energy",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "HousePlug"
-                    }
-                  },
-                  "Energiemanagement": {
-                    "type": "checkbox",
-                    "title": "Energy Management",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Optimize your energy consumption and save up to 30% of your energy costs",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "Gauge"
-                    }
-                  },
-                  "wallbox": {
-                    "type": "checkbox",
-                    "title": "Wallbox",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Download your electric car with renewable energy",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "PlugZap"
-                    }
-                  }
-                }
-              },
-              "interested-products-calculation": {
-                "order": "1",
-                "type": "calculation",
-                "multiple": "true",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Here your price calculation comes shortly (average assembly price 200€/kWp)",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Thanks for your input",
-                  "requiredMessage": "This input is mandatory",
-                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
-                },
-                "options": {
-                  "inputForm": {
-                    "questionKey": "Interest-products",
-                    "formKey": "Interest-products-range-2"
-                  },
-                  "maths": {
-                    "type": "multiplication",
-                    "formula": "x 200",
-                    "unit": "€",
-                    "spaceBetween": "false",
-                    "position": "after"
-                  },
-                  "afterMaths": {
-                    "before": "for a",
-                    "after": "System"
-                  }
-                }
-              },
-              "interested-products-wir-empfehlen": {
-                "order": "1",
-                "type": "checkbox",
-                "multiple": "true",
-                "required": "false",
-                "defaultVisible": "true",
-                "title": "We recommend",
-                "description": "Material for construction, sealing and cable path to take from us",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Thanks for your input",
-                  "requiredMessage": "This input is mandatory",
-                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
-                },
-                "options": {
-                  "photovoltaic": {
-                    "type": "checkbox",
-                    "title": "Yes",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "BadgeCheck"
-                    }
-                  }
-                }
-              },
-              "interested-products-calculation-enquiry": {
-                "order": "1",
-                "type": "checkbox",
-                "multiple": "true",
-                "required": "false",
-                "defaultVisible": "true",
-                "title": "Here your price calculation comes shortly (average assembly price 200€/kWp)",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Thanks for your input",
-                  "requiredMessage": "This input is mandatory",
-                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
-                },
-                "options": {
-                  "photovoltaic": {
-                    "type": "checkbox",
-                    "title": "Yes",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "BadgeCheck"
-                    }
-                  }
-                }
-              },
-              "interested-products-again": {
-                "order": "1",
-                "type": "checkbox",
-                "multiple": "true",
-                "required": "false",
-                "defaultVisible": "false",
-                "title": "Would you like to add another project?",
-                "description": "",
-                "localStorage": "false",
-                "span": "2",
-                "message": {
-                  "text": "",
-                  "type": "info",
-                  "successMessage": "Thanks for your input",
-                  "requiredMessage": "This input is mandatory",
-                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
-                },
-                "options": {
-                  "photovoltaic": {
-                    "type": "checkbox",
-                    "title": "Yes",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "",
-                    "addQuestion": "Interest-products",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "BadgeCheck"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "main-photovoltaic": {
-            "title": "Are you interested in a PV system?",
-            "description": "",
-            "defaultVisible": "false",
-            "version": "0.1.0",
-            "form": {
-              "interested-products": {
-                "order": "1",
-                "type": "checkbox",
-                "multiple": "true",
-                "required": "true",
-                "defaultVisible": "true",
-                "title": "What is the status of the project?",
-                "description": "",
-                "span": "2",
-                "message": {
-                  "text": "Only valid Names are allowed",
-                  "type": "info",
-                  "successMessage": "Thanks for your input",
-                  "requiredMessage": "This input is mandatory",
-                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
-                },
-                "options": {
-                  "photovoltaic": {
-                    "type": "checkbox",
-                    "title": "Photovoltaics",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Create your own electricity and save up to 98% of your electricity costs",
-                    "addQuestion": "Interest-products",
-                    "addForm": "Interest-products-two",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "Sun"
-                    }
-                  },
-                  "wärmepumpe": {
-                    "type": "checkbox",
-                    "title": "Heat pump",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Heating and Cool Your Home with Renewable Energy",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "Heater"
-                    }
-                  },
-                  "klimasysteme": {
-                    "type": "checkbox",
-                    "title": "Climate Systems",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Cool your home with renewable energy",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "Snowflake"
-                    }
-                  },
-                  "smart-home": {
-                    "type": "checkbox",
-                    "title": "Smart Home",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Automate your home and save energy",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "HousePlug"
-                    }
-                  },
-                  "Energiemanagement": {
-                    "type": "checkbox",
-                    "title": "Energy Management",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Optimize your energy consumption and save up to 30% of your energy costs",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "Gauge"
-                    }
-                  },
-                  "wallbox": {
-                    "type": "checkbox",
-                    "title": "Wallbox",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Download your electric car with renewable energy",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "PlugZap"
-                    }
-                  }
-                }
-              },
-              "interested-products-two": {
-                "order": "1",
-                "type": "checkbox",
-                "multiple": "true",
-                "required": "true",
-                "defaultVisible": "false",
-                "title": "What is the status of the project?",
-                "description": "",
-                "span": "2",
-                "message": {
-                  "text": "Only valid Names are allowed",
-                  "type": "info",
-                  "successMessage": "Thanks for your input",
-                  "requiredMessage": "This input is mandatory",
-                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
-                },
-                "options": {
-                  "photovoltaic": {
-                    "type": "checkbox",
-                    "title": "Photovoltaics",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Create your own electricity and save up to 98% of your electricity costs",
-                    "addQuestion": "main-photovoltaic",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "Sun"
-                    }
-                  },
-                  "wärmepumpe": {
-                    "type": "checkbox",
-                    "title": "Heat pump",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Heating and Cool Your Home with Renewable Energy",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "Heater"
-                    }
-                  },
-                  "klimasysteme": {
-                    "type": "checkbox",
-                    "title": "Climate Systems",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Cool your home with renewable energy",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "Snowflake"
-                    }
-                  },
-                  "smart-home": {
-                    "type": "checkbox",
-                    "title": "Smart Home",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Automate your home and save energy",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "HousePlug"
-                    }
-                  },
-                  "Energiemanagement": {
-                    "type": "checkbox",
-                    "title": "Energy Management",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Optimize your energy consumption and save up to 30% of your energy costs",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "Gauge"
-                    }
-                  },
-                  "wallbox": {
-                    "type": "checkbox",
-                    "title": "Wallbox",
-                    "disabled": "false",
-                    "span": "3",
-                    "description": "Download your electric car with renewable energy",
-                    "addQuestion": "",
-                    "addForm": "",
-                    "icon": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Photovoltaics",
-                      "name": "PlugZap"
+                    "ueberspannungsschutz": {
+                      "targetOptionUid": "ueberspannungsschutz",
+                      "aliases": [
+                        "Surge protection",
+                        "Surge arrester",
+                        "SPD",
+                        "Überspannungsschutz",
+                        "Überspannungsableiter"
+                      ]
+                    },
+                    "unterkonstruktion": {
+                      "targetOptionUid": "unterkonstruktion",
+                      "aliases": [
+                        "Mounting structure",
+                        "Mounting system",
+                        "Substructure",
+                        "Racking",
+                        "Unterkonstruktion"
+                      ]
+                    },
+                    "kabelweg-potenzialausgleich": {
+                      "targetOptionUid": "kabelweg-potenzialausgleich",
+                      "aliases": [
+                        "Cable routing",
+                        "Equipotential bonding",
+                        "Cabling",
+                        "Earthing",
+                        "Grounding",
+                        "Kabelweg",
+                        "Potenzialausgleich"
+                      ]
                     }
                   }
                 }
@@ -12308,6 +10698,11 @@
       }
     },
     "Shared": {
+      "SunWidget": {
+        "text": "Photovoltaic configurator",
+        "href": "https://synergie.solarmaker.com",
+        "ariaLabel": "Open the Photovoltaic configurator"
+      },
       "Footer": {
         "logo": {
           "src": "/frontend/landingPage/icons/synergy-logo-grid.svg",

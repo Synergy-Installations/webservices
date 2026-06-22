@@ -178,6 +178,9 @@ export async function extractFromPdfs(opts: {
     model,
     max_tokens: 8192,
     temperature: 0,
+    // Grounded copy-out of PDF values into a forced tool schema needs little
+    // reasoning depth; Sonnet 4.6 defaults to "high" effort.
+    output_config: { effort: "low" as const },
     system: buildSystemPrompt(opts.config, documentNames),
     tools: [
       {
@@ -212,11 +215,11 @@ export async function extractFromPdfs(opts: {
 
   const message = opts.onPartialExtraction
     ? await streamExtraction({
-        anthropic,
-        request,
-        config: opts.config,
-        onPartialExtraction: opts.onPartialExtraction,
-      })
+      anthropic,
+      request,
+      config: opts.config,
+      onPartialExtraction: opts.onPartialExtraction,
+    })
     : await anthropic.messages.create(request);
 
   const toolUse = message.content.find(
@@ -377,10 +380,10 @@ export function toFunnelPrefill(opts: {
       label: field.label,
       ...(isCardSubField
         ? {
-            formUid: field.target.cardFormUid,
-            optionUid: field.target.optionUid,
-            cardFieldKey: field.target.cardFieldKey,
-          }
+          formUid: field.target.cardFormUid,
+          optionUid: field.target.optionUid,
+          cardFieldKey: field.target.cardFieldKey,
+        }
         : {}),
     };
     funnelConfidences[field.target.formUid] = confidence;
@@ -497,11 +500,11 @@ function buildSystemPrompt(
         field.options == null
           ? ""
           : Object.entries(field.options)
-              .map(([optionKey, option]) => {
-                const aliases = option.aliases?.join(", ") || optionKey;
-                return `  - ${optionKey}: ${aliases}`;
-              })
-              .join("\n");
+            .map(([optionKey, option]) => {
+              const aliases = option.aliases?.join(", ") || optionKey;
+              return `  - ${optionKey}: ${aliases}`;
+            })
+            .join("\n");
 
       return [
         `- ${fieldKey} (${field.label}, ${field.type}${field.unit ? `, ${field.unit}` : ""}): ${field.description}`,
@@ -756,9 +759,9 @@ function parseNumbers(value: string): number[] {
     const normalized =
       lastComma > lastDot
         ? raw
-            .replace(/\./g, "")
-            .replace(",", ".")
-            .replace(/\u00a0/g, "")
+          .replace(/\./g, "")
+          .replace(",", ".")
+          .replace(/\u00a0/g, "")
         : raw.replace(/,/g, "").replace(/\u00a0/g, "");
     const number = Number(normalized);
     if (Number.isFinite(number)) out.push(number);

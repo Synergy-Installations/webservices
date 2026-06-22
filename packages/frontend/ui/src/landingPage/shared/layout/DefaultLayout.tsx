@@ -8,6 +8,7 @@ import "aos/dist/aos.css";
 import DefaultFooter from "@com.synergy/frontend-ui/DefaultFooter";
 import { useMessages, useTranslations } from "next-intl";
 import WhatsappButton from "../whatsapp/WhatsappButton";
+import SunConfigurator from "./SunConfigurator";
 import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -32,6 +33,7 @@ export const DefaultLayout = (props: DefaultLayoutProps) => {
       className={`${inter.className} bg-gray-50 font-inter tracking-tight text-gray-900 antialiased`}
     >
       <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
+        <SunConfigurator />
         <DefaultHeader />
         <WhatsappButton />
         <main className="grow">{props.children}</main>

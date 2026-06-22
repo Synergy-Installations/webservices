@@ -254,6 +254,8 @@ export const createQuestionElement = (
               checkPreviousFormsMessage:
                 element.form[formKey].message.checkPreviousFormsMessage,
             },
+            requiredGroup: element.form[formKey].requiredGroup ?? null,
+            computeFrom: element.form[formKey].computeFrom ?? null,
             options: {
               buttons: {
                 incrementBy: useStrings
@@ -330,6 +332,7 @@ export const createQuestionElement = (
           };
         } else if (
           element.form[formKey].type === "text" ||
+          element.form[formKey].type === "number" ||
           element.form[formKey].type === "email" ||
           element.form[formKey].type === "tel" ||
           element.form[formKey].type === "textarea"
@@ -365,6 +368,7 @@ export const createQuestionElement = (
               checkPreviousFormsMessage:
                 element.form[formKey].message.checkPreviousFormsMessage,
             },
+            requiredGroup: element.form[formKey].requiredGroup ?? null,
             options: {
               label: element.form[formKey].options.label,
               placeholder: element.form[formKey].options.placeholder,
@@ -745,12 +749,44 @@ export const createQuestionElement = (
                           ? field.required === "true"
                           : (field.required ?? false),
                         label: field.label,
+                        description: field.description ?? "",
                         placeholder: field.placeholder ?? "",
+                        unit: field.unit ?? "",
                         rows: field.rows
                           ? useStrings
                             ? Number(field.rows)
                             : field.rows
                           : 3,
+                        /** Slider bounds for `range` / `split-range` fields. */
+                        min:
+                          field.min != null
+                            ? useStrings
+                              ? Number(field.min)
+                              : field.min
+                            : null,
+                        max:
+                          field.max != null
+                            ? useStrings
+                              ? Number(field.max)
+                              : field.max
+                            : null,
+                        step:
+                          field.step != null
+                            ? useStrings
+                              ? Number(field.step)
+                              : field.step
+                            : null,
+                        default:
+                          field.default != null
+                            ? useStrings
+                              ? Number(field.default)
+                              : field.default
+                            : null,
+                        /** Endpoint labels for the `split-range` slider. */
+                        startLabel: field.startLabel ?? "",
+                        endLabel: field.endLabel ?? "",
+                        /** Conditional visibility: { field, equals }. */
+                        showWhen: field.showWhen ?? null,
                         options: field.options
                           ? Object.keys(field.options).reduce(
                               (fieldOptsAcc: any, fieldOptKey: string) => {
@@ -989,6 +1025,8 @@ export const createFormElement = (
         successMessage: element.message.successMessage,
         checkPreviousFormsMessage: element.message.checkPreviousFormsMessage,
       },
+      requiredGroup: element.requiredGroup ?? null,
+      computeFrom: element.computeFrom ?? null,
       options: {
         buttons: {
           incrementBy: useStrings
@@ -1056,6 +1094,7 @@ export const createFormElement = (
     };
   } else if (
     element.type === "text" ||
+    element.type === "number" ||
     element.type === "email" ||
     element.type === "tel" ||
     element.type === "textarea"
@@ -1089,6 +1128,7 @@ export const createFormElement = (
         successMessage: element.message.successMessage,
         checkPreviousFormsMessage: element.message.checkPreviousFormsMessage,
       },
+      requiredGroup: element.requiredGroup ?? null,
       options: {
         label: element.options.label,
         placeholder: element.options.placeholder,

@@ -103,7 +103,7 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
                           src={t(`socials.${socialKey}.icon.src`)}
                           alt={t(`socials.${socialKey}.icon.alt`)}
                         />
-                      </Link>a
+                      </Link>
                     </li>
                   ))}
                 </ul>

@@ -1,6 +1,9 @@
 import type { SetStateAction } from "react";
 import { createQuestionElement } from "@com.synergy/frontend-ui/CreateElements";
-import { cloneQuestionElements } from "../utils/funnelHelpers";
+import {
+  cloneQuestionElements,
+  computeRangeFromFactors,
+} from "../utils/funnelHelpers";
 
 export type FunnelElements = Record<string, any>;
 
@@ -182,6 +185,44 @@ function updateForm(
   };
 }
 
+/**
+ * After an input changes, refresh any range form in the same question whose
+ * `computeFrom` references the changed form (e.g. the kWp slider derived from
+ * panel count × power per panel). Only fires when every factor is present and
+ * numeric, so partial input leaves the slider free for manual use.
+ */
+function recomputeDerivedRanges(
+  state: FunnelElements,
+  questionKey: string,
+  changedFormKey: string,
+): FunnelElements {
+  const question = state[questionKey];
+  if (!question?.form) return state;
+
+  const changedUid = question.form[changedFormKey]?.uid;
+  if (!changedUid) return state;
+
+  let result = state;
+  for (const rangeFormKey of Object.keys(question.form)) {
+    const rangeForm = question.form[rangeFormKey];
+    const factors = rangeForm?.computeFrom?.factors;
+    if (!Array.isArray(factors) || !factors.includes(changedUid)) continue;
+
+    const derived = computeRangeFromFactors(result[questionKey], rangeForm);
+    if (!derived) continue;
+
+    result = updateForm(result, questionKey, rangeFormKey, (form) => ({
+      ...form,
+      selected: {
+        ...form.selected,
+        selectedValue: derived.selectedValue,
+        rangeValue: derived.rangeValue,
+      },
+    }));
+  }
+  return result;
+}
+
 export function funnelReducer(
   state: FunnelElements,
   action: FunnelAction,
@@ -256,10 +297,11 @@ export function funnelReducer(
 
     case "SET_INPUT_VALUE": {
       const { questionKey, formKey, value } = action;
-      return updateForm(state, questionKey, formKey, (form) => ({
+      const next = updateForm(state, questionKey, formKey, (form) => ({
         ...form,
         selected: { ...form.selected, inputValue: value },
       }));
+      return recomputeDerivedRanges(next, questionKey, formKey);
     }
 
     case "SET_LEGAL_CONSENT": {

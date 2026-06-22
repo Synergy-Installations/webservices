@@ -481,10 +481,21 @@ export const Funnel = (props: FunnelProps) => {
                                     const field = option.fields[fieldKey];
                                     const raw = values[fieldKey];
                                     if (!raw) return null;
-                                    const value =
-                                      field.type === "choice"
-                                        ? (field.options?.[raw]?.title ?? raw)
+                                    let value: string;
+                                    if (field.type === "choice") {
+                                      value = field.options?.[raw]?.title ?? raw;
+                                    } else if (field.type === "split-range") {
+                                      const end = Number(raw);
+                                      value = `${field.endLabel} ${end}% / ${field.startLabel} ${100 - end}%`;
+                                    } else if (field.type === "range") {
+                                      value = `${raw}${field.unit ?? ""}`;
+                                    } else if (field.type === "number") {
+                                      value = field.unit
+                                        ? `${raw} ${field.unit}`
                                         : raw;
+                                    } else {
+                                      value = raw;
+                                    }
                                     return `${field.label}: ${value}`;
                                   })
                                   .filter(Boolean);
@@ -496,6 +507,7 @@ export const Funnel = (props: FunnelProps) => {
                           : form.type === "range"
                           ? `${form.selected.selectedValue} ${form.options.unit.value}`
                           : form.type === "text" ||
+                              form.type === "number" ||
                               form.type === "email" ||
                               form.type === "tel" ||
                               form.type === "textarea"

@@ -1,3 +1,4 @@
+import { format } from "@react-input/number-format";
 import { formatLocaleNumberToUniNumber } from "@com.synergy/frontend-ui/LocaleNumber";
 import {
   BadgeCheck,
@@ -7,6 +8,7 @@ import {
   Car,
   CircleHelp,
   Fence,
+  Frame,
   Gauge,
   Heater,
   House,
@@ -17,6 +19,7 @@ import {
   PanelTopOpen,
   Plug,
   PlugZap,
+  ShieldAlert,
   Snowflake,
   Sun,
   Warehouse,
@@ -67,6 +70,7 @@ const funnelIconComponents: Record<string, LucideIcon> = {
   Car,
   CircleHelp,
   Fence,
+  Frame,
   Gauge,
   Heater,
   House,
@@ -77,6 +81,7 @@ const funnelIconComponents: Record<string, LucideIcon> = {
   PanelTopOpen,
   Plug,
   PlugZap,
+  ShieldAlert,
   Snowflake,
   Sun,
   Warehouse,
@@ -142,6 +147,96 @@ export function isQuestionComplete(question: any): boolean {
       forms[formKey].message?.type === "success" ||
       forms[formKey].message?.type === "warning",
   );
+}
+
+/**
+ * "One of" required validation. Forms that share the same `requiredGroup` string
+ * are each individually optional, but the group as a whole is satisfied as soon
+ * as ANY visible member holds a user value. Used e.g. for "enter kWp OR the
+ * number of panels".
+ */
+export function isRequiredGroupSatisfied(
+  question: any,
+  groupName?: string | null,
+): boolean {
+  if (!groupName) return false;
+  const forms = question?.form ?? {};
+  return Object.keys(forms).some(
+    (formKey) =>
+      isVisibleEntity(forms[formKey]) &&
+      forms[formKey].requiredGroup === groupName &&
+      formHasUserValue(forms[formKey]),
+  );
+}
+
+/**
+ * Translate a raw numeric value into the pair a range form needs:
+ * `selectedValue` (the locale-formatted number shown in the input) and
+ * `rangeValue` (the slider thumb position, which on an exponential scale is the
+ * logarithmic projection of the value). Mirrors the math in the Range component
+ * so a programmatically computed value lands the thumb exactly where dragging to
+ * that value would.
+ */
+export function deriveRangeSelection(
+  rangeForm: any,
+  rawValue: number,
+): { selectedValue: string; rangeValue: number } {
+  const opts = rangeForm?.options ?? {};
+  const locale = opts.unit?.numberFormat;
+  const fmtOptions = { locales: locale, maximumFractionDigits: 2 } as const;
+  const isExp = opts.range?.type === "exp";
+  const rangeMin = Number(opts.range?.min ?? 0);
+  const rangeMax = Number(opts.range?.max ?? 100);
+  /** Exp scale can't start at 0 - the Range component floors min at 0.01. */
+  const expMin = Math.max(0.01, rangeMin);
+  const clamped = Math.min(rangeMax, Math.max(rangeMin, rawValue));
+  const selectedValue = format(clamped, fmtOptions);
+
+  if (!isExp) {
+    return { selectedValue, rangeValue: clamped };
+  }
+  const projected =
+    (Math.log(Math.max(0.01, clamped) / expMin) / Math.log(rangeMax / expMin)) *
+      (rangeMax - expMin) +
+    expMin;
+  return {
+    selectedValue,
+    rangeValue: isFinite(projected) ? projected : 0.01,
+  };
+}
+
+/**
+ * For a range form carrying a `computeFrom` config, multiply the referenced
+ * sibling inputs (matched by uid within the same question) and divide by
+ * `divideBy` to obtain the derived value (e.g. kWp = panels × W ÷ 1000). Returns
+ * `null` when any factor is missing or non-numeric so the caller can leave the
+ * range untouched (keeping manual slider use intact).
+ */
+export function computeRangeFromFactors(
+  question: any,
+  rangeForm: any,
+): { selectedValue: string; rangeValue: number } | null {
+  const computeFrom = rangeForm?.computeFrom;
+  if (!computeFrom || !Array.isArray(computeFrom.factors)) return null;
+
+  const forms = question?.form ?? {};
+  const findByUid = (uid: string): any =>
+    Object.keys(forms)
+      .map((key) => forms[key])
+      .find((f) => f?.uid === uid);
+
+  let product = 1;
+  for (const factorUid of computeFrom.factors) {
+    const factorForm = findByUid(factorUid);
+    const raw = factorForm?.selected?.inputValue;
+    if (raw === undefined || raw === null || raw === "") return null;
+    const num = Number(raw);
+    if (!isFinite(num) || num <= 0) return null;
+    product *= num;
+  }
+
+  const divideBy = Number(computeFrom.divideBy ?? 1) || 1;
+  return deriveRangeSelection(rangeForm, product / divideBy);
 }
 
 export function getRenderableQuestionKeys(
@@ -597,6 +692,7 @@ export function applyValueToForm(form: any, value: unknown): boolean {
 
   if (
     form.type === "text" ||
+    form.type === "number" ||
     form.type === "email" ||
     form.type === "tel" ||
     form.type === "textarea"
@@ -686,6 +782,7 @@ export function formValueMatchesPrefill(form: any, value: unknown): boolean {
 
   if (
     form.type === "text" ||
+    form.type === "number" ||
     form.type === "email" ||
     form.type === "tel" ||
     form.type === "textarea"
@@ -739,6 +836,7 @@ export function clearFormValue(form: any): void {
 
   if (
     form.type === "text" ||
+    form.type === "number" ||
     form.type === "email" ||
     form.type === "tel" ||
     form.type === "textarea"
@@ -788,6 +886,7 @@ export function formHasUserValue(form: any): boolean {
 
   if (
     form.type === "text" ||
+    form.type === "number" ||
     form.type === "email" ||
     form.type === "tel" ||
     form.type === "textarea"

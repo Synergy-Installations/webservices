@@ -36,7 +36,30 @@ function fieldDisplayValue(field: any, value: unknown): string {
   if (field?.type === "choice") {
     return field.options?.[value as string]?.title ?? String(value);
   }
+  if (field?.type === "range") {
+    return `${value}${field.unit ?? ""}`;
+  }
+  if (field?.type === "split-range") {
+    const end = Number(value);
+    const start = 100 - end;
+    return `${field.endLabel}: ${end}% / ${field.startLabel}: ${start}%`;
+  }
+  if (field?.type === "number") {
+    return field.unit ? `${value} ${field.unit}` : String(value);
+  }
   return String(value);
+}
+
+/**
+ * Conditional visibility for a pop-up field. A field with
+ * `showWhen: { field, equals }` is only shown when the referenced sibling field
+ * currently holds the matching value (e.g. show "% Kreuzverbund" only when the
+ * "Kreuzverbund" choice is "ja").
+ */
+function isFieldVisible(field: any, fieldValues: Record<string, any>): boolean {
+  const cond = field?.showWhen;
+  if (!cond?.field) return true;
+  return (fieldValues?.[cond.field] ?? "") === cond.equals;
 }
 
 /**
@@ -140,7 +163,11 @@ export function CardPopupForm({
   const openFieldValues =
     (openOptionKey && form.selected.fields[openOptionKey]) || {};
 
-  const openFieldKeys = openOption ? orderedFieldKeys(openOption) : [];
+  const openFieldKeys = openOption
+    ? orderedFieldKeys(openOption).filter((fieldKey) =>
+        isFieldVisible(openOption.fields[fieldKey], openFieldValues),
+      )
+    : [];
   /** Show an "optional selection criteria" hint when none of the card's fields
    * are required. */
   const allFieldsOptional =
@@ -158,6 +185,9 @@ export function CardPopupForm({
           const selected = isSelected(optionKey);
           const fieldValues = form.selected.fields[optionKey] ?? {};
           const filledChips = orderedFieldKeys(option)
+            .filter((fieldKey) =>
+              isFieldVisible(option.fields[fieldKey], fieldValues),
+            )
             .map((fieldKey) => ({
               field: option.fields[fieldKey],
               value: fieldDisplayValue(
@@ -283,7 +313,7 @@ export function CardPopupForm({
                 </div>
 
                 <div className="space-y-5">
-                  {orderedFieldKeys(openOption).map((fieldKey) => {
+                  {openFieldKeys.map((fieldKey) => {
                     const field = openOption.fields[fieldKey];
                     const value = openFieldValues[fieldKey] ?? "";
                     const fieldRequired =
@@ -306,6 +336,13 @@ export function CardPopupForm({
                               </span>
                             ))}
                         </label>
+                        {/** Optional hint shown beneath the label (e.g. "Wenn nicht
+                         * sicher, dann schätzen Sie"). */}
+                        {field.description && (
+                          <p className="text-xs text-synergy-light-blue">
+                            {field.description}
+                          </p>
+                        )}
 
                         {field.type === "choice" ? (
                           <div className="flex flex-wrap gap-2">
@@ -349,6 +386,100 @@ export function CardPopupForm({
                             }
                             className="block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900 focus:border-synergy-light-blue focus:ring-synergy-light-blue dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                           />
+                        ) : field.type === "number" ? (
+                          <div className="flex items-center gap-2">
+                            <input
+                              type="number"
+                              value={value}
+                              placeholder={field.placeholder}
+                              min={field.min ?? undefined}
+                              max={field.max ?? undefined}
+                              step={field.step ?? undefined}
+                              onChange={(e) =>
+                                setFieldValue(
+                                  openOptionKey as string,
+                                  fieldKey,
+                                  e.target.value,
+                                )
+                              }
+                              className="block w-full rounded-lg border border-gray-300 bg-white p-2.5 text-sm text-gray-900 focus:border-synergy-light-blue focus:ring-synergy-light-blue dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                            />
+                            {field.unit && (
+                              <span className="shrink-0 text-sm text-gray-500 dark:text-gray-400">
+                                {field.unit}
+                              </span>
+                            )}
+                          </div>
+                        ) : field.type === "range" ? (
+                          (() => {
+                            const min = Number(field.min ?? 0);
+                            const max = Number(field.max ?? 100);
+                            const current =
+                              value !== ""
+                                ? Number(value)
+                                : Number(field.default ?? min);
+                            return (
+                              <div className="space-y-1">
+                                <input
+                                  type="range"
+                                  min={min}
+                                  max={max}
+                                  step={field.step ?? 1}
+                                  value={current}
+                                  onChange={(e) =>
+                                    setFieldValue(
+                                      openOptionKey as string,
+                                      fieldKey,
+                                      e.target.value,
+                                    )
+                                  }
+                                  className="w-full accent-synergy-light-blue"
+                                />
+                                <div className="text-right text-sm font-medium text-synergy-dark-grey dark:text-gray-300">
+                                  {current}
+                                  {field.unit ?? ""}
+                                </div>
+                              </div>
+                            );
+                          })()
+                        ) : field.type === "split-range" ? (
+                          (() => {
+                            /** A single value drives a complementary split: the
+                             * stored number is the "end" share, the start share is
+                             * its complement to 100 %. */
+                            const end =
+                              value !== ""
+                                ? Number(value)
+                                : Number(field.default ?? 50);
+                            const start = 100 - end;
+                            return (
+                              <div className="space-y-1">
+                                <input
+                                  type="range"
+                                  min={0}
+                                  max={100}
+                                  step={field.step ?? 5}
+                                  value={end}
+                                  onChange={(e) =>
+                                    setFieldValue(
+                                      openOptionKey as string,
+                                      fieldKey,
+                                      e.target.value,
+                                    )
+                                  }
+                                  className="w-full accent-synergy-light-blue"
+                                />
+                                <div className="flex justify-between text-sm font-medium text-synergy-dark-grey dark:text-gray-300">
+                                  <span>
+                                    {field.startLabel}: {start}%
+                                  </span>
+                                  <span>
+                                    {field.endLabel}: {end}%
+                                  </span>
+                                </div>
+                              </div>
+                            );
+                          })()
                         ) : (
                           <input
                             type="text"

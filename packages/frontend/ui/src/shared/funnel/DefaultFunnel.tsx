@@ -45,6 +45,7 @@ import {
   type FunnelPrefillResult,
   isVisibleEntity,
   isRequiredForm,
+  isRequiredGroupSatisfied,
   isQuestionComplete,
   shouldRenderFunnelForm,
   getRenderableQuestionKeys,
@@ -431,6 +432,48 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     return () => clearQuestionTransitionTimers();
   }, [clearQuestionTransitionTimers]);
 
+  useEffect(() => {
+    if (questionPresentation !== "window") return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Enter") return;
+      const target = event.target as HTMLElement;
+      const tag = target.tagName.toLowerCase();
+      if (
+        tag === "input" ||
+        tag === "textarea" ||
+        tag === "select" ||
+        tag === "button" ||
+        tag === "a" ||
+        target.isContentEditable
+      ) {
+        return;
+      }
+
+      const currentQuestionKey =
+        typeof window !== "undefined"
+          ? (new URL(window.location.href).searchParams.get(
+              "currentQuestionId",
+            ) ?? undefined)
+          : undefined;
+      const elements = questionElementsRef.current;
+      if (!currentQuestionKey || !elements[currentQuestionKey]) return;
+
+      const visibleFormKeys = Object.keys(
+        elements[currentQuestionKey].form,
+      ).filter((fk) =>
+        shouldRenderFunnelForm(elements, currentQuestionKey, fk, true),
+      );
+      const lastFormKey = visibleFormKeys[visibleFormKeys.length - 1];
+      if (!lastFormKey) return;
+
+      getNextQuestionKeyRef.current(currentQuestionKey, lastFormKey, "next");
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [questionPresentation]);
+
   const prefersReducedMotion = useCallback((): boolean => {
     if (
       typeof window !== "undefined" &&
@@ -631,33 +674,37 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                   questionElements[questionKey].form[formKey].message.type ===
                     "warning")))
           ) {
+            const groupForm = questionElements[questionKey].form[formKey];
+            const inRequiredGroup = Boolean(groupForm.requiredGroup);
+            /** Forms sharing a `requiredGroup` are individually optional but the
+             * group must hold at least one value (e.g. kWp OR number of panels).
+             */
+            const requiredGroupSatisfied =
+              inRequiredGroup &&
+              isRequiredGroupSatisfied(
+                questionElements[questionKey],
+                groupForm.requiredGroup,
+              );
             if (
               /** Test the form for incorrect input only if the form is a required
-               * input, otherwise we have no business validating it.
+               * input (or a member of a not-yet-satisfied required group),
+               * otherwise we have no business validating it.
                */
-              isRequiredForm(questionElements[questionKey].form[formKey]) &&
-              (((questionElements[questionKey].form[formKey].type ===
-                "checkbox" ||
-                questionElements[questionKey].form[formKey].type === "radio" ||
-                questionElements[questionKey].form[formKey].type ===
-                  "select") &&
-                questionElements[questionKey].form[formKey].selected
-                  .selectedOptions.length == 0) ||
-                (questionElements[questionKey].form[formKey].type === "range" &&
-                  Number(
-                    questionElements[questionKey].form[formKey].selected
-                      .selectedValue,
-                  ) <
-                    questionElements[questionKey].form[formKey].options.range
-                      .min) ||
-                ((questionElements[questionKey].form[formKey].type === "text" ||
-                  questionElements[questionKey].form[formKey].type ===
-                    "email" ||
-                  questionElements[questionKey].form[formKey].type === "tel" ||
-                  questionElements[questionKey].form[formKey].type ===
-                    "textarea") &&
-                  questionElements[questionKey].form[formKey].selected
-                    .inputValue == ""))
+              (isRequiredForm(groupForm) || inRequiredGroup) &&
+              !requiredGroupSatisfied &&
+              (((groupForm.type === "checkbox" ||
+                groupForm.type === "radio" ||
+                groupForm.type === "select") &&
+                groupForm.selected.selectedOptions.length == 0) ||
+                (groupForm.type === "range" &&
+                  Number(groupForm.selected.selectedValue) <
+                    groupForm.options.range.min) ||
+                ((groupForm.type === "text" ||
+                  groupForm.type === "number" ||
+                  groupForm.type === "email" ||
+                  groupForm.type === "tel" ||
+                  groupForm.type === "textarea") &&
+                  groupForm.selected.inputValue == ""))
             ) {
               /** Wrong input
                * We do not care about incorrect inputs on previous forms as long as the current form shows errors
@@ -1115,7 +1162,8 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     );
 
     const hasRequired = visibleForms.some(
-      ([_, form]: [string, any]) => form.required === true,
+      ([_, form]: [string, any]) =>
+        form.required === true || Boolean(form.requiredGroup),
     );
     if (hasRequired) return false;
 
@@ -1130,6 +1178,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
       }
       if (
         form.type === "text" ||
+        form.type === "number" ||
         form.type === "email" ||
         form.type === "tel" ||
         form.type === "textarea"
@@ -1302,11 +1351,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                 }
                 config={confettiConfigLow}
               />
-              {questionCounts.completedQuestions}{" "}
-              {t(`progress.labels.topRightDeliminator`)}{" "}
-              {questionCounts.totalQuestions}{" "}
-              {t(`progress.labels.topRightPostfix`)}{" "}
-              {questionProgressPercentage}%
+              {questionProgressPercentage}% ausgefüllt
             </span>
           </div>
           <div className="relative w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
@@ -1333,11 +1378,19 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                     (!activeOverviewQuestionKey &&
                       index === activeOverviewQuestionIndex);
                   const isComplete = isQuestionComplete(question);
+                  const hasError = Object.values(
+                    questionElements[questionKey]?.form ?? {},
+                  ).some(
+                    (form: any) =>
+                      isVisibleEntity(form) && form.message?.type === "error",
+                  );
                   const markerStateClassName = isCurrent
                     ? "funnel-progress-marker-current"
-                    : isComplete
-                      ? "funnel-progress-marker-complete"
-                      : "funnel-progress-marker-upcoming";
+                    : hasError
+                      ? "funnel-progress-marker-error"
+                      : isComplete
+                        ? "funnel-progress-marker-complete"
+                        : "funnel-progress-marker-upcoming";
                   const tooltipAlignmentClassName =
                     index === 0
                       ? "funnel-progress-tooltip-start"
@@ -1349,8 +1402,8 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                     <span
                       key={questionKey}
                       className="funnel-progress-marker"
-                      style={{ left: `${markerPosition}%` }}
-                      role="listitem"
+                      style={{ left: `${markerPosition}%`, cursor: "pointer" }}
+                      role="button"
                       tabIndex={0}
                       aria-label={t(
                         "ui.accessibility.questionProgressMarkerAriaLabel",
@@ -1360,6 +1413,23 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                           title: question?.title ?? "",
                         },
                       )}
+                      onClick={() => {
+                        const direction =
+                          index > activeOverviewQuestionIndex
+                            ? "next"
+                            : "previous";
+                        transitionToQuestion(questionKey, direction);
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          const direction =
+                            index > activeOverviewQuestionIndex
+                              ? "next"
+                              : "previous";
+                          transitionToQuestion(questionKey, direction);
+                        }
+                      }}
                     >
                       <span
                         className={`funnel-progress-marker-dot ${markerStateClassName}`}
@@ -1525,6 +1595,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                               />
                             );
                           case "text":
+                          case "number":
                           case "email":
                           case "tel":
                           case "textarea":
@@ -2153,6 +2224,14 @@ function FunnelQuestionTransitionStyles() {
         .funnel-progress-marker-complete {
           background: #0cc0df;
           border: 2px solid white;
+        }
+
+        .funnel-progress-marker-error {
+          background: #ef4444;
+          border: 2px solid white;
+          box-shadow:
+            0 0 0 3px rgb(239 68 68 / 0.25),
+            0 2px 6px rgb(15 23 42 / 0.18);
         }
 
         .funnel-progress-marker-upcoming {

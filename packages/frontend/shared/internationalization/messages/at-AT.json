@@ -207,10 +207,9 @@
           "lists": [
             [
               "Beratung",
-              "Marketing"
+              "Service"
             ],
             [
-              "Service",
               "Umsetzung"
             ]
           ],
@@ -4460,14 +4459,6 @@
         }
       },
       "productPreviewSmall": {
-        "heatpump": {
-          "title": "Marketing",
-          "href": "#marketing",
-          "image": {
-            "src": "/frontend/landingPage/icons/campaign_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
-            "alt": "Photovoltaic"
-          }
-        },
         "photovoltaic": {
           "title": "Beratung",
           "href": "#beratung",

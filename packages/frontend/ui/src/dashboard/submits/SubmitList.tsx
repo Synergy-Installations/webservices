@@ -132,6 +132,37 @@ export const SubmitList = (props: SubmitListProps) => {
     submitItems.findIndex((submitItem: any) => submitItem._id === item._id) +
       1 || fallbackIndex + 1;
 
+  /**
+   * Look up a form's input value by its form uid across all questions of a
+   * submit. The address form (`submit-form-textarea-address`) used to live under
+   * the `interested-products` question but was moved to its own
+   * `project-address` question. Searching by form uid (which is unchanged) makes
+   * both the old and the new submit configs resolve correctly.
+   */
+  const getSubmitFormInputValueByUid = (
+    item: any,
+    formUid: string,
+  ): string => {
+    const questions = Object.values(
+      (item?.data ?? {}) as Record<string, { form?: Record<string, any> }>,
+    );
+
+    for (const question of questions) {
+      const form = Object.values(
+        (question?.form ?? {}) as Record<
+          string,
+          { uid?: string; selected?: { inputValue?: string } }
+        >,
+      ).find((formEntry) => formEntry?.uid === formUid);
+
+      if (form?.selected?.inputValue) {
+        return form.selected.inputValue;
+      }
+    }
+
+    return "";
+  };
+
   if (error) {
     return (
       <div className="flex flex-col gap-2 p-4 mt-12 items-center justify-center h-full">
@@ -369,63 +400,16 @@ export const SubmitList = (props: SubmitListProps) => {
                   {data.title
                     ? data.title
                     : getSubmitFallbackLabel(data, index)}
+                  {getSubmitFormInputValueByUid(data, "submit-form-name") &&
+                    ` – ${getSubmitFormInputValueByUid(data, "submit-form-name")}`}
                 </p>
                 <div className="flex gap-1">
                   <p className="font-medium">Adresse: </p>
                   <p className="">
-                    {Object.values(
-                      (data.data ?? {}) as Record<
-                        string,
-                        {
-                          uid: string;
-                          form?: Record<
-                            string,
-                            {
-                              uid: string;
-                              selected?: { inputValue: string };
-                            }
-                          >;
-                        }
-                      >,
-                    ).find(({ uid }) => uid === "interested-products")?.form &&
-                      Object.values(
-                        Object.values(
-                          (data.data ?? {}) as Record<
-                            string,
-                            {
-                              uid: string;
-                              form?: Record<
-                                string,
-                                {
-                                  uid: string;
-                                  selected?: { inputValue: string };
-                                }
-                              >;
-                            }
-                          >,
-                        ).find(({ uid }) => uid === "interested-products")
-                          ?.form ?? {},
-                      ).find(
-                        ({ uid }: { uid: string }) =>
-                          uid === "submit-form-textarea-address",
-                      )?.selected?.inputValue}{" "}
-                    {/* {
-              data.data["interested-products"].form[
-                "interested-products-range-2"
-              ].options.unit.value
-            }
-            {" - "}
-            {
-              data.data["interested-products"].form[
-                "interested-products-dachtyp"
-              ].selected.selectedOptions[0]
-            }
-            {" - "}
-            {
-              data.data["interested-products"].form[
-                "interested-products-schnittstelle"
-              ].selected.selectedOptions[0]
-            } */}
+                    {getSubmitFormInputValueByUid(
+                      data,
+                      "submit-form-textarea-address",
+                    )}
                   </p>
                 </div>
                 {data?.status && (

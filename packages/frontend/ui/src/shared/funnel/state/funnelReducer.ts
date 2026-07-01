@@ -114,6 +114,16 @@ export function initFunnelState(args: InitFunnelArgs): FunnelElements {
 
   const elements = Object.keys(questionElementsRaw).reduce(
     (acc: FunnelElements, questionKey: string) => {
+      // Skip special, non-question entities (e.g. `__legalConsent`). Saved
+      // submits persist the full funnel state, so raw data loaded back from the
+      // DB can contain these keys, which have no `.form` and must not be run
+      // through createQuestionElement.
+      if (
+        questionKey.startsWith("__") ||
+        !questionElementsRaw[questionKey]?.form
+      ) {
+        return acc;
+      }
       const key = `${questionKey}-${Math.random().toString(36).substring(2, 7)}`;
       acc[useKey ? questionKey : key] = createQuestionElement(
         useKey ? questionElementsRaw[questionKey].uid : questionKey,
@@ -131,7 +141,11 @@ export function initFunnelState(args: InitFunnelArgs): FunnelElements {
 
   return {
     ...elements,
-    __legalConsent: createInitialLegalConsentState(),
+    // Preserve a previously saved consent state (loaded from the DB) so the
+    // dashboard shows what the user actually agreed to; otherwise start fresh.
+    __legalConsent:
+      (questionElementsRaw.__legalConsent as LegalConsentState | undefined) ??
+      createInitialLegalConsentState(),
   };
 }
 

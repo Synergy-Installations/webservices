@@ -4,7 +4,7 @@ import Image from "next/image";
 import { ImageLoader } from "@com.synergy/frontend-ui/ImageLoader";
 import { useEffect, useRef, useState } from "react";
 import { set } from "mongoose";
-import { ClerkLoading, SignedIn, SignOutButton } from "@clerk/nextjs";
+import { ClerkLoading, SignedIn, SignOutButton, useUser } from "@clerk/nextjs";
 import dynamic from "next/dynamic";
 
 const UserButton = dynamic(
@@ -20,6 +20,12 @@ export interface DefaultLayoutProps {
 export const DefaultLayout = (props: DefaultLayoutProps) => {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
   const [userNavOpen, setUserNavOpen] = useState<boolean>(false);
+
+  const { user } = useUser();
+  const accessRights = user?.publicMetadata?.accessRights;
+  const isMontageAdmin =
+    Array.isArray(accessRights) &&
+    (accessRights.includes("all:*") || accessRights.includes("montage:*"));
 
   const mobileNavTrigger = useRef<HTMLButtonElement>(null);
   const mobileNav = useRef<HTMLDivElement>(null);
@@ -137,7 +143,7 @@ export const DefaultLayout = (props: DefaultLayoutProps) => {
               </Link>
             </div>
             <div className="hidden sm:block">
-              <ul className="space-y-2 flex text-sm font-medium gap-2">
+              <ul className="flex items-center text-sm font-medium gap-2">
                 {/* <li>
                   <a
                     href="#"
@@ -175,6 +181,25 @@ export const DefaultLayout = (props: DefaultLayoutProps) => {
                 </span> */}
                   </Link>
                 </li>
+                {isMontageAdmin && (
+                  <li>
+                    <Link
+                      href="/dashboard/montagekalender"
+                      className="inline-flex items-center px-4 py-2 rounded-lg hover:text-gray-900 bg-gray-50 hover:bg-gray-100 w-full dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
+                    >
+                      <svg
+                        className="w-4 h-4 me-2 text-gray-500 dark:text-gray-400"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M5 0a1 1 0 0 0-1 1v1H3a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-1V1a1 1 0 1 0-2 0v1H6V1a1 1 0 0 0-1-1Zm12 7H3v10h14V7Z" />
+                      </svg>
+                      Montagekalender
+                    </Link>
+                  </li>
+                )}
               </ul>
             </div>
             <div className="flex items-center py-2">
@@ -307,6 +332,27 @@ export const DefaultLayout = (props: DefaultLayoutProps) => {
                 </span> */}
               </Link>
             </li>
+            {isMontageAdmin && (
+              <li>
+                <Link
+                  href="/dashboard/montagekalender"
+                  className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                >
+                  <svg
+                    className="shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M5 0a1 1 0 0 0-1 1v1H3a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-1V1a1 1 0 1 0-2 0v1H6V1a1 1 0 0 0-1-1Zm12 7H3v10h14V7Z" />
+                  </svg>
+                  <span className="flex-1 ms-3 whitespace-nowrap">
+                    Montagekalender
+                  </span>
+                </Link>
+              </li>
+            )}
             {/* <li>
               <a
                 href="#"

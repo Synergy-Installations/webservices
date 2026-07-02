@@ -67,6 +67,18 @@ const submitProgressSteps: SubmitProgressStep[] = [
   "redirecting",
 ];
 
+/** Find the Montagekalender-picker start day the customer chose, if any. */
+function getMontageStartDate(questionElements: any): string | null {
+  for (const question of Object.values(questionElements ?? {}) as any[]) {
+    for (const form of Object.values(question?.form ?? {}) as any[]) {
+      if (form?.type === "montage-datepicker" && form?.selected?.montageStartDate) {
+        return form.selected.montageStartDate as string;
+      }
+    }
+  }
+  return null;
+}
+
 export const Funnel = (props: FunnelProps) => {
   const { STORAGE_ZONE_ACCESS_KEY } = props;
 
@@ -520,7 +532,11 @@ export const Funnel = (props: FunnelProps) => {
                                 )
                               : form.type === "calendly"
                                 ? `event: ${form.selected.scheduledEvent.event.uri}, invitee: ${form.selected.scheduledEvent.invitee.uri}`
-                                : "N/A",
+                                : form.type === "montage-datepicker"
+                                  ? form.selected?.montageStartDate
+                                    ? `Wunschtermin: ${form.selected.montageStartDate} (voraussichtlich ${form.selected.montageWorkingDays ?? "?"} Arbeitstage, bis ${form.selected.montageEndDate ?? "?"})`
+                                    : "Kein Wunschtermin gewählt"
+                                  : "N/A",
                   };
                 }),
             };
@@ -629,6 +645,28 @@ export const Funnel = (props: FunnelProps) => {
         }
 
         console.log("Successfully sent submit to db", res);
+
+        // Confirm-on-submit for the Montagekalender picker: if the customer chose
+        // a Wunschtermin, book it now that the Submit (inquiry) exists. Best-effort
+        // — a conflict/failure never blocks the funnel submission.
+        const montageStartDate = getMontageStartDate(questionElements);
+        if (montageStartDate) {
+          try {
+            const bookRes = await fetch("/api/funnel/montage/book", {
+              method: "POST",
+              body: JSON.stringify({ submitId, startDate: montageStartDate }),
+            });
+            if (!bookRes.ok) {
+              console.warn(
+                "Montage booking could not be confirmed",
+                bookRes.status,
+              );
+            }
+          } catch (bookErr) {
+            console.warn("Montage booking request failed", bookErr);
+          }
+        }
+
         setSubmitProgressStage("sendingEmail");
 
         const sendConfirmationEmail = async () => {

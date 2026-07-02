@@ -8217,6 +8217,31 @@
               }
             }
           },
+          "interested-montagetermin": {
+            "title": "Your preferred installation date",
+            "description": "Pick an available start day – a guideline based on our available installation teams.",
+            "version": "0.1.0",
+            "defaultVisible": "true",
+            "form": {
+              "montage-termin-picker": {
+                "order": "1",
+                "type": "montage-datepicker",
+                "required": "false",
+                "defaultVisible": "true",
+                "title": "",
+                "description": "",
+                "span": "2",
+                "message": {
+                  "text": "Only days with a free installation team can be selected.",
+                  "type": "info",
+                  "successMessage": "Thank you for your selection",
+                  "requiredMessage": "This input is required",
+                  "checkPreviousFormsMessage": "Please fix all errors in the previous forms"
+                },
+                "options": {}
+              }
+            }
+          },
           "submit": {
             "title": "Enter your contact details",
             "description": "and reserve your assembly date",

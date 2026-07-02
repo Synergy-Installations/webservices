@@ -40,6 +40,7 @@ import { SelectForm } from "./forms/SelectForm";
 import { TextInputForm } from "./forms/TextInputForm";
 import { SubmitButtonForm } from "./forms/SubmitButtonForm";
 import { CalculationForm } from "./forms/CalculationForm";
+import { MontageDatePickerForm } from "./forms/MontageDatePickerForm";
 import {
   type FunnelPrefillEntry,
   type FunnelPrefillResult,
@@ -1677,6 +1678,18 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                           case "calendly":
                             return (
                               <Calendly
+                                questionKey={questionKey}
+                                formKey={formKey}
+                                questionElements={questionElements}
+                                setQuestionElements={setQuestionElements}
+                                debouncedCountFormsAndSet={
+                                  debouncedCountQuestionsAndSet
+                                }
+                              />
+                            );
+                          case "montage-datepicker":
+                            return (
+                              <MontageDatePickerForm
                                 questionKey={questionKey}
                                 formKey={formKey}
                                 questionElements={questionElements}

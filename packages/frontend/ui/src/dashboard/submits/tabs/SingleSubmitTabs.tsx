@@ -33,6 +33,7 @@ export const SingleSubmitTabs = (props: SingleSubmitTabsProps) => {
   const isSteps = path.includes("steps");
   const isVaults = path.includes("vaults") && !path.includes("steps");
   const isMembers = path.includes("members") && !path.includes("steps");
+  const isMontage = path.includes("montagekalender");
 
   return (
     <div>
@@ -105,6 +106,23 @@ export const SingleSubmitTabs = (props: SingleSubmitTabsProps) => {
               <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
             </svg>
             Mitglieder
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={`/dashboard/submits/${id}/montagekalender`}
+            className={`inline-flex items-center justify-center px-4 py-2 ${isMontage ? "text-white bg-blue-700 dark:bg-blue-600" : "hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"} rounded-lg active w-full `}
+          >
+            <svg
+              className={`w-4 h-4 me-2 ${isMontage ? "text-white" : "text-gray-500 dark:text-gray-400"}`}
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path d="M5 0a1 1 0 0 0-1 1v1H3a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-1V1a1 1 0 1 0-2 0v1H6V1a1 1 0 0 0-1-1Zm12 7H3v10h14V7Z" />
+            </svg>
+            Montagekalender
           </Link>
         </li>
         {SingleStepTabsEdit && (

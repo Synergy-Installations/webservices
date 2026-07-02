@@ -6,12 +6,18 @@
     "lint": "turbo lint",
     "type-check": "turbo type-check",
     "clean": "turbo clean",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "db:ensure-indexes": "node --env-file=apps/frontend/.env.local --import tsx scripts/ensure-montage-indexes.ts",
+    "db:concurrency-check": "node --env-file=apps/frontend/.env.local --import tsx scripts/montage-concurrency-check.ts",
+    "test": "vitest run"
   },
   "devDependencies": {
+    "@com.synergy/frontend-backend-dashboard": "workspace:^",
     "prettier": "^3.8.3",
     "prettier-plugin-tailwindcss": "^0.5.14",
-    "turbo": "^2.9.6"
+    "tsx": "^4.22.4",
+    "turbo": "^2.9.6",
+    "vitest": "^4.1.9"
   },
   "packageManager": "pnpm@8.15.6",
   "engines": {

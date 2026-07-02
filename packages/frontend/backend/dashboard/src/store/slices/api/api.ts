@@ -48,6 +48,9 @@ export const api = createApi({
     "Chats",
     "Vaults",
     "Assets",
+    "Teams",
+    "Bookings",
+    "Calendar",
   ],
   /**
    * This api has endpoints injected in adjacent files,

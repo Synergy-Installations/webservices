@@ -6693,6 +6693,31 @@
               }
             }
           },
+          "interested-montagetermin": {
+            "title": "Ihr Wunsch-Montagetermin",
+            "description": "Wählen Sie einen verfügbaren Starttag – ein Richtwert anhand unserer verfügbaren Montageteams.",
+            "version": "0.1.0",
+            "defaultVisible": "true",
+            "form": {
+              "montage-termin-picker": {
+                "order": "1",
+                "type": "montage-datepicker",
+                "required": "false",
+                "defaultVisible": "true",
+                "title": "",
+                "description": "",
+                "span": "2",
+                "message": {
+                  "text": "Nur Tage mit freiem Montageteam sind auswählbar.",
+                  "type": "info",
+                  "successMessage": "Danke für Ihre Auswahl",
+                  "requiredMessage": "Diese Eingabe ist verpflichtend",
+                  "checkPreviousFormsMessage": "Bitte beheben Sie alle Fehler in den vorherigen Formularen"
+                },
+                "options": {}
+              }
+            }
+          },
           "submit": {
             "title": "Geben Sie Ihre Kontaktdaten ein",
             "description": "Und reservieren Sie sich Ihren Montagetermin",

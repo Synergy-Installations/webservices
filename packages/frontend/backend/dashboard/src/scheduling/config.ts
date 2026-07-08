@@ -25,9 +25,15 @@ export interface MontageConfig {
  */
 export const DEFAULT_MONTAGE_CONFIG: MontageConfig = {
   workingWeekdays: [1, 2, 3, 4, 5],
+  // Days per team (2 PAX), by system size. Bounds are "ab X kWp" (inclusive
+  // lower) — see durationDaysPerTeam. Two teams halve the span (twoTeamHalving).
   durationRules: [
-    { maxKwp: 20, daysPerTeam: 2 },
-    { maxKwp: null, daysPerTeam: 3 },
+    { maxKwp: 20, daysPerTeam: 2 }, // Standardmontage: unter 20 kWp
+    { maxKwp: 30, daysPerTeam: 3 }, // ab 20 kWp
+    { maxKwp: 50, daysPerTeam: 4 }, // ab 30 kWp
+    { maxKwp: 75, daysPerTeam: 5 }, // ab 50 kWp
+    { maxKwp: 100, daysPerTeam: 7 }, // ab 75 kWp
+    { maxKwp: null, daysPerTeam: 10 }, // ab 100 kWp
   ],
   twoTeamHalving: true,
   bufferDays: 0,

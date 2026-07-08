@@ -681,6 +681,54 @@ export const createQuestionElement = (
                 : { event: { uri: "" }, invitee: { uri: "" } },
             },
           };
+        } else if (element.form[formKey].type === "montage-datepicker") {
+          formAcc[
+            useKey
+              ? formKey
+              : `${useUidAsKey ? element.form[formKey].uid : formKey}-${Math.random().toString(36).substring(2, 7)}`
+          ] = {
+            order: useStrings
+              ? Number(element.form[formKey].order)
+              : element.form[formKey].order,
+            uid: useKey || useUidAsKey ? element.form[formKey].uid : formKey,
+            type: element.form[formKey].type,
+            required: useStrings
+              ? element.form[formKey].required === "true"
+              : element.form[formKey].required,
+            defaultVisible: useStrings
+              ? element.form[formKey].defaultVisible === "true"
+              : element.form[formKey].defaultVisible,
+            title: element.form[formKey].title,
+            description: element.form[formKey].description,
+            localStorage: useStrings
+              ? element.form[formKey].localStorage === "true"
+              : element.form[formKey].localStorage,
+            span: element.form[formKey].span,
+            from: useKey ? element.form[formKey].from : from || [],
+            message: {
+              text: element.form[formKey].message.text,
+              type: element.form[formKey].message.type,
+              requiredMessage: element.form[formKey].message.requiredMessage,
+              successMessage: element.form[formKey].message.successMessage,
+              checkPreviousFormsMessage:
+                element.form[formKey].message.checkPreviousFormsMessage,
+            },
+            options: {},
+            selected: {
+              questionTitle: useSelected
+                ? element.form[formKey].selected.questionTitle
+                : element.form[formKey].title,
+              montageStartDate: useSelected
+                ? (element.form[formKey].selected?.montageStartDate ?? "")
+                : "",
+              montageEndDate: useSelected
+                ? (element.form[formKey].selected?.montageEndDate ?? "")
+                : "",
+              montageWorkingDays: useSelected
+                ? (element.form[formKey].selected?.montageWorkingDays ?? null)
+                : null,
+            },
+          };
         } else if (element.form[formKey].type === "card-popup") {
           formAcc[
             useKey

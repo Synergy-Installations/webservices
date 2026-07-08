@@ -2,14 +2,16 @@ import type { MontageConfig } from "./config";
 
 /**
  * Working days one team needs for a job of `kWp` size — the first duration rule
- * whose `maxKwp` bound the size falls under (`maxKwp: null` = no upper bound).
+ * whose `maxKwp` bound the size falls *strictly under* (`maxKwp: null` = no upper
+ * bound). Bounds are exclusive-upper so an "ab 20 kWp" tier owns exactly 20 kWp:
+ * rules `[{20,2},{30,3},…]` give <20 → 2 days, 20–29.99 → 3, etc.
  */
 export const durationDaysPerTeam = (
   kWp: number,
   cfg: MontageConfig
 ): number => {
   const rule =
-    cfg.durationRules.find((r) => r.maxKwp === null || kWp <= r.maxKwp) ??
+    cfg.durationRules.find((r) => r.maxKwp === null || kWp < r.maxKwp) ??
     cfg.durationRules[cfg.durationRules.length - 1];
   return rule.daysPerTeam;
 };

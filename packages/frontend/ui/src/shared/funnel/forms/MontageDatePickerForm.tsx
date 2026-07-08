@@ -9,6 +9,22 @@ interface Slot {
   workingDays: string[];
 }
 
+interface DurationRule {
+  maxKwp: number | null;
+  daysPerTeam: number;
+}
+
+interface Explain {
+  kWp: number;
+  durationDays: number;
+  durationPerTeam: number;
+  durationRules: DurationRule[];
+  bufferDays: number;
+  leadBaseWeeks: number;
+  leadHeavyWeeks: number;
+  heavyComponents: string[];
+}
+
 const RICHTWERT_NOTE =
   "Der angezeigte Termin ist ein Richtwert und wird anhand der verfügbaren " +
   "Montageteams sowie des hinterlegten Regelwerks (Dauer nach Anlagengröße, " +
@@ -23,6 +39,14 @@ const MONTHS = [
 
 const ymd = (y: number, m: number, d: number) =>
   `${y}-${String(m + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+
+/** Human label for a duration tier ("ab X" = inclusive lower bound). */
+function tierLabel(rule: DurationRule, prevMax: number | null): string {
+  if (rule.maxKwp === null) {
+    return prevMax === null ? "alle Anlagen" : `ab ${prevMax} kWp`;
+  }
+  return prevMax === null ? `unter ${rule.maxKwp} kWp` : `ab ${prevMax} kWp`;
+}
 
 /**
  * Funnel form: lets the customer pick a buildable installation start day from
@@ -55,6 +79,7 @@ export function MontageDatePickerForm({
 
   const [slots, setSlots] = useState<Slot[]>([]);
   const [leadTimeWeeks, setLeadTimeWeeks] = useState<number | null>(null);
+  const [explain, setExplain] = useState<Explain | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [month, setMonth] = useState<{ y: number; m: number } | null>(null);
@@ -74,6 +99,7 @@ export function MontageDatePickerForm({
         const s: Slot[] = body?.data?.slots ?? [];
         setSlots(s);
         setLeadTimeWeeks(body?.data?.leadTimeWeeks ?? null);
+        setExplain(body?.data?.explain ?? null);
         if (s.length > 0 && !month) {
           const [y, m] = s[0].startDate.split("-").map(Number);
           setMonth({ y, m: m - 1 });
@@ -114,6 +140,13 @@ export function MontageDatePickerForm({
 
   const chosen = selected.montageStartDate as string | undefined;
   const chosenSlot = chosen ? slotByStart.get(chosen) : undefined;
+
+  // All working days of the chosen job — highlighted together so the customer
+  // sees the full span (not just the start day).
+  const chosenDays = useMemo(
+    () => new Set(chosenSlot?.workingDays ?? []),
+    [chosenSlot]
+  );
 
   // Month grid (Mon-first).
   const grid = useMemo(() => {
@@ -190,7 +223,8 @@ export function MontageDatePickerForm({
             {grid.map((key, i) => {
               if (!key) return <div key={`e${i}`} />;
               const buildable = slotByStart.has(key);
-              const isChosen = key === chosen;
+              const isStart = key === chosen;
+              const inRange = chosenDays.has(key);
               const day = Number(key.split("-")[2]);
               return (
                 <button
@@ -198,12 +232,21 @@ export function MontageDatePickerForm({
                   type="button"
                   disabled={!buildable}
                   onClick={() => pick(key)}
+                  title={
+                    inRange
+                      ? isStart
+                        ? "Montagebeginn"
+                        : "Teil der Montagedauer"
+                      : undefined
+                  }
                   className={`aspect-square rounded text-sm transition-colors ${
-                    isChosen
-                      ? "bg-synergy-light-blue text-white"
-                      : buildable
-                        ? "bg-synergy-light-blue/10 text-gray-800 hover:bg-synergy-light-blue/25"
-                        : "text-gray-300"
+                    isStart
+                      ? "bg-synergy-light-blue font-semibold text-white ring-2 ring-synergy-light-blue ring-offset-1"
+                      : inRange
+                        ? "bg-synergy-light-blue/60 font-medium text-white"
+                        : buildable
+                          ? "bg-synergy-light-blue/10 text-gray-800 hover:bg-synergy-light-blue/25"
+                          : "text-gray-300"
                   }`}
                 >
                   {day}
@@ -214,19 +257,96 @@ export function MontageDatePickerForm({
         </div>
       )}
 
+      {slots.length > 0 && (
+        <div className="mx-auto mt-2 max-w-sm">
+          <div className="flex items-center justify-center gap-4 text-xs text-gray-500">
+            <span className="inline-flex items-center gap-1">
+              <span className="inline-block h-3 w-3 rounded bg-synergy-light-blue ring-2 ring-synergy-light-blue ring-offset-1" />
+              Montagebeginn
+            </span>
+            <span className="inline-flex items-center gap-1">
+              <span className="inline-block h-3 w-3 rounded bg-synergy-light-blue/60" />
+              Montagedauer
+            </span>
+            <span className="inline-flex items-center gap-1">
+              <span className="inline-block h-3 w-3 rounded bg-synergy-light-blue/10" />
+              verfügbar
+            </span>
+          </div>
+        </div>
+      )}
+
       {chosenSlot && (
-        <p className="mt-3 text-center text-sm font-medium text-gray-800">
+        <p className="mt-3 text-center text-base font-semibold text-gray-800">
           Gewählter Termin: {chosenSlot.startDate} · voraussichtlich{" "}
           {chosenSlot.workingDays.length} Arbeitstage (bis {chosenSlot.endDate})
         </p>
       )}
 
-      <p className="mt-3 text-xs text-gray-500">
-        {leadTimeWeeks !== null && (
-          <span className="mb-1 block font-medium text-gray-600">
-            Vorlaufzeit: {leadTimeWeeks} Wochen
-          </span>
-        )}
+      {explain && slots.length > 0 && (
+        <div className="mx-auto mt-4 max-w-md rounded-xl border border-gray-200 bg-gray-50 p-4 text-sm leading-relaxed text-gray-700">
+          <p className="mb-2 font-semibold text-gray-800">
+            So berechnet sich Ihr Termin
+          </p>
+
+          <p className="font-medium text-gray-800">Dauer der Montage</p>
+          <p>
+            Ihre Anlage: <strong>{explain.kWp} kWp</strong>. Nach unserem
+            Regelwerk (Dauer nach Anlagengröße):
+          </p>
+          <ul className="ml-4 mt-1 list-disc">
+            {explain.durationRules.map((rule, idx) => {
+              const prevMax =
+                idx === 0 ? null : explain.durationRules[idx - 1].maxKwp;
+              const applies =
+                (rule.maxKwp === null || explain.kWp < rule.maxKwp) &&
+                (prevMax === null || explain.kWp >= prevMax);
+              return (
+                <li
+                  key={idx}
+                  className={applies ? "font-semibold text-synergy-light-blue" : ""}
+                >
+                  {tierLabel(rule, prevMax)}: {rule.daysPerTeam} Arbeitstage
+                  {applies ? " ← trifft auf Sie zu" : ""}
+                </li>
+              );
+            })}
+          </ul>
+          <p className="mt-1">
+            → Ihre Montage dauert voraussichtlich{" "}
+            <strong>{explain.durationDays} Arbeitstage</strong>
+            {explain.bufferDays > 0
+              ? ` (inkl. ${explain.bufferDays} Puffertag${explain.bufferDays > 1 ? "e" : ""})`
+              : ""}
+            . Diese Tage sind im Kalender farbig markiert.
+          </p>
+
+          <p className="mt-3 font-medium text-gray-800">Vorlaufzeit</p>
+          <p>
+            Standard: <strong>{explain.leadBaseWeeks} Wochen</strong>. Bei
+            Komponenten mit mehr Materialvorlauf (Speicher, Notstrom, Akku):{" "}
+            <strong>{explain.leadHeavyWeeks} Wochen</strong>.
+          </p>
+          <p className="mt-1">
+            {explain.heavyComponents.length > 0 ? (
+              <>
+                Ihre Auswahl enthält{" "}
+                <strong>{explain.heavyComponents.join(", ")}</strong> →{" "}
+                <strong>{explain.leadHeavyWeeks} Wochen</strong> Vorlaufzeit.
+              </>
+            ) : (
+              <>
+                Ihre Auswahl enthält keine solchen Komponenten →{" "}
+                <strong>{explain.leadBaseWeeks} Wochen</strong> Vorlaufzeit.
+              </>
+            )}{" "}
+            Deshalb beginnt der früheste Termin erst in{" "}
+            <strong>{leadTimeWeeks ?? explain.leadBaseWeeks} Wochen</strong>.
+          </p>
+        </div>
+      )}
+
+      <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-gray-600">
         {RICHTWERT_NOTE}
       </p>
     </div>

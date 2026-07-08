@@ -9,6 +9,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "db:ensure-indexes": "node --env-file=apps/frontend/.env.local --import tsx scripts/ensure-montage-indexes.ts",
     "db:concurrency-check": "node --env-file=apps/frontend/.env.local --import tsx scripts/montage-concurrency-check.ts",
+    "db:update-rules": "node --env-file=apps/frontend/.env.local --import tsx scripts/update-montage-rules.ts",
     "test": "vitest run"
   },
   "devDependencies": {

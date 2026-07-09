@@ -1,0 +1,77 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm dev)",
+      "Bash(pnpm dev:*)",
+      "Bash(pnpm install)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm lint)",
+      "Bash(pnpm lint:*)",
+      "Bash(pnpm type-check)",
+      "Bash(pnpm type-check:*)",
+      "Bash(pnpm build)",
+      "Bash(pnpm test)",
+      "Bash(pnpm submit)",
+      "Bash(pnpm submit:*)",
+      "Bash(gh auth status)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr status:*)",
+      "Bash(gh pr create:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git branch:*)",
+      "Bash(git show:*)",
+      "Bash(git fetch:*)",
+      "Bash(git pull:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git checkout:*)",
+      "Bash(git switch:*)",
+      "Bash(git restore:*)",
+      "Bash(git stash:*)",
+      "Bash(git merge:*)",
+      "Bash(git push:*)",
+      "Bash(lsof -i:*)",
+      "Bash(lsof -ti:*)",
+      "Bash(curl -s http://localhost:*)",
+      "Bash(curl -sI http://localhost:*)",
+      "Bash(open http://localhost:*)"
+    ],
+    "deny": [
+      "Read(./**/.env*)",
+      "Read(./**/sendgrid.env)",
+      "Bash(pnpm db:*)",
+      "Bash(pnpm trigger:*)",
+      "Bash(npx trigger:*)",
+      "Bash(vercel:*)",
+      "Bash(gh pr merge:*)",
+      "Bash(gh repo delete:*)",
+      "Bash(gh api:*)",
+      "Bash(rm -rf:*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/protect-main.js\""
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/protect-main.js\" --edit"
+          }
+        ]
+      }
+    ]
+  }
+}

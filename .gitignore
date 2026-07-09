@@ -37,3 +37,6 @@ dist/
 
 # Trigger
 .trigger/*
+
+# Claude Code (personal settings stay local; settings.json/hooks/skills are shared)
+.claude/settings.local.json

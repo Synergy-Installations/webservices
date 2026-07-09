@@ -10,6 +10,7 @@
     "db:ensure-indexes": "node --env-file=apps/frontend/.env.local --import tsx scripts/ensure-montage-indexes.ts",
     "db:concurrency-check": "node --env-file=apps/frontend/.env.local --import tsx scripts/montage-concurrency-check.ts",
     "db:update-rules": "node --env-file=apps/frontend/.env.local --import tsx scripts/update-montage-rules.ts",
+    "submit": "bash scripts/submit-for-review.sh",
     "test": "vitest run"
   },
   "devDependencies": {

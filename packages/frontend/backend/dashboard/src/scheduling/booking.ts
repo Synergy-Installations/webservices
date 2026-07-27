@@ -5,7 +5,8 @@ import Booking from "../db/models/booking";
 import Submit from "../db/models/submit";
 import { getConfig } from "./config";
 import { calendarDays, leadTimeWeeks } from "./rules";
-import { addDays, collectWorkingDays, isWorkingDay } from "./dates";
+import { addDays, isWorkingDay, nextWorkingDay } from "./dates";
+import { placementsForStart } from "./availability";
 import { extractSubmitFields } from "./submitFields";
 
 const { ObjectId } = mongoose.Types;
@@ -67,32 +68,35 @@ export async function createHold({
   components?: string[];
 }): Promise<HoldResult> {
   const cfg = await getConfig();
-  const need = collectWorkingDays(
-    startDate,
-    calendarDays(kWp, teamCount, cfg),
-    cfg
-  );
+  const span = calendarDays(kWp, teamCount, cfg);
+  const s0 = nextWorkingDay(startDate, cfg);
   const expiresAt = new Date(Date.now() + cfg.holdTtlMinutes * 60_000);
   const holdId = new ObjectId();
 
   try {
     let assigned: mongoose.Types.ObjectId[] = [];
+    let allDays: string[] = [];
     await withTransaction(async (session) => {
       const teams = await Team.find({ active: true }).session(session).lean();
-      const occ = await TeamDayOccupancy.find({ dateKey: { $in: need } })
+      // Load each candidate team's occupancy over a generous window so the
+      // gap-aware placement can skip busy days. Days past the window read as free;
+      // the unique {teamId,dateKey} index is the final guard on any real overlap.
+      const occ = await TeamDayOccupancy.find({
+        dateKey: { $gte: s0, $lte: addDays(s0, span * 4 + 60) },
+      })
         .select({ teamId: 1, dateKey: 1 })
         .session(session)
         .lean();
       const busy = new Set(occ.map((o: any) => `${o.teamId}|${o.dateKey}`));
-      const free = teams.filter((t: any) =>
-        need.every((d) => !busy.has(`${t._id}|${d}`))
-      );
-      if (free.length < teamCount) throw new ConflictError("SLOT_TAKEN");
-      assigned = free.slice(0, teamCount).map((t: any) => t._id);
+      const placements = placementsForStart(startDate, span, teams, busy, cfg);
+      if (placements.length < teamCount) throw new ConflictError("SLOT_TAKEN");
+      const chosen = placements.slice(0, teamCount);
+      assigned = chosen.map((p) => new ObjectId(p.teamId));
+      allDays = Array.from(new Set(chosen.flatMap((p) => p.workingDays))).sort();
 
-      const docs = assigned.flatMap((teamId) =>
-        need.map((dateKey) => ({
-          teamId,
+      const docs = chosen.flatMap((p) =>
+        p.workingDays.map((dateKey) => ({
+          teamId: new ObjectId(p.teamId),
           dateKey,
           type: "hold" as const,
           holdId,
@@ -102,7 +106,7 @@ export async function createHold({
       );
       await TeamDayOccupancy.insertMany(docs, { session, ordered: true });
     });
-    return { holdId, teamIds: assigned, workingDays: need, expiresAt };
+    return { holdId, teamIds: assigned, workingDays: allDays, expiresAt };
   } catch (e: any) {
     if (e?.code === 11000) throw new ConflictError("SLOT_TAKEN");
     throw e;
@@ -272,11 +276,8 @@ export async function rescheduleSubmit({
   const fields = extractSubmitFields(submit);
   const cfg = await getConfig();
   const inquiryId = new ObjectId(submitId);
-  const need = collectWorkingDays(
-    startDate,
-    calendarDays(fields.kWp, teamCount, cfg),
-    cfg
-  );
+  const span = calendarDays(fields.kWp, teamCount, cfg);
+  const s0 = nextWorkingDay(startDate, cfg);
 
   try {
     const bookingId = new ObjectId();
@@ -296,22 +297,28 @@ export async function rescheduleSubmit({
         { session }
       );
 
-      // 2) Recompute free teams for the new span and book them.
+      // 2) Recompute the gap-aware placement for the new span and book it. The
+      // existing booking's days were just freed above, so re-booking onto
+      // overlapping days works. Teams fill the gaps around any other bookings.
       const teams = await Team.find({ active: true }).session(session).lean();
-      const occ = await TeamDayOccupancy.find({ dateKey: { $in: need } })
+      const occ = await TeamDayOccupancy.find({
+        dateKey: { $gte: s0, $lte: addDays(s0, span * 4 + 60) },
+      })
         .select({ teamId: 1, dateKey: 1 })
         .session(session)
         .lean();
       const busy = new Set(occ.map((o: any) => `${o.teamId}|${o.dateKey}`));
-      const free = teams.filter((t: any) =>
-        need.every((d) => !busy.has(`${t._id}|${d}`))
-      );
-      if (free.length < teamCount) throw new ConflictError("SLOT_TAKEN");
-      const assigned = free.slice(0, teamCount).map((t: any) => t._id);
+      const placements = placementsForStart(startDate, span, teams, busy, cfg);
+      if (placements.length < teamCount) throw new ConflictError("SLOT_TAKEN");
+      const chosen = placements.slice(0, teamCount);
+      const assigned = chosen.map((p) => new ObjectId(p.teamId));
+      const days = Array.from(
+        new Set(chosen.flatMap((p) => p.workingDays))
+      ).sort();
 
-      const docs = assigned.flatMap((teamId: any) =>
-        need.map((dateKey) => ({
-          teamId,
+      const docs = chosen.flatMap((p) =>
+        p.workingDays.map((dateKey) => ({
+          teamId: new ObjectId(p.teamId),
           dateKey,
           type: "booking" as const,
           bookingId,
@@ -326,10 +333,10 @@ export async function rescheduleSubmit({
             _id: bookingId,
             inquiryId,
             teamIds: assigned,
-            startDate: need[0],
-            endDate: need[need.length - 1],
-            workingDays: need,
-            durationDays: need.length,
+            startDate: days[0],
+            endDate: days[days.length - 1],
+            workingDays: days,
+            durationDays: days.length,
             teamCount,
             leadTimeWeeks: leadTimeWeeks(fields.components, cfg),
             status: "confirmed",

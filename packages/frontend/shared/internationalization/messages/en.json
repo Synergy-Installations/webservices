@@ -1,4 +1,42 @@
 {
+  "CookieConsent": {
+    "common": {
+      "acceptAll": "Accept all",
+      "rejectAll": "Reject all",
+      "customize": "Customize",
+      "save": "Save choices"
+    },
+    "cookieBanner": {
+      "title": "Your privacy matters to us",
+      "description": "This website uses cookies to improve your browsing experience, analyze site traffic and show personalized content."
+    },
+    "consentManagerDialog": {
+      "title": "Privacy settings",
+      "description": "Choose which cookies and services you want to allow. Necessary services are required for the website to work and are always on. You can change your choice at any time."
+    },
+    "consentTypes": {
+      "necessary": {
+        "title": "Necessary",
+        "description": "Required to run the website – e.g. security, storing your cookie preferences (c15t) and sign-in and account (Clerk). These services are always on."
+      },
+      "functionality": {
+        "title": "Functional",
+        "description": "Enable enhanced features such as online appointment booking via Calendly."
+      },
+      "measurement": {
+        "title": "Statistics & analytics",
+        "description": "Help us understand how the website is used – via Google Analytics, Google Tag Manager and Yandex Metrica."
+      },
+      "experience": {
+        "title": "Experience",
+        "description": "Improve your user experience and allow embedding of external content."
+      },
+      "marketing": {
+        "title": "Marketing",
+        "description": "Used to show you personalized advertising and measure its performance (e.g. advertising services embedded via Google Tag Manager)."
+      }
+    }
+  },
   "LandingPage": {
     "About": {
       "Hero": {
@@ -7534,11 +7572,11 @@
               "interested-products-schnittstelle": {
                 "order": "1",
                 "type": "card-popup",
-                "multiple": "true",
+                "multiple": "false",
                 "required": "true",
                 "defaultVisible": "true",
                 "title": "Scope of installation?",
-                "description": "Select all that apply",
+                "description": "Select one option",
                 "localStorage": "false",
                 "span": "2",
                 "message": {
@@ -8338,7 +8376,7 @@
                 "type": "select",
                 "multiple": "false",
                 "required": "true",
-                "defaultVisible": "true",
+                "defaultVisible": "false",
                 "title": "",
                 "description": "",
                 "defaultValue": [
@@ -8525,7 +8563,7 @@
                 "order": "1",
                 "type": "text",
                 "required": "false",
-                "defaultVisible": "true",
+                "defaultVisible": "false",
                 "title": "Do you have a wish date?",
                 "description": "",
                 "localStorage": "true",

@@ -1,6 +1,9 @@
 import "./globals.css";
 import "@com.synergy/frontend-ui/frontendUiStyles.css";
-import GoogleTag from "@com.synergy/frontend-ui/GoogleTag";
+import {
+  GatedGoogleTag,
+  GatedYandexTag,
+} from "./_components/ConsentGatedTracking";
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import {
@@ -10,8 +13,10 @@ import {
   type ConsentManagerOptions,
   // @ts-ignore
 } from "@c15t/react";
-import YandexTag from "@com.synergy/frontend-ui/YandexTag";
 import Script from "next/script";
+import { getLocale } from "next-intl/server";
+import atCookieMessages from "@com.synergy/frontend-shared-internationalization/messages/at-AT.json";
+import enCookieMessages from "@com.synergy/frontend-shared-internationalization/messages/en.json";
 
 export const metadata: Metadata = {
   title: "",
@@ -20,14 +25,29 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  params: { locale },
 }: {
   children: React.ReactNode;
-  params: { locale: string };
 }) {
+  // The root layout sits above the `[locale]` segment, so it has no `locale`
+  // param. next-intl resolves the active locale from the request instead.
+  const locale = await getLocale();
+
+  // c15t matches translations by language subtag (e.g. "de", "en").
+  const consentLanguage = locale.split("-")[0] === "en" ? "en" : "de";
+
   const options: ConsentManagerOptions = {
     mode: "c15t",
     backendURL: process.env.NEXT_PUBLIC_C15T_URL || "",
+    // Drive the cookie banner / consent dialog from the site's selected
+    // language instead of the visitor's browser language.
+    translations: {
+      defaultLanguage: consentLanguage,
+      disableAutoLanguageSwitch: true,
+      translations: {
+        de: atCookieMessages.CookieConsent,
+        en: enCookieMessages.CookieConsent,
+      },
+    },
   };
 
   const geoZones = [
@@ -60,7 +80,7 @@ export default async function RootLayout({
       <ClerkProvider>
         <html lang={locale} className="scroll-smooth">
           <body className="relative">
-            <YandexTag>{children}</YandexTag>
+            <GatedYandexTag>{children}</GatedYandexTag>
             <Script id="ld-json" type="application/ld+json">
               {JSON.stringify({
                 "@context": "https://schema.org",
@@ -192,11 +212,6 @@ export default async function RootLayout({
             </Script>
           </body>
           <CookieBanner
-            title="Ihr Datenschutz ist uns wichtig"
-            description="Diese Website verwendet Cookies, um Ihr Surferlebnis zu verbessern, den Website-Traffic zu analysieren und personalisierte Inhalte anzuzeigen."
-            rejectButtonText="Ablehnen"
-            customizeButtonText="Anpassen"
-            acceptButtonText="Akzeptieren"
             theme={{
               "banner.footer": "bg-synergy-light-blue/10",
               "banner.footer.reject-button": "rounded-lg",
@@ -206,7 +221,7 @@ export default async function RootLayout({
             }}
           />
           <ConsentManagerDialog />
-          <GoogleTag />
+          <GatedGoogleTag />
         </html>
       </ClerkProvider>
     </ConsentManagerProvider>

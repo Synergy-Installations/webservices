@@ -40,14 +40,6 @@ const MONTHS = [
 const ymd = (y: number, m: number, d: number) =>
   `${y}-${String(m + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
 
-/** Human label for a duration tier ("ab X" = inclusive lower bound). */
-function tierLabel(rule: DurationRule, prevMax: number | null): string {
-  if (rule.maxKwp === null) {
-    return prevMax === null ? "alle Anlagen" : `ab ${prevMax} kWp`;
-  }
-  return prevMax === null ? `unter ${rule.maxKwp} kWp` : `ab ${prevMax} kWp`;
-}
-
 /**
  * Funnel form: lets the customer pick a buildable installation start day from
  * live availability. The value is stored on `form.selected.montageStartDate` and
@@ -278,8 +270,7 @@ export function MontageDatePickerForm({
 
       {chosenSlot && (
         <p className="mt-3 text-center text-base font-semibold text-gray-800">
-          Gewählter Termin: {chosenSlot.startDate} · voraussichtlich{" "}
-          {chosenSlot.workingDays.length} Arbeitstage (bis {chosenSlot.endDate})
+          Gewählter Termin: {chosenSlot.startDate} – {chosenSlot.endDate}
         </p>
       )}
 
@@ -288,65 +279,28 @@ export function MontageDatePickerForm({
           <p className="mb-2 font-semibold text-gray-800">
             So berechnet sich Ihr Termin
           </p>
-
-          <p className="font-medium text-gray-800">Dauer der Montage</p>
           <p>
-            Ihre Anlage: <strong>{explain.kWp} kWp</strong>. Nach unserem
-            Regelwerk (Dauer nach Anlagengröße):
-          </p>
-          <ul className="ml-4 mt-1 list-disc">
-            {explain.durationRules.map((rule, idx) => {
-              const prevMax =
-                idx === 0 ? null : explain.durationRules[idx - 1].maxKwp;
-              const applies =
-                (rule.maxKwp === null || explain.kWp < rule.maxKwp) &&
-                (prevMax === null || explain.kWp >= prevMax);
-              return (
-                <li
-                  key={idx}
-                  className={applies ? "font-semibold text-synergy-light-blue" : ""}
-                >
-                  {tierLabel(rule, prevMax)}: {rule.daysPerTeam} Arbeitstage
-                  {applies ? " ← trifft auf Sie zu" : ""}
-                </li>
-              );
-            })}
-          </ul>
-          <p className="mt-1">
-            → Ihre Montage dauert voraussichtlich{" "}
+            <span className="font-medium text-gray-800">Dauer:</span> Ihre Anlage
+            hat <strong>{explain.kWp} kWp</strong> → voraussichtlich{" "}
             <strong>{explain.durationDays} Arbeitstage</strong>
             {explain.bufferDays > 0
               ? ` (inkl. ${explain.bufferDays} Puffertag${explain.bufferDays > 1 ? "e" : ""})`
               : ""}
-            . Diese Tage sind im Kalender farbig markiert.
+            , im Kalender farbig markiert.
           </p>
-
-          <p className="mt-3 font-medium text-gray-800">Vorlaufzeit</p>
-          <p>
-            Standard: <strong>{explain.leadBaseWeeks} Wochen</strong>. Bei
-            Komponenten mit mehr Materialvorlauf (Speicher, Notstrom, Akku):{" "}
-            <strong>{explain.leadHeavyWeeks} Wochen</strong>.
-          </p>
-          <p className="mt-1">
-            {explain.heavyComponents.length > 0 ? (
-              <>
-                Ihre Auswahl enthält{" "}
-                <strong>{explain.heavyComponents.join(", ")}</strong> →{" "}
-                <strong>{explain.leadHeavyWeeks} Wochen</strong> Vorlaufzeit.
-              </>
-            ) : (
-              <>
-                Ihre Auswahl enthält keine solchen Komponenten →{" "}
-                <strong>{explain.leadBaseWeeks} Wochen</strong> Vorlaufzeit.
-              </>
-            )}{" "}
-            Deshalb beginnt der früheste Termin erst in{" "}
-            <strong>{leadTimeWeeks ?? explain.leadBaseWeeks} Wochen</strong>.
+          <p className="mt-2">
+            <span className="font-medium text-gray-800">Vorlaufzeit:</span>{" "}
+            <strong>{leadTimeWeeks ?? explain.leadBaseWeeks} Wochen</strong>
+            {explain.heavyComponents.length > 0
+              ? ` – wegen ${explain.heavyComponents.join(", ")} (mehr Materialvorlauf)`
+              : ""}
+            . Der früheste wählbare Tag ist daher der{" "}
+            <strong>{slots[0].startDate}</strong>.
           </p>
         </div>
       )}
 
-      <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-gray-600">
+      <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-gray-600">
         {RICHTWERT_NOTE}
       </p>
     </div>

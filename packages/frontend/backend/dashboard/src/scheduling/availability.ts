@@ -48,17 +48,23 @@ export async function findAvailableStartDates({
 
   const out: AvailableSlot[] = [];
   const limit = addDays(todayKey(), cfg.horizonDays);
-  let start = nextWorkingDay(earliestStart(components, cfg), cfg);
+  const startFrom = nextWorkingDay(earliestStart(components, cfg), cfg);
 
+  // Load all occupancy in the scan window in ONE query. Previously this ran a
+  // `find` per candidate day (~85 sequential Atlas round-trips over the horizon),
+  // which timed out on serverless (504). The upper bound is padded so a job that
+  // starts near `limit` and extends past it still sees any trailing occupancy.
+  const occ = await TeamDayOccupancy.find({
+    dateKey: { $gte: startFrom, $lte: addDays(limit, span * 3 + 7) },
+  })
+    .select({ teamId: 1, dateKey: 1 })
+    .lean();
+  const busy = new Set(occ.map((o: any) => `${o.teamId}|${o.dateKey}`));
+
+  let start = startFrom;
   while (start <= limit) {
     if (isWorkingDay(start, cfg)) {
       const need = collectWorkingDays(start, span, cfg);
-      const occ = await TeamDayOccupancy.find({ dateKey: { $in: need } })
-        .select({ teamId: 1, dateKey: 1 })
-        .lean();
-      const busy = new Set(
-        occ.map((o: any) => `${o.teamId}|${o.dateKey}`)
-      );
       const free = teams.filter((t: any) =>
         need.every((d) => !busy.has(`${t._id}|${d}`))
       );

@@ -43,7 +43,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
               href="tel:+436642448742"
               className="text-synergy-dark-grey hover:underline text-center hidden xs:block"
             >
-              +43 664 244 87 42
+              +43 720 81 66 85
             </a>
           </div>
           <div className="grid xs:flex gap-8 justify-center w-full xs:w-max backdrop-blur-sm bg-white/70 px-2 py-[2px] rounded-lg">

@@ -6,17 +6,17 @@ type EmailFormData = {
   message: string;
   formData: {
     [key: string]:
-      | string
-      | string[]
-      | Array<{
-          uid: string;
-          name: string;
-          size: number;
-          type: string;
-          localUrl: string;
-          status: string;
-          downloadUrl: string;
-        }>;
+    | string
+    | string[]
+    | Array<{
+      uid: string;
+      name: string;
+      size: number;
+      type: string;
+      localUrl: string;
+      status: string;
+      downloadUrl: string;
+    }>;
   };
 };
 
@@ -81,7 +81,7 @@ export async function POST(req: NextRequest) {
   try {
     const { data, error } = await resend.emails.send({
       from: "office@synergie.cc",
-      to: [to, "office@synergie.cc", "admin@synergie.cc"],
+      to: [to, "office@synergie.cc"],
       subject: "Ihre Anfrage von Synergiemontagen",
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
@@ -92,41 +92,39 @@ export async function POST(req: NextRequest) {
           
           <div style="margin: 20px 0;">
             ${Object.entries(restBody.formData)
-              .filter(
-                ([key, value]) =>
-                  key !== "message" &&
-                  value !== undefined &&
-                  value !== null &&
-                  value !== ""
-              )
-              .map(([key, value]) => {
-                const formattedValue = formatFormField(key, value);
-                const label = getFieldLabel(key);
+          .filter(
+            ([key, value]) =>
+              key !== "message" &&
+              value !== undefined &&
+              value !== null &&
+              value !== ""
+          )
+          .map(([key, value]) => {
+            const formattedValue = formatFormField(key, value);
+            const label = getFieldLabel(key);
 
-                // Check if it's a file upload field to apply special styling
-                const isFileField =
-                  Array.isArray(value) &&
-                  value.length > 0 &&
-                  typeof value[0] === "object" &&
-                  value[0].downloadUrl;
+            // Check if it's a file upload field to apply special styling
+            const isFileField =
+              Array.isArray(value) &&
+              value.length > 0 &&
+              typeof value[0] === "object" &&
+              value[0].downloadUrl;
 
-                return `
+            return `
                   <div style="margin-bottom: 15px;">
                     <strong style="color: #0CC0DF;">${label}:</strong>
-                    ${
-                      isFileField
-                        ? `<div style="margin-top: 8px;">${formattedValue}</div>`
-                        : `<span style="margin-left: 8px;">${formattedValue}</span>`
-                    }
+                    ${isFileField
+                ? `<div style="margin-top: 8px;">${formattedValue}</div>`
+                : `<span style="margin-left: 8px;">${formattedValue}</span>`
+              }
                   </div>
                 `;
-              })
-              .join("")}
+          })
+          .join("")}
           </div>
 
-          ${
-            message
-              ? `
+          ${message
+          ? `
             <div style="margin: 20px 0;">
               <strong style="color: #0CC0DF;">Projektdetails:</strong>
               <div style="margin-top: 8px; padding: 12px; background-color: #f8f9fa; border-left: 4px solid #0CC0DF; border-radius: 4px;">
@@ -134,8 +132,8 @@ export async function POST(req: NextRequest) {
               </div>
             </div>
           `
-              : ""
-          }
+          : ""
+        }
           
           <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;" />
           <p style="font-size: 0.9em; color: #555;">

@@ -1,7 +1,13 @@
 import { describe, it, expect } from "vitest";
 import { DEFAULT_MONTAGE_CONFIG } from "../config";
 import { calendarDays, durationDaysPerTeam, leadTimeWeeks } from "../rules";
-import { collectWorkingDays, isWorkingDay, isHoliday } from "../dates";
+import {
+  collectWorkingDays,
+  collectFreeWorkingDays,
+  isWorkingDay,
+  isHoliday,
+} from "../dates";
+import { placementsForStart } from "../availability";
 import { extractSubmitFields } from "../submitFields";
 
 const cfg = DEFAULT_MONTAGE_CONFIG;
@@ -71,5 +77,41 @@ describe("dates", () => {
       "2026-04-07",
       "2026-04-08",
     ]);
+  });
+});
+
+describe("gap-aware scheduling (book around busy days)", () => {
+  it("collectFreeWorkingDays skips a team's busy days (job runs day 1 & 4)", () => {
+    // Mon 2026-08-03 free, Tue/Wed busy → next free work day is Thu 2026-08-06.
+    const taken = new Set(["2026-08-04", "2026-08-05"]);
+    expect(
+      collectFreeWorkingDays("2026-08-03", 2, cfg, (d) => !taken.has(d))
+    ).toEqual(["2026-08-03", "2026-08-06"]);
+  });
+
+  it("collectFreeWorkingDays with nothing busy equals the contiguous collect", () => {
+    expect(collectFreeWorkingDays("2026-08-03", 3, cfg, () => true)).toEqual(
+      collectWorkingDays("2026-08-03", 3, cfg)
+    );
+  });
+
+  it("placementsForStart offers a team that can fill the gap, drops one busy on the start day", () => {
+    const teams = [{ _id: "A" }, { _id: "B" }];
+    // Team A busy Tue/Wed → fills 03 & 06. Team B busy on the start day → not offered.
+    const busy = new Set(["A|2026-08-04", "A|2026-08-05", "B|2026-08-03"]);
+    const placements = placementsForStart("2026-08-03", 2, teams, busy, cfg);
+    expect(placements).toHaveLength(1);
+    expect(placements[0].teamId).toBe("A");
+    expect(placements[0].workingDays).toEqual(["2026-08-03", "2026-08-06"]);
+    expect(placements[0].endDate).toBe("2026-08-06");
+  });
+
+  it("placementsForStart orders tightest-packing (earliest end) first", () => {
+    const teams = [{ _id: "slow" }, { _id: "fast" }];
+    // slow has a gap (ends 08-06); fast is wide open (ends 08-04).
+    const busy = new Set(["slow|2026-08-04", "slow|2026-08-05"]);
+    const placements = placementsForStart("2026-08-03", 2, teams, busy, cfg);
+    expect(placements.map((p) => p.teamId)).toEqual(["fast", "slow"]);
+    expect(placements[0].endDate).toBe("2026-08-04");
   });
 });

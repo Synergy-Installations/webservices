@@ -1,4 +1,42 @@
 {
+  "CookieConsent": {
+    "common": {
+      "acceptAll": "Alle akzeptieren",
+      "rejectAll": "Alle ablehnen",
+      "customize": "Anpassen",
+      "save": "Auswahl speichern"
+    },
+    "cookieBanner": {
+      "title": "Ihr Datenschutz ist uns wichtig",
+      "description": "Diese Website verwendet Cookies, um Ihr Surferlebnis zu verbessern, den Website-Traffic zu analysieren und personalisierte Inhalte anzuzeigen."
+    },
+    "consentManagerDialog": {
+      "title": "Datenschutz-Einstellungen",
+      "description": "Wählen Sie aus, welche Cookies und Dienste Sie zulassen möchten. Notwendige Dienste sind für den Betrieb der Website erforderlich und immer aktiv. Ihre Auswahl können Sie jederzeit ändern."
+    },
+    "consentTypes": {
+      "necessary": {
+        "title": "Notwendig",
+        "description": "Erforderlich für den Betrieb der Website – z. B. Sicherheit, das Speichern Ihrer Cookie-Einstellungen (c15t) sowie Anmeldung und Konto (Clerk). Diese Dienste sind immer aktiv."
+      },
+      "functionality": {
+        "title": "Funktional",
+        "description": "Ermöglichen erweiterte Funktionen wie die Online-Terminbuchung über Calendly."
+      },
+      "measurement": {
+        "title": "Statistik & Analyse",
+        "description": "Helfen uns zu verstehen, wie die Website genutzt wird – über Google Analytics, den Google Tag Manager und Yandex Metrica."
+      },
+      "experience": {
+        "title": "Erlebnis",
+        "description": "Verbessern Ihr Nutzungserlebnis und ermöglichen die Einbindung externer Inhalte."
+      },
+      "marketing": {
+        "title": "Marketing",
+        "description": "Werden verwendet, um Ihnen personalisierte Werbung auszuspielen und deren Erfolg zu messen (z. B. über den Google Tag Manager eingebundene Werbedienste)."
+      }
+    }
+  },
   "LandingPage": {
     "About": {
       "Hero": {
@@ -6013,11 +6051,11 @@
               "interested-products-schnittstelle": {
                 "order": "1",
                 "type": "card-popup",
-                "multiple": "true",
+                "multiple": "false",
                 "required": "true",
                 "defaultVisible": "true",
                 "title": "Schnittstelle?",
-                "description": "Wählen Sie alle aus, die zutreffen",
+                "description": "Wählen Sie eine Option aus",
                 "localStorage": "false",
                 "span": "2",
                 "message": {
@@ -7001,7 +7039,7 @@
                 "order": "1",
                 "type": "text",
                 "required": "false",
-                "defaultVisible": "true",
+                "defaultVisible": "false",
                 "title": "Haben Sie einen Wunschtermin?",
                 "description": "",
                 "localStorage": "true",

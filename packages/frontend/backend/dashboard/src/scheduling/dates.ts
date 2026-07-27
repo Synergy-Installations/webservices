@@ -55,3 +55,28 @@ export const collectWorkingDays = (
   }
   return out;
 };
+
+/**
+ * Like `collectWorkingDays`, but only counts working days for which `isFree`
+ * returns true — letting a job slot into the gaps around a team's existing
+ * bookings (e.g. days 2–3 already taken → the job runs days 1 & 4). The first
+ * element is always `startKey` rolled forward to a working day. Look-ahead is
+ * bounded (~1000 calendar days); if it cannot gather `count` free days it
+ * returns what it found, and the caller treats a short result as "no placement".
+ */
+export const collectFreeWorkingDays = (
+  startKey: string,
+  count: number,
+  cfg: MontageConfig,
+  isFree: (dateKey: string) => boolean
+): string[] => {
+  const out: string[] = [];
+  let k = nextWorkingDay(startKey, cfg);
+  let guard = 0;
+  while (out.length < count && guard < 1000) {
+    if (isWorkingDay(k, cfg) && isFree(k)) out.push(k);
+    k = addDays(k, 1);
+    guard++;
+  }
+  return out;
+};

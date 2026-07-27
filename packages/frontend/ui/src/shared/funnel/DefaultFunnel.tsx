@@ -1192,6 +1192,9 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
       if (form.type === "calendly") {
         return form.selected.scheduledEvent?.event?.uri !== "";
       }
+      if (form.type === "montage-datepicker") {
+        return Boolean(form.selected?.montageStartDate);
+      }
       return false;
     });
 

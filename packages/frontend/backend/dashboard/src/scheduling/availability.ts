@@ -4,7 +4,7 @@ import { getConfig, MontageConfig } from "./config";
 import { calendarDays, leadTimeWeeks } from "./rules";
 import {
   addDays,
-  collectWorkingDays,
+  collectFreeWorkingDays,
   isWorkingDay,
   nextWorkingDay,
   todayKey,
@@ -28,6 +28,57 @@ export function earliestStart(
   cfg: MontageConfig
 ): string {
   return addDays(todayKey(), leadTimeWeeks(components, cfg) * 7);
+}
+
+export interface TeamPlacement {
+  teamId: string;
+  workingDays: string[];
+  endDate: string;
+}
+
+/**
+ * The gap-aware placement each active team could take for a job starting on
+ * `start`: the `span` free working days on/after `start` for that team, skipping
+ * days it is already busy (so a job fills the gaps around existing bookings). A
+ * team qualifies only if it is free on the start day itself — so every offered
+ * start is a real Montagebeginn — and can gather all `span` days. Results are
+ * ordered tightest-packing-first (earliest end, then teamId) so the availability
+ * scan and the booking write agree on which teams to prefer.
+ *
+ * `busy` is a Set of "teamId|dateKey"; both this scan and `createHold` build it
+ * the same way, and the unique `{teamId,dateKey}` index is the final guard at
+ * write time regardless of what this advisory scan reported.
+ */
+export function placementsForStart(
+  start: string,
+  span: number,
+  teams: { _id: unknown }[],
+  busy: Set<string>,
+  cfg: MontageConfig
+): TeamPlacement[] {
+  const s0 = nextWorkingDay(start, cfg);
+  const out: TeamPlacement[] = [];
+  for (const t of teams) {
+    const id = String((t as { _id: unknown })._id);
+    if (busy.has(`${id}|${s0}`)) continue; // busy on the start day itself
+    const days = collectFreeWorkingDays(
+      s0,
+      span,
+      cfg,
+      (d) => !busy.has(`${id}|${d}`)
+    );
+    if (days.length === span) {
+      out.push({ teamId: id, workingDays: days, endDate: days[days.length - 1] });
+    }
+  }
+  out.sort((a, b) =>
+    a.endDate === b.endDate
+      ? a.teamId.localeCompare(b.teamId)
+      : a.endDate < b.endDate
+        ? -1
+        : 1
+  );
+  return out;
 }
 
 /**
@@ -64,15 +115,20 @@ export async function findAvailableStartDates({
   let start = startFrom;
   while (start <= limit) {
     if (isWorkingDay(start, cfg)) {
-      const need = collectWorkingDays(start, span, cfg);
-      const free = teams.filter((t: any) =>
-        need.every((d) => !busy.has(`${t._id}|${d}`))
-      );
-      if (free.length >= teamCount) {
+      // Gap-aware: each team fills the next `span` free working days from `start`,
+      // skipping days it is already busy. A start is offered when at least
+      // `teamCount` teams can host it; the shown span uses the tightest-packing
+      // teams so the customer sees the actual work days (day 1 & day 4, not 1–4).
+      const placements = placementsForStart(start, span, teams, busy, cfg);
+      if (placements.length >= teamCount) {
+        const chosen = placements.slice(0, teamCount);
+        const union = Array.from(
+          new Set(chosen.flatMap((p) => p.workingDays))
+        ).sort();
         out.push({
           startDate: start,
-          endDate: need[need.length - 1],
-          workingDays: need,
+          endDate: union[union.length - 1],
+          workingDays: union,
         });
       }
     }

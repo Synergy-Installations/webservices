@@ -7,7 +7,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import DefaultFooter from "@com.synergy/frontend-ui/DefaultFooter";
 import { useMessages, useTranslations } from "next-intl";
-import WhatsappButton from "../whatsapp/WhatsappButton";
 import SunConfigurator from "./SunConfigurator";
 import Head from "next/head";
 
@@ -35,7 +34,6 @@ export const DefaultLayout = (props: DefaultLayoutProps) => {
       <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
         <SunConfigurator />
         <DefaultHeader />
-        <WhatsappButton />
         <main className="grow">{props.children}</main>
         <DefaultFooter border={true} />
       </div>

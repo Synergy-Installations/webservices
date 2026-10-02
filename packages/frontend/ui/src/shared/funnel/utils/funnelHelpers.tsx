@@ -972,7 +972,7 @@ export function renderFormRequiredLabel(
     );
   }
   return (
-    <span className="inline-flex items-center rounded bg-gray-100 px-1.5 py-0.5 text-xs font-medium text-gray-500 dark:bg-gray-700 dark:text-gray-400">
+    <span className="inline-flex items-center rounded bg-synergy-light-blue/10 px-1.5 py-0.5 text-xs font-medium text-synergy-light-blue dark:bg-synergy-light-blue/20">
       {optionalLabel}
     </span>
   );

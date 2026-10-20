@@ -28,12 +28,18 @@ import {
   DialogTitle,
 } from "@headlessui/react";
 import { useSignUp, useUser, useSignIn, useClerk } from "@clerk/nextjs";
+import { isClerkAPIResponseError } from "@clerk/nextjs/errors";
 import {
   PhoneCodeFactor,
   EmailCodeFactor,
   SignInFirstFactor,
+  SignInResource,
+  SignUpResource,
 } from "@clerk/types";
-import { DefaultFunnel } from "@com.synergy/frontend-ui/DefaultFunnel";
+import {
+  DefaultFunnel,
+  VerificationError,
+} from "@com.synergy/frontend-ui/DefaultFunnel";
 import {
   createQuestionElement,
   createFormElement,
@@ -59,6 +65,27 @@ type SubmitProgressStep = Exclude<
 >;
 
 type AuthFlowResult = "redirecting" | "verifying";
+
+/**
+ * The exact Clerk attempt the email code was sent for. Verifying against this
+ * resource (instead of whatever `client.signUp`/`client.signIn` currently is)
+ * guarantees the code is checked against the attempt that issued it.
+ */
+type PendingVerification =
+  | { type: "signUp"; resource: SignUpResource }
+  | { type: "signIn"; resource: SignInResource; emailAddressId: string };
+
+/** Maps Clerk's verification errors to the messages shown in the code dialog. */
+function getVerificationError(err: unknown): VerificationError {
+  if (isClerkAPIResponseError(err)) {
+    const code = err.errors[0]?.code;
+    if (code === "form_code_incorrect") return "incorrectCode";
+    if (code === "verification_expired" || code === "verification_failed") {
+      return "expiredCode";
+    }
+  }
+  return "generic";
+}
 
 const submitProgressSteps: SubmitProgressStep[] = [
   "saving",
@@ -100,8 +127,10 @@ export const Funnel = (props: FunnelProps) => {
     setActive: setActiveSignIn,
   } = useSignIn();
   const router = useRouter();
-  const [isSignIn, setIsSignIn] = useState(false);
-  const [signUpUserId, setSignUpUserId] = useState<string | null>(null);
+  const pendingVerificationRef = useRef<PendingVerification | null>(null);
+  // A ref (not state) so the verification handler always sees the id, even if
+  // the user verifies before a re-render happened
+  const signUpUserIdRef = useRef<string | null>(null);
   const [submitProgressStage, setSubmitProgressStage] =
     useState<SubmitProgressStage>("idle");
 
@@ -216,10 +245,9 @@ export const Funnel = (props: FunnelProps) => {
 
     // If the userId exists, a user has been created previously, based on
     // the verified status, we will sign up or in
-    if (responseBody.userId !== null) setSignUpUserId(responseBody.userId);
+    signUpUserIdRef.current = responseBody.userId;
 
     if (responseBody.userEmailAddressVerified) {
-      setIsSignIn(true);
       return signUserIn(emailAddress, firstName, phoneNumber);
     }
 
@@ -255,12 +283,15 @@ export const Funnel = (props: FunnelProps) => {
       });
       console.log("signedUpUser", signedUpUser);
 
-      // Start the verification - a SMS message will be sent to the
-      // number with a one-time code
-      await signUp.prepareEmailAddressVerification();
-
-      // Set verifying to true to display second form and capture the OTP code
-      setVerifying(true);
+      // Start the verification - an email with a one-time code will be sent
+      // for exactly this sign-up attempt
+      await signedUpUser.prepareEmailAddressVerification({
+        strategy: "email_code",
+      });
+      pendingVerificationRef.current = {
+        type: "signUp",
+        resource: signedUpUser,
+      };
 
       if (userId == null) {
         await fetch("/api/dashboard/users", {
@@ -273,10 +304,13 @@ export const Funnel = (props: FunnelProps) => {
           }),
         }).then(async (res) => {
           const responseBody = await res.json();
-          setSignUpUserId(responseBody.data._id);
+          signUpUserIdRef.current = responseBody.data._id;
           console.log("Successfully sent user to db", res);
         });
       }
+
+      // Set verifying to true to display second form and capture the OTP code
+      setVerifying(true);
 
       return "verifying";
     } catch (err) {
@@ -302,9 +336,10 @@ export const Funnel = (props: FunnelProps) => {
 
     try {
       // Start the sign-in process using the email address method
-      const { supportedFirstFactors } = await signIn.create({
+      const createdSignIn = await signIn.create({
         identifier: emailAddress,
       });
+      const { supportedFirstFactors } = createdSignIn;
 
       // Filter the returned array to find the 'email_code' entry
       const isEmailCodeFactor = (
@@ -319,10 +354,15 @@ export const Funnel = (props: FunnelProps) => {
         const { emailAddressId } = emailCodeFactor;
 
         // Send the OTP code to the user
-        await signIn.prepareFirstFactor({
+        await createdSignIn.prepareFirstFactor({
           strategy: "email_code",
           emailAddressId,
         });
+        pendingVerificationRef.current = {
+          type: "signIn",
+          resource: createdSignIn,
+          emailAddressId,
+        };
 
         // Set verifying to true to display second form
         // and capture the OTP code
@@ -339,20 +379,64 @@ export const Funnel = (props: FunnelProps) => {
     }
   }
 
-  function handleVerification(code: string) {
-    if (isSignIn) handleSignInVerification(code);
-    else handleSignUpVerification(code);
+  /** Returns the error to show in the code dialog, or null on success. */
+  async function handleVerification(
+    code: string,
+  ): Promise<VerificationError | null> {
+    const pendingVerification = pendingVerificationRef.current;
+    if (!pendingVerification) return "generic";
+
+    const normalizedCode = code.replace(/\D/g, "");
+    if (normalizedCode.length !== 6) return "incorrectCode";
+
+    if (pendingVerification.type === "signIn") {
+      return handleSignInVerification(
+        pendingVerification.resource,
+        normalizedCode,
+      );
+    }
+    return handleSignUpVerification(
+      pendingVerification.resource,
+      normalizedCode,
+    );
   }
 
-  async function handleSignUpVerification(code: string) {
-    const { isSignUpLoaded, signUp, setActiveSignUp } = clerkRef.current;
-    if (!isSignUpLoaded || !signUp) return null;
+  /** Sends a new code for the pending sign-up/sign-in attempt. */
+  async function handleResendCode(): Promise<boolean> {
+    const pendingVerification = pendingVerificationRef.current;
+    if (!pendingVerification) return false;
+
+    try {
+      if (pendingVerification.type === "signIn") {
+        await pendingVerification.resource.prepareFirstFactor({
+          strategy: "email_code",
+          emailAddressId: pendingVerification.emailAddressId,
+        });
+      } else {
+        await pendingVerification.resource.prepareEmailAddressVerification({
+          strategy: "email_code",
+        });
+      }
+      return true;
+    } catch (err) {
+      console.error("Error:", JSON.stringify(err, null, 2));
+      return false;
+    }
+  }
+
+  async function handleSignUpVerification(
+    pendingSignUp: SignUpResource,
+    code: string,
+  ): Promise<VerificationError | null> {
+    const { setActiveSignUp } = clerkRef.current;
 
     try {
       // Use the code provided by the user and attempt verification
-      const signUpAttempt = await signUp.attemptEmailAddressVerification({
-        code,
-      });
+      const signUpAttempt = await pendingSignUp.attemptEmailAddressVerification(
+        {
+          code,
+        },
+      );
 
       // Use signUpAttempt.createdUserId to push the user id into db
 
@@ -363,7 +447,7 @@ export const Funnel = (props: FunnelProps) => {
       if (signUpAttempt.status === "complete") {
         await setActiveSignUp?.({ session: signUpAttempt.createdSessionId });
 
-        const res = await fetch(`/api/dashboard/users/${signUpUserId}`, {
+        await fetch(`/api/dashboard/users/${signUpUserIdRef.current}`, {
           method: "PUT",
           body: JSON.stringify({
             status: "complete",
@@ -376,26 +460,32 @@ export const Funnel = (props: FunnelProps) => {
           console.log("Successfully sent user to db", res);
         });
 
+        pendingVerificationRef.current = null;
         router.push("/dashboard");
-      } else {
-        // If the status is not complete, check why. User may need to
-        // complete further steps.
-        console.error(signUpAttempt);
+        return null;
       }
+
+      // If the status is not complete, check why. User may need to
+      // complete further steps.
+      console.error(signUpAttempt);
+      return "generic";
     } catch (err) {
       // See https://clerk.com/docs/custom-flows/error-handling
       // for more info on error handling
       console.error("Error:", JSON.stringify(err, null, 2));
+      return getVerificationError(err);
     }
   }
 
-  async function handleSignInVerification(code: string) {
-    const { isSignInLoaded, signIn, setActiveSignIn } = clerkRef.current;
-    if (!isSignInLoaded || !signIn) return null;
+  async function handleSignInVerification(
+    pendingSignIn: SignInResource,
+    code: string,
+  ): Promise<VerificationError | null> {
+    const { setActiveSignIn } = clerkRef.current;
 
     try {
       // Use the code provided by the user and attempt verification
-      const signInAttempt = await signIn.attemptFirstFactor({
+      const signInAttempt = await pendingSignIn.attemptFirstFactor({
         strategy: "email_code",
         code,
       });
@@ -405,16 +495,20 @@ export const Funnel = (props: FunnelProps) => {
       if (signInAttempt.status === "complete") {
         await setActiveSignIn?.({ session: signInAttempt.createdSessionId });
 
+        pendingVerificationRef.current = null;
         router.push("/dashboard");
-      } else {
-        // If the status is not complete, check why. User may need to
-        // complete further steps.
-        console.error(signInAttempt);
+        return null;
       }
+
+      // If the status is not complete, check why. User may need to
+      // complete further steps.
+      console.error(signInAttempt);
+      return "generic";
     } catch (err) {
       // See https://clerk.com/docs/custom-flows/error-handling
       // for more info on error handling
       console.error("Error:", JSON.stringify(err, null, 2));
+      return getVerificationError(err);
     }
   }
 
@@ -761,6 +855,7 @@ export const Funnel = (props: FunnelProps) => {
             verifying: verifying,
             setVerifying: setVerifying,
             handleVerification: handleVerification,
+            handleResendCode: handleResendCode,
           },
           format: {
             useKey: false,
@@ -871,6 +966,11 @@ function SubmitProgressOverlay({
                 </Description>
               </div>
             </div>
+
+            {/* Clerk renders its bot-protection (Smart CAPTCHA) challenge here
+             * during signUp.create(). It has to live inside this modal, since
+             * the dialog makes everything behind it inert while auth runs. */}
+            <div id="clerk-captcha" className="mb-4 empty:hidden" />
 
             <div className="rounded-2xl border border-slate-200 bg-slate-50/90 p-4">
               <p

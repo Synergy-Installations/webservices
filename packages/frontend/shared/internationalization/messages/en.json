@@ -4824,7 +4824,15 @@
             "details": "From the dashboard, you can add more projects, manage your forms, and update your settings.",
             "codeLabel": "Code {index}",
             "helperText": "Please enter the 6-digit code we sent you by email.",
-            "verifyButton": "Verify"
+            "verifyButton": "Verify",
+            "resendButton": "Send new code",
+            "resendSuccess": "We have sent you a new code by email.",
+            "resendError": "The code could not be sent. Please try again later.",
+            "errors": {
+              "incorrectCode": "The code is incorrect. Please check it and try again.",
+              "expiredCode": "The code has expired or was entered incorrectly too many times. Please request a new code.",
+              "generic": "Verification failed. Please try again."
+            }
           },
           "submitProgress": {
             "title": "Processing your request",

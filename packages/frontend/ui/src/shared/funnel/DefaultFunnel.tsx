@@ -147,6 +147,8 @@ const LEGAL_CONSENT_HASH_TEXT = [
 ].join("\n\n");
 
 /* eslint-disable-next-line */
+export type VerificationError = "incorrectCode" | "expiredCode" | "generic";
+
 export interface DefaultFunnelProps {
   questionElementsRaw: any;
   STORAGE_ZONE_ACCESS_KEY: string | undefined;
@@ -164,7 +166,12 @@ export interface DefaultFunnelProps {
     auth?: {
       verifying: boolean;
       setVerifying: Dispatch<SetStateAction<boolean>>;
-      handleVerification?(verificationCode: string): void;
+      /** Resolves to the error to display, or null when verification succeeded. */
+      handleVerification?(
+        verificationCode: string,
+      ): Promise<VerificationError | null>;
+      /** Resolves to whether a new code could be sent. */
+      handleResendCode?(): Promise<boolean>;
     };
     format: {
       // useUid decides whether a new unique key should be created or the existing one (from uid) should be used
@@ -204,7 +211,12 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     progressContainerClassNames = "",
     progressContainerBackground = false,
   } = props.ui ?? {};
-  const { verifying = false, setVerifying, handleVerification } = auth ?? {};
+  const {
+    verifying = false,
+    setVerifying,
+    handleVerification,
+    handleResendCode,
+  } = auth ?? {};
 
   const t = useTranslations("LandingPage.ContactUs.Funnel");
 
@@ -224,6 +236,11 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
 
   const [verificationButtonClicked, setVerificationButtonClicked] =
     useState<boolean>(false);
+  const [verificationError, setVerificationError] =
+    useState<VerificationError | null>(null);
+  const [resendCodeStatus, setResendCodeStatus] = useState<
+    "idle" | "sending" | "sent" | "error"
+  >("idle");
   const [legalConsentTextHash, setLegalConsentTextHash] = useState<string>("");
 
   const initArgs = useMemo<InitFunnelArgs>(
@@ -948,36 +965,111 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
     [],
   );
 
-  const handleKeyUpCode = (
+  /** Writes `digits` into the code inputs starting at `startIndex` and focuses
+   * the input after the last written digit. */
+  const fillCodeInputs = (startIndex: number, digits: string) => {
+    const inputs = codeInputsRef.current;
+    digits
+      .split("")
+      .slice(0, inputs.length - startIndex)
+      .forEach((digit, offset) => {
+        const input = inputs[startIndex + offset];
+        if (input) input.value = digit;
+      });
+    inputs[Math.min(startIndex + digits.length, inputs.length - 1)]?.focus();
+  };
+
+  /** Digits and backspace are handled on keydown (not keyup), so fast typing
+   * where keys overlap can neither drop digits nor jump focus backwards. */
+  const handleKeyDownCode = (
     index: number,
     event: React.KeyboardEvent<HTMLInputElement>,
   ) => {
-    const { value } = event.currentTarget;
-    if (value.length === 0 && index > 0) {
-      codeInputsRef.current[index - 1]?.focus();
-    } else if (value.length === 1 && index < codeInputsRef.current.length - 1) {
-      codeInputsRef.current[index + 1]?.focus();
+    if (/^\d$/.test(event.key)) {
+      event.preventDefault();
+      fillCodeInputs(index, event.key);
+    } else if (event.key === "Backspace") {
+      event.preventDefault();
+      const input = event.currentTarget;
+      if (input.value) {
+        input.value = "";
+      } else if (index > 0) {
+        const previousInput = codeInputsRef.current[index - 1];
+        if (previousInput) previousInput.value = "";
+        previousInput?.focus();
+      }
     }
+  };
+
+  /** Fallback for input that bypasses keydown (mobile keyboards, one-time-code
+   * autofill which drops the whole code into a single input). */
+  const handleChangeCode = (
+    index: number,
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const digits = event.currentTarget.value.replace(/\D/g, "");
+    event.currentTarget.value = "";
+    if (digits) fillCodeInputs(index, digits);
   };
 
   const handlePasteCode = (event: React.ClipboardEvent<HTMLInputElement>) => {
     event.preventDefault();
     const pasteData = event.clipboardData.getData("text");
-    const digits = pasteData.replace(/\D/g, "").split("");
-
-    digits.forEach((digit, index) => {
-      if (codeInputsRef.current[index]) {
-        codeInputsRef.current[index]!.value = digit;
-        if (index < codeInputsRef.current.length - 1) {
-          codeInputsRef.current[index + 1]?.focus();
-        }
-      }
-    });
+    fillCodeInputs(0, pasteData.replace(/\D/g, ""));
   };
 
   const getVerificationCode = (): string => {
     return codeInputsRef.current.map((input) => input?.value || "").join("");
   };
+
+  const clearCodeInputs = () => {
+    codeInputsRef.current.forEach((input) => {
+      if (input) input.value = "";
+    });
+    codeInputsRef.current[0]?.focus();
+  };
+
+  const submitVerificationCode = async () => {
+    if (!handleVerification || verificationButtonClicked) return;
+
+    setVerificationButtonClicked(true);
+    setVerificationError(null);
+    setResendCodeStatus("idle");
+
+    let error: VerificationError | null = "generic";
+    try {
+      error = await handleVerification(getVerificationCode());
+    } catch (err) {
+      console.error("Error verifying code", err);
+    }
+
+    // On success we stay in the loading state while redirecting
+    if (error) {
+      setVerificationError(error);
+      setVerificationButtonClicked(false);
+      clearCodeInputs();
+    }
+  };
+
+  const resendVerificationCode = async () => {
+    if (!handleResendCode || resendCodeStatus === "sending") return;
+
+    setResendCodeStatus("sending");
+    const sent = await handleResendCode();
+    setResendCodeStatus(sent ? "sent" : "error");
+    if (sent) {
+      setVerificationError(null);
+      clearCodeInputs();
+    }
+  };
+
+  useEffect(() => {
+    if (!verifying) {
+      setVerificationError(null);
+      setResendCodeStatus("idle");
+      setVerificationButtonClicked(false);
+    }
+  }, [verifying]);
 
   const calculateForms = (questionKey: string, formKey: string) => {
     Object.keys(questionElements).forEach((questionKeyLoop: string) => {
@@ -1783,7 +1875,13 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
               </DialogTitle>
               <Description>{t("ui.verification.description")}</Description>
               <p>{t("ui.verification.details")}</p>
-              <form className="max-w-sm mx-auto">
+              <form
+                className="max-w-sm mx-auto"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  submitVerificationCode();
+                }}
+              >
                 <div className="flex mb-2 space-x-2 rtl:space-x-reverse">
                   {[...Array(6)].map((_, index) => (
                     <div key={index}>
@@ -1795,11 +1893,15 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                           codeInputsRef.current[index] = el;
                         }}
                         type="text"
-                        maxLength={1}
+                        inputMode="numeric"
+                        autoComplete={index === 0 ? "one-time-code" : "off"}
                         id={`code-${index + 1}`}
                         className="block h-9 w-9 rounded-lg border border-gray-300 bg-white py-3 text-center text-sm font-extrabold text-gray-900 focus:border-synergy-light-blue focus:ring-synergy-light-blue dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-synergy-light-blue dark:focus:ring-synergy-light-blue"
                         required
-                        onKeyUp={(e) => handleKeyUpCode(index, e)}
+                        aria-invalid={verificationError !== null}
+                        aria-describedby="helper-text-explanation"
+                        onKeyDown={(e) => handleKeyDownCode(index, e)}
+                        onChange={(e) => handleChangeCode(index, e)}
                         onPaste={handlePasteCode}
                       />
                     </div>
@@ -1811,16 +1913,42 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                 >
                   {t("ui.verification.helperText")}
                 </p>
+                {verificationError && (
+                  <p
+                    role="alert"
+                    className="mt-2 text-sm text-red-600 dark:text-red-500"
+                  >
+                    {t(`ui.verification.errors.${verificationError}`)}
+                  </p>
+                )}
+                {resendCodeStatus === "sent" && (
+                  <p
+                    role="status"
+                    className="mt-2 text-sm text-green-600 dark:text-green-500"
+                  >
+                    {t("ui.verification.resendSuccess")}
+                  </p>
+                )}
+                {resendCodeStatus === "error" && (
+                  <p
+                    role="alert"
+                    className="mt-2 text-sm text-red-600 dark:text-red-500"
+                  >
+                    {t("ui.verification.resendError")}
+                  </p>
+                )}
+                {handleResendCode && (
+                  <button
+                    type="button"
+                    onClick={resendVerificationCode}
+                    disabled={resendCodeStatus === "sending"}
+                    className="mt-2 block text-sm font-medium text-synergy-light-blue underline-offset-4 hover:underline focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    {t("ui.verification.resendButton")}
+                  </button>
+                )}
                 <button
-                  type="button"
-                  onClick={() => {
-                    setVerificationButtonClicked(true);
-                    setTimeout(() => {
-                      setVerificationButtonClicked(false);
-                    }, 5000);
-                    handleVerification &&
-                      handleVerification(getVerificationCode());
-                  }}
+                  type="submit"
                   className="mt-4 inline-flex items-center gap-1 rounded-lg bg-synergy-light-blue px-4 py-2 text-white transition-colors hover:bg-synergy-light-blue/90 focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2"
                   disabled={verificationButtonClicked}
                 >

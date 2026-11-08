@@ -234,9 +234,9 @@
       },
       "BentoGridHero": {
         "title": {
-          "prefix": "Innovative",
-          "highlight": "Synergielösungen",
-          "suffix": "für Ihr Energiesystem"
+          "rotating": ["Nachhaltige", "Erneuerbare", "Intelligente"],
+          "highlight": "Energiesysteme",
+          "suffix": "für Privat & Gewerbe"
         },
         "subtitle": "Ihr Anbieter für ganzheitliche Energielösungen",
         "servicesCard": {
@@ -5906,6 +5906,7 @@
                 "order": "1",
                 "type": "range",
                 "required": "false",
+                "requiredLabel": "required",
                 "requiredGroup": "anlagenleistung",
                 "computeFrom": {
                   "factors": [
@@ -6001,6 +6002,7 @@
                 "order": "2",
                 "type": "number",
                 "required": "false",
+                "requiredLabel": "none",
                 "requiredGroup": "anlagenleistung",
                 "defaultVisible": "true",
                 "title": "",
@@ -6023,9 +6025,10 @@
                 "order": "3",
                 "type": "number",
                 "required": "false",
+                "requiredLabel": "none",
                 "defaultVisible": "true",
                 "title": "",
-                "description": "Wenn nicht sicher, dann schätzen Sie.",
+                "description": "",
                 "localStorage": "false",
                 "span": "1",
                 "message": {
@@ -6055,7 +6058,7 @@
                 "required": "true",
                 "defaultVisible": "true",
                 "title": "Schnittstelle?",
-                "description": "Wählen Sie eine Option aus",
+                "description": "Wählen Sie eine Option aus – Zusatzarbeiten können optional dazu gewählt werden",
                 "localStorage": "false",
                 "span": "2",
                 "message": {
@@ -6149,6 +6152,7 @@
                   "zusatzarbeiten": {
                     "title": "Zusatzarbeiten",
                     "description": "",
+                    "additional": "true",
                     "disabled": "false",
                     "span": "3",
                     "icon": {

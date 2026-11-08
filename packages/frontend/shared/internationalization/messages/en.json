@@ -234,9 +234,9 @@
       },
       "BentoGridHero": {
         "title": {
-          "prefix": "Innovative",
-          "highlight": "Synergy solutions",
-          "suffix": "for your energy system"
+          "rotating": ["Sustainable", "Renewable", "Intelligent"],
+          "highlight": "energy systems",
+          "suffix": "for homes & businesses"
         },
         "subtitle": "Your provider for holistic energy solutions",
         "servicesCard": {
@@ -7427,6 +7427,7 @@
                 "order": "1",
                 "type": "range",
                 "required": "false",
+                "requiredLabel": "required",
                 "requiredGroup": "anlagenleistung",
                 "computeFrom": {
                   "factors": [
@@ -7522,6 +7523,7 @@
                 "order": "2",
                 "type": "number",
                 "required": "false",
+                "requiredLabel": "none",
                 "requiredGroup": "anlagenleistung",
                 "defaultVisible": "true",
                 "title": "",
@@ -7544,9 +7546,10 @@
                 "order": "3",
                 "type": "number",
                 "required": "false",
+                "requiredLabel": "none",
                 "defaultVisible": "true",
                 "title": "",
-                "description": "If unsure, just estimate.",
+                "description": "",
                 "localStorage": "false",
                 "span": "1",
                 "message": {
@@ -7576,7 +7579,7 @@
                 "required": "true",
                 "defaultVisible": "true",
                 "title": "Scope of installation?",
-                "description": "Select one option",
+                "description": "Select one option – additional work can optionally be added",
                 "localStorage": "false",
                 "span": "2",
                 "message": {
@@ -7670,6 +7673,7 @@
                   "zusatzarbeiten": {
                     "title": "Additional work",
                     "description": "",
+                    "additional": "true",
                     "disabled": "false",
                     "span": "3",
                     "icon": {

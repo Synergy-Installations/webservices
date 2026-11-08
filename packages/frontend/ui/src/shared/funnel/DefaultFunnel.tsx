@@ -34,6 +34,7 @@ import {
   type InitFunnelArgs,
 } from "./state/funnelReducer";
 import { useFunnelElements } from "./hooks/useFunnelElements";
+import { useFunnelKeyboardNavigation } from "./hooks/useFunnelKeyboardNavigation";
 import { CheckboxRadioForm } from "./forms/CheckboxRadioForm";
 import { CardPopupForm } from "./forms/CardPopupForm";
 import { SelectForm } from "./forms/SelectForm";
@@ -940,6 +941,15 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
    * up-to-date state. */
   const getNextQuestionKeyRef = useRef(getNextQuestionKey);
   getNextQuestionKeyRef.current = getNextQuestionKey;
+
+  useFunnelKeyboardNavigation({
+    stageRef: funnelQuestionViewportRef,
+    questionElementsRef,
+    setQuestionElements,
+    getNextQuestionKeyRef,
+    questionPresentation,
+    questionTransition,
+  });
   const debouncedGetNextQuestionKey = useMemo(
     () =>
       debounce((questionKey: string, formKey: string) => {
@@ -1408,7 +1418,9 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                       className="funnel-progress-marker"
                       style={{ left: `${markerPosition}%`, cursor: "pointer" }}
                       role="button"
-                      tabIndex={0}
+                      // Not a Tab stop: keyboard users move through the
+                      // input fields (see useFunnelKeyboardNavigation).
+                      tabIndex={-1}
                       aria-label={t(
                         "ui.accessibility.questionProgressMarkerAriaLabel",
                         {
@@ -1470,6 +1482,7 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
             <section
               id={questionKey}
               key={questionKey}
+              data-funnel-question={questionKey}
               className={`scroll-mt-40 funnel-question-transition ${getQuestionTransitionClassName(questionKey)}`}
             >
               {/** Title and description of question */}
@@ -1496,10 +1509,11 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                       questionPresentation === "window",
                     ),
                   )
-                  .map((formKey: any, index: any) => (
+                  .map((formKey: any) => (
                     <section
                       key={formKey}
                       id={formKey}
+                      data-funnel-form={formKey}
                       className={`w-full scroll-mt-40 col-span-${
                         questionElements[questionKey].form[formKey].span
                       }`}
@@ -1706,62 +1720,69 @@ export const DefaultFunnel = (props: DefaultFunnelProps) => {
                             return null;
                         }
                       })()}
-                      {questionElements[questionKey].form[formKey].type !==
-                        "submit-button" &&
-                        showQuestionNavigationButtons &&
-                        index ==
-                          Object.entries(
-                            questionElements[questionKey].form,
-                          ).filter(([formKey]) =>
-                            shouldRenderFunnelForm(
-                              questionElements,
-                              questionKey,
-                              String(formKey),
-                              questionPresentation === "window",
-                            ),
-                          ).length -
-                            1 && (
-                          <div className="flex justify-between">
-                            <div className="flex">
-                              {getNavigationQuestionKeys(
-                                questionElements,
-                                questionKey,
-                              )[0] !== questionKey && (
-                                <button
-                                  onClick={() => {
-                                    getNextQuestionKey(
-                                      questionKey,
-                                      formKey,
-                                      "previous",
-                                    );
-                                  }}
-                                  className="rounded-md bg-synergy-light-blue px-3 py-1 text-white transition-colors hover:bg-synergy-light-blue/90 focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2"
-                                >
-                                  {t("ui.navigation.previous")}
-                                </button>
-                              )}
-                            </div>
-                            <div className="flex">
-                              <button
-                                onClick={() => {
-                                  getNextQuestionKey(
-                                    questionKey,
-                                    formKey,
-                                    "next",
-                                  );
-                                }}
-                                className="rounded-md bg-synergy-light-blue px-3 py-1 text-white transition-colors hover:bg-synergy-light-blue/90 focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2"
-                              >
-                                {isQuestionSkippable(questionKey)
-                                  ? t("ui.navigation.skip")
-                                  : t("ui.navigation.next")}
-                              </button>
-                            </div>
-                          </div>
-                        )}
                     </section>
                   ))}
               </div>
+              {/** Navigation sits below the whole form grid (full width), so
+               * "Zurück" stays left even when the last form only spans one
+               * column. */}
+              {(() => {
+                const lastFormKey = Object.keys(
+                  questionElements[questionKey].form,
+                )
+                  .filter((formKey) =>
+                    shouldRenderFunnelForm(
+                      questionElements,
+                      questionKey,
+                      formKey,
+                      questionPresentation === "window",
+                    ),
+                  )
+                  .at(-1);
+                if (
+                  !showQuestionNavigationButtons ||
+                  lastFormKey === undefined ||
+                  questionElements[questionKey].form[lastFormKey].type ===
+                    "submit-button"
+                ) {
+                  return null;
+                }
+                return (
+                  <div className="flex justify-between">
+                    <div className="flex">
+                      {getNavigationQuestionKeys(
+                        questionElements,
+                        questionKey,
+                      )[0] !== questionKey && (
+                        <button
+                          onClick={() => {
+                            getNextQuestionKey(
+                              questionKey,
+                              lastFormKey,
+                              "previous",
+                            );
+                          }}
+                          className="rounded-md bg-synergy-light-blue px-3 py-1 text-white transition-colors hover:bg-synergy-light-blue/90 focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2"
+                        >
+                          {t("ui.navigation.previous")}
+                        </button>
+                      )}
+                    </div>
+                    <div className="flex">
+                      <button
+                        onClick={() => {
+                          getNextQuestionKey(questionKey, lastFormKey, "next");
+                        }}
+                        className="rounded-md bg-synergy-light-blue px-3 py-1 text-white transition-colors hover:bg-synergy-light-blue/90 focus:outline-none focus:ring-2 focus:ring-synergy-light-blue focus:ring-offset-2"
+                      >
+                        {isQuestionSkippable(questionKey)
+                          ? t("ui.navigation.skip")
+                          : t("ui.navigation.next")}
+                      </button>
+                    </div>
+                  </div>
+                );
+              })()}
             </section>
           ))}
         </div>

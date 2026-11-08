@@ -64,6 +64,7 @@ export function SubmitButtonForm({
         {form.message.text}
       </p>
       <button
+        data-funnel-submit
         onClick={() => {
           submitFunnel &&
             submitFunnel(

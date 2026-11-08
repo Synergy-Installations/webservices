@@ -50,6 +50,11 @@ function fieldDisplayValue(field: any, value: unknown): string {
   return String(value);
 }
 
+/** Optional extra card that can be selected in addition to the single choice. */
+function isAdditional(option: any): boolean {
+  return option?.additional === true || option?.additional === "true";
+}
+
 /**
  * Conditional visibility for a pop-up field. A field with
  * `showWhen: { field, equals }` is only shown when the referenced sibling field
@@ -97,9 +102,17 @@ export function CardPopupForm({
       const updated = { ...prev };
       const target = updated[questionKey].form[formKey];
       const title = target.options[optionKey].title;
-      if (!isMultiple) {
-        target.selected.selectedOptionsUid = [optionKey];
-        target.selected.selectedOptions = [title];
+      if (!isMultiple && !isAdditional(target.options[optionKey])) {
+        /** Single-select replaces the main choice but keeps optional extra
+         * cards (e.g. "Zusatzarbeiten") selected. */
+        const keptKeys = target.selected.selectedOptionsUid.filter(
+          (key: string) => isAdditional(target.options[key]),
+        );
+        target.selected.selectedOptionsUid = [...keptKeys, optionKey];
+        target.selected.selectedOptions = [
+          ...keptKeys.map((key: string) => target.options[key].title),
+          title,
+        ];
       } else if (!target.selected.selectedOptionsUid.includes(optionKey)) {
         target.selected.selectedOptionsUid = [
           ...target.selected.selectedOptionsUid,
@@ -202,6 +215,7 @@ export function CardPopupForm({
               <button
                 type="button"
                 disabled={option.disabled === true || option.disabled === "true"}
+                data-funnel-field
                 onClick={() => handleCardClick(optionKey)}
                 className={`flex w-full flex-col items-start gap-2 rounded-lg border-2 bg-white p-5 text-left text-synergy-dark-grey transition-colors hover:border-synergy-light-blue/50 hover:bg-synergy-light-grey focus:outline-none focus-visible:ring-2 focus-visible:ring-synergy-light-blue focus-visible:ring-offset-2 disabled:cursor-not-allowed dark:bg-gray-800 dark:text-gray-300 ${
                   selected
@@ -212,8 +226,13 @@ export function CardPopupForm({
                 <div className="flex w-full items-start justify-between">
                   <div className="block">
                     {renderFunnelOptionIcon(option)}
-                    <div className="w-full text-lg font-semibold">
+                    <div className="flex w-full flex-wrap items-center gap-2 text-lg font-semibold">
                       {option.title}
+                      {isAdditional(option) && (
+                        <span className="inline-flex items-center rounded bg-synergy-light-blue/10 px-1.5 py-0.5 text-xs font-medium text-synergy-light-blue dark:bg-synergy-light-blue/20">
+                          {t("ui.formLabel.optional")}
+                        </span>
+                      )}
                     </div>
                     {option.description && (
                       <div className="w-full text-sm">{option.description}</div>
@@ -297,7 +316,7 @@ export function CardPopupForm({
                       {openOption.title}
                     </DialogTitle>
                     {allFieldsOptional && (
-                      <span className="inline-flex items-center rounded bg-gray-100 px-1.5 py-0.5 text-xs font-medium text-gray-500 dark:bg-gray-700 dark:text-gray-400">
+                      <span className="inline-flex items-center rounded bg-synergy-light-blue/10 px-1.5 py-0.5 text-xs font-medium text-synergy-light-blue dark:bg-synergy-light-blue/20">
                         {t("ui.cards.allOptional")}
                       </span>
                     )}
@@ -331,7 +350,7 @@ export function CardPopupForm({
                                 {t("ui.formLabel.required")}
                               </span>
                             ) : (
-                              <span className="inline-flex items-center rounded bg-gray-100 px-1.5 py-0.5 text-xs font-medium text-gray-500 dark:bg-gray-700 dark:text-gray-400">
+                              <span className="inline-flex items-center rounded bg-synergy-light-blue/10 px-1.5 py-0.5 text-xs font-medium text-synergy-light-blue dark:bg-synergy-light-blue/20">
                                 {t("ui.formLabel.optional")}
                               </span>
                             ))}

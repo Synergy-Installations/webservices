@@ -255,6 +255,7 @@ export const createQuestionElement = (
                 element.form[formKey].message.checkPreviousFormsMessage,
             },
             requiredGroup: element.form[formKey].requiredGroup ?? null,
+            requiredLabel: element.form[formKey].requiredLabel ?? null,
             computeFrom: element.form[formKey].computeFrom ?? null,
             options: {
               buttons: {
@@ -369,6 +370,7 @@ export const createQuestionElement = (
                 element.form[formKey].message.checkPreviousFormsMessage,
             },
             requiredGroup: element.form[formKey].requiredGroup ?? null,
+            requiredLabel: element.form[formKey].requiredLabel ?? null,
             options: {
               label: element.form[formKey].options.label,
               placeholder: element.form[formKey].options.placeholder,
@@ -782,6 +784,11 @@ export const createQuestionElement = (
                     ? option.disabled === "true"
                     : option.disabled,
                   span: option.span,
+                  /** Optional extra card that can be picked on top of the
+                   * single selection (e.g. "Zusatzarbeiten"). */
+                  additional: useStrings
+                    ? option.additional === "true"
+                    : (option.additional ?? false),
                   icon: createIconConfig(option.icon),
                   /** Each card reveals its own set of fields inside the pop-up. */
                   fields: Object.keys(option.fields ?? {}).reduce(

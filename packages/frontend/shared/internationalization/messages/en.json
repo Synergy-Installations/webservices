@@ -4824,7 +4824,15 @@
             "details": "From the dashboard, you can add more projects, manage your forms, and update your settings.",
             "codeLabel": "Code {index}",
             "helperText": "Please enter the 6-digit code we sent you by email.",
-            "verifyButton": "Verify"
+            "verifyButton": "Verify",
+            "resendButton": "Send new code",
+            "resendSuccess": "We have sent you a new code by email.",
+            "resendError": "The code could not be sent. Please try again later.",
+            "errors": {
+              "incorrectCode": "The code is incorrect. Please check it and try again.",
+              "expiredCode": "The code has expired or was entered incorrectly too many times. Please request a new code.",
+              "generic": "Verification failed. Please try again."
+            }
           },
           "submitProgress": {
             "title": "Processing your request",
@@ -5064,14 +5072,14 @@
                 },
                 "options": {
                   "buttons": {
-                    "incrementBy": "2.5",
-                    "decrementBy": "2.5"
+                    "incrementBy": "1",
+                    "decrementBy": "1"
                   },
                   "range": {
-                    "defaultValue": "0",
-                    "min": "0",
-                    "max": "3000",
-                    "step": "2.5",
+                    "defaultValue": "1",
+                    "min": "1",
+                    "max": "125",
+                    "step": "0.5",
                     "type": "exp"
                   },
                   "unit": {
@@ -5082,29 +5090,29 @@
                   },
                   "labels": {
                     "min": {
-                      "text": "Min (0 m)",
-                      "value": "0",
+                      "text": "Min (1 m)",
+                      "value": "1",
                       "align": "start",
                       "offsetX": "0",
                       "correctX": "0%"
                     },
                     "q1": {
-                      "text": "1 m",
-                      "value": "1",
+                      "text": "5 m",
+                      "value": "5",
                       "align": "start",
                       "offsetX": "1/3",
                       "correctX": "145%"
                     },
                     "q2": {
-                      "text": "30 m",
-                      "value": "30",
+                      "text": "25 m",
+                      "value": "25",
                       "align": "start",
                       "offsetX": "2/3",
                       "correctX": "105%"
                     },
                     "max": {
-                      "text": "Max (3000 m)",
-                      "value": "3000",
+                      "text": "Max (125 m)",
+                      "value": "125",
                       "align": "end",
                       "offsetX": "0",
                       "correctX": "0%"
@@ -5116,8 +5124,8 @@
                   "label": "Mounting height",
                   "type": "number",
                   "unit": "m",
-                  "min": "0",
-                  "max": "3000",
+                  "min": "1",
+                  "max": "125",
                   "aliases": [
                     "Mounting height",
                     "Building height",

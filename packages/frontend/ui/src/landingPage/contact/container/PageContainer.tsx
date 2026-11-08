@@ -16,7 +16,7 @@ export const PageContainer = (props: PageContainerProps) => {
 
   const title = t.rich("title", {
     highlight: (chunks) => <AuroraText>{chunks}</AuroraText>,
-    lineBreak: () => <div className="block sm:hidden" />,
+    lineBreak: () => <br />,
   });
 
   return (

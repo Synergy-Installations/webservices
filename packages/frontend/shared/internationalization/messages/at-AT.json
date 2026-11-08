@@ -4525,9 +4525,9 @@
     },
     "ContactUs": {
       "Header": {
-        "title": "Ihre <highlight>Energieautarkie</highlight><lineBreak></lineBreak> wir machen es einfach.",
+        "title": "Ihre <highlight>Energieautarkie</highlight>.<lineBreak></lineBreak> Wir machen es einfach.",
         "smallTitle": "Wir übernehmen Verantwortung.",
-        "description": "Innerhalb von 24 Stunden nehmen wir mit Ihnen Kontakt auf."
+        "description": "Innerhalb von 24 Stunden melden wir uns<br></br>auf Ihre Anfrage."
       },
       "Form": {
         "elements": {
@@ -4563,10 +4563,7 @@
                 "text": "Photovoltaik & Stromspeicher"
               },
               "optionsOne": {
-                "text": "Gemeinschaftliche Erzeugungsanlagen"
-              },
-              "optionsTwo": {
-                "text": "Energiegemeinschaften"
+                "text": "Gemeinschaftliche Erzeugungsanlagen & Energiegemeinschaften"
               },
               "optionsThree": {
                 "text": "Energiekostenoptimierung"
@@ -4585,9 +4582,6 @@
               },
               "optionOthers": {
                 "text": "Balkon- und Kleinstkraftwerke"
-              },
-              "optionWallbox": {
-                "text": "Wartung & Service"
               }
             },
             "required": "false"
@@ -4597,16 +4591,10 @@
             "label": "Für welche Leistungen interessieren Sie sich?",
             "options": {
               "optionGoogle": {
-                "text": "Projektaquise"
+                "text": "Projektakquise"
               },
               "optionTwitter": {
                 "text": "Energievertrieb"
-              },
-              "optionMouthToMouth": {
-                "text": "Mediation"
-              },
-              "optionsOne": {
-                "text": "Verhandlungsunterstützung"
               },
               "optionsTwo": {
                 "text": "Social Media & Video"
@@ -4627,10 +4615,25 @@
                 "text": "Energieausweis"
               },
               "optionGoogle3": {
-                "text": "Behördverfahren"
+                "text": "Behördenverfahren"
               },
               "optionTwitter3": {
                 "text": "Planung"
+              },
+              "optionBauausfuehrung": {
+                "text": "Bauausführung"
+              },
+              "optionBauaufsicht": {
+                "text": "Bauaufsicht"
+              },
+              "optionMaterialbeschaffung": {
+                "text": "Materialbeschaffung"
+              },
+              "optionProjektmanagement": {
+                "text": "Projektmanagement"
+              },
+              "optionWartungService": {
+                "text": "Wartung & Service"
               }
             },
             "required": "false"
@@ -4698,7 +4701,7 @@
         },
         "Team-views": {
           "title": "Telefon - Wenn es ganz schnell gehen muss",
-          "description": "+43 664 2448742",
+          "description": "+43 664 244 87 42",
           "href": "tel:+436642448742",
           "icon": {
             "src": "/frontend/landingPage/icons/call_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg",
@@ -9415,7 +9418,7 @@
               },
               "block02": {
                 "type": "paragraph",
-                "text": "Tel.: +43 664 2448742<br></br>E-Mail: office@synergie.cc"
+                "text": "Tel.: +43 664 244 87 42<br></br>E-Mail: office@synergie.cc"
               }
             }
           },
@@ -9506,7 +9509,7 @@
               },
               "block02": {
                 "type": "paragraph",
-                "text": "<b>Synergie Montagen Riegler GmbH</b><br></br>Anton Krenn Straße 23/2, 2540 Bad Vöslau, Österreich<br></br>FN 593978 y, Landesgericht Wiener Neustadt – UID-Nummer: ATU78880338<br></br>Geschäftsführer: Michael Riegler<br></br>E-Mail: office@synergie.cc<br></br>Tel.: +43 664 2448742"
+                "text": "<b>Synergie Montagen Riegler GmbH</b><br></br>Anton Krenn Straße 23/2, 2540 Bad Vöslau, Österreich<br></br>FN 593978 y, Landesgericht Wiener Neustadt – UID-Nummer: ATU78880338<br></br>Geschäftsführer: Michael Riegler<br></br>E-Mail: office@synergie.cc<br></br>Tel.: +43 664 244 87 42"
               }
             }
           },

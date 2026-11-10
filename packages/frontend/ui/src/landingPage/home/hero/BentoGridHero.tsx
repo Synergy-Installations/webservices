@@ -4,6 +4,7 @@ import {
   BentoItem,
 } from "@com.synergy/frontend-ui/BentoGridHeroLayout";
 import { AuroraText } from "../../shared/text/AuroraText";
+import { RotatingWord } from "../../shared/text/RotatingWord";
 import ImageLoader from "../../../shared/utils/image/ImageLoader";
 import Image from "next/image";
 import Link from "next/link";
@@ -48,7 +49,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
         <div className="max-w-7xl mx-auto min-[350px]:px-4 md:px-8 py-10 pt-20 xs:pt-28 md:pt-32">
           <header className="mb-4 md:mb-10 text-center">
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 leading-normal">
-              {t("title.prefix")}{" "}
+              <RotatingWord words={t.raw("title.rotating") as string[]} />{" "}
               <AuroraText>{t("title.highlight")}</AuroraText>{" "}
               <div className="block sm:hidden"></div> {t("title.suffix")}
             </h1>

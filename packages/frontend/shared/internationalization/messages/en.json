@@ -234,9 +234,9 @@
       },
       "BentoGridHero": {
         "title": {
-          "prefix": "Innovative",
-          "highlight": "Synergy solutions",
-          "suffix": "for your energy system"
+          "rotating": ["Sustainable", "Renewable", "Intelligent"],
+          "highlight": "energy systems",
+          "suffix": "for homes & businesses"
         },
         "subtitle": "Your provider for holistic energy solutions",
         "servicesCard": {
@@ -4555,9 +4555,9 @@
     },
     "ContactUs": {
       "Header": {
-        "title": "Your <highlight>energy independence</highlight><lineBreak></lineBreak> made simple.",
+        "title": "Your <highlight>energy independence</highlight>.<lineBreak></lineBreak> We make it simple.",
         "smallTitle": "We take responsibility.",
-        "description": "We will contact you within 24 hours."
+        "description": "Within 24 hours, we will respond<br></br>to your enquiry."
       },
       "Form": {
         "elements": {
@@ -4593,10 +4593,7 @@
                 "text": "Photovoltaics & Power Storage"
               },
               "optionsOne": {
-                "text": "Community Generation Plants"
-              },
-              "optionsTwo": {
-                "text": "Energy Communities"
+                "text": "Community Generation Plants & Energy Communities"
               },
               "optionsThree": {
                 "text": "Energy Cost Optimisation"
@@ -4615,9 +4612,6 @@
               },
               "optionOthers": {
                 "text": "Balconies and micropower plants"
-              },
-              "optionWallbox": {
-                "text": "Maintenance & Service"
               }
             },
             "required": "false"
@@ -4631,12 +4625,6 @@
               },
               "optionTwitter": {
                 "text": "Energy Sales"
-              },
-              "optionMouthToMouth": {
-                "text": "Mediation"
-              },
-              "optionsOne": {
-                "text": "Negotiating support"
               },
               "optionsTwo": {
                 "text": "Social Media & Video"
@@ -4661,6 +4649,21 @@
               },
               "optionTwitter3": {
                 "text": "Planning"
+              },
+              "optionBauausfuehrung": {
+                "text": "Construction execution"
+              },
+              "optionBauaufsicht": {
+                "text": "Construction supervision"
+              },
+              "optionMaterialbeschaffung": {
+                "text": "Material procurement"
+              },
+              "optionProjektmanagement": {
+                "text": "Project management"
+              },
+              "optionWartungService": {
+                "text": "Maintenance & Service"
               }
             },
             "required": "false"
@@ -4728,7 +4731,7 @@
         },
         "Team-views": {
           "title": "Telephone - If it has to go very quickly",
-          "description": "+43 664 2448742",
+          "description": "+43 664 244 87 42",
           "href": "tel:+436642448742",
           "icon": {
             "src": "/frontend/landingPage/icons/call_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg",
@@ -7435,6 +7438,7 @@
                 "order": "1",
                 "type": "range",
                 "required": "false",
+                "requiredLabel": "required",
                 "requiredGroup": "anlagenleistung",
                 "computeFrom": {
                   "factors": [
@@ -7530,6 +7534,7 @@
                 "order": "2",
                 "type": "number",
                 "required": "false",
+                "requiredLabel": "none",
                 "requiredGroup": "anlagenleistung",
                 "defaultVisible": "true",
                 "title": "",
@@ -7552,9 +7557,10 @@
                 "order": "3",
                 "type": "number",
                 "required": "false",
+                "requiredLabel": "none",
                 "defaultVisible": "true",
                 "title": "",
-                "description": "If unsure, just estimate.",
+                "description": "",
                 "localStorage": "false",
                 "span": "1",
                 "message": {
@@ -7584,7 +7590,7 @@
                 "required": "true",
                 "defaultVisible": "true",
                 "title": "Scope of installation?",
-                "description": "Select one option",
+                "description": "Select one option – additional work can optionally be added",
                 "localStorage": "false",
                 "span": "2",
                 "message": {
@@ -7678,6 +7684,7 @@
                   "zusatzarbeiten": {
                     "title": "Additional work",
                     "description": "",
+                    "additional": "true",
                     "disabled": "false",
                     "span": "3",
                     "icon": {
@@ -10935,7 +10942,7 @@
               },
               "block02": {
                 "type": "paragraph",
-                "text": "Tel.: +43 664 2448742<br></br>E-Mail: office@synergie.cc"
+                "text": "Tel.: +43 664 244 87 42<br></br>E-Mail: office@synergie.cc"
               }
             }
           },
@@ -11026,7 +11033,7 @@
               },
               "block02": {
                 "type": "paragraph",
-                "text": "<b>Synergie Montagen Riegler GmbH</b><br></br>Anton Krenn Straße 23/2, 2540 Bad Vöslau, Österreich<br></br>FN 593978 y, Landesgericht Wiener Neustadt – UID-Nummer: ATU78880338<br></br>Geschäftsführer: Michael Riegler<br></br>E-Mail: office@synergie.cc<br></br>Tel.: +43 664 2448742"
+                "text": "<b>Synergie Montagen Riegler GmbH</b><br></br>Anton Krenn Straße 23/2, 2540 Bad Vöslau, Österreich<br></br>FN 593978 y, Landesgericht Wiener Neustadt – UID-Nummer: ATU78880338<br></br>Geschäftsführer: Michael Riegler<br></br>E-Mail: office@synergie.cc<br></br>Tel.: +43 664 244 87 42"
               }
             }
           },

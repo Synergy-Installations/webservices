@@ -9,9 +9,13 @@ Michael möchte etwas an der Website ändern. Gewünschte Änderung: $ARGUMENTS
 Gehe nach dem Standard-Workflow aus CLAUDE.md vor:
 
 1. Prüfe mit `git status` und `git branch --show-current`, wo du stehst.
-   - Neues Thema → von einem aktuellen `main` einen neuen Branch
-     `michael/<kurzer-name>` erstellen (erst `git switch main && git pull --ff-only origin main`).
-   - Passt die Änderung zum bestehenden Arbeits-Branch (Folgeänderung) → dort weiterarbeiten.
+   - Gibt es schon einen offenen `michael/*`-Arbeits-Branch (noch nicht von Elias
+     übernommen) → **immer dort weiterarbeiten**, auch bei einem ganz neuen Thema.
+     Niemals einen zusätzlichen Branch anlegen — alle Änderungen kommen in denselben
+     Branch und später in einen einzigen Pull Request.
+   - Nur wenn es keinen offenen Arbeits-Branch gibt → von einem aktuellen `main`
+     einen neuen Branch `michael/aenderungen-<datum>` erstellen
+     (erst `git switch main && git pull --ff-only origin main`).
 2. Prüfe mit `lsof -ti:3000`, ob der Testserver läuft. Wenn nicht: `pnpm dev` im
    Hintergrund starten und warten, bis er bereit ist.
 3. Setze die Änderung um (Texte immer in `at-AT.json` UND `en.json`).

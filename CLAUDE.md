@@ -29,16 +29,22 @@ preview URL, never touches the live site.
 
 ## Standard workflow for every change
 
-1. **Branch first.** If this is a new topic (not a follow-up to the branch you are
-   already on):
-   ```
-   git switch main
-   git pull --ff-only origin main
-   git switch -c michael/<kurzer-name>
-   ```
+1. **Exactly ONE working branch for all changes.** Michael's changes are collected
+   in a single `michael/*` branch and submitted together as ONE big pull request.
+   - If a `michael/*` branch with unsubmitted or not-yet-merged work already
+     exists, **stay on it** — every further change goes directly into this branch,
+     **even if it is a completely different topic.** Never create an additional
+     branch for it, never split changes across several branches.
+   - Only if there is no open working branch (e.g. at the very start, or after Elias
+     merged the last pull request) create a new one:
+     ```
+     git switch main
+     git pull --ff-only origin main
+     git switch -c michael/aenderungen-<datum>
+     ```
    Branch names: lowercase ASCII, hyphens, no umlauts, never contain the word "main"
-   (e.g. `michael/telefonnummer-footer`). Follow-up tweaks to work in progress stay
-   on the current branch.
+   (e.g. `michael/aenderungen-2026-10-02`). This way all changes are visible together
+   on the same local dev server and end up in one single pull request.
 
 2. **Dev server.** Check whether something already listens on port 3000
    (`lsof -ti:3000`). If not, start `pnpm dev` from the repo root **in the
@@ -66,8 +72,9 @@ preview URL, never touches the live site.
    noch NICHT auf synergie.cc. Never merge the PR yourself, never use
    `gh pr merge`.
 
-6. **After Elias merged** (Michael says it's live / a new topic starts): begin the
-   next change fresh from step 1 — switch to `main`, pull, new branch. Delete old
+6. **After Elias merged** (Michael says it's live): only now begin a new working
+   branch from step 1 — switch to `main`, pull, new branch. A new topic alone is NOT
+   a reason for a new branch while the current one is not merged yet. Delete old
    fully-merged `michael/*` branches with `git branch -d` (lowercase -d only).
 
 ## Where things live (what Michael's changes usually touch)

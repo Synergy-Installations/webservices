@@ -97,7 +97,7 @@ export function CheckboxRadioForm({
                 debouncedGetNextQuestionKey(questionKey, formKey);
                 debouncedCountQuestionsAndSet();
               }}
-              className="hidden peer"
+              className="peer sr-only"
               required={true}
             />
             <label

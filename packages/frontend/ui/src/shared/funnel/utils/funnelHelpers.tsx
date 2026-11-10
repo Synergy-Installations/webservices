@@ -964,7 +964,14 @@ export function renderFormRequiredLabel(
 ): JSX.Element | null {
   const excludedTypes = ["submit-button", "calculation"];
   if (excludedTypes.includes(form?.type)) return null;
-  if (form?.required === true || form?.required === "true") {
+  /** `requiredLabel` overrides the label, e.g. for a `requiredGroup` where only
+   * one member carries "Pflichtfeld" and the others show nothing. */
+  if (form?.requiredLabel === "none") return null;
+  if (
+    form?.requiredLabel === "required" ||
+    form?.required === true ||
+    form?.required === "true"
+  ) {
     return (
       <span className="inline-flex items-center rounded bg-synergy-light-blue/10 px-1.5 py-0.5 text-xs font-medium text-synergy-light-blue dark:bg-synergy-light-blue/20">
         {requiredLabel}
@@ -972,7 +979,7 @@ export function renderFormRequiredLabel(
     );
   }
   return (
-    <span className="inline-flex items-center rounded bg-gray-100 px-1.5 py-0.5 text-xs font-medium text-gray-500 dark:bg-gray-700 dark:text-gray-400">
+    <span className="inline-flex items-center rounded bg-synergy-light-blue/10 px-1.5 py-0.5 text-xs font-medium text-synergy-light-blue dark:bg-synergy-light-blue/20">
       {optionalLabel}
     </span>
   );

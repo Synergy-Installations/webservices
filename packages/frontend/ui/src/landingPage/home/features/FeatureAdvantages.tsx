@@ -5,7 +5,8 @@ import { Transition } from "@headlessui/react";
 import Image from "next/image";
 import { useMessages, useTranslations } from "next-intl";
 import { ImageLoader } from "@com.synergy/frontend-ui/ImageLoader";
-import { Stats } from "@com.synergy/frontend-ui/Stats";
+import AiLabel from "../../shared/ai/AiLabel";
+import { isAiGenerated } from "../../shared/ai/aiGeneratedImages";
 import RichText from "../../../shared/internationalization/text/RichText";
 
 /* eslint-disable-next-line */
@@ -23,7 +24,8 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
   const blockKeys = Object.keys(
     messages.LandingPage.Home.FeatureAdvantages.blocks
   );
-  const blueBoxes = Object.keys(messages.LandingPage.Home.Hero.blueBoxes);
+  const fa = messages.LandingPage.Home.FeatureAdvantages;
+  const blueBoxes = Object.keys(fa.blueBoxes || {});
 
   return (
     <section className="relative rounded-t-[100px] bg-synergy-light-grey after:absolute after:top-0 after:right-0 after:h-full after:w-96 after:pointer-events-none after:bg-gradient-to-l after:from-synergy-light-grey/0 max-lg:after:hidden">
@@ -46,9 +48,11 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
                 <h3 className="font-inter-tight text-3xl text-center font-bold text-synergy-dark-grey mb-4">
                   {t("title")}
                 </h3>
-                <div className="text-lg text-center text-synergy-dark-grey">
-                  <RichText>{(tags) => t.rich("description", tags)}</RichText>
-                </div>
+                {fa.description ? (
+                  <div className="text-lg text-center text-synergy-dark-grey">
+                    <RichText>{(tags) => t.rich("description", tags)}</RichText>
+                  </div>
+                ) : null}
               </div>
 
               {/* Tabs buttons - keep these inside the left column */}
@@ -93,7 +97,10 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
                       {/* wrapper ensures no overflow; horizontal padding is provided by the column (px-4 lg:px-6)
                 so left/right outer spacing is symmetric. The inner wrapper has no extra horizontal padding
                 to avoid creating asymmetry. Image fills available height and has no border. */}
-                      <div className="overflow-hidden rounded-xl bg-transparent max-w-full h-full box-border">
+                      <div className="relative overflow-hidden rounded-xl bg-transparent max-w-full h-full box-border">
+                        {isAiGenerated(t(`buttons.${key}.image.src`)) ? (
+                          <AiLabel />
+                        ) : null}
                         <Image
                           className="w-full h-full object-cover block border-0"
                           loader={ImageLoader}
@@ -118,7 +125,6 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
 
         {/* Features blocks */}
         <div className="max-w-6xl mx-auto mt-12 lg:mt-32">
-          <Stats />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16">
             {/* Blocks */}
             {/* {blockKeys.map((key, index) => (
@@ -163,9 +169,11 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
                 <div className="text-lg font-semibold text-white mb-1 text-center">
                   {t(`blueBoxes.${i}.title`)}
                 </div>
-                <div className="text-sm text-white/80 text-center">
-                  {t(`blueBoxes.${i}.description`)}
-                </div>
+                {fa.blueBoxes[i]?.description ? (
+                  <div className="text-sm text-white/90 text-center">
+                    {t(`blueBoxes.${i}.description`)}
+                  </div>
+                ) : null}
               </div>
             </div>
           ))}

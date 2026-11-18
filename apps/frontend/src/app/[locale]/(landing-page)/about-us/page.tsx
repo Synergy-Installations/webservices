@@ -1,8 +1,8 @@
 import AboutCta from "@com.synergy/frontend-ui/AboutCta";
 import AboutHero from "@com.synergy/frontend-ui/AboutHero";
-import AboutStats from "@com.synergy/frontend-ui/AboutStats";
 import AboutStory from "@com.synergy/frontend-ui/AboutStory";
-import AboutTeamMembers from "@com.synergy/frontend-ui/AboutTeamMembers";
+import HeroLogoCta from "@com.synergy/frontend-ui/HeroLogoCta";
+import QualityChecklist from "@com.synergy/frontend-ui/QualityChecklist";
 import Head from "next/head";
 
 export const metadata = {
@@ -22,9 +22,9 @@ export default function Page() {
         />
       </Head>
       <AboutHero />
-      <AboutStats />
       <AboutStory />
-      <AboutTeamMembers />
+      <QualityChecklist section="about" hero="synergie-heldin" />
+      <HeroLogoCta hero="logo-heldin-lila" className="pb-12" />
       <AboutCta />
     </>
   );

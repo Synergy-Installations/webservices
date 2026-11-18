@@ -22,12 +22,14 @@ export const CtaLoose = (props: CtaLooseProps) => {
           <div className="relative max-w-3xl mx-auto text-center pb-12 md:pb-16">
             <div className="inline-flex items-center justify-center p-3 bg-white rounded-xl shadow-md mb-8 relative before:absolute before:-top-12 before:w-52 before:h-52 before:bg-synergy-light-grey before:rounded-full before:blur-3xl before:-z-10">
               <Link href="/">
-                <Image
-                  loader={ImageLoader}
-                  src={t("logo.src")}
-                  width={Number(t("logo.width"))}
-                  height={Number(t("logo.height"))}
-                  alt={t("logo.alt")}
+                {/* Neues SYNERGIE-Logo */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/brand/synergie-logo-farbe.svg"
+                  width={180}
+                  height={27}
+                  alt="SYNERGIE"
+                  className="h-8 w-auto"
                 />
               </Link>
             </div>

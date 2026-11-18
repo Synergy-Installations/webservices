@@ -809,6 +809,10 @@ export const LlmFileExtraction = (props: LLMFileExtractionProps) => {
                 <p className="text-sm font-semibold text-synergy-dark-grey dark:text-synergy-light-grey">
                   KI-Auswertung starten
                 </p>
+                <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                  Hinweis: Diese Funktion nutzt künstliche Intelligenz (KI). Die
+                  automatisch erkannten Angaben bitte vor dem Absenden prüfen.
+                </p>
                 <p
                   id={`${formKey}-analysis-start-hint`}
                   className={`mt-1 text-xs leading-5 ${startAnalysisDisabled

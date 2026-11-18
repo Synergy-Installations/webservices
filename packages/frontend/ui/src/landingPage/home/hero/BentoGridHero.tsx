@@ -3,13 +3,13 @@ import {
   BentoGrid,
   BentoItem,
 } from "@com.synergy/frontend-ui/BentoGridHeroLayout";
-import { AuroraText } from "../../shared/text/AuroraText";
 import { RotatingWord } from "../../shared/text/RotatingWord";
 import ImageLoader from "../../../shared/utils/image/ImageLoader";
 import Image from "next/image";
 import Link from "next/link";
 import { useMessages, useTranslations } from "next-intl";
 import ServicesPopup from "./ServicesPopup";
+import AiLabel from "../../shared/ai/AiLabel";
 
 /* eslint-disable-next-line */
 export interface BentoGridHeroProps {}
@@ -48,10 +48,12 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
       <section className="w-full">
         <div className="max-w-7xl mx-auto min-[350px]:px-4 md:px-8 py-10 pt-20 xs:pt-28 md:pt-32">
           <header className="mb-4 md:mb-10 text-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 leading-normal">
-              <RotatingWord words={t.raw("title.rotating") as string[]} />{" "}
-              <AuroraText>{t("title.highlight")}</AuroraText>{" "}
-              <div className="block sm:hidden"></div> {t("title.suffix")}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-wide text-gray-900 leading-tight">
+              <span className="block">{t("title.main")}</span>
+              <RotatingWord
+                words={t.raw("title.rotating") as string[]}
+                className="text-synergy-light-blue"
+              />
             </h1>
             <h2 className="text-2xl md:text-3xl text-synergy-dark-grey text-slate-90 font-bold py-4 break-words hyphens-auto">
               {t("subtitle")}
@@ -65,6 +67,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                 aria-hidden="true"
               />
               <div className="relative z-10 h-48 m-1 overflow-hidden rounded-t-xl">
+                <AiLabel />
                 <Image
                   src="/frontend/landingPage/Hero/ChatGPT%20Image%20Oct%2031%2C%202025%20at%2010_55_18%20PM.jpg"
                   alt={t("servicesCard.imageAlt")}
@@ -81,10 +84,13 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                   {serviceLists.map((list, columnIndex) => (
                     <ul
                       key={`services-column-${columnIndex}`}
-                      className="text-black text-base mb-6 space-y-1 list-disc list-inside"
+                      className="text-black text-base mb-6 space-y-1"
                     >
                       {list.map((item) => (
-                        <li key={item}>{item}</li>
+                        <li key={item} className="flex gap-2">
+                          <span className="text-synergy-light-blue">✓</span>
+                          {item}
+                        </li>
                       ))}
                     </ul>
                   ))}
@@ -127,10 +133,13 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                     {productLists.map((list, columnIndex) => (
                       <ul
                         key={`products-column-${columnIndex}`}
-                        className="text-black text-base space-y-1 list-disc list-inside"
+                        className="text-black text-base space-y-1"
                       >
                         {list.map((item) => (
-                          <li key={item}>{item}</li>
+                          <li key={item} className="flex gap-2">
+                            <span className="text-synergy-light-blue">✓</span>
+                            {item}
+                          </li>
                         ))}
                       </ul>
                     ))}

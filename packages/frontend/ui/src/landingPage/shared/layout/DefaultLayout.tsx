@@ -1,16 +1,22 @@
 "use client";
 
 import { DefaultHeader } from "@com.synergy/frontend-ui/DefaultHeader";
-import { Inter } from "next/font/google";
+import { Nunito_Sans } from "next/font/google";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import DefaultFooter from "@com.synergy/frontend-ui/DefaultFooter";
 import { useMessages, useTranslations } from "next-intl";
+import WhatsappButton from "../whatsapp/WhatsappButton";
 import SunConfigurator from "./SunConfigurator";
 import Head from "next/head";
 
-const inter = Inter({ subsets: ["latin"] });
+// Ersatz für die Markenschrift Avenir (Avenir selbst ist lizenzpflichtig)
+const brandFont = Nunito_Sans({
+  subsets: ["latin"],
+  variable: "--font-brand",
+  display: "swap",
+});
 
 /* eslint-disable-next-line */
 export interface DefaultLayoutProps {
@@ -29,11 +35,13 @@ export const DefaultLayout = (props: DefaultLayoutProps) => {
 
   return (
     <div
-      className={`${inter.className} bg-gray-50 font-inter tracking-tight text-gray-900 antialiased`}
+      className={`${brandFont.variable} bg-gray-50 font-brand text-synergy-dark-grey antialiased`}
     >
       <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
         <SunConfigurator />
         <DefaultHeader />
+        {/* WhatsApp-Chat, bewusst ohne Benachrichtigungston */}
+        <WhatsappButton />
         <main className="grow">{props.children}</main>
         <DefaultFooter border={true} />
       </div>

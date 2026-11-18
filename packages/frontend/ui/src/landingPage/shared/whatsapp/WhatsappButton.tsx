@@ -8,12 +8,11 @@ export const WhatsappButton = (props: WhatsappButtonProps) => {
     <FloatingWhatsApp
       phoneNumber="+436642448742"
       accountName="Michael Riegler"
-      avatar="https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/testimonialCarousel/1706609343142-2.jpeg"
+      avatar="/brand/helden/whatsapp-synergie-held.webp"
       chatMessage={`Hallo! 🤝 \nWie können wir Ihnen bei Ihrem Projekt helfen? \nSchreiben Sie uns gerne eine Nachricht.`}
       chatboxHeight={400}
       placeholder="Nachricht schreiben..."
-      notificationSound={true}
-      notificationSoundSrc="https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/sounds/universfield-new-notification-09-352705.mp3"
+      notificationSound={false}
       notification={true}
       notificationDelay={20}
       notificationLoop={1}

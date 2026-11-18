@@ -4,6 +4,8 @@ import { AuroraText } from "@com.synergy/frontend-ui/AuroraText";
 import { Form } from "@com.synergy/frontend-ui/Form";
 import RichText from "@com.synergy/frontend-ui/RichText";
 import { useTranslations } from "next-intl";
+import HeroLogoCta from "../../shared/heroes/HeroLogoCta";
+import QualityChecklist from "../../shared/quality/QualityChecklist";
 
 /* eslint-disable-next-line */
 export interface PageContainerProps {
@@ -42,6 +44,8 @@ export const PageContainer = (props: PageContainerProps) => {
           </div>
         </div>
       </section>
+      <QualityChecklist section="contact" hero="synergie-held" numbered />
+      <HeroLogoCta hero="logo-heldin-gelb" className="pb-16" />
     </>
   );
 };

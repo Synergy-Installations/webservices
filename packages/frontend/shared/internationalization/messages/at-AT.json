@@ -73,7 +73,7 @@
         "title": "Wer sind wir und was machen wir?",
         "paragraphs": [
           "Wir als Synergie Montagen schaffen Unabhängigkeit, indem wir Ihre Projektabwicklung und das Prozessmanagement mit Preisstabilität begleiten.",
-          "Gemeinsam mit unseren Partnern unterstützen wir Sie bei Auftragsgewinnung, Planung, Beratung, Materialbeschaffung, Montage, örtlicher Bauaufsicht, Projektmanagement sowie bei Wartung und Service. Unsere Zielgruppe liegt flächendeckend am Energiemarkt mit den drei Schwerpunkten Anlagen, Management und Gemeinschaften. In den letzten 2,5 Jahren konnten wir mit mehr als 30 Kunden und Partner über 500 Projekte erfolgreich realisieren.",
+          "Gemeinsam mit unseren Partnern unterstützen wir Sie bei Auftragsgewinnung, Planung, Beratung, Materialbeschaffung, Montage, örtlicher Bauaufsicht, Projektmanagement sowie bei Wartung und Service. Unsere Zielgruppe liegt flächendeckend am Energiemarkt mit den drei Schwerpunkten Anlagen, Management und Gemeinschaften.",
           "Wir übernehmen Verantwortung – mit Kundenfokus & Handschlagqualität.",
           "Das Synergie Montagen Team"
         ],
@@ -234,52 +234,34 @@
       },
       "BentoGridHero": {
         "title": {
-          "rotating": ["Nachhaltige", "Erneuerbare", "Intelligente"],
-          "highlight": "Energiesysteme",
-          "suffix": "für Privat & Gewerbe"
+          "main": "Photovoltaik Projektumsetzung",
+          "rotating": ["flexibel", "schnell", "unkompliziert"]
         },
-        "subtitle": "Ihr Anbieter für ganzheitliche Energielösungen",
+        "subtitle": "Ihr Projekt in sicheren Händen",
         "servicesCard": {
           "imageAlt": "Leistungen Symbolbild",
           "title": "Leistungen",
-          "lists": [
-            [
-              "Beratung",
-              "Service"
-            ],
-            [
-              "Umsetzung"
-            ]
-          ],
+          "lists": [["Beratung & Engineering", "Umsetzung", "Anlagenservice"]],
           "button": {
             "text": "Details anzeigen",
             "href": "/leistungen"
           }
         },
         "productsCard": {
-          "imageAlt": "Produkte Symbolbild",
-          "title": "Produkte",
+          "imageAlt": "Photovoltaik-Montage für Fachbetriebe",
+          "title": "Für wen wir arbeiten",
           "lists": [
+            ["EPC", "Haustechniker", "Elektrotechniker", "Installateure"],
             [
-              "PV-Anlage",
-              "Stromspeicher",
-              "Wärmepumpe",
-              "Klimaanlage",
-              "Energiegemeinschaft",
-              "Smart Home"
-            ],
-            [
-              "Stromtankstelle (Wallbox)",
-              "Notstromversorgung",
-              "Balkonkraftwerk",
-              "Energiekostenberatung",
-              "Autarke Warmwasser-Erzeugung",
-              "Wartung & Service"
+              "Hausverwaltungen",
+              "Immobilienentwickler",
+              "Architekten",
+              "Beratende und planende Betriebe"
             ]
           ],
           "button": {
-            "text": "Details anzeigen",
-            "href": "/produkte"
+            "text": "Jetzt anfragen",
+            "href": "/contact-us"
           }
         },
         "items": {
@@ -617,20 +599,6 @@
                 "height": "40",
                 "href": "https://e-altamira.at"
               },
-              "Partner13": {
-                "src": "/frontend/landingPage/clients/Bosch-logo.svg",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://www.bosch.at"
-              },
-              "Partner14": {
-                "src": "/frontend/landingPage/clients/Buderus-logo.svg",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://www.buderus.at"
-              },
               "Partner15": {
                 "src": "/frontend/landingPage/clients/BYD_Company%2C_Ltd._-_Logo.svg",
                 "alt": "Client 10",
@@ -638,33 +606,12 @@
                 "height": "40",
                 "href": "https://www.bydauto.at"
               },
-              "Partner16": {
-                "src": "/frontend/landingPage/clients/DAIKIN_Logo_rgb.png",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://www.daikin.at"
-              },
               "Partner17": {
                 "src": "/frontend/landingPage/clients/FE_S_Blau_Horiz_RGB-1.png",
                 "alt": "Client 10",
                 "width": "200",
                 "height": "40",
                 "href": "https://fenecon.de"
-              },
-              "Partner18": {
-                "src": "/frontend/landingPage/clients/hargassner-logo-neg-entzerrt-vereinfacht-ohne-claim3farbig-dunkelgrau.svg",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://www.hargassner.com"
-              },
-              "Partner19": {
-                "src": "/frontend/landingPage/clients/Hoval_Logo.svg",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://www.hoval.at"
               },
               "Partner20": {
                 "src": "/frontend/landingPage/clients/Huawei_Standard_logo.svg",
@@ -680,26 +627,12 @@
                 "height": "40",
                 "href": "https://www.idm-energie.at"
               },
-              "Partner22": {
-                "src": "/frontend/landingPage/clients/images.png",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://www.ochsner.com"
-              },
               "Partner23": {
                 "src": "/frontend/landingPage/clients/logo-2.svg",
                 "alt": "Client 10",
                 "width": "100",
                 "height": "40",
                 "href": "https://k2-systems.com"
-              },
-              "Partner24": {
-                "src": "/frontend/landingPage/clients/KNX_logo.svg",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://www.knxaustria.at"
               },
               "Partner25": {
                 "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
@@ -715,26 +648,12 @@
                 "height": "40",
                 "href": "https://www.eb-kantteile.at"
               },
-              "Partner27": {
-                "src": "/frontend/landingPage/clients/Logo_Fro%CC%88ling.JPG",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://www.froeling.com"
-              },
               "Partner28": {
                 "src": "/frontend/landingPage/clients/Logo_SMA.svg",
                 "alt": "Client 10",
                 "width": "200",
                 "height": "40",
                 "href": "https://www.sma.de"
-              },
-              "Partner29": {
-                "src": "/frontend/landingPage/clients/LOGO-LAMBDA-1.png",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://lambda-wp.at"
               }
             }
           },
@@ -762,13 +681,6 @@
                 "width": "100",
                 "height": "40",
                 "href": "https://www.idm-energie.at"
-              },
-              "Partner33": {
-                "src": "/frontend/landingPage/clients/Loxone_Logo.png",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://www.loxone.com"
               },
               "Partner34": {
                 "src": "/frontend/landingPage/clients/OekoFEN_Logo_2018_CMYK.jpg",
@@ -902,13 +814,6 @@
                 "width": "200",
                 "height": "40",
                 "href": "https://www.shelly.com"
-              },
-              "Partner56": {
-                "src": "/frontend/landingPage/clients/image006.png",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://www.knxaustria.at"
               }
             }
           }
@@ -916,8 +821,7 @@
       },
       "FeatureAdvantages": {
         "pill": "Erste Klasse",
-        "title": "Ihr Fachmann mit Handschlagqualität und Kundenfokus.",
-        "description": "Unsere Fachkräfte bieten Ihnen nicht nur Beratung, Installation und Wartung, sondern örtliche Nähe, Erreichbarkeit und Sorgfalt, als wäre es unsere eigene Anlage. <br></br><br></br> Auf jeden Kunden wird individuell eingegangen, unsere Kunden werden genauso unterstützt, wie sie möchten, Sie können sich so viel oder so wenig einbringen wie Sie wollen und erhalten die Menge an Informationen und Beratung, die sie benötigen – „Wir finden gemeinsam die beste Lösung.“",
+        "title": "Ein fixer Ansprechpartner mit Handschlagqualität, der für alles flexibel und schnell eine Lösung findet.",
         "buttons": {
           "Button1": {
             "text": "Kundenbedürfnisse",
@@ -1013,44 +917,54 @@
         },
         "blueBoxes": {
           "1": {
-            "title": "Ihr Vorteil:",
-            "icon": {
-              "src": "/frontend/landingPage/icons/license_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
-              "alt": "Personal Advisor",
-              "width": "32",
-              "height": "32"
-            },
-            "description": "Wir beraten Sie persönlich durch kompetente Fachkräfte."
-          },
-          "2": {
-            "title": "Ihr maßgeschneidertes Konzept:",
+            "title": "Material, Planung, Montage und Projektmanagement",
+            "description": "aus einer Hand",
             "icon": {
               "src": "/frontend/landingPage/icons/design_services_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
-              "alt": "Design Services",
+              "alt": "Aus einer Hand",
               "width": "32",
               "height": "32"
-            },
-            "description": "Produktunabhängige Lösungen mit transparenter stabiler Preisgestaltung"
+            }
           },
-          "3": {
-            "title": "Ihre Sicherheit:",
-            "icon": {
-              "src": "/frontend/landingPage/icons/verified_user_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
-              "alt": "Verified User",
-              "width": "32",
-              "height": "32"
-            },
-            "description": "Präzise Machbarkeits- & Kosten-Nutzen-Analyse - Wir planen, errichten und betreuen Ihre Anlagen wie unsere eigenen."
-          },
-          "4": {
-            "title": "Immer für Sie da:",
+          "2": {
+            "title": "Flexibel & Schnell:",
+            "description": "Netzwerk mit 30 Händler:innen und Dienstleister:innen",
             "icon": {
               "src": "/frontend/landingPage/icons/concierge_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
-              "alt": "Personal Advisor",
+              "alt": "Netzwerk",
               "width": "32",
               "height": "32"
-            },
-            "description": "Wir sind täglich für Sie im Einsatz und erreichbar."
+            }
+          },
+          "3": {
+            "title": "Sonderlösungen:",
+            "description": "PV-Fassade am Denkmal, Hochwassergebiet, Hanglage",
+            "icon": {
+              "src": "/frontend/landingPage/icons/verified_user_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+              "alt": "Sonderlösungen",
+              "width": "32",
+              "height": "32"
+            }
+          },
+          "4": {
+            "title": "Arbeit nach international zertifizierten Methoden",
+            "description": "wie IPMA und ISO Standards",
+            "icon": {
+              "src": "/frontend/landingPage/icons/license_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+              "alt": "Zertifizierte Methoden",
+              "width": "32",
+              "height": "32"
+            }
+          },
+          "5": {
+            "title": "Akribische Detailgenauigkeit",
+            "description": "",
+            "icon": {
+              "src": "/frontend/landingPage/icons/verified_user_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+              "alt": "Detailgenauigkeit",
+              "width": "32",
+              "height": "32"
+            }
           }
         },
         "blocks": {
@@ -1087,7 +1001,7 @@
         }
       },
       "FeatureSteps": {
-        "title": "Die 4 Stufen zu Ihrem optimalen System",
+        "title": "In drei Schritten zu Ihrem optimalen Projektabschluss",
         "video": {
           "thumbnail": {
             "src": "/frontend/landingPage/FeatureSteps/scenic-house.jpeg",
@@ -1103,22 +1017,17 @@
         "steps": {
           "stepOne": {
             "number": "1",
-            "title": "Örtliche Gegebenheit",
+            "title": "Anfragen",
             "description": ""
           },
           "stepTwo": {
             "number": "2",
-            "title": "Derzeitige Energietechnik",
+            "title": "Angebot",
             "description": ""
           },
           "stepThree": {
             "number": "3",
-            "title": "Kundenbedürfnisse",
-            "description": ""
-          },
-          "stepFour": {
-            "number": "4",
-            "title": "Anlagenkomposition",
+            "title": "Umsetzen",
             "description": ""
           }
         },
@@ -1139,8 +1048,7 @@
             },
             "name": "Richard Flammer",
             "username": "@rflammer",
-            "usernameUrl": "https://twitter.com/peterlowex",
-            "date": "Feb 5, 2024",
+            "usernameUrl": "",
             "content": "Kompetente Beratung, rasche und professionelle Ausführung und viel Verständnis und gute Erklärungen für laienhafte Fragen, die aber alle geklärt werden wollen",
             "channelIcon": {
               "src": "/frontend/landingPage/icons/Google_%2522G%2522_logo.svg",
@@ -1158,8 +1066,7 @@
             },
             "name": "Thomas Fried",
             "username": "@tfried",
-            "usernameUrl": "https://twitter.com/peterlowex",
-            "date": "Feb 7, 2024",
+            "usernameUrl": "",
             "content": "ich habe mir von der firma riegler im märz 24 eine 15kw pv anlage mit 15kw batterie , der marke growat , liefern und montieren lassen. die läuft jetzt seit nahezu einem jahr klaglos. zu beratung und ausführung kann ich nur eines sagen: die termine bestens eingehalten, auch der bereitgestellte elektriker kompetent und sehr hilfsbereit, das ganze hatte handschlagqualität..... jederzeit wieder mit freundlichen grüssen t frid",
             "channelIcon": {
               "src": "/frontend/landingPage/icons/Google_%2522G%2522_logo.svg",
@@ -1177,8 +1084,7 @@
             },
             "name": "Martin Amon",
             "username": "@mamon",
-            "usernameUrl": "https://twitter.com/peterlowex",
-            "date": "Feb 12, 2024",
+            "usernameUrl": "",
             "content": "Die Firma hat über 400 PV Anlagen installiert und der Geschäftsführer kümmert sich persönlich um die Zufriedenheit der Kunden. Ein Österreicher der ständig im Einsatz ist und 100 mal telefoniert täglich. Super Handwerker mit echter Handschlagqualität",
             "channelIcon": {
               "src": "/frontend/landingPage/icons/Google_%2522G%2522_logo.svg",
@@ -1194,8 +1100,7 @@
             },
             "name": "Andreas Goisser",
             "username": "@agoisser",
-            "usernameUrl": "https://twitter.com/peterlowex",
-            "date": "Jan 20, 2024",
+            "usernameUrl": "",
             "content": "Super Firma, sehr kompetent und sehr zu empfehlen. Tolle Beratung und Planung, zeitnahe Umsetzung - hat alles super funktioniert - bin rundum sehr zufrieden. Sehr gutes Preis- / Leistungsverhältnis - einfach top!",
             "channelIcon": {
               "src": "/frontend/landingPage/icons/Google_%2522G%2522_logo.svg",
@@ -1213,8 +1118,7 @@
             },
             "name": "Otto eichwalder",
             "username": "@oeichwalder",
-            "usernameUrl": "https://twitter.com/peterlowex",
-            "date": "Feb 2, 2024",
+            "usernameUrl": "",
             "content": "Ich bin persönlich rund um zufrieden! Zuverlässigkeit, Entgegenkommen, persönliche und vertrauensvolle Firma. Im Endeffekt treffen die Punkte zu mit denen geworben wird - Handschlagqualität. Ich lass mir auch von der selben Firma die PV-Anlage erweitern.",
             "channelIcon": {
               "src": "/frontend/landingPage/icons/Google_%2522G%2522_logo.svg",
@@ -1230,8 +1134,7 @@
             },
             "name": "Manfred Hein",
             "username": "@mhein",
-            "usernameUrl": "https://twitter.com/peterlowex",
-            "date": "Jan 15, 2024",
+            "usernameUrl": "",
             "content": "Die Firma besteht aus einem jungen-dynamischen Team. Es gibt noch eine persönliche Beratung. Der Projektbericht wurde ausführlich und rasch übermittelt. Die Arbeiten wurden sauber und termingerecht ausgeführt. Herr Riegler ist sehr um seine Kunden bemüht. Diese Firma ist wirklich empfehlenswert!",
             "channelIcon": {
               "src": "/frontend/landingPage/icons/Google_%2522G%2522_logo.svg",
@@ -1277,48 +1180,20 @@
           "buttonLeft": {
             "text": "Jetzt Anfragen",
             "href": "/contact-us"
-          },
-          "buttonRight": {
-            "text": "Unsere Produkte",
-            "href": "#products"
           }
         },
         "partners": {
-          "Partner01": {
-            "src": "/frontend/landingPage/clients/Loxone_Logo.png",
-            "alt": "Client 01",
-            "width": "100",
-            "height": "21"
-          },
-          "Partner02": {
-            "src": "/frontend/landingPage/clients/KNX_logo.svg",
-            "alt": "Client 02",
-            "width": "62",
-            "height": "46"
-          },
           "Partner03": {
             "src": "/frontend/landingPage/clients/LOGO_Fronius_RGB_high_300dpi.jpg",
             "alt": "Client 03",
             "width": "90",
             "height": "90"
           },
-          "Partner04": {
-            "src": "/frontend/landingPage/clients/Bosch-logo.svg",
-            "alt": "Client 04",
-            "width": "86",
-            "height": "13"
-          },
           "Partner05": {
             "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
             "alt": "Client 05",
             "width": "86",
             "height": "18"
-          },
-          "Partner06": {
-            "src": "/frontend/landingPage/clients/DAIKIN_Logo_rgb.png",
-            "alt": "Client 06",
-            "width": "100",
-            "height": "40"
           },
           "Aerocompact": {
             "src": "/frontend/landingPage/clients/aerocompact%20logo.png",
@@ -1397,20 +1272,6 @@
             "height": "40",
             "href": "https://e-altamira.at"
           },
-          "Partner13": {
-            "src": "/frontend/landingPage/clients/Bosch-logo.svg",
-            "alt": "Client 10",
-            "width": "100",
-            "height": "40",
-            "href": "https://www.bosch.at"
-          },
-          "Partner14": {
-            "src": "/frontend/landingPage/clients/Buderus-logo.svg",
-            "alt": "Client 10",
-            "width": "100",
-            "height": "40",
-            "href": "https://www.buderus.at"
-          },
           "Partner15": {
             "src": "/frontend/landingPage/clients/BYD_Company%2C_Ltd._-_Logo.svg",
             "alt": "Client 10",
@@ -1418,47 +1279,12 @@
             "height": "40",
             "href": "https://www.bydauto.at"
           },
-          "Partner16": {
-            "src": "/frontend/landingPage/clients/DAIKIN_Logo_rgb.png",
-            "alt": "Client 10",
-            "width": "100",
-            "height": "40",
-            "href": "https://www.daikin.at"
-          },
           "Partner17": {
             "src": "/frontend/landingPage/clients/FE_S_Blau_Horiz_RGB-1.png",
             "alt": "Client 10",
             "width": "100",
             "height": "40",
             "href": "https://fenecon.de"
-          },
-          "Partner18": {
-            "src": "/frontend/landingPage/clients/hargassner-logo-neg-entzerrt-vereinfacht-ohne-claim3farbig-dunkelgrau.svg",
-            "alt": "Client 10",
-            "width": "100",
-            "height": "40",
-            "href": "https://www.hargassner.com"
-          },
-          "Partner19": {
-            "src": "/frontend/landingPage/clients/Hoval_Logo.svg",
-            "alt": "Client 10",
-            "width": "100",
-            "height": "40",
-            "href": "https://www.hoval.at"
-          },
-          "Partner22": {
-            "src": "/frontend/landingPage/clients/images.png",
-            "alt": "Client 10",
-            "width": "100",
-            "height": "40",
-            "href": "https://www.ochsner.com"
-          },
-          "Partner24": {
-            "src": "/frontend/landingPage/clients/KNX_logo.svg",
-            "alt": "Client 10",
-            "width": "100",
-            "height": "40",
-            "href": "https://www.knxaustria.at"
           },
           "Partner25": {
             "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
@@ -1474,26 +1300,12 @@
             "height": "40",
             "href": "https://www.eb-kantteile.at"
           },
-          "Partner27": {
-            "src": "/frontend/landingPage/clients/Logo_Fro%CC%88ling.JPG",
-            "alt": "Client 10",
-            "width": "100",
-            "height": "40",
-            "href": "https://www.froeling.com"
-          },
           "Partner28": {
             "src": "/frontend/landingPage/clients/Logo_SMA.svg",
             "alt": "Client 10",
             "width": "60",
             "height": "40",
             "href": "https://www.sma.de"
-          },
-          "Partner29": {
-            "src": "/frontend/landingPage/clients/LOGO-LAMBDA-1.png",
-            "alt": "Client 10",
-            "width": "100",
-            "height": "40",
-            "href": "https://lambda-wp.at"
           }
         }
       }
@@ -2520,21 +2332,16 @@
         "eyebrow": "Leistungen",
         "title": "Services für Betriebe aus dem Energiesektor",
         "subtitle": "Seien Sie ein Vorreiter in der Anlagenerrichtung",
-        "body": "Mit der Expertise unserer firmeninternen Fachkräfte aus unterschiedlichen Gewerken bringen wir Ihre Leistungen in der Anlagenerrichtung voran und optimieren bestehende Prozesse.",
         "buttons": {
           "primary": {
-            "text": "Kontakt",
-            "href": "/kontakt"
-          },
-          "secondary": {
-            "text": "Buchen Sie Ihre PV Montage",
-            "href": "/contact-us-funnel"
+            "text": "Jetzt anfragen",
+            "href": "/contact-us"
           }
         }
       },
       "Competencies": {
         "eyebrow": "Kernkompetenzen",
-        "title": "Unser Leistungsportfolio im Überblick",
+        "title": "Unsere Leistungen auf einen Blick",
         "items": {
           "planning": {
             "title": "Planung, Beratung und Kundenservice",
@@ -2552,13 +2359,43 @@
             "title": "After-Sales-Services",
             "icon": "/frontend/landingPage/icons/concierge_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
           }
-        }
+        },
+        "linkText": "Mehr erfahren",
+        "expandHint": "Klicken Sie auf eine Leistung, um alle Details aufzuklappen.",
+        "benefitsTitle": "Ihre Vorteile"
       },
       "Process": {
-        "title": "Digitaler Synergie-Prozess",
+        "title": "Synergie Digiversum",
         "image": {
-          "src": "/frontend/landingPage/b2b/Synergie_Digiversum_Website_v3.jpg",
-          "alt": "Illustration des Synergie-Prozesses"
+          "src": "/brand/synergie-digiversum.webp",
+          "alt": "Synergie Digiversum: Der Kunde steht im Mittelpunkt – Anfrage, Angebot, Auftrag, Durchführung, Datenmanagement und Abschlussrechnung"
+        },
+        "center": "Kunde",
+        "steps": {
+          "anfrage": {
+            "title": "Anfrage",
+            "note": "Info geben & einholen"
+          },
+          "angebot": {
+            "title": "Angebot",
+            "note": "Status anpassen, Montage buchen"
+          },
+          "auftrag": {
+            "title": "Auftrag",
+            "note": "Dashboard für alle Projektbeteiligten"
+          },
+          "durchfuehrung": {
+            "title": "Durchführung",
+            "note": "Arbeitsvorbereitung & Logistik"
+          },
+          "daten": {
+            "title": "Datenmanagement",
+            "note": "automatisiert & präzise"
+          },
+          "abschluss": {
+            "title": "Abschlussrechnung",
+            "note": "Übergabe & weitere Unterstützung"
+          }
         }
       },
       "Testimonials": {
@@ -2575,12 +2412,8 @@
         "title": "Einige unserer Partner",
         "logoAlt": "Partnerlogo",
         "logos": [
-          "/frontend/landingPage/clients/Loxone_Logo.png",
-          "/frontend/landingPage/clients/KNX_logo.svg",
           "/frontend/landingPage/clients/LOGO_Fronius_RGB_high_300dpi.jpg",
-          "/frontend/landingPage/clients/Bosch-logo.svg",
-          "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
-          "/frontend/landingPage/clients/DAIKIN_Logo_rgb.png"
+          "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg"
         ]
       },
       "FAQ": {
@@ -2605,12 +2438,8 @@
         "body": "Kontaktieren Sie uns jetzt für eine maßgeschneiderte Lösung, die Ihr Unternehmen nachhaltig stärkt.",
         "buttons": {
           "primary": {
-            "text": "Kontakt",
-            "href": "/kontakt"
-          },
-          "secondary": {
-            "text": "Buchen Sie Ihre PV Montage",
-            "href": "/contact-us-funnel"
+            "text": "Jetzt anfragen",
+            "href": "/contact-us"
           }
         }
       },
@@ -3651,99 +3480,6 @@
                 }
               }
             },
-            "Monitoring": {
-              "Diamond": {
-                "title": "Monitoring",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaik"
-                }
-              },
-              "Components": {
-                "titleOne": "Warum ist Monitoring wichtig?",
-                "descriptionOne": "Echtzeit‑Monitoring ermöglicht die kontinuierliche Überwachung Ihrer Anlage und erkennt Auffälligkeiten, bevor sie zu Ausfällen oder Ertragsverlusten führen.",
-                "titleTwo": "Warum wir?",
-                "descriptionTwo": "Unsere Experten setzen moderne Monitoring‑Tools ein, analysieren Daten automatisiert und leiten bei Abweichungen umgehend Maßnahmen ein.",
-                "button": {
-                  "text": "Jetzt Monitoring anfragen",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "24/7 Anlagenüberwachung",
-                    "description": "Laufende Prüfung der Ertragsdaten und Performance‑Indikatoren Ihrer Solarmodule.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solarmodule"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Überwachung",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Fehlererkennung & Alarmierung",
-                    "description": "Automatische Erkennung von Wechselrichter‑Abweichungen und sofortige Benachrichtigung an unser Service‑Team.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Wechselrichter"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Alarm",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Batterie‑Status & Lebensdaueranalyse",
-                    "description": "Kontinuierliche Überwachung von Ladezustand, Zyklen und Temperatur zur Optimierung der Betriebsdauer.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Batteriespeicher"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Batterie Monitoring",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Ihre Vorteile durch Monitoring:",
-                    "list": {
-                      "itemOne": "Echtzeit‑Erkennungen statt reaktiver Reparaturen",
-                      "itemTwo": "Schnelle Störfallreaktion durch automatische Alarme",
-                      "itemThree": "Höhere Anlagenverfügbarkeit und Stabilität",
-                      "itemFour": "Optimierte Betriebskosten durch gezielte Eingriffe",
-                      "itemFive": "Langfristige Leistungsanalyse und Trendauswertung",
-                      "itemSix": "Transparente Berichte für Betreiber und Versicherungen"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "So läuft das Monitoring ab:",
-                    "list": {
-                      "itemOne": "Anbindung Ihrer Anlage an unser Monitoring‑System",
-                      "itemTwo": "Kontinuierliche Datenerfassung und -speicherung",
-                      "itemThree": "Automatisierte Analyse und Erkennung von Auffälligkeiten",
-                      "itemFour": "Sofortige Alarmierung und Priorisierung durch unser Team",
-                      "itemFive": "Einleitung von Maßnahmen oder Vor-Ort‑Einsätzen bei Bedarf",
-                      "itemSix": "Regelmäßige Berichte und Handlungsempfehlungen"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Monitoring starten",
-                  "href": "/kontakt"
-                }
-              }
-            },
             "Fehlerbehebung": {
               "Diamond": {
                 "title": "Fehlerbehebung",
@@ -3833,99 +3569,6 @@
                 },
                 "button": {
                   "text": "Fehlerbehebung starten",
-                  "href": "/kontakt"
-                }
-              }
-            },
-            "Betriebsführung": {
-              "Diamond": {
-                "title": "Betriebsführung",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Betriebsführung"
-                }
-              },
-              "Components": {
-                "titleOne": "Warum ist professionelle Betriebsführung wichtig?",
-                "descriptionOne": "Mit kontinuierlicher Betriebsführung sichern wir Verfügbarkeit, Effizienz und Sicherheit Ihrer Anlage. Wir übernehmen Anlagenverwaltung, Überwachung, Fehlerbehebung und laufende Optimierung des gesamten Betriebs – damit Sie sich um nichts kümmern müssen.",
-                "titleTwo": "Warum wir?",
-                "descriptionTwo": "Unser Team kombiniert technisches Know‑how, Monitoring‑Tools und praktische Erfahrung, um Anlagen zuverlässig zu betreiben, Störungen schnell zu beheben und Betriebsabläufe zu optimieren.",
-                "button": {
-                  "text": "Betriebsführung anfragen",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "betriebsueberwachung": {
-                    "title": "Betriebsüberwachung",
-                    "description": "24/7 Monitoring von Leistung, Erträgen und Systemzustand inklusive Alarmierung bei Abweichungen.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Betriebsüberwachung"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Überwachung",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "fernwartung": {
-                    "title": "Fernwartung & Steuerung",
-                    "description": "Remote-Analyse, Konfigurationsanpassungen und schnelle Eingriffe zur Minimierung von Ausfallzeiten.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Fernwartung"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Fernwartung",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "protokoll-und-reporting": {
-                    "title": "Protokoll & Reporting",
-                    "description": "Regelmäßige Betriebsberichte, Leistungsanalysen und Handlungsempfehlungen für nachhaltige Optimierung.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                      "alt": "Reporting"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Reporting",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Ihre Vorteile durch Betriebsführung:",
-                    "list": {
-                      "itemOne": "Maximale Anlagenverfügbarkeit",
-                      "itemTwo": "Frühzeitige Erkennung von Störungen",
-                      "itemThree": "Optimierte Erträge durch laufende Anpassung",
-                      "itemFour": "Reduzierte Betriebskosten",
-                      "itemFive": "Dokumentation & Nachvollziehbarkeit",
-                      "itemSix": "Zuverlässiger Servicepartner"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "So läuft die Betriebsführung ab:",
-                    "list": {
-                      "itemOne": "Anbindung an Monitoring‑System und Erst-Check",
-                      "itemTwo": "Kontinuierliche Analyse und Alarmierung",
-                      "itemThree": "Fernwartung oder Vor‑Ort‑Einsatz bei Bedarf",
-                      "itemFour": "Regelmäßige Reports und Optimierungsmaßnahmen",
-                      "itemFive": "Störfallmanagement & Eskalationsprozesse",
-                      "itemSix": "Fortlaufende Verbesserung und Dokumentation"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Betriebsführung starten",
                   "href": "/kontakt"
                 }
               }
@@ -4024,476 +3667,6 @@
               }
             }
           }
-        },
-        "weitereServices": {
-          "title": "Weitere Services",
-          "SubServices": {
-            "Energiegemeinschaften": {
-              "Diamond": {
-                "title": "Energie- \ngemeinschaften",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Energiegemeinschaft"
-                }
-              },
-              "Components": {
-                "titleOne": "Warum Energiegemeinschaften?",
-                "descriptionOne": "Gemeinsam erzeugter Strom schafft Unabhängigkeit, senkt Kosten und fördert lokale Resilienz. Mit einer Energiegemeinschaft teilen mehrere Haushalte oder Betriebe saubere Energie und profitieren von Skaleneffekten.",
-                "titleTwo": "Warum wir?",
-                "descriptionTwo": "Wir begleiten Sie von der Planung über die technische Umsetzung bis zur transparenten Abrechnung. Rechtliche und technische Fragen lösen wir praxisorientiert – damit Ihre Gemeinschaft reibungslos funktioniert.",
-                "button": {
-                  "text": "Jetzt Gemeinschaft starten",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "gemeinsame-erzeugung": {
-                    "title": "Gemeinsame Erzeugung",
-                    "description": "Photovoltaik auf dem Dach oder Freifläche wird gemeinschaftlich genutzt und spart jeder Partei Kosten.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Gemeinsame Erzeugung"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solarmodule",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "intelligente-verteilung": {
-                    "title": "Intelligente Verteilung",
-                    "description": "Moderne Mess- und Steuerungstechnik sorgt für faire und effiziente Verteilung von Produktion und Verbrauch.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                      "alt": "Intelligente Verteilung"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Steuerung",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "gemeinschaftlicher-speicher": {
-                    "title": "Gemeinschaftlicher Speicher",
-                    "description": "Ein zentraler Speicher erhöht Eigenverbrauch, bietet Notstromfunktionen und glättet Schwankungen.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/stromspeicher.jpg",
-                      "alt": "Speicher"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Speicher",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Vorteile einer Energiegemeinschaft:",
-                    "list": {
-                      "itemOne": "Kostensenkung durch gemeinsamen Eigenverbrauch",
-                      "itemTwo": "Mehr Versorgungssicherheit und Resilienz",
-                      "itemThree": "Regionale Wertschöpfung und Zusammenarbeit",
-                      "itemFour": "Bessere Förder- und Finanzierungsoptionen",
-                      "itemFive": "Transparente Verteilung dank moderner Messtechnik",
-                      "itemSix": "Beitrag zum Klimaschutz vor Ort"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "So setzen wir Ihre Gemeinschaft um:",
-                    "list": {
-                      "itemOne": "Beratung & Erstkonzeption",
-                      "itemTwo": "Wirtschaftlichkeits- und Förderprüfung",
-                      "itemThree": "Technische Planung & Netzintegration",
-                      "itemFour": "Installation von Erzeugung & Speicher",
-                      "itemFive": "Messkonzept und Abrechnungslösung",
-                      "itemSix": "Betrieb, Wartung und Community-Support"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Jetzt Beratung anfordern",
-                  "href": "/kontakt"
-                }
-              }
-            },
-            "optimierungStromvertraege": {
-              "Diamond": {
-                "title": "Optimierung von Stromverträgen",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Optimierung von Stromverträgen"
-                }
-              },
-              "Components": {
-                "titleOne": "Warum Optimierung von Stromverträgen?",
-                "descriptionOne": "Wir optimieren Ihre Stromverträge, um bessere Konditionen, geringere Kosten und mehr Versorgungssicherheit zu erzielen.",
-                "titleTwo": "Warum wir?",
-                "descriptionTwo": "Unsere Expert:innen analysieren Verträge, verhandeln mit Anbietern und setzen smarte Tarifstrategien um.",
-                "button": {
-                  "text": "Kontakt für Optimierung",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "systemanalyse": {
-                    "title": "Vertragsanalyse",
-                    "description": "Detaillierte Prüfung bestehender Tarifkonditionen, Laufzeiten und Kostenfallen.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Vertragsanalyse"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Analyse",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "durchflussmessung": {
-                    "title": "Lastprofil & Verbrauch",
-                    "description": "Ermittlung Ihres Verbrauchsverhaltens zur Auswahl optimaler Tarife und Zeitfenster.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Lastprofil"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Messung",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "einstellung-und-protokoll": {
-                    "title": "Umsetzung & Reporting",
-                    "description": "Vertragliche Anpassung, Tarifwechsel und fortlaufendes Reporting zur Kostenkontrolle.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                      "alt": "Umsetzung"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Report",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Vorteile der Optimierung:",
-                    "list": {
-                      "itemOne": "Niedrigere Energiekosten",
-                      "itemTwo": "Transparente Tarifbedingungen",
-                      "itemThree": "Bessere Planbarkeit der Ausgaben",
-                      "itemFour": "Angebote passend zum Lastprofil",
-                      "itemFive": "Reduzierung versteckter Gebühren",
-                      "itemSix": "Laufende Überwachung und Nachjustierung"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "So funktioniert die Optimierung:",
-                    "list": {
-                      "itemOne": "Analyse der aktuellen Verträge und Verbrauchsdaten",
-                      "itemTwo": "Identifikation von Einsparpotenzialen",
-                      "itemThree": "Verhandlung mit Anbietern und Tarifwechsel",
-                      "itemFour": "Implementierung und Monitoring",
-                      "itemFive": "Regelmäßiges Reporting",
-                      "itemSix": "Kontinuierliche Anpassung bei Marktveränderungen"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Jetzt Optimierung starten",
-                  "href": "/kontakt"
-                }
-              }
-            },
-            "Versicherung": {
-              "Diamond": {
-                "title": "Versicherung",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/insurance-background.jpg",
-                  "alt": "Versicherungsschutz"
-                }
-              },
-              "Components": {
-                "titleOne": "Warum ist Versicherung wichtig?",
-                "descriptionOne": "Schützen Sie Ihre Anlage und Ihr Investment gegen Schäden, Ertragsausfall und Haftungsrisiken. Mit dem richtigen Versicherungsschutz vermeiden Sie unerwartete Kosten und sichern Ihre Betriebsfähigkeit.",
-                "titleTwo": "Warum wir?",
-                "descriptionTwo": "Wir helfen Ihnen bei Risikoanalyse, Auswahl passender Policen und im Schadenfall mit schneller, kompetenter Unterstützung — von der Schadenmeldung bis zur Erstattung.",
-                "button": {
-                  "text": "Jetzt Versicherung anfragen",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "haftpflicht": {
-                    "title": "Betriebshaftpflicht",
-                    "description": "Schützt Sie bei Personen- und Sachschäden, die aus dem Betrieb entstehen können.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/insurance_liability.svg",
-                      "alt": "Haftpflicht"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Haftpflicht Icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "ertragsausfall": {
-                    "title": "Ertragsausfallversicherung",
-                    "description": "Sichert entgangene Erlöse ab, wenn Ihre Anlage aufgrund eines versicherten Schadens nicht produzieren kann.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/insurance_loss.svg",
-                      "alt": "Ertragsausfall"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Ertragsausfall Icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "allrisk": {
-                    "title": "All-Risk / Komponentenschutz",
-                    "description": "Deckung für Schäden an Modulen, Wechselrichtern und Infrastruktur durch äußere Einflüsse oder Unfälle.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/insurance_components.svg",
-                      "alt": "All-Risk"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "All-Risk Icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Ihre Vorteile durch passenden Versicherungsschutz:",
-                    "list": {
-                      "itemOne": "Finanzielle Absicherung bei Schäden",
-                      "itemTwo": "Schnelle Wiederherstellung der Anlage",
-                      "itemThree": "Absicherung von Ertragsverlusten",
-                      "itemFour": "Schutz vor Haftungsansprüchen",
-                      "itemFive": "Transparente Policenauswahl",
-                      "itemSix": "Unterstützung im Schadenfall"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "So läuft die Absicherung ab:",
-                    "list": {
-                      "itemOne": "Erstgespräch und Risikoanalyse",
-                      "itemTwo": "Angebotserstellung und Policenauswahl",
-                      "itemThree": "Vertragsabschluss und Dokumentation",
-                      "itemFour": "Regelmäßige Überprüfung der Deckung",
-                      "itemFive": "Schnelle Schadenmeldung im Ernstfall",
-                      "itemSix": "Unterstützung bei Abwicklung und Gutachten"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Versicherung starten",
-                  "href": "/kontakt"
-                }
-              }
-            },
-            "Finanzierung": {
-              "Diamond": {
-                "title": "Finanzierung",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Finanzierung"
-                }
-              },
-              "Components": {
-                "titleOne": "Warum eine Finanzierung?",
-                "descriptionOne": "Mit einer passenden Finanzierung machen Sie Ihre Energiewende sofort möglich – ohne hohe Einmalzahlung. Nutzen Sie staatliche Förderungen, günstige Raten und behalten Sie trotzdem die volle Kontrolle über Ihr Projekt.",
-                "titleTwo": "Warum wir?",
-                "descriptionTwo": "Wir vermitteln transparente Finanzierungsoptionen, prüfen Fördermöglichkeiten und begleiten Sie bei Antrag und Auszahlung. Unsere Partner bieten flexible Konditionen, die zu Ihrem Projekt und Budget passen.",
-                "button": {
-                  "text": "Finanzierungsberatung anfragen",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "raten": {
-                    "title": "Flexible Raten",
-                    "description": "Monatliche Raten, Laufzeiten und Sondertilgungen abgestimmt auf Ihre Bedürfnisse.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/finance_chart.svg",
-                      "alt": "Flexible Raten"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Raten Icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "foerderberatung": {
-                    "title": "Förderberatung",
-                    "description": "Wir prüfen verfügbare staatliche und regionale Förderungen und unterstützen bei der Antragstellung.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Förderberatung"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Förder Icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "transparenz": {
-                    "title": "Transparente Konditionen",
-                    "description": "Keine versteckten Kosten – wir legen Zinssatz, Laufzeit und Gebühren klar offen.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                      "alt": "Transparente Konditionen"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Transparenz Icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Ihre Vorteile einer Finanzierung:",
-                    "list": {
-                      "itemOne": "Sofortige Umsetzung ohne hohe Anfangsinvestition",
-                      "itemTwo": "Planbare monatliche Ausgaben",
-                      "itemThree": "Kombination mit Fördermitteln möglich",
-                      "itemFour": "Erhalt der Liquidität für andere Investitionen",
-                      "itemFive": "Attraktive Konditionen durch Partnerbanken",
-                      "itemSix": "Vollständige Kostenübersicht vor Vertragsabschluss"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "So läuft die Finanzierung ab:",
-                    "list": {
-                      "itemOne": "Beratungsgespräch und Bedarfsanalyse",
-                      "itemTwo": "Prüfung von Förder- und Finanzierungsmöglichkeiten",
-                      "itemThree": "Angebotsvergleich und Konditionenklärung",
-                      "itemFour": "Antragstellung und Bonitätsprüfung",
-                      "itemFive": "Vertragsabschluss und Auszahlung",
-                      "itemSix": "Begleitung bis zur Inbetriebnahme und Nachbetreuung"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Finanzierung starten",
-                  "href": "/kontakt"
-                }
-              }
-            },
-            "foerderung": {
-              "Diamond": {
-                "title": "Förderung",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Förderung"
-                }
-              },
-              "Components": {
-                "titleOne": "Warum Förderungen nutzen?",
-                "descriptionOne": "Mit der richtigen Förderung senken Sie Ihre Investitionskosten erheblich. Bund, Länder und Energieversorger bieten zahlreiche Zuschüsse und Programme – wir finden die passenden für Ihr Projekt und holen das Maximum für Sie heraus.",
-                "titleTwo": "Warum wir?",
-                "descriptionTwo": "Wir kennen die aktuelle Förderlandschaft, prüfen alle Möglichkeiten und übernehmen die komplette Antragstellung – fristgerecht, vollständig und mit hoher Bewilligungsquote.",
-                "button": {
-                  "text": "Förderberatung anfragen",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "foerdercheck": {
-                    "title": "Förder-Check",
-                    "description": "Wir prüfen, welche Bundes-, Landes- und regionalen Förderungen für Ihr Vorhaben in Frage kommen.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/finance_chart.svg",
-                      "alt": "Förder-Check"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Förder Icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "antragstellung": {
-                    "title": "Antragstellung",
-                    "description": "Wir bereiten alle Unterlagen vor und reichen Anträge fristgerecht und vollständig ein.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Antragstellung"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Antrag Icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "maximalefoerderung": {
-                    "title": "Maximale Förderquote",
-                    "description": "Wir kombinieren Programme clever, um den höchstmöglichen Zuschuss für Ihr Projekt zu sichern.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                      "alt": "Maximale Förderquote"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Förderquote Icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Ihre Vorteile durch Förderungen:",
-                    "list": {
-                      "itemOne": "Deutlich reduzierte Investitionskosten",
-                      "itemTwo": "Kombination mehrerer Förderprogramme",
-                      "itemThree": "Fristgerechte und vollständige Anträge",
-                      "itemFour": "Hohe Bewilligungsquote durch Expertenwissen",
-                      "itemFive": "Kombinierbar mit Finanzierungslösungen",
-                      "itemSix": "Weniger Aufwand – wir übernehmen den Papierkram"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "So läuft die Förderung ab:",
-                    "list": {
-                      "itemOne": "Erstgespräch und Projektaufnahme",
-                      "itemTwo": "Identifikation passender Förderprogramme",
-                      "itemThree": "Prüfung der Voraussetzungen und Fristen",
-                      "itemFour": "Vorbereitung und Einreichung der Anträge",
-                      "itemFive": "Begleitung bis zur Bewilligung und Auszahlung",
-                      "itemSix": "Dokumentation und Verwendungsnachweis"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Förderung sichern",
-                  "href": "/kontakt"
-                }
-              }
-            }
-          }
         }
       },
       "productPreviewSmall": {
@@ -4515,7 +3688,7 @@
         },
         "photovoltaic2": {
           "title": "Service",
-          "href": "#service",
+          "href": "#anlagenservice",
           "image": {
             "src": "/frontend/landingPage/icons/home_repair_service_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
             "alt": "Photovoltaic"
@@ -4525,7 +3698,7 @@
     },
     "ContactUs": {
       "Header": {
-        "title": "Ihre <highlight>Energieautarkie</highlight>.<lineBreak></lineBreak> Wir machen es einfach.",
+        "title": "Ihr <highlight>Projekterfolg</highlight>.<lineBreak></lineBreak> Wir machen es einfach.",
         "smallTitle": "Wir übernehmen Verantwortung.",
         "description": "Innerhalb von 24 Stunden melden wir uns<br></br>auf Ihre Anfrage."
       },
@@ -4547,43 +3720,6 @@
             "type": "text",
             "label": "Telefon",
             "placeholder": "Geben Sie Ihre Telefonnummer ein",
-            "required": "false"
-          },
-          "productSelection": {
-            "type": "multipleSelection",
-            "label": "Für welche Produkte interessieren Sie sich?",
-            "options": {
-              "optionGoogle": {
-                "text": "Wärmepumpen & Heizsysteme"
-              },
-              "optionTwitter": {
-                "text": "Klimasysteme"
-              },
-              "optionMouthToMouth": {
-                "text": "Photovoltaik & Stromspeicher"
-              },
-              "optionsOne": {
-                "text": "Gemeinschaftliche Erzeugungsanlagen & Energiegemeinschaften"
-              },
-              "optionsThree": {
-                "text": "Energiekostenoptimierung"
-              },
-              "optionsFour": {
-                "text": "Smart Home & Energiemanagement Systeme"
-              },
-              "optionsSix": {
-                "text": "Stromtankstellen & Wallboxen"
-              },
-              "optionsSeven": {
-                "text": "Autarke Warmwassererzeugung"
-              },
-              "optionsEight": {
-                "text": "Notstrom Versorgung"
-              },
-              "optionOthers": {
-                "text": "Balkon- und Kleinstkraftwerke"
-              }
-            },
             "required": "false"
           },
           "servicesSelection": {
@@ -4610,9 +3746,6 @@
               },
               "optionsOne2": {
                 "text": "Konzeptdesign"
-              },
-              "optionsTwo2": {
-                "text": "Energieausweis"
               },
               "optionGoogle3": {
                 "text": "Behördenverfahren"
@@ -4771,8 +3904,9 @@
       },
       "Funnel": {
         "Header": {
+          "eyebrow": "PV Montage buchen",
           "title": "Starten Sie hier Ihre Montageabwicklung",
-          "description": "Und gestalten Sie ihre Prozesse mit Leichtigkeit. Wir liefern Projektmanagement seit mehr als 10 Jahren mit Kundenfokus und Handschlagqualität - jetzt auch digital."
+          "description": "Projektunterlagen hochladen, Angaben prüfen, absenden – wir melden uns innerhalb von 24 Stunden. Material, Planung, Montage und Projektmanagement aus einer Hand."
         },
         "progress": {
           "labels": {
@@ -5821,11 +4955,7 @@
                     },
                     "flachdach": {
                       "targetOptionUid": "flachdach",
-                      "aliases": [
-                        "Flachdach",
-                        "Bitumendach",
-                        "Foliendach"
-                      ]
+                      "aliases": ["Flachdach", "Bitumendach", "Foliendach"]
                     },
                     "ziegel": {
                       "targetOptionUid": "wärmepumpe",
@@ -5850,32 +4980,19 @@
                     },
                     "bramac": {
                       "targetOptionUid": "bramac",
-                      "aliases": [
-                        "Prefa",
-                        "Prefa-Platte",
-                        "Bramac"
-                      ]
+                      "aliases": ["Prefa", "Prefa-Platte", "Bramac"]
                     },
                     "fassade": {
                       "targetOptionUid": "fassade",
-                      "aliases": [
-                        "Fassade",
-                        "Wand",
-                        "Vorhangfassade"
-                      ]
+                      "aliases": ["Fassade", "Wand", "Vorhangfassade"]
                     },
                     "carport": {
                       "targetOptionUid": "carport",
-                      "aliases": [
-                        "Carport"
-                      ]
+                      "aliases": ["Carport"]
                     },
                     "zaun": {
                       "targetOptionUid": "zaun",
-                      "aliases": [
-                        "Zaun",
-                        "Zaunanlage"
-                      ]
+                      "aliases": ["Zaun", "Zaunanlage"]
                     },
                     "freiflaeche": {
                       "targetOptionUid": "freilache",
@@ -5896,11 +5013,7 @@
                     },
                     "andere": {
                       "targetOptionUid": "klimasysteme-1",
-                      "aliases": [
-                        "Andere",
-                        "Spezial",
-                        "Sonderkonstruktion"
-                      ]
+                      "aliases": ["Andere", "Spezial", "Sonderkonstruktion"]
                     }
                   }
                 }
@@ -6669,11 +5782,7 @@
                     },
                     "wechselrichter": {
                       "targetOptionUid": "wechselrichter",
-                      "aliases": [
-                        "Wechselrichter",
-                        "Inverter",
-                        "WR"
-                      ]
+                      "aliases": ["Wechselrichter", "Inverter", "WR"]
                     },
                     "speicher": {
                       "targetOptionUid": "speicher",
@@ -6705,11 +5814,7 @@
                     },
                     "wallbox": {
                       "targetOptionUid": "wallbox",
-                      "aliases": [
-                        "Wallbox",
-                        "Ladestation",
-                        "Ladepunkt"
-                      ]
+                      "aliases": ["Wallbox", "Ladestation", "Ladepunkt"]
                     },
                     "ueberspannungsschutz": {
                       "targetOptionUid": "ueberspannungsschutz",
@@ -6870,9 +5975,7 @@
                 "defaultVisible": "false",
                 "title": "",
                 "description": "",
-                "defaultValue": [
-                  "Bitte auswählen"
-                ],
+                "defaultValue": ["Bitte auswählen"],
                 "label": "Wie haben Sie von uns erfahren?",
                 "localStorage": "true",
                 "span": "2",
@@ -6957,9 +6060,7 @@
                 "defaultVisible": "false",
                 "title": "",
                 "description": "",
-                "defaultValue": [
-                  ""
-                ],
+                "defaultValue": [""],
                 "label": "Wie haben Sie von uns erfahren? (Mehrfachauswahl)",
                 "localStorage": "true",
                 "span": "2",
@@ -9286,23 +8387,23 @@
         "backgroundText": "Synergie",
         "boxes": {
           "boxLeft": {
-            "title": "Leistungen",
+            "title": "Portfolio",
             "links": {
-              "features": {
-                "text": "Produkte",
-                "href": "/products"
-              },
               "b2b": {
                 "text": "Leistungen",
                 "href": "/leistungen"
               },
-              "integrations": {
-                "text": "Energiekostenberatung",
-                "href": "/energiekostenberatung"
+              "beratung": {
+                "text": "Beratung & Engineering",
+                "href": "/leistungen#beratung"
               },
-              "pricing": {
-                "text": "Energiegemeinschaften",
-                "href": "/energiegemeinschaft"
+              "umsetzung": {
+                "text": "Umsetzung",
+                "href": "/leistungen#umsetzung"
+              },
+              "anlagenservice": {
+                "text": "Anlagenservice",
+                "href": "/leistungen#anlagenservice"
               }
             }
           },
@@ -9361,7 +8462,8 @@
             },
             "href": "https://at.linkedin.com/company/synergie-montagen-riegler-gmbh"
           }
-        }
+        },
+        "aiNotice": "Hinweis: Einzelne Bilder und Funktionen dieser Website wurden mit künstlicher Intelligenz (KI) erstellt bzw. nutzen KI. Diese sind entsprechend gekennzeichnet."
       },
       "Header": {
         "logo": {
@@ -9377,14 +8479,14 @@
             "href": "/leistungen",
             "children": ""
           },
-          "produkte": {
-            "text": "Produkte",
-            "href": "/produkte",
-            "children": ""
-          },
           "changelog": {
             "text": "Über uns",
             "href": "/about-us",
+            "children": ""
+          },
+          "montage": {
+            "text": "PV Montage buchen",
+            "href": "/contact-us-funnel?currentQuestionId=project-files-llm-extraction-0sz1i",
             "children": ""
           }
         },
@@ -9396,6 +8498,95 @@
       "LocaleSwitcher": {
         "label": "Change language",
         "locale": "{locale, select, atAT {🇦🇹 Deutsch} en {🇺🇸 English} other {Unknown}}"
+      },
+      "aiLabel": "KI-generiert",
+      "Heroes": {
+        "synergieAlt": "SYNERGIE-Held im Firmendesign vor einer Photovoltaikanlage",
+        "logoAlt": "Held mit der Aufschrift „Hier könnte Ihr Logo stehen“",
+        "logoCta": {
+          "eyebrow": "Mehr Sicherheit · Mehr Unabhängigkeit · Mehr Zukunft",
+          "title": "Unsere Kunden verdienen Umhänge.",
+          "body": "Sie sind die Heldinnen und Helden der Energiewende – wir sorgen dafür, dass auf der Baustelle alles sitzt. Hier könnte bald Ihr Logo stehen."
+        }
+      },
+      "Quality": {
+        "home": [
+          "Hochwertige Markenkomponenten",
+          "Sonnenklare Arbeitsqualität",
+          "Intelligentes Design & Management",
+          "Zuverlässig & langfristig"
+        ],
+        "leistungen": {
+          "eyebrow": "Ihr Mehrwert",
+          "title": "Geprüft. Dokumentiert. Verlässlich.",
+          "items": [
+            {
+              "title": "Sicherheit zuerst",
+              "text": "Montageleitung vor Ort und klare Koordination mit dem Generalunternehmer schützen Team und Baustelle."
+            },
+            {
+              "title": "Sorgfältige Ausführung",
+              "text": "Sorgfältige Befestigung und Einhaltung aller Standards."
+            },
+            {
+              "title": "Planbare Kosten",
+              "text": "Klare Preise je Position, Längen nach Aufmaß."
+            },
+            {
+              "title": "Werterhalt der Anlage",
+              "text": "Laufende Montage- und Fotodokumentation für einen langfristig sicheren Betrieb."
+            },
+            {
+              "title": "Starke Partnerschaft",
+              "text": "Gemeinsam für starke Sonnenkraftwerke."
+            }
+          ]
+        },
+        "about": {
+          "eyebrow": "Warum SYNERGIE?",
+          "title": "Kompetent & bodenständig",
+          "body": "Wir beraten ehrlich, verständlich und auf Augenhöhe. Unsere Lösungen sind individuell, durchdacht und alltagstauglich.",
+          "items": [
+            {
+              "title": "Drei Ebenen maximaler Sicherheit",
+              "text": "Planung, Umsetzung und Betreuung – verlässlich auf jeder Ebene."
+            },
+            {
+              "title": "Erfahrung & Qualität",
+              "text": "Lösungen, die passen."
+            },
+            {
+              "title": "Gut geplant in Ihre Energiezukunft",
+              "text": "Hochwertige Komponenten, verlässliche Qualität und langfristige Betreuung."
+            }
+          ]
+        },
+        "contact": {
+          "eyebrow": "Nächste Schritte",
+          "title": "So geht es nach Ihrer Anfrage weiter",
+          "items": [
+            {
+              "title": "Angebot",
+              "text": "Sie erhalten ein klares Angebot mit Preisen je Position."
+            },
+            {
+              "title": "Detailplanung",
+              "text": "Aufmaß, technische Finalisierung und Abstimmung mit dem Netzbetreiber."
+            },
+            {
+              "title": "Materialbestellung",
+              "text": "Reservierung der Komponenten."
+            },
+            {
+              "title": "Umsetzung",
+              "text": "Montage, Inbetriebnahme und Einschulung."
+            },
+            {
+              "title": "Langfristige Betreuung",
+              "text": "Service, Wartung und Optimierung."
+            }
+          ]
+        }
       }
     },
     "Legal": {
@@ -9793,7 +8984,7 @@
               },
               "block02": {
                 "type": "paragraph",
-                "text": "<b>Synergie Montagen Riegler GmbH</b><br></br>Anton Krenn Straße 23/2, 2540 Bad Vöslau, Österreich<br></br>FN 593978 y, Landesgericht Wiener Neustadt – UID-Nummer: ATU78880338<br></br>E-Mail: office@synergiemontagen.eco"
+                "text": "<b>Synergie Montagen Riegler GmbH</b><br></br>Anton Krenn Straße 23/2, 2540 Bad Vöslau, Österreich<br></br>FN 593978 y, Landesgericht Wiener Neustadt – UID-Nummer: ATU78880338<br></br>E-Mail: office@synergie.cc"
               },
               "block03": {
                 "type": "paragraph",
@@ -9925,7 +9116,7 @@
               },
               "block03": {
                 "type": "paragraph",
-                "text": "(3) Den Rücktritt können Sie formlos, etwa per E-Mail an office@synergiemontagen.eco, erklären. Ein Muster-Widerrufsformular stellen wir auf Anfrage bereit."
+                "text": "(3) Den Rücktritt können Sie formlos, etwa per E-Mail an office@synergie.cc, erklären. Ein Muster-Widerrufsformular stellen wir auf Anfrage bereit."
               }
             }
           },

@@ -8,6 +8,7 @@ import "aos/dist/aos.css";
 import DefaultFooter from "@com.synergy/frontend-ui/DefaultFooter";
 import { useMessages, useTranslations } from "next-intl";
 import WhatsappButton from "../whatsapp/WhatsappButton";
+import PageTransitionHero from "../heroes/PageTransitionHero";
 import SunConfigurator from "./SunConfigurator";
 import Head from "next/head";
 
@@ -42,6 +43,8 @@ export const DefaultLayout = (props: DefaultLayoutProps) => {
         <DefaultHeader />
         {/* WhatsApp-Chat, bewusst ohne Benachrichtigungston */}
         <WhatsappButton />
+        {/* Kurzer Helden-Zoom beim Seitenwechsel */}
+        <PageTransitionHero />
         <main className="grow">{props.children}</main>
         <DefaultFooter border={true} />
       </div>

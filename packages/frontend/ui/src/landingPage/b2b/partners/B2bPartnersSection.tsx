@@ -31,7 +31,7 @@ export const B2bPartnersSection = (props: B2bPartnersSectionProps) => {
           <Marquee
             pauseOnHoverProp={isTrueSet("true")}
             reverse={isTrueSet("true")}
-            className="![--duration:30s]"
+            className="![--duration:80s]"
           >
             {partnerLogos.map((logo) => (
               <li

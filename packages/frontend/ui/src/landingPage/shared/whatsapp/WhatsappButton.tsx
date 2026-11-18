@@ -8,7 +8,7 @@ export const WhatsappButton = (props: WhatsappButtonProps) => {
     <FloatingWhatsApp
       phoneNumber="+436642448742"
       accountName="Michael Riegler"
-      avatar="/brand/helden/whatsapp-synergie-held.webp"
+      avatar="/brand/helden/whatsapp-synergie-helden.webp"
       chatMessage={`Hallo! 🤝 \nWie können wir Ihnen bei Ihrem Projekt helfen? \nSchreiben Sie uns gerne eine Nachricht.`}
       chatboxHeight={400}
       placeholder="Nachricht schreiben..."

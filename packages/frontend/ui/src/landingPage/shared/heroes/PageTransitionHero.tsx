@@ -24,15 +24,15 @@ const SEEN_KEY = "synergie-hero-zoom-seen";
  */
 export const PageTransitionHero = () => {
   const pathname = usePathname();
-  const first = useRef(true);
+  // Zuletzt angezeigte Seite – nur ein echter Seitenwechsel löst den Zoom aus
+  // (sicher auch dann, wenn React den Effekt beim Laden doppelt ausführt).
+  const lastPath = useRef(pathname);
   const count = useRef(0);
   const [active, setActive] = useState<string | null>(null);
 
   useEffect(() => {
-    if (first.current) {
-      first.current = false;
-      return;
-    }
+    if (pathname === lastPath.current) return;
+    lastPath.current = pathname;
     if (
       typeof window !== "undefined" &&
       window.matchMedia?.("(prefers-reduced-motion: reduce)").matches

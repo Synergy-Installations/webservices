@@ -1,57 +1,32 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import AiLabel from "../ai/AiLabel";
 
-/** Bilder, die beim Seitenwechsel abwechselnd hineinzoomen. */
-const TRANSITION_HEROES = [
-  "/brand/helden/synergie-heldenpaar.webp",
-  "/brand/helden/synergie-held.webp",
-  "/brand/helden/synergie-heldin.webp",
-];
+/** Das SYNERGIE-Heldenpaar, das beim Öffnen der Website hineinzoomt. */
+const HERO_PAIR = "/brand/helden/synergie-heldenpaar.webp";
 
 /** Dauer der ganzen Animation in Millisekunden. */
 const DURATION = 1100;
 
-/** Merker, damit der Zoom nur einmal pro Besuch erscheint. */
-const SEEN_KEY = "synergie-hero-zoom-seen";
-
 /**
- * Beim ersten Seitenwechsel eines Besuchs zoomt kurz das SYNERGIE-Heldenpaar ins Bild
- * und verschwindet wieder. Blockiert keine Klicks und entfällt automatisch,
- * wenn am Gerät „weniger Bewegung“ eingestellt ist.
+ * Jedes Mal, wenn die Website geöffnet oder neu geladen wird (auch in einem
+ * neuen Tab), zoomt einmal kurz das SYNERGIE-Heldenpaar ins Bild und
+ * verschwindet wieder. Beim Weiterklicken innerhalb der Website kommt es nicht.
+ * Blockiert keine Klicks und entfällt, wenn am Gerät „weniger Bewegung“
+ * eingestellt ist.
  */
 export const PageTransitionHero = () => {
-  const pathname = usePathname();
-  // Zuletzt angezeigte Seite – nur ein echter Seitenwechsel löst den Zoom aus
-  // (sicher auch dann, wenn React den Effekt beim Laden doppelt ausführt).
-  const lastPath = useRef(pathname);
-  const count = useRef(0);
-  const [active, setActive] = useState<string | null>(null);
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
-    if (pathname === lastPath.current) return;
-    lastPath.current = pathname;
-    if (
-      typeof window !== "undefined" &&
-      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
-    ) {
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
       return;
     }
-    // Nur einmal pro Besuch (bis der Browser-Tab geschlossen wird)
-    try {
-      if (window.sessionStorage.getItem(SEEN_KEY)) return;
-      window.sessionStorage.setItem(SEEN_KEY, "1");
-    } catch {
-      if (count.current > 0) return;
-    }
-    const src = TRANSITION_HEROES[count.current % TRANSITION_HEROES.length];
-    count.current += 1;
-    setActive(src);
-    const id = window.setTimeout(() => setActive(null), DURATION);
+    setActive(true);
+    const id = window.setTimeout(() => setActive(false), DURATION);
     return () => window.clearTimeout(id);
-  }, [pathname]);
+  }, []);
 
   if (!active) return null;
 
@@ -79,12 +54,11 @@ export const PageTransitionHero = () => {
         style={{ animation: `synergie-hero-bg ${DURATION}ms ease-in-out forwards` }}
       />
       <div
-        key={active}
         className="relative w-[min(70vw,420px)] overflow-hidden rounded-3xl shadow-2xl ring-4 ring-synergy-light-blue/60"
         style={{ animation: `synergie-hero-zoom ${DURATION}ms cubic-bezier(.2,.8,.2,1) forwards` }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={active} alt="" className="block h-auto w-full" />
+        <img src={HERO_PAIR} alt="" className="block h-auto w-full" />
         <AiLabel />
       </div>
     </div>

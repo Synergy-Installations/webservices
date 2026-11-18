@@ -1190,22 +1190,10 @@
           }
         },
         "partners": {
-          "Partner03": {
-            "src": "/frontend/landingPage/clients/LOGO_Fronius_RGB_high_300dpi.jpg",
-            "alt": "Client 03",
-            "width": "90",
-            "height": "90"
-          },
-          "Partner05": {
-            "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
-            "alt": "Client 05",
-            "width": "86",
-            "height": "18"
-          },
           "Aerocompact": {
             "src": "/frontend/landingPage/clients/aerocompact%20logo.png",
             "alt": "Client 01",
-            "width": "200",
+            "width": "100",
             "height": "50",
             "href": "https://www.aerocompact.com"
           },
@@ -1219,21 +1207,21 @@
           "Wuerth": {
             "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
             "alt": "Client 03",
-            "width": "200",
+            "width": "100",
             "height": "50",
             "href": "https://www.wuerth.at"
           },
           "EandB": {
             "src": "/frontend/landingPage/clients/logo_eb.png",
             "alt": "Client 04",
-            "width": "200",
+            "width": "100",
             "height": "13",
             "href": "https://www.eb-haustechnik.at"
           },
           "Fronius": {
             "src": "/frontend/landingPage/clients/LOGO_Fronius_RGB_high_300dpi.jpg",
             "alt": "Client 05",
-            "width": "200",
+            "width": "100",
             "height": "18",
             "href": "https://www.fronius.at"
           },
@@ -1247,91 +1235,56 @@
           "Sonepar": {
             "src": "/frontend/landingPage/clients/Sonepar%20logo%20RGB_Tagline.svg",
             "alt": "Client 07",
-            "width": "200",
+            "width": "100",
             "height": "50",
             "href": "https://www.sonepar.at"
           },
           "Partner08": {
             "src": "/frontend/landingPage/clients/00-Sigenergy-Logo.png.webp",
             "alt": "Client 08",
-            "width": "200",
+            "width": "100",
             "height": "34",
             "href": "https://www.sigenergy.com"
           },
           "Partner09": {
             "src": "/frontend/landingPage/clients/0x0.png",
             "alt": "Client 09",
-            "width": "200",
+            "width": "100",
             "height": "44",
             "href": "https://de.growatt.com"
           },
           "Partner11": {
             "src": "/frontend/landingPage/clients/989_Category.png",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://www.solaxpower.com"
           },
           "Partner12": {
             "src": "/frontend/landingPage/clients/Altamira_2_color_stacked_large.png",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://e-altamira.at"
           },
           "Partner15": {
             "src": "/frontend/landingPage/clients/BYD_Company%2C_Ltd._-_Logo.svg",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://www.bydauto.at"
           },
           "Partner17": {
             "src": "/frontend/landingPage/clients/FE_S_Blau_Horiz_RGB-1.png",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://fenecon.de"
-          },
-          "Partner20": {
-            "src": "/frontend/landingPage/clients/Huawei_Standard_logo.svg",
-            "alt": "Client 10",
-            "width": "100",
-            "height": "40",
-            "href": "https://www.huawei.com"
-          },
-          "Partner21": {
-            "src": "/frontend/landingPage/clients/logo_idm_waermepumpen-scaled-e1610953520283.jpg",
-            "alt": "Client 10",
-            "width": "100",
-            "height": "40",
-            "href": "https://www.idm-energie.at"
-          },
-          "Partner23": {
-            "src": "/frontend/landingPage/clients/logo-2.svg",
-            "alt": "Client 10",
-            "width": "100",
-            "height": "40",
-            "href": "https://k2-systems.com"
-          },
-          "Partner25": {
-            "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
-            "alt": "Client 10",
-            "width": "200",
-            "height": "40",
-            "href": "https://www.wuerth.at"
-          },
-          "Partner26": {
-            "src": "/frontend/landingPage/clients/logo_eb.png",
-            "alt": "Client 10",
-            "width": "200",
-            "height": "40",
-            "href": "https://www.eb-kantteile.at"
           },
           "Partner28": {
             "src": "/frontend/landingPage/clients/Logo_SMA.svg",
             "alt": "Client 10",
-            "width": "200",
+            "width": "60",
             "height": "40",
             "href": "https://www.sma.de"
           }
@@ -2440,8 +2393,20 @@
         "title": "Some of our partners",
         "logoAlt": "Partner logo",
         "logos": [
+          "/frontend/landingPage/clients/aerocompact%20logo.png",
+          "/frontend/landingPage/clients/energy3000%20CMYK%20transparent.png",
+          "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
+          "/frontend/landingPage/clients/logo_eb.png",
           "/frontend/landingPage/clients/LOGO_Fronius_RGB_high_300dpi.jpg",
-          "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg"
+          "/frontend/landingPage/clients/SHT_logo_4C.png",
+          "/frontend/landingPage/clients/Sonepar%20logo%20RGB_Tagline.svg",
+          "/frontend/landingPage/clients/00-Sigenergy-Logo.png.webp",
+          "/frontend/landingPage/clients/0x0.png",
+          "/frontend/landingPage/clients/989_Category.png",
+          "/frontend/landingPage/clients/Altamira_2_color_stacked_large.png",
+          "/frontend/landingPage/clients/BYD_Company%2C_Ltd._-_Logo.svg",
+          "/frontend/landingPage/clients/FE_S_Blau_Horiz_RGB-1.png",
+          "/frontend/landingPage/clients/Logo_SMA.svg"
         ]
       },
       "FAQ": {

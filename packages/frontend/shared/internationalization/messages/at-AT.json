@@ -1183,18 +1183,6 @@
           }
         },
         "partners": {
-          "Partner03": {
-            "src": "/frontend/landingPage/clients/LOGO_Fronius_RGB_high_300dpi.jpg",
-            "alt": "Client 03",
-            "width": "90",
-            "height": "90"
-          },
-          "Partner05": {
-            "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
-            "alt": "Client 05",
-            "width": "86",
-            "height": "18"
-          },
           "Aerocompact": {
             "src": "/frontend/landingPage/clients/aerocompact%20logo.png",
             "alt": "Client 01",
@@ -1285,20 +1273,6 @@
             "width": "100",
             "height": "40",
             "href": "https://fenecon.de"
-          },
-          "Partner25": {
-            "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
-            "alt": "Client 10",
-            "width": "100",
-            "height": "40",
-            "href": "https://www.wuerth.at"
-          },
-          "Partner26": {
-            "src": "/frontend/landingPage/clients/logo_eb.png",
-            "alt": "Client 10",
-            "width": "100",
-            "height": "40",
-            "href": "https://www.eb-kantteile.at"
           },
           "Partner28": {
             "src": "/frontend/landingPage/clients/Logo_SMA.svg",
@@ -2412,8 +2386,20 @@
         "title": "Einige unserer Partner",
         "logoAlt": "Partnerlogo",
         "logos": [
+          "/frontend/landingPage/clients/aerocompact%20logo.png",
+          "/frontend/landingPage/clients/energy3000%20CMYK%20transparent.png",
+          "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
+          "/frontend/landingPage/clients/logo_eb.png",
           "/frontend/landingPage/clients/LOGO_Fronius_RGB_high_300dpi.jpg",
-          "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg"
+          "/frontend/landingPage/clients/SHT_logo_4C.png",
+          "/frontend/landingPage/clients/Sonepar%20logo%20RGB_Tagline.svg",
+          "/frontend/landingPage/clients/00-Sigenergy-Logo.png.webp",
+          "/frontend/landingPage/clients/0x0.png",
+          "/frontend/landingPage/clients/989_Category.png",
+          "/frontend/landingPage/clients/Altamira_2_color_stacked_large.png",
+          "/frontend/landingPage/clients/BYD_Company%2C_Ltd._-_Logo.svg",
+          "/frontend/landingPage/clients/FE_S_Blau_Horiz_RGB-1.png",
+          "/frontend/landingPage/clients/Logo_SMA.svg"
         ]
       },
       "FAQ": {

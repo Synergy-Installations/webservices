@@ -180,7 +180,7 @@ export default async function RootLayout({
                   "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/AboutUsCard/Familie.jpeg",
                   "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureAdvantages/Together_future_buildings.jpg",
                 ],
-                logo: "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/icons/Flyer%20Synergie%20B2C%20v1(1).png",
+                logo: "https://synergie.cc/brand/synergie-logo-farbe.png",
                 priceRange: "€€",
                 paymentAccepted: [
                   "Cash",

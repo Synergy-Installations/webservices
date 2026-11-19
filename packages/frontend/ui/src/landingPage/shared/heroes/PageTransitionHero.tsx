@@ -1,34 +1,51 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import AiLabel from "../ai/AiLabel";
 
-/** Das SYNERGIE-Heldenpaar, das beim Öffnen der Website hineinzoomt. */
-const HERO_PAIR = "/brand/helden/synergie-heldenpaar.webp";
+/**
+ * Alle Heldenbilder aus dem Ordner „Heldenbilder & Digiversum webseite“
+ * (als kleine Web-Bilder unter /brand/helden/zufall/01.webp … 29.webp).
+ * Neue Bilder: Datei dazulegen und die Anzahl hier erhöhen.
+ */
+const HERO_COUNT = 29;
+const heroSrc = (n: number) =>
+  `/brand/helden/zufall/${String(n).padStart(2, "0")}.webp`;
 
 /** Dauer der ganzen Animation in Millisekunden. */
 const DURATION = 1100;
 
+/** Zufälliges Bild – nie zweimal hintereinander dasselbe. */
+const pickRandom = (last: number | null) => {
+  let n = 1 + Math.floor(Math.random() * HERO_COUNT);
+  if (n === last) n = (n % HERO_COUNT) + 1;
+  return n;
+};
+
 /**
- * Jedes Mal, wenn die Website geöffnet oder neu geladen wird (auch in einem
- * neuen Tab), zoomt einmal kurz das SYNERGIE-Heldenpaar ins Bild und
- * verschwindet wieder. Beim Weiterklicken innerhalb der Website kommt es nicht.
- * Blockiert keine Klicks und entfällt, wenn am Gerät „weniger Bewegung“
- * eingestellt ist.
+ * Beim Öffnen der Website (auch neu laden / neuer Tab) und bei jedem Wechsel
+ * auf eine andere Seite zoomt kurz ein zufälliges Heldenbild ins Bild und
+ * verschwindet wieder. Blockiert keine Klicks und entfällt, wenn am Gerät
+ * „weniger Bewegung“ eingestellt ist.
  */
 export const PageTransitionHero = () => {
-  const [active, setActive] = useState(false);
+  const pathname = usePathname();
+  const last = useRef<number | null>(null);
+  const [active, setActive] = useState<number | null>(null);
 
   useEffect(() => {
     if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
       return;
     }
-    setActive(true);
-    const id = window.setTimeout(() => setActive(false), DURATION);
+    const n = pickRandom(last.current);
+    last.current = n;
+    setActive(n);
+    const id = window.setTimeout(() => setActive(null), DURATION);
     return () => window.clearTimeout(id);
-  }, []);
+  }, [pathname]);
 
-  if (!active) return null;
+  if (active === null) return null;
 
   return (
     <div
@@ -54,11 +71,12 @@ export const PageTransitionHero = () => {
         style={{ animation: `synergie-hero-bg ${DURATION}ms ease-in-out forwards` }}
       />
       <div
-        className="relative w-[min(70vw,420px)] overflow-hidden rounded-3xl shadow-2xl ring-4 ring-synergy-light-blue/60"
+        key={`${pathname}-${active}`}
+        className="relative w-[min(70vw,380px)] overflow-hidden rounded-3xl shadow-2xl ring-4 ring-synergy-light-blue/60"
         style={{ animation: `synergie-hero-zoom ${DURATION}ms cubic-bezier(.2,.8,.2,1) forwards` }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={HERO_PAIR} alt="" className="block h-auto w-full" />
+        <img src={heroSrc(active)} alt="" className="block h-auto max-h-[70vh] w-full object-cover" />
         <AiLabel />
       </div>
     </div>

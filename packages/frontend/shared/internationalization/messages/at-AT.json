@@ -361,7 +361,7 @@
         },
         "locationsCard": {
           "title": "Wo sind wir tätig",
-          "lists": [["Österreich & Europa", "Afrika – Sambia"]],
+          "lists": [["Europa", "Afrika"]],
           "pins": {
             "austria": "Österreich",
             "zambia": "Sambia"

@@ -363,7 +363,7 @@
         },
         "locationsCard": {
           "title": "Where we work",
-          "lists": [["Austria & Europe", "Africa – Zambia"]],
+          "lists": [["Europe", "Africa"]],
           "pins": {
             "austria": "Austria",
             "zambia": "Zambia"

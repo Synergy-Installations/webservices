@@ -1,42 +1,37 @@
-import Image from "next/image";
-import { Card } from "@com.synergy/frontend-ui/card";
-import { useTranslations } from "next-intl";
-import { Link } from "@com.synergy/frontend-shared-internationalization/routing";
-import HeroHome from "@com.synergy/frontend-ui/HeroHome";
-import { ServiceCatalog } from "@com.synergy/frontend-ui/ServiceCatalog";
-import { FeatureTabs } from "@com.synergy/frontend-ui/FeatureTabs";
-import { FeaturesGlobe } from "@com.synergy/frontend-ui/FeaturesGlobe";
-import { LargeTestimonial } from "@com.synergy/frontend-ui/LargeTestimonial";
-import { CtaBars } from "@com.synergy/frontend-ui/CtaBars";
+import type { Metadata } from "next";
+import { pageMetadata } from "./seo";
 import { TestimonialsCarousel } from "@com.synergy/frontend-ui/TestimonialsCarousel";
-import HeroFull from "@com.synergy/frontend-ui/HeroFull";
+import { fetchGoogleReviews } from "@com.synergy/frontend-ui/GoogleReviews";
 import { FeatureAdvantages } from "@com.synergy/frontend-ui/FeatureAdvantages";
 import FeatureSteps from "@com.synergy/frontend-ui/FeatureSteps";
+import HeroLogoCta from "@com.synergy/frontend-ui/HeroLogoCta";
 import CtaLoose from "@com.synergy/frontend-ui/CtaLoose";
-import { TracingBeam } from "@com.synergy/frontend-ui/TracingBeam";
-import Head from "next/head";
 import BentoGridHero from "@com.synergy/frontend-ui/BentoGridHero";
 
-export const metadata = {
-  alternates: {
-    canonical: "https://synergie.cc/",
-  },
-};
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  return pageMetadata("home", locale, "https://synergie.cc/");
+}
 
-export default function Page(): JSX.Element {
-  // const t = useTranslations("Index");
+export default async function Page({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<JSX.Element> {
+  // Aktuelle Google-Bewertungen (leer, solange kein Google-Schlüssel hinterlegt ist)
+  const googleReviews = await fetchGoogleReviews(locale === "en" ? "en" : "de");
 
   return (
     <>
-      {/* <TracingBeam> */}
       <BentoGridHero />
       <FeatureSteps />
       <FeatureAdvantages />
-      {/* <HeroFull />
-      <ServiceCatalog /> */}
-      <TestimonialsCarousel />
+      <TestimonialsCarousel googleReviews={googleReviews} />
+      <HeroLogoCta hero="logo-held-gruen" className="pt-12 md:pt-16" />
       <CtaLoose />
-      {/* </TracingBeam> */}
     </>
   );
 }

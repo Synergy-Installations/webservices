@@ -44,18 +44,22 @@ export const DefaultFooter = (props: DefaultFooterProps) => {
             <div className="space-y-2 sm:col-span-12 lg:col-span-4">
               <div>
                 <Link href="/">
-                  <Image
-                    loader={ImageLoader}
-                    src={t("logo.src")}
-                    width={Number(t("logo.width"))}
-                    height={Number(t("logo.height"))}
-                    alt={t("logo.alt")}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/brand/synergie-logo-farbe.svg"
+                    width={240}
+                    height={36}
+                    alt="SYNERGIE"
+                    className="h-9 w-auto"
                   />
                 </Link>
               </div>
               <div className="text-sm text-synergy-dark-grey">
                 {t("disclamer")}
               </div>
+              <p className="mt-2 text-xs text-gray-500 max-w-xs">
+                {t("aiNotice")}
+              </p>
             </div>
 
             {/* 2nd block */}

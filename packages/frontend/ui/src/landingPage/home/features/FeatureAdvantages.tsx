@@ -5,7 +5,8 @@ import { Transition } from "@headlessui/react";
 import Image from "next/image";
 import { useMessages, useTranslations } from "next-intl";
 import { ImageLoader } from "@com.synergy/frontend-ui/ImageLoader";
-import { Stats } from "@com.synergy/frontend-ui/Stats";
+import AiLabel from "../../shared/ai/AiLabel";
+import { isAiGenerated } from "../../shared/ai/aiGeneratedImages";
 import RichText from "../../../shared/internationalization/text/RichText";
 
 /* eslint-disable-next-line */
@@ -23,11 +24,12 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
   const blockKeys = Object.keys(
     messages.LandingPage.Home.FeatureAdvantages.blocks
   );
-  const blueBoxes = Object.keys(messages.LandingPage.Home.Hero.blueBoxes);
+  const fa = messages.LandingPage.Home.FeatureAdvantages;
+  const blueBoxes = Object.keys(fa.blueBoxes || {});
 
   return (
     <section className="relative rounded-t-[100px] bg-synergy-light-grey after:absolute after:top-0 after:right-0 after:h-full after:w-96 after:pointer-events-none after:bg-gradient-to-l after:from-synergy-light-grey/0 max-lg:after:hidden">
-      <div className="py-12 md:py-20">
+      <div className="py-12 md:py-16">
         {/* Carousel */}
         {/* Clarified container max width: max-w-6xl, centered */}
         <div className="max-w-7xl mx-auto px-2 sm:px-6">
@@ -46,9 +48,11 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
                 <h3 className="font-inter-tight text-3xl text-center font-bold text-synergy-dark-grey mb-4">
                   {t("title")}
                 </h3>
-                <div className="text-lg text-center text-synergy-dark-grey">
-                  <RichText>{(tags) => t.rich("description", tags)}</RichText>
-                </div>
+                {fa.description ? (
+                  <div className="text-lg text-center text-synergy-dark-grey">
+                    <RichText>{(tags) => t.rich("description", tags)}</RichText>
+                  </div>
+                ) : null}
               </div>
 
               {/* Tabs buttons - keep these inside the left column */}
@@ -93,10 +97,17 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
                       {/* wrapper ensures no overflow; horizontal padding is provided by the column (px-4 lg:px-6)
                 so left/right outer spacing is symmetric. The inner wrapper has no extra horizontal padding
                 to avoid creating asymmetry. Image fills available height and has no border. */}
-                      <div className="overflow-hidden rounded-xl bg-transparent max-w-full h-full box-border">
+                      <div className="relative overflow-hidden rounded-xl bg-transparent max-w-full h-full box-border">
+                        {isAiGenerated(t(`buttons.${key}.image.src`)) ? (
+                          <AiLabel />
+                        ) : null}
                         <Image
                           className="w-full h-full object-cover block border-0"
-                          loader={ImageLoader}
+                          loader={
+                            t(`buttons.${key}.image.src`).startsWith("/brand/")
+                              ? ({ src }) => src
+                              : ImageLoader
+                          }
                           width={0}
                           height={Number(t(`buttons.${key}.image.height`))}
                           src={t(`buttons.${key}.image.src`)}
@@ -113,34 +124,6 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Features blocks */}
-        <div className="max-w-6xl mx-auto mt-12 lg:mt-32">
-          <Stats />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16">
-            {/* Blocks */}
-            {/* {blockKeys.map((key, index) => (
-          <div key={index}>
-          <div className="flex items-center mb-1">
-            <Image
-            className="shrink-0 fill-synergy-light-blue mr-2 opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-            loader={ImageLoader}
-            width={Number(t(`blocks.${key}.icon.width`))}
-            height={Number(t(`blocks.${key}.icon.height`))}
-            src={t(`blocks.${key}.icon.src`)}
-            alt={t(`blocks.${key}.icon.alt`)}
-            />
-            <h3 className="font-inter-tight font-semibold text-synergy-dark-grey">
-            {t(`blocks.${key}.title`)}
-            </h3>
-          </div>
-          <p className="text-sm text-synergy-dark-grey">
-            {t(`blocks.${key}.description`)}
-          </p>
-          </div>
-        ))} */}
           </div>
         </div>
 
@@ -163,9 +146,11 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
                 <div className="text-lg font-semibold text-white mb-1 text-center">
                   {t(`blueBoxes.${i}.title`)}
                 </div>
-                <div className="text-sm text-white/80 text-center">
-                  {t(`blueBoxes.${i}.description`)}
-                </div>
+                {fa.blueBoxes[i]?.description ? (
+                  <div className="text-sm text-white/90 text-center">
+                    {t(`blueBoxes.${i}.description`)}
+                  </div>
+                ) : null}
               </div>
             </div>
           ))}

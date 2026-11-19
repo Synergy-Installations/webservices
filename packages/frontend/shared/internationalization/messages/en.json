@@ -73,14 +73,15 @@
         "title": "Who are we and what do we do?",
         "paragraphs": [
           "As Synergie Montagen we create independence by guiding your project execution and process management with stable pricing.",
-          "Together with our partners we support you during acquisition, planning, consulting, procurement, installation, site supervision, project management, and after-sales service. Across the energy market we focus on systems, management, and communities. Over the past 2.5 years, more than 30 clients and partners have trusted us with 500+ successful projects.",
+          "Together with our partners we support you during acquisition, planning, consulting, procurement, installation, site supervision, project management, and after-sales service. Across the energy market we focus on systems, management, and communities.",
           "We take responsibility—with customer focus and handshake quality.",
           "The Synergie Montagen Team"
         ],
         "signature": {
           "src": "/frontend/landingPage/about/synergiemontagen_stamp.png",
           "alt": "Synergie Montagen stamp"
-        }
+        },
+        "photoAlt": "Michael Riegler, Managing Director, at a PV construction site"
       },
       "Team": {
         "title": "Meet our team",
@@ -234,23 +235,15 @@
       },
       "BentoGridHero": {
         "title": {
-          "rotating": ["Sustainable", "Renewable", "Intelligent"],
-          "highlight": "energy systems",
-          "suffix": "for homes & businesses"
+          "main": "Photovoltaic project delivery",
+          "rotating": ["flexible", "fast", "uncomplicated"]
         },
-        "subtitle": "Your provider for holistic energy solutions",
+        "subtitle": "Your project in safe hands",
         "servicesCard": {
-          "imageAlt": "Services Symbol image",
+          "imageAlt": "PV façade on a building in Vienna at sunset",
           "title": "Services",
           "lists": [
-            [
-              "Consulting",
-              "Marketing"
-            ],
-            [
-              "Service",
-              "Implementation"
-            ]
+            ["Consulting & engineering", "Implementation", "System service"]
           ],
           "button": {
             "text": "View details",
@@ -258,29 +251,20 @@
           }
         },
         "productsCard": {
-          "imageAlt": "Products teaser image",
-          "title": "Products",
+          "imageAlt": "SYNERGIE technician connecting inverter and battery",
+          "title": "Who we work for",
           "lists": [
             [
-              "PV system",
-              "Power Storage",
-              "Heat pump",
-              "Air Conditioning",
-              "Energy Community",
-              "Smart Home"
-            ],
-            [
-              "Charging station (wallbox)",
-              "Backup power supply",
-              "Balcony power plant",
-              "Energy Cost Advisory",
-              "Autarke hot water production",
-              "Maintenance & service"
+              "Building services, electrical and installation companies",
+              "EPC",
+              "Operators",
+              "Consulting and planning firms",
+              "Property managers, real-estate developers and architects"
             ]
           ],
           "button": {
-            "text": "View details",
-            "href": "/products"
+            "text": "Request now",
+            "href": "/contact-us"
           }
         },
         "items": {
@@ -375,6 +359,14 @@
               "link": "/focus/wartung-service",
               "text": "Learn more"
             }
+          }
+        },
+        "locationsCard": {
+          "title": "Where we work",
+          "lists": [["Europe", "Africa"]],
+          "pins": {
+            "austria": "Austria",
+            "zambia": "Zambia"
           }
         }
       },
@@ -618,20 +610,6 @@
                 "height": "40",
                 "href": "https://e-altamira.at"
               },
-              "Partner13": {
-                "src": "/frontend/landingPage/clients/Bosch-logo.svg",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://www.bosch.at"
-              },
-              "Partner14": {
-                "src": "/frontend/landingPage/clients/Buderus-logo.svg",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://www.buderus.at"
-              },
               "Partner15": {
                 "src": "/frontend/landingPage/clients/BYD_Company%2C_Ltd._-_Logo.svg",
                 "alt": "Client 10",
@@ -639,33 +617,12 @@
                 "height": "40",
                 "href": "https://www.bydauto.at"
               },
-              "Partner16": {
-                "src": "/frontend/landingPage/clients/DAIKIN_Logo_rgb.png",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://www.daikin.at"
-              },
               "Partner17": {
                 "src": "/frontend/landingPage/clients/FE_S_Blau_Horiz_RGB-1.png",
                 "alt": "Client 10",
                 "width": "200",
                 "height": "40",
                 "href": "https://fenecon.de"
-              },
-              "Partner18": {
-                "src": "/frontend/landingPage/clients/hargassner-logo-neg-entzerrt-vereinfacht-ohne-claim3farbig-dunkelgrau.svg",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://www.hargassner.com"
-              },
-              "Partner19": {
-                "src": "/frontend/landingPage/clients/Hoval_Logo.svg",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://www.hoval.at"
               },
               "Partner20": {
                 "src": "/frontend/landingPage/clients/Huawei_Standard_logo.svg",
@@ -681,26 +638,12 @@
                 "height": "40",
                 "href": "https://www.idm-energie.at"
               },
-              "Partner22": {
-                "src": "/frontend/landingPage/clients/images.png",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://www.ochsner.com"
-              },
               "Partner23": {
                 "src": "/frontend/landingPage/clients/logo-2.svg",
                 "alt": "Client 10",
                 "width": "100",
                 "height": "40",
                 "href": "https://k2-systems.com"
-              },
-              "Partner24": {
-                "src": "/frontend/landingPage/clients/KNX_logo.svg",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://www.knxaustria.at"
               },
               "Partner25": {
                 "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
@@ -716,26 +659,12 @@
                 "height": "40",
                 "href": "https://www.eb-kantteile.at"
               },
-              "Partner27": {
-                "src": "/frontend/landingPage/clients/Logo_Fro%CC%88ling.JPG",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://www.froeling.com"
-              },
               "Partner28": {
                 "src": "/frontend/landingPage/clients/Logo_SMA.svg",
                 "alt": "Client 10",
                 "width": "200",
                 "height": "40",
                 "href": "https://www.sma.de"
-              },
-              "Partner29": {
-                "src": "/frontend/landingPage/clients/LOGO-LAMBDA-1.png",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://lambda-wp.at"
               }
             }
           },
@@ -763,13 +692,6 @@
                 "width": "100",
                 "height": "40",
                 "href": "https://www.idm-energie.at"
-              },
-              "Partner33": {
-                "src": "/frontend/landingPage/clients/Loxone_Logo.png",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://www.loxone.com"
               },
               "Partner34": {
                 "src": "/frontend/landingPage/clients/OekoFEN_Logo_2018_CMYK.jpg",
@@ -903,13 +825,6 @@
                 "width": "200",
                 "height": "40",
                 "href": "https://www.shelly.com"
-              },
-              "Partner56": {
-                "src": "/frontend/landingPage/clients/image006.png",
-                "alt": "Client 10",
-                "width": "200",
-                "height": "40",
-                "href": "https://www.knxaustria.at"
               }
             }
           }
@@ -917,8 +832,7 @@
       },
       "FeatureAdvantages": {
         "pill": "First Class",
-        "title": "Your expert with handling quality and customer focus.",
-        "description": "Our specialists offer you not only advice, installation and maintenance, but local proximity, accessibility and care, as if it were our own facility. <br> </br> <br> </br> Every customer is individually received, our customers are supported as they want, you can contribute as much or as little as you want and receive the amount of information and advice they need – “We will find the best solution together.”",
+        "title": "One fixed contact person you can rely on – who finds a flexible, fast solution for everything.",
         "buttons": {
           "Button1": {
             "text": "Client Priorities",
@@ -945,7 +859,7 @@
           },
           "Button2": {
             "text": "Process-Oriented",
-            "description": "Digital processes ensure smooth handling- continuous improvements drive us forward in management. We pay attention to long-lasting precise feasibility and cost-benefit analysis, planning and installation methods.",
+            "description": "Digital processes ensure smooth handling – continuous improvement drives our management forward. We focus on durable, precise and value-oriented implementation.",
             "buttonIcon": {
               "src": "/frontend/landingPage/icons/double_arrows.svg",
               "alt": "Double Arrows",
@@ -968,7 +882,7 @@
           },
           "Button3": {
             "text": "Elevated Standards",
-            "description": "We take time for constant high quality, through strict consideration of specifications and standards and through detailed accuracy and protection against weather conditions and human safety.",
+            "description": "We take time for consistently high quality – through strict compliance with specifications and standards, attention to detail, and protection against weather as well as for the safety of people.",
             "buttonIcon": {
               "src": "/frontend/landingPage/icons/double_arrows.svg",
               "alt": "Double Arrows",
@@ -976,8 +890,8 @@
               "height": "24"
             },
             "image": {
-              "src": "/frontend/landingPage/Hero/ChatGPT%20Image%20Oct%2031%2C%202025%20at%2011_10_23%20PM.jpg",
-              "alt": "Synergy family",
+              "src": "/brand/projekte/vorteile-standards.webp",
+              "alt": "Surge protection, neatly wired and labelled",
               "width": "800",
               "height": "620",
               "objectPosition": "50% 50%"
@@ -1014,44 +928,54 @@
         },
         "blueBoxes": {
           "1": {
-            "title": "Your Advantage:",
-            "icon": {
-              "src": "/frontend/landingPage/icons/license_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
-              "alt": "Staff Advisor",
-              "width": "32",
-              "height": "32"
-            },
-            "description": "Our seasoned experts provide bespoke, personal guidance."
-          },
-          "2": {
-            "title": "Your Tailored Concept:",
+            "title": "Material, planning, installation and project management",
+            "description": "from a single source",
             "icon": {
               "src": "/frontend/landingPage/icons/design_services_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
-              "alt": "Design Services",
+              "alt": "Single source",
               "width": "32",
               "height": "32"
-            },
-            "description": "Independent recommendations with transparent, stable pricing."
+            }
           },
-          "3": {
-            "title": "Your Security:",
-            "icon": {
-              "src": "/frontend/landingPage/icons/verified_user_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
-              "alt": "Verified User",
-              "width": "32",
-              "height": "32"
-            },
-            "description": "Meticulous feasibility and cost-benefit assessments — we design, build, and maintain your systems as if they were our own."
-          },
-          "4": {
-            "title": "Always Here for You:",
+          "2": {
+            "title": "Flexible & fast:",
+            "description": "Network of 30 suppliers and service providers",
             "icon": {
               "src": "/frontend/landingPage/icons/concierge_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
-              "alt": "Staff Advisor",
+              "alt": "Network",
               "width": "32",
               "height": "32"
-            },
-            "description": "We are on call every day and always within reach."
+            }
+          },
+          "3": {
+            "title": "Special solutions:",
+            "description": "PV façade on listed buildings, flood areas, hillsides",
+            "icon": {
+              "src": "/frontend/landingPage/icons/verified_user_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+              "alt": "Special solutions",
+              "width": "32",
+              "height": "32"
+            }
+          },
+          "4": {
+            "title": "Working to internationally certified methods",
+            "description": "such as IPMA and ISO standards",
+            "icon": {
+              "src": "/frontend/landingPage/icons/license_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+              "alt": "Certified methods",
+              "width": "32",
+              "height": "32"
+            }
+          },
+          "5": {
+            "title": "Meticulous attention to detail",
+            "description": "",
+            "icon": {
+              "src": "/frontend/landingPage/icons/verified_user_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
+              "alt": "Attention to detail",
+              "width": "32",
+              "height": "32"
+            }
           }
         },
         "blocks": {
@@ -1088,7 +1012,7 @@
         }
       },
       "FeatureSteps": {
-        "title": "The 4 steps to your optimal system",
+        "title": "Three steps to a successful project",
         "video": {
           "thumbnail": {
             "src": "/frontend/landingPage/FeatureSteps/scenic-house.jpeg",
@@ -1104,22 +1028,17 @@
         "steps": {
           "stepOne": {
             "number": "1",
-            "title": "Locality",
+            "title": "Enquire",
             "description": ""
           },
           "stepTwo": {
             "number": "2",
-            "title": "Current Energy Technology",
+            "title": "Offer",
             "description": ""
           },
           "stepThree": {
             "number": "3",
-            "title": "Client Priorities",
-            "description": ""
-          },
-          "stepFour": {
-            "number": "4",
-            "title": "System Composition",
+            "title": "Deliver",
             "description": ""
           }
         },
@@ -1140,8 +1059,7 @@
             },
             "name": "Richard Flammer",
             "username": "@rflammer",
-            "usernameUrl": "https://twitter.com/peterlowex",
-            "date": "Feb 5, 2024",
+            "usernameUrl": "",
             "content": "Competent advice, rapid and professional execution and a lot of understanding and good explanations for laity issues, but all of them want to be resolved",
             "channelIcon": {
               "src": "/frontend/landingPage/icons/Google_%2522G%2522_logo.svg",
@@ -1159,8 +1077,7 @@
             },
             "name": "Thomas Fried",
             "username": "@tfried",
-            "usernameUrl": "https://twitter.com/peterlowex",
-            "date": "Feb 7, 2024",
+            "usernameUrl": "",
             "content": "I have had a 15kw pv plant with 15kw battery, the brand growat, delivered and mounted by the company riegler in the March 24. This has been running for almost a year without complaining. I can only say one thing: the term best adhered to, even the provided electriker competent and very helpful, the whole had again friendly....",
             "channelIcon": {
               "src": "/frontend/landingPage/icons/Google_%2522G%2522_logo.svg",
@@ -1178,8 +1095,7 @@
             },
             "name": "Martina",
             "username": "@mamon",
-            "usernameUrl": "https://twitter.com/peterlowex",
-            "date": "Feb 12, 2024",
+            "usernameUrl": "",
             "content": "The company has installed over 400 PV systems and the managing director personally takes care of the satisfaction of the customers. An Austrian who is constantly in use and is 100 times on the phone daily. Super craftsmen with real handbeat quality",
             "channelIcon": {
               "src": "/frontend/landingPage/icons/Google_%2522G%2522_logo.svg",
@@ -1195,8 +1111,7 @@
             },
             "name": "Andreas Goisser",
             "username": "@agoisser",
-            "usernameUrl": "https://twitter.com/peterlowex",
-            "date": "Jan 20, 2024",
+            "usernameUrl": "",
             "content": "Super company, very competent and highly recommended. Great advice and planning, timely implementation - everything worked super - am very satisfied all around. Very good price/performance ratio - just top!",
             "channelIcon": {
               "src": "/frontend/landingPage/icons/Google_%2522G%2522_logo.svg",
@@ -1214,8 +1129,7 @@
             },
             "name": "Otto eichwalder",
             "username": "@oeichwalder",
-            "usernameUrl": "https://twitter.com/peterlowex",
-            "date": "Feb 2, 2024",
+            "usernameUrl": "",
             "content": "I am personally satisfied! Reliability, receptions, personal and trusting company. In the end, the points match with which is advertised - quality of the handbeat. I also let the same company expand the PV system.",
             "channelIcon": {
               "src": "/frontend/landingPage/icons/Google_%2522G%2522_logo.svg",
@@ -1231,8 +1145,7 @@
             },
             "name": "Manfred Hein",
             "username": "@mhein",
-            "usernameUrl": "https://twitter.com/peterlowex",
-            "date": "Jan 15, 2024",
+            "usernameUrl": "",
             "content": "The company consists of a young dynamic team. There is still a personal consultation. The project report was transmitted in detail and quickly. The work was carried out cleanly and on time. Mr. Riegler is very interested in his customers. This company is really recommended!",
             "channelIcon": {
               "src": "/frontend/landingPage/icons/Google_%2522G%2522_logo.svg",
@@ -1278,53 +1191,13 @@
           "buttonLeft": {
             "text": "Request a Consultation",
             "href": "/contact-us"
-          },
-          "buttonRight": {
-            "text": "Our Products",
-            "href": "#products"
           }
         },
         "partners": {
-          "Partner01": {
-            "src": "/frontend/landingPage/clients/Loxone_Logo.png",
-            "alt": "Client 01",
-            "width": "150",
-            "height": "21"
-          },
-          "Partner02": {
-            "src": "/frontend/landingPage/clients/KNX_logo.svg",
-            "alt": "Client 02",
-            "width": "62",
-            "height": "46"
-          },
-          "Partner03": {
-            "src": "/frontend/landingPage/clients/LOGO_Fronius_RGB_high_300dpi.jpg",
-            "alt": "Client 03",
-            "width": "90",
-            "height": "90"
-          },
-          "Partner04": {
-            "src": "/frontend/landingPage/clients/Bosch-logo.svg",
-            "alt": "Client 04",
-            "width": "86",
-            "height": "13"
-          },
-          "Partner05": {
-            "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
-            "alt": "Client 05",
-            "width": "86",
-            "height": "18"
-          },
-          "Partner06": {
-            "src": "/frontend/landingPage/clients/DAIKIN_Logo_rgb.png",
-            "alt": "Client 06",
-            "width": "100",
-            "height": "40"
-          },
           "Aerocompact": {
             "src": "/frontend/landingPage/clients/aerocompact%20logo.png",
             "alt": "Client 01",
-            "width": "200",
+            "width": "100",
             "height": "50",
             "href": "https://www.aerocompact.com"
           },
@@ -1338,21 +1211,21 @@
           "Wuerth": {
             "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
             "alt": "Client 03",
-            "width": "200",
+            "width": "100",
             "height": "50",
             "href": "https://www.wuerth.at"
           },
           "EandB": {
             "src": "/frontend/landingPage/clients/logo_eb.png",
             "alt": "Client 04",
-            "width": "200",
+            "width": "100",
             "height": "13",
             "href": "https://www.eb-haustechnik.at"
           },
           "Fronius": {
             "src": "/frontend/landingPage/clients/LOGO_Fronius_RGB_high_300dpi.jpg",
             "alt": "Client 05",
-            "width": "200",
+            "width": "100",
             "height": "18",
             "href": "https://www.fronius.at"
           },
@@ -1366,156 +1239,58 @@
           "Sonepar": {
             "src": "/frontend/landingPage/clients/Sonepar%20logo%20RGB_Tagline.svg",
             "alt": "Client 07",
-            "width": "200",
+            "width": "100",
             "height": "50",
             "href": "https://www.sonepar.at"
           },
           "Partner08": {
             "src": "/frontend/landingPage/clients/00-Sigenergy-Logo.png.webp",
             "alt": "Client 08",
-            "width": "200",
+            "width": "100",
             "height": "34",
             "href": "https://www.sigenergy.com"
           },
           "Partner09": {
             "src": "/frontend/landingPage/clients/0x0.png",
             "alt": "Client 09",
-            "width": "200",
+            "width": "100",
             "height": "44",
             "href": "https://de.growatt.com"
           },
           "Partner11": {
             "src": "/frontend/landingPage/clients/989_Category.png",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://www.solaxpower.com"
           },
           "Partner12": {
             "src": "/frontend/landingPage/clients/Altamira_2_color_stacked_large.png",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://e-altamira.at"
-          },
-          "Partner13": {
-            "src": "/frontend/landingPage/clients/Bosch-logo.svg",
-            "alt": "Client 10",
-            "width": "200",
-            "height": "40",
-            "href": "https://www.bosch.at"
-          },
-          "Partner14": {
-            "src": "/frontend/landingPage/clients/Buderus-logo.svg",
-            "alt": "Client 10",
-            "width": "200",
-            "height": "40",
-            "href": "https://www.buderus.at"
           },
           "Partner15": {
             "src": "/frontend/landingPage/clients/BYD_Company%2C_Ltd._-_Logo.svg",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://www.bydauto.at"
-          },
-          "Partner16": {
-            "src": "/frontend/landingPage/clients/DAIKIN_Logo_rgb.png",
-            "alt": "Client 10",
-            "width": "200",
-            "height": "40",
-            "href": "https://www.daikin.at"
           },
           "Partner17": {
             "src": "/frontend/landingPage/clients/FE_S_Blau_Horiz_RGB-1.png",
             "alt": "Client 10",
-            "width": "200",
+            "width": "100",
             "height": "40",
             "href": "https://fenecon.de"
-          },
-          "Partner18": {
-            "src": "/frontend/landingPage/clients/hargassner-logo-neg-entzerrt-vereinfacht-ohne-claim3farbig-dunkelgrau.svg",
-            "alt": "Client 10",
-            "width": "200",
-            "height": "40",
-            "href": "https://www.hargassner.com"
-          },
-          "Partner19": {
-            "src": "/frontend/landingPage/clients/Hoval_Logo.svg",
-            "alt": "Client 10",
-            "width": "200",
-            "height": "40",
-            "href": "https://www.hoval.at"
-          },
-          "Partner20": {
-            "src": "/frontend/landingPage/clients/Huawei_Standard_logo.svg",
-            "alt": "Client 10",
-            "width": "100",
-            "height": "40",
-            "href": "https://www.huawei.com"
-          },
-          "Partner21": {
-            "src": "/frontend/landingPage/clients/logo_idm_waermepumpen-scaled-e1610953520283.jpg",
-            "alt": "Client 10",
-            "width": "100",
-            "height": "40",
-            "href": "https://www.idm-energie.at"
-          },
-          "Partner22": {
-            "src": "/frontend/landingPage/clients/images.png",
-            "alt": "Client 10",
-            "width": "200",
-            "height": "40",
-            "href": "https://www.ochsner.com"
-          },
-          "Partner23": {
-            "src": "/frontend/landingPage/clients/logo-2.svg",
-            "alt": "Client 10",
-            "width": "100",
-            "height": "40",
-            "href": "https://k2-systems.com"
-          },
-          "Partner24": {
-            "src": "/frontend/landingPage/clients/KNX_logo.svg",
-            "alt": "Client 10",
-            "width": "200",
-            "height": "40",
-            "href": "https://www.knxaustria.at"
-          },
-          "Partner25": {
-            "src": "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
-            "alt": "Client 10",
-            "width": "200",
-            "height": "40",
-            "href": "https://www.wuerth.at"
-          },
-          "Partner26": {
-            "src": "/frontend/landingPage/clients/logo_eb.png",
-            "alt": "Client 10",
-            "width": "200",
-            "height": "40",
-            "href": "https://www.eb-kantteile.at"
-          },
-          "Partner27": {
-            "src": "/frontend/landingPage/clients/Logo_Fro%CC%88ling.JPG",
-            "alt": "Client 10",
-            "width": "200",
-            "height": "40",
-            "href": "https://www.froeling.com"
           },
           "Partner28": {
             "src": "/frontend/landingPage/clients/Logo_SMA.svg",
             "alt": "Client 10",
-            "width": "200",
+            "width": "60",
             "height": "40",
             "href": "https://www.sma.de"
-          },
-          "Partner29": {
-            "src": "/frontend/landingPage/clients/LOGO-LAMBDA-1.png",
-            "alt": "Client 10",
-            "width": "200",
-            "height": "40",
-            "href": "https://lambda-wp.at"
           }
         }
       }
@@ -2542,21 +2317,16 @@
         "eyebrow": "Services",
         "title": "Services for companies in the energy sector",
         "subtitle": "Be a pioneer in system installation",
-        "body": "With the expertise of our in-house specialists across multiple trades, we help you scale your installation services and streamline every process step.",
         "buttons": {
           "primary": {
-            "text": "Contact",
-            "href": "/kontakt"
-          },
-          "secondary": {
-            "text": "Book your PV installation",
-            "href": "/contact-us-funnel"
+            "text": "Request now",
+            "href": "/contact-us"
           }
         }
       },
       "Competencies": {
         "eyebrow": "Core competencies",
-        "title": "Our service portfolio at a glance",
+        "title": "Our services at a glance",
         "items": {
           "planning": {
             "title": "Planning, consulting, and customer service",
@@ -2574,13 +2344,43 @@
             "title": "After-sales services",
             "icon": "/frontend/landingPage/icons/concierge_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
           }
-        }
+        },
+        "linkText": "Learn more",
+        "expandHint": "Click on a service to expand all details.",
+        "benefitsTitle": "Your benefits"
       },
       "Process": {
-        "title": "Digital Synergy Process",
+        "title": "Synergie Digiversum",
         "image": {
-          "src": "/frontend/landingPage/b2b/Synergie_Digiversum_Website_v3.jpg",
-          "alt": "Illustration of the Synergy process"
+          "src": "/brand/synergie-digiversum.webp",
+          "alt": "Synergie Digiversum: the customer at the centre – enquiry, offer, order, execution, data management and final invoice"
+        },
+        "center": "Customer",
+        "steps": {
+          "anfrage": {
+            "title": "Request",
+            "note": "Share & gather information"
+          },
+          "angebot": {
+            "title": "Offer",
+            "note": "Update status, book installation"
+          },
+          "auftrag": {
+            "title": "Order",
+            "note": "Dashboard for all project parties"
+          },
+          "durchfuehrung": {
+            "title": "Execution",
+            "note": "Work preparation & logistics"
+          },
+          "daten": {
+            "title": "Data management",
+            "note": "automated & precise"
+          },
+          "abschluss": {
+            "title": "Final invoice",
+            "note": "Handover & further support"
+          }
         }
       },
       "Testimonials": {
@@ -2597,12 +2397,20 @@
         "title": "Some of our partners",
         "logoAlt": "Partner logo",
         "logos": [
-          "/frontend/landingPage/clients/Loxone_Logo.png",
-          "/frontend/landingPage/clients/KNX_logo.svg",
-          "/frontend/landingPage/clients/LOGO_Fronius_RGB_high_300dpi.jpg",
-          "/frontend/landingPage/clients/Bosch-logo.svg",
+          "/frontend/landingPage/clients/aerocompact%20logo.png",
+          "/frontend/landingPage/clients/energy3000%20CMYK%20transparent.png",
           "/frontend/landingPage/clients/Logo%20Wu%CC%88rth.svg",
-          "/frontend/landingPage/clients/DAIKIN_Logo_rgb.png"
+          "/frontend/landingPage/clients/logo_eb.png",
+          "/frontend/landingPage/clients/LOGO_Fronius_RGB_high_300dpi.jpg",
+          "/frontend/landingPage/clients/SHT_logo_4C.png",
+          "/frontend/landingPage/clients/Sonepar%20logo%20RGB_Tagline.svg",
+          "/frontend/landingPage/clients/00-Sigenergy-Logo.png.webp",
+          "/frontend/landingPage/clients/0x0.png",
+          "/frontend/landingPage/clients/989_Category.png",
+          "/frontend/landingPage/clients/Altamira_2_color_stacked_large.png",
+          "/frontend/landingPage/clients/BYD_Company%2C_Ltd._-_Logo.svg",
+          "/frontend/landingPage/clients/FE_S_Blau_Horiz_RGB-1.png",
+          "/frontend/landingPage/clients/Logo_SMA.svg"
         ]
       },
       "FAQ": {
@@ -2627,12 +2435,8 @@
         "body": "Get in touch now for a tailored solution that strengthens your company sustainably.",
         "buttons": {
           "primary": {
-            "text": "Contact",
-            "href": "/kontakt"
-          },
-          "secondary": {
-            "text": "Book your PV installation",
-            "href": "/contact-us-funnel"
+            "text": "Request now",
+            "href": "/contact-us"
           }
         }
       },
@@ -2649,18 +2453,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Why are feasibility studies important?",
-                "descriptionOne": "A feasibility study examines whether a project is technically, economically and legally feasible. With well-founded location, profitability and risk analyses we assess connection and approval requirements – so you can make a resilient decision.",
+                "titleOne": "Why a feasibility study?",
+                "descriptionOne": "Before the project starts, we check whether it is technically, economically and legally feasible – a solid basis for your decision with a clear recommendation.",
                 "titleTwo": "Why us?",
-                "descriptionTwo": "Our interdisciplinary team combines technical expertise, local knowledge and experience in approval procedures. We provide clear recommendations for action and concrete implementation steps.",
                 "button": {
                   "text": "Request feasibility study",
                   "href": "/contact-us"
                 },
                 "boxes": {
                   "standortanalyse": {
-                    "title": "Location & inventory",
-                    "description": "Examination of roof, outdoor or building properties, shading and access.",
+                    "title": "Site",
+                    "description": "Roof, open-field and building check incl. shading and access.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Location analysis"
@@ -2673,8 +2476,8 @@
                     }
                   },
                   "technische-pruefung": {
-                    "title": "Technical feasibility",
-                    "description": "Evaluation of the suitability of modules, inverters, storage and structure.",
+                    "title": "Technology",
+                    "description": "Suitability of modules, inverters, storage and structure.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Technical testing"
@@ -2687,8 +2490,8 @@
                     }
                   },
                   "netzanbindung": {
-                    "title": "Network connection & approvals",
-                    "description": "verification of network capacity, connection conditions and necessary administrative steps.",
+                    "title": "Grid & permits",
+                    "description": "Grid capacity, connection conditions and official steps.",
                     "image": {
                       "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
                       "alt": "Network connection"
@@ -2705,25 +2508,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Your advantages through a feasibility study:",
+                    "title": "Your benefits",
                     "list": {
-                      "itemOne": "Clear basis of decision",
-                      "itemTwo": "Early recognition of technical barriers",
-                      "itemThree": "Estimation of expenditure and costs",
-                      "itemFour": "Identification of regulatory requirements",
-                      "itemFive": "Risk mitigation before project start",
-                      "itemSix": "Concrete implementation and time planning"
+                      "itemOne": "Clear basis for decisions",
+                      "itemTwo": "Early estimate of cost and effort",
+                      "itemThree": "Risks identified before the start",
+                      "itemFour": "Concrete schedule and implementation plan"
                     }
                   },
                   "boxRight": {
-                    "title": "Procedure of a feasibility study:",
+                    "title": "How it works",
                     "list": {
-                      "itemOne": "First interview and target definition",
-                      "itemTwo": "Data collection (areas, consumption, location data)",
-                      "itemThree": "On-site inspection and measurements",
-                      "itemFour": "Technical and legal assessment",
-                      "itemFive": "Risk and cost analysis",
-                      "itemSix": "Final report with recommendation and next steps"
+                      "itemOne": "Goals and documents",
+                      "itemTwo": "On-site inspection and measurements",
+                      "itemThree": "Technical, legal and economic assessment",
+                      "itemFour": "Report with recommendation"
                     }
                   }
                 },
@@ -2742,18 +2541,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Why technical support?",
-                "descriptionOne": "Our technical support ensures that your system runs reliably – from system diagnosis to troubleshooting to preventive measures.",
+                "titleOne": "Who is technical support for?",
+                "descriptionOne": "For planning, engineering and installation companies that do consulting and engineering themselves but need support at times – during peak workloads, for special questions or as a second pair of eyes.",
                 "titleTwo": "Why us?",
-                "descriptionTwo": "Experienced technicians, remote and on-site support as well as transparent documentation guarantee fast solutions and long-term operational safety.",
                 "button": {
                   "text": "Request technical support",
                   "href": "/contact-us"
                 },
                 "boxes": {
                   "systemdiagnose": {
-                    "title": "System diagnosis",
-                    "description": "Detailed analysis of performance, faults and operating conditions for rapid limitation of problems.",
+                    "title": "Engineering support",
+                    "description": "Design, calculations and drawings – complementing your team.",
                     "image": {
                       "src": "/frontend/landingPage/icons/icon-plan.svg",
                       "alt": "System diagnosis"
@@ -2766,8 +2564,8 @@
                     }
                   },
                   "remote-support": {
-                    "title": "Remote support",
-                    "description": "Instant support via remote access and guides to quickly restore functionality.",
+                    "title": "Review & second opinion",
+                    "description": "We check concepts, string plans and documents for errors and optimisation potential.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Remote support"
@@ -2780,8 +2578,8 @@
                     }
                   },
                   "vor-ort-einsatz": {
-                    "title": "On-site technicians",
-                    "description": "Professional repair, calibration and replacement of components by certified technicians.",
+                    "title": "Special questions",
+                    "description": "Special solutions such as PV façades on listed buildings, hillsides or flood areas.",
                     "image": {
                       "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
                       "alt": "On-site technicians"
@@ -2798,25 +2596,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Your advantages through technical support:",
+                    "title": "Your benefits",
                     "list": {
-                      "itemOne": "Quick troubleshooting",
-                      "itemTwo": "Maximum plant availability",
-                      "itemThree": "Proactive maintenance to avoid failure",
-                      "itemFour": "Clear documentation and reports",
-                      "itemFive": "Competent contact persons",
-                      "itemSix": "Transparent cost estimate"
+                      "itemOne": "Available flexibly as needed",
+                      "itemTwo": "Relief during peak workloads",
+                      "itemThree": "Fewer errors thanks to a second look",
+                      "itemFour": "You remain your customers' contact"
                     }
                   },
                   "boxRight": {
-                    "title": "This is how technical support runs:",
+                    "title": "How it works",
                     "list": {
-                      "itemOne": "Contact and initial assessment",
-                      "itemTwo": "Remote Analysis and Troubleshooting",
-                      "itemThree": "If necessary: Termination of an on-site insert",
-                      "itemFour": "Repair or maintenance",
-                      "itemFive": "Final test and documentation",
-                      "itemSix": "Follow-up and preventive recommendations"
+                      "itemOne": "Send task and documents",
+                      "itemTwo": "Agree on scope and date",
+                      "itemThree": "Processing by our team",
+                      "itemFour": "Handover with explanation"
                     }
                   }
                 },
@@ -2835,18 +2629,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Why is concept design important?",
-                "descriptionOne": "A good concept design combines technical feasibility and user requirements into a feasible plan. It defines components, interfaces and procedures so that implementation, costs and benefits are clearly defined.",
+                "titleOne": "Why concept design?",
+                "descriptionOne": "The concept defines components, interfaces and process – so that implementation, costs and benefits are clear before detailed planning.",
                 "titleTwo": "Why us?",
-                "descriptionTwo": "Our interdisciplinary team creates practical, scalable concepts based on experience, local knowledge and engineering precision.",
                 "button": {
                   "text": "Requesting concept",
                   "href": "/contact-us"
                 },
                 "boxes": {
                   "standortanalyse": {
-                    "title": "Location & inventory",
-                    "description": "Examination of alignment, shading, roof structure and network connection for optimal system design.",
+                    "title": "System design",
+                    "description": "Modules, inverters, storage and mounting system to suit the site.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Location analysis"
@@ -2859,8 +2652,8 @@
                     }
                   },
                   "technische-pruefung": {
-                    "title": "Technical testing",
-                    "description": "Evaluation of modules, inverters, storage and structural requirements for a robust concept.",
+                    "title": "Variants",
+                    "description": "Comparison of several solutions by yield, cost and effort.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Technical testing"
@@ -2873,8 +2666,8 @@
                     }
                   },
                   "netzanbindung": {
-                    "title": "Network connection & approvals",
-                    "description": "Checking the network capacity, connection conditions and necessary administrative steps for the concept.",
+                    "title": "Economic viability",
+                    "description": "Cost-benefit assessment as the basis for your decision.",
                     "image": {
                       "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
                       "alt": "Network connection"
@@ -2891,25 +2684,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Your advantages through professional concept design:",
+                    "title": "Your benefits",
                     "list": {
                       "itemOne": "Clear implementation strategy",
-                      "itemTwo": "Optimized system design",
-                      "itemThree": "Cost and time planning",
-                      "itemFour": "Considering regulatory requirements",
-                      "itemFive": "Risk mitigation before the start",
-                      "itemSix": "Basis of assessment"
+                      "itemTwo": "Optimised system design",
+                      "itemThree": "Comparable variants",
+                      "itemFour": "Solid basis for planning"
                     }
                   },
                   "boxRight": {
-                    "title": "Process of concept design:",
+                    "title": "How it works",
                     "list": {
-                      "itemOne": "First interview and target definition",
-                      "itemTwo": "Data collection (areas, consumption, location data)",
-                      "itemThree": "Conceptual design and variants",
-                      "itemFour": "Economic and risk analysis",
-                      "itemFive": "Presentation of the concept with recommendations",
-                      "itemSix": "Planning the next steps"
+                      "itemOne": "Goals and data collection",
+                      "itemTwo": "Design and variants",
+                      "itemThree": "Economic assessment",
+                      "itemFour": "Presentation with recommendation"
                     }
                   }
                 },
@@ -2928,18 +2717,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Why are administrative procedures important?",
-                "descriptionOne": "Authorization procedures ensure the legal certainty of your project: approvals, reporting requirements and requirements are checked and implemented correctly so that your project can be implemented legally and in time.",
+                "titleOne": "Why outsource permit procedures?",
+                "descriptionOne": "We clarify permit requirements, prepare the application documents and handle communication with authorities and the grid operator – legally compliant and on time.",
                 "titleTwo": "Why us?",
-                "descriptionTwo": "We take over the complete communication with authorities, prepare filing documents and accompany you through licensing procedures, claims and reclaim processes.",
                 "button": {
                   "text": "Request procedure",
                   "href": "/contact-us"
                 },
                 "boxes": {
                   "genehmigungsPrüfung": {
-                    "title": "Approval review",
-                    "description": "Examination of whether your project is subject to approval and what documentation (plans, opinions) is required.",
+                    "title": "Permit check",
+                    "description": "Which approvals and documents are required.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Approval review"
@@ -2952,8 +2740,8 @@
                     }
                   },
                   "einreichungUnterlagen": {
-                    "title": "Submission & deadline management",
-                    "description": "Creation and timely submission of all necessary documents and follow-up of process steps.",
+                    "title": "Submission & deadlines",
+                    "description": "Complete documents, submitted on time and followed up.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Submission"
@@ -2966,8 +2754,8 @@
                     }
                   },
                   "behördenkommunikation": {
-                    "title": "Communications",
-                    "description": "Coordination and coordination with construction and environmental authorities, network operators and other bodies – incl. clarifying open questions and obtaining necessary communications.",
+                    "title": "Coordination",
+                    "description": "Contact with building and environmental authorities and grid operators.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Communications"
@@ -2984,25 +2772,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Your advantages through expert administration:",
+                    "title": "Your benefits",
                     "list": {
-                      "itemOne": "Legally secure project execution",
-                      "itemTwo": "Minimization of delays",
-                      "itemThree": "Professional deposit documents",
-                      "itemFour": "clarification of technical & legal issues",
-                      "itemFive": "Optimised opportunities for authorisation",
-                      "itemSix": "Discharge for contractors"
+                      "itemOne": "Legally compliant handling",
+                      "itemTwo": "Fewer delays",
+                      "itemThree": "Better chance of approval",
+                      "itemFour": "Less work for you"
                     }
                   },
                   "boxRight": {
-                    "title": "This is how an administrative procedure takes place:",
+                    "title": "How it works",
                     "list": {
-                      "itemOne": "First talk & stocktaking",
-                      "itemTwo": "Examination of approval and document list",
-                      "itemThree": "Creation and completion of filing documents",
-                      "itemFour": "Formula submission and deadline management",
-                      "itemFive": "Voting with authorities & implementation of re-enrichment",
-                      "itemSix": "Obtaining the communication and preparation of implementation"
+                      "itemOne": "Check of permit requirements",
+                      "itemTwo": "Preparation of application documents",
+                      "itemThree": "Submission and follow-ups",
+                      "itemFour": "Approval and release for implementation"
                     }
                   }
                 },
@@ -3021,18 +2805,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Why is careful planning important?",
-                "descriptionOne": "A well-founded planning lays the foundation for efficient, on-time and cost-secure projects. From technical design to energy performance certificate and energy assessment, we minimize risks and create clear implementation steps.",
+                "titleOne": "Why careful planning?",
+                "descriptionOne": "Sound planning keeps projects on schedule and on budget. We prepare execution and permit documents that work on site.",
                 "titleTwo": "Why us?",
-                "descriptionTwo": "Our team creates detailed planning documents, takes into account local regulations and creates practical implementation plans for your project.",
                 "button": {
                   "text": "Request Planning",
                   "href": "/contact-us"
                 },
                 "boxes": {
                   "projektplanung": {
-                    "title": "Project Planning",
-                    "description": "Concept, milestones and schedule for the smooth implementation of your project.",
+                    "title": "Project planning",
+                    "description": "Milestones, schedule and responsibilities.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Project Planning"
@@ -3045,8 +2828,8 @@
                     }
                   },
                   "technischeplanung": {
-                    "title": "Technical Planning",
-                    "description": "Design of modules, inverters, storage and interfaces for maximum efficiency.",
+                    "title": "Technical planning",
+                    "description": "Module layout, string plan, cable routes and interfaces.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Technical Planning"
@@ -3059,8 +2842,8 @@
                     }
                   },
                   "genehmigungsplanung": {
-                    "title": "Permitting Strategy",
-                    "description": "Creation of filing documents and coordination with legal enforcement authorities.",
+                    "title": "Execution documents",
+                    "description": "Drawings and bills of materials for smooth installation.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Permitting Strategy"
@@ -3077,25 +2860,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Your advantages through professional planning:",
+                    "title": "Your benefits",
                     "list": {
-                      "itemOne": "Clear project schedule and responsibilities",
-                      "itemTwo": "Reduced costs through forward-looking planning",
-                      "itemThree": "Reliable dates and resource planning",
-                      "itemFour": "Legal documents for approvals and promotions",
-                      "itemFive": "Early detection of risks and appropriate countermeasures",
-                      "itemSix": "Transparent documentation for all project phases"
+                      "itemOne": "Clear project roadmap",
+                      "itemTwo": "Reliable dates and costs",
+                      "itemThree": "Fewer changes on site",
+                      "itemFour": "Documents for permits and subsidies"
                     }
                   },
                   "boxRight": {
-                    "title": "This is how planning runs:",
+                    "title": "How it works",
                     "list": {
-                      "itemOne": "First interview on target definition",
-                      "itemTwo": "Data collection",
-                      "itemThree": "Technical design and variant testing",
-                      "itemFour": "Cost and time planning",
-                      "itemFive": "Creation of input and execution documents",
-                      "itemSix": "Coordination with authorities and project partners"
+                      "itemOne": "Survey and data",
+                      "itemTwo": "Technical design",
+                      "itemThree": "Cost and time plan",
+                      "itemFour": "Execution documents and coordination"
                     }
                   }
                 },
@@ -3114,23 +2893,22 @@
               "Diamond": {
                 "title": "Project management",
                 "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaics"
+                  "src": "/brand/projekte/umsetzung.webp",
+                  "alt": "Ground-mounted PV system next to a farmhouse"
                 }
               },
               "Components": {
-                "titleOne": "Why is professional project management important?",
-                "descriptionOne": "Central project management bundles control, coordination and monitoring in one hand: progress, costs, schedules and quality are continuously tracked, all trades are coordinated, deviations are detected early and corrective measures are initiated immediately.",
+                "titleOne": "Why professional project management?",
+                "descriptionOne": "One fixed contact person manages schedules, costs, quality and all trades – deviations are spotted early and solved immediately.",
                 "titleTwo": "Why us?",
-                "descriptionTwo": "We combine digital monitoring tools with experienced project management to ensure appointments, budget and quality and to deliver transparent reports to all stakeholders.",
                 "button": {
                   "text": "Request Project Management now",
                   "href": "/contact-us"
                 },
                 "boxes": {
                   "planung": {
-                    "title": "Central Planning & Coordination",
-                    "description": "We coordinate resources, schedules and procedures for a smooth project.",
+                    "title": "Control",
+                    "description": "Resources, schedule and processes coordinated centrally.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Planning"
@@ -3143,8 +2921,8 @@
                     }
                   },
                   "monitoring": {
-                    "title": "Continuous monitoring",
-                    "description": "Digital and on-site monitoring ensures that deviations are immediately detected and communicated.",
+                    "title": "Monitoring",
+                    "description": "Ongoing comparison of progress, cost and quality – digitally and on site.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Monitoring"
@@ -3157,8 +2935,8 @@
                     }
                   },
                   "dokumentation": {
-                    "title": "Detailed documentation",
-                    "description": "Complete recording of progress, measures and results for traceability and Lessons Learned.",
+                    "title": "Reports",
+                    "description": "Transparent documentation for everyone involved.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Documentation"
@@ -3175,25 +2953,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Your advantages through our project management:",
+                    "title": "Your benefits",
                     "list": {
-                      "itemOne": "Early risk and error detection",
-                      "itemTwo": "Compliance with schedules and budgets",
-                      "itemThree": "Higher quality assurance",
-                      "itemFour": "Transparent and regular reporting",
-                      "itemFive": "Minimisation of reworking",
-                      "itemSix": "Efficient, planable project history"
+                      "itemOne": "Schedule and budget met",
+                      "itemTwo": "Risks identified early",
+                      "itemThree": "Less rework",
+                      "itemFour": "Full transparency"
                     }
                   },
                   "boxRight": {
-                    "title": "This is how our project management works:",
+                    "title": "How it works",
                     "list": {
-                      "itemOne": "Establishment of monitoring and reporting processes",
-                      "itemTwo": "Regular control of progress, costs and resources",
-                      "itemThree": "Immediate notification and analysis of deviations",
-                      "itemFour": "Introduction and follow-up of corrective measures",
-                      "itemFive": "Continuous documentation",
-                      "itemSix": "Final Report and Lessons Learned"
+                      "itemOne": "Project start and schedule",
+                      "itemTwo": "Ongoing monitoring and reports",
+                      "itemThree": "Steering when deviations occur",
+                      "itemFour": "Final report"
                     }
                   }
                 },
@@ -3212,18 +2986,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Why is local construction supervision important?",
-                "descriptionOne": "The building supervision on site ensures that all works are carried out professionally and according to plan.",
+                "titleOne": "Why site supervision?",
+                "descriptionOne": "We check on site that all work is carried out professionally and according to plan – and step in immediately if anything deviates.",
                 "titleTwo": "Why us?",
-                "descriptionTwo": "Our experts are regularly on the construction site, document progress and immediately intervene in case of problems.",
                 "button": {
                   "text": "Request construction supervision now",
                   "href": "/contact-us"
                 },
                 "boxes": {
                   "solar-panels": {
-                    "title": "Professional control",
-                    "description": "We check the execution of all works on site.",
+                    "title": "Inspection",
+                    "description": "Regular checks of the work on site.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Solar modules"
@@ -3236,8 +3009,8 @@
                     }
                   },
                   "inverters": {
-                    "title": "Documentation",
-                    "description": "All construction progresses are documented without any gaps.",
+                    "title": "Defect management",
+                    "description": "Record defects, have them fixed and re-check.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Inverters"
@@ -3250,8 +3023,8 @@
                     }
                   },
                   "batteries": {
-                    "title": "Immediate problem solving",
-                    "description": "In case of deviations, we intervene directly.",
+                    "title": "Coordination",
+                    "description": "Alignment with client, planner and contractors.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Battery storage"
@@ -3268,25 +3041,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Your advantages through construction supervision:",
+                    "title": "Your benefits",
                     "list": {
                       "itemOne": "Professional execution",
-                      "itemTwo": "Complete documentation",
-                      "itemThree": "Quick problem solution",
-                      "itemFour": "Quality control",
-                      "itemFive": "Transparency for builders",
-                      "itemSix": "Date schedule"
+                      "itemTwo": "Assured quality",
+                      "itemThree": "Schedules met",
+                      "itemFour": "Transparency for the client"
                     }
                   },
                   "boxRight": {
-                    "title": "This is how the building supervision works:",
+                    "title": "How it works",
                     "list": {
-                      "itemOne": "Regular construction site visits",
-                      "itemTwo": "Control of execution",
-                      "itemThree": "Documentation of progress",
-                      "itemFour": "Deficiencies management",
-                      "itemFive": "Voting with all parties",
-                      "itemSix": "Final control"
+                      "itemOne": "Regular site visits",
+                      "itemTwo": "Inspection and photo documentation",
+                      "itemThree": "Defect management",
+                      "itemFour": "Final inspection"
                     }
                   }
                 },
@@ -3305,18 +3074,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Why is a professional design important?",
-                "descriptionOne": "A professional design ensures that planning is transferred to reliable implementation, dates are maintained and the quality of the work is permanently guaranteed.",
+                "titleOne": "Why professional construction?",
+                "descriptionOne": "Our installation teams implement your plans cleanly, safely and on time – from the mounting system to acceptance.",
                 "titleTwo": "Why us?",
-                "descriptionTwo": "Our teams coordinate works, perform work according to technical specifications and ensure clean, timely processing up to acceptance.",
                 "button": {
                   "text": "Request construction version",
                   "href": "/contact-us"
                 },
                 "boxes": {
                   "solar-panels": {
-                    "title": "Professional execution",
-                    "description": "We carry out all work according to current standards and specifications professionally and safely.",
+                    "title": "Installation",
+                    "description": "Mounting system, modules and DC and AC installation to standard.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Solar modules"
@@ -3329,8 +3097,8 @@
                     }
                   },
                   "inverters": {
-                    "title": "Documenting progress",
-                    "description": "We document milestones and work results transparently for you.",
+                    "title": "Testing",
+                    "description": "Measurements and test reports for every system.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Inverters"
@@ -3343,8 +3111,8 @@
                     }
                   },
                   "batteries": {
-                    "title": "Quick problem solution",
-                    "description": "In case of deviations or challenges, we immediately intervene and provide practical solutions.",
+                    "title": "Documentation",
+                    "description": "Installation and photo documentation as proof.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Battery storage"
@@ -3361,25 +3129,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Your advantages through professional design:",
+                    "title": "Your benefits",
                     "list": {
-                      "itemOne": "Professional implementation according to planning",
-                      "itemTwo": "Complete documentation of all steps",
-                      "itemThree": "Quick and pragmatic problem solution",
-                      "itemFour": "Quality assurance and audits",
-                      "itemFive": "Transparent communication for builders",
-                      "itemSix": "Date and reliable acceptance"
+                      "itemOne": "Clean implementation according to plan",
+                      "itemTwo": "Tested quality",
+                      "itemThree": "Acceptance on schedule",
+                      "itemFour": "One team for the entire installation"
                     }
                   },
                   "boxRight": {
-                    "title": "This is how the design runs:",
+                    "title": "How it works",
                     "list": {
-                      "itemOne": "Coordination and scheduling",
-                      "itemTwo": "Preparation and material delivery",
-                      "itemThree": "Professional assembly and execution",
-                      "itemFour": "Continuous documentation and quality tests",
-                      "itemFive": "Coordination with clients and partners",
-                      "itemSix": "Final acceptance and transfer"
+                      "itemOne": "Work preparation and logistics",
+                      "itemTwo": "Assembly and installation",
+                      "itemThree": "Measurement and testing",
+                      "itemFour": "Acceptance and handover"
                     }
                   }
                 },
@@ -3398,18 +3162,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Why is material procurement important?",
-                "descriptionOne": "The timely and demand-oriented procurement of all materials is crucial for a smooth construction process.",
+                "titleOne": "Why procure materials through us?",
+                "descriptionOne": "Through our network of 30 suppliers and service providers, we source the right materials – at the right price and on site on time.",
                 "titleTwo": "Why us?",
-                "descriptionTwo": "We have a strong network and ensure the punctual delivery of all required materials.",
                 "button": {
                   "text": "Request material procurement now",
                   "href": "/contact-us"
                 },
                 "boxes": {
                   "solar-panels": {
-                    "title": "Demand determination",
-                    "description": "We determine the material requirement exactly.",
+                    "title": "Requirements",
+                    "description": "Exact bills of materials from the planning.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Solar modules"
@@ -3422,8 +3185,8 @@
                     }
                   },
                   "inverters": {
-                    "title": "Supplier selection",
-                    "description": "We select reliable suppliers.",
+                    "title": "Purchasing",
+                    "description": "Reliable suppliers and high-quality brand components.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Inverters"
@@ -3436,8 +3199,8 @@
                     }
                   },
                   "batteries": {
-                    "title": "Timely delivery",
-                    "description": "We coordinate delivery at the best time.",
+                    "title": "Logistics",
+                    "description": "Delivery at the right time, incl. incoming goods inspection.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Battery storage"
@@ -3454,25 +3217,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Your advantages through material procurement:",
+                    "title": "Your benefits",
                     "list": {
-                      "itemOne": "Exact demand determination",
-                      "itemTwo": "Reliable suppliers",
-                      "itemThree": "Timely delivery",
-                      "itemFour": "Cost control",
-                      "itemFive": "Minimization of delays",
-                      "itemSix": "Quality materials"
+                      "itemOne": "Fewer delays",
+                      "itemTwo": "Cost control",
+                      "itemThree": "Checked quality",
+                      "itemFour": "One contact for material and installation"
                     }
                   },
                   "boxRight": {
-                    "title": "This is how material procurement processes:",
+                    "title": "How it works",
                     "list": {
-                      "itemOne": "Demand determination",
-                      "itemTwo": "Supplier selection",
-                      "itemThree": "Order",
-                      "itemFour": "Service coordination",
-                      "itemFive": "Incoming control",
-                      "itemSix": "Documentation"
+                      "itemOne": "Determining requirements",
+                      "itemTwo": "Quote and order",
+                      "itemThree": "Delivery coordination",
+                      "itemFour": "Incoming goods inspection"
                     }
                   }
                 },
@@ -3491,18 +3250,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Why hire a general contractor?",
-                "descriptionOne": "A general contractor takes over the complete execution of your project – from planning through assembly handling, construction supervision and quality assurance to turnkey handover. Everything from a single source, with one responsible contact.",
+                "titleOne": "Why a general contractor?",
+                "descriptionOne": "We take over your entire project – planning, material, installation and project management from a single source, through to turnkey handover.",
                 "titleTwo": "Why us?",
-                "descriptionTwo": "We coordinate all trades, supervise execution and quality on site and ensure smooth, on-schedule processes – as your central contact.",
                 "button": {
                   "text": "Request general contractor now",
                   "href": "/contact-us"
                 },
                 "boxes": {
                   "solar-panels": {
-                    "title": "Complete processing",
-                    "description": "We take over all tasks from planning to completion.",
+                    "title": "Complete handling",
+                    "description": "All services in one contract.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Solar modules"
@@ -3515,8 +3273,8 @@
                     }
                   },
                   "inverters": {
-                    "title": "Coordination of all trades",
-                    "description": "We control and monitor all the companies involved.",
+                    "title": "Trade coordination",
+                    "description": "We manage all companies involved.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Inverters"
@@ -3529,8 +3287,8 @@
                     }
                   },
                   "batteries": {
-                    "title": "Central respondent",
-                    "description": "You have a contact person for all questions and concerns.",
+                    "title": "One responsibility",
+                    "description": "One contract, one contact person.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Battery storage"
@@ -3547,25 +3305,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Your advantages through a general contractor:",
+                    "title": "Your benefits",
                     "list": {
-                      "itemOne": "Complete project execution from a single source",
-                      "itemTwo": "Less coordination effort",
-                      "itemThree": "Date and cost control",
-                      "itemFour": "Central responsibility",
-                      "itemFive": "Transparent communication",
-                      "itemSix": "Turnkey handover"
+                      "itemOne": "Less coordination effort",
+                      "itemTwo": "Cost and schedule certainty",
+                      "itemThree": "Clear responsibility",
+                      "itemFour": "Turnkey handover"
                     }
                   },
                   "boxRight": {
-                    "title": "This is how the general contractor model runs:",
+                    "title": "How it works",
                     "list": {
-                      "itemOne": "Project planning and supply creation",
-                      "itemTwo": "Coordination of all trades",
-                      "itemThree": "Monitoring of execution",
-                      "itemFour": "Quality control",
-                      "itemFive": "acceptance and transfer",
-                      "itemSix": "Aftercare"
+                      "itemOne": "Quote and order",
+                      "itemTwo": "Planning and procurement",
+                      "itemThree": "Execution and control",
+                      "itemFour": "Handover and aftercare"
                     }
                   }
                 },
@@ -3589,18 +3343,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Why is maintenance important?",
-                "descriptionOne": "Regular maintenance ensures the efficiency and durability of your system. We detect wear and faults early, carry out the hydraulic balancing and support you with reliable customer service – preventing expensive failures.",
+                "titleOne": "Why regular maintenance?",
+                "descriptionOne": "Regular maintenance keeps your system safe and efficient. We detect wear early and prevent costly failures.",
                 "titleTwo": "Why us?",
-                "descriptionTwo": "Our experts thoroughly check your systems, document all results and ensure smooth operation.",
                 "button": {
                   "text": "Request maintenance now",
                   "href": "/contact-us"
                 },
                 "boxes": {
                   "solar-panels": {
-                    "title": "Regular control",
-                    "description": "We check your plant for function and safety.",
+                    "title": "Inspection",
+                    "description": "Visual, function and safety check of the system.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Solar modules"
@@ -3613,8 +3366,8 @@
                     }
                   },
                   "inverters": {
-                    "title": "Detecting wear",
-                    "description": "We discover weaknesses and fix them early.",
+                    "title": "Measurement",
+                    "description": "Electrical measurements and yield comparison.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Inverters"
@@ -3627,8 +3380,8 @@
                     }
                   },
                   "batteries": {
-                    "title": "Documentation",
-                    "description": "You will receive a detailed maintenance report.",
+                    "title": "Report",
+                    "description": "Maintenance report with recommendations.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Battery storage"
@@ -3645,123 +3398,26 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Your advantages through maintenance:",
+                    "title": "Your benefits",
                     "list": {
-                      "itemOne": "avoidance of failures",
-                      "itemTwo": "Longer life of the system",
-                      "itemThree": "Preservation of manufacturer warranties",
-                      "itemFour": "Maximum efficiency",
-                      "itemFive": "Transparent maintenance protocols",
-                      "itemSix": "Security for operators"
+                      "itemOne": "Fewer failures",
+                      "itemTwo": "Longer service life",
+                      "itemThree": "Warranty is maintained",
+                      "itemFour": "Safety for operators"
                     }
                   },
                   "boxRight": {
-                    "title": "This is how maintenance works:",
+                    "title": "How it works",
                     "list": {
-                      "itemOne": "Agreement",
-                      "itemTwo": "On-site testing by experts",
-                      "itemThree": "Functional and safety check",
-                      "itemFour": "Correction of minor deficiencies",
-                      "itemFive": "Detailed maintenance report",
-                      "itemSix": "Recommendations for the future"
+                      "itemOne": "Appointment",
+                      "itemTwo": "On-site inspection",
+                      "itemThree": "Fixing minor defects",
+                      "itemFour": "Maintenance report"
                     }
                   }
                 },
                 "button": {
                   "text": "Start maintenance",
-                  "href": "/contact-us"
-                }
-              }
-            },
-            "Monitoring": {
-              "Diamond": {
-                "title": "Monitoring",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaics"
-                }
-              },
-              "Components": {
-                "titleOne": "Why is monitoring important?",
-                "descriptionOne": "Real-time monitoring allows continuous monitoring of your system and detects vulnerabilities before they lead to failures or loss of earnings.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "Our experts use modern monitoring tools, analyse data automatically and promptly initiate measures in case of deviations.",
-                "button": {
-                  "text": "Request Monitoring now",
-                  "href": "/contact-us"
-                },
-                "boxes": {
-                  "solar-panels": {
-                    "title": "24/7 plant monitoring",
-                    "description": "Continuous testing of the yield data and performance indicators of your solar modules.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Solar modules"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Monitoring",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "inverters": {
-                    "title": "Error detection & alarm",
-                    "description": "Automatic detection of inverter deviations and immediate notification to our service team.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Inverters"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Alarm",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "batteries": {
-                    "title": "Battery status & life analysis",
-                    "description": "Continuous monitoring of charging state, cycles and temperature to optimize operating time.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Battery storage"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Battery monitoring",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages through monitoring:",
-                    "list": {
-                      "itemOne": "Real-time recognition instead of reactive repairs",
-                      "itemTwo": "Fast interference response by automatic alarms",
-                      "itemThree": "Higher plant availability and stability",
-                      "itemFour": "Optimised operating costs through targeted interventions",
-                      "itemFive": "Long-term performance analysis and trend evaluation",
-                      "itemSix": "Transparent reports for operators and insurance companies"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "This is how the monitoring takes place:",
-                    "list": {
-                      "itemOne": "Connection of your system to our monitoring system",
-                      "itemTwo": "Continuous data acquisition and storage",
-                      "itemThree": "Automated analysis and detection of vulnerabilities",
-                      "itemFour": "Immediate alerting and prioritization by our team",
-                      "itemFive": "Introduction of measures or on-site operations if necessary",
-                      "itemSix": "Regular reports and recommendations for action"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Start monitoring",
                   "href": "/contact-us"
                 }
               }
@@ -3775,18 +3431,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Why is professional troubleshooting important?",
-                "descriptionOne": "Disorders can significantly affect the performance of your plant. We find the cause quickly and efficiently so that your systems run optimally again.",
+                "titleOne": "Why professional troubleshooting?",
+                "descriptionOne": "Faults cost yield. We find the cause quickly and fix it for good.",
                 "titleTwo": "Why us?",
-                "descriptionTwo": "Our experienced technicians use modern diagnostic methods and fix errors sustainably.",
                 "button": {
                   "text": "Request troubleshooting now",
                   "href": "/contact-us"
                 },
                 "boxes": {
                   "solar-panels": {
-                    "title": "Fast diagnosis",
-                    "description": "We analyze your system and find the source of error.",
+                    "title": "Diagnosis",
+                    "description": "Analysis of the system – remotely and on site.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Solar modules"
@@ -3799,8 +3454,8 @@
                     }
                   },
                   "inverters": {
-                    "title": "Efficient repair",
-                    "description": "We fix faults quickly and reliably.",
+                    "title": "Repair",
+                    "description": "Replacement or repair of defective components.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Inverters"
@@ -3813,8 +3468,8 @@
                     }
                   },
                   "batteries": {
-                    "title": "Sustainable solution",
-                    "description": "We ensure that your plant is permanently trouble-free.",
+                    "title": "Proof",
+                    "description": "Function test and report.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Battery storage"
@@ -3831,124 +3486,27 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Your advantages through troubleshooting:",
+                    "title": "Your benefits",
                     "list": {
-                      "itemOne": "Rapid restoration of functionality",
-                      "itemTwo": "Minimizing downtime",
-                      "itemThree": "Prevention of consequential damage",
-                      "itemFour": "Transparent error analysis",
-                      "itemFive": "Sustainable repair",
-                      "itemSix": "Competent contact persons"
+                      "itemOne": "Short downtimes",
+                      "itemTwo": "No consequential damage",
+                      "itemThree": "Traceable fault analysis",
+                      "itemFour": "Lasting solution"
                     }
                   },
                   "boxRight": {
-                    "title": "This is how the bug fixes:",
+                    "title": "How it works",
                     "list": {
-                      "itemOne": "Contact and appointment",
-                      "itemTwo": "Analysis of fault",
-                      "itemThree": "Identification of the root cause",
-                      "itemFour": "Fixing the error",
-                      "itemFive": "Functional testing",
-                      "itemSix": "Final report and recommendation"
+                      "itemOne": "Report and appointment",
+                      "itemTwo": "Troubleshooting",
+                      "itemThree": "Repair",
+                      "itemFour": "Function test and report"
                     }
                   }
                 },
                 "button": {
                   "text": "Start bug fix",
                   "href": "/contact-us"
-                }
-              }
-            },
-            "Betriebsführung": {
-              "Diamond": {
-                "title": "Operations Management",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Operations Management"
-                }
-              },
-              "Components": {
-                "titleOne": "Why is professional operations management important?",
-                "descriptionOne": "With continuous operations management we ensure the availability, efficiency and safety of your system. We take over asset administration, monitoring, troubleshooting and ongoing optimization of the entire operation – so you don't have to worry about a thing.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "Our team combines technical know‑how, monitoring tools and practical experience to operate systems reliably, quickly resolve faults and optimize operational processes.",
-                "button": {
-                  "text": "Request operations management",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "betriebsueberwachung": {
-                    "title": "Operations monitoring",
-                    "description": "24/7 monitoring of performance, yields and system status including alerts for deviations.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Operations monitoring"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Monitoring",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "fernwartung": {
-                    "title": "Remote maintenance & control",
-                    "description": "Remote analysis, configuration adjustments and rapid interventions to minimize downtime.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Remote maintenance"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Remote maintenance",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "protokoll-und-reporting": {
-                    "title": "Protocol & Reporting",
-                    "description": "Regular operational reports, performance analyses and recommendations for action for sustainable optimization.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                      "alt": "Reporting"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Reporting",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages through operations management:",
-                    "list": {
-                      "itemOne": "Maximum system availability",
-                      "itemTwo": "Early detection of faults",
-                      "itemThree": "Optimized yields through continuous adjustment",
-                      "itemFour": "Reduced operating costs",
-                      "itemFive": "Documentation & traceability",
-                      "itemSix": "Reliable service partner"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "How operations management runs:",
-                    "list": {
-                      "itemOne": "Connection to monitoring system and initial check",
-                      "itemTwo": "Continuous analysis and alerting",
-                      "itemThree": "Remote maintenance or on-site intervention if needed",
-                      "itemFour": "Regular reports and optimization measures",
-                      "itemFive": "Incident management & escalation processes",
-                      "itemSix": "Continuous improvement and documentation"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Start operations management",
-                  "href": "/kontakt"
                 }
               }
             },
@@ -3961,18 +3519,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Why is cleaning important?",
-                "descriptionOne": "Clean plants work more efficiently and have a longer service life. We remove dirt and ensure optimal performance.",
+                "titleOne": "Why cleaning?",
+                "descriptionOne": "Clean modules deliver more yield. We clean gently and document the result.",
                 "titleTwo": "Why us?",
-                "descriptionTwo": "Our specialists clean your system professionally, gently and document the result.",
                 "button": {
                   "text": "Request cleaning now",
                   "href": "/contact-us"
                 },
                 "boxes": {
                   "solar-panels": {
-                    "title": "Efficient cleaning",
-                    "description": "We thoroughly clean your solar modules and technical surfaces.",
+                    "title": "Module cleaning",
+                    "description": "Thorough cleaning of modules and technical surfaces.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Solar modules"
@@ -3985,8 +3542,8 @@
                     }
                   },
                   "inverters": {
-                    "title": "Gentle procedures",
-                    "description": "We use special cleaning agents and methods for maximum safety.",
+                    "title": "Gentle methods",
+                    "description": "Suitable agents and methods – without damage to glass and frames.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Inverters"
@@ -3999,8 +3556,8 @@
                     }
                   },
                   "batteries": {
-                    "title": "Performance verification",
-                    "description": "You will receive documentation of cleaning and recommendations for the future.",
+                    "title": "Documentation",
+                    "description": "Before-and-after proof with recommendation.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Battery storage"
@@ -4017,501 +3574,27 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Your advantages by cleaning:",
+                    "title": "Your benefits",
                     "list": {
-                      "itemOne": "Higher efficiency of the plant",
-                      "itemTwo": "Longevity",
-                      "itemThree": "Prevention of loss of earnings",
-                      "itemFour": "Gentle cleaning",
-                      "itemFive": "Transparent documentation",
-                      "itemSix": "Recommendations for maintenance intervals"
+                      "itemOne": "More yield",
+                      "itemTwo": "Longer service life",
+                      "itemThree": "Gentle cleaning",
+                      "itemFour": "Suitable cleaning intervals"
                     }
                   },
                   "boxRight": {
-                    "title": "This is how the cleaning works:",
+                    "title": "How it works",
                     "list": {
-                      "itemOne": "Agreement",
-                      "itemTwo": "On-site visit",
-                      "itemThree": "Professional cleaning",
-                      "itemFour": "Functional testing",
-                      "itemFive": "Documentation",
-                      "itemSix": "Recommendation for further measures"
+                      "itemOne": "Appointment",
+                      "itemTwo": "Inspection",
+                      "itemThree": "Cleaning",
+                      "itemFour": "Documentation"
                     }
                   }
                 },
                 "button": {
                   "text": "Start cleaning",
                   "href": "/contact-us"
-                }
-              }
-            }
-          }
-        },
-        "weitereServices": {
-          "title": "Additional Services",
-          "SubServices": {
-            "Energiegemeinschaften": {
-              "Diamond": {
-                "title": "Energy\nCommunities",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Energy Community"
-                }
-              },
-              "Components": {
-                "titleOne": "Why Energy Communities?",
-                "descriptionOne": "Electricity produced together creates independence, reduces costs and promotes local resilience. With an energy community, several households or businesses share clean energy and benefit from economies of scale.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "We accompany you from planning through technical implementation to transparent billing. We solve legal and technical questions in a practical way — so your community runs smoothly.",
-                "button": {
-                  "text": "Start a community now",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "gemeinsame-erzeugung": {
-                    "title": "Joint generation",
-                    "description": "Photovoltaics on the roof or open space is used collectively and saves costs for each party.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Joint generation"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Solar modules",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "intelligente-verteilung": {
-                    "title": "Intelligent distribution",
-                    "description": "Modern metering and control technology ensures fair and efficient distribution of production and consumption.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                      "alt": "Intelligent distribution"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Control",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "gemeinschaftlicher-speicher": {
-                    "title": "Community storage",
-                    "description": "A central storage increases self-consumption, provides backup power functions, and smooths out fluctuations.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/stromspeicher.jpg",
-                      "alt": "Storage"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Storage",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Advantages of an energy community:",
-                    "list": {
-                      "itemOne": "Cost reduction through shared self-consumption",
-                      "itemTwo": "More supply security and resilience",
-                      "itemThree": "Regional value creation and cooperation",
-                      "itemFour": "Better subsidy and financing options",
-                      "itemFive": "Transparent distribution thanks to modern metering technology",
-                      "itemSix": "Contribution to local climate protection"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "How we implement your community:",
-                    "list": {
-                      "itemOne": "Consulting & initial concept",
-                      "itemTwo": "Profitability and subsidy review",
-                      "itemThree": "Technical planning & grid integration",
-                      "itemFour": "Installation of generation & storage",
-                      "itemFive": "Metering concept and billing solution",
-                      "itemSix": "Operation, maintenance and community support"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Request consultation now",
-                  "href": "/kontakt"
-                }
-              }
-            },
-            "optimierungStromvertraege": {
-              "Diamond": {
-                "title": "Optimization of electricity contracts",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Optimization of electricity contracts"
-                }
-              },
-              "Components": {
-                "titleOne": "Why optimize electricity contracts?",
-                "descriptionOne": "We optimize your electricity contracts to achieve better terms, lower costs and more supply security.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "Our experts analyze contracts, negotiate with providers and implement smart tariff strategies.",
-                "button": {
-                  "text": "Contact for optimization",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "systemanalyse": {
-                    "title": "Contract analysis",
-                    "description": "Detailed review of existing tariff conditions, terms and hidden costs.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Contract analysis"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Analysis",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "durchflussmessung": {
-                    "title": "Load profile & consumption",
-                    "description": "Determine your consumption behavior to select optimal tariffs and time windows.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Load profile"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Measurement",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "einstellung-und-protokoll": {
-                    "title": "Implementation & Reporting",
-                    "description": "Contractual adjustments, tariff changes and ongoing reporting for cost control.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                      "alt": "Implementation"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Report",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Advantages of optimization:",
-                    "list": {
-                      "itemOne": "Lower energy costs",
-                      "itemTwo": "Transparent tariff conditions",
-                      "itemThree": "Better budget planning",
-                      "itemFour": "Offers tailored to the load profile",
-                      "itemFive": "Reduction of hidden fees",
-                      "itemSix": "Ongoing monitoring and readjustment"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "How optimization works:",
-                    "list": {
-                      "itemOne": "Analysis of current contracts and consumption data",
-                      "itemTwo": "Identification of savings potentials",
-                      "itemThree": "Negotiation with providers and tariff change",
-                      "itemFour": "Implementation and monitoring",
-                      "itemFive": "Regular reporting",
-                      "itemSix": "Continuous adjustment to market changes"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Start optimization now",
-                  "href": "/kontakt"
-                }
-              }
-            },
-            "Versicherung": {
-              "Diamond": {
-                "title": "Insurance",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/insurance-background.jpg",
-                  "alt": "Insurance coverage"
-                }
-              },
-              "Components": {
-                "titleOne": "Why is insurance important?",
-                "descriptionOne": "Protect your system and your investment against damage, loss of yield and liability risks. With the right insurance coverage you avoid unexpected costs and secure your operational capability.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "We help you with risk analysis, selection of suitable policies and provide fast, competent support in the event of a claim — from filing to reimbursement.",
-                "button": {
-                  "text": "Request insurance now",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "haftpflicht": {
-                    "title": "Business liability",
-                    "description": "Protects you against personal injury and property damage arising from operations.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/insurance_liability.svg",
-                      "alt": "Liability"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Liability Icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "ertragsausfall": {
-                    "title": "Loss of yield insurance",
-                    "description": "Covers lost revenue if your system cannot produce due to an insured damage.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/insurance_loss.svg",
-                      "alt": "Loss of yield"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/icon-plan.svg",
-                      "alt": "Loss of yield Icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "allrisk": {
-                    "title": "All-Risk / Component protection",
-                    "description": "Coverage for damage to modules, inverters and infrastructure caused by external influences or accidents.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/insurance_components.svg",
-                      "alt": "All-Risk"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "All-Risk Icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages through suitable insurance coverage:",
-                    "list": {
-                      "itemOne": "Financial protection in case of damage",
-                      "itemTwo": "Quick restoration of the system",
-                      "itemThree": "Coverage of revenue losses",
-                      "itemFour": "Protection against liability claims",
-                      "itemFive": "Transparent policy selection",
-                      "itemSix": "Support in the event of a claim"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "How the coverage process works:",
-                    "list": {
-                      "itemOne": "Initial consultation and risk analysis",
-                      "itemTwo": "Offer preparation and policy selection",
-                      "itemThree": "Contract signing and documentation",
-                      "itemFour": "Regular coverage review",
-                      "itemFive": "Quick claim reporting in case of emergency",
-                      "itemSix": "Support with processing and expert reports"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Start insurance",
-                  "href": "/kontakt"
-                }
-              }
-            },
-            "Finanzierung": {
-              "Diamond": {
-                "title": "Financing",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Financing"
-                }
-              },
-              "Components": {
-                "titleOne": "Why financing?",
-                "descriptionOne": "With appropriate financing you can make your energy transition possible now—without a large upfront payment. Use government subsidies, favorable installments and still keep full control over your project.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "We broker transparent financing options, check grant possibilities and support you with application and disbursement. Our partners offer flexible terms that fit your project and budget.",
-                "button": {
-                  "text": "Request financing advice",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "raten": {
-                    "title": "Flexible installments",
-                    "description": "Monthly installments, terms and special repayments tailored to your needs.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/finance_chart.svg",
-                      "alt": "Flexible installments"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Installments Icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "foerderberatung": {
-                    "title": "Subsidy advisory",
-                    "description": "We check available state and regional subsidies and support with the application.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Subsidy advisory"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Subsidy Icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "transparenz": {
-                    "title": "Transparent terms",
-                    "description": "No hidden costs—we disclose interest, terms and fees clearly.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                      "alt": "Transparent terms"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Transparency Icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages of financing:",
-                    "list": {
-                      "itemOne": "Immediate implementation without a large initial investment",
-                      "itemTwo": "Plannable monthly expenses",
-                      "itemThree": "Combination with subsidies possible",
-                      "itemFour": "Preserve liquidity for other investments",
-                      "itemFive": "Attractive conditions through partner banks",
-                      "itemSix": "Complete cost overview before contract conclusion"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "How financing works:",
-                    "list": {
-                      "itemOne": "Consultation and needs analysis",
-                      "itemTwo": "Review of subsidy and financing options",
-                      "itemThree": "Offer comparison and terms clarification",
-                      "itemFour": "Application and credit check",
-                      "itemFive": "Contract signing and disbursement",
-                      "itemSix": "Support until commissioning and follow-up"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Start financing",
-                  "href": "/kontakt"
-                }
-              }
-            },
-            "foerderung": {
-              "Diamond": {
-                "title": "Subsidies & Grants",
-                "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Subsidies & Grants"
-                }
-              },
-              "Components": {
-                "titleOne": "Why use subsidies?",
-                "descriptionOne": "With the right subsidy you significantly reduce your investment costs. Federal, state and utility programs offer numerous grants – we find the ones that fit your project and get the maximum out of them for you.",
-                "titleTwo": "Why us?",
-                "descriptionTwo": "We know the current funding landscape, examine every option and handle the complete application – on time, complete and with a high approval rate.",
-                "button": {
-                  "text": "Request subsidy advice",
-                  "href": "/kontakt"
-                },
-                "boxes": {
-                  "foerdercheck": {
-                    "title": "Subsidy check",
-                    "description": "We check which federal, state and regional subsidies qualify for your project.",
-                    "image": {
-                      "src": "/frontend/landingPage/icons/finance_chart.svg",
-                      "alt": "Subsidy check"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Subsidy Icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "antragstellung": {
-                    "title": "Application handling",
-                    "description": "We prepare all documents and submit applications on time and in full.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
-                      "alt": "Application handling"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Application Icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  },
-                  "maximalefoerderung": {
-                    "title": "Maximum funding rate",
-                    "description": "We cleverly combine programs to secure the highest possible grant for your project.",
-                    "image": {
-                      "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
-                      "alt": "Maximum funding rate"
-                    },
-                    "icon": {
-                      "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
-                      "alt": "Funding Icon",
-                      "width": "32",
-                      "height": "32"
-                    }
-                  }
-                }
-              },
-              "Background": {
-                "boxes": {
-                  "boxLeft": {
-                    "title": "Your advantages from subsidies:",
-                    "list": {
-                      "itemOne": "Significantly reduced investment costs",
-                      "itemTwo": "Combination of several funding programs",
-                      "itemThree": "On-time and complete applications",
-                      "itemFour": "High approval rate through expert knowledge",
-                      "itemFive": "Combinable with financing solutions",
-                      "itemSix": "Less effort – we handle the paperwork"
-                    }
-                  },
-                  "boxRight": {
-                    "title": "How the subsidy process works:",
-                    "list": {
-                      "itemOne": "Initial consultation and project intake",
-                      "itemTwo": "Identification of suitable funding programs",
-                      "itemThree": "Review of requirements and deadlines",
-                      "itemFour": "Preparation and submission of applications",
-                      "itemFive": "Support until approval and disbursement",
-                      "itemSix": "Documentation and proof of use"
-                    }
-                  }
-                },
-                "button": {
-                  "text": "Secure funding",
-                  "href": "/kontakt"
                 }
               }
             }
@@ -4545,17 +3628,71 @@
         },
         "photovoltaic2": {
           "title": "Service",
-          "href": "#service",
+          "href": "#anlagenservice",
           "image": {
             "src": "/frontend/landingPage/icons/home_repair_service_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg",
             "alt": "Photovoltaic"
           }
         }
+      },
+      "Projects": {
+        "eyebrow": "References",
+        "title": "From our projects",
+        "items": [
+          {
+            "src": "/brand/projekte/galerie-01.webp",
+            "caption": "Ground-mounted PV plant, England"
+          },
+          {
+            "src": "/brand/projekte/galerie-02.webp",
+            "caption": "Ground-mounted PV plant, Turkey"
+          },
+          {
+            "src": "/brand/projekte/galerie-03.webp",
+            "caption": "Ground-mounted system next to a commercial hall"
+          },
+          {
+            "src": "/brand/projekte/galerie-04.webp",
+            "caption": "Fibre-cement hall by the railway"
+          },
+          {
+            "src": "/brand/projekte/galerie-05.webp",
+            "caption": "Metal roof on a historic building, Vienna"
+          },
+          {
+            "src": "/brand/projekte/galerie-06.webp",
+            "caption": "PV façade on a detached house"
+          },
+          {
+            "src": "/brand/projekte/galerie-07.webp",
+            "caption": "Commercial hall with several roof areas"
+          },
+          {
+            "src": "/brand/projekte/galerie-08.webp",
+            "caption": "Terraced houses at the edge of the forest"
+          },
+          {
+            "src": "/brand/projekte/galerie-09.webp",
+            "caption": "Carport with glass-glass modules"
+          },
+          {
+            "src": "/brand/projekte/galerie-10.webp",
+            "caption": "Mounting system on fibre-cement shingles"
+          },
+          {
+            "src": "/brand/projekte/galerie-11.webp",
+            "caption": "Cable routes to the transformer station"
+          },
+          {
+            "src": "/brand/projekte/galerie-12.webp",
+            "caption": "Inverter & battery storage in the plant room"
+          }
+        ]
       }
     },
     "ContactUs": {
       "Header": {
-        "title": "Your <highlight>energy independence</highlight>.<lineBreak></lineBreak> We make it simple.",
+        "title": "Your <highlight>project success</highlight>.<lineBreak></lineBreak> We make it <highlight>simple</highlight>.",
         "smallTitle": "We take responsibility.",
         "description": "Within 24 hours, we will respond<br></br>to your enquiry."
       },
@@ -4577,43 +3714,6 @@
             "type": "text",
             "label": "Telephone",
             "placeholder": "Enter your phone number",
-            "required": "false"
-          },
-          "productSelection": {
-            "type": "multipleSelection",
-            "label": "Which products are you interested in?",
-            "options": {
-              "optionGoogle": {
-                "text": "Heat pumps & heating systems"
-              },
-              "optionTwitter": {
-                "text": "Climate Systems"
-              },
-              "optionMouthToMouth": {
-                "text": "Photovoltaics & Power Storage"
-              },
-              "optionsOne": {
-                "text": "Community Generation Plants & Energy Communities"
-              },
-              "optionsThree": {
-                "text": "Energy Cost Optimisation"
-              },
-              "optionsFour": {
-                "text": "Smart Home & Energy Management Systems"
-              },
-              "optionsSix": {
-                "text": "Charging Stations & Wallboxes"
-              },
-              "optionsSeven": {
-                "text": "Autarke hot water production"
-              },
-              "optionsEight": {
-                "text": "Emergency Power Supply"
-              },
-              "optionOthers": {
-                "text": "Balconies and micropower plants"
-              }
-            },
             "required": "false"
           },
           "servicesSelection": {
@@ -4640,9 +3740,6 @@
               },
               "optionsOne2": {
                 "text": "Conceptual design"
-              },
-              "optionsTwo2": {
-                "text": "Energy Performance Certificate"
               },
               "optionGoogle3": {
                 "text": "Administrative procedure"
@@ -4801,8 +3898,9 @@
       },
       "Funnel": {
         "Header": {
-          "title": "Start your assembly process here",
-          "description": "And shape your processes with ease. We have been supplying project management for more than 10 years with customer focus and handling quality - now also digital."
+          "eyebrow": "Book PV installation",
+          "title": "Start your installation project here",
+          "description": "Upload your project documents, check the details, send – we will get back to you within 24 hours. Material, planning, installation and project management from a single source."
         },
         "progress": {
           "labels": {
@@ -5848,11 +4946,7 @@
                     },
                     "flachdach": {
                       "targetOptionUid": "flachdach",
-                      "aliases": [
-                        "Flat roof",
-                        "Bitumen roof",
-                        "Membrane roof"
-                      ]
+                      "aliases": ["Flat roof", "Bitumen roof", "Membrane roof"]
                     },
                     "ziegel": {
                       "targetOptionUid": "wärmepumpe",
@@ -5880,32 +4974,19 @@
                     },
                     "bramac": {
                       "targetOptionUid": "bramac",
-                      "aliases": [
-                        "Prefa",
-                        "Prefa panel",
-                        "Bramac"
-                      ]
+                      "aliases": ["Prefa", "Prefa panel", "Bramac"]
                     },
                     "fassade": {
                       "targetOptionUid": "fassade",
-                      "aliases": [
-                        "Facade",
-                        "Wall",
-                        "Curtain facade"
-                      ]
+                      "aliases": ["Facade", "Wall", "Curtain facade"]
                     },
                     "carport": {
                       "targetOptionUid": "carport",
-                      "aliases": [
-                        "Carport"
-                      ]
+                      "aliases": ["Carport"]
                     },
                     "zaun": {
                       "targetOptionUid": "zaun",
-                      "aliases": [
-                        "Fence",
-                        "Fence system"
-                      ]
+                      "aliases": ["Fence", "Fence system"]
                     },
                     "freiflaeche": {
                       "targetOptionUid": "freilache",
@@ -5926,11 +5007,7 @@
                     },
                     "andere": {
                       "targetOptionUid": "klimasysteme-1",
-                      "aliases": [
-                        "Other",
-                        "Special",
-                        "Special construction"
-                      ]
+                      "aliases": ["Other", "Special", "Special construction"]
                     }
                   }
                 }
@@ -5953,11 +5030,7 @@
                 "options": {
                   "dachmontage": {
                     "targetOptionUid": "photovoltaic",
-                    "aliases": [
-                      "Roof assembly",
-                      "PV installation",
-                      "Assembly"
-                    ]
+                    "aliases": ["Roof assembly", "PV installation", "Assembly"]
                   },
                   "kabelweg": {
                     "targetOptionUid": "kabelweg",
@@ -8191,11 +7264,7 @@
                     },
                     "wechselrichter": {
                       "targetOptionUid": "wechselrichter",
-                      "aliases": [
-                        "Inverter",
-                        "Wechselrichter",
-                        "WR"
-                      ]
+                      "aliases": ["Inverter", "Wechselrichter", "WR"]
                     },
                     "speicher": {
                       "targetOptionUid": "speicher",
@@ -8227,11 +7296,7 @@
                     },
                     "wallbox": {
                       "targetOptionUid": "wallbox",
-                      "aliases": [
-                        "Wallbox",
-                        "Charging station",
-                        "Charge point"
-                      ]
+                      "aliases": ["Wallbox", "Charging station", "Charge point"]
                     },
                     "ueberspannungsschutz": {
                       "targetOptionUid": "ueberspannungsschutz",
@@ -8394,9 +7459,7 @@
                 "defaultVisible": "false",
                 "title": "",
                 "description": "",
-                "defaultValue": [
-                  "Please select"
-                ],
+                "defaultValue": ["Please select"],
                 "label": "How did you hear about us?",
                 "localStorage": "true",
                 "span": "2",
@@ -8481,9 +7544,7 @@
                 "defaultVisible": "false",
                 "title": "",
                 "description": "",
-                "defaultValue": [
-                  ""
-                ],
+                "defaultValue": [""],
                 "label": "How did you hear about us? (Multiple)",
                 "localStorage": "true",
                 "span": "2",
@@ -10810,23 +9871,23 @@
         "backgroundText": "Synergie",
         "boxes": {
           "boxLeft": {
-            "title": "Services",
+            "title": "Portfolio",
             "links": {
-              "features": {
-                "text": "Products",
-                "href": "/products"
-              },
               "b2b": {
                 "text": "Services",
                 "href": "/services"
               },
-              "integrations": {
-                "text": "Energy Cost Advisory",
-                "href": "/energy-cost-advisory"
+              "beratung": {
+                "text": "Consulting & engineering",
+                "href": "/leistungen#beratung"
               },
-              "pricing": {
-                "text": "Energy Communities",
-                "href": "/energy-community"
+              "umsetzung": {
+                "text": "Implementation",
+                "href": "/leistungen#umsetzung"
+              },
+              "anlagenservice": {
+                "text": "System service",
+                "href": "/leistungen#anlagenservice"
               }
             }
           },
@@ -10885,7 +9946,8 @@
             },
             "href": "https://at.linkedin.com/company/synergie-montagen-riegler-gmbh"
           }
-        }
+        },
+        "aiNotice": "Note: Some images and functions on this website were created with or use artificial intelligence (AI). They are labelled accordingly."
       },
       "Header": {
         "logo": {
@@ -10901,14 +9963,14 @@
             "href": "/services",
             "children": ""
           },
-          "produkte": {
-            "text": "Products",
-            "href": "/products",
-            "children": ""
-          },
           "changelog": {
             "text": "About us",
             "href": "/about-us",
+            "children": ""
+          },
+          "montage": {
+            "text": "Book PV installation",
+            "href": "/contact-us-funnel?currentQuestionId=project-files-llm-extraction-0sz1i",
             "children": ""
           }
         },
@@ -10920,6 +9982,105 @@
       "LocaleSwitcher": {
         "label": "Change language",
         "locale": "{locale, select, atAT {🇦🇹 Deutsch} en {🇬🇧 English} other {Unknown}}"
+      },
+      "aiLabel": "AI-generated",
+      "Heroes": {
+        "synergieAlt": "SYNERGIE hero in company design in front of a PV system",
+        "logoAlt": "Hero with the text “Your logo could be here”",
+        "logoCta": {
+          "eyebrow": "More safety · More independence · More future",
+          "title": "Our customers deserve capes.",
+          "body": "You are the heroes of the energy transition – we make sure everything on site is spot on. Your logo could be here soon."
+        }
+      },
+      "Quality": {
+        "home": [
+          "High-quality brand components",
+          "Crystal-clear workmanship",
+          "Smart design & management",
+          "Reliable & long-term"
+        ],
+        "leistungen": {
+          "eyebrow": "Your added value",
+          "title": "Checked. Documented. Reliable.",
+          "items": [
+            {
+              "title": "Organisation first",
+              "text": "On-site installation management and clear coordination with the general contractor protect team and site."
+            },
+            {
+              "title": "Careful execution",
+              "text": "Careful fastening and compliance with all standards."
+            },
+            {
+              "title": "Predictable costs",
+              "text": "Clear prices per item, by quantity and measurement."
+            },
+            {
+              "title": "Securing the value of your system",
+              "text": "Ongoing installation and photo documentation for safe long-term operation."
+            },
+            {
+              "title": "Strong partnership",
+              "text": "Together for powerful solar plants."
+            }
+          ],
+          "photos": [
+            {
+              "src": "/brand/projekte/detail-stockschraube.webp",
+              "caption": "Hanger bolt, carefully sealed"
+            },
+            {
+              "src": "/brand/projekte/detail-dachhaken.webp",
+              "caption": "Roof hook, fitted precisely under the tile"
+            },
+            {
+              "src": "/brand/projekte/detail-strings.webp",
+              "caption": "Strings, clearly labelled"
+            }
+          ]
+        },
+        "about": {
+          "eyebrow": "Why SYNERGIE?",
+          "title": "Competent & down-to-earth",
+          "body": "We advise honestly, clearly and as equals. Our solutions are individual, well thought out and practical.",
+          "items": [
+            {
+              "title": "Three levels of maximum safety",
+              "text": "Planning, implementation and support – reliable at every level."
+            },
+            {
+              "title": "Experience & quality",
+              "text": "Solutions that fit."
+            }
+          ]
+        },
+        "contact": {
+          "eyebrow": "Next steps",
+          "title": "What happens after your enquiry",
+          "items": [
+            {
+              "title": "Offer",
+              "text": "You receive a clear offer with prices per item."
+            },
+            {
+              "title": "Detailed planning",
+              "text": "Site measurement, technical finalisation and coordination with the grid operator."
+            },
+            {
+              "title": "Material order",
+              "text": "Reservation of the components."
+            },
+            {
+              "title": "Implementation",
+              "text": "Installation, commissioning and training."
+            },
+            {
+              "title": "Long-term support",
+              "text": "Service, maintenance and optimisation."
+            }
+          ]
+        }
       }
     },
     "Legal": {
@@ -11317,7 +10478,7 @@
               },
               "block02": {
                 "type": "paragraph",
-                "text": "<b>Synergie Montagen Riegler GmbH</b><br></br>Anton Krenn Straße 23/2, 2540 Bad Vöslau, Österreich<br></br>FN 593978 y, Landesgericht Wiener Neustadt – UID-Nummer: ATU78880338<br></br>E-Mail: office@synergiemontagen.eco"
+                "text": "<b>Synergie Montagen Riegler GmbH</b><br></br>Anton Krenn Straße 23/2, 2540 Bad Vöslau, Österreich<br></br>FN 593978 y, Landesgericht Wiener Neustadt – UID-Nummer: ATU78880338<br></br>E-Mail: office@synergie.cc"
               },
               "block03": {
                 "type": "paragraph",
@@ -11449,7 +10610,7 @@
               },
               "block03": {
                 "type": "paragraph",
-                "text": "(3) Den Rücktritt können Sie formlos, etwa per E-Mail an office@synergiemontagen.eco, erklären. Ein Muster-Widerrufsformular stellen wir auf Anfrage bereit."
+                "text": "(3) Den Rücktritt können Sie formlos, etwa per E-Mail an office@synergie.cc, erklären. Ein Muster-Widerrufsformular stellen wir auf Anfrage bereit."
               }
             }
           },

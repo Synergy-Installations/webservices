@@ -85,15 +85,59 @@ export default async function RootLayout({
               {JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "LocalBusiness",
+                "@id": "https://synergie.cc/#organization",
                 name: "Synergie Montagen Riegler GmbH",
+                legalName: "Synergie Montagen Riegler GmbH",
+                alternateName: "Synergie",
                 url: "https://synergie.cc",
+                vatID: "ATU78880338",
+                globalLocationNumber: "9110032870340",
+                identifier: [
+                  {
+                    "@type": "PropertyValue",
+                    propertyID: "Firmenbuchnummer",
+                    value: "FN 593978 y",
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    propertyID: "GISA-Zahl",
+                    value: "35484653",
+                  },
+                ],
+                founder: { "@type": "Person", name: "Michael Riegler" },
+                employee: {
+                  "@type": "Person",
+                  name: "Michael Riegler",
+                  jobTitle: "Geschäftsführer",
+                },
+                memberOf: [
+                  { "@type": "Organization", name: "PV Austria" },
+                  {
+                    "@type": "Organization",
+                    name: "Österreichischer Verband für Elektrotechnik (OVE)",
+                  },
+                  {
+                    "@type": "Organization",
+                    name: "Wirtschaftskammer Österreich (WKO)",
+                  },
+                ],
+                knowsAbout: [
+                  "Photovoltaik-Montage",
+                  "PV-Großanlagen",
+                  "Stromspeicher",
+                  "Projektmanagement",
+                  "Materialbeschaffung",
+                  "Planung und Engineering",
+                  "Wartung und Anlagenservice",
+                ],
                 telephone: "+43 664 244 87 42",
                 email: "office@synergie.cc",
                 address: {
                   "@type": "PostalAddress",
-                  streetAddress: "Wagenseilgasse 14",
-                  addressLocality: "Wien",
-                  postalCode: "1120",
+                  streetAddress: "Anton Krenn Straße 23/2",
+                  addressLocality: "Bad Vöslau",
+                  postalCode: "2540",
+                  addressRegion: "Niederösterreich",
                   addressCountry: "AT",
                 },
                 sameAs: [
@@ -101,14 +145,9 @@ export default async function RootLayout({
                   "https://www.instagram.com/synergiemontagen/",
                   "https://at.linkedin.com/company/synergie-montagen-riegler-gmbh",
                 ],
-                geo: {
-                  "@type": "GeoCoordinates",
-                  latitude: 48.386073,
-                  longitude: 16.322835,
-                },
                 serviceArea,
                 description:
-                  "Fachbetrieb für Photovoltaik, Wärmepumpen, Klimasysteme, Smart Home & Wallbox‑Lösungen in Wien & Niederösterreich. Persönliche Beratung & Handschlagqualität vom jungen, dynamischen Team.",
+                  "B2B-Dienstleister für Photovoltaik: Planung, Materialbeschaffung, Montage, Projektmanagement und Anlagenservice für EPC-Firmen, Haustechnik- und Elektrotechnikbetriebe, Installateure, Hausverwaltungen und Immobilienentwickler in Wien und Niederösterreich. Ein fixer Ansprechpartner mit Handschlagqualität.",
                 openingHours: ["Mo-Fr 08:00-17:00", "Sa 08:00-12:00"],
                 openingHoursSpecification: [
                   {
@@ -141,7 +180,7 @@ export default async function RootLayout({
                   "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/AboutUsCard/Familie.jpeg",
                   "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureAdvantages/Together_future_buildings.jpg",
                 ],
-                logo: "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/icons/Flyer%20Synergie%20B2C%20v1(1).png",
+                logo: "https://synergie.cc/brand/synergie-logo-farbe.png",
                 priceRange: "€€",
                 paymentAccepted: [
                   "Cash",

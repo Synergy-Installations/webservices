@@ -1,27 +1,36 @@
 import { useTranslations } from "next-intl";
 import { RichText } from "@com.synergy/frontend-ui/RichText";
-import { ContactBlocks } from "@com.synergy/frontend-ui/ContactBlocks";
-import { ContactCommunity } from "@com.synergy/frontend-ui/ContactCommunity";
+import HeroLogoCta from "../../shared/heroes/HeroLogoCta";
+import QualityChecklist from "../../shared/quality/QualityChecklist";
 
 /* eslint-disable-next-line */
 export interface FunnelLayoutProps {
   children: React.ReactNode;
 }
 
+/**
+ * Seite „PV Montage buchen“ – im neuen SYNERGIE-Design:
+ * Kopfzeile wie auf den anderen Seiten, darunter das Buchungsformular,
+ * am Ende „Nächste Schritte“ und der Held mit Logo-Platzhalter.
+ */
 export const FunnelLayout = (props: FunnelLayoutProps) => {
   const t = useTranslations("LandingPage.ContactUs.Funnel.Header");
 
   return (
     <>
-      <section className="relative before:absolute before:inset-0 before:h-80 before:pointer-events-none before:bg-gradient-to-b before:from-slate-100 before:-z-10">
-        <div className="pt-32 pb-12">
+      <section className="relative before:absolute before:inset-0 before:h-80 before:pointer-events-none before:bg-gradient-to-b before:from-synergy-light-grey/60 before:-z-10">
+        <div className="pt-32">
           <div className="px-4 sm:px-6">
             {/* Page header */}
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="font-inter-tight text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-500 via-slate-900 to-slate-900 pb-4">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-synergy-light-blue">
+                {t("eyebrow")}
+              </p>
+              <h1 className="text-3xl md:text-4xl font-black uppercase tracking-wide text-synergy-dark-grey">
                 {t("title")}
               </h1>
-              <div className="text-base text-slate-500">
+              <div className="w-16 h-1 bg-synergy-light-blue mt-4 mb-6 mx-auto" />
+              <div className="text-lg text-synergy-dark-grey">
                 <RichText>{(tags) => t.rich("description", tags)}</RichText>
               </div>
             </div>
@@ -31,8 +40,8 @@ export const FunnelLayout = (props: FunnelLayoutProps) => {
           </div>
         </div>
       </section>
-      {/* <ContactBlocks /> */}
-      <ContactCommunity />
+      <QualityChecklist section="contact" hero="synergie-heldenpaar" numbered />
+      <HeroLogoCta hero="logo-heldenpaar" className="pb-16" />
     </>
   );
 };

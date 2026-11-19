@@ -63,12 +63,14 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
               href={t("logo.href")}
               className="font-semibold cursor-pointer w-max"
             >
-              <Image
-                loader={ImageLoader}
-                src={t("logo.src")}
-                width={Number(t("logo.width"))}
-                height={Number(t("logo.height"))}
-                alt="Logo"
+              {/* Neues SYNERGIE-Logo (Brand Guideline inconcepts) */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/brand/synergie-logo-farbe.svg"
+                width={180}
+                height={27}
+                alt="SYNERGIE"
+                className="h-6 w-auto sm:h-7"
               />
             </Link>
           </div>
@@ -76,13 +78,17 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
           {/* Desktop navigation */}
           <nav className="hidden md:flex md:grow !mb-0">
             {/* Desktop menu links */}
-            <ul className="flex grow flex-wrap items-center justify-center gap-2 text-base lg:gap-8">
+            <ul className="flex grow items-center justify-center gap-1 text-sm lg:text-base lg:gap-8">
               {NavKeys.map((navKey, index) =>
                 t(`nav.${navKey}.children`) === "" ? (
-                  <li className="px-3 py-1" key={index}>
+                  <li className="px-1 lg:px-3 py-1 whitespace-nowrap" key={index}>
                     <Link
                       href={t(`nav.${navKey}.href`)}
-                      className="flex items-center text-synergy-dark-grey transition hover:text-gray-900"
+                      className={
+                        navKey === "montage"
+                          ? "flex items-center rounded-lg border-2 border-synergy-light-blue px-3 py-1 font-semibold text-synergy-light-blue transition hover:bg-synergy-light-blue hover:text-white"
+                          : "flex items-center text-synergy-dark-grey transition hover:text-gray-900"
+                      }
                     >
                       {t(`nav.${navKey}.text`)}
                     </Link>
@@ -200,7 +206,7 @@ export const DefaultHeader = (props: DefaultHeaderProps) => {
               >
                 <span className="relative inline-flex items-center ml-1 tracking-normal text-white transition-transform group-hover:translate-x-0.5">
                   {t("button.text")}
-                  <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
+                  <span className="hidden lg:inline tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                     {"->"}
                   </span>
                 </span>

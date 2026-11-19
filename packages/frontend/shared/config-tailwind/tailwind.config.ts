@@ -10,9 +10,11 @@ const config: Omit<Config, "content"> = {
   theme: {
     extend: {
       colors: {
-        "synergy-light-blue": "#0CC0DF",
-        "synergy-light-grey": "#EFEFEF",
-        "synergy-dark-grey": "#333333",
+        // Markenfarben laut SYNERGIE Brand Guideline (inconcepts)
+        "synergy-light-blue": "#23B9D6",
+        "synergy-light-grey": "#E3E3E3",
+        "synergy-dark-grey": "#3C3C3B",
+        "synergy-mid-grey": "#B2B2B2",
       },
       screens: {
         xs: "520px",
@@ -28,6 +30,8 @@ const config: Omit<Config, "content"> = {
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
+        // Markenschrift Avenir; Nunito Sans als freie, ähnliche Ersatzschrift
+        brand: ["Avenir Next", "Avenir", "var(--font-brand)", "sans-serif"],
         mono: ["Roboto Mono", "monospace"],
         "playfair-display": ["Playfair Display", "serif"],
       },

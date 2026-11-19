@@ -916,7 +916,7 @@ function SubmitProgressOverlay({
       <div className="fixed inset-0 flex min-h-screen w-screen items-center justify-center p-4">
         <DialogPanel className="relative w-full max-w-xl overflow-hidden rounded-[2rem] border border-white/30 bg-white p-6 shadow-2xl sm:p-8">
           <div className="absolute -right-20 -top-24 h-52 w-52 animate-pulse rounded-full bg-synergy-light-blue/30 blur-3xl" />
-          <div className="absolute -bottom-24 -left-16 h-48 w-48 rounded-full bg-emerald-300/30 blur-3xl" />
+          <div className="absolute -bottom-24 -left-16 h-48 w-48 rounded-full bg-synergy-light-blue/20 blur-3xl" />
 
           <div className="relative">
             <div className="mb-6 flex items-center gap-5">
@@ -1001,7 +1001,7 @@ function SubmitProgressOverlay({
                       isActive
                         ? "border-synergy-light-blue bg-white shadow-lg shadow-synergy-light-blue/10"
                         : isComplete
-                          ? "border-emerald-200 bg-emerald-50"
+                          ? "border-synergy-light-blue/40 bg-synergy-light-blue/10"
                           : "border-slate-200 bg-white/70"
                     }`}
                   >
@@ -1010,7 +1010,7 @@ function SubmitProgressOverlay({
                         isActive
                           ? "bg-synergy-light-blue text-white"
                           : isComplete
-                            ? "bg-emerald-500 text-white"
+                            ? "bg-synergy-light-blue text-white"
                             : "bg-slate-200 text-slate-600"
                       }`}
                     >

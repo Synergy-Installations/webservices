@@ -1,30 +1,26 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "../seo";
 import AboutCta from "@com.synergy/frontend-ui/AboutCta";
 import AboutHero from "@com.synergy/frontend-ui/AboutHero";
-import AboutStats from "@com.synergy/frontend-ui/AboutStats";
 import AboutStory from "@com.synergy/frontend-ui/AboutStory";
-import AboutTeamMembers from "@com.synergy/frontend-ui/AboutTeamMembers";
-import Head from "next/head";
+import HeroLogoCta from "@com.synergy/frontend-ui/HeroLogoCta";
+import QualityChecklist from "@com.synergy/frontend-ui/QualityChecklist";
 
-export const metadata = {
-  alternates: {
-    canonical: "https://synergie.cc/about-us",
-  },
-};
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  return pageMetadata("ueberUns", locale, "https://synergie.cc/about-us");
+}
 
 export default function Page() {
   return (
     <>
-      <Head>
-        <title>B2B Services | Synergie.cc</title>
-        <meta
-          name="description"
-          content="Professionelle B2B-Services im Bereich Photovoltaik, Wärmepumpen & Co. für Unternehmen. Qualität, Effizienz & After-Sales aus einer Hand."
-        />
-      </Head>
       <AboutHero />
-      <AboutStats />
       <AboutStory />
-      <AboutTeamMembers />
+      <QualityChecklist section="about" hero="synergie-held" />
+      <HeroLogoCta hero="logo-heldin-lila" className="pb-12" />
       <AboutCta />
     </>
   );

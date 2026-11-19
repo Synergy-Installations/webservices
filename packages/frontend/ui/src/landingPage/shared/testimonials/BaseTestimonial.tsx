@@ -9,7 +9,7 @@ export interface BaseTestimonialProps {
     name: string;
     username?: string;
     usernameUrl?: string;
-    date: string;
+    date?: string;
     rating?: number;
     videoUrl?: string;
     videoThumb?: StaticImageData;
@@ -77,25 +77,46 @@ export const BaseTestimonial = (props: BaseTestimonialProps) => {
       className={`relative z-20 flex flex-col rounded-2xl bg-white/70 p-5 shadow-lg shadow-black/[0.03] before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(theme(colors.gray.100),theme(colors.gray.200))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] ${className}`}
     >
       <header className="mb-4 flex items-center gap-3">
-        <Image
-          className="shrink-0 rounded-full"
-          loader={ImageLoader}
-          src={testimonial.img}
-          width={44}
-          height={44}
-          alt={testimonial.imageAlt}
-        />
+        {/^https?:\/\//.test(testimonial.img) ? (
+          // Externe Profilbilder (z. B. von Google) direkt laden
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            className="shrink-0 rounded-full"
+            src={testimonial.img}
+            width={44}
+            height={44}
+            alt={testimonial.imageAlt}
+            referrerPolicy="no-referrer"
+          />
+        ) : (
+          <Image
+            className="shrink-0 rounded-full"
+            loader={ImageLoader}
+            src={testimonial.img}
+            width={44}
+            height={44}
+            alt={testimonial.imageAlt}
+          />
+        )}
         <div>
           <div className="font-bold">{testimonial.name}</div>
           {testimonial.username ? (
             <div>
-              <a
-                className="text-sm font-medium text-gray-500/80 transition hover:text-gray-500"
-                href={testimonial.usernameUrl}
-                tabIndex={cloned ? -1 : 0}
-              >
-                {testimonial.username}
-              </a>
+              {testimonial.usernameUrl ? (
+                <a
+                  className="text-sm font-medium text-gray-500/80 transition hover:text-gray-500"
+                  href={testimonial.usernameUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  tabIndex={cloned ? -1 : 0}
+                >
+                  {testimonial.username}
+                </a>
+              ) : (
+                <span className="text-sm font-medium text-gray-500/80">
+                  {testimonial.username}
+                </span>
+              )}
             </div>
           ) : null}
         </div>
@@ -153,7 +174,9 @@ export const BaseTestimonial = (props: BaseTestimonialProps) => {
           src={testimonial.channelIconSrc}
           alt={testimonial.channelIconAlt}
         />
-        <div className="text-xs">{testimonial.date}</div>
+        {testimonial.date ? (
+          <div className="text-xs">{testimonial.date}</div>
+        ) : null}
       </footer>
     </article>
   );

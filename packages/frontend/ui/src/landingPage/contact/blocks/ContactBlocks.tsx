@@ -33,9 +33,6 @@ export const ContactBlocks = (props: ContactBlocksProps) => {
                     alt={t(`${contactBlockKey}.icon.alt`)}
                   />
                 </div>
-                <h3 className="font-inter-tight font-semibold text-slate-800 mb-1">
-                  {t(`${contactBlockKey}.title`)}
-                </h3>
                 <a
                   className="text-sm text-slate-500 underline"
                   href={t(`${contactBlockKey}.href`)}

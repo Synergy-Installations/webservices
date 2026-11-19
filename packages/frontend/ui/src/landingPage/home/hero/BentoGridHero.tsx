@@ -3,13 +3,11 @@ import {
   BentoGrid,
   BentoItem,
 } from "@com.synergy/frontend-ui/BentoGridHeroLayout";
-import { AuroraText } from "../../shared/text/AuroraText";
 import { RotatingWord } from "../../shared/text/RotatingWord";
-import ImageLoader from "../../../shared/utils/image/ImageLoader";
-import Image from "next/image";
 import Link from "next/link";
 import { useMessages, useTranslations } from "next-intl";
 import ServicesPopup from "./ServicesPopup";
+import GlobeLocations from "./globe/GlobeLocations";
 
 /* eslint-disable-next-line */
 export interface BentoGridHeroProps {}
@@ -40,6 +38,8 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
 
   const serviceLists: string[][] =
     (heroMessages.servicesCard?.lists as string[][]) || [];
+  const locationLists: string[][] =
+    (heroMessages.locationsCard?.lists as string[][]) || [];
   const productLists: string[][] =
     (heroMessages.productsCard?.lists as string[][]) || [];
 
@@ -48,16 +48,18 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
       <section className="w-full">
         <div className="max-w-7xl mx-auto min-[350px]:px-4 md:px-8 py-10 pt-20 xs:pt-28 md:pt-32">
           <header className="mb-4 md:mb-10 text-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 leading-normal">
-              <RotatingWord words={t.raw("title.rotating") as string[]} />{" "}
-              <AuroraText>{t("title.highlight")}</AuroraText>{" "}
-              <div className="block sm:hidden"></div> {t("title.suffix")}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-wide text-gray-900 leading-tight">
+              <span className="block">{t("title.main")}</span>
+              <RotatingWord
+                words={t.raw("title.rotating") as string[]}
+                className="text-synergy-light-blue"
+              />
             </h1>
             <h2 className="text-2xl md:text-3xl text-synergy-dark-grey text-slate-90 font-bold py-4 break-words hyphens-auto">
               {t("subtitle")}
             </h2>
           </header>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Leistungen Box */}
             <div className="relative flex flex-col">
               <div
@@ -65,26 +67,29 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                 aria-hidden="true"
               />
               <div className="relative z-10 h-48 m-1 overflow-hidden rounded-t-xl">
-                <Image
-                  src="/frontend/landingPage/Hero/ChatGPT%20Image%20Oct%2031%2C%202025%20at%2010_55_18%20PM.jpg"
+                {/* Echtes Projektfoto (Freiflächenanlage) */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/brand/projekte/startseite-leistungen.webp"
                   alt={t("servicesCard.imageAlt")}
-                  loader={ImageLoader}
-                  className="w-full h-48 object-cover scale-[115%] object-[50%,60%]"
-                  fill
+                  className="absolute inset-0 w-full h-48 object-cover"
                 />
               </div>
               <div className="relative z-10 p-6 flex flex-col flex-1">
                 <h3 className="text-2xl font-bold text-black mb-4">
                   {t("servicesCard.title")}
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+                <div className="grid grid-cols-1 gap-x-6">
                   {serviceLists.map((list, columnIndex) => (
                     <ul
                       key={`services-column-${columnIndex}`}
-                      className="text-black text-base mb-6 space-y-1 list-disc list-inside"
+                      className="text-black text-base mb-6 space-y-1"
                     >
                       {list.map((item) => (
-                        <li key={item}>{item}</li>
+                        <li key={item} className="flex gap-2">
+                          <span className="text-synergy-light-blue">✓</span>
+                          {item}
+                        </li>
                       ))}
                     </ul>
                   ))}
@@ -110,12 +115,12 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                 aria-hidden="true"
               />
               <div className="relative z-10 h-48 m-1 overflow-hidden rounded-t-xl">
-                <Image
-                  src="/frontend/landingPage/Hero/handyman_products_v2.jpg"
+                {/* Echtes Foto: SYNERGIE-Monteur im Technikraum */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/brand/projekte/startseite-zielgruppen.webp"
                   alt={t("productsCard.imageAlt")}
-                  loader={ImageLoader}
-                  className="w-full h-48 object-cover object-[50%,10%]"
-                  fill
+                  className="absolute inset-0 w-full h-48 object-cover object-[50%_60%]"
                 />
               </div>
               <div className="relative z-10 p-6 flex flex-col flex-1">
@@ -123,14 +128,17 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                   {t("productsCard.title")}
                 </h3>
                 <div className="mb-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+                  <div className="grid grid-cols-1 gap-x-6">
                     {productLists.map((list, columnIndex) => (
                       <ul
                         key={`products-column-${columnIndex}`}
-                        className="text-black text-base space-y-1 list-disc list-inside"
+                        className="text-black text-base space-y-1"
                       >
                         {list.map((item) => (
-                          <li key={item}>{item}</li>
+                          <li key={item} className="flex gap-2">
+                            <span className="text-synergy-light-blue">✓</span>
+                            {item}
+                          </li>
                         ))}
                       </ul>
                     ))}
@@ -164,6 +172,40 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                   </span>
                 </button>
                 <ServicesPopup /> */}
+              </div>
+            </div>
+            {/* Wo sind wir tätig – Globus mit Stecknadeln */}
+            <div className="relative flex flex-col md:col-span-2 lg:col-span-1">
+              <div
+                className="absolute inset-0 rounded-2xl rounded-bl-[100px] mb-0 before:opacity-20 before:rounded-2xl before:absolute before:inset-0 before:bg-gradient-to-b before:from-synergy-light-blue before:to-synergy-light-blue/0 before:to-[100%] pointer-events-none"
+                aria-hidden="true"
+              />
+              <div className="relative z-10 h-48 m-1 flex items-center justify-center overflow-hidden rounded-t-xl bg-gradient-to-b from-white to-synergy-light-grey/40">
+                <GlobeLocations
+                  labels={{
+                    austria: t("locationsCard.pins.austria"),
+                    zambia: t("locationsCard.pins.zambia"),
+                  }}
+                  className="h-[11.5rem] w-[11.5rem] overflow-visible"
+                />
+              </div>
+              <div className="relative z-10 p-6 flex flex-col flex-1">
+                <h3 className="text-2xl font-bold text-black mb-4">
+                  {t("locationsCard.title")}
+                </h3>
+                {locationLists.map((list, columnIndex) => (
+                  <ul
+                    key={`locations-column-${columnIndex}`}
+                    className="text-black text-base mb-6 space-y-1"
+                  >
+                    {list.map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <span className="text-synergy-light-blue">✓</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                ))}
               </div>
             </div>
           </div>

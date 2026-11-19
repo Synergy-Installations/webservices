@@ -3620,7 +3620,7 @@
     },
     "ContactUs": {
       "Header": {
-        "title": "Ihr <highlight>Projekterfolg</highlight>.<lineBreak></lineBreak> Wir machen es einfach<highlight>.</highlight>",
+        "title": "Ihr <highlight>Projekterfolg</highlight>.<lineBreak></lineBreak> Wir machen es <highlight>einfach</highlight>.",
         "smallTitle": "Wir übernehmen Verantwortung.",
         "description": "Innerhalb von 24 Stunden melden wir uns<br></br>auf Ihre Anfrage."
       },

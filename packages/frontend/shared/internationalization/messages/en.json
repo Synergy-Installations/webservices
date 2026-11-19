@@ -3635,7 +3635,7 @@
     },
     "ContactUs": {
       "Header": {
-        "title": "Your <highlight>project success</highlight>.<lineBreak></lineBreak> We make it simple<highlight>.</highlight>",
+        "title": "Your <highlight>project success</highlight>.<lineBreak></lineBreak> We make it <highlight>simple</highlight>.",
         "smallTitle": "We take responsibility.",
         "description": "Within 24 hours, we will respond<br></br>to your enquiry."
       },

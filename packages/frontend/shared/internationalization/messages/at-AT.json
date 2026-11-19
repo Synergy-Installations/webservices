@@ -80,7 +80,8 @@
         "signature": {
           "src": "/frontend/landingPage/about/synergiemontagen_stamp.png",
           "alt": "Synergie Montagen Stempel"
-        }
+        },
+        "photoAlt": "Michael Riegler, Geschäftsführer, auf einer PV-Baustelle"
       },
       "Team": {
         "title": "Unser Team stellt sich vor",

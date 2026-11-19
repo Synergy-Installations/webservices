@@ -34,16 +34,28 @@ export const AboutStory = (props: AboutStoryProps) => {
                   </p>
                 );
               })}
-              {signature?.src && (
-                <Image
-                  loader={ImageLoader}
-                  src={signature.src}
-                  width={120}
-                  height={32}
-                  alt={signature.alt || "Signature"}
-                  className=""
+              <div className="flex flex-wrap items-center gap-6">
+                {signature?.src && (
+                  <Image
+                    loader={ImageLoader}
+                    src={signature.src}
+                    width={120}
+                    height={32}
+                    alt={signature.alt || "Signature"}
+                    className=""
+                  />
+                )}
+                {/* Foto Michael Riegler auf der Baustelle */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/brand/michael-riegler-baustelle.webp"
+                  alt={t("photoAlt")}
+                  width={900}
+                  height={675}
+                  loading="lazy"
+                  className="h-auto w-56 sm:w-64 rounded-2xl object-cover shadow-md"
                 />
-              )}
+              </div>
               {/* <svg
                 className="fill-slate-800"
                 width="90"

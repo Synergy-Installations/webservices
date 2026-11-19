@@ -240,7 +240,7 @@
         },
         "subtitle": "Your project in safe hands",
         "servicesCard": {
-          "imageAlt": "Ground-mounted PV plant – a SYNERGIE project",
+          "imageAlt": "Rooftop PV system on a fibre-cement hall – a SYNERGIE project",
           "title": "Services",
           "lists": [
             ["Consulting & engineering", "Implementation", "System service"]
@@ -3639,10 +3639,6 @@
         "eyebrow": "References",
         "title": "From our projects",
         "items": [
-          {
-            "src": "/brand/projekte/projekt-1.webp",
-            "caption": "Ground-mounted PV plant"
-          },
           {
             "src": "/brand/projekte/projekt-2.webp",
             "caption": "Rooftop system on fibre-cement hall"

@@ -240,7 +240,7 @@
         },
         "subtitle": "Ihr Projekt in sicheren Händen",
         "servicesCard": {
-          "imageAlt": "Freiflächenanlage – Projekt von SYNERGIE",
+          "imageAlt": "PV-Dachanlage auf Welleternit-Halle – Projekt von SYNERGIE",
           "title": "Leistungen",
           "lists": [["Beratung & Engineering", "Umsetzung", "Anlagenservice"]],
           "button": {
@@ -3629,10 +3629,6 @@
         "eyebrow": "Referenzen",
         "title": "Aus unseren Projekten",
         "items": [
-          {
-            "src": "/brand/projekte/projekt-1.webp",
-            "caption": "Freiflächenanlage"
-          },
           {
             "src": "/brand/projekte/projekt-2.webp",
             "caption": "Dachanlage auf Welleternit-Halle"

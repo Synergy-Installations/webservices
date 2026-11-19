@@ -72,7 +72,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                 <img
                   src="/brand/projekte/startseite-leistungen.webp"
                   alt={t("servicesCard.imageAlt")}
-                  className="absolute inset-0 w-full h-48 object-cover"
+                  className="absolute inset-0 w-full h-48 object-cover object-[50%_20%]"
                 />
               </div>
               <div className="relative z-10 p-6 flex flex-col flex-1">
@@ -115,12 +115,12 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                 aria-hidden="true"
               />
               <div className="relative z-10 h-48 m-1 overflow-hidden rounded-t-xl">
-                {/* Echtes Foto: SYNERGIE-Monteur im Technikraum */}
+                {/* Echtes Foto: PV-Terrassenüberdachung mit Glas-Glas-Modulen */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/brand/projekte/startseite-zielgruppen.webp"
                   alt={t("productsCard.imageAlt")}
-                  className="absolute inset-0 w-full h-48 object-cover object-[50%_60%]"
+                  className="absolute inset-0 w-full h-48 object-cover object-[50%_45%]"
                 />
               </div>
               <div className="relative z-10 p-6 flex flex-col flex-1">

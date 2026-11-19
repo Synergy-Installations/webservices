@@ -127,6 +127,7 @@
     "./BaseTestimonial": "./src/landingPage/shared/testimonials/BaseTestimonial.tsx",
     "./TestimonialsCarousel": "./src/landingPage/home/testimonials/TestimonialsCarousel.tsx",
     "./GoogleReviews": "./src/landingPage/home/testimonials/googleReviews.ts",
+    "./ProjectGallery": "./src/landingPage/b2b/gallery/ProjectGallery.tsx",
     "./HeroImage": "./src/landingPage/shared/heroes/HeroImage.tsx",
     "./HeroLogoCta": "./src/landingPage/shared/heroes/HeroLogoCta.tsx",
     "./QualityChecklist": "./src/landingPage/shared/quality/QualityChecklist.tsx",

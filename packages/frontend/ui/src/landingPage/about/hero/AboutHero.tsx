@@ -1,6 +1,4 @@
-import Image from "next/image";
 import { useTranslations } from "next-intl";
-import ImageLoader from "../../../shared/utils/image/ImageLoader";
 
 /* eslint-disable-next-line */
 export interface AboutHeroProps {}
@@ -12,19 +10,19 @@ export const AboutHero = (props: AboutHeroProps) => {
     <section className="relative">
       {/* Dark background */}
       <div
-        className="absolute inset-0 bg-synergy-light-blue pointer-events-none"
+        className="absolute inset-0 bg-synergy-dark-grey pointer-events-none"
         aria-hidden="true"
       >
-        <div className="w-full h-full" data-aos="fade">
-          <Image
-            className="opacity-20 w-full h-full object-cover"
-            loader={ImageLoader}
-            src={t("background.src")}
-            width={1440}
-            height={497}
-            alt={t("background.alt")}
-          />
-        </div>
+        {/* Echtes Baustellenfoto: SYNERGIE-Montageteam am Dach */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          className="w-full h-full object-cover object-[50%_35%]"
+          src="/brand/projekte/ueber-uns-hero.webp"
+          width={1920}
+          height={1080}
+          alt=""
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-synergy-light-blue/80 to-synergy-dark-grey/70" />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">

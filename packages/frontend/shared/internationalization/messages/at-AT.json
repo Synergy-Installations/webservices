@@ -240,7 +240,7 @@
         },
         "subtitle": "Ihr Projekt in sicheren Händen",
         "servicesCard": {
-          "imageAlt": "Leistungen Symbolbild",
+          "imageAlt": "Freiflächenanlage – Projekt von SYNERGIE",
           "title": "Leistungen",
           "lists": [["Beratung & Engineering", "Umsetzung", "Anlagenservice"]],
           "button": {
@@ -2891,8 +2891,8 @@
               "Diamond": {
                 "title": "Projektmanagement",
                 "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaik"
+                  "src": "/brand/projekte/umsetzung.webp",
+                  "alt": "Montage der Unterkonstruktion auf einem Ziegeldach"
                 }
               },
               "Components": {
@@ -3624,6 +3624,44 @@
             "alt": "Photovoltaic"
           }
         }
+      },
+      "Projects": {
+        "eyebrow": "Referenzen",
+        "title": "Aus unseren Projekten",
+        "items": [
+          {
+            "src": "/brand/projekte/projekt-1.webp",
+            "caption": "Freiflächenanlage"
+          },
+          {
+            "src": "/brand/projekte/projekt-2.webp",
+            "caption": "Dachanlage auf Welleternit-Halle"
+          },
+          {
+            "src": "/brand/projekte/projekt-3.webp",
+            "caption": "Blechdach am Altbau, Wien"
+          },
+          {
+            "src": "/brand/projekte/projekt-4.webp",
+            "caption": "Feuerwehrhaus mit Ziegeldach"
+          },
+          {
+            "src": "/brand/projekte/projekt-5.webp",
+            "caption": "Trafostation & Mittelspannung"
+          },
+          {
+            "src": "/brand/projekte/projekt-6.webp",
+            "caption": "DC-Anschluss & Überspannungsschutz"
+          },
+          {
+            "src": "/brand/projekte/projekt-7.webp",
+            "caption": "Kabeltrasse Freifläche"
+          },
+          {
+            "src": "/brand/projekte/projekt-8.webp",
+            "caption": "Unterkonstruktion Freifläche"
+          }
+        ]
       }
     },
     "ContactUs": {

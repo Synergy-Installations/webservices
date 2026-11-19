@@ -240,7 +240,7 @@
         },
         "subtitle": "Your project in safe hands",
         "servicesCard": {
-          "imageAlt": "Services Symbol image",
+          "imageAlt": "Ground-mounted PV plant – a SYNERGIE project",
           "title": "Services",
           "lists": [
             ["Consulting & engineering", "Implementation", "System service"]
@@ -2893,8 +2893,8 @@
               "Diamond": {
                 "title": "Project management",
                 "backgroundImage": {
-                  "src": "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureSteps/scenic-house-photovoltaic.jpg",
-                  "alt": "Photovoltaics"
+                  "src": "/brand/projekte/umsetzung.webp",
+                  "alt": "Installing the mounting system on a tiled roof"
                 }
               },
               "Components": {
@@ -3634,6 +3634,44 @@
             "alt": "Photovoltaic"
           }
         }
+      },
+      "Projects": {
+        "eyebrow": "References",
+        "title": "From our projects",
+        "items": [
+          {
+            "src": "/brand/projekte/projekt-1.webp",
+            "caption": "Ground-mounted PV plant"
+          },
+          {
+            "src": "/brand/projekte/projekt-2.webp",
+            "caption": "Rooftop system on fibre-cement hall"
+          },
+          {
+            "src": "/brand/projekte/projekt-3.webp",
+            "caption": "Metal roof on a historic building, Vienna"
+          },
+          {
+            "src": "/brand/projekte/projekt-4.webp",
+            "caption": "Fire station with tiled roof"
+          },
+          {
+            "src": "/brand/projekte/projekt-5.webp",
+            "caption": "Transformer station & medium voltage"
+          },
+          {
+            "src": "/brand/projekte/projekt-6.webp",
+            "caption": "DC connection & surge protection"
+          },
+          {
+            "src": "/brand/projekte/projekt-7.webp",
+            "caption": "Cable route, ground-mounted plant"
+          },
+          {
+            "src": "/brand/projekte/projekt-8.webp",
+            "caption": "Mounting structure, ground-mounted plant"
+          }
+        ]
       }
     },
     "ContactUs": {

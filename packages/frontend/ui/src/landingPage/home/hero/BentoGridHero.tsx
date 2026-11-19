@@ -9,7 +9,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useMessages, useTranslations } from "next-intl";
 import ServicesPopup from "./ServicesPopup";
-import AiLabel from "../../shared/ai/AiLabel";
 import GlobeLocations from "./globe/GlobeLocations";
 
 /* eslint-disable-next-line */
@@ -70,7 +69,13 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                 aria-hidden="true"
               />
               <div className="relative z-10 h-48 m-1 overflow-hidden rounded-t-xl">
-                <AiLabel />
+                {/* Echtes Projektfoto (Freiflächenanlage) */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/brand/projekte/startseite-leistungen.webp"
+                  alt={t("servicesCard.imageAlt")}
+                  className="absolute inset-0 w-full h-48 object-cover"
+                />
                 <Image
                   src="/frontend/landingPage/Hero/ChatGPT%20Image%20Oct%2031%2C%202025%20at%2010_55_18%20PM.jpg"
                   alt={t("servicesCard.imageAlt")}

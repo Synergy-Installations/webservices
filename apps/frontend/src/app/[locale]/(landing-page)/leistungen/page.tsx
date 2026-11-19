@@ -8,6 +8,7 @@ import B2bCompetenciesSection from "@com.synergy/frontend-ui/B2bCompetenciesSect
 import B2bCtaSection from "@com.synergy/frontend-ui/B2bCtaSection";
 import HeroLogoCta from "@com.synergy/frontend-ui/HeroLogoCta";
 import QualityChecklist from "@com.synergy/frontend-ui/QualityChecklist";
+import ProjectGallery from "@com.synergy/frontend-ui/ProjectGallery";
 import ServiceWrapper from "@com.synergy/frontend-ui/ServiceWrapper";
 
 export async function generateMetadata({
@@ -25,6 +26,7 @@ export default function Page() {
         <B2bHero />
         <B2bCompetenciesSection />
         <ServiceWrapper />
+        <ProjectGallery />
         <QualityChecklist section="leistungen" hero="synergie-held" />
         <B2bProcessSection />
         <B2bTestimonialSection />

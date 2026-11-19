@@ -103,7 +103,11 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
                         ) : null}
                         <Image
                           className="w-full h-full object-cover block border-0"
-                          loader={ImageLoader}
+                          loader={
+                            t(`buttons.${key}.image.src`).startsWith("/brand/")
+                              ? ({ src }) => src
+                              : ImageLoader
+                          }
                           width={0}
                           height={Number(t(`buttons.${key}.image.height`))}
                           src={t(`buttons.${key}.image.src`)}

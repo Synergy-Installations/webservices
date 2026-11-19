@@ -251,7 +251,7 @@
           }
         },
         "productsCard": {
-          "imageAlt": "Photovoltaic installation for contractors",
+          "imageAlt": "SYNERGIE technician connecting inverter and battery",
           "title": "Who we work for",
           "lists": [
             [
@@ -890,8 +890,8 @@
               "height": "24"
             },
             "image": {
-              "src": "/frontend/landingPage/Hero/ChatGPT%20Image%20Oct%2031%2C%202025%20at%2011_10_23%20PM.jpg",
-              "alt": "Synergy family",
+              "src": "/brand/projekte/vorteile-standards.webp",
+              "alt": "Surge protection, neatly wired and labelled",
               "width": "800",
               "height": "620",
               "objectPosition": "50% 50%"
@@ -3677,7 +3677,7 @@
           },
           {
             "src": "/brand/projekte/galerie-10.webp",
-            "caption": "PV façade on a building in Vienna"
+            "caption": "Mounting system on fibre-cement shingles"
           },
           {
             "src": "/brand/projekte/galerie-11.webp",

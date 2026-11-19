@@ -4,8 +4,6 @@ import {
   BentoItem,
 } from "@com.synergy/frontend-ui/BentoGridHeroLayout";
 import { RotatingWord } from "../../shared/text/RotatingWord";
-import ImageLoader from "../../../shared/utils/image/ImageLoader";
-import Image from "next/image";
 import Link from "next/link";
 import { useMessages, useTranslations } from "next-intl";
 import ServicesPopup from "./ServicesPopup";
@@ -76,13 +74,6 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                   alt={t("servicesCard.imageAlt")}
                   className="absolute inset-0 w-full h-48 object-cover"
                 />
-                <Image
-                  src="/frontend/landingPage/Hero/ChatGPT%20Image%20Oct%2031%2C%202025%20at%2010_55_18%20PM.jpg"
-                  alt={t("servicesCard.imageAlt")}
-                  loader={ImageLoader}
-                  className="w-full h-48 object-cover scale-[115%] object-[50%,60%]"
-                  fill
-                />
               </div>
               <div className="relative z-10 p-6 flex flex-col flex-1">
                 <h3 className="text-2xl font-bold text-black mb-4">
@@ -124,12 +115,12 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                 aria-hidden="true"
               />
               <div className="relative z-10 h-48 m-1 overflow-hidden rounded-t-xl">
-                <Image
-                  src="/frontend/landingPage/Hero/handyman_products_v2.jpg"
+                {/* Echtes Foto: SYNERGIE-Monteur im Technikraum */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/brand/projekte/startseite-zielgruppen.webp"
                   alt={t("productsCard.imageAlt")}
-                  loader={ImageLoader}
-                  className="w-full h-48 object-cover object-[50%,10%]"
-                  fill
+                  className="absolute inset-0 w-full h-48 object-cover object-[50%_60%]"
                 />
               </div>
               <div className="relative z-10 p-6 flex flex-col flex-1">

@@ -249,7 +249,7 @@
           }
         },
         "productsCard": {
-          "imageAlt": "Photovoltaik-Montage für Fachbetriebe",
+          "imageAlt": "SYNERGIE-Monteur beim Anschluss von Wechselrichter und Speicher",
           "title": "Für wen wir arbeiten",
           "lists": [
             [
@@ -888,8 +888,8 @@
               "height": "24"
             },
             "image": {
-              "src": "/frontend/landingPage/Hero/ChatGPT%20Image%20Oct%2031%2C%202025%20at%2011_10_23%20PM.jpg",
-              "alt": "Synergy family",
+              "src": "/brand/projekte/vorteile-standards.webp",
+              "alt": "Überspannungsschutz, sauber verdrahtet und beschriftet",
               "width": "800",
               "height": "620",
               "objectPosition": "50% 50%"
@@ -3667,7 +3667,7 @@
           },
           {
             "src": "/brand/projekte/galerie-10.webp",
-            "caption": "PV-Fassade an einem Wiener Gebäude"
+            "caption": "Unterkonstruktion auf Eternitschindeln"
           },
           {
             "src": "/brand/projekte/galerie-11.webp",

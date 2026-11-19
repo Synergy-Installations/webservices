@@ -1,22 +1,14 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import { pageMetadata } from "../seo";
 import PageContainer from "@com.synergy/frontend-ui/PageContainer";
 
-export const metadata: Metadata = {
-  title: "Kontakt – Synergie Montagen Riegler GmbH",
-  description:
-    "Kontaktieren Sie uns: Büro Wien, Telefon +43 664 244 87 42, office@synergie.cc – Ihr Fachbetrieb für nachhaltige Haustechnik.",
-  keywords: [
-    "Kontakt",
-    "Wien",
-    "Anfrage",
-    "Telefon",
-    "E-Mail",
-    "Synergie Montagen",
-  ],
-  alternates: {
-    canonical: "https://synergie.cc/kontakt",
-  },
-};
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  return pageMetadata("kontakt", locale, "https://synergie.cc/kontakt");
+}
 
 export default function Page(): JSX.Element {
   return (

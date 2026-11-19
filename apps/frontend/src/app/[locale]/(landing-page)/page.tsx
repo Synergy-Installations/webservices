@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "./seo";
 import { TestimonialsCarousel } from "@com.synergy/frontend-ui/TestimonialsCarousel";
 import { fetchGoogleReviews } from "@com.synergy/frontend-ui/GoogleReviews";
 import { FeatureAdvantages } from "@com.synergy/frontend-ui/FeatureAdvantages";
@@ -6,11 +8,13 @@ import HeroLogoCta from "@com.synergy/frontend-ui/HeroLogoCta";
 import CtaLoose from "@com.synergy/frontend-ui/CtaLoose";
 import BentoGridHero from "@com.synergy/frontend-ui/BentoGridHero";
 
-export const metadata = {
-  alternates: {
-    canonical: "https://synergie.cc/",
-  },
-};
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  return pageMetadata("home", locale, "https://synergie.cc/");
+}
 
 export default async function Page({
   params: { locale },

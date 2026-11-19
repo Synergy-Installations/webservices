@@ -255,16 +255,11 @@
           "title": "Who we work for",
           "lists": [
             [
+              "Building services, electrical and installation companies",
               "EPC",
-              "Building services firms",
-              "Electrical contractors",
-              "Installers"
-            ],
-            [
-              "Property managers",
-              "Real-estate developers",
-              "Architects",
-              "Consulting and planning firms"
+              "Operators",
+              "Consulting and planning firms",
+              "Property managers, real-estate developers and architects"
             ]
           ],
           "button": {
@@ -364,6 +359,14 @@
               "link": "/focus/wartung-service",
               "text": "Learn more"
             }
+          }
+        },
+        "locationsCard": {
+          "title": "Where we work",
+          "lists": [["Austria & Europe", "Africa – Zambia"]],
+          "pins": {
+            "austria": "Austria",
+            "zambia": "Zambia"
           }
         }
       },

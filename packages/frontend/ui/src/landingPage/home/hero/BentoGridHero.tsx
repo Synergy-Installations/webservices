@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useMessages, useTranslations } from "next-intl";
 import ServicesPopup from "./ServicesPopup";
 import AiLabel from "../../shared/ai/AiLabel";
+import GlobeLocations from "./globe/GlobeLocations";
 
 /* eslint-disable-next-line */
 export interface BentoGridHeroProps {}
@@ -40,6 +41,8 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
 
   const serviceLists: string[][] =
     (heroMessages.servicesCard?.lists as string[][]) || [];
+  const locationLists: string[][] =
+    (heroMessages.locationsCard?.lists as string[][]) || [];
   const productLists: string[][] =
     (heroMessages.productsCard?.lists as string[][]) || [];
 
@@ -59,7 +62,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
               {t("subtitle")}
             </h2>
           </header>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Leistungen Box */}
             <div className="relative flex flex-col">
               <div
@@ -80,7 +83,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                 <h3 className="text-2xl font-bold text-black mb-4">
                   {t("servicesCard.title")}
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+                <div className="grid grid-cols-1 gap-x-6">
                   {serviceLists.map((list, columnIndex) => (
                     <ul
                       key={`services-column-${columnIndex}`}
@@ -129,7 +132,7 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                   {t("productsCard.title")}
                 </h3>
                 <div className="mb-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+                  <div className="grid grid-cols-1 gap-x-6">
                     {productLists.map((list, columnIndex) => (
                       <ul
                         key={`products-column-${columnIndex}`}
@@ -173,6 +176,40 @@ export const BentoGridHero = (props: BentoGridHeroProps) => {
                   </span>
                 </button>
                 <ServicesPopup /> */}
+              </div>
+            </div>
+            {/* Wo sind wir tätig – Globus mit Stecknadeln */}
+            <div className="relative flex flex-col md:col-span-2 lg:col-span-1">
+              <div
+                className="absolute inset-0 rounded-2xl rounded-bl-[100px] mb-0 before:opacity-20 before:rounded-2xl before:absolute before:inset-0 before:bg-gradient-to-b before:from-synergy-light-blue before:to-synergy-light-blue/0 before:to-[100%] pointer-events-none"
+                aria-hidden="true"
+              />
+              <div className="relative z-10 h-48 m-1 flex items-center justify-center overflow-hidden rounded-t-xl bg-gradient-to-b from-white to-synergy-light-grey/40">
+                <GlobeLocations
+                  labels={{
+                    austria: t("locationsCard.pins.austria"),
+                    zambia: t("locationsCard.pins.zambia"),
+                  }}
+                  className="h-[11.5rem] w-[11.5rem] overflow-visible"
+                />
+              </div>
+              <div className="relative z-10 p-6 flex flex-col flex-1">
+                <h3 className="text-2xl font-bold text-black mb-4">
+                  {t("locationsCard.title")}
+                </h3>
+                {locationLists.map((list, columnIndex) => (
+                  <ul
+                    key={`locations-column-${columnIndex}`}
+                    className="text-black text-base mb-6 space-y-1"
+                  >
+                    {list.map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <span className="text-synergy-light-blue">✓</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                ))}
               </div>
             </div>
           </div>

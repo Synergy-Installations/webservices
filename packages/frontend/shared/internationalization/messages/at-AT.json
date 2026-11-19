@@ -252,12 +252,12 @@
           "imageAlt": "Photovoltaik-Montage für Fachbetriebe",
           "title": "Für wen wir arbeiten",
           "lists": [
-            ["EPC", "Haustechniker", "Elektrotechniker", "Installateure"],
             [
-              "Hausverwaltungen",
-              "Immobilienentwickler",
-              "Architekten",
-              "Beratende und planende Betriebe"
+              "Haustechniker, Elektriker und Installateure",
+              "EPC",
+              "Betreiber",
+              "Beratende und planende Betriebe",
+              "Hausverwaltungen, Immobilienentwickler und Architekten"
             ]
           ],
           "button": {
@@ -357,6 +357,14 @@
               "link": "/focus/wartung-service",
               "text": "Mehr erfahren"
             }
+          }
+        },
+        "locationsCard": {
+          "title": "Wo sind wir tätig",
+          "lists": [["Österreich & Europa", "Afrika – Sambia"]],
+          "pins": {
+            "austria": "Österreich",
+            "zambia": "Sambia"
           }
         }
       },

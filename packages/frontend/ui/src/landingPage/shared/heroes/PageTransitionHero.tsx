@@ -24,26 +24,39 @@ const pickRandom = (last: number | null) => {
 };
 
 /**
- * Beim Öffnen der Website (auch neu laden / neuer Tab) und bei jedem Wechsel
- * auf eine andere Seite zoomt kurz ein zufälliges Heldenbild ins Bild und
+ * Beim Öffnen der Website (auch neu laden / neuer Tab) und danach bei jedem
+ * zweiten Seitenwechsel zoomt kurz ein zufälliges Heldenbild ins Bild und
  * verschwindet wieder. Blockiert keine Klicks und entfällt, wenn am Gerät
  * „weniger Bewegung“ eingestellt ist.
  */
 export const PageTransitionHero = () => {
   const pathname = usePathname();
   const last = useRef<number | null>(null);
+  const lastPath = useRef<string | null>(null);
+  const views = useRef(0);
   const [active, setActive] = useState<number | null>(null);
 
   useEffect(() => {
+    // Nur echte Seitenaufrufe zählen (React führt den Effekt beim Laden evtl. doppelt aus)
+    if (pathname === lastPath.current) return;
+    lastPath.current = pathname;
+    views.current += 1;
+    // Nur jedes zweite Mal: beim Öffnen, dann beim 2., 4., … Seitenwechsel
+    if (views.current % 2 === 0) return;
     if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
       return;
     }
     const n = pickRandom(last.current);
     last.current = n;
     setActive(n);
+  }, [pathname]);
+
+  // Bild nach Ablauf der Animation sicher wieder ausblenden
+  useEffect(() => {
+    if (active === null) return;
     const id = window.setTimeout(() => setActive(null), DURATION);
     return () => window.clearTimeout(id);
-  }, [pathname]);
+  }, [active, pathname]);
 
   if (active === null) return null;
 

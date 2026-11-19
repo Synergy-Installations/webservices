@@ -43,7 +43,7 @@ export const DefaultLayout = (props: DefaultLayoutProps) => {
         <DefaultHeader />
         {/* WhatsApp-Chat, bewusst ohne Benachrichtigungston */}
         <WhatsappButton />
-        {/* Kurzer Helden-Zoom beim Öffnen der Website und bei jedem Seitenwechsel */}
+        {/* Kurzer Helden-Zoom beim Öffnen der Website und bei jedem zweiten Seitenwechsel */}
         <PageTransitionHero />
         <main className="grow">{props.children}</main>
         <DefaultFooter border={true} />

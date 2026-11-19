@@ -10,9 +10,9 @@ export const CtaLoose = (props: CtaLooseProps) => {
 
   return (
     <section>
-      <div className="py-12 md:py-20">
+      <div className="py-12 md:py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="relative max-w-3xl mx-auto text-center pb-12 md:pb-16">
+          <div className="relative max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center justify-center p-3 bg-white rounded-xl shadow-md mb-8 relative before:absolute before:-top-12 before:w-52 before:h-52 before:bg-synergy-light-grey before:rounded-full before:blur-3xl before:-z-10">
               <Link href="/">
                 {/* Neues SYNERGIE-Logo */}

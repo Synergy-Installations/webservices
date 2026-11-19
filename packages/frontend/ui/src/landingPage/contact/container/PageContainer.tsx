@@ -24,7 +24,7 @@ export const PageContainer = (props: PageContainerProps) => {
   return (
     <>
       <section className="relative before:absolute before:inset-0 before:h-80 before:pointer-events-none before:bg-gradient-to-b before:from-slate-100 before:-z-10">
-        <div className="pb-12 md:pb-20">
+        <div>
           <div className="px-4 sm:px-6">
             <div className="max-w-7xl mx-auto min-[350px]:px-4 md:px-8 py-10 pt-20 xs:pt-28 md:pt-32">
               <header className="mb-4 md:mb-10 text-center">

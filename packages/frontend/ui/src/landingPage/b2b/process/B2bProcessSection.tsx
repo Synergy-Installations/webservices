@@ -28,8 +28,8 @@ export const B2bProcessSection = (props: B2bProcessSectinoProps) => {
           <img
             src={t("image.src")}
             alt={t("image.alt")}
-            width={1600}
-            height={1243}
+            width={1589}
+            height={1054}
             loading="lazy"
             className="mx-auto h-auto max-h-[78vh] w-auto max-w-full"
           />

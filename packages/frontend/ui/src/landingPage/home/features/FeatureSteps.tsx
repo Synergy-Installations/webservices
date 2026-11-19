@@ -21,7 +21,7 @@ export const FeatureSteps = (props: FeatureStepsProps) => {
   return (
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="py-12 md:py-20">
+        <div className="py-12 md:py-16">
           <div className="grid items-center gap-10 md:grid-cols-[14rem_1fr] lg:gap-16">
             <HeroImage
               name="synergie-heldin"
@@ -64,7 +64,7 @@ export const FeatureSteps = (props: FeatureStepsProps) => {
 
               {/* Qualitäts-Checkliste */}
               {quality.length > 0 ? (
-                <ul className="mt-12 grid gap-3 sm:grid-cols-2 rounded-2xl border border-synergy-light-grey bg-white px-6 py-5">
+                <ul className="mt-12 flex flex-wrap justify-center gap-x-10 gap-y-3 rounded-2xl border border-synergy-light-grey bg-white px-6 py-5">
                   {quality.map((item) => (
                     <li
                       key={item}

@@ -29,7 +29,7 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
 
   return (
     <section className="relative rounded-t-[100px] bg-synergy-light-grey after:absolute after:top-0 after:right-0 after:h-full after:w-96 after:pointer-events-none after:bg-gradient-to-l after:from-synergy-light-grey/0 max-lg:after:hidden">
-      <div className="py-12 md:py-20">
+      <div className="py-12 md:py-16">
         {/* Carousel */}
         {/* Clarified container max width: max-w-6xl, centered */}
         <div className="max-w-7xl mx-auto px-2 sm:px-6">
@@ -120,33 +120,6 @@ export const FeatureAdvantages = (props: FeatureAdvantagesProps) => {
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Features blocks */}
-        <div className="max-w-6xl mx-auto mt-12 lg:mt-32">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16">
-            {/* Blocks */}
-            {/* {blockKeys.map((key, index) => (
-          <div key={index}>
-          <div className="flex items-center mb-1">
-            <Image
-            className="shrink-0 fill-synergy-light-blue mr-2 opacity-100 group-hover:opacity-100 transform duration-500 ease-in-out"
-            loader={ImageLoader}
-            width={Number(t(`blocks.${key}.icon.width`))}
-            height={Number(t(`blocks.${key}.icon.height`))}
-            src={t(`blocks.${key}.icon.src`)}
-            alt={t(`blocks.${key}.icon.alt`)}
-            />
-            <h3 className="font-inter-tight font-semibold text-synergy-dark-grey">
-            {t(`blocks.${key}.title`)}
-            </h3>
-          </div>
-          <p className="text-sm text-synergy-dark-grey">
-            {t(`blocks.${key}.description`)}
-          </p>
-          </div>
-        ))} */}
           </div>
         </div>
 

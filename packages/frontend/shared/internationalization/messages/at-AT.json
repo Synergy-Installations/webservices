@@ -848,7 +848,7 @@
           },
           "Button2": {
             "text": "Prozessorientiert",
-            "description": "Digitale Prozesse sorgen für eine reibungslose Abwicklung- ständige Verbesserungen treiben uns im Management voran. Wir achten auf langlebige präzise Machbarkeits- und Kosten-Nutzen-Analyse, Planung und Installationsmethoden.",
+            "description": "Digitale Prozesse sorgen für eine reibungslose Abwicklung – ständige Verbesserungen treiben uns im Management voran. Wir achten auf langlebige, präzise und wertorientierte Umsetzung.",
             "buttonIcon": {
               "src": "/frontend/landingPage/icons/double_arrows.svg",
               "alt": "Double Arrows",
@@ -871,7 +871,7 @@
           },
           "Button3": {
             "text": "Hohe Standards",
-            "description": "Wir nehmen uns Zeit für konstante hohe Qualität, durch strenge Berücksichtigung von Spezifikationen und Normen und durch Detailgenauigkeit und Schutz gegen Witterungseinflüsse und zur Sicherheit der Menschen.",
+            "description": "Wir nehmen uns Zeit für konstant hohe Qualität – durch strenge Berücksichtigung von Spezifikationen und Normen, durch Detailgenauigkeit sowie Schutz gegen Witterungseinflüsse als auch zur Sicherheit der Menschen.",
             "buttonIcon": {
               "src": "/frontend/landingPage/icons/double_arrows.svg",
               "alt": "Double Arrows",
@@ -2442,18 +2442,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Warum sind Machbarkeitsstudien wichtig?",
-                "descriptionOne": "Eine Machbarkeitsstudie prüft, ob ein Projekt technisch, wirtschaftlich und rechtlich realisierbar ist. Mit fundierten Standort-, Wirtschaftlichkeits- und Risikoanalysen bewerten wir Anbindung und Genehmigungsbedarf – damit Sie eine belastbare Entscheidung treffen können.",
+                "titleOne": "Warum eine Machbarkeitsstudie?",
+                "descriptionOne": "Wir prüfen vor Projektstart, ob Ihr Vorhaben technisch, wirtschaftlich und rechtlich umsetzbar ist – als belastbare Entscheidungsgrundlage mit klarer Empfehlung.",
                 "titleTwo": "Warum wir?",
-                "descriptionTwo": "Unser interdisziplinäres Team verbindet technische Expertise, lokale Kenntnisse und Erfahrung in Genehmigungsverfahren. Wir liefern klare Handlungsempfehlungen und konkrete Umsetzungsschritte.",
                 "button": {
                   "text": "Machbarkeitsstudie anfragen",
                   "href": "/kontakt"
                 },
                 "boxes": {
                   "standortanalyse": {
-                    "title": "Standort- & Bestandsaufnahme",
-                    "description": "Prüfung von Dach-, Freiflächen- oder Gebäudeeigenschaften, Verschattung und Zugang.",
+                    "title": "Standort",
+                    "description": "Dach-, Freiflächen- und Gebäudeprüfung inkl. Verschattung und Zugang.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Standortanalyse"
@@ -2466,8 +2465,8 @@
                     }
                   },
                   "technische-pruefung": {
-                    "title": "Technische Machbarkeit",
-                    "description": "Bewertung der Tauglichkeit von Modulen, Wechselrichtern, Speichern und Struktur.",
+                    "title": "Technik",
+                    "description": "Eignung von Modulen, Wechselrichtern, Speicher und Statik.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Technische Prüfung"
@@ -2480,8 +2479,8 @@
                     }
                   },
                   "netzanbindung": {
-                    "title": "Netzanschluss & Genehmigungen",
-                    "description": "Prüfung der Netzkapazität, Anschlussbedingungen und erforderlicher behördlicher Schritte.",
+                    "title": "Netz & Genehmigung",
+                    "description": "Netzkapazität, Anschlussbedingungen und behördliche Schritte.",
                     "image": {
                       "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
                       "alt": "Netzanbindung"
@@ -2498,25 +2497,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Ihre Vorteile durch eine Machbarkeitsstudie:",
+                    "title": "Ihre Vorteile",
                     "list": {
                       "itemOne": "Klare Entscheidungsgrundlage",
-                      "itemTwo": "Frühzeitiges Erkennen technischer Hürden",
-                      "itemThree": "Schätzung von Aufwand und Kosten",
-                      "itemFour": "Identifikation behördlicher Vorgaben",
-                      "itemFive": "Risikominimierung vor Projektstart",
-                      "itemSix": "Konkrete Umsetzungs- und Zeitplanung"
+                      "itemTwo": "Kosten und Aufwand früh abschätzbar",
+                      "itemThree": "Risiken vor Projektstart erkannt",
+                      "itemFour": "Konkreter Zeit- und Umsetzungsplan"
                     }
                   },
                   "boxRight": {
-                    "title": "Ablauf einer Machbarkeitsstudie:",
+                    "title": "So läuft es ab",
                     "list": {
-                      "itemOne": "Erstgespräch und Zieldefinition",
-                      "itemTwo": "Datensammlung (Pläne, Verbrauch, Standortdaten)",
-                      "itemThree": "Vor-Ort-Inspektion und Messungen",
-                      "itemFour": "Technische und rechtliche Bewertung",
-                      "itemFive": "Risiko- und Kostenanalyse",
-                      "itemSix": "Abschlussbericht mit Empfehlung und nächsten Schritten"
+                      "itemOne": "Zieldefinition und Unterlagen",
+                      "itemTwo": "Vor-Ort-Prüfung und Messungen",
+                      "itemThree": "Technische, rechtliche und wirtschaftliche Bewertung",
+                      "itemFour": "Bericht mit Empfehlung"
                     }
                   }
                 },
@@ -2535,18 +2530,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Warum technische Unterstützung?",
-                "descriptionOne": "Unsere technische Unterstützung stellt sicher, dass Ihre Anlage zuverlässig läuft – von Systemdiagnose über Fehlerbehebung bis zu präventiven Maßnahmen.",
+                "titleOne": "Für wen ist technische Unterstützung?",
+                "descriptionOne": "Für Planungs-, Engineering- und Installationsbetriebe, die Beratung und Engineering selbst durchführen, aber punktuell Unterstützung brauchen – bei Kapazitätsspitzen, Spezialfragen oder als zweiter Blick.",
                 "titleTwo": "Warum wir?",
-                "descriptionTwo": "Erfahrene Techniker, Remote- und Vor-Ort-Support sowie transparente Dokumentation garantieren schnelle Lösungen und langfristige Betriebssicherheit.",
                 "button": {
                   "text": "Technische Unterstützung anfragen",
                   "href": "/kontakt"
                 },
                 "boxes": {
                   "systemdiagnose": {
-                    "title": "Systemdiagnose",
-                    "description": "Detaillierte Analyse von Leistung, Fehlern und Betriebszustand zur schnellen Eingrenzung von Problemen.",
+                    "title": "Engineering-Support",
+                    "description": "Auslegung, Berechnungen und Pläne – ergänzend zu Ihrem Team.",
                     "image": {
                       "src": "/frontend/landingPage/icons/icon-plan.svg",
                       "alt": "Systemdiagnose"
@@ -2559,8 +2553,8 @@
                     }
                   },
                   "remote-support": {
-                    "title": "Remote-Support",
-                    "description": "Sofortige Unterstützung via Fernzugriff und Leitfäden zur schnellen Wiederherstellung der Funktionalität.",
+                    "title": "Prüfung & Zweitmeinung",
+                    "description": "Wir prüfen Konzepte, Stringpläne und Unterlagen auf Fehler und Optimierungspotenzial.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Remote Support"
@@ -2573,8 +2567,8 @@
                     }
                   },
                   "vor-ort-einsatz": {
-                    "title": "Vor-Ort-Techniker",
-                    "description": "Fachgerechte Reparatur, Kalibrierung und Austausch von Komponenten durch zertifizierte Techniker.",
+                    "title": "Spezialfragen",
+                    "description": "Sonderlösungen wie PV-Fassade am Denkmal, Hanglage oder Hochwassergebiet.",
                     "image": {
                       "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
                       "alt": "Vor-Ort Techniker"
@@ -2591,25 +2585,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Ihre Vorteile durch technische Unterstützung:",
+                    "title": "Ihre Vorteile",
                     "list": {
-                      "itemOne": "Schnelle Fehlerbehebung",
-                      "itemTwo": "Maximale Anlagenverfügbarkeit",
-                      "itemThree": "Proaktive Wartung zur Vermeidung von Ausfällen",
-                      "itemFour": "Klare Dokumentation und Berichte",
-                      "itemFive": "Kompetente Ansprechpartner",
-                      "itemSix": "Transparente Kostenabschätzung"
+                      "itemOne": "Flexibel nach Bedarf abrufbar",
+                      "itemTwo": "Entlastung bei Kapazitätsspitzen",
+                      "itemThree": "Weniger Fehler durch den zweiten Blick",
+                      "itemFour": "Sie bleiben Ansprechpartner Ihrer Kunden"
                     }
                   },
                   "boxRight": {
-                    "title": "So läuft die technische Unterstützung ab:",
+                    "title": "So läuft es ab",
                     "list": {
-                      "itemOne": "Kontaktaufnahme und Erstbewertung",
-                      "itemTwo": "Remote-Analyse und Troubleshooting",
-                      "itemThree": "Falls erforderlich: Terminierung eines Vor-Ort-Einsatzes",
-                      "itemFour": "Durchführung von Reparatur oder Wartung",
-                      "itemFive": "Abschlusstest und Dokumentation",
-                      "itemSix": "Follow-up und Präventivempfehlungen"
+                      "itemOne": "Aufgabe und Unterlagen übermitteln",
+                      "itemTwo": "Umfang und Termin abstimmen",
+                      "itemThree": "Bearbeitung durch unser Team",
+                      "itemFour": "Übergabe mit Erläuterung"
                     }
                   }
                 },
@@ -2628,18 +2618,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Warum ist Konzeptdesign wichtig?",
-                "descriptionOne": "Ein gutes Konzeptdesign verbindet technische Machbarkeit und Nutzeranforderungen zu einem umsetzbaren Plan. Es legt Komponenten, Schnittstellen und Ablauf fest, sodass Umsetzung, Kosten und Nutzen klar definiert sind.",
+                "titleOne": "Warum Konzeptdesign?",
+                "descriptionOne": "Das Konzept legt Komponenten, Schnittstellen und Ablauf fest – damit Umsetzung, Kosten und Nutzen schon vor der Detailplanung klar sind.",
                 "titleTwo": "Warum wir?",
-                "descriptionTwo": "Unser interdisziplinäres Team erstellt praxisnahe, skalierbare Konzepte basierend auf Erfahrung, lokalem Wissen und ingenieurwissenschaftlicher Präzision.",
                 "button": {
                   "text": "Konzept anfragen",
                   "href": "/kontakt"
                 },
                 "boxes": {
                   "standortanalyse": {
-                    "title": "Standort- & Bestandsaufnahme",
-                    "description": "Prüfung von Ausrichtung, Verschattung, Dachstruktur und Netzanbindung zur optimalen Systemauslegung.",
+                    "title": "Systemauslegung",
+                    "description": "Module, Wechselrichter, Speicher und Unterkonstruktion passend zum Standort.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Standortanalyse"
@@ -2652,8 +2641,8 @@
                     }
                   },
                   "technische-pruefung": {
-                    "title": "Technische Prüfung",
-                    "description": "Bewertung von Modulen, Wechselrichtern, Speichern und Tragwerksanforderungen für ein robustes Konzept.",
+                    "title": "Varianten",
+                    "description": "Vergleich mehrerer Lösungen nach Ertrag, Kosten und Aufwand.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Technische Prüfung"
@@ -2666,8 +2655,8 @@
                     }
                   },
                   "netzanbindung": {
-                    "title": "Netzanschluss & Genehmigungen",
-                    "description": "Prüfung der Netzkapazität, Anschlussbedingungen und erforderlicher behördlicher Schritte für das Konzept.",
+                    "title": "Wirtschaftlichkeit",
+                    "description": "Kosten-Nutzen-Bewertung als Basis für Ihre Entscheidung.",
                     "image": {
                       "src": "/frontend/landingPage/products/AdobeStock_562132787.jpeg",
                       "alt": "Netzanbindung"
@@ -2684,25 +2673,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Ihre Vorteile durch professionelles Konzeptdesign:",
+                    "title": "Ihre Vorteile",
                     "list": {
                       "itemOne": "Klare Umsetzungsstrategie",
                       "itemTwo": "Optimierte Systemauslegung",
-                      "itemThree": "Kosten- und Zeitplanung",
-                      "itemFour": "Berücksichtigung behördlicher Vorgaben",
-                      "itemFive": "Risikominimierung vor Beginn",
-                      "itemSix": "Fundierte Entscheidungsgrundlage"
+                      "itemThree": "Vergleichbare Varianten",
+                      "itemFour": "Solide Basis für die Planung"
                     }
                   },
                   "boxRight": {
-                    "title": "Ablauf des Konzeptdesigns:",
+                    "title": "So läuft es ab",
                     "list": {
-                      "itemOne": "Erstgespräch und Zieldefinition",
-                      "itemTwo": "Datensammlung (Pläne, Verbrauch, Standortdaten)",
-                      "itemThree": "Konzeptionelle Auslegung und Varianten",
-                      "itemFour": "Wirtschaftlichkeits- und Risikoanalyse",
-                      "itemFive": "Präsentation des Konzepts mit Empfehlungen",
-                      "itemSix": "Planung der nächsten Umsetzungsschritte"
+                      "itemOne": "Zieldefinition und Datensammlung",
+                      "itemTwo": "Auslegung und Varianten",
+                      "itemThree": "Wirtschaftlichkeitsbewertung",
+                      "itemFour": "Präsentation mit Empfehlung"
                     }
                   }
                 },
@@ -2721,10 +2706,9 @@
                 }
               },
               "Components": {
-                "titleOne": "Warum sind Behördenverfahren wichtig?",
-                "descriptionOne": "Behördenverfahren sichern die Rechtssicherheit Ihres Projekts: Genehmigungen, Meldepflichten und Auflagen werden geprüft und korrekt umgesetzt, damit Ihr Vorhaben rechtskonform und fristgerecht realisiert werden kann.",
+                "titleOne": "Warum Behördenverfahren auslagern?",
+                "descriptionOne": "Wir klären Genehmigungspflichten, erstellen die Einreichunterlagen und führen die Kommunikation mit Behörden und Netzbetreiber – rechtssicher und fristgerecht.",
                 "titleTwo": "Warum wir?",
-                "descriptionTwo": "Wir übernehmen die komplette Kommunikation mit Behörden, bereiten Einreichunterlagen vor und begleiten Sie durch Bewilligungsverfahren, Einsprüche und Nachforderungsprozesse.",
                 "button": {
                   "text": "Verfahren anfragen",
                   "href": "/kontakt"
@@ -2732,7 +2716,7 @@
                 "boxes": {
                   "genehmigungsPrüfung": {
                     "title": "Genehmigungsprüfung",
-                    "description": "Prüfung, ob Ihr Vorhaben genehmigungspflichtig ist und welche Unterlagen (Pläne, Stellungnahmen) erforderlich sind.",
+                    "description": "Welche Bewilligungen und Unterlagen nötig sind.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Genehmigungsprüfung"
@@ -2745,8 +2729,8 @@
                     }
                   },
                   "einreichungUnterlagen": {
-                    "title": "Einreichung & Fristenmanagement",
-                    "description": "Erstellung und fristgerechte Einreichung aller erforderlichen Dokumente sowie Nachverfolgung von Verfahrensschritten.",
+                    "title": "Einreichung & Fristen",
+                    "description": "Vollständige Unterlagen, fristgerecht eingereicht und nachverfolgt.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Einreichung"
@@ -2759,8 +2743,8 @@
                     }
                   },
                   "behördenkommunikation": {
-                    "title": "Behördenkommunikation",
-                    "description": "Koordination und Abstimmung mit Bau- und Umweltbehörden, Netzbetreibern und sonstigen Stellen – inkl. Klärung offener Fragen und Einholung notwendiger Bescheide.",
+                    "title": "Abstimmung",
+                    "description": "Kontakt mit Bau- und Umweltbehörden sowie Netzbetreibern.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Behördenkommunikation"
@@ -2777,25 +2761,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Ihre Vorteile durch fachkundige Behördenbetreuung:",
+                    "title": "Ihre Vorteile",
                     "list": {
-                      "itemOne": "Rechtssichere Projektabwicklung",
-                      "itemTwo": "Minimierung von Verzögerungen",
-                      "itemThree": "Professionelle Einreichunterlagen",
-                      "itemFour": "Klärung technischer & rechtlicher Fragen",
-                      "itemFive": "Optimierte Chancen auf Bewilligung",
-                      "itemSix": "Entlastung für Auftraggeber"
+                      "itemOne": "Rechtssichere Abwicklung",
+                      "itemTwo": "Weniger Verzögerungen",
+                      "itemThree": "Höhere Chance auf Bewilligung",
+                      "itemFour": "Entlastung für Sie"
                     }
                   },
                   "boxRight": {
-                    "title": "So läuft ein Behördenverfahren ab:",
+                    "title": "So läuft es ab",
                     "list": {
-                      "itemOne": "Erstgespräch & Bestandsaufnahme",
-                      "itemTwo": "Prüfung der Genehmigungspflicht und Dokumentenliste",
-                      "itemThree": "Erstellung und Vervollständigung der Einreichunterlagen",
-                      "itemFour": "Formelle Einreichung und Fristenmanagement",
-                      "itemFive": "Abstimmung mit Behörden & Durchführung von Nachreichungen",
-                      "itemSix": "Erhalt des Bescheids und Vorbereitung der Umsetzung"
+                      "itemOne": "Prüfung der Genehmigungspflicht",
+                      "itemTwo": "Erstellung der Einreichunterlagen",
+                      "itemThree": "Einreichung und Nachreichungen",
+                      "itemFour": "Bescheid und Freigabe zur Umsetzung"
                     }
                   }
                 },
@@ -2814,10 +2794,9 @@
                 }
               },
               "Components": {
-                "titleOne": "Warum ist sorgfältige Planung wichtig?",
-                "descriptionOne": "Eine fundierte Planung legt den Grundstein für effiziente, termingerechte und kostensichere Projekte. Von der technischen Auslegung bis zu Energieausweis und Energiebilanz minimieren wir Risiken und schaffen klare Umsetzungsschritte.",
+                "titleOne": "Warum sorgfältige Planung?",
+                "descriptionOne": "Eine fundierte Planung macht Projekte termin- und kostensicher. Wir erstellen Ausführungs- und Einreichunterlagen, die auf der Baustelle funktionieren.",
                 "titleTwo": "Warum wir?",
-                "descriptionTwo": "Unser Team erstellt detaillierte Planungsunterlagen, berücksichtigt lokale Vorschriften und erstellt praktikable Umsetzungspläne für Ihr Vorhaben.",
                 "button": {
                   "text": "Planung anfragen",
                   "href": "/kontakt"
@@ -2825,7 +2804,7 @@
                 "boxes": {
                   "projektplanung": {
                     "title": "Projektplanung",
-                    "description": "Konzept, Meilensteine und Zeitplan für die reibungslose Umsetzung Ihres Projekts.",
+                    "description": "Meilensteine, Zeitplan und Verantwortlichkeiten.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Projektplanung"
@@ -2839,7 +2818,7 @@
                   },
                   "technischeplanung": {
                     "title": "Technische Planung",
-                    "description": "Auslegung von Modulen, Wechselrichtern, Speicher und Schnittstellen für maximale Effizienz.",
+                    "description": "Modulbelegung, Stringplan, Kabelwege und Schnittstellen.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Technische Planung"
@@ -2852,8 +2831,8 @@
                     }
                   },
                   "genehmigungsplanung": {
-                    "title": "Genehmigungsplanung",
-                    "description": "Erstellung der Einreichunterlagen und Koordination mit Behörden für rechtssichere Umsetzung.",
+                    "title": "Ausführungsunterlagen",
+                    "description": "Pläne und Stücklisten für eine reibungslose Montage.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Genehmigungsplanung"
@@ -2870,25 +2849,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Ihre Vorteile durch professionelle Planung:",
+                    "title": "Ihre Vorteile",
                     "list": {
-                      "itemOne": "Klarer Projektfahrplan und Verantwortlichkeiten",
-                      "itemTwo": "Reduzierte Kosten durch vorausschauende Planung",
-                      "itemThree": "Verlässliche Termine und Ressourcenplanung",
-                      "itemFour": "Rechtssichere Unterlagen für Genehmigungen und Förderungen",
-                      "itemFive": "Früherkennung von Risiken und passende Gegenmaßnahmen",
-                      "itemSix": "Transparente Dokumentation für alle Projektphasen"
+                      "itemOne": "Klarer Projektfahrplan",
+                      "itemTwo": "Verlässliche Termine und Kosten",
+                      "itemThree": "Weniger Änderungen auf der Baustelle",
+                      "itemFour": "Unterlagen für Genehmigung und Förderung"
                     }
                   },
                   "boxRight": {
-                    "title": "So läuft die Planung ab:",
+                    "title": "So läuft es ab",
                     "list": {
-                      "itemOne": "Erstgespräch zur Zieldefinition",
-                      "itemTwo": "Bestandsaufnahme und Datensammlung",
-                      "itemThree": "Technische Auslegung und Variantenprüfung",
-                      "itemFour": "Kosten- und Zeitplanung",
-                      "itemFive": "Erstellung der Einreich- und Ausführungsunterlagen",
-                      "itemSix": "Abstimmung mit Behörden und Projektpartnern"
+                      "itemOne": "Bestandsaufnahme und Daten",
+                      "itemTwo": "Technische Auslegung",
+                      "itemThree": "Kosten- und Zeitplan",
+                      "itemFour": "Ausführungsunterlagen und Abstimmung"
                     }
                   }
                 },
@@ -2912,18 +2887,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Warum ist professionelles Projektmanagement wichtig?",
-                "descriptionOne": "Ein zentrales Projektmanagement bündelt Steuerung, Koordination und Überwachung in einer Hand: Fortschritt, Kosten, Termine und Qualität werden laufend kontrolliert, alle Gewerke koordiniert, Abweichungen früh erkannt und Korrekturmaßnahmen sofort eingeleitet.",
+                "titleOne": "Warum professionelles Projektmanagement?",
+                "descriptionOne": "Ein fixer Ansprechpartner steuert Termine, Kosten, Qualität und alle Gewerke – Abweichungen werden früh erkannt und sofort gelöst.",
                 "titleTwo": "Warum wir?",
-                "descriptionTwo": "Wir kombinieren digitale Monitoring-Tools mit erfahrener Projektsteuerung, um Termine, Budget und Qualität sicherzustellen und transparente Berichte für alle Beteiligten zu liefern.",
                 "button": {
                   "text": "Jetzt Projektmanagement anfragen",
                   "href": "/kontakt"
                 },
                 "boxes": {
                   "planung": {
-                    "title": "Zentrale Planung & Steuerung",
-                    "description": "Wir koordinieren Ressourcen, Zeitpläne und Abläufe für einen reibungslosen Projektverlauf.",
+                    "title": "Steuerung",
+                    "description": "Ressourcen, Zeitplan und Abläufe zentral koordiniert.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Planung"
@@ -2936,8 +2910,8 @@
                     }
                   },
                   "monitoring": {
-                    "title": "Kontinuierliches Monitoring",
-                    "description": "Digitales und vor-Ort-Monitoring stellt sicher, dass Abweichungen sofort erkannt und kommuniziert werden.",
+                    "title": "Kontrolle",
+                    "description": "Laufender Abgleich von Fortschritt, Kosten und Qualität – digital und vor Ort.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Monitoring"
@@ -2950,8 +2924,8 @@
                     }
                   },
                   "dokumentation": {
-                    "title": "Detaillierte Dokumentation",
-                    "description": "Lückenlose Aufzeichnung von Fortschritt, Maßnahmen und Ergebnissen für Nachverfolgbarkeit und Lessons Learned.",
+                    "title": "Berichte",
+                    "description": "Transparente Dokumentation für alle Projektbeteiligten.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Dokumentation"
@@ -2968,25 +2942,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Ihre Vorteile durch unser Projektmanagement:",
+                    "title": "Ihre Vorteile",
                     "list": {
-                      "itemOne": "Frühzeitige Risiko- und Fehlererkennung",
-                      "itemTwo": "Einhaltung von Zeitplänen und Budget",
-                      "itemThree": "Höhere Qualitätssicherung",
-                      "itemFour": "Transparente und regelmäßige Berichterstattung",
-                      "itemFive": "Minimierung von Nacharbeiten",
-                      "itemSix": "Effizienter, planbarer Projektverlauf"
+                      "itemOne": "Termine und Budget eingehalten",
+                      "itemTwo": "Risiken früh erkannt",
+                      "itemThree": "Weniger Nacharbeiten",
+                      "itemFour": "Volle Transparenz"
                     }
                   },
                   "boxRight": {
-                    "title": "So läuft unser Projektmanagement ab:",
+                    "title": "So läuft es ab",
                     "list": {
-                      "itemOne": "Einrichtung von Monitoring- und Reporting-Prozessen",
-                      "itemTwo": "Regelmäßige Kontrolle von Fortschritt, Kosten und Ressourcen",
-                      "itemThree": "Sofortige Meldung und Analyse von Abweichungen",
-                      "itemFour": "Einleitung und Nachverfolgung von Korrekturmaßnahmen",
-                      "itemFive": "Fortlaufende Dokumentation",
-                      "itemSix": "Abschlussbericht und Lessons Learned"
+                      "itemOne": "Projektstart und Zeitplan",
+                      "itemTwo": "Laufende Kontrolle und Berichte",
+                      "itemThree": "Steuerung bei Abweichungen",
+                      "itemFour": "Abschlussbericht"
                     }
                   }
                 },
@@ -3005,18 +2975,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Warum ist örtliche Bauaufsicht wichtig?",
-                "descriptionOne": "Die Bauaufsicht vor Ort stellt sicher, dass alle Arbeiten fachgerecht und nach Plan ausgeführt werden.",
+                "titleOne": "Warum örtliche Bauaufsicht?",
+                "descriptionOne": "Wir kontrollieren vor Ort, dass alle Arbeiten fachgerecht und nach Plan ausgeführt werden – und greifen bei Abweichungen sofort ein.",
                 "titleTwo": "Warum wir?",
-                "descriptionTwo": "Unsere Experten sind regelmäßig auf der Baustelle, dokumentieren den Fortschritt und greifen bei Problemen sofort ein.",
                 "button": {
                   "text": "Jetzt Bauaufsicht anfragen",
                   "href": "/kontakt"
                 },
                 "boxes": {
                   "solar-panels": {
-                    "title": "Fachgerechte Kontrolle",
-                    "description": "Wir prüfen die Ausführung aller Arbeiten vor Ort.",
+                    "title": "Kontrolle",
+                    "description": "Regelmäßige Prüfung der Ausführung auf der Baustelle.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Solarmodule"
@@ -3029,8 +2998,8 @@
                     }
                   },
                   "inverters": {
-                    "title": "Dokumentation",
-                    "description": "Alle Baufortschritte werden lückenlos dokumentiert.",
+                    "title": "Mängelmanagement",
+                    "description": "Mängel erfassen, beheben lassen und nachprüfen.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Wechselrichter"
@@ -3043,8 +3012,8 @@
                     }
                   },
                   "batteries": {
-                    "title": "Sofortige Problemlösung",
-                    "description": "Bei Abweichungen greifen wir direkt ein.",
+                    "title": "Abstimmung",
+                    "description": "Koordination mit Bauherr, Planer und ausführenden Firmen.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Batteriespeicher"
@@ -3061,25 +3030,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Ihre Vorteile durch Bauaufsicht:",
+                    "title": "Ihre Vorteile",
                     "list": {
                       "itemOne": "Fachgerechte Ausführung",
-                      "itemTwo": "Lückenlose Dokumentation",
-                      "itemThree": "Schnelle Problemlösung",
-                      "itemFour": "Qualitätskontrolle",
-                      "itemFive": "Transparenz für Bauherren",
-                      "itemSix": "Termintreue"
+                      "itemTwo": "Gesicherte Qualität",
+                      "itemThree": "Termintreue",
+                      "itemFour": "Transparenz für den Bauherrn"
                     }
                   },
                   "boxRight": {
-                    "title": "So läuft die Bauaufsicht ab:",
+                    "title": "So läuft es ab",
                     "list": {
                       "itemOne": "Regelmäßige Baustellenbesuche",
-                      "itemTwo": "Kontrolle der Ausführung",
-                      "itemThree": "Dokumentation des Fortschritts",
-                      "itemFour": "Mängelmanagement",
-                      "itemFive": "Abstimmung mit allen Beteiligten",
-                      "itemSix": "Abschlusskontrolle"
+                      "itemTwo": "Kontrolle und Fotodokumentation",
+                      "itemThree": "Mängelmanagement",
+                      "itemFour": "Abschlusskontrolle"
                     }
                   }
                 },
@@ -3098,18 +3063,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Warum ist eine professionelle Bauausführung wichtig?",
-                "descriptionOne": "Eine fachgerechte Bauausführung stellt sicher, dass Planung in zuverlässige Umsetzung übergeht, Termine eingehalten werden und die Qualität der Arbeiten dauerhaft gewährleistet ist.",
+                "titleOne": "Warum professionelle Bauausführung?",
+                "descriptionOne": "Unsere Montageteams setzen Ihre Planung sauber, sicher und termingerecht um – von der Unterkonstruktion bis zur Abnahme.",
                 "titleTwo": "Warum wir?",
-                "descriptionTwo": "Unsere Teams koordinieren Gewerke, führen Arbeiten nach technischen Vorgaben aus und sorgen für eine saubere, termingerechte Abwicklung bis zur Abnahme.",
                 "button": {
                   "text": "Jetzt Bauausführung anfragen",
                   "href": "/kontakt"
                 },
                 "boxes": {
                   "solar-panels": {
-                    "title": "Fachgerechte Ausführung",
-                    "description": "Wir führen alle Arbeiten nach aktuellen Standards und Vorgaben professionell und sicher aus.",
+                    "title": "Montage",
+                    "description": "Unterkonstruktion, Module sowie DC- und AC-Installation nach Norm.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Solarmodule"
@@ -3122,8 +3086,8 @@
                     }
                   },
                   "inverters": {
-                    "title": "Baufortschritt dokumentieren",
-                    "description": "Wir dokumentieren Meilensteine und Arbeitsergebnisse transparent für Sie.",
+                    "title": "Prüfung",
+                    "description": "Messungen und Prüfprotokolle für jede Anlage.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Wechselrichter"
@@ -3136,8 +3100,8 @@
                     }
                   },
                   "batteries": {
-                    "title": "Schnelle Problemlösung",
-                    "description": "Bei Abweichungen oder Herausforderungen greifen wir sofort ein und sorgen für praktikable Lösungen.",
+                    "title": "Dokumentation",
+                    "description": "Montage- und Fotodokumentation als Nachweis.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Batteriespeicher"
@@ -3154,25 +3118,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Ihre Vorteile durch professionelle Bauausführung:",
+                    "title": "Ihre Vorteile",
                     "list": {
-                      "itemOne": "Fachgerechte Umsetzung gemäß Planung",
-                      "itemTwo": "Lückenlose Dokumentation aller Arbeitsschritte",
-                      "itemThree": "Schnelle und pragmatische Problemlösung",
-                      "itemFour": "Qualitätssicherung und Prüfungen",
-                      "itemFive": "Transparente Kommunikation für Bauherren",
-                      "itemSix": "Termintreue und verlässliche Abnahme"
+                      "itemOne": "Saubere Umsetzung nach Plan",
+                      "itemTwo": "Geprüfte Qualität",
+                      "itemThree": "Termintreue Abnahme",
+                      "itemFour": "Ein Team für die gesamte Montage"
                     }
                   },
                   "boxRight": {
-                    "title": "So läuft die Bauausführung ab:",
+                    "title": "So läuft es ab",
                     "list": {
-                      "itemOne": "Koordination und Terminplanung der Gewerke",
-                      "itemTwo": "Vorbereitung und Materialbereitstellung",
-                      "itemThree": "Fachgerechte Montage und Ausführung",
-                      "itemFour": "Fortlaufende Dokumentation und Qualitätstests",
-                      "itemFive": "Abstimmung mit Auftraggebern und Partnern",
-                      "itemSix": "Endabnahme und Übergabe"
+                      "itemOne": "Arbeitsvorbereitung und Logistik",
+                      "itemTwo": "Montage und Installation",
+                      "itemThree": "Messung und Prüfung",
+                      "itemFour": "Abnahme und Übergabe"
                     }
                   }
                 },
@@ -3191,10 +3151,9 @@
                 }
               },
               "Components": {
-                "titleOne": "Warum ist Materialbeschaffung wichtig?",
-                "descriptionOne": "Die rechtzeitige und bedarfsgerechte Beschaffung aller Materialien ist entscheidend für einen reibungslosen Bauablauf.",
+                "titleOne": "Warum Materialbeschaffung über uns?",
+                "descriptionOne": "Über unser Netzwerk mit 30 Händler:innen und Dienstleister:innen beschaffen wir das passende Material – zum richtigen Preis und pünktlich auf die Baustelle.",
                 "titleTwo": "Warum wir?",
-                "descriptionTwo": "Wir verfügen über ein starkes Netzwerk und sorgen für die pünktliche Lieferung aller benötigten Materialien.",
                 "button": {
                   "text": "Jetzt Materialbeschaffung anfragen",
                   "href": "/kontakt"
@@ -3202,7 +3161,7 @@
                 "boxes": {
                   "solar-panels": {
                     "title": "Bedarfsermittlung",
-                    "description": "Wir ermitteln den Materialbedarf exakt.",
+                    "description": "Exakte Stücklisten aus der Planung.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Solarmodule"
@@ -3215,8 +3174,8 @@
                     }
                   },
                   "inverters": {
-                    "title": "Lieferantenauswahl",
-                    "description": "Wir wählen zuverlässige Lieferanten aus.",
+                    "title": "Einkauf",
+                    "description": "Zuverlässige Lieferanten und hochwertige Markenkomponenten.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Wechselrichter"
@@ -3229,8 +3188,8 @@
                     }
                   },
                   "batteries": {
-                    "title": "Termingerechte Lieferung",
-                    "description": "Wir koordinieren die Lieferung zum optimalen Zeitpunkt.",
+                    "title": "Logistik",
+                    "description": "Lieferung zum richtigen Zeitpunkt, inkl. Wareneingangskontrolle.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Batteriespeicher"
@@ -3247,25 +3206,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Ihre Vorteile durch Materialbeschaffung:",
+                    "title": "Ihre Vorteile",
                     "list": {
-                      "itemOne": "Exakte Bedarfsermittlung",
-                      "itemTwo": "Zuverlässige Lieferanten",
-                      "itemThree": "Termingerechte Lieferung",
-                      "itemFour": "Kostenkontrolle",
-                      "itemFive": "Minimierung von Verzögerungen",
-                      "itemSix": "Qualitätsmaterialien"
+                      "itemOne": "Weniger Verzögerungen",
+                      "itemTwo": "Kostenkontrolle",
+                      "itemThree": "Geprüfte Qualität",
+                      "itemFour": "Ein Ansprechpartner für Material und Montage"
                     }
                   },
                   "boxRight": {
-                    "title": "So läuft die Materialbeschaffung ab:",
+                    "title": "So läuft es ab",
                     "list": {
                       "itemOne": "Bedarfsermittlung",
-                      "itemTwo": "Lieferantenauswahl",
-                      "itemThree": "Bestellung",
-                      "itemFour": "Lieferkoordination",
-                      "itemFive": "Wareneingangskontrolle",
-                      "itemSix": "Dokumentation"
+                      "itemTwo": "Angebot und Bestellung",
+                      "itemThree": "Lieferkoordination",
+                      "itemFour": "Wareneingangskontrolle"
                     }
                   }
                 },
@@ -3284,10 +3239,9 @@
                 }
               },
               "Components": {
-                "titleOne": "Warum einen Generalunternehmer beauftragen?",
-                "descriptionOne": "Ein Generalunternehmer übernimmt die komplette Abwicklung Ihres Projekts – von der Planung über Montageabwicklung, Bauüberwachung und Qualitätssicherung bis zur schlüsselfertigen Übergabe. Alles aus einer Hand, mit einem verantwortlichen Ansprechpartner.",
+                "titleOne": "Warum einen Generalunternehmer?",
+                "descriptionOne": "Wir übernehmen Ihr Projekt komplett – Planung, Material, Montage und Projektmanagement aus einer Hand, bis zur schlüsselfertigen Übergabe.",
                 "titleTwo": "Warum wir?",
-                "descriptionTwo": "Wir koordinieren alle Gewerke, überwachen Ausführung und Qualität auf der Baustelle und sorgen für reibungslose, termingerechte Abläufe – als Ihr zentraler Ansprechpartner.",
                 "button": {
                   "text": "Jetzt Generalunternehmer anfragen",
                   "href": "/kontakt"
@@ -3295,7 +3249,7 @@
                 "boxes": {
                   "solar-panels": {
                     "title": "Komplettabwicklung",
-                    "description": "Wir übernehmen alle Aufgaben von der Planung bis zur Fertigstellung.",
+                    "description": "Alle Leistungen in einem Auftrag.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Solarmodule"
@@ -3308,8 +3262,8 @@
                     }
                   },
                   "inverters": {
-                    "title": "Koordination aller Gewerke",
-                    "description": "Wir steuern und überwachen alle beteiligten Unternehmen.",
+                    "title": "Gewerkekoordination",
+                    "description": "Wir steuern alle beteiligten Firmen.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Wechselrichter"
@@ -3322,8 +3276,8 @@
                     }
                   },
                   "batteries": {
-                    "title": "Zentrale Ansprechperson",
-                    "description": "Sie haben einen Ansprechpartner für alle Fragen und Anliegen.",
+                    "title": "Eine Verantwortung",
+                    "description": "Ein Vertrag, ein Ansprechpartner.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Batteriespeicher"
@@ -3340,25 +3294,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Ihre Vorteile durch einen Generalunternehmer:",
+                    "title": "Ihre Vorteile",
                     "list": {
-                      "itemOne": "Komplette Projektabwicklung aus einer Hand",
-                      "itemTwo": "Weniger Koordinationsaufwand",
-                      "itemThree": "Termintreue und Kostenkontrolle",
-                      "itemFour": "Zentrale Verantwortung",
-                      "itemFive": "Transparente Kommunikation",
-                      "itemSix": "Schlüsselfertige Übergabe"
+                      "itemOne": "Weniger Koordinationsaufwand",
+                      "itemTwo": "Kosten- und Terminsicherheit",
+                      "itemThree": "Klare Verantwortung",
+                      "itemFour": "Schlüsselfertige Übergabe"
                     }
                   },
                   "boxRight": {
-                    "title": "So läuft das Generalunternehmer-Modell ab:",
+                    "title": "So läuft es ab",
                     "list": {
-                      "itemOne": "Projektplanung und Angebotserstellung",
-                      "itemTwo": "Koordination aller Gewerke",
-                      "itemThree": "Überwachung der Ausführung",
-                      "itemFour": "Qualitätskontrolle",
-                      "itemFive": "Abnahme und Übergabe",
-                      "itemSix": "Nachbetreuung"
+                      "itemOne": "Angebot und Auftrag",
+                      "itemTwo": "Planung und Beschaffung",
+                      "itemThree": "Ausführung und Kontrolle",
+                      "itemFour": "Übergabe und Nachbetreuung"
                     }
                   }
                 },
@@ -3382,18 +3332,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Warum ist Wartung wichtig?",
-                "descriptionOne": "Regelmäßige Wartung sichert Effizienz und Langlebigkeit Ihrer Anlage. Wir erkennen Verschleiß und Störungen frühzeitig, führen den hydraulischen Abgleich durch und stehen Ihnen mit zuverlässigem Kundendienst zur Seite – so verhindern wir teure Ausfälle.",
+                "titleOne": "Warum regelmäßige Wartung?",
+                "descriptionOne": "Regelmäßige Wartung hält Ihre Anlage sicher und leistungsfähig. Wir erkennen Verschleiß früh und verhindern teure Ausfälle.",
                 "titleTwo": "Warum wir?",
-                "descriptionTwo": "Unsere Experten prüfen Ihre Systeme gründlich, dokumentieren alle Ergebnisse und sorgen für einen reibungslosen Betrieb.",
                 "button": {
                   "text": "Jetzt Wartung anfragen",
                   "href": "/kontakt"
                 },
                 "boxes": {
                   "solar-panels": {
-                    "title": "Regelmäßige Kontrolle",
-                    "description": "Wir prüfen Ihre Anlage auf Funktion und Sicherheit.",
+                    "title": "Prüfung",
+                    "description": "Sicht-, Funktions- und Sicherheitscheck der Anlage.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Solarmodule"
@@ -3406,8 +3355,8 @@
                     }
                   },
                   "inverters": {
-                    "title": "Verschleiß erkennen",
-                    "description": "Wir entdecken frühzeitig Schwachstellen und beheben sie.",
+                    "title": "Messung",
+                    "description": "Elektrische Messungen und Ertragsvergleich.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Wechselrichter"
@@ -3420,8 +3369,8 @@
                     }
                   },
                   "batteries": {
-                    "title": "Dokumentation",
-                    "description": "Sie erhalten einen detaillierten Wartungsbericht.",
+                    "title": "Bericht",
+                    "description": "Wartungsprotokoll mit Empfehlungen.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Batteriespeicher"
@@ -3438,25 +3387,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Ihre Vorteile durch Wartung:",
+                    "title": "Ihre Vorteile",
                     "list": {
-                      "itemOne": "Vermeidung von Ausfällen",
-                      "itemTwo": "Längere Lebensdauer der Anlage",
-                      "itemThree": "Erhalt der Garantie",
-                      "itemFour": "Maximale Effizienz",
-                      "itemFive": "Transparente Wartungsprotokolle",
-                      "itemSix": "Sicherheit für Betreiber"
+                      "itemOne": "Weniger Ausfälle",
+                      "itemTwo": "Längere Lebensdauer",
+                      "itemThree": "Garantie bleibt erhalten",
+                      "itemFour": "Sicherheit für Betreiber"
                     }
                   },
                   "boxRight": {
-                    "title": "So läuft die Wartung ab:",
+                    "title": "So läuft es ab",
                     "list": {
                       "itemOne": "Terminvereinbarung",
-                      "itemTwo": "Vor-Ort-Prüfung durch Experten",
-                      "itemThree": "Funktions- und Sicherheitscheck",
-                      "itemFour": "Behebung kleinerer Mängel",
-                      "itemFive": "Detaillierter Wartungsbericht",
-                      "itemSix": "Empfehlungen für die Zukunft"
+                      "itemTwo": "Prüfung vor Ort",
+                      "itemThree": "Behebung kleiner Mängel",
+                      "itemFour": "Wartungsbericht"
                     }
                   }
                 },
@@ -3475,18 +3420,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Warum ist professionelle Fehlerbehebung wichtig?",
-                "descriptionOne": "Störungen können die Leistung Ihrer Anlage erheblich beeinträchtigen. Wir finden die Ursache schnell und effizient, damit Ihre Systeme wieder optimal laufen.",
+                "titleOne": "Warum professionelle Fehlerbehebung?",
+                "descriptionOne": "Störungen kosten Ertrag. Wir finden die Ursache schnell und beheben sie nachhaltig.",
                 "titleTwo": "Warum wir?",
-                "descriptionTwo": "Unsere erfahrenen Techniker nutzen moderne Diagnosemethoden und beheben Fehler nachhaltig.",
                 "button": {
                   "text": "Jetzt Fehlerbehebung anfragen",
                   "href": "/kontakt"
                 },
                 "boxes": {
                   "solar-panels": {
-                    "title": "Schnelle Diagnose",
-                    "description": "Wir analysieren Ihre Anlage und finden die Fehlerquelle.",
+                    "title": "Diagnose",
+                    "description": "Analyse der Anlage – aus der Ferne und vor Ort.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Solarmodule"
@@ -3499,8 +3443,8 @@
                     }
                   },
                   "inverters": {
-                    "title": "Effiziente Reparatur",
-                    "description": "Wir beheben Störungen schnell und zuverlässig.",
+                    "title": "Reparatur",
+                    "description": "Tausch oder Instandsetzung defekter Komponenten.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Wechselrichter"
@@ -3513,8 +3457,8 @@
                     }
                   },
                   "batteries": {
-                    "title": "Nachhaltige Lösung",
-                    "description": "Wir sorgen dafür, dass Ihre Anlage dauerhaft störungsfrei läuft.",
+                    "title": "Nachweis",
+                    "description": "Funktionsprüfung und Bericht.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Batteriespeicher"
@@ -3531,25 +3475,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Ihre Vorteile durch Fehlerbehebung:",
+                    "title": "Ihre Vorteile",
                     "list": {
-                      "itemOne": "Schnelle Wiederherstellung der Funktion",
-                      "itemTwo": "Minimierung von Ausfallzeiten",
-                      "itemThree": "Vermeidung von Folgeschäden",
-                      "itemFour": "Transparente Fehleranalyse",
-                      "itemFive": "Nachhaltige Reparatur",
-                      "itemSix": "Kompetente Ansprechpartner"
+                      "itemOne": "Kurze Ausfallzeiten",
+                      "itemTwo": "Keine Folgeschäden",
+                      "itemThree": "Nachvollziehbare Fehleranalyse",
+                      "itemFour": "Dauerhafte Lösung"
                     }
                   },
                   "boxRight": {
-                    "title": "So läuft die Fehlerbehebung ab:",
+                    "title": "So läuft es ab",
                     "list": {
-                      "itemOne": "Kontaktaufnahme und Termin",
-                      "itemTwo": "Analyse der Störung",
-                      "itemThree": "Identifikation der Fehlerquelle",
-                      "itemFour": "Behebung des Fehlers",
-                      "itemFive": "Funktionsprüfung",
-                      "itemSix": "Abschlussbericht und Empfehlung"
+                      "itemOne": "Meldung und Termin",
+                      "itemTwo": "Fehlersuche",
+                      "itemThree": "Behebung",
+                      "itemFour": "Funktionsprüfung und Bericht"
                     }
                   }
                 },
@@ -3568,18 +3508,17 @@
                 }
               },
               "Components": {
-                "titleOne": "Warum ist Reinigung wichtig?",
-                "descriptionOne": "Saubere Anlagen arbeiten effizienter und haben eine längere Lebensdauer. Wir entfernen Verschmutzungen und sorgen für optimale Leistung.",
+                "titleOne": "Warum Reinigung?",
+                "descriptionOne": "Saubere Module liefern mehr Ertrag. Wir reinigen schonend und dokumentieren das Ergebnis.",
                 "titleTwo": "Warum wir?",
-                "descriptionTwo": "Unsere Fachkräfte reinigen Ihre Anlage professionell, schonend und dokumentieren das Ergebnis.",
                 "button": {
                   "text": "Jetzt Reinigung anfragen",
                   "href": "/kontakt"
                 },
                 "boxes": {
                   "solar-panels": {
-                    "title": "Effiziente Reinigung",
-                    "description": "Wir reinigen Ihre Solarmodule und Technikflächen gründlich.",
+                    "title": "Modulreinigung",
+                    "description": "Gründliche Reinigung von Modulen und Technikflächen.",
                     "image": {
                       "src": "/frontend/landingPage/icons/rundum-sorglos-icon.svg",
                       "alt": "Solarmodule"
@@ -3593,7 +3532,7 @@
                   },
                   "inverters": {
                     "title": "Schonende Verfahren",
-                    "description": "Wir nutzen spezielle Reinigungsmittel und Methoden für maximale Sicherheit.",
+                    "description": "Geeignete Mittel und Methoden – ohne Schäden an Glas und Rahmen.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Wechselrichter"
@@ -3606,8 +3545,8 @@
                     }
                   },
                   "batteries": {
-                    "title": "Leistungsnachweis",
-                    "description": "Sie erhalten eine Dokumentation der Reinigung und Empfehlungen für die Zukunft.",
+                    "title": "Dokumentation",
+                    "description": "Vorher-nachher-Nachweis mit Empfehlung.",
                     "image": {
                       "src": "/frontend/landingPage/products/AA%20Dach-montage.jpg",
                       "alt": "Batteriespeicher"
@@ -3624,25 +3563,21 @@
               "Background": {
                 "boxes": {
                   "boxLeft": {
-                    "title": "Ihre Vorteile durch Reinigung:",
+                    "title": "Ihre Vorteile",
                     "list": {
-                      "itemOne": "Höhere Effizienz der Anlage",
+                      "itemOne": "Mehr Ertrag",
                       "itemTwo": "Längere Lebensdauer",
-                      "itemThree": "Vermeidung von Ertragsverlusten",
-                      "itemFour": "Schonende Reinigung",
-                      "itemFive": "Transparente Dokumentation",
-                      "itemSix": "Empfehlungen für Wartungsintervalle"
+                      "itemThree": "Schonende Reinigung",
+                      "itemFour": "Passende Reinigungsintervalle"
                     }
                   },
                   "boxRight": {
-                    "title": "So läuft die Reinigung ab:",
+                    "title": "So läuft es ab",
                     "list": {
                       "itemOne": "Terminvereinbarung",
-                      "itemTwo": "Vor-Ort-Besichtigung",
-                      "itemThree": "Professionelle Reinigung",
-                      "itemFour": "Funktionsprüfung",
-                      "itemFive": "Dokumentation",
-                      "itemSix": "Empfehlung für weitere Maßnahmen"
+                      "itemTwo": "Besichtigung",
+                      "itemThree": "Reinigung",
+                      "itemFour": "Dokumentation"
                     }
                   }
                 },
@@ -3684,7 +3619,7 @@
     },
     "ContactUs": {
       "Header": {
-        "title": "Ihr <highlight>Projekterfolg</highlight>.<lineBreak></lineBreak> Wir machen es einfach.",
+        "title": "Ihr <highlight>Projekterfolg.</highlight><lineBreak></lineBreak> <highlight>Wir machen es einfach.</highlight>",
         "smallTitle": "Wir übernehmen Verantwortung.",
         "description": "Innerhalb von 24 Stunden melden wir uns<br></br>auf Ihre Anfrage."
       },
@@ -8507,7 +8442,7 @@
           "title": "Geprüft. Dokumentiert. Verlässlich.",
           "items": [
             {
-              "title": "Sicherheit zuerst",
+              "title": "Organisation zuerst",
               "text": "Montageleitung vor Ort und klare Koordination mit dem Generalunternehmer schützen Team und Baustelle."
             },
             {
@@ -8516,10 +8451,10 @@
             },
             {
               "title": "Planbare Kosten",
-              "text": "Klare Preise je Position, Längen nach Aufmaß."
+              "text": "Klare Preise je Position, nach Menge und Aufmaß."
             },
             {
-              "title": "Werterhalt der Anlage",
+              "title": "Wertsicherung der Anlage",
               "text": "Laufende Montage- und Fotodokumentation für einen langfristig sicheren Betrieb."
             },
             {
@@ -8540,10 +8475,6 @@
             {
               "title": "Erfahrung & Qualität",
               "text": "Lösungen, die passen."
-            },
-            {
-              "title": "Gut geplant in Ihre Energiezukunft",
-              "text": "Hochwertige Komponenten, verlässliche Qualität und langfristige Betreuung."
             }
           ]
         },

@@ -14,6 +14,8 @@ export const HERO_IMAGES = {
   "logo-heldin-lila": "/brand/helden/logo-heldin-lila.webp",
   "logo-heldin-rot": "/brand/helden/logo-heldin-rot.webp",
   "logo-heldin-orange": "/brand/helden/logo-heldin-orange.webp",
+  "synergie-heldenpaar": "/brand/helden/synergie-heldenpaar.webp",
+  "logo-heldenpaar": "/brand/helden/logo-heldenpaar.webp",
 } as const;
 
 export type HeroImageName = keyof typeof HERO_IMAGES;

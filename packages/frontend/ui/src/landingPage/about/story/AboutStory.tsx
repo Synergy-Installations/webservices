@@ -17,7 +17,7 @@ export const AboutStory = (props: AboutStoryProps) => {
   return (
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="pb-12 md:pb-20">
+        <div>
           <div className="max-w-3xl mx-auto">
             <div className="text-lg text-slate-500">
               <h2 className="h3 text-4xl font-bold font-inter text-slate-800 mb-4">

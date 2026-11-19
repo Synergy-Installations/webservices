@@ -26,7 +26,7 @@ export default async function Page({
       <FeatureSteps />
       <FeatureAdvantages />
       <TestimonialsCarousel googleReviews={googleReviews} />
-      <HeroLogoCta hero="logo-held-gruen" className="pt-12 md:pt-20" />
+      <HeroLogoCta hero="logo-held-gruen" className="pt-12 md:pt-16" />
       <CtaLoose />
     </>
   );

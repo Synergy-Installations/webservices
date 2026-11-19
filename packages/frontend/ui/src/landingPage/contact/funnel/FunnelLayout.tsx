@@ -19,7 +19,7 @@ export const FunnelLayout = (props: FunnelLayoutProps) => {
   return (
     <>
       <section className="relative before:absolute before:inset-0 before:h-80 before:pointer-events-none before:bg-gradient-to-b before:from-synergy-light-grey/60 before:-z-10">
-        <div className="pt-32 pb-12">
+        <div className="pt-32">
           <div className="px-4 sm:px-6">
             {/* Page header */}
             <div className="max-w-3xl mx-auto text-center">
@@ -40,8 +40,8 @@ export const FunnelLayout = (props: FunnelLayoutProps) => {
           </div>
         </div>
       </section>
-      <QualityChecklist section="contact" hero="synergie-heldin" numbered />
-      <HeroLogoCta hero="logo-heldin-orange" className="pb-16" />
+      <QualityChecklist section="contact" hero="synergie-heldenpaar" numbered />
+      <HeroLogoCta hero="logo-heldenpaar" className="pb-16" />
     </>
   );
 };

@@ -48,7 +48,7 @@ export const QualityChecklist = ({
   return (
     <section className={`px-4 py-12 md:py-16 ${className}`}>
       <div
-        className={`mx-auto grid max-w-5xl items-center gap-10 ${hero ? "md:grid-cols-[1fr_16rem]" : ""}`}
+        className={`mx-auto grid max-w-5xl items-start gap-10 ${hero ? (hero.includes("paar") ? "md:grid-cols-[1fr_18rem]" : "md:grid-cols-[1fr_16rem]") : ""}`}
       >
         <div>
           <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-synergy-light-blue">
@@ -87,7 +87,7 @@ export const QualityChecklist = ({
           <HeroImage
             name={hero}
             alt={th("synergieAlt")}
-            className="mx-auto aspect-[2/3] w-44 md:w-64"
+            className={`mx-auto ${hero.includes("paar") ? "aspect-square w-56 md:w-72" : "aspect-[2/3] w-44 md:w-64"}`}
           />
         ) : null}
       </div>

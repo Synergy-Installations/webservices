@@ -24,7 +24,7 @@ export const HeroLogoCta = ({
         <HeroImage
           name={hero}
           alt={t("logoAlt")}
-          className="aspect-[3/4] w-40 shrink-0 sm:w-48"
+          className={`shrink-0 ${hero.includes("paar") ? "aspect-square w-48 sm:w-56" : "aspect-[3/4] w-40 sm:w-48"}`}
         />
         <div className="text-center sm:text-left">
           <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-synergy-light-blue">

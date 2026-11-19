@@ -23,7 +23,7 @@ export default function Page() {
       </Head>
       <AboutHero />
       <AboutStory />
-      <QualityChecklist section="about" hero="synergie-heldin" />
+      <QualityChecklist section="about" hero="synergie-held" />
       <HeroLogoCta hero="logo-heldin-lila" className="pb-12" />
       <AboutCta />
     </>

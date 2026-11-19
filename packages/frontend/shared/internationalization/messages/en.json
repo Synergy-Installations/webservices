@@ -240,7 +240,7 @@
         },
         "subtitle": "Your project in safe hands",
         "servicesCard": {
-          "imageAlt": "Ground-mounted PV plant – a SYNERGIE project",
+          "imageAlt": "PV façade on a building in Vienna at sunset",
           "title": "Services",
           "lists": [
             ["Consulting & engineering", "Implementation", "System service"]
@@ -2894,7 +2894,7 @@
                 "title": "Project management",
                 "backgroundImage": {
                   "src": "/brand/projekte/umsetzung.webp",
-                  "alt": "Installing the mounting system on a tiled roof"
+                  "alt": "Installing the mounting system on a plain-tile roof"
                 }
               },
               "Components": {
@@ -3640,36 +3640,52 @@
         "title": "From our projects",
         "items": [
           {
-            "src": "/brand/projekte/projekt-1.webp",
-            "caption": "Ground-mounted PV plant"
+            "src": "/brand/projekte/galerie-01.webp",
+            "caption": "Ground-mounted PV plant, England"
           },
           {
-            "src": "/brand/projekte/projekt-2.webp",
-            "caption": "Rooftop system on fibre-cement hall"
+            "src": "/brand/projekte/galerie-02.webp",
+            "caption": "Ground-mounted PV plant, Turkey"
           },
           {
-            "src": "/brand/projekte/projekt-3.webp",
+            "src": "/brand/projekte/galerie-03.webp",
+            "caption": "Ground-mounted system next to a commercial hall"
+          },
+          {
+            "src": "/brand/projekte/galerie-04.webp",
+            "caption": "Fibre-cement hall by the railway"
+          },
+          {
+            "src": "/brand/projekte/galerie-05.webp",
             "caption": "Metal roof on a historic building, Vienna"
           },
           {
-            "src": "/brand/projekte/projekt-4.webp",
-            "caption": "Fire station with tiled roof"
+            "src": "/brand/projekte/galerie-06.webp",
+            "caption": "PV façade on a detached house"
           },
           {
-            "src": "/brand/projekte/projekt-5.webp",
-            "caption": "Transformer station & medium voltage"
+            "src": "/brand/projekte/galerie-07.webp",
+            "caption": "Commercial hall with several roof areas"
           },
           {
-            "src": "/brand/projekte/projekt-6.webp",
-            "caption": "DC connection & surge protection"
+            "src": "/brand/projekte/galerie-08.webp",
+            "caption": "Terraced houses at the edge of the forest"
           },
           {
-            "src": "/brand/projekte/projekt-7.webp",
-            "caption": "Cable route, ground-mounted plant"
+            "src": "/brand/projekte/galerie-09.webp",
+            "caption": "Carport with glass-glass modules"
           },
           {
-            "src": "/brand/projekte/projekt-8.webp",
-            "caption": "Mounting structure, ground-mounted plant"
+            "src": "/brand/projekte/galerie-10.webp",
+            "caption": "Ground-mounted system at the forest edge"
+          },
+          {
+            "src": "/brand/projekte/galerie-11.webp",
+            "caption": "Cable routes to the transformer station"
+          },
+          {
+            "src": "/brand/projekte/galerie-12.webp",
+            "caption": "Inverter & battery storage in the plant room"
           }
         ]
       }
@@ -10007,6 +10023,20 @@
             {
               "title": "Strong partnership",
               "text": "Together for powerful solar plants."
+            }
+          ],
+          "photos": [
+            {
+              "src": "/brand/projekte/detail-stockschraube.webp",
+              "caption": "Hanger bolt, carefully sealed"
+            },
+            {
+              "src": "/brand/projekte/detail-dachhaken.webp",
+              "caption": "Roof hook, fitted precisely under the tile"
+            },
+            {
+              "src": "/brand/projekte/detail-strings.webp",
+              "caption": "Strings, clearly labelled"
             }
           ]
         },

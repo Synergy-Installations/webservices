@@ -240,7 +240,7 @@
         },
         "subtitle": "Ihr Projekt in sicheren Händen",
         "servicesCard": {
-          "imageAlt": "Freiflächenanlage – Projekt von SYNERGIE",
+          "imageAlt": "PV-Fassade an einem Wiener Gebäude bei Sonnenuntergang",
           "title": "Leistungen",
           "lists": [["Beratung & Engineering", "Umsetzung", "Anlagenservice"]],
           "button": {
@@ -2892,7 +2892,7 @@
                 "title": "Projektmanagement",
                 "backgroundImage": {
                   "src": "/brand/projekte/umsetzung.webp",
-                  "alt": "Montage der Unterkonstruktion auf einem Ziegeldach"
+                  "alt": "Montage der Unterkonstruktion auf einem Biberschwanz-Dach"
                 }
               },
               "Components": {
@@ -3630,36 +3630,52 @@
         "title": "Aus unseren Projekten",
         "items": [
           {
-            "src": "/brand/projekte/projekt-1.webp",
-            "caption": "Freiflächenanlage"
+            "src": "/brand/projekte/galerie-01.webp",
+            "caption": "Freiflächenanlage, England"
           },
           {
-            "src": "/brand/projekte/projekt-2.webp",
-            "caption": "Dachanlage auf Welleternit-Halle"
+            "src": "/brand/projekte/galerie-02.webp",
+            "caption": "Freiflächenanlage, Türkei"
           },
           {
-            "src": "/brand/projekte/projekt-3.webp",
-            "caption": "Blechdach am Altbau, Wien"
+            "src": "/brand/projekte/galerie-03.webp",
+            "caption": "Freifläche vor Gewerbehalle"
           },
           {
-            "src": "/brand/projekte/projekt-4.webp",
-            "caption": "Feuerwehrhaus mit Ziegeldach"
+            "src": "/brand/projekte/galerie-04.webp",
+            "caption": "Welleternit-Halle am Bahnhof"
           },
           {
-            "src": "/brand/projekte/projekt-5.webp",
-            "caption": "Trafostation & Mittelspannung"
+            "src": "/brand/projekte/galerie-05.webp",
+            "caption": "Blechdach am Wiener Altbau"
           },
           {
-            "src": "/brand/projekte/projekt-6.webp",
-            "caption": "DC-Anschluss & Überspannungsschutz"
+            "src": "/brand/projekte/galerie-06.webp",
+            "caption": "PV-Fassade am Einfamilienhaus"
           },
           {
-            "src": "/brand/projekte/projekt-7.webp",
-            "caption": "Kabeltrasse Freifläche"
+            "src": "/brand/projekte/galerie-07.webp",
+            "caption": "Gewerbehalle mit mehreren Dachflächen"
           },
           {
-            "src": "/brand/projekte/projekt-8.webp",
-            "caption": "Unterkonstruktion Freifläche"
+            "src": "/brand/projekte/galerie-08.webp",
+            "caption": "Reihenhäuser am Waldrand"
+          },
+          {
+            "src": "/brand/projekte/galerie-09.webp",
+            "caption": "Carport mit Glas-Glas-Modulen"
+          },
+          {
+            "src": "/brand/projekte/galerie-10.webp",
+            "caption": "Freifläche am Waldrand"
+          },
+          {
+            "src": "/brand/projekte/galerie-11.webp",
+            "caption": "Kabeltrassen zur Trafostation"
+          },
+          {
+            "src": "/brand/projekte/galerie-12.webp",
+            "caption": "Wechselrichter & Speicher im Technikraum"
           }
         ]
       }
@@ -8507,6 +8523,20 @@
             {
               "title": "Starke Partnerschaft",
               "text": "Gemeinsam für starke Sonnenkraftwerke."
+            }
+          ],
+          "photos": [
+            {
+              "src": "/brand/projekte/detail-stockschraube.webp",
+              "caption": "Stockschraube, sauber abgedichtet"
+            },
+            {
+              "src": "/brand/projekte/detail-dachhaken.webp",
+              "caption": "Dachhaken, passgenau unter dem Ziegel"
+            },
+            {
+              "src": "/brand/projekte/detail-strings.webp",
+              "caption": "Strings, eindeutig beschriftet"
             }
           ]
         },

@@ -44,6 +44,7 @@ export const QualityChecklist = ({
   const messages: any = useMessages();
   const data = messages?.LandingPage?.Shared?.Quality?.[section] || {};
   const items: { title: string; text: string }[] = data.items || [];
+  const photos: { src: string; caption: string }[] = data.photos || [];
 
   return (
     <section className={`px-4 py-12 md:py-16 ${className}`}>
@@ -82,6 +83,28 @@ export const QualityChecklist = ({
               </li>
             ))}
           </ul>
+          {/* Echte Detailfotos – Präzision auf der Baustelle */}
+          {photos.length > 0 ? (
+            <ul className="mt-4 grid grid-cols-3 gap-3">
+              {photos.map((p) => (
+                <li
+                  key={p.src}
+                  className="overflow-hidden rounded-xl bg-white ring-1 ring-black/5"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={p.src}
+                    alt={p.caption}
+                    loading="lazy"
+                    className="aspect-square w-full object-cover"
+                  />
+                  <p className="px-2 py-1.5 text-xs font-semibold leading-tight text-synergy-dark-grey">
+                    {p.caption}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </div>
         {hero ? (
           <HeroImage

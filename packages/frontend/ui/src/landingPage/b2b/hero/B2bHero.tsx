@@ -12,7 +12,7 @@ export const B2bHero = (props: B2bHeroProps) => {
       className="relative min-h-[70svh] pt-40 pb-16 bg-cover bg-center flex items-end"
       style={{
         backgroundImage:
-          "url('https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/b2b/666b6046a608f39e0d981657_AdobeStock_487289470.webp')",
+          "url('/brand/projekte/leistungen-hero.webp')",
       }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-60" />

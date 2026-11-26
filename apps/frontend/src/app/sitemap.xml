@@ -1,52 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://synergie.cc/at-AT</loc>
-        <lastmod>2025-10-09</lastmod>
-    </url>
-    <url>
-        <loc>https://synergie.cc/at-AT/contact-us</loc>
-        <lastmod>2025-10-09</lastmod>
-    </url>
-    <url>
-        <loc>https://synergie.cc/at-AT/contact-us-funnel</loc>
-        <lastmod>2025-10-09</lastmod>
-    </url>
-    <url>
-        <loc>https://synergie.cc/at-AT/leistungen</loc>
-        <lastmod>2025-10-18</lastmod>
-    </url>
-    <url>
-        <loc>https://synergie.cc/at-AT/ueber-uns</loc>
-        <lastmod>2025-10-09</lastmod>
-    </url>
-    <url>
-        <loc>https://synergie.cc/at-AT/impressum</loc>
-        <lastmod>2025-10-09</lastmod>
-    </url>
-    <url>
-        <loc>https://synergie.cc/at-AT/datenschutz</loc>
-        <lastmod>2025-10-09</lastmod>
-    </url>
-    <url>
-        <loc>https://synergie.cc/at-AT/about-us</loc>
-        <lastmod>2025-10-09</lastmod>
-    </url>
-    <url>
-        <loc>https://synergie.cc/at-AT/kontakt</loc>
-        <lastmod>2025-10-09</lastmod>
-    </url>
-    <url>
-        <loc>https://synergie.cc/at-AT/funnel/photovoltaik</loc>
-        <lastmod>2025-10-09</lastmod>
-    </url>
-    <url>
-        <loc>https://synergie.cc/at-AT/sign-in</loc>
-        <lastmod>2025-10-09</lastmod>
-    </url>
-    <url>
-        <loc>https://synergie.cc/at-AT/sign-up</loc>
-        <lastmod>2025-10-09</lastmod>
-    </url>
-    <!-- Note: Dashboard pages and dynamic routes like [oldWebsiteId] are excluded from sitemap -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://synergie.cc/at-AT</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://synergie.cc/at-AT"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://synergie.cc/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://synergie.cc/at-AT"/>
+  </url>
+  <url>
+    <loc>https://synergie.cc/en</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://synergie.cc/at-AT"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://synergie.cc/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://synergie.cc/at-AT"/>
+  </url>
+  <url>
+    <loc>https://synergie.cc/at-AT/leistungen</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://synergie.cc/at-AT/leistungen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://synergie.cc/en/leistungen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://synergie.cc/at-AT/leistungen"/>
+  </url>
+  <url>
+    <loc>https://synergie.cc/en/leistungen</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://synergie.cc/at-AT/leistungen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://synergie.cc/en/leistungen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://synergie.cc/at-AT/leistungen"/>
+  </url>
+  <url>
+    <loc>https://synergie.cc/at-AT/contact-us-funnel</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://synergie.cc/at-AT/contact-us-funnel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://synergie.cc/en/contact-us-funnel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://synergie.cc/at-AT/contact-us-funnel"/>
+  </url>
+  <url>
+    <loc>https://synergie.cc/en/contact-us-funnel</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://synergie.cc/at-AT/contact-us-funnel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://synergie.cc/en/contact-us-funnel"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://synergie.cc/at-AT/contact-us-funnel"/>
+  </url>
+  <url>
+    <loc>https://synergie.cc/at-AT/kontakt</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://synergie.cc/at-AT/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://synergie.cc/en/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://synergie.cc/at-AT/kontakt"/>
+  </url>
+  <url>
+    <loc>https://synergie.cc/en/kontakt</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://synergie.cc/at-AT/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://synergie.cc/en/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://synergie.cc/at-AT/kontakt"/>
+  </url>
+  <url>
+    <loc>https://synergie.cc/at-AT/about-us</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://synergie.cc/at-AT/about-us"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://synergie.cc/en/about-us"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://synergie.cc/at-AT/about-us"/>
+  </url>
+  <url>
+    <loc>https://synergie.cc/en/about-us</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://synergie.cc/at-AT/about-us"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://synergie.cc/en/about-us"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://synergie.cc/at-AT/about-us"/>
+  </url>
+  <url>
+    <loc>https://synergie.cc/at-AT/impressum</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://synergie.cc/at-AT/impressum"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://synergie.cc/en/impressum"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://synergie.cc/at-AT/impressum"/>
+  </url>
+  <url>
+    <loc>https://synergie.cc/en/impressum</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://synergie.cc/at-AT/impressum"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://synergie.cc/en/impressum"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://synergie.cc/at-AT/impressum"/>
+  </url>
+  <url>
+    <loc>https://synergie.cc/at-AT/datenschutz</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://synergie.cc/at-AT/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://synergie.cc/en/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://synergie.cc/at-AT/datenschutz"/>
+  </url>
+  <url>
+    <loc>https://synergie.cc/en/datenschutz</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://synergie.cc/at-AT/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://synergie.cc/en/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://synergie.cc/at-AT/datenschutz"/>
+  </url>
+  <url>
+    <loc>https://synergie.cc/at-AT/nutzungsbedingungen</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://synergie.cc/at-AT/nutzungsbedingungen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://synergie.cc/en/nutzungsbedingungen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://synergie.cc/at-AT/nutzungsbedingungen"/>
+  </url>
+  <url>
+    <loc>https://synergie.cc/en/nutzungsbedingungen</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="de-AT" href="https://synergie.cc/at-AT/nutzungsbedingungen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://synergie.cc/en/nutzungsbedingungen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://synergie.cc/at-AT/nutzungsbedingungen"/>
+  </url>
 </urlset>

@@ -8581,6 +8581,48 @@
             }
           ]
         }
+      },
+      "Faq": {
+        "eyebrow": "Häufige Fragen",
+        "title": "Gut zu wissen",
+        "items": [
+          {
+            "q": "Was macht SYNERGIE?",
+            "a": "SYNERGIE Montagen Riegler GmbH ist Montagepartner für Photovoltaik-Projekte. Wir übernehmen Beratung & Engineering, die Umsetzung auf der Baustelle und den Anlagenservice – als Komplettpaket oder als einzelne Leistung."
+          },
+          {
+            "q": "Für wen arbeiten Sie?",
+            "a": "Für Haustechniker, Elektriker und Installateure, EPC-Unternehmen, Anlagenbetreiber, beratende und planende Betriebe sowie Hausverwaltungen, Immobilienentwickler und Architekten."
+          },
+          {
+            "q": "Wo sind Sie tätig?",
+            "a": "Unser Sitz ist in Bad Vöslau in Niederösterreich. Wir setzen Projekte in ganz Österreich, in Europa und in Afrika um – zum Beispiel in Sambia."
+          },
+          {
+            "q": "Welche Photovoltaik-Anlagen montieren Sie?",
+            "a": "Dachanlagen, PV-Fassaden, PV-Überdachungen und Freiflächenanlagen – von der Unterkonstruktion über die DC- und AC-Installation bis zu Messung, Prüfprotokoll und Abnahme."
+          },
+          {
+            "q": "Übernehmen Sie auch das ganze Projekt?",
+            "a": "Ja. Als Generalunternehmer übernehmen wir Planung, Material, Montage und Projektmanagement aus einer Hand – bis zur schlüsselfertigen Übergabe. Sie haben einen Vertrag und einen fixen Ansprechpartner."
+          },
+          {
+            "q": "Können Sie unser Team bei Engpässen unterstützen?",
+            "a": "Ja. Wir unterstützen bei Kapazitätsspitzen mit Montageteams, Engineering-Support oder einer Zweitmeinung zu Ihren Unterlagen. Sie bleiben dabei Ansprechpartner Ihrer Kunden."
+          },
+          {
+            "q": "Kümmern Sie sich auch um Material und Genehmigungen?",
+            "a": "Ja. Über unser Netzwerk mit rund 30 Händlern und Dienstleistern beschaffen wir das passende Material. Behördenverfahren und die Abstimmung mit dem Netzbetreiber übernehmen wir ebenfalls."
+          },
+          {
+            "q": "Bieten Sie Wartung und Service für bestehende Anlagen?",
+            "a": "Ja. Wir warten, reinigen und reparieren Photovoltaik-Anlagen – mit Prüfung, Messung und einem Bericht mit Empfehlungen."
+          },
+          {
+            "q": "Wie schnell bekomme ich ein Angebot?",
+            "a": "Wir melden uns innerhalb von 24 Stunden. Am schnellsten geht es über „PV Montage buchen“: Projektunterlagen hochladen, Angaben prüfen, absenden."
+          }
+        ]
       }
     },
     "Legal": {

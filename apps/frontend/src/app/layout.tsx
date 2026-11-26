@@ -123,6 +123,11 @@ export default async function RootLayout({
                 ],
                 knowsAbout: [
                   "Photovoltaik-Montage",
+                  "Photovoltaik Projektumsetzung",
+                  "PV-Fassaden",
+                  "PV-Überdachungen",
+                  "Freiflächenanlagen",
+                  "Behördenverfahren Photovoltaik",
                   "PV-Großanlagen",
                   "Stromspeicher",
                   "Projektmanagement",
@@ -147,7 +152,12 @@ export default async function RootLayout({
                 ],
                 serviceArea,
                 description:
-                  "B2B-Dienstleister für Photovoltaik: Planung, Materialbeschaffung, Montage, Projektmanagement und Anlagenservice für EPC-Firmen, Haustechnik- und Elektrotechnikbetriebe, Installateure, Hausverwaltungen und Immobilienentwickler in Wien und Niederösterreich. Ein fixer Ansprechpartner mit Handschlagqualität.",
+                  "Montagepartner für Photovoltaik-Projekte: Beratung & Engineering, Umsetzung (Projektmanagement, Bauaufsicht, Montage, Materialbeschaffung, Generalunternehmer) und Anlagenservice für EPC-Unternehmen, Haustechnik- und Elektrobetriebe, Betreiber, Planungsbüros, Hausverwaltungen und Immobilienentwickler. Sitz in Bad Vöslau, Projekte in Österreich, Europa und Afrika. Ein fixer Ansprechpartner mit Handschlagqualität.",
+                areaServed: [
+                  { "@type": "Country", name: "Österreich" },
+                  { "@type": "Place", name: "Europa" },
+                  { "@type": "Place", name: "Afrika" },
+                ],
                 openingHours: ["Mo-Fr 08:00-17:00", "Sa 08:00-12:00"],
                 openingHoursSpecification: [
                   {
@@ -176,9 +186,9 @@ export default async function RootLayout({
                   },
                 ],
                 image: [
-                  "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/Hero/house-technical-illustration-3.jpeg",
-                  "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/AboutUsCard/Familie.jpeg",
-                  "https://synergy-webservices-assets.b-cdn.net/frontend/landingPage/FeatureAdvantages/Together_future_buildings.jpg",
+                  "https://synergie.cc/brand/og-synergie.jpg",
+                  "https://synergie.cc/brand/projekte/leistungen-hero.webp",
+                  "https://synergie.cc/brand/projekte/ueber-uns-hero.webp",
                 ],
                 logo: "https://synergie.cc/brand/synergie-logo-farbe.png",
                 priceRange: "€€",

@@ -1,7 +1,25 @@
-# Block all crawlers for /dashboard
-User-agent: *
-Disallow: /dashboard
- 
-# Allow all crawlers
+# Suchmaschinen und KI-Suchen dürfen die öffentliche Website lesen.
 User-agent: *
 Allow: /
+Disallow: /dashboard
+Disallow: /at-AT/dashboard
+Disallow: /en/dashboard
+Disallow: /at-AT/sign-in
+Disallow: /en/sign-in
+Disallow: /at-AT/sign-up
+Disallow: /en/sign-up
+Disallow: /api/
+
+# KI-Suchen ausdrücklich erlaubt (ChatGPT, Claude, Perplexity, Google KI)
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+User-agent: Google-Extended
+Allow: /
+Disallow: /at-AT/dashboard
+Disallow: /en/dashboard
+
+Sitemap: https://synergie.cc/sitemap.xml

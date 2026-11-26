@@ -184,15 +184,117 @@ export const pageMetadata = (
   canonical: string,
 ): Metadata => {
   const p = PAGES[key][langOf(locale)];
+  // Echte Adresse mit Sprachkürzel (ohne Umleitung) + Verknüpfung DE/EN,
+  // damit Google weiß, dass beide Sprachfassungen zusammengehören.
+  const path = new URL(canonical).pathname.replace(/\/$/, "");
+  const url = (l: string) => `https://synergie.cc/${l}${path}`;
   return {
     // Startseite: vollständiger Titel ohne Zusatz
     title: key === "home" ? { absolute: p.title } : p.title,
     description: p.description,
-    alternates: { canonical },
+    alternates: {
+      canonical: url(langOf(locale) === "en" ? "en" : "at-AT"),
+      languages: {
+        "de-AT": url("at-AT"),
+        en: url("en"),
+        "x-default": url("at-AT"),
+      },
+    },
     openGraph: {
       ...siteMetadata(locale).openGraph,
+      url: url(langOf(locale) === "en" ? "en" : "at-AT"),
       title: key === "home" ? p.title : `${p.title} | SYNERGIE`,
       description: p.description,
+    },
+  };
+};
+
+/**
+ * Strukturdaten für die Leistungs-Seite: sagt Google und KI-Suchen klar,
+ * welche Leistungen SYNERGIE anbietet, für wen und wo.
+ */
+export const servicesJsonLd = (locale?: string) => {
+  const en = langOf(locale) === "en";
+  const groups: [string, string[]][] = en
+    ? [
+        [
+          "Consulting & Engineering",
+          [
+            "Feasibility studies",
+            "Technical support",
+            "Concept design",
+            "Permit procedures",
+            "Planning",
+          ],
+        ],
+        [
+          "Implementation",
+          [
+            "Project management",
+            "Site supervision",
+            "Construction and installation",
+            "Material procurement",
+            "General contractor",
+          ],
+        ],
+        ["System service", ["Maintenance", "Troubleshooting", "Cleaning"]],
+      ]
+    : [
+        [
+          "Beratung & Engineering",
+          [
+            "Machbarkeitsstudien",
+            "Technische Unterstützung",
+            "Konzeptdesign",
+            "Behördenverfahren",
+            "Planung",
+          ],
+        ],
+        [
+          "Umsetzung",
+          [
+            "Projektmanagement",
+            "Örtliche Bauaufsicht",
+            "Bauausführung",
+            "Materialbeschaffung",
+            "Generalunternehmer",
+          ],
+        ],
+        ["Anlagenservice", ["Wartung", "Fehlerbehebung", "Reinigung"]],
+      ];
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: en
+      ? "Photovoltaic project delivery and PV installation"
+      : "Photovoltaik Projektumsetzung und PV-Montage",
+    name: en
+      ? "PV engineering, installation & system service"
+      : "PV-Engineering, Montage & Anlagenservice",
+    url: `https://synergie.cc/${en ? "en" : "at-AT"}/leistungen`,
+    provider: { "@id": "https://synergie.cc/#organization" },
+    areaServed: [
+      { "@type": "Country", name: en ? "Austria" : "Österreich" },
+      { "@type": "Place", name: en ? "Europe" : "Europa" },
+      { "@type": "Place", name: en ? "Africa" : "Afrika" },
+    ],
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: en
+        ? "EPC companies, electrical and building services contractors, plant operators, planners, property managers, real estate developers, architects"
+        : "EPC-Unternehmen, Elektro- und Haustechnikbetriebe, Anlagenbetreiber, Planungsbüros, Hausverwaltungen, Immobilienentwickler, Architekten",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: en ? "Services" : "Leistungen",
+      itemListElement: groups.map(([name, items]) => ({
+        "@type": "OfferCatalog",
+        name,
+        itemListElement: items.map((n) => ({
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: n },
+        })),
+      })),
     },
   };
 };

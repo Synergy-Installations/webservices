@@ -10081,6 +10081,48 @@
             }
           ]
         }
+      },
+      "Faq": {
+        "eyebrow": "FAQ",
+        "title": "Good to know",
+        "items": [
+          {
+            "q": "What does SYNERGIE do?",
+            "a": "SYNERGIE Montagen Riegler GmbH is an installation partner for photovoltaic projects. We provide consulting & engineering, on-site implementation and system service – as a complete package or as individual services."
+          },
+          {
+            "q": "Who do you work for?",
+            "a": "For building services engineers, electricians and installers, EPC companies, plant operators, consulting and planning firms as well as property managers, real estate developers and architects."
+          },
+          {
+            "q": "Where do you work?",
+            "a": "We are based in Bad Vöslau, Lower Austria. We deliver projects throughout Austria, in Europe and in Africa – for example in Zambia."
+          },
+          {
+            "q": "Which photovoltaic systems do you install?",
+            "a": "Rooftop systems, PV façades, PV canopies and ground-mounted systems – from the mounting structure and DC and AC installation to measurement, test report and acceptance."
+          },
+          {
+            "q": "Do you take on the entire project?",
+            "a": "Yes. As a general contractor we handle planning, material, installation and project management from a single source – up to turnkey handover. You have one contract and one fixed contact person."
+          },
+          {
+            "q": "Can you support our team during peak workloads?",
+            "a": "Yes. We support you during capacity peaks with installation teams, engineering support or a second opinion on your documents. You remain the contact person for your customers."
+          },
+          {
+            "q": "Do you also take care of material and permits?",
+            "a": "Yes. Through our network of around 30 suppliers and service providers we source the right material. We also handle permit procedures and coordination with the grid operator."
+          },
+          {
+            "q": "Do you offer maintenance and service for existing systems?",
+            "a": "Yes. We maintain, clean and repair photovoltaic systems – including inspection, measurement and a report with recommendations."
+          },
+          {
+            "q": "How quickly will I get a quote?",
+            "a": "We will get back to you within 24 hours. The fastest way is “Book PV installation”: upload your project documents, check the details, send."
+          }
+        ]
       }
     },
     "Legal": {

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { pageMetadata } from "../seo";
+import { pageMetadata, servicesJsonLd } from "../seo";
 import B2bHero from "@com.synergy/frontend-ui/B2bHero";
 import B2bProcessSection from "@com.synergy/frontend-ui/B2bProcessSection";
 import B2bTestimonialSection from "@com.synergy/frontend-ui/B2bTestimonialSection";
@@ -19,10 +19,20 @@ export async function generateMetadata({
   return pageMetadata("leistungen", locale, "https://synergie.cc/leistungen");
 }
 
-export default function Page() {
+export default function Page({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
   return (
     <>
       <main className="">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(servicesJsonLd(locale)),
+          }}
+        />
         <B2bHero />
         <B2bCompetenciesSection />
         <ServiceWrapper />

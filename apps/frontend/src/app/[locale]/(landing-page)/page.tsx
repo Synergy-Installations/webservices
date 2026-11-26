@@ -6,6 +6,7 @@ import { FeatureAdvantages } from "@com.synergy/frontend-ui/FeatureAdvantages";
 import FeatureSteps from "@com.synergy/frontend-ui/FeatureSteps";
 import HeroLogoCta from "@com.synergy/frontend-ui/HeroLogoCta";
 import CtaLoose from "@com.synergy/frontend-ui/CtaLoose";
+import FaqSection from "@com.synergy/frontend-ui/FaqSection";
 import BentoGridHero from "@com.synergy/frontend-ui/BentoGridHero";
 
 export async function generateMetadata({
@@ -30,6 +31,7 @@ export default async function Page({
       <FeatureSteps />
       <FeatureAdvantages />
       <TestimonialsCarousel googleReviews={googleReviews} />
+      <FaqSection />
       <HeroLogoCta hero="logo-held-gruen" className="pt-12 md:pt-16" />
       <CtaLoose />
     </>
